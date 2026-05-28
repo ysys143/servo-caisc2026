@@ -134,6 +134,7 @@ def run_simulation(
     topology: str = "small_world",
     n_reviewers: int = 20,
     n_hypotheses: int = 200,
+    n_latent_classes: int = 40,
     classifier_accuracy: float = 0.8,
     human_oracle: str = "none",   # 'none' | 'random' | 'high_impact'
     human_audit_rate: float = 0.1,
@@ -146,11 +147,17 @@ def run_simulation(
     random.seed(seed)
     np.random.seed(seed)
 
-    _, ground_truth = build_hypothesis_space(seed=seed)
+    _, ground_truth = build_hypothesis_space(
+        n_hypotheses=n_hypotheses,
+        n_latent_classes=n_latent_classes,
+        seed=seed,
+    )
     agents, _ = build_reviewer_network(n_reviewers, topology, classifier_accuracy, seed)
 
     results = {
         "topology": topology,
+        "n_reviewers": n_reviewers,
+        "n_latent_classes": n_latent_classes,
         "classifier_accuracy": classifier_accuracy,
         "tp": 0, "fp": 0, "tn": 0, "fn": 0,
         "agreement_scores": [],
@@ -225,35 +232,88 @@ def _merge_memories(agent: ReviewerAgent, all_agents: list[ReviewerAgent]) -> di
 def sweep(
     topologies: Optional[list[str]] = None,
     classifier_accuracies: Optional[list[float]] = None,
+    n_reviewers_list: Optional[list[int]] = None,
+    n_latent_classes_list: Optional[list[int]] = None,
     n_seeds: int = 10,
+    save_csv: Optional[str] = None,
 ) -> list[dict]:
+    """
+    Full parameter sweep. save_csv: path to write results CSV (optional).
+    """
+    import csv
+
     if topologies is None:
         topologies = ["isolated", "lattice", "small_world", "shared"]
     if classifier_accuracies is None:
         classifier_accuracies = [0.6, 0.75, 0.9]
+    if n_reviewers_list is None:
+        n_reviewers_list = [20]
+    if n_latent_classes_list is None:
+        n_latent_classes_list = [40]
 
     all_results = []
-    for topology in topologies:
-        for acc in classifier_accuracies:
-            for seed in range(n_seeds):
-                r = run_simulation(topology=topology, classifier_accuracy=acc, seed=seed)
-                all_results.append(r)
-                print(
-                    f"[{topology:12s}] acc={acc:.2f} seed={seed} "
-                    f"FNR={r['false_novelty_rate']:.3f} "
-                    f"recall={r['true_novelty_recall']:.3f} "
-                    f"agree={r['mean_agreement']:.3f}"
-                )
+    for n_rev in n_reviewers_list:
+        for n_lc in n_latent_classes_list:
+            for topology in topologies:
+                for acc in classifier_accuracies:
+                    for seed in range(n_seeds):
+                        r = run_simulation(
+                            topology=topology,
+                            n_reviewers=n_rev,
+                            n_latent_classes=n_lc,
+                            classifier_accuracy=acc,
+                            seed=seed,
+                        )
+                        r["seed"] = seed
+                        all_results.append(r)
+                        print(
+                            f"[n_rev={n_rev:2d} n_lc={n_lc:2d} {topology:12s}] "
+                            f"acc={acc:.2f} seed={seed} "
+                            f"FNR={r['false_novelty_rate']:.3f} "
+                            f"recall={r['true_novelty_recall']:.3f} "
+                            f"agree={r['mean_agreement']:.3f}"
+                        )
+
+    if save_csv:
+        fieldnames = [
+            "topology", "n_reviewers", "n_latent_classes", "classifier_accuracy", "seed",
+            "false_novelty_rate", "true_novelty_recall", "consensus_accuracy", "mean_agreement",
+            "tp", "fp", "tn", "fn",
+        ]
+        with open(save_csv, "w", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+            writer.writeheader()
+            writer.writerows(all_results)
+        print(f"\nResults saved to {save_csv}")
+
     return all_results
 
 
 if __name__ == "__main__":
-    print("=== Single run (small_world, acc=0.8) ===")
-    r = run_simulation(topology="small_world", classifier_accuracy=0.8)
-    print(f"False Novelty Rate : {r['false_novelty_rate']:.3f}")
-    print(f"True Novelty Recall: {r['true_novelty_recall']:.3f}")
-    print(f"Consensus Accuracy : {r['consensus_accuracy']:.3f}")
-    print(f"Mean Agreement     : {r['mean_agreement']:.3f}")
-    print()
-    print("=== Parameter sweep ===")
-    sweep(n_seeds=3)
+    import os
+    out_dir = os.path.join(os.path.dirname(__file__), "..", "results")
+    os.makedirs(out_dir, exist_ok=True)
+
+    print("=== Primary sweep: topology x classifier_accuracy ===")
+    sweep(
+        n_seeds=10,
+        save_csv=os.path.join(out_dir, "primary.csv"),
+    )
+
+    print("\n=== Robustness R1: scale invariance (n_reviewers) ===")
+    sweep(
+        topologies=["isolated", "lattice", "small_world", "shared"],
+        classifier_accuracies=[0.75],
+        n_reviewers_list=[10, 20, 50],
+        n_seeds=5,
+        save_csv=os.path.join(out_dir, "robustness_r1_scale.csv"),
+    )
+
+    print("\n=== Robustness R2: hypothesis space density (n_latent_classes) ===")
+    sweep(
+        topologies=["isolated", "small_world", "shared"],
+        classifier_accuracies=[0.75],
+        n_latent_classes_list=[20, 40, 80],
+        n_seeds=5,
+        save_csv=os.path.join(out_dir, "robustness_r2_density.csv"),
+    )
