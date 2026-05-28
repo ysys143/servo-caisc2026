@@ -1,0 +1,6 @@
+% F_V(beta) crossover summary
+% topology | beta_range_where_optimal | FNR_mean | Recall_mean | FMR_mean
+% isolated: beta=[0.000,0.447]  FNR=0.955  Recall=0.968  FMR=0.032
+% lattice: beta=[0.452,0.553]  FNR=0.285  Recall=0.415  FMR=0.585
+% small_world: beta=[0.558,0.643]  FNR=0.075  Recall=0.152  FMR=0.848
+% shared: beta=[0.648,1.000]  FNR=0.008  Recall=0.029  FMR=0.971
