@@ -185,10 +185,13 @@ def plot_r2_density(csv_path: str, out_path: str) -> None:
 
 def plot_tradeoff_scatter(csv_path: str, out_path: str) -> None:
     """FNR on x-axis, True Recall on y-axis. Each topology is one point
-    (mean across seeds at acc=0.75). Arrows show direction of density increase."""
+    (mean across seeds at acc=0.75). Points annotated with balanced accuracy.
+    Both extreme topologies are near-chance (BA~0.50); intermediate topology
+    achieves the best discrimination."""
     rows = load_csv(csv_path)
     fnr_stats  = aggregate(rows, ["topology", "classifier_accuracy"], "false_novelty_rate")
     rec_stats  = aggregate(rows, ["topology", "classifier_accuracy"], "true_novelty_recall")
+    ba_stats   = aggregate(rows, ["topology", "classifier_accuracy"], "balanced_accuracy")
 
     acc = "0.75"
     markers = {"isolated": "o", "lattice": "s", "small_world": "^", "shared": "D"}
@@ -201,6 +204,7 @@ def plot_tradeoff_scatter(csv_path: str, out_path: str) -> None:
     for topo in TOPOLOGY_ORDER:
         fnr_m, fnr_s = fnr_stats.get((topo, acc), (0, 0))
         rec_m, rec_s = rec_stats.get((topo, acc), (0, 0))
+        ba_m, _ = ba_stats.get((topo, acc), (0, 0))
         pts[topo] = (fnr_m, rec_m)
         ax.errorbar(fnr_m, rec_m,
                     xerr=fnr_s, yerr=rec_s,
@@ -208,6 +212,11 @@ def plot_tradeoff_scatter(csv_path: str, out_path: str) -> None:
                     markersize=7, capsize=2, linewidth=0.8,
                     label=TOPOLOGY_LABELS[topo].replace("\n", " "),
                     zorder=3)
+        # Annotate with balanced accuracy
+        offset = (0.04, 0.04)
+        ax.text(fnr_m + offset[0], rec_m + offset[1],
+                f"BA={ba_m:.2f}", fontsize=6.5, color=colors[topo],
+                ha="left", va="bottom")
 
     # Arrows along the tradeoff frontier showing density direction
     for i in range(len(TOPOLOGY_ORDER) - 1):
@@ -240,62 +249,74 @@ def plot_tradeoff_scatter(csv_path: str, out_path: str) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Step 3: F_V(β) = β·FNR + (1-β)·(1-Recall) — optimal topology per β
+# Step 3: F_V(β) — sensitivity analysis with std-propagated CI bands
 # ---------------------------------------------------------------------------
 
 def plot_fv_beta(csv_path: str, out_path: str, summary_path: str) -> None:
-    """Combined error F_V(β) for each topology across β ∈ [0,1].
-    Shows which topology minimises combined error and where crossovers occur."""
+    """F_V(β) as a normative sensitivity analysis.
+    β is a free parameter (not estimated); CI bands show where crossovers are
+    ambiguous given per-seed variance. Crossover summaries reported as approximate
+    intervals, not point estimates."""
     rows = load_csv(csv_path)
-    fnr_s   = aggregate(rows, ["topology", "classifier_accuracy"], "false_novelty_rate")
-    rec_s   = aggregate(rows, ["topology", "classifier_accuracy"], "true_novelty_recall")
+    fnr_agg = aggregate(rows, ["topology", "classifier_accuracy"], "false_novelty_rate")
+    rec_agg = aggregate(rows, ["topology", "classifier_accuracy"], "true_novelty_recall")
 
     acc = "0.75"
-    betas = np.linspace(0, 1, 200)
-    line_styles = {
-        "isolated":    ("o", "#cccccc", "--"),
-        "lattice":     ("s", "#888888", "-."),
-        "small_world": ("^", "#444444", "-"),
-        "shared":      ("D", "#111111", ":"),
+    betas = np.linspace(0, 1, 400)
+    styles = {
+        "isolated":    ("#cccccc", "--"),
+        "lattice":     ("#888888", "-."),
+        "small_world": ("#444444", "-"),
+        "shared":      ("#111111", ":"),
     }
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7.0, 2.8))
 
-    # Left: F_V(β) curves per topology
-    fv_by_topo = {}
+    fv_mean, fv_lo, fv_hi = {}, {}, {}
     for topo in TOPOLOGY_ORDER:
-        fnr_m, _ = fnr_s.get((topo, acc), (0, 0))
-        rec_m, _ = rec_s.get((topo, acc), (0, 0))
+        fnr_m, fnr_s = fnr_agg.get((topo, acc), (0, 0))
+        rec_m, rec_s = rec_agg.get((topo, acc), (0, 0))
         fmr_m = 1.0 - rec_m
-        fv = betas * fnr_m + (1 - betas) * fmr_m
-        fv_by_topo[topo] = fv
-        _, col, ls = line_styles[topo]
-        ax1.plot(betas, fv, ls, color=col, linewidth=1.4,
+        fmr_s = rec_s
+        fv_mean[topo] = betas * fnr_m + (1 - betas) * fmr_m
+        # error propagation: Var[F_V] = β²Var[FNR] + (1-β)²Var[FMR]
+        fv_std = np.sqrt((betas * fnr_s) ** 2 + ((1 - betas) * fmr_s) ** 2)
+        fv_lo[topo] = fv_mean[topo] - fv_std
+        fv_hi[topo] = fv_mean[topo] + fv_std
+        col, ls = styles[topo]
+        ax1.plot(betas, fv_mean[topo], ls, color=col, linewidth=1.4,
                  label=TOPOLOGY_LABELS[topo].replace("\n", " "))
+        ax1.fill_between(betas, fv_lo[topo], fv_hi[topo], color=col, alpha=0.12)
 
-    ax1.set_xlabel(r"$\beta$ (weight on FNR vs. missed novelty)")
+    ax1.set_xlabel(r"$\beta$  (false novelty cost weight; $1{-}\beta$ = missed novelty)")
     ax1.set_ylabel(r"$F_V(\beta)$ — combined error")
     ax1.set_xlim(0, 1)
-    ax1.set_ylim(0, 1)
+    ax1.set_ylim(0, 1.05)
     ax1.legend(loc="upper center", fontsize=7, framealpha=0.9)
     ax1.spines["top"].set_visible(False)
     ax1.spines["right"].set_visible(False)
-    ax1.axvline(0.5, color="#eeeeee", linewidth=0.7, zorder=0)
+    ax1.axvline(0.5, color="#dddddd", linewidth=0.8, zorder=0)
+    ax1.text(0.52, 0.97, r"$\beta{=}0.5$", fontsize=6.5, color="#aaaaaa", va="top")
 
-    # Right: which topology is optimal (min F_V) at each β?
-    fv_matrix = np.stack([fv_by_topo[t] for t in TOPOLOGY_ORDER])
-    optimal_idx = np.argmin(fv_matrix, axis=0)
-    topo_colors_list = [line_styles[t][1] for t in TOPOLOGY_ORDER]
-
+    # Right: optimal connectivity — dark = clear, light = ambiguous (CI overlap)
+    fv_matrix = np.stack([fv_mean[t] for t in TOPOLOGY_ORDER])
+    opt_idx = np.argmin(fv_matrix, axis=0)
     for i, topo in enumerate(TOPOLOGY_ORDER):
-        mask = optimal_idx == i
-        if mask.any():
-            ax2.fill_between(betas, 0, 1, where=mask,
-                             color=topo_colors_list[i], alpha=0.6,
+        col = styles[topo][0]
+        mask = opt_idx == i
+        # "Clear" region: this topo's lower bound beats all others' upper bounds
+        clear = mask.copy()
+        for j, other in enumerate(TOPOLOGY_ORDER):
+            if j != i:
+                clear &= fv_lo[topo] < fv_hi[other]
+        if clear.any():
+            ax2.fill_between(betas, 0, 1, where=clear, color=col, alpha=0.65,
                              label=TOPOLOGY_LABELS[topo].replace("\n", " "))
+        if (mask & ~clear).any():
+            ax2.fill_between(betas, 0, 1, where=(mask & ~clear), color=col, alpha=0.18)
 
-    ax2.set_xlabel(r"$\beta$ (weight on FNR)")
-    ax2.set_ylabel("Optimal topology")
+    ax2.set_xlabel(r"$\beta$  (false novelty cost weight)")
+    ax2.set_ylabel("Optimal connectivity")
     ax2.set_xlim(0, 1)
     ax2.set_ylim(0, 1)
     ax2.set_yticks([])
@@ -303,27 +324,32 @@ def plot_fv_beta(csv_path: str, out_path: str, summary_path: str) -> None:
                bbox_to_anchor=(0.5, 1.12), ncol=2)
     ax2.spines["top"].set_visible(False)
     ax2.spines["right"].set_visible(False)
+    ax2.text(0.5, -0.2, "Dark = unambiguous; light = CI overlap",
+             fontsize=6.5, color="#888888", ha="center", transform=ax2.transAxes)
 
-    fig.suptitle(r"$F_V(\beta)$ analysis: combined false-novelty / missed-novelty error",
+    fig.suptitle(r"$F_V(\beta)$: sensitivity to false-novelty / missed-novelty cost ratio",
                  fontsize=9, y=1.02)
     fig.tight_layout(pad=0.5)
     fig.savefig(out_path, bbox_inches="tight")
     plt.close(fig)
     print(f"Saved: {out_path}")
 
-    # Save crossover points
     with open(summary_path, "w") as f:
-        f.write("% F_V(beta) crossover summary\n")
-        f.write("% topology | beta_range_where_optimal | FNR_mean | Recall_mean | FMR_mean\n")
+        f.write("% F_V(beta) sensitivity summary\n")
+        f.write("% β is a normative parameter, not an empirical estimate.\n")
+        f.write("% Mean crossover boundaries are approximate; see CI bands in figure.\n")
         for i, topo in enumerate(TOPOLOGY_ORDER):
-            mask = optimal_idx == i
+            mask = opt_idx == i
             if mask.any():
                 b_lo = float(betas[mask][0])
                 b_hi = float(betas[mask][-1])
-                fnr_m, _ = fnr_s.get((topo, acc), (0, 0))
-                rec_m, _ = rec_s.get((topo, acc), (0, 0))
-                f.write(f"% {topo}: beta=[{b_lo:.3f},{b_hi:.3f}]  "
-                        f"FNR={fnr_m:.3f}  Recall={rec_m:.3f}  FMR={1-rec_m:.3f}\n")
+                fnr_m, fnr_s = fnr_agg.get((topo, acc), (0, 0))
+                rec_m, rec_s = rec_agg.get((topo, acc), (0, 0))
+                f.write(
+                    f"% {topo}: approx beta=[{b_lo:.2f},{b_hi:.2f}]  "
+                    f"FNR={fnr_m:.3f}+/-{fnr_s:.3f}  "
+                    f"Recall={rec_m:.3f}+/-{rec_s:.3f}\n"
+                )
     print(f"Saved: {summary_path}")
 
 
@@ -375,51 +401,108 @@ def plot_r2_full(csv_path: str, out_path: str) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Robustness R3: seeding rate — FNR and balanced accuracy across rates
+# ---------------------------------------------------------------------------
+
+def plot_seeding_sweep(csv_path: str, out_path: str) -> None:
+    """Two-panel: FNR and balanced accuracy across seeding rates.
+    Robustness check: direction of topology effect should hold across rates."""
+    rows = load_csv(csv_path)
+    fnr_agg = aggregate(rows, ["topology", "seeding_rate"], "false_novelty_rate")
+    ba_agg  = aggregate(rows, ["topology", "seeding_rate"], "balanced_accuracy")
+
+    rates = [0.02, 0.05, 0.10, 0.20]
+    rate_labels = ["2%", "5%", "10%", "20%"]
+    topo_subset = ["isolated", "lattice", "small_world", "shared"]
+    fmt = {
+        "isolated":    ("o--", "#cccccc"),
+        "lattice":     ("s-.", "#888888"),
+        "small_world": ("^-",  "#444444"),
+        "shared":      ("D:",  "#111111"),
+    }
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7.0, 2.6), sharey=False)
+
+    for topo in topo_subset:
+        style, col = fmt[topo]
+        label = TOPOLOGY_LABELS[topo].replace("\n", " ")
+        fnr_ms, fnr_ss, ba_ms, ba_ss = [], [], [], []
+        for r in rates:
+            fm, fs = fnr_agg.get((topo, str(r)), (0, 0))
+            bm, bs = ba_agg.get((topo, str(r)), (0, 0))
+            fnr_ms.append(fm); fnr_ss.append(fs)
+            ba_ms.append(bm);  ba_ss.append(bs)
+        xs = list(range(len(rates)))
+        ax1.errorbar(xs, fnr_ms, yerr=fnr_ss, fmt=style, color=col,
+                     markersize=4, linewidth=1.2, capsize=2, label=label)
+        ax2.errorbar(xs, ba_ms, yerr=ba_ss, fmt=style, color=col,
+                     markersize=4, linewidth=1.2, capsize=2, label=label)
+
+    for ax, ylabel in [(ax1, "FNR"), (ax2, "Balanced Accuracy")]:
+        ax.set_xlabel("Prior seeding rate (fraction of hypotheses pre-seen)")
+        ax.set_ylabel(ylabel)
+        ax.set_xticks(range(len(rates)))
+        ax.set_xticklabels(rate_labels)
+        ax.set_ylim(-0.05, 1.1)
+        ax.legend(loc="center right" if ax is ax1 else "center left",
+                  fontsize=7, framealpha=0.9)
+        ax.spines["top"].set_visible(False)
+        ax.spines["right"].set_visible(False)
+
+    ax2.axhline(0.5, color="#dddddd", linewidth=0.8, linestyle="--")
+    ax2.text(3.05, 0.5, "chance", fontsize=6.5, color="#aaaaaa", va="center")
+
+    fig.tight_layout(pad=0.5)
+    fig.savefig(out_path, bbox_inches="tight")
+    plt.close(fig)
+    print(f"Saved: {out_path}")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
     results_dir = os.path.join(os.path.dirname(__file__), "..", "results")
 
-    # Use n_seeds=30 data when available; fall back to n=10
-    primary_csv    = os.path.join(results_dir, "primary_n30.csv")
-    if not os.path.exists(primary_csv):
-        primary_csv = os.path.join(results_dir, "primary.csv")
-        print(f"[INFO] primary_n30.csv not found; using primary.csv")
-
-    r2_csv = os.path.join(results_dir, "robustness_r2_density.csv")
+    primary_csv = os.path.join(results_dir, "primary_n30.csv")
+    r2_csv      = os.path.join(results_dir, "robustness_r2_density.csv")
+    r3_csv      = os.path.join(results_dir, "robustness_r3_seeding.csv")
 
     if os.path.exists(primary_csv):
-        # Step 1 output: FNR bar chart (n30)
         plot_primary(
             primary_csv,
             out_path=os.path.join(results_dir, "fig_fnr_primary_n30.pdf"),
             summary_path=os.path.join(results_dir, "summary_primary_n30.txt"),
         )
-        # Step 2: FNR-Recall tradeoff scatter
         plot_tradeoff_scatter(
             primary_csv,
             out_path=os.path.join(results_dir, "fig_tradeoff_scatter.pdf"),
         )
-        # Step 3: F_V(β) combined error
         plot_fv_beta(
             primary_csv,
             out_path=os.path.join(results_dir, "fig_fv_beta.pdf"),
             summary_path=os.path.join(results_dir, "summary_fv_beta.txt"),
         )
     else:
-        print(f"[SKIP] primary CSV not found — run simulation.py first")
+        print(f"[SKIP] primary_n30.csv not found — run simulation.py first")
 
     if os.path.exists(r2_csv):
-        # Original R2 figure
         plot_r2_density(
             r2_csv,
             out_path=os.path.join(results_dir, "fig_fnr_r2_density.pdf"),
         )
-        # Step 4: full two-panel R2 (FNR + Recall)
         plot_r2_full(
             r2_csv,
             out_path=os.path.join(results_dir, "fig_r2_full.pdf"),
         )
     else:
         print(f"[SKIP] {r2_csv} not found — run simulation.py first")
+
+    if os.path.exists(r3_csv):
+        plot_seeding_sweep(
+            r3_csv,
+            out_path=os.path.join(results_dir, "fig_seeding_sweep.pdf"),
+        )
+    else:
+        print(f"[SKIP] {r3_csv} not found — run simulation.py first")

@@ -437,37 +437,37 @@ CS / Algo. & $V_\text{emp}$ & High & Fully closed & Evol./LLM & Interpretability
 
 To make the consequences of $V$ incompleteness concrete, we construct a minimal agent-based simulation in which the degree of $V$ completeness is the only variable altered across conditions. We model a community of $n=20$ \emph{reviewer agents}, each holding a local memory $M_s$ of previously observed latent classes. Each agent acts as a local validator: it estimates novelty by checking whether an incoming hypothesis belongs to a latent class it has seen before, subject to a classifier accuracy parameter that controls how reliably the agent identifies latent classes from noisy surface features. The hypothesis space is a Barab\'{a}si--Albert graph ($n=200$ nodes, 40 latent classes), where the ground-truth novelty of a hypothesis is determined by whether its latent class has ever been observed globally. Agents share memory only through their communication topology, which we vary as the primary independent variable.
 
-\textbf{Operationalizing $V$ completeness via topology.} Each topology represents a different degree of $V$ completeness: an isolated agent can only consult its own memory (an incomplete, purely local $V$); agents on a lattice gain access to immediate neighbors (partial $V$); small-world connectivity adds long-range links that improve coverage; and a fully shared topology gives every agent access to the entire community's collective memory (the most complete $V$ in this setting). Table~\ref{tab:sim-conditions} formalizes this mapping.
+\textbf{Operationalizing $V$ completeness via connectivity.} Each condition represents a different degree of $V$ completeness, varied by mean degree $k$: an isolated agent ($k=0$) consults only its own memory (incomplete, purely local $V$); a lattice agent ($k=2$) pools with immediate neighbors (partial $V$); a medium-connectivity condition ($k \approx 4$, Watts--Strogatz) adds cross-cutting links that improve coverage; and a fully shared topology ($k=n{-}1$) gives every agent access to the entire community's collective memory (the most complete $V$ in this setting). Table~\ref{tab:sim-conditions} formalizes this mapping.
 
 \begin{table}[h]
 \centering
 \small
-\caption{Simulation conditions. Each topology operationalizes a different level of $V$ completeness.}
+\caption{Simulation conditions. Each condition operationalizes a different level of $V$ completeness via mean degree $k$.}
 \label{tab:sim-conditions}
-\begin{tabular}{@{}llll@{}}
+\begin{tabular}{@{}lllll@{}}
 \toprule
-Topology & $V$-completeness level & Graph structure & Effective coverage \\
+Condition & $V$-completeness & Mean degree $k$ & Graph structure & Coverage \\
 \midrule
-Isolated    & Incomplete ($V$-local)     & No edges           & Agent's own memory only \\
-Lattice     & Partial                    & Ring ($k=2$)       & 2-hop neighborhood \\
-Small-world & Improved                   & Watts--Strogatz ($k=4, p=0.3$) & Local + long-range links \\
-Shared      & Complete (in this setting) & Complete graph     & Full community memory \\
+Isolated    & Incomplete     & 0   & No edges           & Own memory only \\
+Lattice     & Partial        & 2   & Ring               & 2-hop neighborhood \\
+Medium ($k{=}4$) & Improved  & 4   & Watts--Strogatz    & Local + cross-links \\
+Shared      & Complete       & $n{-}1$ & Complete graph & Full community memory \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Results.} Figure~\ref{fig:fnr} reports the false novelty rate (FNR: fraction of non-novel hypotheses incorrectly marked as novel) across topologies and classifier accuracies, averaged over 10 random seeds. The topology effect is dominant: FNR drops from $0.961 \pm 0.021$ (isolated) to $0.300 \pm 0.041$ (lattice) to $0.064 \pm 0.035$ (small-world) to $0.008 \pm 0.009$ (shared)---a 120-fold reduction from most to least incomplete $V$. In contrast, varying classifier accuracy from 0.60 to 0.90 within the isolated condition changes FNR by only $0.040$ in absolute terms. The $V$ structure effect is approximately 24$\times$ larger than the individual agent quality effect, consistent with the claim that $V$ completeness is a more consequential design variable than the precision of individual components.
+\textbf{Results.} Figure~\ref{fig:fnr} reports the false novelty rate (FNR: fraction of non-novel hypotheses incorrectly marked as novel) across connectivity conditions and classifier accuracies, averaged over 30 random seeds. The connectivity effect is dominant: FNR drops from $0.955 \pm 0.028$ (isolated, $k=0$) to $0.285 \pm 0.047$ (lattice, $k=2$) to $0.075 \pm 0.036$ ($k=4$) to $0.008 \pm 0.012$ (shared, $k=n{-}1$). Within each connectivity condition, varying classifier accuracy from 0.60 to 0.90 changes FNR by at most $0.035$ in absolute terms, while the FNR range across connectivity conditions is $0.947$ at fixed accuracy---a 27-fold difference between the structural and individual-quality effects. Note that high-connectivity conditions suppress false novelty at the cost of recall: the shared condition achieves near-zero FNR but also near-zero true novelty recall ($0.029 \pm 0.025$), because a highly saturated collective memory tends to classify genuinely novel hypotheses as already known. Balanced accuracy (mean of recall and specificity) ranges from 0.51 (isolated: indiscriminate positive) to 0.50 (shared: indiscriminate negative), confirming that neither extreme operates as a useful discriminator; intermediate connectivity conditions achieve the best balanced discrimination.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.72\columnwidth]{fig_fnr_primary.pdf}
-\caption{False novelty rate (FNR) by $V$-completeness level (topology) and classifier accuracy. Error bars show $\pm 1$ std across 10 seeds ($n=200$ hypotheses, 40 latent classes, 20 agents). The topology effect dominates: the FNR range across topologies (0.953) is $\approx$24$\times$ the range across classifier accuracies (0.040).}
+\includegraphics[width=0.72\columnwidth]{fig_fnr_primary_n30.pdf}
+\caption{False novelty rate (FNR) by $V$-completeness level (connectivity condition) and classifier accuracy. Error bars show $\pm 1$ std across 30 seeds ($n=200$ hypotheses, 40 latent classes, 20 agents). Connectivity effect (FNR range $0.947$ at fixed accuracy) is 27$\times$ larger than the classifier-accuracy effect (FNR range $0.035$ at fixed connectivity).}
 \label{fig:fnr}
 \end{figure}
 
-An additional robustness sweep varying the hypothesis space complexity ($n_\text{latent} \in \{20, 40, 80\}$) reveals that the magnitude of $V$ incompleteness scales with domain complexity: isolated agents achieve FNR $=0.642$ when only 20 latent classes exist (a simple domain where local memory frequently saturates), but FNR rises to $0.995$ at 80 classes. Small-world topology deteriorates similarly (FNR $0.002 \to 0.292$), while shared topology remains near zero across all complexity levels. This illustrates one minimal mechanism by which $V$ incompleteness produces systematic failure in autonomous scientific loops---and why the failure mode is more severe in complex domains such as biology and mathematics (Table~\ref{tab:domain-comparison}) than in constrained settings such as formal verification.
+An additional robustness sweep varying the hypothesis space complexity ($n_\text{latent} \in \{20, 40, 80\}$) reveals that the magnitude of $V$ incompleteness scales with domain complexity: isolated agents achieve FNR $=0.642$ when only 20 latent classes exist (a simple domain where local memory frequently saturates), but FNR rises to $0.995$ at 80 classes. Medium-connectivity ($k=4$) deteriorates similarly (FNR $0.002 \to 0.292$), while shared topology remains near zero across all complexity levels. This illustrates one minimal mechanism by which $V$ incompleteness produces systematic failure in autonomous scientific loops---and why the failure mode is more severe in complex domains such as biology and mathematics (Table~\ref{tab:domain-comparison}) than in constrained settings such as formal verification.
 
-\textbf{Limitations.} This simulation uses synthetic agents and a ground-truth novelty oracle unavailable in real science; its agents do not generate hypotheses, run experiments, or update beliefs. The topology-to-$V$-completeness mapping is an operationalization, not an identity: real validators differ from reviewer networks in important ways. The simulation is intended only to make the structural consequence of $V$ incompleteness legible, not to measure its magnitude in any deployed system.
+\textbf{Limitations.} This simulation uses synthetic agents and a ground-truth novelty oracle unavailable in real science; its agents do not generate hypotheses, run experiments, or update beliefs. The connectivity-to-$V$-completeness mapping is an operationalization, not an identity: the mechanism (memory union growth with degree) is structurally determined rather than emergent, and the reported FNR-recall tradeoff is an analytic consequence of the coverage-based estimator rather than an independent empirical finding. The effect magnitude depends on the prior seeding rate (fraction of literature each agent has pre-read): the topology ordering is robust across seeding rates of 2--20\%, but the absolute FNR difference collapses as seeding rates increase beyond 10\%. The simulation is intended only to make the structural consequence of $V$ incompleteness legible, not to measure its magnitude in any deployed system.
 
 \section{Open Problems}
 \label{sec:openproblems}

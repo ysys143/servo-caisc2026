@@ -1,6 +1,7 @@
-% F_V(beta) crossover summary
-% topology | beta_range_where_optimal | FNR_mean | Recall_mean | FMR_mean
-% isolated: beta=[0.000,0.447]  FNR=0.955  Recall=0.968  FMR=0.032
-% lattice: beta=[0.452,0.553]  FNR=0.285  Recall=0.415  FMR=0.585
-% small_world: beta=[0.558,0.643]  FNR=0.075  Recall=0.152  FMR=0.848
-% shared: beta=[0.648,1.000]  FNR=0.008  Recall=0.029  FMR=0.971
+% F_V(beta) sensitivity summary
+% β is a normative parameter, not an empirical estimate.
+% Mean crossover boundaries are approximate; see CI bands in figure.
+% isolated: approx beta=[0.00,0.45]  FNR=0.955+/-0.028  Recall=0.968+/-0.023
+% lattice: approx beta=[0.45,0.56]  FNR=0.285+/-0.047  Recall=0.415+/-0.057
+% small_world: approx beta=[0.56,0.64]  FNR=0.075+/-0.036  Recall=0.152+/-0.054
+% shared: approx beta=[0.65,1.00]  FNR=0.008+/-0.012  Recall=0.029+/-0.025
