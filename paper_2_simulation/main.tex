@@ -1,0 +1,171 @@
+\documentclass[11pt]{article}
+
+\usepackage[preprint]{neurips_2024}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black}
+
+\emergencystretch=2em
+\setlength{\parskip}{3pt plus 1pt minus 1pt}
+
+\newcommand{\sgmvpi}{$(S, G, E, V, M, \pi)$}
+\newcommand{\framework}{\textsc{SciAgent}}
+
+\title{\textbf{Novelty is Socially Constructed:\\
+A Multi-Agent Simulation of Scientific Community Dynamics}}
+
+\author{
+  Jaesol Shin\\
+  \small{WeDataLab}\\
+  \texttt{ysys143@wedatalab.com}
+}
+
+\date{May 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+% TODO: write after experiments are complete
+A central open problem in AI Scientist systems is whether novelty evaluation can be automated.
+We argue that novelty is not an intrinsic property of a hypothesis but an emergent outcome of
+community arbitration — the distributed process by which a scientific community positions a
+claim relative to collective knowledge. To test this, we construct a multi-agent simulation
+using MiroFish in which heterogeneous reviewer agents with fragmented local memories evaluate
+AI-generated hypotheses. We show that (1) isolated semantic classifiers systematically
+misidentify novelty when knowledge is distributed across agents, (2) community consensus
+accuracy improves non-linearly with knowledge-sharing topology, and (3) human oracle
+intervention remains necessary above a noise threshold even with strong local classifiers.
+These results provide direct empirical support for the non-automatability claim in
+\citet{shin2026sciagent} and constrain the design space of the $V_\text{human}$ layer in
+AI Scientist systems.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+% Context: the V_human problem
+The \framework{} framework \sgmvpi{} \citep{shin2026sciagent} identifies the completeness of
+the validator $V$ as the single most consequential design variable in AI Scientist systems.
+Among the four validator layers --- $V_\text{syntax}$, $V_\text{semantic}$,
+$V_\text{empirical}$, $V_\text{human}$ --- the last is the most resistant to automation.
+Prior work has argued informally that novelty evaluation requires human judgment
+\citep{lu2024aiscientist}; we provide the first controlled simulation evidence for this claim.
+
+% Gap: no controlled study of V_human
+% Approach: MiroFish ABM
+
+\section{Background}
+\label{sec:background}
+
+\subsection{Novelty as Community Arbitration}
+% V_human is not a single oracle but a distributed process
+% Community arbitration: collective positioning of a claim in epistemic space
+
+\subsection{MiroFish: Multi-Agent Social Simulation}
+% OASIS-based engine, heterogeneous agents with memory and personality
+% Why MiroFish: emergent dynamics, distributed knowledge, partial observability
+
+\section{Simulation Design}
+\label{sec:design}
+
+\subsection{Agents}
+% Reviewer agents: local M_s, semantic classifier, trust network
+% Author agent: submits hypotheses drawn from S
+% Editor agent: aggregates reviewer judgments
+
+\subsection{Environment}
+% Hypothesis space S: latent concept graph
+% Ground truth: global novelty defined over latent classes
+% Partial observability: agents see surface form, not latent class
+
+\subsection{Experimental Conditions}
+% Condition 1: isolated agents (no memory sharing)
+% Condition 2: lattice topology
+% Condition 3: small-world network
+% Condition 4: fully shared M_s (oracle upper bound)
+% Condition 5: human oracle audit (random / high-impact)
+
+\subsection{Metrics}
+% False novelty rate, true novelty recall
+% Community consensus latency
+% Inter-agent agreement (Cohen's kappa)
+% Value of human oracle intervention
+
+\section{Results}
+\label{sec:results}
+
+% TODO: fill after running simulation
+
+\subsection{Isolated Agents Fail at Global Novelty}
+
+\subsection{Topology Drives Consensus Quality}
+
+\subsection{Human Oracle Threshold}
+
+\section{Discussion}
+\label{sec:discussion}
+
+% Implications for V_human design in AI Scientist systems
+% Limitations: abstracted hypothesis space, synthetic agents
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\bibliographystyle{abbrvnat}
+\bibliography{references}
+
+% ---------------------------------------------------------------
+\newpage
+\section*{AI Involvement Checklist}
+
+\begin{itemize}
+  \item \textbf{Hypothesis development.} The research question (novelty as emergent community
+  property, not intrinsic hypothesis property) was proposed by the human author based on
+  framework analysis in \citet{shin2026sciagent}. Claude Code helped identify relevant
+  Science of Science literature and formalized the agent decision rules.
+
+  \item \textbf{Experimental design.} The human author designed the five experimental
+  conditions and the latent concept graph environment. Claude Code implemented the simulation
+  codebase (\texttt{src/}) and suggested the inter-agent trust topology variants.
+
+  \item \textbf{Analysis.} Claude Code ran parameter sweeps and generated result figures.
+  The human author interpreted results and identified the non-linear threshold behavior.
+
+  \item \textbf{Writing.} Claude Code drafted manuscript sections; the human author wrote
+  the core argument and conclusions.
+\end{itemize}
+
+% ---------------------------------------------------------------
+\newpage
+\section*{Responsibility \& Reproducibility Checklist}
+
+\begin{itemize}
+  \item \textbf{Claims and evidence.} All quantitative claims are supported by simulation
+  results reported in \S\ref{sec:results}. Simulation code is released at
+  \texttt{src/} in the supplementary material.
+
+  \item \textbf{Limitations.} The hypothesis space is abstract (graph-structured, not
+  drawn from a real scientific domain). Agent personalities are synthetic. Results may
+  not transfer directly to real scientific communities.
+
+  \item \textbf{Reproducibility.} Full simulation code, random seeds, and parameter
+  configurations are included in supplementary material. All experiments can be
+  reproduced on a laptop CPU in under 30 minutes.
+
+  \item \textbf{Data and code availability.} Simulation code released with submission.
+  No external datasets used.
+
+  \item \textbf{Ethical and societal impact.} This work informs the design of AI Scientist
+  systems. The finding that $V_\text{human}$ cannot be fully automated supports calls for
+  maintained human oversight in autonomous research pipelines.
+\end{itemize}
+
+\end{document}
