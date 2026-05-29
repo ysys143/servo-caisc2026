@@ -53,6 +53,14 @@ M.~Cranmer, A.~Sanchez~Gonzalez, P.~Battaglia, R.~Xu, K.~Cranmer, D.~Spergel,
 \newblock In \emph{Advances in Neural Information Processing Systems}, 2020.
 \newblock arXiv:2006.11287.
 
+\bibitem[Feng et~al.(2026)Feng, Le, Luong, Trinh, Bingham, Hwang, Chervonyi,
+  et~al.]{google2026aletheia}
+T.~Feng, Q.~V. Le, T.~Luong, T.~H. Trinh, G.~Bingham, D.~Hwang, Y.~Chervonyi,
+  et~al.
+\newblock Towards autonomous mathematics research.
+\newblock \emph{arXiv preprint arXiv:2602.10177}, 2026.
+\newblock arXiv:2602.10177.
+
 \bibitem[Foster et~al.(2019)Foster, Jankowiak, Bingham, Horsfall, Teh,
   Rainforth, and Goodman]{foster2019variational}
 A.~Foster, M.~Jankowiak, E.~Bingham, P.~Horsfall, Y.~W. Teh, T.~Rainforth, and
@@ -68,11 +76,6 @@ A.~Foster, D.~R. Ivanova, I.~Malik, and T.~Rainforth.
   design.
 \newblock In \emph{International Conference on Machine Learning}, 2021.
 \newblock arXiv:2103.02438.
-
-\bibitem[{Google DeepMind}(2026)]{google2026aletheia}
-{Google DeepMind}.
-\newblock Towards autonomous mathematics research.
-\newblock \emph{arXiv preprint}, 2026.
 
 \bibitem[Jaber and Jaber(2026)]{jaber2026autokernel}
 J.~Jaber and O.~Jaber.
@@ -107,11 +110,12 @@ C.~Lu, C.~Lu, R.~T. Lange, J.~Foerster, J.~Clune, and D.~Ha.
   discovery.
 \newblock \emph{arXiv preprint arXiv:2408.06292}, 2024.
 
-\bibitem[Lu et~al.(2026)Lu, Lu, Lange, Yamada, Foerster, Clune, and
-  Ha]{lu2026aiscientist}
-C.~Lu, C.~Lu, R.~T. Lange, Y.~Yamada, J.~Foerster, J.~Clune, and D.~Ha.
+\bibitem[Lu et~al.(2026)Lu, Lu, Lange, Yamada, Hu, Foerster, Ha, and
+  Clune]{lu2026aiscientist}
+C.~Lu, C.~Lu, R.~T. Lange, Y.~Yamada, S.~Hu, J.~Foerster, D.~Ha, and J.~Clune.
 \newblock Towards end-to-end automation of {AI} research.
-\newblock \emph{Nature}, 2026.
+\newblock \emph{Nature}, 651:\penalty0 914--919, 2026.
+\newblock \doi{10.1038/s41586-026-10265-5}.
 
 \bibitem[Manning et~al.(2024)Manning, Zhu, and Horton]{manning2024automated}
 B.~S. Manning, K.~Zhu, and J.~J. Horton.
@@ -154,7 +158,7 @@ T.~Rainforth, A.~Foster, D.~R. Ivanova, and F.~B. Smith.
 E.~Real, C.~Liang, D.~So, and Q.~Le.
 \newblock {AutoML-Zero}: {Evolving} machine learning algorithms from scratch.
 \newblock In \emph{International Conference on Machine Learning}, 2020.
-\newblock arXiv:2003.12638.
+\newblock arXiv:2003.03384.
 
 \bibitem[Romera-Paredes et~al.(2024)Romera-Paredes, Barekatain, Novikov, Balog,
   Kumar, Dupont, Ruiz, Ellenberg, Wang, Fawzi, et~al.]{romera2023funsearch}
@@ -163,13 +167,6 @@ B.~Romera-Paredes, M.~Barekatain, A.~Novikov, M.~Balog, M.~P. Kumar, E.~Dupont,
 \newblock Mathematical discoveries from program search with large language
   models.
 \newblock \emph{Nature}, 625:\penalty0 468--475, 2024.
-
-\bibitem[Rosenstock et~al.(2017)Rosenstock, Bruner, and
-  O'Connor]{rosenstock2017epistemic}
-S.~Rosenstock, J.~Bruner, and C.~O'Connor.
-\newblock In epistemic networks, is less really more?
-\newblock \emph{Philosophy of Science}, 84\penalty0 (2):\penalty0 234--252,
-  2017.
 
 \bibitem[Sartori and Blum(2024)]{sartori2024algodiscovery}
 C.~C. Sartori and C.~Blum.
@@ -198,12 +195,15 @@ H.~W. Sprueill, C.~Edwards, K.~Agarwal, M.~Olarte, U.~Sanyal, C.~Johnston,
 \newblock In \emph{International Conference on Machine Learning}, 2024.
 \newblock arXiv:2402.10980.
 
-\bibitem[Taniguchi et~al.(2024)Taniguchi, Suzuki, Yamakawa, Sato, Ugur, Ugur,
-  and Nagai]{taniguchi2024cpc}
-T.~Taniguchi, K.~Suzuki, H.~Yamakawa, R.~Sato, E.~Ugur, A.~Ugur, and Y.~Nagai.
+\bibitem[Taniguchi et~al.(2025)Taniguchi, Takagi, Otsuka, Hayashi, and
+  Hamada]{taniguchi2024cpc}
+T.~Taniguchi, S.~Takagi, J.~Otsuka, Y.~Hayashi, and H.~T. Hamada.
 \newblock Collective predictive coding as model of science: {Formalizing}
   scientific activities towards generative science.
-\newblock \emph{arXiv preprint arXiv:2409.00102}, 2024.
+\newblock \emph{Royal Society Open Science}, 12\penalty0 (6):\penalty0 241678,
+  2025.
+\newblock \doi{10.1098/rsos.241678}.
+\newblock arXiv:2409.00102.
 
 \bibitem[Udrescu and Tegmark(2020)]{udrescu2020afeynman}
 S.-M. Udrescu and M.~Tegmark.
@@ -215,7 +215,14 @@ S.-M. Udrescu and M.~Tegmark.
 H.~Xin, D.~Ren, S.~Song, Z.~Shao, W.~Zhao, H.~Wang, W.~Liu, L.~Cheng, et~al.
 \newblock {DeepSeek-Prover-V1.5}: {Harnessing} proof assistant feedback for
   reinforcement learning and {Monte-Carlo} tree search.
-\newblock \emph{arXiv preprint arXiv:2408.11170}, 2024.
+\newblock \emph{arXiv preprint arXiv:2408.08152}, 2024.
+\newblock arXiv:2408.08152.
+
+\bibitem[Zollman(2007)]{zollman2007communication}
+K.~J.~S. Zollman.
+\newblock The communication structure of epistemic communities.
+\newblock \emph{Philosophy of Science}, 74\penalty0 (5):\penalty0 574--587,
+  2007.
 
 \bibitem[Zollman(2010)]{zollman2010epistemic}
 K.~J.~S. Zollman.

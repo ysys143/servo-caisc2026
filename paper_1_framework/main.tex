@@ -309,13 +309,13 @@ $H$ (human role)  & G            & Low            & Low             & G+$\pi$   
 
 The four systems above address the internal structure of the AI Scientist loop. \citet{liu2026lasthuman} address a complementary problem: what the \emph{output} of that loop should look like, and how it can be independently verified. They propose Agent-Native Research Artifacts (ARA), a structured protocol that replaces the narrative paper with a four-layer file-system ontology: \texttt{/logic} (claims with explicit falsification criteria, hypotheses, related-work dependency graph), \texttt{/src} (typed kernel modules or full repository), \texttt{/trace} (exploration graph with five typed node types: question, decision, experiment, dead\_end, pivot), and \texttt{/evidence} (raw machine-readable results, withheld from verification agents to enable blind reproduction).
 
-The motivation is quantitative: \citet{liu2026lasthuman} report that only 45.4\% of papers provide sufficient information for reproduction, and that 90.2\% of the dollar cost of extending a paper is consumed by failed rediscovery of methods already known to the original authors. ARA addresses this by making the full research process---including dead ends and pivots---a first-class published artifact.
+The motivation is quantitative: \citet{liu2026lasthuman} report that only 45.4\% of reproduction requirements are fully specified in published papers, and that 90.2\% of the dollar cost of extending a result is consumed by failed exploration of methods already known to the original authors. ARA addresses this by making the full research process---including dead ends and pivots---a first-class published artifact.
 
 ARA makes two direct contributions to the components of \framework{}. First, it addresses $V$ via the ARA Seal: a three-level automated verification credential combining $V_\text{syntax}$ (schema conformance and cross-layer reference integrity, seconds), $V_\text{semantic}$ (Rigor Auditor with a six-dimensional rubric, catching 82.6\% of seeded validity mutations), and $V_\text{empirical}$ (sandboxed directional reproduction). $V_\text{human}$ is retained for significance, novelty, and taste as an explicit design principle: \textit{``judgments of significance, novelty, and taste are reserved for human reviewers''}~\citep{liu2026lasthuman}. Second, the \texttt{/trace} layer addresses $M_e$ and $M_s$: forensic bindings link each claim to the experiment that supports it and to raw evidence files, externalizing the semantic structure of accumulated knowledge.
 
 A key empirical finding bears on $\pi$: preserved failure traces (dead\_ends, pivots) in the \texttt{/trace} layer accelerated downstream agent performance in extension tasks, but the same traces also constrained more capable agents by anchoring them to prior solution paths. Richer $M_e$ does not monotonically improve $\pi$.
 
-The paper positions ARA as a substrate rather than a system: ``ARA closes this gap not by replacing these tools but by providing the missing structural layer''~\citep{liu2026lasthuman}. In \framework{} terms, ARA specifies a standard output format for $E$ and input format for $G$, with the goal that when AI Scientist systems produce and consume ARAs rather than narrative PDFs, accumulated knowledge compounds at the artifact level rather than the sentence level.
+The paper positions ARA as a substrate rather than a system: it aims to provide the missing structural layer above existing tools without replacing them~\citep{liu2026lasthuman}. In \framework{} terms, ARA specifies a standard output format for $E$ and input format for $G$, with the goal that when AI Scientist systems produce and consume ARAs rather than narrative PDFs, accumulated knowledge compounds at the artifact level rather than the sentence level.
 
 \section{Domain Analysis}
 \label{sec:domains}
@@ -330,7 +330,7 @@ Mathematics uniquely enables $V_\text{formal}$---a perfect oracle implemented by
 
 \textbf{DeepSeek-Prover-V1.5}~\citep{xin2024deepseek} uses $S$ = Lean 4 tactic scripts, $E$ = Lean proof kernel (decidable), $V_\text{formal}$ = type-check success (perfect oracle), and $\pi$ = RMaxTS (UCB + intrinsic exploration reward) combined with RLPAF (reinforcement learning from proof assistant feedback). The noise-free $V$ enables stable RL without reward hacking.
 
-\textbf{Aletheia}~\citep{google2026aletheia} takes the opposite approach: $S$ is natural language proof space, $V$ is a fallible LLM Verifier subagent, and $V_\text{human}$ remains the ground truth. Of 700 Erd\H{o}s problems attempted, human auditors rated only 13 (1.9\%) as ``meaningfully correct.'' The system explicitly identifies ``subconscious plagiarism''---pretraining data contamination masking as discovery---as a serious validity threat.
+\textbf{Aletheia}~\citep{google2026aletheia} takes the opposite approach: $S$ is natural language proof space, $V$ is a fallible LLM Verifier subagent, and $V_\text{human}$ remains the ground truth. Of 700 Erd\H{o}s problems attempted, 200 solutions were graded by human auditors, of which 13 (6.5\%) were rated ``meaningfully correct.'' The system explicitly identifies ``subconscious plagiarism''---pretraining data contamination masking as discovery---as a serious validity threat.
 
 The key observation is that $S$ choice bifurcates mathematical AI Scientist paradigms: program-space ($V_\text{empirical}$ sufficient, full autonomy possible) vs.\ natural-language-proof-space ($V_\text{human}$ required, partial autonomy only).
 
@@ -354,7 +354,7 @@ The key observation is that $S$ choice bifurcates mathematical AI Scientist para
 
 Materials discovery presents a distinct $V$ profile: formation energy per atom computed via Density Functional Theory (DFT) serves as a near-perfect empirical oracle---computationally expensive but noise-free and ground-truth aligned---while physical synthesis constitutes a costly, human-mediated second validation layer.
 
-\textbf{GNoME}~\citep{merchant2023gnome} (Graph Networks for Materials Exploration, DeepMind) scales this structure to 380 million hypothetical inorganic crystal structures. $G$ is a pair of Graph Neural Networks (GNNs) trained to predict thermodynamic stability: one structural GNN operating on known crystal prototypes and one compositional GNN operating on element combinations. $E$ is high-throughput DFT. $\pi$ is entropy-weighted uncertainty sampling: candidates where the GNN is most uncertain are prioritized for DFT evaluation, approximating an active learning policy over $b(S)$. $M_s$ grows as the GNN retrains on accumulated DFT outcomes; GNoME is one of the few systems where $G(M_s, S)$ genuinely improves with accumulated experiments.
+\textbf{GNoME}~\citep{merchant2023gnome} (Graph Networks for Materials Exploration, DeepMind) scales this structure to 2.2 million candidate inorganic crystal structures. $G$ is a pair of Graph Neural Networks (GNNs) trained to predict thermodynamic stability: one structural GNN operating on known crystal prototypes and one compositional GNN operating on element combinations. $E$ is high-throughput DFT. $\pi$ is deep-ensemble uncertainty sampling: candidates where the GNN ensemble disagrees most are prioritized for DFT evaluation, approximating an active learning policy over $b(S)$. $M_s$ grows as the GNN retrains on accumulated DFT outcomes; GNoME is one of the few systems where $G(M_s, S)$ genuinely improves with accumulated experiments.
 
 \begin{table}[h]
 \centering
@@ -363,12 +363,12 @@ Materials discovery presents a distinct $V$ profile: formation energy per atom c
 \toprule
 Component & Instantiation \\
 \midrule
-$S$ & 380M hypothetical inorganic crystal structures \\
+$S$ & 2.2M candidate inorganic crystal structures \\
 $G$ & Dual GNN (structural + compositional) predicts stability; retrained on DFT outcomes \\
 $E$ & High-throughput DFT (computational); synthesis at collaborating labs (physical) \\
 $V$ & $V_\text{empirical}$: formation energy / above-hull threshold (DFT); $V_\text{human}$: synthesis confirmation \\
 $M$ & $M_e$: 460K prior DFT results; $M_s$: GNN weights updated each iteration \\
-$\pi$ & Uncertainty sampling: prioritize high-entropy predictions for DFT \\
+$\pi$ & Uncertainty sampling: prioritize high-uncertainty (deep-ensemble disagreement) predictions for DFT \\
 \bottomrule
 \end{tabular}
 \caption{GNoME \sgmvpi{} mapping.}
