@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{30}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -217,16 +217,5 @@ H.~Xin, D.~Ren, S.~Song, Z.~Shao, W.~Zhao, H.~Wang, W.~Liu, L.~Cheng, et~al.
   reinforcement learning and {Monte-Carlo} tree search.
 \newblock \emph{arXiv preprint arXiv:2408.08152}, 2024.
 \newblock arXiv:2408.08152.
-
-\bibitem[Zollman(2007)]{zollman2007communication}
-K.~J.~S. Zollman.
-\newblock The communication structure of epistemic communities.
-\newblock \emph{Philosophy of Science}, 74\penalty0 (5):\penalty0 574--587,
-  2007.
-
-\bibitem[Zollman(2010)]{zollman2010epistemic}
-K.~J.~S. Zollman.
-\newblock The epistemic benefit of transient diversity.
-\newblock \emph{Erkenntnis}, 72\penalty0 (1):\penalty0 17--35, 2010.
 
 \end{thebibliography}
