@@ -212,9 +212,12 @@ def run_simulation(
 
     # Compute summary metrics
     tp, fp, tn, fn = results["tp"], results["fp"], results["tn"], results["fn"]
-    recall     = tp / (tp + fn) if (tp + fn) > 0 else 0
-    specificity = tn / (tn + fp) if (tn + fp) > 0 else 0
-    results["false_novelty_rate"]    = fp / (fp + tn) if (fp + tn) > 0 else 0
+    recall      = tp / (tp + fn) if (tp + fn) > 0 else 0
+    fnr         = fp / (fp + tn) if (fp + tn) > 0 else 0
+    # specificity = tn/(tn+fp) = 1 - fnr algebraically (same partition);
+    # reported for completeness but carries no independent information.
+    specificity = 1.0 - fnr
+    results["false_novelty_rate"]    = fnr
     results["true_novelty_recall"]   = recall
     results["specificity"]           = specificity
     results["balanced_accuracy"]     = (recall + specificity) / 2
