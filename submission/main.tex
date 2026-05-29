@@ -1,8 +1,7 @@
-\documentclass[11pt]{article}
-\raggedbottom
+\documentclass{article}
 
-% NeurIPS 2024 style
-\usepackage[preprint]{neurips_2024}
+% CAISc 2026 official style (preprint = non-anonymous, for arXiv/sharing)
+\usepackage[preprint]{caisc_2026}
 
 % Packages
 \usepackage[utf8]{inputenc}
@@ -20,29 +19,11 @@
   urlcolor=black
 }
 
-% Spacing overrides
+% Spacing tweaks
 \emergencystretch=2em
-\setlength{\parskip}{3pt plus 1pt minus 1pt}
 \setlength{\floatsep}{8pt plus 2pt minus 2pt}
 \setlength{\textfloatsep}{10pt plus 3pt minus 3pt}
 \setlength{\intextsep}{8pt plus 2pt minus 2pt}
-\setlength{\abovecaptionskip}{4pt}
-\setlength{\belowcaptionskip}{2pt}
-% Section heading spacing (no titlesec needed)
-\makeatletter
-\renewcommand\section{\@startsection{section}{1}{\z@}%
-  {-18pt \@plus -4pt \@minus -2pt}%
-  {6pt \@plus 2pt}%
-  {\normalfont\large\bfseries}}
-\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
-  {-12pt \@plus -2pt \@minus -2pt}%
-  {4pt \@plus 1pt}%
-  {\normalfont\normalsize\bfseries}}
-\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
-  {-6pt \@plus -1pt \@minus -1pt}%
-  {2pt}%
-  {\normalfont\normalsize\itshape}}
-\makeatother
 
 % Custom commands
 \newcommand{\sgmvpi}{$(S, G, E, V, M, \pi)$}
@@ -271,40 +252,124 @@ We introduced \framework{} \sgmvpi{}, a formal framework connecting AI Scientist
 
 % ---------------------------------------------------------------
 \newpage
-\section*{AI Involvement Checklist}
-\label{sec:ai-checklist}
 
-This checklist documents the role of AI systems at each stage of this research, as required by CAISc 2026.
+\section*{Conference For AI Scientists 2026 - AI Involvement Checklist}
+\label{checklist_ai_involvement}
 
-\begin{itemize}
-  \item \textbf{Hypothesis development.} The core \framework{} framework \sgmvpi{}, the $H$ parameter, the $G$ output spectrum (propositional hypothesis $\to$ falsifiable construction), and the three open problems were conceived by the human author. Claude Code (Anthropic) elaborated framework components, identified paper-level instantiations of each component, and proposed connections between concepts.
+This checklist documents the role of AI systems at each stage of this research.
+The checklist has two parts: a \textbf{Research Stage Assessment} (items 1--4) rating AI involvement and iteration effort, and an \textbf{AI System Documentation} section (items 5--6).
 
-  \item \textbf{Literature search and selection.} The human author determined inclusion criteria and target systems. Claude Code autonomously retrieved and read over 40 full-text PDFs, categorized papers into the taxonomy, and performed claim-level verification against source text.
+\subsection*{Research Stage Assessment}
 
-  \item \textbf{Analysis.} Claude Code extracted S, G, E, V, M, $\pi$ components for each of the 13 analyzed systems by reading primary sources. The human author reviewed all extractions, corrected mischaracterizations (several substantive corrections were required), and synthesized cross-system patterns.
+\begin{enumerate}
 
-  \item \textbf{Writing.} Claude Code drafted the majority of this manuscript. The human author provided key conceptual passages (notably \S\ref{sec:openproblems} and the core definitions in \S\ref{sec:framework}), directed structural decisions, and reviewed all drafts.
-\end{itemize}
+  \item \textbf{Hypothesis development.}
 
-\noindent Overall, the division of labor is best characterized as: the human author provided intellectual direction, framework design, and final judgment; Claude Code provided literature retrieval, analysis execution, and text generation.
+    Answer: \involvementB{}
+
+    Iteration Effort: \iterationMedium{}
+
+    Explanation: The core \framework{} framework tuple \sgmvpi{}, the $V$-completeness thesis, the $H$ parameter, and the three open problems were conceived by the human author. A frontier LLM agent elaborated framework components, identified literature-level instantiations, and proposed theoretical connections. The human author directed all conceptual decisions and made several substantive corrections to the AI's elaborations.
+
+  \item \textbf{Experimental design and implementation.}
+
+    Answer: \involvementC{}
+
+    Iteration Effort: \iterationHigh{}
+
+    Explanation: The agent-based simulation (20 reviewer agents, four topology conditions, FNR metric) was designed and implemented in Python by a frontier LLM agent under human direction. Multiple rounds of adversarial review and code revision were required; the human author specified the research question and directed structural decisions.
+
+  \item \textbf{Analysis of data and interpretation of results.}
+
+    Answer: \involvementC{}
+
+    Iteration Effort: \iterationMedium{}
+
+    Explanation: The LLM agent extracted \framework{} components for all analyzed systems from primary sources and performed citation-level fact verification (4 verification sweeps). The human author reviewed all extractions, corrected mischaracterizations, and synthesized the cross-domain pattern. The V-completeness thesis emerged from the human author's synthesis.
+
+  \item \textbf{Writing.}
+
+    Answer: \involvementC{}
+
+    Iteration Effort: \iterationHigh{}
+
+    Explanation: The LLM agent drafted the majority of the manuscript text through multiple revision cycles; the human author provided key conceptual passages (framework definitions in \S\ref{sec:framework}, core open problems in \S\ref{sec:openproblems}), directed structural decisions, reviewed all drafts, and made final editorial judgments.
+
+\end{enumerate}
+
+\subsection*{AI System Documentation}
+
+\begin{enumerate}
+  \setcounter{enumi}{4}
+
+  \item \textbf{AI systems used.}
+
+    Description: A frontier large language model with code execution and long-document processing capabilities was used as the primary research and writing assistant. The system operated as an interactive CLI agent with file-system access, able to read primary sources, execute and debug Python simulations, and iteratively revise LaTeX manuscripts.
+
+  \item \textbf{Observed AI Limitations.}
+
+    Description: (1)~Systematic citation fabrication: the agent generated plausible but non-existent quotes and statistics, requiring four dedicated citation-verification sweeps using parallel sub-agents. (2)~Analytical overconfidence: the agent initially overclaimed empirical significance of simulation results that were analytically entailed; adversarial review rounds were needed to correct framing. (3)~Context drift: over long sessions, the agent occasionally regressed previously corrected errors, requiring explicit re-verification of integrity items before each commit.
+
+\end{enumerate}
 
 % ---------------------------------------------------------------
 \newpage
-\section*{Responsibility \& Reproducibility Checklist}
-\label{sec:repro-checklist}
 
-\begin{itemize}
-  \item \textbf{Claims and evidence.} All empirical claims are grounded in cited primary sources. Major claims were verified by direct full-text reading of source PDFs; specific figures (e.g., Science of Science statistics) were cross-checked against institutional press releases where journal access was unavailable.
+\section*{Conference For AI Scientists 2026 - Reproducibility and Responsibility Checklist}
+\label{checklist_reproducibility}
 
-  \item \textbf{Limitations.} This paper is a conceptual meta-analysis of existing published systems. It contains no original experiments. The \framework{} framework is not empirically validated against held-out systems in this submission; its descriptive adequacy rests on consistency across the 13 analyzed systems. Domain-specific cost structures, multi-agent dynamics, and temporal evolution of systems are not modeled.
+\begin{enumerate}
 
-  \item \textbf{Reproducibility.} The analytical framework can be applied to any AI Scientist system following the component definitions in \S\ref{sec:framework}. All analyzed papers are publicly accessible. No proprietary data or closed models were used.
+\item {\bf Claims}
+    \item[] Question: Do the main claims made in the abstract and introduction accurately reflect the paper's contributions and scope?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: The abstract and introduction explicitly state the three contributions (framework, cross-domain analysis, open problems) and acknowledge the simulation as illustrative rather than empirically novel. The V-completeness thesis is presented as a cross-domain pattern, not a proven theorem.
 
-  \item \textbf{Experimental details.} Literature review methodology follows Muka et al.\ (2020) 24-step systematic review guide. System selection criterion: end-to-end automation of at least one component of the hypothesis--experiment--validation loop.
+\item {\bf Limitations}
+    \item[] Question: Does the paper discuss the limitations of the work performed by the authors?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: Limitations are discussed in \S\ref{sec:discussion} (framework abstracts domain cost structures, social layer, non-stationarity) and in \S\ref{sec:simulation} (simulation is an existence illustration, not empirical measurement).
 
-  \item \textbf{Data and code availability.} Analysis notes will be made available upon acceptance. No datasets were produced.
+\item {\bf Theory assumptions and proofs}
+    \item[] Question: For each theoretical result, does the paper provide the full set of assumptions and a complete proof?
+    \item[] Answer: \answerNA{}
+    \item[] Justification: The paper makes no formal theorem claims. The V-completeness thesis is a cross-domain empirical pattern supported by natural comparison, not a proven theorem.
 
-  \item \textbf{Ethical and societal impact.} The $H$ parameter analysis explicitly addresses the necessity of human oversight in current systems. The open problems discussion (\S\ref{sec:openproblems}) identifies risks of premature convergence under widespread AI Scientist deployment, particularly through the $M_s$ underdevelopment problem.
-\end{itemize}
+\item {\bf Experimental result reproducibility}
+    \item[] Question: Does the paper fully disclose all information needed to reproduce the main experimental results?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: Simulation parameters (20 agents, 200 hypotheses, 40 latent classes, 30 seeds, 4 topology conditions) and the FNR metric are fully specified in \S\ref{sec:simulation}. Simulation code will be released upon acceptance.
+
+\item {\bf Open access to data and code}
+    \item[] Question: Does the paper provide open access to data and code?
+    \item[] Answer: \answerNo{}
+    \item[] Justification: Simulation code is not yet publicly released but will be made available upon acceptance. No external datasets were used; all analyzed papers are publicly accessible.
+
+\item {\bf Experimental setting/details}
+    \item[] Question: Does the paper specify all details necessary to understand the results?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: All simulation hyperparameters are stated in \S\ref{sec:simulation}. The cross-domain analysis methodology (component extraction from primary sources) is described in \S\ref{sec:core} and \S\ref{sec:domains}.
+
+\item {\bf Experiment statistical significance}
+    \item[] Question: Does the paper report error bars or statistical significance information?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: Figure~\ref{fig:fnr} reports $\pm 1$ std across 30 seeds for all FNR values. The paper explicitly notes that the within-condition accuracy range ($\leq 0.035$) is 27$\times$ smaller than the cross-topology span (0.947), presented descriptively.
+
+\item {\bf Experiments compute resources}
+    \item[] Question: Does the paper provide sufficient information on compute resources?
+    \item[] Answer: \answerNA{}
+    \item[] Justification: The simulation runs in seconds on standard laptop hardware (pure Python, no GPU required). Compute resources are not a meaningful constraint for this experiment.
+
+\item {\bf Research Ethics}
+    \item[] Question: Does the research conform with the NeurIPS Code of Ethics, except where CAISc's AI authorship policies apply?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: This is a meta-analysis of published systems with no human subjects, no proprietary data, and no safety risks. AI authorship is documented per CAISc policy.
+
+\item {\bf Broader impacts}
+    \item[] Question: Does the paper discuss both potential positive and negative societal impacts?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: \S\ref{sec:discussion} addresses both the potential for accelerating scientific discovery and the risk of premature convergence under widespread AI Scientist deployment (particularly via the $M_s$ underdevelopment problem and novelty non-automatability).
+
+\end{enumerate}
 
 \end{document}
