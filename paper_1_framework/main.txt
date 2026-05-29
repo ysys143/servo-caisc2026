@@ -1,0 +1,590 @@
+Formalizing AI Scientist Systems:
+A Unified Framework for Automated Scientific
+Discovery
+Jaesol Shin
+WeDataLab
+
+ysys143@wedatalab.com
+May 2026
+Abstract
+The emergence of end-to-end systems capable of automating hypothesis generation,
+experiment execution, and knowledge synthesis represents a significant change in how
+science is conducted. Despite rapid empirical progress, AI Scientist systems lack a
+unifying formal framework, which makes principled comparison across architectures
+and scientific domains difficult. We propose SciAgent, a six-component framework
+(S, G, E, V, M, π) comprising the Search space, hypothesis Generator, Experiment executor, Validator, Memory, and search Policy (π), grounded in the theory of Partially
+Observable Markov Decision Processes (POMDPs) and Bayesian Experimental Design
+(BED). We apply this framework to analyze core AI Scientist systems and their instantiations across seven scientific domains (mathematics, physics, chemistry, materials science, biology, social science, and computer science), and separately examine a
+complementary artifact infrastructure proposal that addresses the output format and
+verification layer of such systems. Our analysis surfaces three persistent open problems:
+(1) the non-automatability of novelty evaluation, which remains dependent on human
+judgment despite multi-layer automated proxies; (2) the absence of BED-optimal search
+policies, despite the theoretical availability of tractable approximations; and (3) the
+underdevelopment of semantic memory Ms , whose absence prevents accumulated experimental experience from improving future search. We show that the completeness of
+the validator V is the single most consequential design variable: it determines whether
+closed-loop autonomous operation is feasible in each domain, and current AI Scientist
+systems can be read as a progression toward more complete validators.
+
+1
+
+Introduction
+
+AI Scientist systems—agents that independently generate hypotheses, execute experiments,
+and synthesize knowledge—have proliferated rapidly [Boiko et al., 2023, Lu et al., 2024,
+2026, Schmidgall et al., 2025, Feng et al., 2026, Liu et al., 2026], yet the field lacks a
+shared formal vocabulary. Each system introduces bespoke terminology, making systematic
+comparison difficult. Three questions that bear directly on deployment remain unanswered:
+1
+
+What determines whether a system can operate in a closed loop? Why does autonomous
+novelty evaluation fail consistently? What is the theoretically optimal search policy?
+We address these gaps with three contributions: (1) SciAgent, a formal framework
+(S, G, E, V, M, π) connecting AI Scientist systems to POMDP and Bayesian Experimental
+Design theory (Section 4); (2) analysis of four core systems, an artifact infrastructure proposal, and domain-specific instantiations across seven scientific fields (Sections 5, 6); and
+(3) three open problems that constrain progress across all current systems (Section 8).
+Scope. We cover systems whose primary goal is automated scientific discovery through
+hypothesis-experiment-validation cycles, excluding specialized tools within humanconducted pipelines [Jumper et al., 2021].
+
+2
+
+Background
+
+Following Kaelbling et al. [1998], we model AI Scientist systems as partially observable
+Markov decision processes: the true state s (unknown structure of nature) is inaccessible;
+the system maintains a belief b(s) updated by experimental observations. Bayesian Experimental Design [Chaloner and Verdinelli, 1995, Rainforth et al., 2024] provides the normative
+criterion for the search policy π: select d∗ maximizing Expected Information Gain (EIG),
+d∗ = arg max EIG(d) = arg max E [H(θ) − H(θ | y, d)]
+d∈D
+
+d
+
+(1)
+
+where H(θ) is prior entropy over parameters θ and H(θ | y, d) is expected posterior
+entropy after observing y under d. EIG can be approximated via variational methods [Foster
+et al., 2019], amortized policies [Foster et al., 2021], and RL [Blau et al., 2022], yet no current
+AI Scientist system implements it—a gap we identify in Section 8.
+
+3
+
+Related Work
+
+AI Scientist systems. Prior work [Lu et al., 2024, 2026, Schmidgall et al., 2025, Boiko
+et al., 2023] provides qualitative characterizations of individual systems but no shared framework for cross-system comparison; idea-generation studies [Si et al., 2024, Baek et al., 2024]
+establish quality baselines without unifying the full discovery loop.
+Theoretical foundations. The POMDP framework [Kaelbling et al., 1998] and
+BED [Chaloner and Verdinelli, 1995, Rainforth et al., 2024] are classical; we are the first to
+explicitly apply BED as a design target for AI Scientist search policies, connecting POMDP
+(structural formulation) to BED (normative policy criterion).
+Formal models and artifact infrastructure. Taniguchi et al. [2025] propose Collective Predictive Coding as a social model of science; we provide the complementary singlesystem modular decomposition. Liu et al. [2026] address artifact verification as a V and
+Ms contribution, discussed in Sections 5.1 and 8.
+
+4
+
+The SciAgent Framework
+
+We define an AI Scientist system as a tuple (S, G, E, V, M, π) with the following components:
+2
+
+SciAgent = (S, G, E, V, M, π)
+
+(2)
+
+S: Search Space The set of candidate hypotheses, programs, molecules, experimental
+conditions, or other objects subject to exploration. S may be static or dynamically
+expanding (open-ended).
+G : M × S → h: Hypothesis Generator A function that proposes new candidate h ∈ S
+conditioned on accumulated memory M and the current state of the search space. G
+may involve LLM generation, evolutionary mutation, or symbolic search.
+E : h × P → o: Experiment Executor A function that executes hypothesis h under protocol P to produce observation o. The fidelity of E ranges from fast computational
+simulation (low cost, potential surrogate error) to physical wet-lab execution (high
+cost, ground truth).
+V : o → r: Validator A function that assigns a reward signal r to observation o. We
+distinguish four layers of V :
+Vsyntax : o → {pass, fail}
+
+(deterministic, fast)
+
+Vsemantic : o → r ∈ [0, 1]
+
+(LLM-based, stochastic)
+
+Vempirical : o → r
+
+(reproduction-based)
+
+Vhuman : o → {novel, significant}
+
+(non-automatizable)
+
+M : Memory Structured as (Me , Ms , Mp ).
+Me (episodic) stores individual records
+(hi , oi , ri ); Ms (semantic) stores distilled knowledge patterns; Mp (procedural) stores
+learned protocols. The structure of M directly determines the quality of G and π.
+π : b(S) × M → h: Search Policy The decision rule for selecting the next hypothesis. The
+belief state b(S) is updated after each experiment. In the BED interpretation, π ∗ =
+arg maxd EIG(d) (Equation 1). In practice, current systems use policies ranging from
+reactive (ReAct) to greedy to tree search.
+The operational loop is:
+π(b, M ) → G(Ms , S) → E(h, P ) → V (o)
+→ M += (h, o, r) → b(S) update → repeat
+
+(3)
+
+We further introduce H ∈ [0, 1] as an auxiliary parameter denoting the degree of human
+intervention: H = 0 for fully autonomous systems and H = 1 for systems in which humans
+assume the role of G or π.
+
+5
+
+Analysis of Core AI Scientist Systems
+
+We apply SciAgent to four end-to-end systems [Boiko et al., 2023, Lu et al., 2024, 2026,
+Schmidgall et al., 2025] and one artifact infrastructure proposal. Table 1 synthesizes the
+key dimensions; the cross-system pattern is that every architectural advance is a gain in V
+completeness, and V completeness is what unlocks closed-loop operation.
+3
+
+Coscientist AI Sci. (2024) AI Sci. (2026)
+Novelty measure
+Loop closed?
+π type
+V completeness
+M structure
+H (human role)
+
+None
+No
+ReAct
+Vh only
+Ephemeral
+G
+
+LLM self-score
+Yes (greedy)
+Greedy
+Vs
+Me
+Low
+
+3-layer
+Yes (tree)
+Tree search
+Ve + V s + V h
+Me + M s
+Low
+
+AgentLab
+Human-delegated
+Partial
+Human/seq.
+Vs (biased)
+Me
+G+π
+
+Table 1. Comparative SciAgent analysis of four core AI Scientist systems.
+Ve =empirical, Vh =human.
+
+5.1
+
+Vs =semantic,
+
+Artifact Infrastructure: Agent-Native Research Artifacts
+
+Liu et al. [2026] address a complementary problem: what the output of the AI Scientist
+loop should look like and how it can be independently verified. Agent-Native Research Artifacts (ARA) replace the narrative paper with a four-layer ontology: /logic (claims with
+falsification criteria), /src (executable code), /trace (exploration graph: question, decision, experiment, dead end, pivot), and /evidence (raw results). The ARA Seal provides
+three-level automated verification—Vsyntax (schema conformance), Vsemantic (Rigor Auditor,
+82.6% detection rate), and Vempirical (sandboxed reproduction)—with Vhuman reserved for
+significance, novelty, and taste: “judgments of significance, novelty, and taste are reserved
+for human reviewers” [Liu et al., 2026]. The motivation is quantitative: only 45.4% of
+reproduction requirements are fully specified in published papers, and 90.2% of extension
+costs are consumed by failed exploration [Liu et al., 2026]. The /trace layer addresses Me
+and Ms : preserved failure traces accelerated agent performance on extension tasks but also
+anchored more capable agents to prior solution paths—richer Me does not monotonically
+improve π.
+
+6
+
+Domain Analysis
+
+Table 2 maps SciAgent instantiations across seven scientific domains; V completeness
+co-varies with loop closability without exception. Key results: Aletheia [Feng et al., 2026]
+attempted 700 Erdős problems and auditors rated 13/200 graded solutions (6.5%) meaningfully correct; GNoME [Merchant et al., 2023] screened 2.2 million candidate crystal
+structures via high-throughput DFT. Systems by domain: mathematics (formal) [RomeraParedes et al., 2024, Xin et al., 2024]; mathematics (NL) [Feng et al., 2026]; physics [Udrescu
+and Tegmark, 2020, Cranmer et al., 2020]; chemistry [Bran et al., 2024, Sprueill et al., 2024];
+materials [Merchant et al., 2023]; biology [O’Donoghue et al., 2023]; social science [Manning
+et al., 2024, Aher et al., 2023, Park et al., 2023]; CS/algorithms [Real et al., 2020, Sartori
+and Blum, 2024, Jaber and Jaber, 2026].
+
+7
+
+Illustrative Simulation: Validator Coverage and False Novelty
+
+To make the consequences of V incompleteness concrete, we run a minimal agent-based
+simulation (20 agents, 200 hypotheses, 40 latent classes, 30 seeds) in which agents estimate
+novelty via a coverage membership test and share memory only through their communica4
+
+Domain
+
+V type
+
+V reliability
+
+Loop
+
+π
+
+Math (formal)
+
+Vformal
+
+Perfect oracle
+
+Fully closed
+
+RL/MCTS
+
+Math (NL)
+
+Vsem + Vh
+
+Imperfect
+
+Physics
+
+Vemp + Vh
+
+Medium
+
+Chemistry
+
+Vemp (surr.)
+
+Medium
+
+Materials
+
+Vemp (DFT)
+
+High
+
+Biology
+
+Vemp + Vh
+
+Low–med
+
+Social Sci.
+CS / Algo.
+
+Stat. test
+Vemp
+
+Low–med
+High
+
+Primary bottleneck
+
+Pretraining contamination
+Partial
+Seq. refine
+Hallucination;
+plagiarism
+None/partial Deterministic No
+crossproblem M
+Comp. only
+Beam
+Wet-lab
+loop
+open
+Comp. closed Uncert. samp. DFT wall-time;
+synth. lag
+Partial
+None
+V metrics insufficient
+Partial
+Factorial
+Circular validity
+Fully closed
+Evol./LLM Interpretability
+absent
+
+Table 2. Cross-domain SciAgent analysis across seven domains. V reliability refers to agreement
+with ground truth.
+
+tion topology—the primary independent variable. Table 3 formalizes the four conditions as
+levels of V completeness.
+Table 3. Simulation conditions. Each operationalizes a level of V completeness via mean degree k.
+Condition
+
+V -completeness
+
+k
+
+Graph
+
+Coverage
+
+Isolated
+Lattice
+Medium
+Shared
+
+Incomplete
+Partial
+Improved
+Complete
+
+0
+2
+4
+n−1
+
+No edges
+Ring
+Watts–Strogatz
+Complete
+
+Own memory only
+2-hop neighborhood
+Local + cross-links
+Full community memory
+
+Results. Figure 1 shows FNR (fraction of non-novel hypotheses marked novel) across
+conditions. Because memory sharing is set-union, broader connectivity structurally reduces
+FNR—an analytic consequence, not an emergent finding. FNR decreases from 0.955±0.028
+(isolated) to 0.008 ± 0.012 (shared); varying classifier accuracy 0.60–0.90 moves FNR by
+≤ 0.035, a 27× smaller range than the cross-topology span. A non-trivial consequence
+emerges at ≥ 10% prior seeding: isolated agents achieve higher balanced accuracy than
+lattice (0.564 vs. 0.529), as connectivity accelerates memory saturation. The analogy to
+epistemic-network models [Zollman, 2007, 2010] is phenomenological only.
+Limitations. Synthetic agents with a ground-truth oracle; agents do not generate hypotheses or update beliefs. The simulation is an existence illustration of V incompleteness—
+the FNR–topology ordering is structurally determined and cannot produce any other outcome.
+
+8
+
+Open Problems
+
+Our analysis identifies three open problems that persist across all systems and domains.
+5
+
+False Novelty Rate (FNR)
+
+1.0
+
+acc=0.60
+acc=0.75
+acc=0.90
+
+0.8
+
+0.6
+
+0.4
+
+0.2
+
+0.0
+Isolated
+(V-local)
+
+Lattice Small-world Shared
+(V-partial) (V-improved)(V-complete)
+
+Figure 1. FNR by V -completeness level and classifier accuracy (±1 std, 30 seeds). Cross-topology
+span: 0.947; within-condition accuracy range: ≤ 0.035.
+
+8.1
+
+The Non-Automatability of Novelty
+
+Novelty cannot be reliably evaluated by automated means: every system from Coscientist (no mechanism) to The AI Scientist Nature (three-layer validation) converges on this
+conclusion. Two failure modes are documented: LLM self-evaluation bias (systematic overestimation; hallucinated results) and pretraining contamination (systems may “discover”
+results implicit in training data, as Aletheia documents for Erdős problems). The ARA
+Seal [Liu et al., 2026] demarcates the automated frontier—82.6% detection of structural
+violations with a 22% blind spot for orphaned experiments—but cannot cross the novelty
+boundary.
+Falsification criterion: Refuted if an automated V achieves human-level novelty discrimination (inter-rater agreement ≥0.80) on a contamination-controlled benchmark spanning
+≥3 distinct scientific domains.
+8.2
+
+The BED–Practice Gap for π
+
+Equation 1 specifies the theoretically optimal policy, yet no current system implements it:
+all deployed policies are heuristic (ReAct, greedy, tree search, human-guided). The partial
+exception is GNoME [Merchant et al., 2023], whose deep-ensemble uncertainty sampling
+approximates EIG over a tractable GNN posterior—but only because DFT provides a wellcalibrated V and the hypothesis space admits a learnable probabilistic model, conditions
+absent from LLM-based systems where the “posterior” is implicit in model weights [Foster
+et al., 2021].
+Falsification criterion: Refuted if any AI Scientist system implements a policy that explicitly computes and maximizes EIG over a posterior p(θ | y) in a domain where the posterior
+
+6
+
+is not tractable from first principles—ruling out tractable-model proxies such as GNoME’s
+deep-ensemble policy.
+8.3
+
+The Underdevelopment of Semantic Memory Ms
+
+Current systems store raw experiment records (Me ) but do not distill them into transferable
+patterns (Ms ): a system with 1,000 experiments does not search more intelligently than one
+with 10. The ARA /trace layer [Liu et al., 2026] is the closest approximation, but traces
+accelerated extension performance while also anchoring capable agents to prior solution
+paths—Ms structure must be paired with selective forgetting mechanisms to be beneficial.
+Falsification criterion: Refuted if accumulated cross-experiment knowledge demonstrably improves G-generated hypothesis quality across task instances in any single domain,
+measured by a pre-specified metric.
+The three open problems are precisely the necessary conditions for a collective AI coscientist [Taniguchi et al., 2025] to be realizable: Vcollective requires solving novelty automatability; a principled collective π requires closing the BED–practice gap; and a shared
+w requires developed Ms .
+
+9
+
+Discussion
+
+Our analysis establishes a design hierarchy: V choice precedes all other decisions, as it determines closed-loop feasibility and what form π can take. The collective extension [Taniguchi
+et al., 2025] requires that the three open problems be solved first: Vcollective requires novelty
+automatability; a principled collective π requires closing the BED–practice gap; developed
+Ms enables the shared semantic memory w. ARA [Liu et al., 2026] may be the most
+tractable entry point as a structured artifact protocol for w. Limitations: SciAgent abstracts domain-specific cost structures of E, non-stationarity of S, and the social layer that
+Taniguchi et al. [2025] formalize.
+
+10
+
+Conclusion
+
+We introduced SciAgent (S, G, E, V, M, π), a formal framework connecting AI Scientist
+systems to POMDP and BED theory, and applied it to four core systems, one artifact
+infrastructure proposal, and seven scientific domains. The central finding is that V completeness is the primary determinant of closed-loop feasibility: every architectural advance
+across surveyed systems is ultimately a gain in V completeness. The three open problems—
+novelty non-automatability, the BED–practice gap, and Ms underdevelopment—converge
+on a single organizing question: how do we build validators and memory structures that are
+simultaneously complete enough to support closed-loop operation and structured enough to
+support principled search?
+
+References
+G. V. Aher, R. I. Arriaga, and A. T. Kalai. Using large language models to simulate multiple
+humans and replicate human subject studies. In International Conference on Machine
+Learning, 2023. arXiv:2208.10264.
+7
+
+J. Baek, S. K. Jauhar, S. Pitis, S. J. Hwang, and J. Teevan. ResearchAgent: Iterative research idea generation over scientific literature with large language models. arXiv preprint
+arXiv:2404.07738, 2024.
+T. Blau, E. V. Bonilla, I. Chades, and A. Dezfouli. Optimizing sequential experimental design with deep reinforcement learning. In International Conference on Machine Learning,
+2022. arXiv:2202.00821.
+D. A. Boiko, R. MacKnight, B. Kline, and G. Gomes. Emergent autonomous scientific
+research capabilities of large language models. Nature, 624:570–578, 2023.
+A. M. Bran, S. Cox, O. Schilter, C. Baldassari, A. D. White, and P. Schwaller. ChemCrow:
+Augmenting large-language models with chemistry tools. Nature Machine Intelligence,
+2024. arXiv:2304.05376.
+K. Chaloner and I. Verdinelli. Bayesian experimental design: A review. Statistical Science,
+10(3):273–304, 1995.
+M. Cranmer, A. Sanchez Gonzalez, P. Battaglia, R. Xu, K. Cranmer, D. Spergel, and S. Ho.
+Discovering symbolic models from deep learning with inductive biases. In Advances in
+Neural Information Processing Systems, 2020. arXiv:2006.11287.
+T. Feng, Q. V. Le, T. Luong, T. H. Trinh, G. Bingham, D. Hwang, Y. Chervonyi, et al.
+Towards autonomous mathematics research. arXiv preprint arXiv:2602.10177, 2026.
+arXiv:2602.10177.
+A. Foster, M. Jankowiak, E. Bingham, P. Horsfall, Y. W. Teh, T. Rainforth, and N. Goodman. Variational Bayesian optimal experimental design. In Advances in Neural Information Processing Systems, 2019. arXiv:1903.05480.
+A. Foster, D. R. Ivanova, I. Malik, and T. Rainforth. Deep adaptive design: Amortizing sequential Bayesian experimental design. In International Conference on Machine
+Learning, 2021. arXiv:2103.02438.
+J. Jaber and O. Jaber. AutoKernel: Autonomous GPU kernel optimization via iterative
+agent-driven search. arXiv preprint arXiv:2603.21331, 2026.
+J. Jumper, R. Evans, A. Pritzel, T. Green, M. Figurnov, O. Ronneberger, K. Tunyasuvunakool, R. Bates, A. Žı́dek, A. Potapenko, et al. Highly accurate protein structure
+prediction with AlphaFold. Nature, 596:583–589, 2021.
+L. P. Kaelbling, M. L. Littman, and A. R. Cassandra. Planning and acting in partially
+observable stochastic domains. Artificial Intelligence, 101(1–2):99–134, 1998.
+R. Liu et al. The last human-written paper: Agent-native research artifacts. arXiv preprint
+arXiv:2604.24658, 2026.
+C. Lu, C. Lu, R. T. Lange, J. Foerster, J. Clune, and D. Ha. The AI Scientist: Towards
+fully automated open-ended scientific discovery. arXiv preprint arXiv:2408.06292, 2024.
+C. Lu, C. Lu, R. T. Lange, Y. Yamada, S. Hu, J. Foerster, D. Ha, and J. Clune.
+Towards end-to-end automation of AI research. Nature, 651:914–919, 2026. doi:
+10.1038/s41586-026-10265-5.
+B. S. Manning, K. Zhu, and J. J. Horton. Automated social science: Language models as
+scientist and subjects. NBER Working Paper, (32381), 2024. arXiv:2404.11794.
+A. Merchant, S. Batzner, S. S. Schoenholz, M. Aykol, G. Cheon, and E. D. Cubuk. Scaling
+deep learning for materials discovery. Nature, 624:80–85, 2023.
+O. O’Donoghue, G. Puthumanaillam, J. Won, P. Moura, M. Oettig, J. M. de Kruif, M. Gini,
+M. Heinonen, and P. Sloot. BioPlanner: Automatic evaluation of LLMs on protocol
+8
+
+planning in biology. arXiv preprint arXiv:2310.10632, 2023.
+J. S. Park, J. C. O’Brien, C. J. Cai, M. R. Morris, P. Liang, and M. S. Bernstein. Generative
+agents: Interactive simulacra of human behavior. In Proceedings of the ACM Symposium
+on User Interface Software and Technology, 2023. arXiv:2304.03442.
+T. Rainforth, A. Foster, D. R. Ivanova, and F. B. Smith. Modern Bayesian experimental
+design. Statistical Science, 2024. arXiv:2302.14545.
+E. Real, C. Liang, D. So, and Q. Le. AutoML-Zero: Evolving machine learning algorithms
+from scratch. In International Conference on Machine Learning, 2020. arXiv:2003.03384.
+B. Romera-Paredes, M. Barekatain, A. Novikov, M. Balog, M. P. Kumar, E. Dupont, F. J. R.
+Ruiz, J. Ellenberg, P. Wang, O. Fawzi, et al. Mathematical discoveries from program
+search with large language models. Nature, 625:468–475, 2024.
+C. C. Sartori and C. Blum. Algorithm discovery with large language models: Evolutionary
+search meets transformer. arXiv preprint arXiv:2411.00895, 2024.
+S. Schmidgall, Y. Su, Z. Wang, X. Sun, J. Wu, X. Yu, J. Liu, and E. Barsoum. Agent
+Laboratory: Using LLM agents as research assistants. arXiv preprint arXiv:2501.04227,
+2025.
+C. Si, D. Yang, and T. Hashimoto. Can LLMs generate novel research ideas? A large-scale
+human study with 100+ NLP researchers. arXiv preprint arXiv:2409.04109, 2024.
+H. W. Sprueill, C. Edwards, K. Agarwal, M. Olarte, U. Sanyal, C. Johnston, H. Liu, H. Ji,
+and S. Bhatt. ChemReasoner: Heuristic search over a large language model’s knowledge space using quantum-chemical feedback. In International Conference on Machine
+Learning, 2024. arXiv:2402.10980.
+T. Taniguchi, S. Takagi, J. Otsuka, Y. Hayashi, and H. T. Hamada. Collective predictive coding as model of science: Formalizing scientific activities towards generative
+science. Royal Society Open Science, 12(6):241678, 2025. doi: 10.1098/rsos.241678.
+arXiv:2409.00102.
+S.-M. Udrescu and M. Tegmark. AI Feynman: A physics-inspired method for symbolic
+regression. Science Advances, 6(16):eaay2631, 2020.
+H. Xin, D. Ren, S. Song, Z. Shao, W. Zhao, H. Wang, W. Liu, L. Cheng, et al. DeepSeekProver-V1.5: Harnessing proof assistant feedback for reinforcement learning and MonteCarlo tree search. arXiv preprint arXiv:2408.08152, 2024. arXiv:2408.08152.
+K. J. S. Zollman. The communication structure of epistemic communities. Philosophy of
+Science, 74(5):574–587, 2007.
+K. J. S. Zollman. The epistemic benefit of transient diversity. Erkenntnis, 72(1):17–35,
+2010.
+
+9
+
+AI Involvement Checklist
+This checklist documents the role of AI systems at each stage of this research, as required
+by CAISc 2026.
+ Hypothesis development. The core SciAgent framework (S, G, E, V, M, π), the
+H parameter, the G output spectrum (propositional hypothesis → falsifiable construction), and the three open problems were conceived by the human author. Claude Code
+(Anthropic) elaborated framework components, identified paper-level instantiations of
+each component, and proposed connections between concepts.
+ Literature search and selection. The human author determined inclusion criteria
+and target systems. Claude Code autonomously retrieved and read over 40 full-text
+PDFs, categorized papers into the taxonomy, and performed claim-level verification
+against source text.
+ Analysis. Claude Code extracted S, G, E, V, M, π components for each of the 13
+analyzed systems by reading primary sources. The human author reviewed all extractions, corrected mischaracterizations (several substantive corrections were required),
+and synthesized cross-system patterns.
+ Writing. Claude Code drafted the majority of this manuscript. The human author
+provided key conceptual passages (notably §8 and the core definitions in §4), directed
+structural decisions, and reviewed all drafts.
+
+Overall, the division of labor is best characterized as: the human author provided intellectual
+direction, framework design, and final judgment; Claude Code provided literature retrieval,
+analysis execution, and text generation.
+
+10
+
+Responsibility & Reproducibility Checklist
+ Claims and evidence. All empirical claims are grounded in cited primary sources.
+Major claims were verified by direct full-text reading of source PDFs; specific figures (e.g., Science of Science statistics) were cross-checked against institutional press
+releases where journal access was unavailable.
+ Limitations. This paper is a conceptual meta-analysis of existing published systems.
+It contains no original experiments. The SciAgent framework is not empirically
+validated against held-out systems in this submission; its descriptive adequacy rests
+on consistency across the 13 analyzed systems. Domain-specific cost structures, multiagent dynamics, and temporal evolution of systems are not modeled.
+ Reproducibility. The analytical framework can be applied to any AI Scientist system following the component definitions in §4. All analyzed papers are publicly accessible. No proprietary data or closed models were used.
+ Experimental details. Literature review methodology follows Muka et al. (2020)
+24-step systematic review guide. System selection criterion: end-to-end automation
+of at least one component of the hypothesis–experiment–validation loop.
+ Data and code availability. Analysis notes will be made available upon acceptance.
+No datasets were produced.
+ Ethical and societal impact. The H parameter analysis explicitly addresses the
+necessity of human oversight in current systems. The open problems discussion (§8)
+identifies risks of premature convergence under widespread AI Scientist deployment,
+particularly through the Ms underdevelopment problem.
+
+11
+
+
