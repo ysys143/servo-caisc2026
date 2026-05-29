@@ -23,11 +23,11 @@
 ```
 /Users/jaesolshin/Documents/Github/CAISc_2026/
 ├── HANDOFF.md                        ← 이 파일
-├── paper_1_framework/
+├── submission/
 │   ├── main.tex                      ← 제출 대상 논문 (현재 18페이지, 8로 압축 필요)
 │   ├── references.bib
 │   └── neurips_2024.sty
-└── paper_2_simulation/
+└── simulation/
     ├── CONTEXT.md                    ← 실험 컨텍스트 문서
     ├── main.tex                      ← 미완성 스켈레톤 (이번 제출에 사용 안 함)
     ├── references.bib
@@ -89,7 +89,7 @@
 
 **시뮬레이션 실행 방법:**
 ```bash
-cd /Users/jaesolshin/Documents/Github/CAISc_2026/paper_2_simulation
+cd /Users/jaesolshin/Documents/Github/CAISc_2026/simulation
 uv run python src/simulation.py
 ```
 
@@ -140,7 +140,7 @@ uv run python src/simulation.py
 ### 4-C. 컴파일 확인
 
 ```bash
-cd /Users/jaesolshin/Documents/Github/CAISc_2026/paper_1_framework
+cd /Users/jaesolshin/Documents/Github/CAISc_2026/submission
 /usr/local/texlive/2026basic/bin/universal-darwin/xelatex -interaction=nonstopmode main.tex
 /usr/local/texlive/2026basic/bin/universal-darwin/bibtex main
 /usr/local/texlive/2026basic/bin/universal-darwin/xelatex -interaction=nonstopmode main.tex
@@ -179,7 +179,7 @@ pdfinfo main.pdf | grep Pages  # 8 이하여야 함
 
 논문에 그림을 넣으려면:
 ```bash
-cd /Users/jaesolshin/Documents/Github/CAISc_2026/paper_2_simulation
+cd /Users/jaesolshin/Documents/Github/CAISc_2026/simulation
 uv add matplotlib  # 아직 설치 안 됨
 uv run python src/plot_results.py  # 작성 필요
 ```
