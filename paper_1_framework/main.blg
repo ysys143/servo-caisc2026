@@ -6,43 +6,43 @@ Database file #1: references.bib
 Warning--there's a number but no volume in manning2024automated
 You've used 32 entries,
             2773 wiz_defined-function locations,
-            754 strings with 11310 characters,
-and the built_in function-call counts, 17545 in all, are:
-= -- 1403
-> -- 1537
+            763 strings with 11488 characters,
+and the built_in function-call counts, 17949 in all, are:
+= -- 1445
+> -- 1572
 < -- 7
-+ -- 515
-- -- 483
-* -- 1554
-:= -- 2847
-add.period$ -- 107
++ -- 527
+- -- 495
+* -- 1603
+:= -- 2913
+add.period$ -- 112
 call.type$ -- 32
-change.case$ -- 253
+change.case$ -- 256
 chr.to.int$ -- 32
 cite$ -- 65
-duplicate$ -- 674
-empty$ -- 1149
-format.name$ -- 524
-if$ -- 3533
+duplicate$ -- 676
+empty$ -- 1167
+format.name$ -- 536
+if$ -- 3614
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 32
-newline$ -- 179
+newline$ -- 184
 num.names$ -- 128
-pop$ -- 511
+pop$ -- 508
 preamble$ -- 1
-purify$ -- 221
+purify$ -- 224
 quote$ -- 0
-skip$ -- 554
+skip$ -- 558
 stack$ -- 0
-substring$ -- 273
+substring$ -- 316
 swap$ -- 40
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 352
 warning$ -- 1
-while$ -- 113
+while$ -- 116
 width$ -- 0
-write$ -- 423
+write$ -- 435
 (There was 1 warning)
