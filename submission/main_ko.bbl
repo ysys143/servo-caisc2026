@@ -1,0 +1,232 @@
+\begin{thebibliography}{32}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Aher et~al.(2023)Aher, Arriaga, and Kalai]{aher2023turing}
+G.~V. Aher, R.~I. Arriaga, and A.~T. Kalai.
+\newblock Using large language models to simulate multiple humans and replicate
+  human subject studies.
+\newblock In \emph{International Conference on Machine Learning}, 2023.
+\newblock arXiv:2208.10264.
+
+\bibitem[Baek et~al.(2024)Baek, Jauhar, Pitis, Hwang, and
+  Teevan]{baek2024researchagent}
+J.~Baek, S.~K. Jauhar, S.~Pitis, S.~J. Hwang, and J.~Teevan.
+\newblock {ResearchAgent}: {Iterative} research idea generation over scientific
+  literature with large language models.
+\newblock \emph{arXiv preprint arXiv:2404.07738}, 2024.
+
+\bibitem[Blau et~al.(2022)Blau, Bonilla, Chades, and Dezfouli]{blau2022rl}
+T.~Blau, E.~V. Bonilla, I.~Chades, and A.~Dezfouli.
+\newblock Optimizing sequential experimental design with deep reinforcement
+  learning.
+\newblock In \emph{International Conference on Machine Learning}, 2022.
+\newblock arXiv:2202.00821.
+
+\bibitem[Boiko et~al.(2023)Boiko, MacKnight, Kline, and
+  Gomes]{boiko2023emergent}
+D.~A. Boiko, R.~MacKnight, B.~Kline, and G.~Gomes.
+\newblock Emergent autonomous scientific research capabilities of large
+  language models.
+\newblock \emph{Nature}, 624:\penalty0 570--578, 2023.
+
+\bibitem[Bran et~al.(2024)Bran, Cox, Schilter, Baldassari, White, and
+  Schwaller]{bran2023chemcrow}
+A.~M. Bran, S.~Cox, O.~Schilter, C.~Baldassari, A.~D. White, and P.~Schwaller.
+\newblock {ChemCrow}: {Augmenting} large-language models with chemistry tools.
+\newblock \emph{Nature Machine Intelligence}, 2024.
+\newblock arXiv:2304.05376.
+
+\bibitem[Chaloner and Verdinelli(1995)]{chaloner1995bayesian}
+K.~Chaloner and I.~Verdinelli.
+\newblock Bayesian experimental design: {A} review.
+\newblock \emph{Statistical Science}, 10\penalty0 (3):\penalty0 273--304, 1995.
+
+\bibitem[Cranmer et~al.(2020)Cranmer, Sanchez~Gonzalez, Battaglia, Xu, Cranmer,
+  Spergel, and Ho]{cranmer2020symbolic}
+M.~Cranmer, A.~Sanchez~Gonzalez, P.~Battaglia, R.~Xu, K.~Cranmer, D.~Spergel,
+  and S.~Ho.
+\newblock Discovering symbolic models from deep learning with inductive biases.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2020.
+\newblock arXiv:2006.11287.
+
+\bibitem[Feng et~al.(2026)Feng, Le, Luong, Trinh, Bingham, Hwang, Chervonyi,
+  et~al.]{google2026aletheia}
+T.~Feng, Q.~V. Le, T.~Luong, T.~H. Trinh, G.~Bingham, D.~Hwang, Y.~Chervonyi,
+  et~al.
+\newblock Towards autonomous mathematics research.
+\newblock \emph{arXiv preprint arXiv:2602.10177}, 2026.
+\newblock arXiv:2602.10177.
+
+\bibitem[Foster et~al.(2019)Foster, Jankowiak, Bingham, Horsfall, Teh,
+  Rainforth, and Goodman]{foster2019variational}
+A.~Foster, M.~Jankowiak, E.~Bingham, P.~Horsfall, Y.~W. Teh, T.~Rainforth, and
+  N.~Goodman.
+\newblock Variational {Bayesian} optimal experimental design.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2019.
+\newblock arXiv:1903.05480.
+
+\bibitem[Foster et~al.(2021)Foster, Ivanova, Malik, and
+  Rainforth]{foster2021dad}
+A.~Foster, D.~R. Ivanova, I.~Malik, and T.~Rainforth.
+\newblock Deep adaptive design: {Amortizing} sequential {Bayesian} experimental
+  design.
+\newblock In \emph{International Conference on Machine Learning}, 2021.
+\newblock arXiv:2103.02438.
+
+\bibitem[Jaber and Jaber(2026)]{jaber2026autokernel}
+J.~Jaber and O.~Jaber.
+\newblock {AutoKernel}: {Autonomous} {GPU} kernel optimization via iterative
+  agent-driven search.
+\newblock \emph{arXiv preprint arXiv:2603.21331}, 2026.
+
+\bibitem[Jumper et~al.(2021)Jumper, Evans, Pritzel, Green, Figurnov,
+  Ronneberger, Tunyasuvunakool, Bates, {\v{Z}}{\'\i}dek, Potapenko,
+  et~al.]{jumper2021alphafold}
+J.~Jumper, R.~Evans, A.~Pritzel, T.~Green, M.~Figurnov, O.~Ronneberger,
+  K.~Tunyasuvunakool, R.~Bates, A.~{\v{Z}}{\'\i}dek, A.~Potapenko, et~al.
+\newblock Highly accurate protein structure prediction with {AlphaFold}.
+\newblock \emph{Nature}, 596:\penalty0 583--589, 2021.
+
+\bibitem[Kaelbling et~al.(1998)Kaelbling, Littman, and
+  Cassandra]{kaelbling1998pomdp}
+L.~P. Kaelbling, M.~L. Littman, and A.~R. Cassandra.
+\newblock Planning and acting in partially observable stochastic domains.
+\newblock \emph{Artificial Intelligence}, 101\penalty0 (1--2):\penalty0
+  99--134, 1998.
+
+\bibitem[Liu et~al.(2026)]{liu2026lasthuman}
+R.~Liu et~al.
+\newblock The last human-written paper: {Agent-native} research artifacts.
+\newblock \emph{arXiv preprint arXiv:2604.24658}, 2026.
+
+\bibitem[Lu et~al.(2024)Lu, Lu, Lange, Foerster, Clune, and
+  Ha]{lu2024aiscientist}
+C.~Lu, C.~Lu, R.~T. Lange, J.~Foerster, J.~Clune, and D.~Ha.
+\newblock The {AI} {Scientist}: {Towards} fully automated open-ended scientific
+  discovery.
+\newblock \emph{arXiv preprint arXiv:2408.06292}, 2024.
+
+\bibitem[Lu et~al.(2026)Lu, Lu, Lange, Yamada, Hu, Foerster, Ha, and
+  Clune]{lu2026aiscientist}
+C.~Lu, C.~Lu, R.~T. Lange, Y.~Yamada, S.~Hu, J.~Foerster, D.~Ha, and J.~Clune.
+\newblock Towards end-to-end automation of {AI} research.
+\newblock \emph{Nature}, 651:\penalty0 914--919, 2026.
+\newblock \doi{10.1038/s41586-026-10265-5}.
+
+\bibitem[Manning et~al.(2024)Manning, Zhu, and Horton]{manning2024automated}
+B.~S. Manning, K.~Zhu, and J.~J. Horton.
+\newblock Automated social science: {Language} models as scientist and
+  subjects.
+\newblock \emph{NBER Working Paper}, \penalty0 (32381), 2024.
+\newblock arXiv:2404.11794.
+
+\bibitem[Merchant et~al.(2023)Merchant, Batzner, Schoenholz, Aykol, Cheon, and
+  Cubuk]{merchant2023gnome}
+A.~Merchant, S.~Batzner, S.~S. Schoenholz, M.~Aykol, G.~Cheon, and E.~D. Cubuk.
+\newblock Scaling deep learning for materials discovery.
+\newblock \emph{Nature}, 624:\penalty0 80--85, 2023.
+
+\bibitem[O'Donoghue et~al.(2023)O'Donoghue, Puthumanaillam, Won, Moura, Oettig,
+  de~Kruif, Gini, Heinonen, and Sloot]{odonoghue2023bioplanner}
+O.~O'Donoghue, G.~Puthumanaillam, J.~Won, P.~Moura, M.~Oettig, J.~M. de~Kruif,
+  M.~Gini, M.~Heinonen, and P.~Sloot.
+\newblock {BioPlanner}: {Automatic} evaluation of {LLMs} on protocol planning
+  in biology.
+\newblock \emph{arXiv preprint arXiv:2310.10632}, 2023.
+
+\bibitem[Park et~al.(2023)Park, O'Brien, Cai, Morris, Liang, and
+  Bernstein]{park2023generative}
+J.~S. Park, J.~C. O'Brien, C.~J. Cai, M.~R. Morris, P.~Liang, and M.~S.
+  Bernstein.
+\newblock Generative agents: {Interactive} simulacra of human behavior.
+\newblock In \emph{Proceedings of the ACM Symposium on User Interface Software
+  and Technology}, 2023.
+\newblock arXiv:2304.03442.
+
+\bibitem[Rainforth et~al.(2024)Rainforth, Foster, Ivanova, and
+  Smith]{rainforth2024modern}
+T.~Rainforth, A.~Foster, D.~R. Ivanova, and F.~B. Smith.
+\newblock Modern {Bayesian} experimental design.
+\newblock \emph{Statistical Science}, 2024.
+\newblock arXiv:2302.14545.
+
+\bibitem[Real et~al.(2020)Real, Liang, So, and Le]{real2020automlzero}
+E.~Real, C.~Liang, D.~So, and Q.~Le.
+\newblock {AutoML-Zero}: {Evolving} machine learning algorithms from scratch.
+\newblock In \emph{International Conference on Machine Learning}, 2020.
+\newblock arXiv:2003.03384.
+
+\bibitem[Romera-Paredes et~al.(2024)Romera-Paredes, Barekatain, Novikov, Balog,
+  Kumar, Dupont, Ruiz, Ellenberg, Wang, Fawzi, et~al.]{romera2023funsearch}
+B.~Romera-Paredes, M.~Barekatain, A.~Novikov, M.~Balog, M.~P. Kumar, E.~Dupont,
+  F.~J.~R. Ruiz, J.~Ellenberg, P.~Wang, O.~Fawzi, et~al.
+\newblock Mathematical discoveries from program search with large language
+  models.
+\newblock \emph{Nature}, 625:\penalty0 468--475, 2024.
+
+\bibitem[Sartori and Blum(2024)]{sartori2024algodiscovery}
+C.~C. Sartori and C.~Blum.
+\newblock Algorithm discovery with large language models: {Evolutionary} search
+  meets transformer.
+\newblock \emph{arXiv preprint arXiv:2411.00895}, 2024.
+
+\bibitem[Schmidgall et~al.(2025)Schmidgall, Su, Wang, Sun, Wu, Yu, Liu, and
+  Barsoum]{schmidgall2025agentlab}
+S.~Schmidgall, Y.~Su, Z.~Wang, X.~Sun, J.~Wu, X.~Yu, J.~Liu, and E.~Barsoum.
+\newblock Agent {Laboratory}: {Using} {LLM} agents as research assistants.
+\newblock \emph{arXiv preprint arXiv:2501.04227}, 2025.
+
+\bibitem[Si et~al.(2024)Si, Yang, and Hashimoto]{si2024novelideas}
+C.~Si, D.~Yang, and T.~Hashimoto.
+\newblock Can {LLMs} generate novel research ideas? {A} large-scale human study
+  with 100+ {NLP} researchers.
+\newblock \emph{arXiv preprint arXiv:2409.04109}, 2024.
+
+\bibitem[Sprueill et~al.(2024)Sprueill, Edwards, Agarwal, Olarte, Sanyal,
+  Johnston, Liu, Ji, and Bhatt]{sprueill2024chemreasoner}
+H.~W. Sprueill, C.~Edwards, K.~Agarwal, M.~Olarte, U.~Sanyal, C.~Johnston,
+  H.~Liu, H.~Ji, and S.~Bhatt.
+\newblock {ChemReasoner}: {Heuristic} search over a large language model's
+  knowledge space using quantum-chemical feedback.
+\newblock In \emph{International Conference on Machine Learning}, 2024.
+\newblock arXiv:2402.10980.
+
+\bibitem[Taniguchi et~al.(2025)Taniguchi, Takagi, Otsuka, Hayashi, and
+  Hamada]{taniguchi2024cpc}
+T.~Taniguchi, S.~Takagi, J.~Otsuka, Y.~Hayashi, and H.~T. Hamada.
+\newblock Collective predictive coding as model of science: {Formalizing}
+  scientific activities towards generative science.
+\newblock \emph{Royal Society Open Science}, 12\penalty0 (6):\penalty0 241678,
+  2025.
+\newblock \doi{10.1098/rsos.241678}.
+\newblock arXiv:2409.00102.
+
+\bibitem[Udrescu and Tegmark(2020)]{udrescu2020afeynman}
+S.-M. Udrescu and M.~Tegmark.
+\newblock {AI} {Feynman}: {A} physics-inspired method for symbolic regression.
+\newblock \emph{Science Advances}, 6\penalty0 (16):\penalty0 eaay2631, 2020.
+
+\bibitem[Xin et~al.(2024)Xin, Ren, Song, Shao, Zhao, Wang, Liu, Cheng,
+  et~al.]{xin2024deepseek}
+H.~Xin, D.~Ren, S.~Song, Z.~Shao, W.~Zhao, H.~Wang, W.~Liu, L.~Cheng, et~al.
+\newblock {DeepSeek-Prover-V1.5}: {Harnessing} proof assistant feedback for
+  reinforcement learning and {Monte-Carlo} tree search.
+\newblock \emph{arXiv preprint arXiv:2408.08152}, 2024.
+\newblock arXiv:2408.08152.
+
+\bibitem[Zollman(2007)]{zollman2007communication}
+K.~J.~S. Zollman.
+\newblock The communication structure of epistemic communities.
+\newblock \emph{Philosophy of Science}, 74\penalty0 (5):\penalty0 574--587,
+  2007.
+
+\bibitem[Zollman(2010)]{zollman2010epistemic}
+K.~J.~S. Zollman.
+\newblock The epistemic benefit of transient diversity.
+\newblock \emph{Erkenntnis}, 72\penalty0 (1):\penalty0 17--35, 2010.
+
+\end{thebibliography}
