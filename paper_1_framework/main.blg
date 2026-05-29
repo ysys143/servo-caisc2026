@@ -4,45 +4,45 @@ The top-level auxiliary file: main.aux
 The style file: abbrvnat.bst
 Database file #1: references.bib
 Warning--there's a number but no volume in manning2024automated
-You've used 30 entries,
+You've used 32 entries,
             2773 wiz_defined-function locations,
-            740 strings with 11045 characters,
-and the built_in function-call counts, 16666 in all, are:
-= -- 1321
-> -- 1497
-< -- 6
-+ -- 501
-- -- 471
-* -- 1479
-:= -- 2713
-add.period$ -- 101
-call.type$ -- 30
-change.case$ -- 243
-chr.to.int$ -- 30
-cite$ -- 61
-duplicate$ -- 633
-empty$ -- 1070
-format.name$ -- 510
-if$ -- 3351
+            754 strings with 11310 characters,
+and the built_in function-call counts, 17545 in all, are:
+= -- 1403
+> -- 1537
+< -- 7
++ -- 515
+- -- 483
+* -- 1554
+:= -- 2847
+add.period$ -- 107
+call.type$ -- 32
+change.case$ -- 253
+chr.to.int$ -- 32
+cite$ -- 65
+duplicate$ -- 674
+empty$ -- 1149
+format.name$ -- 524
+if$ -- 3533
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 30
-newline$ -- 169
-num.names$ -- 120
-pop$ -- 494
+missing$ -- 32
+newline$ -- 179
+num.names$ -- 128
+pop$ -- 511
 preamble$ -- 1
-purify$ -- 213
+purify$ -- 221
 quote$ -- 0
-skip$ -- 526
+skip$ -- 554
 stack$ -- 0
-substring$ -- 225
-swap$ -- 38
+substring$ -- 273
+swap$ -- 40
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 330
+type$ -- 352
 warning$ -- 1
-while$ -- 103
+while$ -- 113
 width$ -- 0
-write$ -- 397
+write$ -- 423
 (There was 1 warning)

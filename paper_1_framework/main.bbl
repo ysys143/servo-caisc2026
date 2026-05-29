@@ -1,4 +1,4 @@
-\begin{thebibliography}{30}
+\begin{thebibliography}{32}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -164,6 +164,13 @@ B.~Romera-Paredes, M.~Barekatain, A.~Novikov, M.~Balog, M.~P. Kumar, E.~Dupont,
   models.
 \newblock \emph{Nature}, 625:\penalty0 468--475, 2024.
 
+\bibitem[Rosenstock et~al.(2017)Rosenstock, Bruner, and
+  O'Connor]{rosenstock2017epistemic}
+S.~Rosenstock, J.~Bruner, and C.~O'Connor.
+\newblock In epistemic networks, is less really more?
+\newblock \emph{Philosophy of Science}, 84\penalty0 (2):\penalty0 234--252,
+  2017.
+
 \bibitem[Sartori and Blum(2024)]{sartori2024algodiscovery}
 C.~C. Sartori and C.~Blum.
 \newblock Algorithm discovery with large language models: {Evolutionary} search
@@ -209,5 +216,10 @@ H.~Xin, D.~Ren, S.~Song, Z.~Shao, W.~Zhao, H.~Wang, W.~Liu, L.~Cheng, et~al.
 \newblock {DeepSeek-Prover-V1.5}: {Harnessing} proof assistant feedback for
   reinforcement learning and {Monte-Carlo} tree search.
 \newblock \emph{arXiv preprint arXiv:2408.11170}, 2024.
+
+\bibitem[Zollman(2010)]{zollman2010epistemic}
+K.~J.~S. Zollman.
+\newblock The epistemic benefit of transient diversity.
+\newblock \emph{Erkenntnis}, 72\penalty0 (1):\penalty0 17--35, 2010.
 
 \end{thebibliography}

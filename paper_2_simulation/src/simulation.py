@@ -25,18 +25,20 @@ from typing import Optional
 def build_hypothesis_space(
     n_hypotheses: int = 200,
     n_latent_classes: int = 40,
-    surface_noise: float = 0.2,
     seed: int = 42,
-) -> tuple[nx.Graph, dict]:
+) -> dict:
     """
+    Build a flat hypothesis space.
+
+    Each hypothesis is assigned a latent class uniformly at random.
+    Ground-truth novelty: a hypothesis is novel iff its latent class has not
+    appeared in any earlier hypothesis (evaluation order = insertion order).
+    Exactly n_latent_classes hypotheses will be novel; the rest are redundant.
+
     Returns:
-        graph: nodes = hypotheses, edges = conceptual similarity
         ground_truth: {hyp_id: {'latent_class': int, 'true_novel': bool}}
     """
     rng = random.Random(seed)
-    np.random.seed(seed)
-
-    G = nx.barabasi_albert_graph(n_hypotheses, m=3, seed=seed)
 
     latent_classes = {i: rng.randint(0, n_latent_classes - 1) for i in range(n_hypotheses)}
     published_classes: set[int] = set()
@@ -48,18 +50,10 @@ def build_hypothesis_space(
         ground_truth[hyp_id] = {
             "latent_class": lc,
             "true_novel": is_novel,
-            "surface_features": _surface_features(lc, n_latent_classes, surface_noise, rng),
         }
         published_classes.add(lc)
 
-    return G, ground_truth
-
-
-def _surface_features(latent_class: int, n_classes: int, noise: float, rng: random.Random) -> np.ndarray:
-    vec = np.zeros(n_classes)
-    vec[latent_class] = 1.0
-    noise_vec = np.array([rng.gauss(0, noise) for _ in range(n_classes)])
-    return np.clip(vec + noise_vec, 0, 1)
+    return ground_truth
 
 
 # ---------------------------------------------------------------------------
@@ -70,17 +64,22 @@ def _surface_features(latent_class: int, n_classes: int, noise: float, rng: rand
 class ReviewerAgent:
     agent_id: int
     local_memory: dict = field(default_factory=dict)   # {latent_class: count}
-    classifier_accuracy: float = 0.8                   # semantic equiv. accuracy
+    classifier_accuracy: float = 0.8
+    n_latent_classes: int = 40    # range for classifier noise replacement
     trust_neighbors: list[int] = field(default_factory=list)
 
     def estimate_novelty(self, hypothesis: dict, shared_memory: Optional[dict] = None) -> bool:
-        """Returns True if agent believes hypothesis is novel."""
+        """Returns True if agent believes hypothesis is novel.
+
+        With probability (1 - classifier_accuracy) the agent misidentifies
+        the latent class by drawing a uniform random replacement — modelling
+        imperfect semantic identification, not meaningful proximity error.
+        """
         memory = shared_memory if shared_memory is not None else self.local_memory
         lc = hypothesis["latent_class"]
 
-        # Imperfect classifier: sometimes misidentifies latent class
         if random.random() > self.classifier_accuracy:
-            lc = random.randint(0, len(hypothesis["surface_features"]) - 1)
+            lc = random.randint(0, self.n_latent_classes - 1)
 
         return lc not in memory
 
@@ -96,6 +95,7 @@ def build_reviewer_network(
     n_reviewers: int,
     topology: str = "small_world",
     classifier_accuracy: float = 0.8,
+    n_latent_classes: int = 40,
     seed: int = 42,
 ) -> tuple[list[ReviewerAgent], nx.Graph]:
     """
@@ -105,6 +105,7 @@ def build_reviewer_network(
         ReviewerAgent(
             agent_id=i,
             classifier_accuracy=classifier_accuracy + random.gauss(0, 0.05),
+            n_latent_classes=n_latent_classes,
         )
         for i in range(n_reviewers)
     ]
@@ -149,12 +150,14 @@ def run_simulation(
     random.seed(seed)
     np.random.seed(seed)
 
-    _, ground_truth = build_hypothesis_space(
+    ground_truth = build_hypothesis_space(
         n_hypotheses=n_hypotheses,
         n_latent_classes=n_latent_classes,
         seed=seed,
     )
-    agents, _ = build_reviewer_network(n_reviewers, topology, classifier_accuracy, seed)
+    agents, _ = build_reviewer_network(
+        n_reviewers, topology, classifier_accuracy, n_latent_classes, seed
+    )
 
     results = {
         "topology": topology,
