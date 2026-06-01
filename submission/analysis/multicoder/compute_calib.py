@@ -43,6 +43,20 @@ def fleiss(field):
     return len(items), Pbar, (1.0 if Pe == 1 else (Pbar - Pe) / (1 - Pe))
 
 
+def cohen(field, c1, c2):
+    """Chance-adjusted agreement for a single pair of coders (works at N=2 raters,
+    where Fleiss' kappa is undefined)."""
+    items = [s for s in systems if c1 in data[field][s] and c2 in data[field][s]]
+    a = [data[field][s][c1] for s in items]
+    b = [data[field][s][c2] for s in items]
+    if not a:
+        return None
+    cats = set(a) | set(b)
+    po = sum(x == y for x, y in zip(a, b)) / len(a)
+    pe = sum((a.count(c) / len(a)) * (b.count(c) / len(a)) for c in cats)
+    return len(a), po, (1.0 if pe == 1 else (po - pe) / (1 - pe))
+
+
 print(f"Coders: {coders}   Systems: {len(systems)}\n")
 print("=== Per-system: coders[a/c/...] | author ===")
 for s in systems:
@@ -58,6 +72,15 @@ for f in FIELDS:
     r = fleiss(f)
     if r:
         print(f"  {f:<14} N={r[0]} raw_agreement={r[1]:.2f} fleiss_kappa={r[2]:.2f}")
+
+print("\n=== Pairwise Cohen's kappa (chance-adjusted; reported because with only two")
+print("    vendors Fleiss' kappa is undefined -- 13/14 etc. are RAW agreement counts) ===")
+if len(coders) >= 2:
+    c1, c2 = coders[0], coders[1]
+    for f in FIELDS:
+        r = cohen(f, c1, c2)
+        if r:
+            print(f"  {f:<14} {c1}-{c2}: N={r[0]} raw={r[1]:.2f} cohen_kappa={r[2]:.2f}")
 
 print("\n=== Author vs coder-majority match per field ===")
 for f in FIELDS:

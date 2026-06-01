@@ -164,6 +164,11 @@ gpt-5.5; the `agy` CLI returned empty output in this headless run and was exclud
 | V_gating      | 13/14 (92%)    | 12/14           | the decisive, reproducible construct |
 | novelty_gate  | 10/14          | 10/14           | noisier (5-way categorical) |
 
+With two vendors Fleiss' kappa is undefined, so the counts above are RAW agreement;
+the chance-adjusted two-vendor Cohen's kappa is V_present 1.00, V_gating 0.86,
+novelty_gate 0.53 (`compute_calib.py`). Human expert adjudication is not done; these
+LLM labels are a transparency measure, not a human-level gold standard.
+
 - **The dispute resolves.** For AI Scientist (Nature 2026) the author and both
   coders agree under the split: `V_present=1` (a calibrated empirical replication
   layer exists -- what the author label captured) and `V_gating=0` (acceptance is
