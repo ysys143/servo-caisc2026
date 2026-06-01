@@ -23,7 +23,12 @@ Coverage: 14 systems x 3 coders = 42 codings; `codex` failed on one system
 (NovelSeek), so 13 systems have all three coders and one is two-coder
 (claude+agy). For `agy` the model is pinned via the settings file.
 The pipeline (`run_coders.py`, `compute_fleiss.py`) is re-runnable and
-deterministic.
+deterministic. The coders are blind to one another and to the author's labels,
+but **not** to system identity (the systems are widely known and may be
+memorized); this is stated as a limitation in the paper. Coder A (author) labels
+in `../systems.csv` cover the core systems reported in Table 1, while this
+multi-vendor reliability coding extends to all 14 Tier-1 systems (see
+`multicoder/target_systems.md`).
 
 ### Fleiss' kappa (the 13 systems coded by all three vendors)
 
@@ -107,9 +112,11 @@ evidence for the direction of the association.
 gained capability from a stronger generator (G) or policy (pi) -- DeepScientist,
 ERA, FunSearch/AlphaEvolve, DeepSeek-Prover -- the gain *exploited an
 already-complete validator* (benchmark leaderboard, numeric oracle, or formal
-kernel). The cleanest framing the evidence supports: **V-completeness gates
-whether a closed loop is possible at all; G and pi gate how productive that loop
-is once V is complete.** The one pure-G advance with no V improvement (OpenAI
+kernel). The cleanest framing the evidence supports: **V-completeness gates whether a
+closed loop can reliably *track truth* at all; G and pi gate how productive that
+loop is once V is complete.** (The structural near-miss in (a) shows a loop can
+close *mechanically* on an uncalibrated V; what V-completeness gates is
+trustworthy closure, not the mere flow of feedback.) The one pure-G advance with no V improvement (OpenAI
 unit-distance disproof) is *not* closed-loop -- it is single-shot, certified
 post hoc by human mathematicians.
 

@@ -5,7 +5,7 @@ Fails (exit 1) if any coded row lacks a source quote or cites a key absent from
 references.bib. This makes the cross-system coding behind Table 1 auditable and
 the manuscript table a build product rather than hand-written prose.
 
-Usage: python3 build_servo_tables.py [--out tbl-core.tex]
+Usage: python3 build_servo_tables.py   # validates systems.csv, writes tbl-core.tex
 """
 import csv, os, re, sys
 

@@ -24,9 +24,13 @@ the include/exclude decision per system are recorded in
 
 ## Operational rubric (each cell answerable from an explicit source quote)
 
-For every system we record, for each of S, G, E, V, M, pi, a short label plus a
-direct source quote and citation. The decisive constructs are coded as discrete
-indicators so coders can agree or disagree unambiguously:
+For every system we record, for each of S, G, E, V, M, pi, a short label, and we
+attach at least one direct source quote with a citation as the evidentiary
+anchor. (The released `systems.csv` carries one representative source quote per
+system for the existence/citation check enforced by `build_servo_tables.py`; the
+per-component values are the coded fields, not one quote per component.) The
+decisive constructs are coded as discrete indicators so coders can agree or
+disagree unambiguously:
 
 ### V layers (binary presence; each requires a source quote)
 - `V_syntax`  {0,1}: a deterministic automated pass/fail check exists.
@@ -69,7 +73,9 @@ values.
   (`gpt-5.5`, OpenAI), and Antigravity `agy` (Gemini 3.1 Pro High, Google) --
   each given ONLY this protocol and the neutral source descriptions in
   `multicoder/systems_desc.json`, blind to the author's labels and to one
-  another. Per-coder outputs are in `multicoder/codings.csv` and
+  another (but NOT blind to system identity -- the systems are widely known and
+  may be memorized, which the paper states as a limitation). Per-coder outputs
+  are in `multicoder/codings.csv` and
   `multicoder/raters/`.
 - **Agreement:** Fleiss' kappa across the three coders plus pairwise Cohen's
   kappa, per categorical field, reported in `reliability_report.md`. Because the
