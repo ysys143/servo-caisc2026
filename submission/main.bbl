@@ -1,4 +1,4 @@
-\begin{thebibliography}{35}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -51,6 +51,15 @@ A.~M. Bran, S.~Cox, O.~Schilter, C.~Baldassari, A.~D. White, and P.~Schwaller.
 K.~Chaloner and I.~Verdinelli.
 \newblock Bayesian experimental design: {A} review.
 \newblock \emph{Statistical Science}, 10\penalty0 (3):\penalty0 273--304, 1995.
+
+\bibitem[Choudhury et~al.(2026)Choudhury, Williamson, Goli{\'n}ski, Miao,
+  Smith, Kirchhof, Zhang, and Rainforth]{choudhury2026bedllm}
+D.~Choudhury, S.~Williamson, A.~Goli{\'n}ski, N.~Miao, F.~B. Smith,
+  M.~Kirchhof, Y.~Zhang, and T.~Rainforth.
+\newblock {BED-LLM}: Intelligent information gathering with {LLMs} and
+  {Bayesian} experimental design.
+\newblock In \emph{International Conference on Learning Representations}, 2026.
+\newblock arXiv:2508.21184.
 
 \bibitem[Cranmer et~al.(2020)Cranmer, Sanchez~Gonzalez, Battaglia, Xu, Cranmer,
   Spergel, and Ho]{cranmer2020symbolic}
