@@ -3,6 +3,12 @@
 % CAISc 2026 official style (preprint = non-anonymous, for arXiv/sharing)
 \usepackage[preprint]{caisc_2026}
 
+% caisc_2026 sets \rmdefault to ptm (Times), whose bold/italic/small-caps shapes
+% are undefined in XeLaTeX's TU encoding, so \textbf/\textsc silently fell back to
+% regular weight. Bind the main font to a real Unicode Times with all faces:
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
 % Packages
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb,amsfonts}
