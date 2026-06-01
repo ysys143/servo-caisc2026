@@ -5,8 +5,9 @@ Reports Fleiss' kappa (>=3 raters) and pairwise Cohen's kappa for the categorica
 fields, and mean pairwise |difference| for the continuous H. Optionally compares
 each LLM coder against the author column A_<field> in ../systems.csv.
 
-With N=6 systems these statistics are noisy and reported as transparency measures
-for automated raters, not as a claim of human-level inter-rater reliability.
+With N=14 systems (13 coded by all three vendors) these statistics are reported
+as a transparency measure for automated raters, not as a claim of human-level
+inter-rater reliability.
 """
 import csv, itertools, os
 from collections import defaultdict
