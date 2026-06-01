@@ -13,12 +13,13 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{fontspec}
-% 본문: KoPub바탕체(세리프/명조) — 학술 본문 가독성 + 실제 Bold weight
+% 본문: KoPub바탕체 Light(더 얇게) + 자간 확대(LetterSpace) — bold는 Bold 유지로 대비
 \setmainfont[
   BoldFont={KoPubWorldBatang Bold},
-  Scale=0.97
-]{KoPubWorldBatang Medium}
-\setsansfont[Scale=0.97]{Noto Sans KR}
+  Scale=0.97,
+  LetterSpace=2.0
+]{KoPubWorldBatang Light}
+\setsansfont[Scale=0.97, LetterSpace=2.0]{Noto Sans KR}
 
 \hypersetup{
   colorlinks=true,
