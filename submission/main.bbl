@@ -1,4 +1,4 @@
-\begin{thebibliography}{30}
+\begin{thebibliography}{35}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -18,6 +18,13 @@ J.~Baek, S.~K. Jauhar, S.~Pitis, S.~J. Hwang, and J.~Teevan.
 \newblock {ResearchAgent}: {Iterative} research idea generation over scientific
   literature with large language models.
 \newblock \emph{arXiv preprint arXiv:2404.07738}, 2024.
+
+\bibitem[Berk(1966)]{berk1966}
+R.~H. Berk.
+\newblock Limiting behavior of posterior distributions when the model is
+  incorrect.
+\newblock \emph{The Annals of Mathematical Statistics}, 37\penalty0
+  (1):\penalty0 51--58, 1966.
 
 \bibitem[Blau et~al.(2022)Blau, Bonilla, Chades, and Dezfouli]{blau2022rl}
 T.~Blau, E.~V. Bonilla, I.~Chades, and A.~Dezfouli.
@@ -77,6 +84,21 @@ A.~Foster, D.~R. Ivanova, I.~Malik, and T.~Rainforth.
 \newblock In \emph{International Conference on Machine Learning}, 2021.
 \newblock arXiv:2103.02438.
 
+\bibitem[Ghosal and van~der Vaart(2017)]{ghosal2017fundamentals}
+S.~Ghosal and A.~van~der Vaart.
+\newblock \emph{Fundamentals of Nonparametric Bayesian Inference}.
+\newblock Cambridge Series in Statistical and Probabilistic Mathematics.
+  Cambridge University Press, 2017.
+
+\bibitem[Gottweis et~al.(2026)Gottweis, Weng, Daryin, Tu, Sirkovic, Myaskovsky,
+  Glowatyj, Weissenberger, Orlandi, Popovici, et~al.]{gottweis2026coscientist}
+J.~Gottweis, W.-H. Weng, A.~Daryin, T.~Tu, P.~Sirkovic, A.~Myaskovsky,
+  G.~Glowatyj, F.~Weissenberger, A.~Orlandi, D.~Popovici, et~al.
+\newblock Accelerating scientific discovery with {Co-Scientist}.
+\newblock \emph{Nature}, 2026.
+\newblock \doi{10.1038/s41586-026-10644-y}.
+\newblock arXiv:2502.18864.
+
 \bibitem[Jaber and Jaber(2026)]{jaber2026autokernel}
 J.~Jaber and O.~Jaber.
 \newblock {AutoKernel}: {Autonomous} {GPU} kernel optimization via iterative
@@ -99,9 +121,10 @@ L.~P. Kaelbling, M.~L. Littman, and A.~R. Cassandra.
   99--134, 1998.
 
 \bibitem[Liu et~al.(2026)]{liu2026lasthuman}
-R.~Liu et~al.
-\newblock The last human-written paper: {Agent-native} research artifacts.
+J.~Liu et~al.
+\newblock The last human-written paper: {Agent-Native} research artifacts.
 \newblock \emph{arXiv preprint arXiv:2604.24658}, 2026.
+\newblock arXiv:2604.24658.
 
 \bibitem[Lu et~al.(2024)Lu, Lu, Lange, Foerster, Clune, and
   Ha]{lu2024aiscientist}
@@ -186,6 +209,14 @@ C.~Si, D.~Yang, and T.~Hashimoto.
   with 100+ {NLP} researchers.
 \newblock \emph{arXiv preprint arXiv:2409.04109}, 2024.
 
+\bibitem[Sparkes et~al.(2010)Sparkes, Aubrey, Byrne, Clare, Khan, Liakata,
+  Markham, Rowland, Soldatova, Whelan, Young, and King]{sparkes2010robot}
+A.~Sparkes, W.~Aubrey, E.~Byrne, A.~Clare, M.~N. Khan, M.~Liakata, M.~Markham,
+  J.~Rowland, L.~N. Soldatova, K.~E. Whelan, M.~Young, and R.~D. King.
+\newblock Towards robot scientists for autonomous scientific discovery.
+\newblock \emph{Automated Experimentation}, 2\penalty0 (1):\penalty0 1, 2010.
+\newblock \doi{10.1186/1759-4499-2-1}.
+
 \bibitem[Sprueill et~al.(2024)Sprueill, Edwards, Agarwal, Olarte, Sanyal,
   Johnston, Liu, Ji, and Bhatt]{sprueill2024chemreasoner}
 H.~W. Sprueill, C.~Edwards, K.~Agarwal, M.~Olarte, U.~Sanyal, C.~Johnston,
@@ -217,5 +248,14 @@ H.~Xin, D.~Ren, S.~Song, Z.~Shao, W.~Zhao, H.~Wang, W.~Liu, L.~Cheng, et~al.
   reinforcement learning and {Monte-Carlo} tree search.
 \newblock \emph{arXiv preprint arXiv:2408.08152}, 2024.
 \newblock arXiv:2408.08152.
+
+\bibitem[Zhang et~al.(2025)Zhang, Feng, Yan, Yuan, Yu, Huang, Bai, He, Peng,
+  et~al.]{zhang2025novelseek}
+B.~Zhang, S.~Feng, X.~Yan, J.~Yuan, Z.~Yu, S.~Huang, L.~Bai, X.~He, T.~Peng,
+  et~al.
+\newblock {NovelSeek}: When agent becomes the scientist -- building closed-loop
+  system from hypothesis to verification.
+\newblock \emph{arXiv preprint arXiv:2505.16938}, 2025.
+\newblock arXiv:2505.16938.
 
 \end{thebibliography}

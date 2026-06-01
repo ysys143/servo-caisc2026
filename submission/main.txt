@@ -1,29 +1,36 @@
 Formalizing AI Scientist Systems:
-A Unified Framework for Automated Scientific
-Discovery
-Jaesol Shin
+A Component Framework and Theoretical Analysis
+Jaesol Shin∗
 WeDataLab
 
 ysys143@wedatalab.com
-May 2026
+
 Abstract
-The emergence of end-to-end systems capable of automating hypothesis generation,
-experiment execution, and knowledge synthesis represents a significant change in how
-science is conducted. Despite rapid empirical progress, AI Scientist systems lack a
-unifying formal framework, which makes principled comparison across architectures
-and scientific domains difficult. We propose SciAgent, a six-component framework
-(S, G, E, V, M, π) comprising the Search space, hypothesis Generator, Experiment executor, Validator, Memory, and search Policy (π), grounded in the theory of Partially
-Observable Markov Decision Processes (POMDPs) and Bayesian Experimental Design
-(BED). We apply this framework to analyze core AI Scientist systems and their instantiations across seven scientific domains (mathematics, physics, chemistry, materials science, biology, social science, and computer science), and separately examine a
-complementary artifact infrastructure proposal that addresses the output format and
-verification layer of such systems. Our analysis surfaces three persistent open problems:
-(1) the non-automatability of novelty evaluation, which remains dependent on human
-judgment despite multi-layer automated proxies; (2) the absence of BED-optimal search
-policies, despite the theoretical availability of tractable approximations; and (3) the
-underdevelopment of semantic memory Ms , whose absence prevents accumulated experimental experience from improving future search. We show that the completeness of
-the validator V is the single most consequential design variable: it determines whether
-closed-loop autonomous operation is feasible in each domain, and current AI Scientist
-systems can be read as a progression toward more complete validators.
+The emergence of end-to-end systems capable of automating hypothesis
+generation, experiment execution, and knowledge synthesis represents a
+significant change in how science is conducted. Despite rapid empirical progress, recent LLM-based AI Scientist systems are seldom analyzed
+within a shared formal vocabulary, which makes principled comparison
+across architectures and scientific domains diﬀicult. We propose Servo,
+a six-component framework (S, G, E, V, M, π) comprising the Search space,
+hypothesis Generator, Experiment executor, Validator, Memory, and search
+Policy (π), grounded in the theory of Partially Observable Markov Decision
+Processes (POMDPs) and Bayesian Experimental Design (BED). We apply
+this framework to analyze core AI Scientist systems and their instantiations
+across seven scientific domains (mathematics, physics, chemistry, materials
+science, biology, social science, and computer science), and separately examine a complementary artifact infrastructure proposal that addresses the
+output format and verification layer of such systems. Our analysis surfaces
+three persistent open problems: (1) the non-automatability of novelty evaluation, which remains dependent on human judgment despite multi-layer
+automated proxies; (2) the absence of BED-optimal search policies, despite
+the theoretical availability of tractable approximations; and (3) the underdevelopment of semantic memory Ms , whose absence prevents accumulated
+experimental experience from improving future search. We formalize the
+central role of the validator V : under tractable, identifying assumptions the
+discovery loop provably closes (and a calibrated validator makes the search
+policy myopically optimal), a validator miscoupled into the belief update
+drives convergence to the wrong target, and novelty is non-identifiable by
+any automated validator (Propositions 1–3). Across the surveyed systems
+and domains, validator completeness is consistently associated with closedloop feasibility; we present the survey as an illustration of these formal
+results rather than as independent empirical proof, and read current AI
+Scientist systems as a progression toward more complete validators.
 
 1
 
@@ -31,28 +38,50 @@ Introduction
 
 AI Scientist systems—agents that independently generate hypotheses, execute experiments,
 and synthesize knowledge—have proliferated rapidly [Boiko et al., 2023, Lu et al., 2024,
-2026, Schmidgall et al., 2025, Feng et al., 2026, Liu et al., 2026], yet the field lacks a
-shared formal vocabulary. Each system introduces bespoke terminology, making systematic
-comparison difficult. Three questions that bear directly on deployment remain unanswered:
-1
+2026, Schmidgall et al., 2025, Feng et al., 2026, Liu et al., 2026], yet the field lacks a shared
+formal vocabulary. Systems range from tool-augmented synthesis agents (Coscientist [Boiko
+et al., 2023]) through closed-loop manuscript-writing pipelines (The AI Scientist [Lu et al.,
+∗
+This manuscript was drafted with substantial AI assistance (Claude Code, Anthropic). The
+human author provided conceptual direction, framework design, and final judgment. See the AI
+Involvement Checklist for full details.
 
-What determines whether a system can operate in a closed loop? Why does autonomous
+Preprint.
+
+2024, 2026]) to formal-mathematics agents (Aletheia [Feng et al., 2026]), each introducing
+bespoke terminology that makes systematic cross-system comparison diﬀicult. Without
+a shared decomposition, questions that bear directly on deployment remain unanswered:
+What determines whether a system can operate in a closed loop? Why does autonomous
 novelty evaluation fail consistently? What is the theoretically optimal search policy?
-We address these gaps with three contributions: (1) SciAgent, a formal framework
-(S, G, E, V, M, π) connecting AI Scientist systems to POMDP and Bayesian Experimental
-Design theory (Section 4); (2) analysis of four core systems, an artifact infrastructure proposal, and domain-specific instantiations across seven scientific fields (Sections 5, 6); and
-(3) three open problems that constrain progress across all current systems (Section 8).
-Scope. We cover systems whose primary goal is automated scientific discovery through
-hypothesis-experiment-validation cycles, excluding specialized tools within humanconducted pipelines [Jumper et al., 2021].
+We propose Servo (S, G, E, V, M, π), a formal framework grounding AI Scientist systems
+in POMDP and Bayesian Experimental Design theory (Section 4). We apply it to analyze four core systems, an artifact infrastructure proposal, and instantiations across seven
+scientific fields (Sections 5, 6); and identify three open problems with falsification criteria
+(Section 7). The analysis reveals a recurring pattern: validator (V ) completeness covaries
+with closed-loop feasibility more visibly than the sophistication of G or π; we report this as
+an observational association and develop the supporting theory in Appendix A.
+Scope. We include systems whose primary goal is automated scientific discovery through
+hypothesis-experiment-validation cycles, and exclude specialized predictors without a
+generation-and-search loop (e.g., AlphaFold [Jumper et al., 2021]). Within that scope we
+analyze widely-cited representative systems rather than an exhaustive enumeration; this
+convenience sampling introduces selection bias that we flag in Section 8.
 
 2
 
 Background
 
 Following Kaelbling et al. [1998], we model AI Scientist systems as partially observable
-Markov decision processes: the true state s (unknown structure of nature) is inaccessible;
-the system maintains a belief b(s) updated by experimental observations. Bayesian Experimental Design [Chaloner and Verdinelli, 1995, Rainforth et al., 2024] provides the normative
-criterion for the search policy π: select d∗ maximizing Expected Information Gain (EIG),
+Markov decision processes: the true state s (unknown structure of nature) is inaccessible; the
+system maintains a belief b(s) updated by experimental observations. Formally, an AI Scientist POMDP is the tuple (S, A, T, R, Ω, O, b0 , γ), where A is the action space (hypothesis
+generation and experiment execution), T is the transition function, R is the reward (scientific value of discovery), O is the noisy observation process, b0 is the initial
+∑ belief, and γ the
+discount factor; the belief is updated by Bayes’ rule, b′ (s′ ) ∝ O(o | s′ , a) s T (s′ | s, a) b(s),
+and π acts on the belief b rather than the inaccessible state s. Three properties distinguish
+this from standard control: R cannot be pre-specified (significance is not defined a priori);
+S is unbounded; and T is non-stationary (accumulated knowledge changes the exploration
+frontier). We therefore use the POMDP as an organizing formalism rather than a fully specified model of open-ended science: the formal results of Appendix A are established for the
+tractable subproblem (Assumption 1) in which these departures are bounded, while the general open-ended case is left open. Bayesian Experimental Design [Chaloner and Verdinelli,
+1995, Rainforth et al., 2024] provides the normative criterion for the search policy π: select
+d∗ maximizing Expected Information Gain (EIG),
 d∗ = arg max EIG(d) = arg max E [H(θ) − H(θ | y, d)]
 d∈D
 
@@ -60,172 +89,220 @@ d
 
 (1)
 
-where H(θ) is prior entropy over parameters θ and H(θ | y, d) is expected posterior
-entropy after observing y under d. EIG can be approximated via variational methods [Foster
-et al., 2019], amortized policies [Foster et al., 2021], and RL [Blau et al., 2022], yet no current
-AI Scientist system implements it—a gap we identify in Section 8.
+where H(θ) is prior entropy over parameters θ and H(θ | y, d) is expected posterior entropy after observing y under d. EIG can be approximated via variational methods [Foster et al., 2019], amortized policies [Foster et al., 2021], and RL [Blau et al., 2022].
+Domain-specific autonomous-science systems already use active-learning or uncertaintyguided approximations—the Robot Scientist’s experiment selection [Sparkes et al., 2010]
+and GNoME’s DFT-in-the-loop active learning [Merchant et al., 2023]—but recent openended LLM-based systems maintain no explicit posterior over hypotheses or stated EIG
+objective; that narrower gap is the one we identify in Section 7.
 
 3
 
 Related Work
 
-AI Scientist systems. Prior work [Lu et al., 2024, 2026, Schmidgall et al., 2025, Boiko
-et al., 2023] provides qualitative characterizations of individual systems but no shared framework for cross-system comparison; idea-generation studies [Si et al., 2024, Baek et al., 2024]
+AI Scientist systems. Prior work [Lu et al., 2024, 2026, Schmidgall et al., 2025, Boiko et al.,
+2023] provides qualitative characterizations of individual systems but no shared framework
+for cross-system comparison; idea-generation studies [Si et al., 2024, Baek et al., 2024]
 establish quality baselines without unifying the full discovery loop.
-Theoretical foundations. The POMDP framework [Kaelbling et al., 1998] and
-BED [Chaloner and Verdinelli, 1995, Rainforth et al., 2024] are classical; we are the first to
-explicitly apply BED as a design target for AI Scientist search policies, connecting POMDP
-(structural formulation) to BED (normative policy criterion).
-Formal models and artifact infrastructure. Taniguchi et al. [2025] propose Collective Predictive Coding as a social model of science; we provide the complementary singlesystem modular decomposition. Liu et al. [2026] address artifact verification as a V and
-Ms contribution, discussed in Sections 5.1 and 8.
+Autonomous-science frameworks. Closed-loop autonomous discovery predates the LLM
+era: the Robot Scientist [Sparkes et al., 2010] integrated hypothesis generation, robotic
+2
+
+experimentation, and statistical validation in yeast functional genomics, instantiating all
+six Servo components—including an active-learning policy—in physical wet-lab form more
+than a decade before LLM-based systems. More recent unified frameworks include NovelSeek [Zhang et al., 2025], a closed-loop multi-agent system spanning idea generation to
+verification across twelve scientific tasks, and Co-Scientist [Gottweis et al., 2026], a multiagent hypothesis-generation system with experimental biomedical validation. We therefore
+position Servo not as the first unified framework for automated discovery, but as a formal
+vocabulary that makes validator completeness, semantic memory, and the POMDP/BED
+relationship explicit within the recent LLM-agent subfield.
+Theoretical foundations.
+The POMDP framework [Kaelbling et al., 1998] and
+BED [Chaloner and Verdinelli, 1995, Rainforth et al., 2024] are classical. Bayesian-optimal
+experiment selection has a long history in automated science—most directly in the Robot
+Scientist’s active-learning policy [Sparkes et al., 2010]—and we build on this tradition, connecting POMDP (structural formulation) to BED (normative policy criterion) for the modern LLM-agent setting rather than claiming priority for the idea itself. The reward specification and specification gaming literatures study the consequences of unreliable reward
+signals; Servo extends this lens to AI Scientist systems by stratifying V into reliability levels
+and connecting each level to specific closed-loop failure modes.
+Formal models and artifact infrastructure. Taniguchi et al. [2025] propose Collective Predictive Coding (CPC-MS) as a social model of science, recasting scientific activity as decentralized Bayesian inference across a community. CPC-MS and Servo are complementary:
+CPC-MS provides a collective and social model in which peer review is a Metropolis-Hastings
+consensus process; Servo provides the single-system and modular decomposition that must
+be instantiated at each node. The three open problems we identify are precisely the necessary conditions for a CPC-MS-compliant collective system to be realizable. Liu et al.
+[2026] address the artifact layer — output format and verification protocol — rather than
+the discovery loop itself; we position ARA as a V and Ms infrastructure contribution within
+Servo, discussed in Sections 5.1 and 7.
 
 4
 
-The SciAgent Framework
+The Servo Framework
 
 We define an AI Scientist system as a tuple (S, G, E, V, M, π) with the following components:
-2
-
-SciAgent = (S, G, E, V, M, π)
+Servo = (S, G, E, V, M, π)
 
 (2)
 
-S: Search Space The set of candidate hypotheses, programs, molecules, experimental
-conditions, or other objects subject to exploration. S may be static or dynamically
+S: Search Space The set of candidate hypotheses, programs, molecules, experimental conditions, or other objects subject to exploration. S may be static or dynamically
 expanding (open-ended).
-G : M × S → h: Hypothesis Generator A function that proposes new candidate h ∈ S
-conditioned on accumulated memory M and the current state of the search space. G
+G : M × S → h: Hypothesis Generator A function that proposes new candidate h ∈ S conditioned on accumulated memory M and the current state of the search space. G
 may involve LLM generation, evolutionary mutation, or symbolic search.
-E : h × P → o: Experiment Executor A function that executes hypothesis h under protocol P to produce observation o. The fidelity of E ranges from fast computational
+E : h × P → o: Experiment Executor A function that executes hypothesis h under protocol
+P to produce observation o. The fidelity of E ranges from fast computational
 simulation (low cost, potential surrogate error) to physical wet-lab execution (high
 cost, ground truth).
-V : o → r: Validator A function that assigns a reward signal r to observation o. We
-distinguish four layers of V :
+V : o → r: Validator A function that assigns a reward signal r to observation o. We distinguish four layers of V :
 Vsyntax : o → {pass, fail}
-
-(deterministic, fast)
-
 Vsemantic : o → r ∈ [0, 1]
-
-(LLM-based, stochastic)
-
 Vempirical : o → r
-
-(reproduction-based)
-
 Vhuman : o → {novel, significant}
 
+(deterministic, fast)
+(LLM-based, stochastic)
+(reproduction-based)
 (non-automatizable)
 
-M : Memory Structured as (Me , Ms , Mp ).
-Me (episodic) stores individual records
-(hi , oi , ri ); Ms (semantic) stores distilled knowledge patterns; Mp (procedural) stores
-learned protocols. The structure of M directly determines the quality of G and π.
-π : b(S) × M → h: Search Policy The decision rule for selecting the next hypothesis. The
+M : Memory Structured as (Me , Ms , Mp ). Me (episodic) stores individual records (hi , oi , ri );
+Ms (semantic) stores distilled knowledge patterns; Mp (procedural) stores learned
+protocols. The structure of M directly determines the quality of G and π.
+3
+
+π : b(S) × M → h: Search Policy The decision rule for selecting the next hypothesis. The
 belief state b(S) is updated after each experiment. In the BED interpretation, π ∗ =
-arg maxd EIG(d) (Equation 1). In practice, current systems use policies ranging from
-reactive (ReAct) to greedy to tree search.
+arg maxd EIG(d) (Equation 1). In practice, current systems use policies ranging
+from reactive (ReAct) to greedy to tree search.
 The operational loop is:
 π(b, M ) → G(Ms , S) → E(h, P ) → V (o)
 → M += (h, o, r) → b(S) update → repeat
 
 (3)
 
-We further introduce H ∈ [0, 1] as an auxiliary parameter denoting the degree of human
-intervention: H = 0 for fully autonomous systems and H = 1 for systems in which humans
-assume the role of G or π.
+We further introduce H ∈ [0, 1] (distinct from the entropy function H(θ) in Eq. 1) as an
+auxiliary parameter denoting the degree of human intervention: H = 0 for fully autonomous
+systems and H = 1 for systems in which humans assume the role of G or π.
+V-completeness as a design dimension. The layers form a partial order under reliability: Vsyntax deterministic; Vsemantic stochastic and bias-prone; Vempirical from well-calibrated
+(DFT) to poorly calibrated (GNN surrogates); Vhuman irreplaceable for novelty but ratelimiting; and Vformal (proof kernels, type-checkers) the mechanically-decidable ideal limit,
+used for mathematics (formal) in Table 2. We define V completeness as the highest layer
+both accessible and reliably calibrated; accessibility without calibration does not count
+(Agent Laboratory’s biased reviewer yields only imperfect completeness). It is the primary
+design variable because it caps what π can learn and what G can be rewarded for: without
+a reliable V , no policy can distinguish progress from regression. The cross-domain pattern
+(Section 6) closely tracks V completeness rather than G or π sophistication, a relationship
+we formalize next.
+Formal grounding. Treating V as a reward channel distinct from the observation likelihood,
+we prove three results in a tractable, identifying subproblem (Appendix A): under identifiability and divergent accumulated information the loop closes (Proposition 1); a validator
+miscoupled into the belief update drives convergence to the wrong target (Proposition 2);
+and a novelty component invisible to every automated channel is non-identifiable (Proposition 3). A complete validator is thus necessary for autonomous closure but, by Proposition 1,
+not suﬀicient without enough accumulated information; the surveyed systems illustrate these
+results rather than prove them.
 
 5
 
 Analysis of Core AI Scientist Systems
 
-We apply SciAgent to four end-to-end systems [Boiko et al., 2023, Lu et al., 2024, 2026,
+We apply Servo to four end-to-end systems [Boiko et al., 2023, Lu et al., 2024, 2026,
 Schmidgall et al., 2025] and one artifact infrastructure proposal. Table 1 synthesizes the
-key dimensions; the cross-system pattern is that every architectural advance is a gain in V
-completeness, and V completeness is what unlocks closed-loop operation.
-3
+key dimensions; the recurring pattern is that gains in V completeness accompany the transition to closed-loop operation, although the surveyed systems also advance G, E, and π
+(we revisit this interaction in Section 8).
+AI Sci. (2024)
 
-Coscientist AI Sci. (2024) AI Sci. (2026)
+AI Sci. (2026)
+
 Novelty measure
-Loop closed?
-π type
-V completeness
-M structure
-H (human role)
-
+Stat. test
 None
-No
-ReAct
-Vh only
-Ephemeral
-G
-
 LLM self-score
+Loop closed?
+Yes (wet-lab)
+Partial
 Yes (greedy)
+π type
+Active learn.
+ReAct
 Greedy
+V completeness
+Ve
+Vh + V e
 Vs
+M structure
+Me + Ms
+Ephemeral
 Me
+H (approx.)
 Low
+G (≈1)
+Low (≈0)
+
+Robot Sci.
+
+Coscientist
 
 3-layer
 Yes (tree)
 Tree search
-Ve + V s + V h
-Me + M s
-Low
+V e + Vs + V h
+Me + Ms
+Low (≈0)
 
 AgentLab
-Human-delegated
+
+NovelSeek
+
+Human-deleg. Perf. gain
 Partial
+Yes (comp.)
 Human/seq.
+Feedback
 Vs (biased)
+Ve
 Me
-G+π
+Me
+G+π (≈0.8)
+Low
 
-Table 1. Comparative SciAgent analysis of four core AI Scientist systems.
-Ve =empirical, Vh =human.
+Table 1: Comparative Servo analysis of core AI Scientist systems, including the pre-LLM
+Robot Scientist [Sparkes et al., 2010] and the recent unified framework NovelSeek [Zhang
+et al., 2025]. Vs =semantic, Ve =empirical, Vh =human.
+Across the four systems, increases in V completeness accompany the move to closed loops;
+this does not mean G or π advances are absent—several systems also upgrade ideation, tool
+use, and search—but in these cases validator reliability is the constraint that gates whether
+such advances can be exploited in a closed loop. Coscientist exhibits only constrained
+task-level feedback (measured outcomes inform later choices in reaction-optimization experiments [Boiko et al., 2023]); its discovery loop is therefore partial rather than absent,
+4
 
+with validation of novelty and significance remaining human-mediated. The AI Scientist
+(Sakana) adds Vs via a 5-ensemble GPT-4o reviewer (balanced accuracy 0.65 vs. human
+0.66 [Lu et al., 2024]), enabling the first genuinely closed loop despite greedy π. The AI
+Scientist (Nature) stacks Ve (replication nodes with mean ± s.d.), Vs (automated reviewer,
+balanced accuracy 0.69 [Lu et al., 2026]), and actual peer review (Vh via ICLR workshop),
+achieving the most complete V in the class. Agent Laboratory delegates V to Vs (NeurIPSguideline LLM reviewer) but documents +2.3-point systematic over-estimation relative to
+human PhD students—illustrating that adding a V layer does not guarantee V completeness if the layer is unreliable. The three systems that close the loop each do so via a V
+upgrade; Agent Laboratory, which adds a Vs layer without calibrating it, demonstrates the
+converse — an accessible but unreliable V does not close the loop. Within this small sample
+we observed no case where G or π advances alone improved loop feasibility without a corresponding V improvement, though a four-system sample cannot establish this as a general
+impossibility.
 5.1
-
-Vs =semantic,
 
 Artifact Infrastructure: Agent-Native Research Artifacts
 
-Liu et al. [2026] address a complementary problem: what the output of the AI Scientist
-loop should look like and how it can be independently verified. Agent-Native Research Artifacts (ARA) replace the narrative paper with a four-layer ontology: /logic (claims with
-falsification criteria), /src (executable code), /trace (exploration graph: question, decision, experiment, dead end, pivot), and /evidence (raw results). The ARA Seal provides
-three-level automated verification—Vsyntax (schema conformance), Vsemantic (Rigor Auditor,
-82.6% detection rate), and Vempirical (sandboxed reproduction)—with Vhuman reserved for
-significance, novelty, and taste: “judgments of significance, novelty, and taste are reserved
-for human reviewers” [Liu et al., 2026]. The motivation is quantitative: only 45.4% of
-reproduction requirements are fully specified in published papers, and 90.2% of extension
-costs are consumed by failed exploration [Liu et al., 2026]. The /trace layer addresses Me
-and Ms : preserved failure traces accelerated agent performance on extension tasks but also
-anchored more capable agents to prior solution paths—richer Me does not monotonically
-improve π.
+Liu et al. [2026] address a complementary problem—what the output of the loop should be
+and how to verify it. Agent-Native Research Artifacts (ARA) replace the narrative paper
+with a four-layer ontology (/logic, /src, /trace, /evidence); the ARA Seal automates
+Vsyntax , Vsemantic (Rigor Auditor, 82.6% detection), and Vempirical (sandboxed reproduction),
+reserving Vhuman for significance and novelty [Liu et al., 2026]. Motivating figures: only
+45.4% of papers fully specify reproduction requirements and 90.2% of extension cost is failed
+exploration. The /trace layer externalizes Me /Ms , but preserved traces both accelerated
+and anchored downstream agents—richer Me does not monotonically improve π.
 
 6
 
 Domain Analysis
 
-Table 2 maps SciAgent instantiations across seven scientific domains; V completeness
-co-varies with loop closability without exception. Key results: Aletheia [Feng et al., 2026]
-attempted 700 Erdős problems and auditors rated 13/200 graded solutions (6.5%) meaningfully correct; GNoME [Merchant et al., 2023] screened 2.2 million candidate crystal
-structures via high-throughput DFT. Systems by domain: mathematics (formal) [RomeraParedes et al., 2024, Xin et al., 2024]; mathematics (NL) [Feng et al., 2026]; physics [Udrescu
-and Tegmark, 2020, Cranmer et al., 2020]; chemistry [Bran et al., 2024, Sprueill et al., 2024];
-materials [Merchant et al., 2023]; biology [O’Donoghue et al., 2023]; social science [Manning
-et al., 2024, Aher et al., 2023, Park et al., 2023]; CS/algorithms [Real et al., 2020, Sartori
-and Blum, 2024, Jaber and Jaber, 2026].
-
-7
-
-Illustrative Simulation: Validator Coverage and False Novelty
-
-To make the consequences of V incompleteness concrete, we run a minimal agent-based
-simulation (20 agents, 200 hypotheses, 40 latent classes, 30 seeds) in which agents estimate
-novelty via a coverage membership test and share memory only through their communica4
-
-Domain
+Table 2 maps Servo instantiations across seven scientific domains; V completeness co-varies
+with loop closability across the surveyed domains, consistent with Propositions 1–3. To illustrate scale: Aletheia [Feng et al., 2026] attempted 700 Erdős problems; of the 200 solutions
+selected for human audit, 13 (6.5%) were rated meaningfully correct; GNoME [Merchant
+et al., 2023] predicted 2.2 million structures (380,000 stable) using DFT-in-the-loop active
+learning. Systems analyzed span mathematics (formal: [Romera-Paredes et al., 2024, Xin
+et al., 2024]; NL: [Feng et al., 2026]), physics [Udrescu and Tegmark, 2020, Cranmer et al.,
+2020], chemistry [Bran et al., 2024, Sprueill et al., 2024], materials [Merchant et al., 2023],
+biology [O’Donoghue et al., 2023], social science [Manning et al., 2024, Aher et al., 2023,
+Park et al., 2023], and CS/algorithms [Real et al., 2020, Sartori and Blum, 2024, Jaber and
+Jaber, 2026].
+Domain
 
 V type
 
@@ -258,15 +335,12 @@ Vemp + Vh
 Medium
 
 Chemistry
-
-Vemp (surr.)
-
-Medium
-
 Materials
 
+Vemp (surr.)
 Vemp (DFT)
 
+Medium
 High
 
 Biology
@@ -284,130 +358,84 @@ Vemp
 Low–med
 High
 
-Primary bottleneck
+Primary
+neck
+
+bottle-
 
 Pretraining contamination
-Partial
+Closed (low quality)
 Seq. refine
 Hallucination;
 plagiarism
-None/partial Deterministic No
-crossproblem M
+None/partial
+Deterministic No cross-problem
+M
 Comp. only
 Beam
-Wet-lab
-loop
-open
-Comp. closed Uncert. samp. DFT wall-time;
+Wet-lab loop open
+Comp. closed
+Uncert. samp. DFT
+wall-time;
 synth. lag
 Partial
 None
-V metrics insufficient
+V metrics insuﬀicient
 Partial
 Factorial
 Circular validity
 Fully closed
-Evol./LLM Interpretability
+Evol./LLM
+Interpretability
 absent
 
-Table 2. Cross-domain SciAgent analysis across seven domains. V reliability refers to agreement
+Table 2: Cross-domain Servo analysis across seven domains. V reliability refers to agreement
 with ground truth.
 
-tion topology—the primary independent variable. Table 3 formalizes the four conditions as
-levels of V completeness.
-Table 3. Simulation conditions. Each operationalizes a level of V completeness via mean degree k.
-Condition
+5
 
-V -completeness
+The pattern is structurally determined by V type. Formal mathematics has a binary Vformal
+that makes RL stable and the loop fully closed; natural-language proof reintroduces Vhuman
+(Aletheia: 6.5% audited-correct). Chemistry and biology close the computational loop
+but leave the physical loop open at the measurement boundary, where characterization
+(NMR, MS, wet-lab) stays human-delegated. Materials science is the one domain whose π
+approximates BED, because DFT is a well-calibrated oracle. Social science suffers circular
+validity when G and E share a model [Aher et al., 2023], and CS/algorithms close the loop
+via reliable Vemp but lack interpretability.
 
-k
-
-Graph
-
-Coverage
-
-Isolated
-Lattice
-Medium
-Shared
-
-Incomplete
-Partial
-Improved
-Complete
-
-0
-2
-4
-n−1
-
-No edges
-Ring
-Watts–Strogatz
-Complete
-
-Own memory only
-2-hop neighborhood
-Local + cross-links
-Full community memory
-
-Results. Figure 1 shows FNR (fraction of non-novel hypotheses marked novel) across
-conditions. Because memory sharing is set-union, broader connectivity structurally reduces
-FNR—an analytic consequence, not an emergent finding. FNR decreases from 0.955±0.028
-(isolated) to 0.008 ± 0.012 (shared); varying classifier accuracy 0.60–0.90 moves FNR by
-≤ 0.035, a 27× smaller range than the cross-topology span. A non-trivial consequence
-emerges at ≥ 10% prior seeding: isolated agents achieve higher balanced accuracy than
-lattice (0.564 vs. 0.529), as connectivity accelerates memory saturation. The analogy to
-epistemic-network models [Zollman, 2007, 2010] is phenomenological only.
-Limitations. Synthetic agents with a ground-truth oracle; agents do not generate hypotheses or update beliefs. The simulation is an existence illustration of V incompleteness—
-the FNR–topology ordering is structurally determined and cannot produce any other outcome.
-
-8
+7
 
 Open Problems
 
 Our analysis identifies three open problems that persist across all systems and domains.
-5
-
-False Novelty Rate (FNR)
-
-1.0
-
-acc=0.60
-acc=0.75
-acc=0.90
-
-0.8
-
-0.6
-
-0.4
-
-0.2
-
-0.0
-Isolated
-(V-local)
-
-Lattice Small-world Shared
-(V-partial) (V-improved)(V-complete)
-
-Figure 1. FNR by V -completeness level and classifier accuracy (±1 std, 30 seeds). Cross-topology
-span: 0.947; within-condition accuracy range: ≤ 0.035.
-
-8.1
+For each we state a proposed falsification test—a concrete design whose outcome would
+refute the corresponding claim—while noting that none are executed here; they specify
+what evidence would settle the question rather than constituting completed experiments.
+7.1
 
 The Non-Automatability of Novelty
 
 Novelty cannot be reliably evaluated by automated means: every system from Coscientist (no mechanism) to The AI Scientist Nature (three-layer validation) converges on this
 conclusion. Two failure modes are documented: LLM self-evaluation bias (systematic overestimation; hallucinated results) and pretraining contamination (systems may “discover”
-results implicit in training data, as Aletheia documents for Erdős problems). The ARA
-Seal [Liu et al., 2026] demarcates the automated frontier—82.6% detection of structural
-violations with a 22% blind spot for orphaned experiments—but cannot cross the novelty
-boundary.
-Falsification criterion: Refuted if an automated V achieves human-level novelty discrimination (inter-rater agreement ≥0.80) on a contamination-controlled benchmark spanning
-≥3 distinct scientific domains.
-8.2
+results implicit in training data, as Aletheia documents for Erdős problems). The ARA
+Seal [Liu et al., 2026] demarcates the automated frontier: its Rigor Auditor achieves 82.6%
+average detection across five structural violation types, but detects only 22% of orphanedexperiment violations specifically (the two rates measure different denominators and are not
+complements). It cannot cross the novelty boundary. Concretely: Agent Laboratory’s LLM
+reviewer over-estimated paper quality by +2.3 points on the NeurIPS review scale relative
+to human PhD students; The AI Scientist (Sakana) hallucinated ablation tables; and of the
+200 Erdős solutions selected for human audit (from 700 attempted), only 13 (6.5%) were
+rated meaningfully correct despite surfacing many superficially plausible candidates.
+Proposed falsification test (design; not yet executed): The thesis is refuted if an automated
+validator matches a panel of ≥3 domain experts on novelty discrimination—Cohen’s κ ≥ 0.80
+against the expert majority—on a benchmark of published-versus-withheld findings whose
+training-set membership is fixed by a pretraining cutoff date, across ≥3 distinct domains.
+Constructing the contamination-controlled benchmark and the expert baseline is itself an
+open task; we specify the instrument and threshold but do not run the test.
+Novelty, significance, and correctness are distinct properties that current systems collapse
+into one scalar (e.g., The AI Scientist’s 1–10 score [Lu et al., 2024]); a viable automated
+novelty V would need a contamination-controlled reference corpus, architectural separation between G and V , and a definition of “novel to the field” beyond lexical training-set
+membership—none of which current systems provide.
+7.2
 
 The BED–Practice Gap for π
 
@@ -416,14 +444,20 @@ all deployed policies are heuristic (ReAct, greedy, tree search, human-guided). 
 exception is GNoME [Merchant et al., 2023], whose deep-ensemble uncertainty sampling
 approximates EIG over a tractable GNN posterior—but only because DFT provides a wellcalibrated V and the hypothesis space admits a learnable probabilistic model, conditions
 absent from LLM-based systems where the “posterior” is implicit in model weights [Foster
-et al., 2021].
-Falsification criterion: Refuted if any AI Scientist system implements a policy that explicitly computes and maximizes EIG over a posterior p(θ | y) in a domain where the posterior
-
+et al., 2021]. Concretely, every system in Table 1 degrades to heuristic π: Coscientist
+selects the next tool reactively, The AI Scientist (Sakana) greedily avoids archive similarity,
+and Agent Laboratory follows a fixed sequential schedule—none improve with additional
+experimental data, the failure mode EIG-optimal π would avoid.
+Proposed falsification test (design; not yet executed): The gap is refuted if a system explicitly computes and maximizes EIG over a posterior p(θ | y) whose hypothesis space
 6
 
-is not tractable from first principles—ruling out tractable-model proxies such as GNoME’s
-deep-ensemble policy.
-8.3
+admits no closed-form or finite-ensemble surrogate—operationalized as a posterior defined
+directly over natural-language hypotheses or program text rather than over a hand-specified
+low-dimensional model—thereby excluding tractable-model proxies such as GNoME’s deepensemble policy. We give this boundary as the measurable criterion but do not test it.
+Architecturally, EIG needs a posterior p(θ | y), but in LLM systems θ is implicit in frozen
+weights with no per-experiment update. Either one maintains an explicit probabilistic surrogate (GNoME’s route, viable only where a calibrated input–outcome model exists) or uses
+amortized EIG estimation [Foster et al., 2021], which remains unsolved for open-ended S.
+7.3
 
 The Underdevelopment of Semantic Memory Ms
 
@@ -432,43 +466,110 @@ patterns (Ms ): a system with 1,000 experiments does not search more intelligent
 with 10. The ARA /trace layer [Liu et al., 2026] is the closest approximation, but traces
 accelerated extension performance while also anchoring capable agents to prior solution
 paths—Ms structure must be paired with selective forgetting mechanisms to be beneficial.
-Falsification criterion: Refuted if accumulated cross-experiment knowledge demonstrably improves G-generated hypothesis quality across task instances in any single domain,
-measured by a pre-specified metric.
-The three open problems are precisely the necessary conditions for a collective AI coscientist [Taniguchi et al., 2025] to be realizable: Vcollective requires solving novelty automatability; a principled collective π requires closing the BED–practice gap; and a shared
-w requires developed Ms .
+Concretely, GNoME’s GNN—one of the few systems where G(Ms , S) genuinely improves—
+accumulates domain-specific thermodynamic knowledge after 460K DFT calculations, yet
+this knowledge does not transfer to chemistry or biology; the system is no more capable in
+any domain it has not explicitly trained on.
+Proposed falsification test (design; not yet executed): The bottleneck is refuted if, with the
+base model held fixed, a system’s G-generated hypothesis quality improves monotonically
+with the number of stored prior experiments on a held-out task family it was not trained
+or built for—measured as expert-rated quality or downstream task success against a preregistered effect-size threshold, with an ablation that removes Ms . We specify the protocol
+but do not execute it.
+The hard Ms problems arise when memory is lossy, compressed, conflicting, or strategically
+filtered—each of which can degrade G rather than improve it. GNoME shows within-domain
+accumulation works, but its knowledge does not transfer across domains; building Ms that
+generalizes, forgets selectively, and tolerates conflicting evidence is the open precondition
+for systems whose G(Ms , S) improves with scale.
+The three open problems are not independent. A system with complete V and tractable
+Ms would have the necessary prerequisites for an EIG-optimal π: complete V provides
+the calibrated reward signal that EIG requires, and tractable Ms provides the hypothesisspace model over which EIG is computed. Whether these prerequisites are suﬀicient for
+tractable EIG estimation in non-stationary or unbounded S remains open, but they are
+necessary. They therefore converge on a single structural gap, and progress on any one
+unlocks disproportionate gains toward the other two. They are also precisely the necessary
+conditions for a collective AI co-scientist [Taniguchi et al., 2025]: Vcollective requires solved
+novelty automatability; a principled collective π requires closed BED–practice gap; and the
+shared semantic memory w requires developed Ms . ARA [Liu et al., 2026] may be the
+most tractable entry point, simultaneously externalizing Ms and calibrating the sub-novelty
+layers of V .
 
-9
+8
 
 Discussion
 
-Our analysis establishes a design hierarchy: V choice precedes all other decisions, as it determines closed-loop feasibility and what form π can take. The collective extension [Taniguchi
-et al., 2025] requires that the three open problems be solved first: Vcollective requires novelty
-automatability; a principled collective π requires closing the BED–practice gap; developed
-Ms enables the shared semantic memory w. ARA [Liu et al., 2026] may be the most
-tractable entry point as a structured artifact protocol for w. Limitations: SciAgent abstracts domain-specific cost structures of E, non-stationarity of S, and the social layer that
-Taniguchi et al. [2025] formalize.
+Design hierarchy. Our analysis suggests V design is a necessary constraint on closed-loop
+operation: unreliable validation prevents a system from learning whether its outputs represent progress. The surveyed systems do not isolate V from G, E, M , and π—Coscientist
+and The AI Scientist also advance planning, tool use, and tree-based experimentation—so
+we read V completeness as a recurring bottleneck, not an established causal priority. The
+practical implication still stands: before optimizing G or π, designers should ask what level
+of V completeness the domain actually supports.
+Human oversight. Rather than treating H ∈ [0, 1] as a limitation to be minimized, our
+analysis suggests that explicit human integration at the Vhuman and π levels is both practically necessary and theoretically appropriate. Human judgment provides access to an
+7
 
-10
+information source that no automated proxy currently replicates—particularly for the nonautomatizable components of novelty and significance. Systems that design H explicitly (as
+ARA does by reserving significance and novelty for human reviewers) may achieve better
+long-run outcomes than those that attempt to minimize it. The goal is not full autonomy
+but appropriate autonomy: closing the loop at the layers where V is reliable while preserving
+human judgment at the layers where it is not.
+Towards collective AI co-scientists. All systems analyzed are single-agent loops; extending
+Servo to a multi-agent collective with shared memory w and a collective validator [Taniguchi
+et al., 2025] requires exactly the three open problems above to be solved, with ARA [Liu
+et al., 2026] a plausible entry point for w.
+Limitations. Servo abstracts away several important factors. The cost structure of E varies
+by orders of magnitude across domains (milliseconds for code execution, hours for DFT,
+weeks for wet-lab) and is not modeled. The non-stationarity of S (open-ended problems) is
+treated as a property to be noted but not formalized. The single-agent framing abstracts
+away the social layer that Taniguchi et al. [2025] formalize; extending Servo to multi-agent
+settings is a natural direction for future work. Finally, the cross-domain comparison relies on
+publicly reported system descriptions; component characterizations may not capture all implementation details. More fundamentally, the V -completeness pattern is a cross-system association, not an established causal determinant, and the surveyed systems are a convenience
+sample subject to selection and survivorship bias. To make the coding auditable we release
+an operational rubric, a machine-readable coding sheet with per-cell source quotes, and a
+validator script that rejects any uncited or unquoted cell. Three independent, model-pinned,
+blind LLM coders from different vendors (Anthropic, OpenAI, Google) coded 14 systems;
+inter-coder agreement (Fleiss’ κ over the 13 jointly-coded systems) is substantial-to-perfect
+on most constructs (calibration κ=0.79, loop status κ=0.74, semantic-validation presence
+κ=1.0; mean κ=0.68) and only moderate on the holistic V -completeness ordinal (κ=0.39, on
+which independent coders also disagree with the author), reported as an automated multirater transparency measure rather than human-level reliability. A counterexample search
+found no system that is V -incomplete yet achieves trustworthy closed-loop discovery: the
+lone structural near-miss (AI Scientist v1) closes its loop on an admittedly biased validator
+but yields unreliable output. The pattern is thus made precise, under stated assumptions, by
+Propositions 1–3, with calibration—its most robustly coded sub-construct—as the decisive
+correlate.
+
+9
 
 Conclusion
 
-We introduced SciAgent (S, G, E, V, M, π), a formal framework connecting AI Scientist
-systems to POMDP and BED theory, and applied it to four core systems, one artifact
-infrastructure proposal, and seven scientific domains. The central finding is that V completeness is the primary determinant of closed-loop feasibility: every architectural advance
-across surveyed systems is ultimately a gain in V completeness. The three open problems—
-novelty non-automatability, the BED–practice gap, and Ms underdevelopment—converge
-on a single organizing question: how do we build validators and memory structures that are
-simultaneously complete enough to support closed-loop operation and structured enough to
-support principled search?
+We introduced Servo (S, G, E, V, M, π), a formal framework connecting AI Scientist systems
+to POMDP and BED theory, and applied it to four core systems, one artifact infrastructure
+proposal, and seven scientific domains. The central pattern in our author-coded survey is
+that greater validator reliability tends to coincide with greater closed-loop feasibility; we
+read this as an observational association, not a proven causal hierarchy. Propositions 1–3
+support only narrower claims—closure in the tractable subproblem requires a well-specified,
+identifying observation model and suﬀicient accumulated information (validator calibration
+governs the reward/policy channel, not posterior consistency), and novelty is unidentified
+only when no automated channel carries novelty information—so the formalism motivates
+separating observation, reward validation, and human novelty judgment rather than proving
+that V completeness is the primary determinant across real systems.
+The decomposition makes implicit comparisons explicit: formal mathematics is most mature
+because Vformal is binary-reliable; chemistry and biology stay loop-open because V depends
+on physical measurement; and no system compounds knowledge across domains because
+transferable Ms is absent (GNoME improves only within its trained chemical space). These
+are structural constraints, not gaps closable by better language models alone. The three
+open problems are neither independent nor equally tractable—ARA’s Rigor Auditor and
+GNoME’s uncertainty sampling show partial progress—suggesting the bottleneck is missing
+architecture, not impossibility. Servo offers the vocabulary to name what is needed: validators and memory structures both complete enough to close the loop and structured enough
+to support principled search.
+8
 
-References
-G. V. Aher, R. I. Arriaga, and A. T. Kalai. Using large language models to simulate multiple
-humans and replicate human subject studies. In International Conference on Machine
-Learning, 2023. arXiv:2208.10264.
-7
-
-J. Baek, S. K. Jauhar, S. Pitis, S. J. Hwang, and J. Teevan. ResearchAgent: Iterative research idea generation over scientific literature with large language models. arXiv preprint
+References
+G. V. Aher, R. I. Arriaga, and A. T. Kalai. Using large language models to simulate
+multiple humans and replicate human subject studies. In International Conference on
+Machine Learning, 2023. arXiv:2208.10264.
+J. Baek, S. K. Jauhar, S. Pitis, S. J. Hwang, and J. Teevan. ResearchAgent: Iterative research idea generation over scientific literature with large language models. arXiv preprint
 arXiv:2404.07738, 2024.
+R. H. Berk. Limiting behavior of posterior distributions when the model is incorrect. The
+Annals of Mathematical Statistics, 37(1):51–58, 1966.
 T. Blau, E. V. Bonilla, I. Chades, and A. Dezfouli. Optimizing sequential experimental design with deep reinforcement learning. In International Conference on Machine Learning,
 2022. arXiv:2202.00821.
 D. A. Boiko, R. MacKnight, B. Kline, and G. Gomes. Emergent autonomous scientific
@@ -485,17 +586,24 @@ T. Feng, Q. V. Le, T. Luong, T. H. Trinh, G. Bingham, D. Hwang, Y. Chervonyi, et
 Towards autonomous mathematics research. arXiv preprint arXiv:2602.10177, 2026.
 arXiv:2602.10177.
 A. Foster, M. Jankowiak, E. Bingham, P. Horsfall, Y. W. Teh, T. Rainforth, and N. Goodman. Variational Bayesian optimal experimental design. In Advances in Neural Information Processing Systems, 2019. arXiv:1903.05480.
-A. Foster, D. R. Ivanova, I. Malik, and T. Rainforth. Deep adaptive design: Amortizing sequential Bayesian experimental design. In International Conference on Machine
-Learning, 2021. arXiv:2103.02438.
+A. Foster, D. R. Ivanova, I. Malik, and T. Rainforth. Deep adaptive design: Amortizing sequential Bayesian experimental design. In International Conference on Machine Learning,
+2021. arXiv:2103.02438.
+S. Ghosal and A. van der Vaart. Fundamentals of Nonparametric Bayesian Inference. Cambridge Series in Statistical and Probabilistic Mathematics. Cambridge University Press,
+2017.
+J. Gottweis, W.-H. Weng, A. Daryin, T. Tu, P. Sirkovic, A. Myaskovsky, G. Glowatyj,
+F. Weissenberger, A. Orlandi, D. Popovici, et al. Accelerating scientific discovery with
+Co-Scientist. Nature, 2026. doi: 10.1038/s41586-026-10644-y. arXiv:2502.18864.
 J. Jaber and O. Jaber. AutoKernel: Autonomous GPU kernel optimization via iterative
 agent-driven search. arXiv preprint arXiv:2603.21331, 2026.
-J. Jumper, R. Evans, A. Pritzel, T. Green, M. Figurnov, O. Ronneberger, K. Tunyasuvunakool, R. Bates, A. Žı́dek, A. Potapenko, et al. Highly accurate protein structure
+J. Jumper, R. Evans, A. Pritzel, T. Green, M. Figurnov, O. Ronneberger, K. Tunyasuvunakool, R. Bates, A. Žídek, A. Potapenko, et al. Highly accurate protein structure
 prediction with AlphaFold. Nature, 596:583–589, 2021.
 L. P. Kaelbling, M. L. Littman, and A. R. Cassandra. Planning and acting in partially
 observable stochastic domains. Artificial Intelligence, 101(1–2):99–134, 1998.
-R. Liu et al. The last human-written paper: Agent-native research artifacts. arXiv preprint
-arXiv:2604.24658, 2026.
-C. Lu, C. Lu, R. T. Lange, J. Foerster, J. Clune, and D. Ha. The AI Scientist: Towards
+J. Liu et al. The last human-written paper: Agent-Native research artifacts. arXiv preprint
+arXiv:2604.24658, 2026. arXiv:2604.24658.
+9
+
+C. Lu, C. Lu, R. T. Lange, J. Foerster, J. Clune, and D. Ha. The AI Scientist: Towards
 fully automated open-ended scientific discovery. arXiv preprint arXiv:2408.06292, 2024.
 C. Lu, C. Lu, R. T. Lange, Y. Yamada, S. Hu, J. Foerster, D. Ha, and J. Clune.
 Towards end-to-end automation of AI research. Nature, 651:914–919, 2026. doi:
@@ -506,9 +614,7 @@ A. Merchant, S. Batzner, S. S. Schoenholz, M. Aykol, G. Cheon, and E. D. Cubuk. 
 deep learning for materials discovery. Nature, 624:80–85, 2023.
 O. O’Donoghue, G. Puthumanaillam, J. Won, P. Moura, M. Oettig, J. M. de Kruif, M. Gini,
 M. Heinonen, and P. Sloot. BioPlanner: Automatic evaluation of LLMs on protocol
-8
-
-planning in biology. arXiv preprint arXiv:2310.10632, 2023.
+planning in biology. arXiv preprint arXiv:2310.10632, 2023.
 J. S. Park, J. C. O’Brien, C. J. Cai, M. R. Morris, P. Liang, and M. S. Bernstein. Generative
 agents: Interactive simulacra of human behavior. In Proceedings of the ACM Symposium
 on User Interface Software and Technology, 2023. arXiv:2304.03442.
@@ -526,6 +632,8 @@ Laboratory: Using LLM agents as research assistants. arXiv preprint arXiv:2501.0
 2025.
 C. Si, D. Yang, and T. Hashimoto. Can LLMs generate novel research ideas? A large-scale
 human study with 100+ NLP researchers. arXiv preprint arXiv:2409.04109, 2024.
+A. Sparkes, W. Aubrey, E. Byrne, A. Clare, M. N. Khan, M. Liakata, M. Markham, J. Rowland, L. N. Soldatova, K. E. Whelan, M. Young, and R. D. King. Towards robot scientists for autonomous scientific discovery. Automated Experimentation, 2(1):1, 2010. doi:
+10.1186/1759-4499-2-1.
 H. W. Sprueill, C. Edwards, K. Agarwal, M. Olarte, U. Sanyal, C. Johnston, H. Liu, H. Ji,
 and S. Bhatt. ChemReasoner: Heuristic search over a large language model’s knowledge space using quantum-chemical feedback. In International Conference on Machine
 Learning, 2024. arXiv:2402.10980.
@@ -535,56 +643,182 @@ arXiv:2409.00102.
 S.-M. Udrescu and M. Tegmark. AI Feynman: A physics-inspired method for symbolic
 regression. Science Advances, 6(16):eaay2631, 2020.
 H. Xin, D. Ren, S. Song, Z. Shao, W. Zhao, H. Wang, W. Liu, L. Cheng, et al. DeepSeekProver-V1.5: Harnessing proof assistant feedback for reinforcement learning and MonteCarlo tree search. arXiv preprint arXiv:2408.08152, 2024. arXiv:2408.08152.
-K. J. S. Zollman. The communication structure of epistemic communities. Philosophy of
-Science, 74(5):574–587, 2007.
-K. J. S. Zollman. The epistemic benefit of transient diversity. Erkenntnis, 72(1):17–35,
-2010.
-
-9
-
-AI Involvement Checklist
-This checklist documents the role of AI systems at each stage of this research, as required
-by CAISc 2026.
- Hypothesis development. The core SciAgent framework (S, G, E, V, M, π), the
-H parameter, the G output spectrum (propositional hypothesis → falsifiable construction), and the three open problems were conceived by the human author. Claude Code
-(Anthropic) elaborated framework components, identified paper-level instantiations of
-each component, and proposed connections between concepts.
- Literature search and selection. The human author determined inclusion criteria
-and target systems. Claude Code autonomously retrieved and read over 40 full-text
-PDFs, categorized papers into the taxonomy, and performed claim-level verification
-against source text.
- Analysis. Claude Code extracted S, G, E, V, M, π components for each of the 13
-analyzed systems by reading primary sources. The human author reviewed all extractions, corrected mischaracterizations (several substantive corrections were required),
-and synthesized cross-system patterns.
- Writing. Claude Code drafted the majority of this manuscript. The human author
-provided key conceptual passages (notably §8 and the core definitions in §4), directed
-structural decisions, and reviewed all drafts.
-
-Overall, the division of labor is best characterized as: the human author provided intellectual
-direction, framework design, and final judgment; Claude Code provided literature retrieval,
-analysis execution, and text generation.
-
+B. Zhang, S. Feng, X. Yan, J. Yuan, Z. Yu, S. Huang, L. Bai, X. He, T. Peng, et al. NovelSeek: When agent becomes the scientist – building closed-loop system from hypothesis
+to verification. arXiv preprint arXiv:2505.16938, 2025. arXiv:2505.16938.
 10
 
-Responsibility & Reproducibility Checklist
- Claims and evidence. All empirical claims are grounded in cited primary sources.
-Major claims were verified by direct full-text reading of source PDFs; specific figures (e.g., Science of Science statistics) were cross-checked against institutional press
-releases where journal access was unavailable.
- Limitations. This paper is a conceptual meta-analysis of existing published systems.
-It contains no original experiments. The SciAgent framework is not empirically
-validated against held-out systems in this submission; its descriptive adequacy rests
-on consistency across the 13 analyzed systems. Domain-specific cost structures, multiagent dynamics, and temporal evolution of systems are not modeled.
- Reproducibility. The analytical framework can be applied to any AI Scientist system following the component definitions in §4. All analyzed papers are publicly accessible. No proprietary data or closed models were used.
- Experimental details. Literature review methodology follows Muka et al. (2020)
-24-step systematic review guide. System selection criterion: end-to-end automation
-of at least one component of the hypothesis–experiment–validation loop.
- Data and code availability. Analysis notes will be made available upon acceptance.
-No datasets were produced.
- Ethical and societal impact. The H parameter analysis explicitly addresses the
-necessity of human oversight in current systems. The open problems discussion (§8)
-identifies risks of premature convergence under widespread AI Scientist deployment,
-particularly through the Ms underdevelopment problem.
-
+Conference For AI Scientists 2026 - AI Involvement Checklist
+This checklist documents the role of AI systems at each stage of this research. The checklist
+has two parts: a Research Stage Assessment (items 1–4) rating AI involvement and iteration
+effort, and an AI System Documentation section (items 5–6).
+Research Stage Assessment
+1. Hypothesis development.
+Answer: [B]
+Iteration Effort: [Medium]
+Explanation: The core Servo framework tuple (S, G, E, V, M, π), the V completeness thesis, the H parameter, and the three open problems were conceived
+by the human author. A frontier LLM agent elaborated framework components,
+identified literature-level instantiations, and proposed theoretical connections. The
+human author directed all conceptual decisions and made several substantive corrections to the AI’s elaborations.
+2. Experimental design and implementation.
+Answer: [B]
+Iteration Effort: [Medium]
+Explanation: This submission contains no computational experiments. The
+methodology for cross-system analysis (system selection criteria, component extraction protocol, domain comparison structure) was designed by the human author.
+A frontier LLM agent executed literature retrieval, extracted framework components from primary sources, and performed citation-level fact verification across
+four verification sweeps.
+3. Analysis of data and interpretation of results.
+Answer: [C]
+Iteration Effort: [Medium]
+Explanation: The LLM agent extracted Servo components for all analyzed systems from primary sources and performed citation-level fact verification (4 verification sweeps). The human author reviewed all extractions, corrected mischaracterizations, and synthesized the cross-domain pattern. The V-completeness thesis
+emerged from the human author’s synthesis.
+4. Writing.
+Answer: [C]
+Iteration Effort: [High]
+Explanation: The LLM agent drafted the majority of the manuscript text through
+multiple revision cycles; the human author provided key conceptual passages (framework definitions in §4, core open problems in §7), directed structural decisions,
+reviewed all drafts, and made final editorial judgments.
+AI System Documentation
+5. AI systems used.
+Description: A frontier large language model with code execution and longdocument processing capabilities was used as the primary research and writing
+assistant. The system operated as an interactive CLI agent with file-system access,
+able to read primary sources, execute and debug Python simulations, and iteratively
+revise LaTeX manuscripts.
+6. Observed AI Limitations.
+Description: (1) Systematic citation fabrication: the agent generated plausible
+but non-existent quotes and statistics, requiring four dedicated citation-verification
+sweeps using parallel sub-agents. (2) Analytical overconfidence: the agent initially overclaimed empirical significance for mechanically-entailed theoretical consequences; multiple adversarial review rounds were needed to correct framing and
 11
+
+remove overclaims. (3) Context drift: over long sessions, the agent occasionally
+regressed previously corrected errors, requiring explicit re-verification of integrity
+items before each commit.
+
+12
+
+Conference For AI Scientists 2026 - Reproducibility and Responsibility
+Checklist
+1. Claims
+Question: Do the main claims made in the abstract and introduction accurately
+reflect the paper’s contributions and scope?
+Answer: [Yes]
+Justification: The abstract and introduction explicitly state the three contributions
+(framework, cross-domain analysis, open problems). The V-completeness thesis is
+supported both by three propositions under explicit assumptions (§A) and by a
+cross-domain survey presented as illustration; the paper delimits both the assumptions and the survey’s illustrative role in §A and §8.
+2. Limitations
+Question: Does the paper discuss the limitations of the work performed by the
+authors?
+Answer: [Yes]
+Justification: Limitations are discussed in §8 (framework abstracts domain cost
+structures, social layer, non-stationarity) and throughout the domain analysis (§6).
+3. Theory assumptions and proofs
+Question: For each theoretical result, does the paper provide the full set of assumptions and a complete proof?
+Answer: [Yes]
+Justification: Appendix A states three propositions, each with its assumptions
+(Assumption 1, Definition 1) and a proof sketch grounded in standard results on
+Bayesian experimental design and posterior consistency under model misspecification. The cross-domain survey is presented as illustration of these results, not as
+independent empirical proof.
+4. Experimental result reproducibility
+Question: Does the paper fully disclose all information needed to reproduce the
+main experimental results?
+Answer: [Yes]
+Justification: This paper contains no computational experiments. The crossdomain analysis approach (system selection and component extraction from primary
+sources) is described in §5 and §6; a machine-readable extraction sheet with percell source quotes, explicit inclusion/exclusion criteria, multi-vendor blind coding
+by three model-pinned LLM raters over 14 systems with Fleiss’ κ, a counterexample search, and a table-regeneration/validation script is released as supplementary
+material (see §8). All analyzed papers are publicly accessible.
+5. Open access to data and code
+Question: Does the paper provide open access to data and code?
+Answer: [No]
+Justification: This submission contains no computational experiments. All analyzed
+papers are publicly accessible, and the framework can be applied following the
+component definitions in §4.
+6. Experimental setting/details
+Question: Does the paper specify all details necessary to understand the results?
+Answer: [Yes]
+Justification: The cross-domain analysis methodology is described in §5 and §6. No
+computational experiments were performed in this submission.
+7. Experiment statistical significance
+13
+
+Question: Does the paper report error bars or statistical significance information?
+Answer: [NA]
+Justification: This paper contains no computational experiments and reports no
+statistical results requiring error bars or significance tests.
+8. Experiments compute resources
+Question: Does the paper provide suﬀicient information on compute resources?
+Answer: [NA]
+Justification: This submission contains no computational experiments. The metaanalysis requires only standard document processing and no specialized compute.
+9. Research Ethics
+Question: Does the research conform with the NeurIPS Code of Ethics, except
+where CAISc’s AI authorship policies apply?
+Answer: [Yes]
+Justification: This is a meta-analysis of published systems with no human subjects,
+no proprietary data, and no safety risks. AI authorship is documented per CAISc
+policy.
+10. Broader impacts
+Question: Does the paper discuss both potential positive and negative societal
+impacts?
+Answer: [Yes]
+Justification: §8 addresses both the potential for accelerating scientific discovery and the risk of premature convergence under widespread AI Scientist deployment (particularly via the Ms underdevelopment problem and novelty nonautomatability).
+
+A
+
+Formal Analysis of Validator Completeness
+
+We make the role of V precise by separating two objects that are easily conflated: the
+observation likelihood p(o | θ, d), which drives the Bayesian belief update, and the validator
+V (o), a reward estimate that the policy π uses to score outcomes. The results hold in a
+tractable subproblem; the open-ended regime is left open.
+Assumption 1 (Tractable, identifying subproblem). (i) the search space S is bounded and the
+parameter space Θ is compact; (ii) T is stationary; (iii) the prior p(θ) has support containing
+the true θ⋆ ; (iv) the observation model p(o | θ, d) is well-specified and identifies θ (for θ ̸= θ′
+some reachable design separates them); and (v) the realized design sequence is uniformly
+informative—infinitely often it selects a reachable design whose Kullback–Leibler separation
+between any two surviving∑hypotheses is bounded below by a fixed δ > 0, equivalently the
+accumulated information t EIG(dt ) diverges.
+Definition 1 (Validator as reward channel). V (o) estimates the true reward R(s, a); it is
+calibrated if E[V (o) | s, a] = R(s, a) and biased if δ(s, a) = E[V (o) | s, a] − R(s, a) ̸= 0 for
+some (s, a). V is distinct from the update likelihood p(o | θ, d) unless explicitly coupled into
+it.
+Proposition 1 (Suﬀiciency for closure). Under Assumption 1 the posterior concentrates on
+θ⋆ (the loop closes). If in addition V is calibrated, the one-step EIG rule (Equation 1) is
+myopically Bayes-optimal for the information objective.
+Proof sketch. A well-specified, identifying likelihood with divergent accumulated information
+on a compact Θ (Assumption 1(i),(iv),(v)) is the standard suﬀicient condition for Bayesian
+posterior consistency [Ghosal and van der Vaart, 2017], giving bt → δθ⋆ . Calibration is not
+required for consistency; it only makes one-step EIG myopically optimal, by definition of
+expected information
+∑ gain. The uniform-information clause (v) is essential: a sequence with
+EIG(dt ) > 0 but t EIG(dt ) < ∞ leaves the posterior short of a point mass even under
+identifiability and calibration. □
+14
+
+Proposition 2 (Drift under misspecified coupling). Suppose the validator enters the belief
+update, i.e. the effective update is qθ (o) ∝ p(o | θ, d) exp(βV (o)) with coupling β > 0. If V
+depends on the outcome in a θ-dependent (non-aﬀine) way, the posterior concentrates on the
+Kullback–Leibler projection θ† ̸= θ⋆ [Berk, 1966]: the loop closes computationally but on
+the wrong target. A θ-independent aﬀine transformation of V (e.g. a constant additive bias)
+cancels in the log-partition and leaves θ⋆ unchanged; and when V is a pure policy channel
+(β = 0) no validator transformation moves the target—it can at most degrade design choice
+and slow information acquisition (interacting with Assumption 1(v)).
+Proof sketch. A coupled, misspecified update
+∫ likelihood places the posterior at its KL
+minimizer [Berk, 1966]; the log-partition log p(o | θ, d) eβV (o) do relocates that minimizer
+iff its dependence on θ changes, which a θ-independent aﬀine term does not. With β = 0
+the update likelihood is unchanged, so θ⋆ is invariant to V . □
+Proposition 3 (Non-identifiability of novelty). Let θnov be a novelty/significance component
+that is a priori independent of the identified components. If the channel likelihood of every
+automated validator is independent of θnov , then no automated validator admits a consistent
+estimator of θnov , and loop closure on novelty requires Vhuman .
+Proof sketch. If the likelihood does not depend on θnov and the prior does not couple it to
+identified components, the posterior marginal on θnov equals the prior for all data; θnov is
+unidentified and admits no consistent estimator. □
+These results bound the validator-completeness reading rather than overstate it. A complete
+validator is necessary for autonomous closure—it supplies the calibrated reward and, for
+Vempirical , often the identifying, well-specified channel Assumption 1 requires—but Proposition 1 shows convergence also needs suﬀicient accumulated information, Proposition 2
+shows that drift requires an incorrectly coupled validator (not a mere ranking shift), and
+Proposition 3 isolates the one component no automated validator can resolve.
+
+15
 
 

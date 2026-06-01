@@ -1,0 +1,11 @@
+{
+  "loop_status": "partial-task",
+  "Vsyntax": 1,
+  "Vsemantic": 0,
+  "Vempirical": 1,
+  "Vhuman": 1,
+  "Vcalibrated": 1,
+  "Vcompleteness": 2,
+  "H": 0.33
+}
+

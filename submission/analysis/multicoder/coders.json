@@ -1,0 +1,13 @@
+{
+  "coders_run": [
+    "claude",
+    "codex",
+    "agy"
+  ],
+  "models": {
+    "claude": "claude-opus-4-8 (--model flag)",
+    "codex": "gpt-5.5 (-m flag)",
+    "agy": "Gemini 3.1 Pro (High) via ~/.gemini/antigravity-cli/settings.json"
+  },
+  "n_systems": 14
+}
