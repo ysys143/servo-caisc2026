@@ -144,6 +144,42 @@ structural near-miss (AI Scientist v1), reported in the manuscript's Limitations
 The category "V-complete yet loop-open for V-independent reasons" is near-empty in
 the published record, which is itself evidence for the direction of the association.
 
+## 2b. Calibration: a construct-validity refinement
+
+A later review found AI Scientist (Nature 2026) author-coded `Vcalibrated=1` while
+all three blind coders coded `0`, calling the calibration label disputed. The cause
+was construct conflation: the single `Vcalibrated` field mixed two questions. We
+split it (`multicoder/rubric_calib.txt`):
+- `V_present`: a calibrated validation layer EXISTS anywhere in the system.
+- `V_gating`: the layer that DECIDES acceptance is itself calibrated.
+- `novelty_gate`: what gates novelty/significance.
+
+Blind re-coding of all 14 systems by two model-pinned vendors (claude-opus-4-8,
+gpt-5.5; the `agy` CLI returned empty output in this headless run and was excluded;
+`multicoder/run_calib.py`, `compute_calib.py`, `codings_calib.csv`):
+
+| construct     | claude = codex | claude = author | character |
+|---------------|----------------|-----------------|-----------|
+| V_present     | 14/14          | 13/14           | near-universal (low discriminating power) |
+| V_gating      | 13/14 (92%)    | 12/14           | the decisive, reproducible construct |
+| novelty_gate  | 10/14          | 10/14           | noisier (5-way categorical) |
+
+- **The dispute resolves.** For AI Scientist (Nature 2026) the author and both
+  coders agree under the split: `V_present=1` (a calibrated empirical replication
+  layer exists -- what the author label captured) and `V_gating=0` (acceptance is
+  gated by a biased LLM reviewer / social peer review -- what the coders captured).
+  The old disagreement was the conflation, not noise.
+- **The decisive construct is reproducible.** Gating calibration agrees across
+  vendors on 13/14 systems, more cleanly than the old holistic label.
+- **No calibrated automated novelty gate exists** (`novelty_gate=calibrated_auto`
+  on 1/28 codings, itself a coder error), empirically grounding the
+  novelty-non-automatability open problem.
+
+We therefore frame the survey as exposing failure modes in validator architecture
+(mechanical closure without trustworthy gating; validation presence without decisive
+calibration; external acceptance without independent replication), not as estimating
+an association.
+
 ## 3. Net effect on the manuscript
 
 1. The cross-system coding is operationalized (rubric), independently

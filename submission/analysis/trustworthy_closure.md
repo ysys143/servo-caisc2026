@@ -23,10 +23,17 @@ sheets and different evidence, which is what breaks the circularity.
 |--------|-----------------|---------------|--------------------------|---------------------|
 | Robot Scientist / Adam | closed-wetlab | 1 | yeast functional-genomics hypotheses experimentally confirmed and published (King et al. 2009, *Science*; Sparkes et al. 2010) | **yes** |
 | AI Scientist (2024) | closed-comp | 0 | hallucinated results (e.g. ablation tables); authors advise not taking generated content at face value (Lu et al. 2024) | **no** |
-| AI Scientist (Nature 2026) | closed-comp | 1 | outputs passed real human peer review (ICLR workshop track); published in *Nature* (Lu et al. 2026) | **yes** |
+| AI Scientist (Nature 2026) | closed-comp | 1 | outputs passed human peer review (ICLR workshop track only---a weak social signal, not independent replication); published in *Nature* (Lu et al. 2026) | **weak** |
 | NovelSeek | closed-comp | 1 | reports closed-loop benchmark gains across twelve tasks; no independent third-party replication/audit located (Zhang et al. 2025) | **unknown** |
 | Coscientist | partial-task | 1 | real chemistry executed, but the discovery loop is not closed (Boiko et al. 2023) | n/a (loop open) |
 | Agent Laboratory | partial-task | 0 | automated reviewer over-estimates quality by +2.3 vs. human PhD students; human-directed (Schmidgall et al. 2025) | **no** |
+
+**Evidence grading.** Trustworthy closure is graded by external-evidence strength:
+**yes** = independent replication / formal proof / audited benchmark; **weak** =
+peer-review or venue acceptance only (a noisy social signal); **unknown** = none
+located; **no** = documented unreliability. Calibration itself is refined into
+`V_present` vs `V_gating` in `multicoder/rubric_calib.txt` and `reliability_report.md`
+(\S2b); trustworthy closure tracks gating calibration, not mere validator presence.
 
 ## Descriptive contingency (reproduced by `association_descriptive.py`)
 
@@ -36,7 +43,8 @@ externally-coded outcome (counts only):
 ```
 Vcal=0 x trustworthy=no       : 1  (AI Scientist (2024))
 Vcal=1 x trustworthy=unknown  : 1  (NovelSeek)
-Vcal=1 x trustworthy=yes      : 2  (Robot Scientist, AI Scientist (Nature 2026))
+Vcal=1 x trustworthy=weak     : 1  (AI Scientist (Nature 2026))
+Vcal=1 x trustworthy=yes      : 1  (Robot Scientist)
 ```
 
 ## How to read this (and how not to)

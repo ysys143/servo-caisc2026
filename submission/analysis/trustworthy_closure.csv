@@ -1,7 +1,7 @@
 system,trustworthy_closure,external_signal,source
 Robot Scientist,yes,"Autonomously generated yeast functional-genomics hypotheses were experimentally confirmed and published in a top venue.","King et al. 2009 (Science); Sparkes et al. 2010"
 AI Scientist (2024),no,"Documented hallucinated results (e.g. ablation tables); the authors themselves advise not taking the generated scientific content at face value.","Lu et al. 2024"
-AI Scientist (Nature 2026),yes,"Outputs passed real human peer review (ICLR workshop track) and the system was published in Nature.","Lu et al. 2026 (Nature)"
+AI Scientist (Nature 2026),weak,"Outputs passed real human peer review (ICLR workshop track) and the system was published in Nature.","Lu et al. 2026 (Nature)"
 NovelSeek,unknown,"Reports closed-loop benchmark gains across twelve tasks but no independent third-party replication or audit was located.","Zhang et al. 2025"
 Coscientist,na,"Real chemistry was executed but the discovery loop is not closed (semi-autonomous design and execution only).","Boiko et al. 2023"
 Agent Laboratory,no,"Its automated reviewer over-estimates quality by +2.3 points versus human PhD students; the loop is human-directed.","Schmidgall et al. 2025"
