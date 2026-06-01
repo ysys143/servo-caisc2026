@@ -1,0 +1,2 @@
+{"V_present": 1, "V_gating": 1, "novelty_gate": "human"}
+

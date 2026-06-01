@@ -1,0 +1,15 @@
+system,V_present,V_gating,novelty_gate
+robot_scientist,1,1,predefined
+coscientist,1,0,human
+ai_scientist_2024,0,0,biased_auto
+ai_scientist_2026,1,0,biased_auto
+agent_laboratory,0,0,biased_auto
+novelseek,1,1,none
+ai_scientist_v2,1,0,biased_auto
+ai_coscientist_google,0,0,biased_auto
+ai_researcher,1,0,biased_auto
+deepscientist,1,1,biased_auto
+robin,1,1,biased_auto
+era,1,1,none
+autoresearchclaw,1,1,biased_auto
+scientistone,1,1,biased_auto
