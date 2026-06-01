@@ -165,9 +165,16 @@ gpt-5.5; the `agy` CLI returned empty output in this headless run and was exclud
 | novelty_gate  | 10/14          | 10/14           | noisier (5-way categorical) |
 
 With two vendors Fleiss' kappa is undefined, so the counts above are RAW agreement;
-the chance-adjusted two-vendor Cohen's kappa is V_present 1.00, V_gating 0.86,
-novelty_gate 0.53 (`compute_calib.py`). Human expert adjudication is not done; these
-LLM labels are a transparency measure, not a human-level gold standard.
+the chance-adjusted Cohen's kappa is V_present 1.00, V_gating 0.86, novelty_gate 0.53
+(`compute_calib.py`). **There is no human gold standard here, and "author" does not
+mean a human reference.** Both the blind coders and the `author`/Coder-A labels were
+produced with AI assistance (Claude, per the AI Involvement Checklist; the human
+author directs and owns the labels but did not hand-code them). The blind `claude`
+coder shares its model family with the author labels, so author-vs-`claude` agreement
+is **not independent**; the meaningful signal is the cross-vendor `claude`-vs-`codex`
+agreement (two different vendors), e.g. V_gating Cohen's kappa 0.86. These statistics
+are a transparency measure, not human-level reliability; independent human
+adjudication of the labels remains future work.
 
 - **The dispute resolves.** For AI Scientist (Nature 2026) the author and both
   coders agree under the split: `V_present=1` (a calibrated empirical replication
