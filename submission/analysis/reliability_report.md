@@ -148,8 +148,8 @@ the published record, which is itself evidence for the direction of the associat
 
 1. The cross-system coding is operationalized (rubric), independently
    multi-coded by three model-pinned blind vendors over 14 systems, and released
-   as machine-readable supplementary material with per-cell source quotes and a
-   validator/regeneration script.
+   as machine-readable supplementary material with a representative source quote
+   and resolvable citation per system, and a validator/regeneration script.
 2. The central claim is stated as an association whose decisive sub-construct
    (calibration) shows substantial cross-vendor agreement (Fleiss kappa = 0.79),
    while the noisier aggregate ordinal (V-completeness, kappa = 0.39) is reported
