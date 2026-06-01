@@ -11,7 +11,15 @@ import csv, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CSV_PATH = os.path.join(HERE, "systems.csv")
-BIB_PATH = os.path.join(HERE, "..", "references.bib")
+# references.bib may sit one level up (repo layout) or beside this script / two
+# levels up (supplement-bundle layouts); search the likely locations so the
+# validator runs from the released artifacts, not only the source tree.
+BIB_PATH = next(
+    (p for p in (os.path.join(HERE, "..", "references.bib"),
+                 os.path.join(HERE, "references.bib"),
+                 os.path.join(HERE, "..", "..", "references.bib"))
+     if os.path.exists(p)),
+    os.path.join(HERE, "..", "references.bib"))
 OUT_PATH = os.path.join(HERE, "tbl-core.tex")
 
 
@@ -39,7 +47,7 @@ def main():
         for e in errs:
             print("  -", e)
         sys.exit(1)
-    print(f"OK: {len(rows)} systems coded; every cell has a source quote and a resolvable citation.")
+    print(f"OK: {len(rows)} systems coded; every row has a source quote and a resolvable citation.")
 
     # Regenerate a compact TeX table from the coded rows.
     lines = [r"% AUTO-GENERATED from analysis/systems.csv by build_servo_tables.py -- do not edit by hand.",
