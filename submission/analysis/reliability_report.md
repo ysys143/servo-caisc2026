@@ -120,6 +120,30 @@ trustworthy closure, not the mere flow of feedback.) The one pure-G advance with
 unit-distance disproof) is *not* closed-loop -- it is single-shot, certified
 post hoc by human mathematicians.
 
+### Search summary (candidates and dispositions)
+
+Each row consolidates a system already discussed in (a)-(c) above; the table is a
+structured restatement of that search, not new evidence. "Direction" refers to
+the refutation each candidate was tested against.
+
+| candidate system | direction tested | counterexample? | disposition / why not | source basis |
+|---|---|---|---|---|
+| AI Scientist v1 (Sakana 2024) | (a) V-incomplete yet loop-closed | **partial -- structural near-miss** | closes generate->execute->validate->regenerate on a biased, uncalibrated V; refutes structural necessity but not *trustworthy* closure (output unreliable) | LLM self-score + LLM reviewer, balanced acc. ~0.65 (Lu et al. 2024) |
+| Coscientist | (a) | no | V-incomplete; rescued by a human at the novelty/significance gate | Boiko et al. 2023 |
+| Agent Laboratory | (a) | no | adds a V_s layer but uncalibrated (+2.3 over-estimation vs. PhD students); loop does not close without a human | Schmidgall et al. 2025 |
+| DeepScientist | (a) / (c) | no | human at the final gate; capability gain exploits an already-complete benchmark V | catalog (target_systems.md) |
+| Robot Scientist / Adam | (a) / (b) | no | V-complete via a calibrated wet-lab measurement; loop closes within scope | King/Sparkes et al. 2009-2010 |
+| FunSearch / AlphaEvolve | (a) / (c) | no | closes via a near-oracle numeric evaluator; the G/pi gain rides an already-complete V | Romera-Paredes et al. 2023 |
+| DeepSeek-Prover-V1.5 | (a) / (c) | no | closes via a formal-kernel oracle (calibrated V); not V-incomplete | Xin et al. 2024 |
+| A-Lab / mobile robotic chemist / closed-loop battery opt. | (b) V-complete yet loop-open | no | loop *closes* within scope; the only openness is a scope/economic choice (fixed candidate list, cost/safety), not a V property | as surveyed (autonomous materials/chem labs) |
+| ERA | (c) G/pi gain, V unchanged | no (confirms) | recombination gain exploits an already-complete validator | catalog (target_systems.md) |
+| OpenAI unit-distance disproof | (c) pure-G, no V improvement | no | *not* closed-loop: single-shot, certified post hoc by human mathematicians | catalog (target_systems.md) |
+
+**Net:** zero clean counterexamples on the trustworthy-closure reading; one
+structural near-miss (AI Scientist v1), reported in the manuscript's Limitations.
+The category "V-complete yet loop-open for V-independent reasons" is near-empty in
+the published record, which is itself evidence for the direction of the association.
+
 ## 3. Net effect on the manuscript
 
 1. The cross-system coding is operationalized (rubric), independently
