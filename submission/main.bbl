@@ -1,4 +1,4 @@
-\begin{thebibliography}{36}
+\begin{thebibliography}{37}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -128,6 +128,13 @@ L.~P. Kaelbling, M.~L. Littman, and A.~R. Cassandra.
 \newblock Planning and acting in partially observable stochastic domains.
 \newblock \emph{Artificial Intelligence}, 101\penalty0 (1--2):\penalty0
   99--134, 1998.
+
+\bibitem[Kim et~al.(2026)Kim, Yoon, Gashteovski, Suk, Baek, Aggarwal, Wu,
+  et~al.]{kim2026aireviewers}
+S.~Kim, D.~Yoon, K.~Gashteovski, J.~Suk, J.~Baek, P.~Aggarwal, I.~Wu, et~al.
+\newblock On the limits and opportunities of {AI} reviewers: {Reviewing} the
+  reviews of {Nature}-family papers with 45 expert scientists.
+\newblock \emph{arXiv preprint arXiv:2605.20668}, 2026.
 
 \bibitem[Liu et~al.(2026)]{liu2026lasthuman}
 J.~Liu et~al.
