@@ -207,3 +207,31 @@ an association.
    limitations; the published per-system labels (`analysis/systems.csv`,
    author/Coder A) remain the conservative reference, with the multi-vendor
    matrix (`analysis/multicoder/codings.csv`) as the reliability evidence.
+
+## What the validator scripts do and do NOT check (reviewer disclosure)
+
+Two limitations of this package are stated plainly so reviewers do not over-read it:
+
+1. **Formal integrity, not semantic entailment.** `build_servo_tables.py` and
+   `build_domain_tables.py` enforce only that every row has a non-empty
+   `source_quote` and a `citation_key` resolvable in `references.bib`; they reject
+   uncited or unquoted rows. They do **not** verify that the quote semantically
+   entails each coded field (e.g. that the quote actually supports `Vcalibrated=1`
+   or `loop_status=closed-comp`), nor that the quote is verbatim and in-context.
+   `systems.csv` carries **one representative quote per system**, not one quote per
+   component, so per-component coding judgments (S, G, E, V, M, pi and the binary
+   indicators) still require the reader to consult the cited primary source. The
+   scripts make the table *reproducible*, not the coding *independently validated*.
+
+2. **`trustworthy_closure` is only partly external to V.** The outcome signals used
+   to code `trustworthy_closure` (independent replication, post-hoc audit,
+   documented hallucination, real human peer review / publication) are intended to
+   be external to each system's *automated* validator design, but two of them ---
+   peer review and publication --- are themselves a form of human validation and
+   therefore overlap the V_human layer that counts toward V-completeness. A system
+   that includes V_human in its loop is mechanically more likely to have a
+   peer-review/publication outcome available to code as "trustworthy." The check is
+   thus direction-consistent but **not a clean external test**; combined with the
+   six-system size and the author-curated candidate list behind the counterexample
+   search, it is offered as a transparency artifact, not as independent confirmation
+   of the V-completeness reading. The paper states this in its Limitations.
