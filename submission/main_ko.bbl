@@ -1,4 +1,4 @@
-\begin{thebibliography}{37}
+\begin{thebibliography}{40}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -177,14 +177,21 @@ O.~O'Donoghue, G.~Puthumanaillam, J.~Won, P.~Moura, M.~Oettig, J.~M. de~Kruif,
   in biology.
 \newblock \emph{arXiv preprint arXiv:2310.10632}, 2023.
 
-\bibitem[Park et~al.(2023)Park, O'Brien, Cai, Morris, Liang, and
+\bibitem[Park et~al.(2023{\natexlab{a}})Park, O'Brien, Cai, Morris, Liang, and
   Bernstein]{park2023generative}
 J.~S. Park, J.~C. O'Brien, C.~J. Cai, M.~R. Morris, P.~Liang, and M.~S.
   Bernstein.
 \newblock Generative agents: {Interactive} simulacra of human behavior.
 \newblock In \emph{Proceedings of the ACM Symposium on User Interface Software
-  and Technology}, 2023.
+  and Technology}, 2023{\natexlab{a}}.
 \newblock arXiv:2304.03442.
+
+\bibitem[Park et~al.(2023{\natexlab{b}})Park, Leahey, and
+  Funk]{park2023disruptive}
+M.~Park, E.~Leahey, and R.~J. Funk.
+\newblock Papers and patents are becoming less disruptive over time.
+\newblock \emph{Nature}, 613:\penalty0 138--144, 2023{\natexlab{b}}.
+\newblock \doi{10.1038/s41586-022-05543-x}.
 
 \bibitem[Rainforth et~al.(2024)Rainforth, Foster, Ivanova, and
   Smith]{rainforth2024modern}
@@ -257,6 +264,13 @@ S.-M. Udrescu and M.~Tegmark.
 \newblock {AI} {Feynman}: {A} physics-inspired method for symbolic regression.
 \newblock \emph{Science Advances}, 6\penalty0 (16):\penalty0 eaay2631, 2020.
 
+\bibitem[Uzzi et~al.(2013)Uzzi, Mukherjee, Stringer, and
+  Jones]{uzzi2013atypical}
+B.~Uzzi, S.~Mukherjee, M.~Stringer, and B.~Jones.
+\newblock Atypical combinations and scientific impact.
+\newblock \emph{Science}, 342\penalty0 (6157):\penalty0 468--472, 2013.
+\newblock \doi{10.1126/science.1240474}.
+
 \bibitem[Xin et~al.(2024)Xin, Ren, Song, Shao, Zhao, Wang, Liu, Cheng,
   et~al.]{xin2024deepseek}
 H.~Xin, D.~Ren, S.~Song, Z.~Shao, W.~Zhao, H.~Wang, W.~Liu, L.~Cheng, et~al.
@@ -273,5 +287,10 @@ B.~Zhang, S.~Feng, X.~Yan, J.~Yuan, Z.~Yu, S.~Huang, L.~Bai, X.~He, T.~Peng,
   system from hypothesis to verification.
 \newblock \emph{arXiv preprint arXiv:2505.16938}, 2025.
 \newblock arXiv:2505.16938.
+
+\bibitem[Zollman(2010)]{zollman2010epistemic}
+K.~J.~S. Zollman.
+\newblock The epistemic benefit of transient diversity.
+\newblock \emph{Erkenntnis}, 72\penalty0 (1):\penalty0 17--35, 2010.
 
 \end{thebibliography}
