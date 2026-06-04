@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // \"\"' | grep -qE '\\.(tex|bib)$' && (cd /Users/jaesolshin/Documents/GitHub/CAISc_2026/submission && /usr/local/texlive/2026basic/bin/universal-darwin/bibtex main 2>/dev/null; /usr/local/texlive/2026basic/bin/universal-darwin/xelatex -interaction=nonstopmode main.tex > /tmp/xelatex-auto.log 2>&1 && echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"LaTeX 재컴파일 완료\"}}') || true",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}
