@@ -65,7 +65,9 @@ Vcalibrated: agy-claude 0.71, agy-codex 1.00, claude-codex 0.70; loop_status:
 - **The author disagrees with the LLM coders precisely on V_completeness.**
   Against the author's (Coder A) labels on the overlapping systems, Cohen's kappa
   is high or perfect for loop_status (1.0), Vsemantic (1.0), and Vcalibrated
-  (0.62-0.67), but *negative* for V_completeness (-0.25 to -0.43). The construct
+  (1.00 after the V_gating refinement in §2b; the pre-refinement value was 0.62–0.67,
+  reflecting the single-system disagreement that the V_present/V_gating split resolved),
+  but *negative* for V_completeness (-0.25 to -0.43). The construct
   on which independent coders most disagree is exactly the holistic ordinal, and
   the construct they agree on is the calibration sub-construct the paper rests on.
 
