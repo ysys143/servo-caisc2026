@@ -23,7 +23,7 @@ sheets and different evidence, which is what breaks the circularity.
 |--------|-----------------|---------------|--------------------------|---------------------|
 | Robot Scientist / Adam | closed-wetlab | 1 | yeast functional-genomics hypotheses experimentally confirmed and published (King et al. 2009, *Science*; Sparkes et al. 2010) | **yes** |
 | AI Scientist (2024) | closed-comp | 0 | hallucinated results (e.g. ablation tables); authors advise not taking generated content at face value (Lu et al. 2024) | **no** |
-| AI Scientist (Nature 2026) | closed-comp | 1 | outputs passed human peer review (ICLR workshop track only---a weak social signal, not independent replication); published in *Nature* (Lu et al. 2026) | **weak** |
+| AI Scientist (Nature 2026) | closed-comp | 0 | outputs passed human peer review (ICLR workshop track only---a weak social signal, not independent replication); published in *Nature* (Lu et al. 2026). Note: A_Vcalibrated updated to 0 (V_gating=0; calibrated layer present but non-gating). | **weak** |
 | NovelSeek | closed-comp | 1 | reports closed-loop benchmark gains across twelve tasks; no independent third-party replication/audit located (Zhang et al. 2025) | **unknown** |
 | Coscientist | partial-task | 1 | real chemistry executed, but the discovery loop is not closed (Boiko et al. 2023) | n/a (loop open) |
 | Agent Laboratory | partial-task | 0 | automated reviewer over-estimates quality by +2.3 vs. human PhD students; human-directed (Schmidgall et al. 2025) | **no** |
@@ -42,18 +42,19 @@ externally-coded outcome (counts only):
 
 ```
 Vcal=0 x trustworthy=no       : 1  (AI Scientist (2024))
+Vcal=0 x trustworthy=weak     : 1  (AI Scientist (Nature 2026))
 Vcal=1 x trustworthy=unknown  : 1  (NovelSeek)
-Vcal=1 x trustworthy=weak     : 1  (AI Scientist (Nature 2026))
 Vcal=1 x trustworthy=yes      : 1  (Robot Scientist)
 ```
 
 ## How to read this (and how not to)
 
-- **Direction-consistent, not a test.** The single mechanically-closed system without a
-  calibrated validator (AI Scientist v1) is exactly the one external sources judge
-  untrustworthy; the calibrated closed systems are trustworthy (2) or unverified (1).
-  No cell contradicts the calibration reading (no `Vcal=1 & untrustworthy`, no
-  `Vcal=0 & trustworthy`).
+- **Direction-consistent, not a test.** Both mechanically-closed systems with Vcal=0
+  (AI Scientist 2024: no; AI Scientist Nature 2026: weak) are at best weakly
+  trustworthy; both Vcal=1 systems are trustworthy or unknown. No cell shows
+  `Vcal=1 & untrustworthy`. Under the optimistic recoding (weak→yes), AI Scientist
+  Nature 2026 moves to `Vcal=0/yes`, so robustness is limited to the as-coded and
+  pessimistic readings.
 - **Mechanical closure does not require completeness.** AI Scientist v1 and NovelSeek
   close a computational loop at low `Vcompleteness` (=1); this is why the manuscript
   states the claim about *trustworthy* closure, not mechanical closure, and rests it
