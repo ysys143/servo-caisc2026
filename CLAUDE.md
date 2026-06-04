@@ -12,9 +12,9 @@ cd /Users/jaesolshin/Documents/GitHub/CAISc_2026/submission
 ```
 "Output written on main.pdf"와 오류 없음을 확인한다.
 
-### 2. PDF 파일명 복사
+### 2. PDF 파일명 복사 (Finder 날짜 갱신을 위해 삭제 후 복사)
 ```bash
-cp submission/main.pdf submission/servo_caiscfp2026.pdf
+rm -f submission/servo_caiscfp2026.pdf && cp submission/main.pdf submission/servo_caiscfp2026.pdf
 ```
 
 ### 3. 보충자료 ZIP 재생성
