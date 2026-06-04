@@ -1,4 +1,4 @@
-\begin{thebibliography}{43}
+\begin{thebibliography}{44}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,6 +11,15 @@ G.~V. Aher, R.~I. Arriaga, and A.~T. Kalai.
   human subject studies.
 \newblock In \emph{International Conference on Machine Learning}, 2023.
 \newblock arXiv:2208.10264.
+
+\bibitem[Alper et~al.(2026)Alper, Barany, {Chavarri Villarello}, Dahmen, Dean,
+  Ganapathy, Harris, Holmes, Jamnik, Kelk, Kra, Martin, Naskr{\k{e}}cki,
+  Ochigame, Portegies, and Schmitt]{leiden2026}
+J.~Alper, M.~Barany, A.~{Chavarri Villarello}, S.~Dahmen, W.~Dean,
+  K.~Ganapathy, M.~Harris, D.~Holmes, M.~Jamnik, S.~Kelk, B.~Kra, U.~Martin,
+  B.~Naskr{\k{e}}cki, R.~Ochigame, J.~Portegies, and J.~Schmitt.
+\newblock Leiden declaration on artificial intelligence and mathematics.
+\newblock \url{https://leidendeclaration.ai}, June 2026.
 
 \bibitem[Baek et~al.(2024)Baek, Jauhar, Pitis, Hwang, and
   Teevan]{baek2024researchagent}
