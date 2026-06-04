@@ -3,46 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: abbrvnat.bst
 Database file #1: references.bib
-Warning--there's a number but no volume in manning2024automated
 You've used 45 entries,
             2773 wiz_defined-function locations,
-            835 strings with 15318 characters,
-and the built_in function-call counts, 26943 in all, are:
+            836 strings with 15349 characters,
+and the built_in function-call counts, 26916 in all, are:
 = -- 2137
 > -- 2553
-< -- 10
+< -- 11
 + -- 856
 - -- 810
-* -- 2464
+* -- 2460
 := -- 4425
 add.period$ -- 164
 call.type$ -- 45
 change.case$ -- 396
 chr.to.int$ -- 44
-cite$ -- 91
-duplicate$ -- 937
-empty$ -- 1602
+cite$ -- 90
+duplicate$ -- 934
+empty$ -- 1594
 format.name$ -- 870
-if$ -- 5381
+if$ -- 5373
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 45
+missing$ -- 44
 newline$ -- 261
 num.names$ -- 180
-pop$ -- 780
+pop$ -- 778
 preamble$ -- 1
 purify$ -- 352
 quote$ -- 0
-skip$ -- 820
+skip$ -- 819
 stack$ -- 0
 substring$ -- 389
 swap$ -- 57
-text.length$ -- 0
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 490
-warning$ -- 1
+warning$ -- 0
 while$ -- 160
 width$ -- 0
 write$ -- 619
-(There was 1 warning)
