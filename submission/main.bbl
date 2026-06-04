@@ -1,4 +1,4 @@
-\begin{thebibliography}{40}
+\begin{thebibliography}{43}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -108,6 +108,13 @@ J.~Gottweis, W.-H. Weng, A.~Daryin, T.~Tu, P.~Sirkovic, A.~Myaskovsky,
 \newblock \doi{10.1038/s41586-026-10644-y}.
 \newblock arXiv:2502.18864.
 
+\bibitem[Gu and Krenn(2024)]{gu2024scimuse}
+X.~Gu and M.~Krenn.
+\newblock Interesting scientific idea generation using knowledge graphs and
+  {LLMs}: Evaluations with 100 research group leaders.
+\newblock \emph{arXiv preprint arXiv:2405.17044}, 2024.
+\newblock arXiv:2405.17044.
+
 \bibitem[Jaber and Jaber(2026)]{jaber2026autokernel}
 J.~Jaber and O.~Jaber.
 \newblock {AutoKernel}: {Autonomous} {GPU} kernel optimization via iterative
@@ -135,6 +142,14 @@ S.~Kim, D.~Yoon, K.~Gashteovski, J.~Suk, J.~Baek, P.~Aggarwal, I.~Wu, et~al.
 \newblock On the limits and opportunities of {AI} reviewers: {Reviewing} the
   reviews of {Nature}-family papers with 45 expert scientists.
 \newblock \emph{arXiv preprint arXiv:2605.20668}, 2026.
+
+\bibitem[Lee et~al.(2025)Lee, Hwang, Moon, Nah, Koh, Cho, Park, Yoo, Park,
+  Choi, Moon, Hwang, Kim, Kim, Kim, and Jung]{lee2025spacer}
+M.~Lee, S.~Hwang, S.~Moon, G.~Nah, D.~Koh, Y.~Cho, J.~Park, H.~Yoo, J.~Park,
+  H.~Choi, S.~Moon, T.~Hwang, S.~Kim, J.~Kim, S.~Kim, and J.~Jung.
+\newblock Spacer: Towards engineered scientific inspiration.
+\newblock \emph{arXiv preprint arXiv:2508.17661}, 2025.
+\newblock arXiv:2508.17661.
 
 \bibitem[Liu et~al.(2026)]{liu2026lasthuman}
 J.~Liu et~al.
@@ -192,6 +207,15 @@ M.~Park, E.~Leahey, and R.~J. Funk.
 \newblock Papers and patents are becoming less disruptive over time.
 \newblock \emph{Nature}, 613:\penalty0 138--144, 2023{\natexlab{b}}.
 \newblock \doi{10.1038/s41586-022-05543-x}.
+
+\bibitem[Qiao et~al.(2026)Qiao, Wei, Fan, Wu, Zhang, Wang, Zhu, Zhang, Ding,
+  Zhang, and Chen]{qiao2026sciatlas}
+S.~Qiao, Y.~Wei, J.~Fan, B.~Wu, B.~Zhang, M.~Wang, Y.~Zhu, N.~Zhang, K.~Ding,
+  Q.~Zhang, and H.~Chen.
+\newblock {SciAtlas}: A large-scale knowledge graph for automated scientific
+  research.
+\newblock \emph{arXiv preprint arXiv:2605.22878}, 2026.
+\newblock arXiv:2605.22878.
 
 \bibitem[Rainforth et~al.(2024)Rainforth, Foster, Ivanova, and
   Smith]{rainforth2024modern}
