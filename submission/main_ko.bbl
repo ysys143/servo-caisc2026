@@ -1,4 +1,4 @@
-\begin{thebibliography}{40}
+\begin{thebibliography}{45}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,6 +11,15 @@ G.~V. Aher, R.~I. Arriaga, and A.~T. Kalai.
   human subject studies.
 \newblock In \emph{International Conference on Machine Learning}, 2023.
 \newblock arXiv:2208.10264.
+
+\bibitem[Alper et~al.(2026)Alper, Barany, {Chavarri Villarello}, Dahmen, Dean,
+  Ganapathy, Harris, Holmes, Jamnik, Kelk, Kra, Martin, Naskr{\k{e}}cki,
+  Ochigame, Portegies, and Schmitt]{leiden2026}
+J.~Alper, M.~Barany, A.~{Chavarri Villarello}, S.~Dahmen, W.~Dean,
+  K.~Ganapathy, M.~Harris, D.~Holmes, M.~Jamnik, S.~Kelk, B.~Kra, U.~Martin,
+  B.~Naskr{\k{e}}cki, R.~Ochigame, J.~Portegies, and J.~Schmitt.
+\newblock Leiden declaration on artificial intelligence and mathematics.
+\newblock \url{https://leidendeclaration.ai}, June 2026.
 
 \bibitem[Baek et~al.(2024)Baek, Jauhar, Pitis, Hwang, and
   Teevan]{baek2024researchagent}
@@ -51,6 +60,13 @@ A.~M. Bran, S.~Cox, O.~Schilter, C.~Baldassari, A.~D. White, and P.~Schwaller.
 K.~Chaloner and I.~Verdinelli.
 \newblock Bayesian experimental design: {A} review.
 \newblock \emph{Statistical Science}, 10\penalty0 (3):\penalty0 273--304, 1995.
+
+\bibitem[Cheetham and Seshadri(2024)]{cheetham2024gnome}
+A.~K. Cheetham and R.~Seshadri.
+\newblock Scaling deep learning for materials discovery: A perspective.
+\newblock \emph{Chemistry of Materials}, 2024.
+\newblock Available:
+  \url{https://escholarship.org/content/qt9qx9t3kz/qt9qx9t3kz.pdf}.
 
 \bibitem[Choudhury et~al.(2026)Choudhury, Williamson, Goli{\'n}ski, Miao,
   Smith, Kirchhof, Zhang, and Rainforth]{choudhury2026bedllm}
@@ -108,6 +124,13 @@ J.~Gottweis, W.-H. Weng, A.~Daryin, T.~Tu, P.~Sirkovic, A.~Myaskovsky,
 \newblock \doi{10.1038/s41586-026-10644-y}.
 \newblock arXiv:2502.18864.
 
+\bibitem[Gu and Krenn(2024)]{gu2024scimuse}
+X.~Gu and M.~Krenn.
+\newblock Interesting scientific idea generation using knowledge graphs and
+  {LLMs}: Evaluations with 100 research group leaders.
+\newblock \emph{arXiv preprint arXiv:2405.17044}, 2024.
+\newblock arXiv:2405.17044.
+
 \bibitem[Jaber and Jaber(2026)]{jaber2026autokernel}
 J.~Jaber and O.~Jaber.
 \newblock {AutoKernel}: {Autonomous} {GPU} kernel optimization via iterative
@@ -135,6 +158,14 @@ S.~Kim, D.~Yoon, K.~Gashteovski, J.~Suk, J.~Baek, P.~Aggarwal, I.~Wu, et~al.
 \newblock On the limits and opportunities of {AI} reviewers: {Reviewing} the
   reviews of {Nature}-family papers with 45 expert scientists.
 \newblock \emph{arXiv preprint arXiv:2605.20668}, 2026.
+
+\bibitem[Lee et~al.(2025)Lee, Hwang, Moon, Nah, Koh, Cho, Park, Yoo, Park,
+  Choi, Moon, Hwang, Kim, Kim, Kim, and Jung]{lee2025spacer}
+M.~Lee, S.~Hwang, S.~Moon, G.~Nah, D.~Koh, Y.~Cho, J.~Park, H.~Yoo, J.~Park,
+  H.~Choi, S.~Moon, T.~Hwang, S.~Kim, J.~Kim, S.~Kim, and J.~Jung.
+\newblock Spacer: Towards engineered scientific inspiration.
+\newblock \emph{arXiv preprint arXiv:2508.17661}, 2025.
+\newblock arXiv:2508.17661.
 
 \bibitem[Liu et~al.(2026)]{liu2026lasthuman}
 J.~Liu et~al.
@@ -192,6 +223,15 @@ M.~Park, E.~Leahey, and R.~J. Funk.
 \newblock Papers and patents are becoming less disruptive over time.
 \newblock \emph{Nature}, 613:\penalty0 138--144, 2023{\natexlab{b}}.
 \newblock \doi{10.1038/s41586-022-05543-x}.
+
+\bibitem[Qiao et~al.(2026)Qiao, Wei, Fan, Wu, Zhang, Wang, Zhu, Zhang, Ding,
+  Zhang, and Chen]{qiao2026sciatlas}
+S.~Qiao, Y.~Wei, J.~Fan, B.~Wu, B.~Zhang, M.~Wang, Y.~Zhu, N.~Zhang, K.~Ding,
+  Q.~Zhang, and H.~Chen.
+\newblock {SciAtlas}: A large-scale knowledge graph for automated scientific
+  research.
+\newblock \emph{arXiv preprint arXiv:2605.22878}, 2026.
+\newblock arXiv:2605.22878.
 
 \bibitem[Rainforth et~al.(2024)Rainforth, Foster, Ivanova, and
   Smith]{rainforth2024modern}
