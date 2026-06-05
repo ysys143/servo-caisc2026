@@ -72,3 +72,23 @@ print("  Direction note: under optimistic recoding (weak->yes), AI Scientist Nat
 print("  moves to Vcal=0/yes, so the direction is consistent only in as-coded and pessimistic")
 print("  readings. Under pessimistic recoding calibrated systems no longer cleanly separate.")
 print("  N=4 is far too small for inference under any recoding.")
+
+# --- V-independent signals only ---
+# Reviewer concern: peer review and publication overlap V_human, creating circularity.
+# Recode using only signals not derived from V: independent experimental replication
+# and documented hallucination/over-estimation. AI Scientist (Nature 2026)'s only
+# external signal is peer review/publication (both V_human); recoded to 'unknown'.
+print("\n=== V-independent signals only (peer review / publication removed) ===")
+print("Rationale: peer review and publication overlap V_human; keeping only")
+print("independent replication and documented unreliability signals.\n")
+closed_indep = [(s, r) for s, r in sys_rows.items() if r["A_loop_status"] in CLOSED]
+indep_cells = {}
+for s, r in closed_indep:
+    cal = "Vcal=1" if r["A_Vcalibrated"] == "1" else "Vcal=0"
+    t = tc_rows.get(s, {}).get("independent_only", "?")
+    indep_cells.setdefault((cal, t), []).append(s)
+for (cal, t), names in sorted(indep_cells.items()):
+    print(f"  {cal} x independent_only={t:<9}: {len(names)}  ({', '.join(names)})")
+print("\nWith V-dependent signals removed, informative cells reduce to N=2")
+print("(Robot Scientist=yes, AI Scientist 2024=no); direction remains consistent")
+print("but the evidence base is too small for any descriptive pattern.")
