@@ -1,4 +1,4 @@
-\begin{thebibliography}{46}
+\begin{thebibliography}{47}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -143,6 +143,12 @@ J.~Jaber and O.~Jaber.
 \newblock {AutoKernel}: {Autonomous} {GPU} kernel optimization via iterative
   agent-driven search.
 \newblock \emph{arXiv preprint arXiv:2603.21331}, 2026.
+
+\bibitem[Jagadish et~al.(2026)Jagadish, Rmus, Witte, Mathony, Binz, and
+  Schulz]{jagadish2026automatize}
+A.~K. Jagadish, M.~Rmus, K.~Witte, M.~Mathony, M.~Binz, and E.~Schulz.
+\newblock Can we automatize scientific discovery in the cognitive sciences?
+\newblock \emph{arXiv preprint arXiv:2603.20988}, 2026.
 
 \bibitem[Jumper et~al.(2021)Jumper, Evans, Pritzel, Green, Figurnov,
   Ronneberger, Tunyasuvunakool, Bates, {\v{Z}}{\'\i}dek, Potapenko,
