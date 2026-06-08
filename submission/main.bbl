@@ -1,4 +1,4 @@
-\begin{thebibliography}{45}
+\begin{thebibliography}{46}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -158,6 +158,14 @@ L.~P. Kaelbling, M.~L. Littman, and A.~R. Cassandra.
 \newblock Planning and acting in partially observable stochastic domains.
 \newblock \emph{Artificial Intelligence}, 101\penalty0 (1--2):\penalty0
   99--134, 1998.
+
+\bibitem[Kamber(2026)]{kamber2026chemist}
+D.~Kamber.
+\newblock Making {Claude} a chemist.
+\newblock Technical report, Anthropic, 2026.
+\newblock URL
+  \url{https://www-cdn.anthropic.com/07441e654ad3dfeb0cd090e9361511562825d012.pdf}.
+\newblock Anthropic Technical Report.
 
 \bibitem[Kim et~al.(2026)Kim, Yoon, Gashteovski, Suk, Baek, Aggarwal, Wu,
   et~al.]{kim2026aireviewers}
