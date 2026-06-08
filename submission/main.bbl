@@ -124,6 +124,13 @@ J.~Gottweis, W.-H. Weng, A.~Daryin, T.~Tu, P.~Sirkovic, A.~Myaskovsky,
 \newblock \doi{10.1038/s41586-026-10644-y}.
 \newblock arXiv:2502.18864.
 
+\bibitem[Gromski et~al.(2019)Gromski, Henson, Granda, and
+  Cronin]{gromski2019chemical}
+P.~S. Gromski, A.~B. Henson, J.~M. Granda, and L.~Cronin.
+\newblock How to explore chemical space using algorithms and automation.
+\newblock \emph{Nature Reviews Chemistry}, 3:\penalty0 119--128, 2019.
+\newblock \doi{10.1038/s41570-018-0066-y}.
+
 \bibitem[Gu and Krenn(2024)]{gu2024scimuse}
 X.~Gu and M.~Krenn.
 \newblock Interesting scientific idea generation using knowledge graphs and
@@ -223,15 +230,6 @@ M.~Park, E.~Leahey, and R.~J. Funk.
 \newblock Papers and patents are becoming less disruptive over time.
 \newblock \emph{Nature}, 613:\penalty0 138--144, 2023{\natexlab{b}}.
 \newblock \doi{10.1038/s41586-022-05543-x}.
-
-\bibitem[Qiao et~al.(2026)Qiao, Wei, Fan, Wu, Zhang, Wang, Zhu, Zhang, Ding,
-  Zhang, and Chen]{qiao2026sciatlas}
-S.~Qiao, Y.~Wei, J.~Fan, B.~Wu, B.~Zhang, M.~Wang, Y.~Zhu, N.~Zhang, K.~Ding,
-  Q.~Zhang, and H.~Chen.
-\newblock {SciAtlas}: A large-scale knowledge graph for automated scientific
-  research.
-\newblock \emph{arXiv preprint arXiv:2605.22878}, 2026.
-\newblock arXiv:2605.22878.
 
 \bibitem[Rainforth et~al.(2024)Rainforth, Foster, Ivanova, and
   Smith]{rainforth2024modern}
