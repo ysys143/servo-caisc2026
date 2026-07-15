@@ -1,4 +1,4 @@
-\begin{thebibliography}{53}
+\begin{thebibliography}{54}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -153,6 +153,13 @@ X.~Gu and M.~Krenn.
 \newblock \emph{arXiv preprint arXiv:2405.17044}, 2024.
 \newblock arXiv:2405.17044.
 
+\bibitem[Huang et~al.(2025)Huang, Jin, Li, Li, Cand{\`e}s, and
+  Leskovec]{huang2025popper}
+K.~Huang, Y.~Jin, R.~Li, M.~Y. Li, E.~Cand{\`e}s, and J.~Leskovec.
+\newblock Automated hypothesis validation with agentic sequential
+  falsifications, 2025.
+\newblock arXiv:2502.09858; ICML 2025.
+
 \bibitem[Jaber and Jaber(2026)]{jaber2026autokernel}
 J.~Jaber and O.~Jaber.
 \newblock {AutoKernel}: {Autonomous} {GPU} kernel optimization via iterative
@@ -208,14 +215,6 @@ J.~Liu et~al.
 \newblock The last human-written paper: {Agent-Native} research artifacts.
 \newblock \emph{arXiv preprint arXiv:2604.24658}, 2026.
 \newblock arXiv:2604.24658.
-
-\bibitem[Liu et~al.(2025)Liu, Yang, Xie, Ni, Gao, Li, Tang, Ouyang, Cambria,
-  and Zhou]{liu2025researchbench}
-Y.~Liu, Z.~Yang, T.~Xie, J.~Ni, B.~Gao, Y.~Li, S.~Tang, W.~Ouyang, E.~Cambria,
-  and D.~Zhou.
-\newblock {ResearchBench}: Benchmarking {LLMs} in scientific discovery via
-  inspiration-based task decomposition, 2025.
-\newblock arXiv:2503.21248; accepted, ACL 2026.
 
 \bibitem[Liu et~al.(2024)Liu, Liu, Zhu, Lei, Yang, Zhang, Li, and
   Liu]{liu2024aigs}
@@ -337,6 +336,17 @@ H.~W. Sprueill, C.~Edwards, K.~Agarwal, M.~Olarte, U.~Sanyal, C.~Johnston,
   knowledge space using quantum-chemical feedback.
 \newblock In \emph{International Conference on Machine Learning}, 2024.
 \newblock arXiv:2402.10980.
+
+\bibitem[Szymanski et~al.(2023)Szymanski, Rendy, Fei, Kumar, He, Milsted,
+  McDermott, Gallant, Cubuk, Merchant, Kim, Jain, Bartel, Persson, Zeng, and
+  Ceder]{szymanski2023alab}
+N.~J. Szymanski, B.~Rendy, Y.~Fei, R.~E. Kumar, T.~He, D.~Milsted, M.~J.
+  McDermott, M.~Gallant, E.~D. Cubuk, A.~Merchant, H.~Kim, A.~Jain, C.~J.
+  Bartel, K.~Persson, Y.~Zeng, and G.~Ceder.
+\newblock An autonomous laboratory for the accelerated synthesis of inorganic
+  materials.
+\newblock \emph{Nature}, 624:\penalty0 86--91, 2023.
+\newblock \doi{10.1038/s41586-023-06734-w}.
 
 \bibitem[Taniguchi et~al.(2025)Taniguchi, Takagi, Otsuka, Hayashi, and
   Hamada]{taniguchi2024cpc}
