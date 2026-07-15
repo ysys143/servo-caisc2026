@@ -3,7 +3,7 @@
 Reading additional input from stdin...
 OpenAI Codex v0.135.0
 --------
-workdir: /Users/jaesolshin/Documents/GitHub/CAISc_2026/submission/analysis/multicoder
+workdir: ./analysis/multicoder
 model: gpt-5.5
 provider: openai
 approval: never
