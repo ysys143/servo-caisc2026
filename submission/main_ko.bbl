@@ -1,4 +1,4 @@
-\begin{thebibliography}{45}
+\begin{thebibliography}{52}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -85,6 +85,14 @@ M.~Cranmer, A.~Sanchez~Gonzalez, P.~Battaglia, R.~Xu, K.~Cranmer, D.~Spergel,
 \newblock In \emph{Advances in Neural Information Processing Systems}, 2020.
 \newblock arXiv:2006.11287.
 
+\bibitem[Darvish et~al.(2024)Darvish, Skreta, Zhao, Yoshikawa, Som, Bogdanovic,
+  Cao, Hao, Xu, Aspuru-Guzik, Garg, and Shkurti]{darvish2024organa}
+K.~Darvish, M.~Skreta, Y.~Zhao, N.~Yoshikawa, S.~Som, M.~Bogdanovic, Y.~Cao,
+  H.~Hao, H.~Xu, A.~Aspuru-Guzik, A.~Garg, and F.~Shkurti.
+\newblock {ORGANA}: A robotic assistant for automated chemistry experimentation
+  and characterization, 2024.
+\newblock arXiv:2401.06949; also in Matter (Cell Press) 2025.
+
 \bibitem[Feng et~al.(2026)Feng, Le, Luong, Trinh, Bingham, Hwang, Chervonyi,
   et~al.]{google2026aletheia}
 T.~Feng, Q.~V. Le, T.~Luong, T.~H. Trinh, G.~Bingham, D.~Hwang, Y.~Chervonyi,
@@ -108,6 +116,13 @@ A.~Foster, D.~R. Ivanova, I.~Malik, and T.~Rainforth.
   design.
 \newblock In \emph{International Conference on Machine Learning}, 2021.
 \newblock arXiv:2103.02438.
+
+\bibitem[Geng et~al.(2025)Geng, Chen, Arumugam, and
+  Griffiths]{geng2025reliable}
+J.~Geng, H.~Chen, D.~Arumugam, and T.~L. Griffiths.
+\newblock Are large language models reliable {AI} scientists? assessing
+  reverse-engineering of black-box systems, 2025.
+\newblock arXiv:2505.17968.
 
 \bibitem[Ghosal and van~der Vaart(2017)]{ghosal2017fundamentals}
 S.~Ghosal and A.~van~der Vaart.
@@ -137,6 +152,13 @@ X.~Gu and M.~Krenn.
   {LLMs}: Evaluations with 100 research group leaders.
 \newblock \emph{arXiv preprint arXiv:2405.17044}, 2024.
 \newblock arXiv:2405.17044.
+
+\bibitem[Huang et~al.(2025)Huang, Jin, Li, Li, Cand{\`e}s, and
+  Leskovec]{huang2025popper}
+K.~Huang, Y.~Jin, R.~Li, M.~Y. Li, E.~Cand{\`e}s, and J.~Leskovec.
+\newblock Automated hypothesis validation with agentic sequential
+  falsifications, 2025.
+\newblock arXiv:2502.09858; ICML 2025.
 
 \bibitem[Jaber and Jaber(2026)]{jaber2026autokernel}
 J.~Jaber and O.~Jaber.
@@ -180,6 +202,13 @@ J.~Liu et~al.
 \newblock \emph{arXiv preprint arXiv:2604.24658}, 2026.
 \newblock arXiv:2604.24658.
 
+\bibitem[Liu et~al.(2024)Liu, Liu, Zhu, Lei, Yang, Zhang, Li, and
+  Liu]{liu2024aigs}
+Z.~Liu, K.~Liu, Y.~Zhu, X.~Lei, Z.~Yang, Z.~Zhang, P.~Li, and Y.~Liu.
+\newblock {AIGS}: Generating science from {AI}-powered automated falsification,
+  2024.
+\newblock arXiv:2411.11910.
+
 \bibitem[Lu et~al.(2024)Lu, Lu, Lange, Foerster, Clune, and
   Ha]{lu2024aiscientist}
 C.~Lu, C.~Lu, R.~T. Lange, J.~Foerster, J.~Clune, and D.~Ha.
@@ -214,6 +243,13 @@ O.~O'Donoghue, G.~Puthumanaillam, J.~Won, P.~Moura, M.~Oettig, J.~M. de~Kruif,
 \newblock {BioPlanner}: {Automatic} evaluation of {LLMs} on protocol planning
   in biology.
 \newblock \emph{arXiv preprint arXiv:2310.10632}, 2023.
+
+\bibitem[Panapitiya et~al.(2025)Panapitiya, Saldanha, Job, and
+  Hess]{panapitiya2025autolabs}
+G.~Panapitiya, E.~Saldanha, H.~Job, and O.~Hess.
+\newblock {AutoLabs}: Cognitive multi-agent systems with self-correction for
+  autonomous chemical experimentation, 2025.
+\newblock arXiv:2509.25651.
 
 \bibitem[Park et~al.(2023{\natexlab{a}})Park, O'Brien, Cai, Morris, Liang, and
   Bernstein]{park2023generative}
@@ -287,6 +323,17 @@ H.~W. Sprueill, C.~Edwards, K.~Agarwal, M.~Olarte, U.~Sanyal, C.~Johnston,
 \newblock In \emph{International Conference on Machine Learning}, 2024.
 \newblock arXiv:2402.10980.
 
+\bibitem[Szymanski et~al.(2023)Szymanski, Rendy, Fei, Kumar, He, Milsted,
+  McDermott, Gallant, Cubuk, Merchant, Kim, Jain, Bartel, Persson, Zeng, and
+  Ceder]{szymanski2023alab}
+N.~J. Szymanski, B.~Rendy, Y.~Fei, R.~E. Kumar, T.~He, D.~Milsted, M.~J.
+  McDermott, M.~Gallant, E.~D. Cubuk, A.~Merchant, H.~Kim, A.~Jain, C.~J.
+  Bartel, K.~Persson, Y.~Zeng, and G.~Ceder.
+\newblock An autonomous laboratory for the accelerated synthesis of inorganic
+  materials.
+\newblock \emph{Nature}, 624:\penalty0 86--91, 2023.
+\newblock \doi{10.1038/s41586-023-06734-w}.
+
 \bibitem[Taniguchi et~al.(2025)Taniguchi, Takagi, Otsuka, Hayashi, and
   Hamada]{taniguchi2024cpc}
 T.~Taniguchi, S.~Takagi, J.~Otsuka, Y.~Hayashi, and H.~T. Hamada.
@@ -296,6 +343,14 @@ T.~Taniguchi, S.~Takagi, J.~Otsuka, Y.~Hayashi, and H.~T. Hamada.
   2025.
 \newblock \doi{10.1098/rsos.241678}.
 \newblock arXiv:2409.00102.
+
+\bibitem[Tobias and Wahab(2025)]{tobias2025selfdriving}
+A.~V. Tobias and A.~Wahab.
+\newblock Autonomous `self-driving' laboratories: a review of technology and
+  policy implications.
+\newblock \emph{Royal Society Open Science}, 12\penalty0 (7):\penalty0 250646,
+  2025.
+\newblock \doi{10.1098/rsos.250646}.
 
 \bibitem[Udrescu and Tegmark(2020)]{udrescu2020afeynman}
 S.-M. Udrescu and M.~Tegmark.
