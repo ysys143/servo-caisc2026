@@ -1,4 +1,4 @@
-\begin{thebibliography}{58}
+\begin{thebibliography}{59}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -412,6 +412,12 @@ H.~Xin, D.~Ren, S.~Song, Z.~Shao, W.~Zhao, H.~Wang, W.~Liu, L.~Cheng, et~al.
   reinforcement learning and {Monte-Carlo} tree search.
 \newblock \emph{arXiv preprint arXiv:2408.08152}, 2024.
 \newblock arXiv:2408.08152.
+
+\bibitem[Yanai and Lercher(2019)]{yanai2019night}
+I.~Yanai and M.~Lercher.
+\newblock Night science.
+\newblock \emph{Genome Biology}, 20\penalty0 (1):\penalty0 179, 2019.
+\newblock \doi{10.1186/s13059-019-1800-6}.
 
 \bibitem[Zhang et~al.(2025)Zhang, Feng, Yan, Yuan, Yu, Huang, Bai, He, Peng,
   et~al.]{zhang2025novelseek}
