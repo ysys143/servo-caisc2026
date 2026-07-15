@@ -1,4 +1,4 @@
-\begin{thebibliography}{54}
+\begin{thebibliography}{58}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -20,6 +20,16 @@ J.~Alper, M.~Barany, A.~{Chavarri Villarello}, S.~Dahmen, W.~Dean,
   B.~Naskr{\k{e}}cki, R.~Ochigame, J.~Portegies, and J.~Schmitt.
 \newblock Leiden declaration on artificial intelligence and mathematics.
 \newblock \url{https://leidendeclaration.ai}, June 2026.
+
+\bibitem[Ayg{\"u}n et~al.(2026)Ayg{\"u}n, Belyaeva, Comanici, Coram, Cui,
+  Garrison, Johnston, Kast, McLean, Norgaard, et~al.]{aygun2026era}
+E.~Ayg{\"u}n, A.~Belyaeva, G.~Comanici, M.~Coram, H.~Cui, J.~Garrison,
+  R.~Johnston, A.~Kast, C.~Y. McLean, P.~Norgaard, et~al.
+\newblock An {AI} system to help scientists write expert-level empirical
+  software.
+\newblock \emph{Nature}, 2026.
+\newblock \doi{10.1038/s41586-026-10658-6}.
+\newblock arXiv:2509.06503.
 
 \bibitem[Baek et~al.(2024)Baek, Jauhar, Pitis, Hwang, and
   Teevan]{baek2024researchagent}
@@ -216,6 +226,14 @@ J.~Liu et~al.
 \newblock \emph{arXiv preprint arXiv:2604.24658}, 2026.
 \newblock arXiv:2604.24658.
 
+\bibitem[Liu et~al.(2025)Liu, Yang, Xie, Ni, Gao, Li, Tang, Ouyang, Cambria,
+  and Zhou]{liu2025researchbench}
+Y.~Liu, Z.~Yang, T.~Xie, J.~Ni, B.~Gao, Y.~Li, S.~Tang, W.~Ouyang, E.~Cambria,
+  and D.~Zhou.
+\newblock {ResearchBench}: Benchmarking {LLMs} in scientific discovery via
+  inspiration-based task decomposition, 2025.
+\newblock arXiv:2503.21248; Findings of ACL 2026.
+
 \bibitem[Liu et~al.(2024)Liu, Liu, Zhu, Lei, Yang, Zhang, Li, and
   Liu]{liu2024aigs}
 Z.~Liu, K.~Liu, Y.~Zhu, X.~Lei, Z.~Yang, Z.~Zhang, P.~Li, and Y.~Liu.
@@ -378,6 +396,15 @@ B.~Uzzi, S.~Mukherjee, M.~Stringer, and B.~Jones.
 \newblock \emph{Science}, 342\penalty0 (6157):\penalty0 468--472, 2013.
 \newblock \doi{10.1126/science.1240474}.
 
+\bibitem[Vafa et~al.(2025)Vafa, Chang, Rambachan, and
+  Mullainathan]{vafa2025foundationmodel}
+K.~Vafa, P.~G. Chang, A.~Rambachan, and S.~Mullainathan.
+\newblock What has a foundation model found? {Using} inductive bias to probe
+  for world models.
+\newblock In \emph{International Conference on Machine Learning ({ICML})},
+  2025.
+\newblock arXiv:2507.06952.
+
 \bibitem[Xin et~al.(2024)Xin, Ren, Song, Shao, Zhao, Wang, Liu, Cheng,
   et~al.]{xin2024deepseek}
 H.~Xin, D.~Ren, S.~Song, Z.~Shao, W.~Zhao, H.~Wang, W.~Liu, L.~Cheng, et~al.
@@ -394,6 +421,13 @@ B.~Zhang, S.~Feng, X.~Yan, J.~Yuan, Z.~Yu, S.~Huang, L.~Bai, X.~He, T.~Peng,
   system from hypothesis to verification.
 \newblock \emph{arXiv preprint arXiv:2505.16938}, 2025.
 \newblock arXiv:2505.16938.
+
+\bibitem[Zhao et~al.(2026)Zhao, Stuart, De~Vaan, Ginsparg, and
+  Yin]{zhao2026hallucinations}
+W.~Zhao, A.~Stuart, M.~De~Vaan, P.~Ginsparg, and P.~Yin.
+\newblock {LLM} hallucinations in the wild: Large-scale evidence from
+  non-existent citations.
+\newblock \emph{arXiv preprint arXiv:2605.07723}, 2026.
 
 \bibitem[Zollman(2010)]{zollman2010epistemic}
 K.~J.~S. Zollman.
