@@ -224,7 +224,7 @@ $H$ (인간 역할) & 낮음          & G            & 낮음           & 낮음
 \section{도메인 분석}
 \label{sec:domains}
 
-표~\ref{tab:domain-comparison}은 예시적 도메인 지도다: \framework{} 어휘로 검증 병목이 일곱 개 과학 분야에 걸쳐 어떻게 다른지를 드러내며, 각 분야가 부딪히는 병목은 그 $V$ 유형에서 따라 나온다(명제~\ref{prop:suff}--\ref{prop:novelty}; 출처가 달린 도메인별 분석은 부록~\ref{app:domains}). 분석 대상 시스템: 수학(형식적:~\citep{romera2023funsearch,xin2024deepseek}; 자연어:~\citep{google2026aletheia}), 물리학~\citep{udrescu2020afeynman,cranmer2020symbolic}, 화학~\citep{bran2023chemcrow,sprueill2024chemreasoner}, 재료과학~\citep{merchant2023gnome}, 생물학~\citep{odonoghue2023bioplanner}, 사회과학~\citep{manning2024automated,aher2023turing,park2023generative}, 컴퓨터 과학/알고리즘~\citep{real2020automlzero,sartori2024algodiscovery,jaber2026autokernel}.
+표~\ref{tab:domain-comparison}은 예시적 도메인 지도다: \framework{} 어휘로 검증 병목이 일곱 개 과학 분야에 걸쳐 어떻게 다른지를 드러내며, 각 분야가 부딪히는 병목은 그 $V$ 유형에서 따라 나온다(명제~\ref{prop:suff}--\ref{prop:novelty}; 출처가 달린 도메인별 분석은 부록~\ref{app:domains}). 분석 대상 시스템: 수학(형식적:~\citep{romera2023funsearch,xin2024deepseek}; 자연어:~\citep{google2026aletheia}), 물리학~\citep{udrescu2020afeynman,cranmer2020symbolic}, 화학~\citep{bran2023chemcrow,sprueill2024chemreasoner}, 재료과학~\citep{merchant2023gnome}, 생물학~\citep{odonoghue2023bioplanner}, 사회과학~\citep{manning2024automated,aher2023turing,park2023generative}, 컴퓨터 과학/알고리즘~\citep{real2020automlzero,surina2025algodiscovery,jaber2026autokernel}.
 
 \begin{table}[h]
 \centering
@@ -275,7 +275,7 @@ Test-time compute를 통한 $G$의 급속한 확장---더 많은 추론 단계, 
 
 이 패턴은 표~\ref{tab:domain-comparison}에서 조사된 도메인 전반에 걸쳐 일관되게 나타난다. 재료과학에서 GNoME는 DFT를 통해 38만 개의 안정 구조를 예측하지만~\citep{merchant2023gnome}, 736개만이 독립적으로 실험 실현되었다~\citep{cheetham2024gnome}: 계산적으로 안정한 어떤 구조를 물리적 합성에 투자할지 결정하는 것은 외부에서 이루어지며, 원칙적 자동화가 없다. 화학에서 ChemCrow와 ChemReasoner는 계산 루프를 닫지만, 측정 경계에서 습식 실험실 루프를 열어 둔다: NMR 및 MS 특성화는 어떤 현재 시스템도 언제 호출할지 알지 못하는 물리적 실행을 요구한다~\citep{gromski2019chemical}. 생물학에서, BioPlanner는 프로토콜을 생성하지만 $V$ 지표가 루프를 자율적으로 닫기에 불충분하다~\citep{odonoghue2023bioplanner}---물리적 실행 질문에 도달하지 못한다. GNoME가 가장 성공적인 사례인 것은 바로 $E$를 단일 충실도 수준(DFT)으로 \emph{고정}하고 그 제약 안에서 최적화하기 때문이다: 이는 승격 문제를 해결하는 것이 아니라 우회하는 것이다.
 
-최근의 자율 ``자가 구동(self-driving)'' 실험실들은 이 격차에 직접 관련되지만 그것을 닫지는 못한다. 재료과학에서 A-Lab~\citep{szymanski2023alab}은 계산 스크리닝을 로봇 합성에 결합하여 58개 표적 화합물 중 41개를 실현했다고 보고되지만, 물리적 검증이 언제 정당화되는지에 대한 증거 기반 기준이 아니라 고정된 스크리닝-후-합성 규칙으로 승격한다. ORGANA~\citep{darvish2024organa} 같은 로봇 화학 플랫폼은 습식 실험의 물리적 실행을 자동화하고, AutoLabs~\citep{panapitiya2025autolabs} 같은 자기수정 다중 에이전트 시스템은 하드웨어-레디 프로토콜의 생성을 자동화한다; 리뷰들은 기저 하드웨어의 급속한 성숙을 기록한다~\citep{tobias2025selfdriving}. 그러나 $E$를 자동화하는 것은 역량을 제공할 뿐 기준을 제공하지 않는다: 이 시스템들은 고정되거나 외부에서 선택된 충실도에서 작동하며, 누적된 계산 증거가 물리적 assay로의 승격을 \emph{언제} 정당화하는지를 결정하지 않는다. 따라서 병목은 하드웨어 자동화와 직교한다---물리적 루프가 기계적으로 실행 가능해져도 지속된다.
+최근의 자율 ``자가 구동(self-driving)'' 실험실들은 이 격차에 직접 관련되지만 그것을 닫지는 못한다. 재료과학에서 A-Lab~\citep{szymanski2023alab}은 계산 스크리닝을 로봇 합성에 결합하여 57개 표적 화합물 중 36개를 실현했다고 보고되지만, 물리적 검증이 언제 정당화되는지에 대한 증거 기반 기준이 아니라 고정된 스크리닝-후-합성 규칙으로 승격한다. ORGANA~\citep{darvish2024organa} 같은 로봇 화학 플랫폼은 습식 실험의 물리적 실행을 자동화하고, AutoLabs~\citep{panapitiya2025autolabs} 같은 자기수정 다중 에이전트 시스템은 하드웨어-레디 프로토콜의 생성을 자동화한다; 리뷰들은 기저 하드웨어의 급속한 성숙을 기록한다~\citep{tobias2025selfdriving}. 그러나 $E$를 자동화하는 것은 역량을 제공할 뿐 기준을 제공하지 않는다: 이 시스템들은 고정되거나 외부에서 선택된 충실도에서 작동하며, 누적된 계산 증거가 물리적 assay로의 승격을 \emph{언제} 정당화하는지를 결정하지 않는다. 따라서 병목은 하드웨어 자동화와 직교한다---물리적 루프가 기계적으로 실행 가능해져도 지속된다.
 
 Test-time scaling은 이 격차를 해소하지 못한다. 더 많은 추론 단계는 DFT 벽시계 시간, 습식 실험실 처리 시간, 합성 지연을 줄일 수 없다; 이는 $E$에 대한 물리적 제약이지 계산적 제약이 아니다. 이 격차는 기존 결과 캐싱이나 검색 메커니즘으로도 이미 해결되지 않는다: 이들은 과거 실험 결과를 축적하지만 더 높은 충실도 측정에 \emph{언제} 투자할지를 결정하지는 않는다. 누락된 구성요소는 계산적 증거가 축적됨에 따라 그 증거가 물리적 검증 비용을 정당화하기에 충분한지를 결정하는 기준이다---그리고 충분하지 않다면, 어떤 추가적인 계산 실험이 가장 효율적으로 격차를 좁힐지를 결정하는 기준이다.
 
@@ -372,7 +372,7 @@ Test-time scaling은 이 격차를 해소하지 못한다. 더 많은 추론 단
 
 \paragraph{사회과학 (통계 검정; 부분).} 자동 사회과학 파이프라인~\citep{manning2024automated}과 LLM 시뮬레이션 연구~\citep{aher2023turing,park2023generative}는 완전 요인 설계에 대한 통계 검정으로 검증한다. 특징적 실패는 순환 타당성이다: 생성기 $G$와 시뮬레이션 대상이 모델을 공유하면 검증기는 외부 사실이 아니라 모델의 자기일관성을 측정한다~\citep{aher2023turing}---이는 가정~\ref{asm:tract}의 식별 채널 조건 위반이다.
 
-\paragraph{컴퓨터 과학 / 알고리즘 ($V_\text{emp}$; 완전 폐쇄).} AutoML-Zero~\citep{real2020automlzero}, 알고리즘 발견~\citep{sartori2024algodiscovery}, AutoKernel~\citep{jaber2026autokernel}은 신뢰할 만한 벤치마크·경험적 검증과 진화적·LLM 유도 탐색으로 루프를 닫는다. 검증은 고신뢰도이고 루프는 완전히 닫히며, 잔여 병목은 해석가능성이다---발견된 산물은 작동하나 인간 이해를 거부하며, 이는 $V$가 아니라 $M$·출력 형식의 한계다.
+\paragraph{컴퓨터 과학 / 알고리즘 ($V_\text{emp}$; 완전 폐쇄).} AutoML-Zero~\citep{real2020automlzero}, 알고리즘 발견~\citep{surina2025algodiscovery}, AutoKernel~\citep{jaber2026autokernel}은 신뢰할 만한 벤치마크·경험적 검증과 진화적·LLM 유도 탐색으로 루프를 닫는다. 검증은 고신뢰도이고 루프는 완전히 닫히며, 잔여 병목은 해석가능성이다---발견된 산물은 작동하나 인간 이해를 거부하며, 이는 $V$가 아니라 $M$·출력 형식의 한계다.
 
 \paragraph{교차 도메인 독해.} 각 분야가 부딪히는 병목은 대체로 그 $V$ 유형의 함수다: 완전한 형식 오라클은 오염에 제약되는 완전 폐쇄 루프를, 불완전한 의미·경험 $V$는 환각·순환 타당성·지표 불충분 실패를, 신뢰할 만하나 비싼 경험적 오라클(재료)은 병목을 인식론에서 자원으로 옮긴다. 이것이 표~\ref{tab:domain-comparison}의 진단적 용법이다: 검정된 교차 도메인 법칙을 주장하지 않으며, 동일한 $(S,G,E,V,M,\pi)$ 어휘가 각 도메인의 루프가 어디서 무너지는지를 국소화함을 보인다. $V$ 유형은 도메인의 루프가 신뢰 가능하게 닫힐 수 있는지를 결정하고; 탐색 정책 $\pi$는 독립적으로 과학적으로 발견 가능한 것을 결정한다---루프가 $S$의 진정으로 미탐색 영역에 도달하는지 아니면 이미 착취된 전선에 머무는지. 표는 이 두 축 중 $V$ 차원을 포착하며, $\pi$ 차원은 조사된 모든 도메인에서 균일하게 미발달되어 있고 재료과학만 부분적 예외이다.
 

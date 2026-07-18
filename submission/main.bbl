@@ -73,8 +73,10 @@ K.~Chaloner and I.~Verdinelli.
 
 \bibitem[Cheetham and Seshadri(2024)]{cheetham2024gnome}
 A.~K. Cheetham and R.~Seshadri.
-\newblock Scaling deep learning for materials discovery: A perspective.
-\newblock \emph{Chemistry of Materials}, 2024.
+\newblock Artificial intelligence driving materials discovery? {P}erspective on
+  the article: {S}caling deep learning for materials discovery.
+\newblock \emph{Chemistry of Materials}, 36, 2024.
+\newblock \doi{10.1021/acs.chemmater.4c00643}.
 \newblock Available:
   \url{https://escholarship.org/content/qt9qx9t3kz/qt9qx9t3kz.pdf}.
 
@@ -320,12 +322,6 @@ B.~Romera-Paredes, M.~Barekatain, A.~Novikov, M.~Balog, M.~P. Kumar, E.~Dupont,
   models.
 \newblock \emph{Nature}, 625:\penalty0 468--475, 2024.
 
-\bibitem[Sartori and Blum(2024)]{sartori2024algodiscovery}
-C.~C. Sartori and C.~Blum.
-\newblock Algorithm discovery with large language models: {Evolutionary} search
-  meets transformer.
-\newblock \emph{arXiv preprint arXiv:2411.00895}, 2024.
-
 \bibitem[Schmidgall et~al.(2025)Schmidgall, Su, Wang, Sun, Wu, Yu, Liu, and
   Barsoum]{schmidgall2025agentlab}
 S.~Schmidgall, Y.~Su, Z.~Wang, X.~Sun, J.~Wu, X.~Yu, J.~Liu, and E.~Barsoum.
@@ -354,6 +350,14 @@ H.~W. Sprueill, C.~Edwards, K.~Agarwal, M.~Olarte, U.~Sanyal, C.~Johnston,
   knowledge space using quantum-chemical feedback.
 \newblock In \emph{International Conference on Machine Learning}, 2024.
 \newblock arXiv:2402.10980.
+
+\bibitem[Surina et~al.(2025)Surina, Mansouri, Quaedvlieg, Seddas, Viazovska,
+  Abbe, and Gulcehre]{surina2025algodiscovery}
+A.~Surina, A.~Mansouri, L.~Quaedvlieg, A.~Seddas, M.~Viazovska, E.~Abbe, and
+  C.~Gulcehre.
+\newblock Algorithm discovery with {LLMs}: {Evolutionary} search meets
+  reinforcement learning.
+\newblock \emph{arXiv preprint arXiv:2504.05108}, 2025.
 
 \bibitem[Szymanski et~al.(2023)Szymanski, Rendy, Fei, Kumar, He, Milsted,
   McDermott, Gallant, Cubuk, Merchant, Kim, Jain, Bartel, Persson, Zeng, and
@@ -405,9 +409,9 @@ K.~Vafa, P.~G. Chang, A.~Rambachan, and S.~Mullainathan.
   2025.
 \newblock arXiv:2507.06952.
 
-\bibitem[Xin et~al.(2024)Xin, Ren, Song, Shao, Zhao, Wang, Liu, Cheng,
+\bibitem[Xin et~al.(2024)Xin, Ren, Song, Shao, Zhao, Wang, Liu, Zhang,
   et~al.]{xin2024deepseek}
-H.~Xin, D.~Ren, S.~Song, Z.~Shao, W.~Zhao, H.~Wang, W.~Liu, L.~Cheng, et~al.
+H.~Xin, Z.~Z. Ren, J.~Song, Z.~Shao, W.~Zhao, H.~Wang, B.~Liu, L.~Zhang, et~al.
 \newblock {DeepSeek-Prover-V1.5}: {Harnessing} proof assistant feedback for
   reinforcement learning and {Monte-Carlo} tree search.
 \newblock \emph{arXiv preprint arXiv:2408.08152}, 2024.
