@@ -31,9 +31,9 @@ E.~Ayg{\"u}n, A.~Belyaeva, G.~Comanici, M.~Coram, H.~Cui, J.~Garrison,
 \newblock \doi{10.1038/s41586-026-10658-6}.
 \newblock arXiv:2509.06503.
 
-\bibitem[Baek et~al.(2024)Baek, Jauhar, Pitis, Hwang, and
-  Teevan]{baek2024researchagent}
-J.~Baek, S.~K. Jauhar, S.~Pitis, S.~J. Hwang, and J.~Teevan.
+\bibitem[Baek et~al.(2024)Baek, Jauhar, Cucerzan, and
+  Hwang]{baek2024researchagent}
+J.~Baek, S.~K. Jauhar, S.~Cucerzan, and S.~J. Hwang.
 \newblock {ResearchAgent}: {Iterative} research idea generation over scientific
   literature with large language models.
 \newblock \emph{arXiv preprint arXiv:2404.07738}, 2024.
@@ -55,9 +55,9 @@ T.~Blau, E.~V. Bonilla, I.~Chades, and A.~Dezfouli.
 \bibitem[Boiko et~al.(2023)Boiko, MacKnight, Kline, and
   Gomes]{boiko2023emergent}
 D.~A. Boiko, R.~MacKnight, B.~Kline, and G.~Gomes.
-\newblock Emergent autonomous scientific research capabilities of large
-  language models.
+\newblock Autonomous chemical research with large language models.
 \newblock \emph{Nature}, 624:\penalty0 570--578, 2023.
+\newblock \doi{10.1038/s41586-023-06792-0}.
 
 \bibitem[Bran et~al.(2024)Bran, Cox, Schilter, Baldassari, White, and
   Schwaller]{bran2023chemcrow}
@@ -270,13 +270,14 @@ A.~Merchant, S.~Batzner, S.~S. Schoenholz, M.~Aykol, G.~Cheon, and E.~D. Cubuk.
 \newblock Scaling deep learning for materials discovery.
 \newblock \emph{Nature}, 624:\penalty0 80--85, 2023.
 
-\bibitem[O'Donoghue et~al.(2023)O'Donoghue, Puthumanaillam, Won, Moura, Oettig,
-  de~Kruif, Gini, Heinonen, and Sloot]{odonoghue2023bioplanner}
-O.~O'Donoghue, G.~Puthumanaillam, J.~Won, P.~Moura, M.~Oettig, J.~M. de~Kruif,
-  M.~Gini, M.~Heinonen, and P.~Sloot.
+\bibitem[O'Donoghue et~al.(2023)O'Donoghue, Shtedritski, Ginger, Abboud,
+  Ghareeb, Booth, and Rodriques]{odonoghue2023bioplanner}
+O.~O'Donoghue, A.~Shtedritski, J.~Ginger, R.~Abboud, A.~E. Ghareeb, J.~Booth,
+  and S.~G. Rodriques.
 \newblock {BioPlanner}: {Automatic} evaluation of {LLMs} on protocol planning
   in biology.
 \newblock \emph{arXiv preprint arXiv:2310.10632}, 2023.
+\newblock EMNLP 2023.
 
 \bibitem[Panapitiya et~al.(2025)Panapitiya, Saldanha, Job, and
   Hess]{panapitiya2025autolabs}
@@ -322,9 +323,10 @@ B.~Romera-Paredes, M.~Barekatain, A.~Novikov, M.~Balog, M.~P. Kumar, E.~Dupont,
   models.
 \newblock \emph{Nature}, 625:\penalty0 468--475, 2024.
 
-\bibitem[Schmidgall et~al.(2025)Schmidgall, Su, Wang, Sun, Wu, Yu, Liu, and
-  Barsoum]{schmidgall2025agentlab}
-S.~Schmidgall, Y.~Su, Z.~Wang, X.~Sun, J.~Wu, X.~Yu, J.~Liu, and E.~Barsoum.
+\bibitem[Schmidgall et~al.(2025)Schmidgall, Su, Wang, Sun, Wu, Yu, Liu, Moor,
+  Liu, and Barsoum]{schmidgall2025agentlab}
+S.~Schmidgall, Y.~Su, Z.~Wang, X.~Sun, J.~Wu, X.~Yu, J.~Liu, M.~Moor, Z.~Liu,
+  and E.~Barsoum.
 \newblock Agent {Laboratory}: {Using} {LLM} agents as research assistants.
 \newblock \emph{arXiv preprint arXiv:2501.04227}, 2025.
 
@@ -343,9 +345,9 @@ A.~Sparkes, W.~Aubrey, E.~Byrne, A.~Clare, M.~N. Khan, M.~Liakata, M.~Markham,
 \newblock \doi{10.1186/1759-4499-2-1}.
 
 \bibitem[Sprueill et~al.(2024)Sprueill, Edwards, Agarwal, Olarte, Sanyal,
-  Johnston, Liu, Ji, and Bhatt]{sprueill2024chemreasoner}
-H.~W. Sprueill, C.~Edwards, K.~Agarwal, M.~Olarte, U.~Sanyal, C.~Johnston,
-  H.~Liu, H.~Ji, and S.~Bhatt.
+  Johnston, Liu, Ji, and Choudhury]{sprueill2024chemreasoner}
+H.~W. Sprueill, C.~Edwards, K.~Agarwal, M.~V. Olarte, U.~Sanyal, C.~Johnston,
+  H.~Liu, H.~Ji, and S.~Choudhury.
 \newblock {ChemReasoner}: {Heuristic} search over a large language model's
   knowledge space using quantum-chemical feedback.
 \newblock In \emph{International Conference on Machine Learning}, 2024.
@@ -432,9 +434,9 @@ B.~Zhang, S.~Feng, X.~Yan, J.~Yuan, Z.~Yu, S.~Huang, L.~Bai, X.~He, T.~Peng,
 \newblock \emph{arXiv preprint arXiv:2505.16938}, 2025.
 \newblock arXiv:2505.16938.
 
-\bibitem[Zhao et~al.(2026)Zhao, Stuart, De~Vaan, Ginsparg, and
+\bibitem[Zhao et~al.(2026)Zhao, Wang, Stuart, De~Vaan, Ginsparg, and
   Yin]{zhao2026hallucinations}
-W.~Zhao, A.~Stuart, M.~De~Vaan, P.~Ginsparg, and P.~Yin.
+Z.~Zhao, Y.~Wang, T.~Stuart, M.~De~Vaan, P.~Ginsparg, and Y.~Yin.
 \newblock {LLM} hallucinations in the wild: Large-scale evidence from
   non-existent citations.
 \newblock \emph{arXiv preprint arXiv:2605.07723}, 2026.
