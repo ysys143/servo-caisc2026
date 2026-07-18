@@ -1,4 +1,4 @@
-\begin{thebibliography}{52}
+\begin{thebibliography}{59}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -20,6 +20,16 @@ J.~Alper, M.~Barany, A.~{Chavarri Villarello}, S.~Dahmen, W.~Dean,
   B.~Naskr{\k{e}}cki, R.~Ochigame, J.~Portegies, and J.~Schmitt.
 \newblock Leiden declaration on artificial intelligence and mathematics.
 \newblock \url{https://leidendeclaration.ai}, June 2026.
+
+\bibitem[Ayg{\"u}n et~al.(2026)Ayg{\"u}n, Belyaeva, Comanici, Coram, Cui,
+  Garrison, Johnston, Kast, McLean, Norgaard, et~al.]{aygun2026era}
+E.~Ayg{\"u}n, A.~Belyaeva, G.~Comanici, M.~Coram, H.~Cui, J.~Garrison,
+  R.~Johnston, A.~Kast, C.~Y. McLean, P.~Norgaard, et~al.
+\newblock An {AI} system to help scientists write expert-level empirical
+  software.
+\newblock \emph{Nature}, 2026.
+\newblock \doi{10.1038/s41586-026-10658-6}.
+\newblock arXiv:2509.06503.
 
 \bibitem[Baek et~al.(2024)Baek, Jauhar, Cucerzan, and
   Hwang]{baek2024researchagent}
@@ -168,6 +178,12 @@ J.~Jaber and O.~Jaber.
   agent-driven search.
 \newblock \emph{arXiv preprint arXiv:2603.21331}, 2026.
 
+\bibitem[Jagadish et~al.(2026)Jagadish, Rmus, Witte, Mathony, Binz, and
+  Schulz]{jagadish2026automatize}
+A.~K. Jagadish, M.~Rmus, K.~Witte, M.~Mathony, M.~Binz, and E.~Schulz.
+\newblock Can we automatize scientific discovery in the cognitive sciences?
+\newblock \emph{arXiv preprint arXiv:2603.20988}, 2026.
+
 \bibitem[Jumper et~al.(2021)Jumper, Evans, Pritzel, Green, Figurnov,
   Ronneberger, Tunyasuvunakool, Bates, {\v{Z}}{\'\i}dek, Potapenko,
   et~al.]{jumper2021alphafold}
@@ -182,6 +198,14 @@ L.~P. Kaelbling, M.~L. Littman, and A.~R. Cassandra.
 \newblock Planning and acting in partially observable stochastic domains.
 \newblock \emph{Artificial Intelligence}, 101\penalty0 (1--2):\penalty0
   99--134, 1998.
+
+\bibitem[Kamber(2026)]{kamber2026chemist}
+D.~Kamber.
+\newblock Making {Claude} a chemist.
+\newblock Technical report, Anthropic, 2026.
+\newblock URL
+  \url{https://www-cdn.anthropic.com/07441e654ad3dfeb0cd090e9361511562825d012.pdf}.
+\newblock Anthropic Technical Report.
 
 \bibitem[Kim et~al.(2026)Kim, Yoon, Gashteovski, Suk, Baek, Aggarwal, Wu,
   et~al.]{kim2026aireviewers}
@@ -203,6 +227,14 @@ J.~Liu et~al.
 \newblock The last human-written paper: {Agent-Native} research artifacts.
 \newblock \emph{arXiv preprint arXiv:2604.24658}, 2026.
 \newblock arXiv:2604.24658.
+
+\bibitem[Liu et~al.(2025)Liu, Yang, Xie, Ni, Gao, Li, Tang, Ouyang, Cambria,
+  and Zhou]{liu2025researchbench}
+Y.~Liu, Z.~Yang, T.~Xie, J.~Ni, B.~Gao, Y.~Li, S.~Tang, W.~Ouyang, E.~Cambria,
+  and D.~Zhou.
+\newblock {ResearchBench}: Benchmarking {LLMs} in scientific discovery via
+  inspiration-based task decomposition, 2025.
+\newblock arXiv:2503.21248; Findings of ACL 2026.
 
 \bibitem[Liu et~al.(2024)Liu, Liu, Zhu, Lei, Yang, Zhang, Li, and
   Liu]{liu2024aigs}
@@ -370,6 +402,15 @@ B.~Uzzi, S.~Mukherjee, M.~Stringer, and B.~Jones.
 \newblock \emph{Science}, 342\penalty0 (6157):\penalty0 468--472, 2013.
 \newblock \doi{10.1126/science.1240474}.
 
+\bibitem[Vafa et~al.(2025)Vafa, Chang, Rambachan, and
+  Mullainathan]{vafa2025foundationmodel}
+K.~Vafa, P.~G. Chang, A.~Rambachan, and S.~Mullainathan.
+\newblock What has a foundation model found? {Using} inductive bias to probe
+  for world models.
+\newblock In \emph{International Conference on Machine Learning ({ICML})},
+  2025.
+\newblock arXiv:2507.06952.
+
 \bibitem[Xin et~al.(2024)Xin, Ren, Song, Shao, Zhao, Wang, Liu, Zhang,
   et~al.]{xin2024deepseek}
 H.~Xin, Z.~Z. Ren, J.~Song, Z.~Shao, W.~Zhao, H.~Wang, B.~Liu, L.~Zhang, et~al.
@@ -377,6 +418,12 @@ H.~Xin, Z.~Z. Ren, J.~Song, Z.~Shao, W.~Zhao, H.~Wang, B.~Liu, L.~Zhang, et~al.
   reinforcement learning and {Monte-Carlo} tree search.
 \newblock \emph{arXiv preprint arXiv:2408.08152}, 2024.
 \newblock arXiv:2408.08152.
+
+\bibitem[Yanai and Lercher(2019)]{yanai2019night}
+I.~Yanai and M.~Lercher.
+\newblock Night science.
+\newblock \emph{Genome Biology}, 20\penalty0 (1):\penalty0 179, 2019.
+\newblock \doi{10.1186/s13059-019-1800-6}.
 
 \bibitem[Zhang et~al.(2025)Zhang, Feng, Yan, Yuan, Yu, Huang, Bai, He, Peng,
   et~al.]{zhang2025novelseek}
@@ -386,6 +433,13 @@ B.~Zhang, S.~Feng, X.~Yan, J.~Yuan, Z.~Yu, S.~Huang, L.~Bai, X.~He, T.~Peng,
   system from hypothesis to verification.
 \newblock \emph{arXiv preprint arXiv:2505.16938}, 2025.
 \newblock arXiv:2505.16938.
+
+\bibitem[Zhao et~al.(2026)Zhao, Wang, Stuart, De~Vaan, Ginsparg, and
+  Yin]{zhao2026hallucinations}
+Z.~Zhao, Y.~Wang, T.~Stuart, M.~De~Vaan, P.~Ginsparg, and Y.~Yin.
+\newblock {LLM} hallucinations in the wild: Large-scale evidence from
+  non-existent citations.
+\newblock \emph{arXiv preprint arXiv:2605.07723}, 2026.
 
 \bibitem[Zollman(2010)]{zollman2010epistemic}
 K.~J.~S. Zollman.
