@@ -1,0 +1,32 @@
+OPERATIONAL CODING RUBRIC -- apply to the single system described below.
+Code ONLY from the description provided. Do not browse the web or use tools.
+
+V layers (each 0 or 1):
+- Vsyntax: a deterministic automated pass/fail check exists (e.g., code
+  compiles/executes; schema/format check).
+- Vsemantic: an LLM-based or rubric-based score of outputs is used.
+- Vempirical: measured experimental/benchmark outcomes feed back into the loop.
+- Vhuman: human judgment is required for the validity/novelty signal.
+- Vcalibrated: the HIGHEST automated validation layer present is reliably
+  calibrated (e.g., physical measurement, formal or numeric oracle) rather than
+  a systematically biased judge (e.g., an LLM reviewer).
+
+Vcompleteness (integer 0-3): a holistic ordinal summarizing how much of the
+validity burden is carried by reliable automated layers. 0 = human-only
+validation; 1 = one reliable automated layer; 2 = two; 3 = three automated
+layers AND the top one is calibrated. An accessible-but-biased layer (e.g., an
+LLM judge) does NOT count at its nominal level.
+
+loop_status (exactly one label):
+- none: no autonomous hypothesis -> experiment -> validation feedback.
+- partial-task: results inform later choices only within a predefined task; no
+  autonomous certification of novelty.
+- partial-analysis: measurement/analysis automated but the loop is not fully
+  closed.
+- closed-comp: an autonomous generate -> execute -> validate -> regenerate loop
+  closes entirely in computation.
+- closed-wetlab: the loop closes including a physical experiment and measurement.
+
+H (number in [0,1]): approximate fraction of the loop's decision burden a human
+carries (which of generation / search-policy / human-validation a human
+performs). 0 = fully autonomous; 1 = a human does everything.

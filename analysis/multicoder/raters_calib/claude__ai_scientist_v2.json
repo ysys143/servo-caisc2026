@@ -1,0 +1,5 @@
+{
+  "V_present": 1,
+  "V_gating": 0,
+  "novelty_gate": "biased_auto"
+}

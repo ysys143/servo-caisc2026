@@ -1,0 +1,64 @@
+{"loop_status":"closed-wetlab","Vsyntax":0,"Vsemantic":0,"Vempirical":1,"Vhuman":1,"Vcalibrated":1,"Vcompleteness":1,"H":0.33}
+
+Reading additional input from stdin...
+OpenAI Codex v0.135.0
+--------
+workdir: ./analysis/multicoder
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019e7eca-0dba-78e0-9925-5b117807a1f9
+--------
+user
+You are an independent coder applying a FIXED rubric to ONE described autonomous-science system. Code ONLY from the description; do not browse the web or use tools. Output ONLY one JSON object and nothing else.
+
+OPERATIONAL CODING RUBRIC -- apply to the single system described below.
+Code ONLY from the description provided. Do not browse the web or use tools.
+
+V layers (each 0 or 1):
+- Vsyntax: a deterministic automated pass/fail check exists (e.g., code
+  compiles/executes; schema/format check).
+- Vsemantic: an LLM-based or rubric-based score of outputs is used.
+- Vempirical: measured experimental/benchmark outcomes feed back into the loop.
+- Vhuman: human judgment is required for the validity/novelty signal.
+- Vcalibrated: the HIGHEST automated validation layer present is reliably
+  calibrated (e.g., physical measurement, formal or numeric oracle) rather than
+  a systematically biased judge (e.g., an LLM reviewer).
+
+Vcompleteness (integer 0-3): a holistic ordinal summarizing how much of the
+validity burden is carried by reliable automated layers. 0 = human-only
+validation; 1 = one reliable automated layer; 2 = two; 3 = three automated
+layers AND the top one is calibrated. An accessible-but-biased layer (e.g., an
+LLM judge) does NOT count at its nominal level.
+
+loop_status (exactly one label):
+- none: no autonomous hypothesis -> experiment -> validation feedback.
+- partial-task: results inform later choices only within a predefined task; no
+  autonomous certification of novelty.
+- partial-analysis: measurement/analysis automated but the loop is not fully
+  closed.
+- closed-comp: an autonomous generate -> execute -> validate -> regenerate loop
+  closes entirely in computation.
+- closed-wetlab: the loop closes including a physical experiment and measurement.
+
+H (number in [0,1]): approximate fraction of the loop's decision burden a human
+carries (which of generation / search-policy / human-validation a human
+performs). 0 = fully autonomous; 1 = a human does everything.
+
+
+SYSTEM DESCRIPTION:
+An autonomous laboratory system for yeast functional genomics. It forms hypotheses about gene-enzyme relationships using a model of metabolism, selects which experiments to run via an active-learning criterion weighing expected information against cost, physically executes growth experiments with laboratory robotics, measures cell growth, and applies a statistical hypothesis test to accept or reject before forming the next round. It predates large language models. Final scientific conclusions were confirmed by human scientists.
+
+Output a JSON object with EXACTLY these keys:
+"loop_status" (string: one of none, partial-task, partial-analysis, closed-comp, closed-wetlab),
+"Vsyntax","Vsemantic","Vempirical","Vhuman","Vcalibrated" (each integer 0 or 1),
+"Vcompleteness" (integer 0 to 3),
+"H" (number between 0 and 1).
+Output JSON only, no prose, no code fences.
+codex
+{"loop_status":"closed-wetlab","Vsyntax":0,"Vsemantic":0,"Vempirical":1,"Vhuman":1,"Vcalibrated":1,"Vcompleteness":1,"H":0.33}
+tokens used
+15,029

@@ -1,0 +1,6 @@
+.DS_Store
+.omc/
+.cwf/
+__pycache__/
+*.log
+texput.log

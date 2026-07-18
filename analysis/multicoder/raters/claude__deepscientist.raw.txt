@@ -1,0 +1,2 @@
+{"loop_status": "closed-comp", "Vsyntax": 1, "Vsemantic": 1, "Vempirical": 1, "Vhuman": 1, "Vcalibrated": 0, "Vcompleteness": 2, "H": 0.25}
+

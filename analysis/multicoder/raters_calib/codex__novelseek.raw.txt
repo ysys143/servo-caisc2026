@@ -1,0 +1,67 @@
+{"V_present":1,"V_gating":1,"novelty_gate":"predefined"}
+
+Reading additional input from stdin...
+OpenAI Codex v0.135.0
+--------
+workdir: ./analysis/multicoder
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019e8279-a1f2-7640-aefc-c38dfcae494b
+--------
+user
+You are an independent coder applying a FIXED rubric to ONE described autonomous-science system. Code ONLY from the description; do not browse the web or use tools. Output ONLY one JSON object and nothing else.
+
+CALIBRATION RUBRIC v2 -- validator DECISION ARCHITECTURE.
+
+The original `Vcalibrated` field conflated two distinct questions, which is why
+blind coders and the author split on AI Scientist (Nature 2026). We separate them
+into mechanically-codeable sub-constructs.
+
+A validation layer is "calibrated" if its outputs have evidence of agreement with
+the property it judges: a deterministic check, a formal/numeric oracle, a physical
+or wet-lab measurement, or a benchmarked empirical metric. An LLM judge / LLM
+reviewer is NOT calibrated. Human social acceptance (e.g., peer review) is NOT
+calibrated.
+
+A layer is "gating" if its output DECIDES one of: accepting/rejecting a result,
+writing it to memory as a success, promoting it to the next experiment, or
+releasing/claiming it as a finding.
+
+Fields:
+- V_present (0/1): a CALIBRATED automated validation layer EXISTS anywhere in the
+  system, even if it is not the layer that decides acceptance.
+- V_gating (0/1): the layer that DECIDES acceptance is itself calibrated.
+  0 if acceptance is decided by an LLM judge, peer review, or human social
+  acceptance; 1 if by measurement, replication, a formal/numeric oracle, or a
+  benchmark metric.
+- novelty_gate (calibrated_auto | biased_auto | human | predefined | none):
+  what decides whether an output is NOVEL or SIGNIFICANT.
+  calibrated_auto = an automated calibrated novelty check;
+  biased_auto = an LLM judge;
+  human = a human decides;
+  predefined = novelty is fixed by a constrained task / hypothesis space;
+  none = novelty is not gated.
+
+Thesis under test: trustworthy closed-loop discovery tracks V_gating (and an
+adequate novelty_gate), NOT mere V_present. No surveyed system has a
+`calibrated_auto` novelty_gate -- which empirically grounds the paper's
+"novelty is non-automatable" open problem.
+
+
+Output a JSON object with EXACTLY these keys:
+"V_present" (integer 0 or 1),
+"V_gating" (integer 0 or 1),
+"novelty_gate" (one of: "calibrated_auto","biased_auto","human","predefined","none").
+
+SYSTEM DESCRIPTION:
+A unified multi-agent framework that runs idea generation, conversion of ideas into methodology, computational experiment execution, and result feedback in a loop across many tasks, reporting improvements on task benchmarks relative to baselines. A human-interaction interface is optional rather than required for operation. Experiments are computational.
+
+Output JSON only, no prose, no code fences.
+codex
+{"V_present":1,"V_gating":1,"novelty_gate":"predefined"}
+tokens used
+24,337
