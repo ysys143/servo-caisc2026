@@ -1,0 +1,956 @@
+{
+  "schema_version": 1,
+  "manifest_sha256": "8175c2858337514b01e236cd67c2087250f97e5b2c7ec72cb246b43c0ac55e55",
+  "active_key": null,
+  "final_gates": {
+    "joint_citations_reconciled": false,
+    "korean_parity_reconciled": false,
+    "manual_qa_complete": false
+  },
+  "sources": [
+    {
+      "key": "boiko2023emergent",
+      "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/01-boiko2023emergent.md",
+      "gates": {
+        "identity": true,
+        "full_text": true,
+        "source_analysis": true,
+        "citations": true,
+        "korean_parity": true,
+        "self_qa": true
+      },
+      "started_at": "2026-07-18T15:31:04Z",
+      "completed_at": "2026-07-18T15:44:05Z",
+      "overall_verdict": "minor_revision"
+    },
+    {
+      "key": "lu2024aiscientist",
+      "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/02-lu2024aiscientist.md",
+      "gates": {
+        "identity": true,
+        "full_text": true,
+        "source_analysis": true,
+        "citations": true,
+        "korean_parity": true,
+        "self_qa": true
+      },
+      "started_at": "2026-07-18T15:45:09Z",
+      "completed_at": "2026-07-18T16:26:27Z",
+      "overall_verdict": "major_revision"
+    },
+    {
+      "key": "lu2026aiscientist",
+      "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/03-lu2026aiscientist.md",
+      "gates": {
+        "identity": true,
+        "full_text": true,
+        "source_analysis": true,
+        "citations": true,
+        "korean_parity": true,
+        "self_qa": true
+      },
+      "started_at": "2026-07-18T16:33:56Z",
+      "completed_at": "2026-07-18T16:49:07Z",
+      "overall_verdict": "major_revision"
+    },
+    {
+      "key": "schmidgall2025agentlab",
+      "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/04-schmidgall2025agentlab.md",
+      "gates": {
+        "identity": true,
+        "full_text": true,
+        "source_analysis": true,
+        "citations": true,
+        "korean_parity": true,
+        "self_qa": true
+      },
+      "started_at": "2026-07-18T16:50:11Z",
+      "completed_at": "2026-07-18T17:05:39Z",
+      "overall_verdict": "major_revision"
+    },
+    {
+      "key": "google2026aletheia",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/05-google2026aletheia.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "liu2026lasthuman",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/06-liu2026lasthuman.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "jumper2021alphafold",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/07-jumper2021alphafold.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "kaelbling1998pomdp",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/08-kaelbling1998pomdp.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "chaloner1995bayesian",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/09-chaloner1995bayesian.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "rainforth2024modern",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/10-rainforth2024modern.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "foster2019variational",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/11-foster2019variational.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "foster2021dad",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/12-foster2021dad.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "blau2022rl",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/13-blau2022rl.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "sparkes2010robot",
+      "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/05-sparkes2010robot.md",
+      "gates": {
+        "identity": true,
+        "full_text": true,
+        "source_analysis": true,
+        "citations": true,
+        "korean_parity": true,
+        "self_qa": true
+      },
+      "started_at": "2026-07-18T17:06:07Z",
+      "completed_at": "2026-07-18T17:18:39Z",
+      "overall_verdict": "major_revision"
+    },
+    {
+      "key": "merchant2023gnome",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/15-merchant2023gnome.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "si2024novelideas",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/16-si2024novelideas.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "baek2024researchagent",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/17-baek2024researchagent.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "gu2024scimuse",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/18-gu2024scimuse.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "lee2025spacer",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/19-lee2025spacer.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "zhang2025novelseek",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/20-zhang2025novelseek.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "gottweis2026coscientist",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/21-gottweis2026coscientist.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "taniguchi2024cpc",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/22-taniguchi2024cpc.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "kim2026aireviewers",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/23-kim2026aireviewers.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "romera2023funsearch",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/24-romera2023funsearch.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "xin2024deepseek",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/25-xin2024deepseek.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "udrescu2020afeynman",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/26-udrescu2020afeynman.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "cranmer2020symbolic",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/27-cranmer2020symbolic.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "bran2023chemcrow",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/28-bran2023chemcrow.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "sprueill2024chemreasoner",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/29-sprueill2024chemreasoner.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "kamber2026chemist",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/30-kamber2026chemist.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "odonoghue2023bioplanner",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/31-odonoghue2023bioplanner.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "manning2024automated",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/32-manning2024automated.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "aher2023turing",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/33-aher2023turing.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "park2023generative",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/34-park2023generative.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "real2020automlzero",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/35-real2020automlzero.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "surina2025algodiscovery",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/36-surina2025algodiscovery.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "jaber2026autokernel",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/37-jaber2026autokernel.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "cheetham2024gnome",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/38-cheetham2024gnome.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "geng2025reliable",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/39-geng2025reliable.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "leiden2026",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/40-leiden2026.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "liu2025researchbench",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/41-liu2025researchbench.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "park2023disruptive",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/42-park2023disruptive.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "uzzi2013atypical",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/43-uzzi2013atypical.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "choudhury2026bedllm",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/44-choudhury2026bedllm.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "liu2024aigs",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/45-liu2024aigs.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "huang2025popper",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/46-huang2025popper.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "yanai2019night",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/47-yanai2019night.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "gromski2019chemical",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/48-gromski2019chemical.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "jagadish2026automatize",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/49-jagadish2026automatize.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "aygun2026era",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/50-aygun2026era.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "szymanski2023alab",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/51-szymanski2023alab.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "darvish2024organa",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/52-darvish2024organa.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "panapitiya2025autolabs",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/53-panapitiya2025autolabs.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "tobias2025selfdriving",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/54-tobias2025selfdriving.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "zhao2026hallucinations",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/55-zhao2026hallucinations.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "vafa2025foundationmodel",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/56-vafa2025foundationmodel.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "zollman2010epistemic",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/57-zollman2010epistemic.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "ghosal2017fundamentals",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/58-ghosal2017fundamentals.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    },
+    {
+      "key": "berk1966",
+      "status": "pending",
+      "report_path": "submission/analysis/citation_audit/papers/59-berk1966.md",
+      "gates": {
+        "identity": false,
+        "full_text": false,
+        "source_analysis": false,
+        "citations": false,
+        "korean_parity": false,
+        "self_qa": false
+      },
+      "started_at": null,
+      "completed_at": null,
+      "overall_verdict": null
+    }
+  ]
+}

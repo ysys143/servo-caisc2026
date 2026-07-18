@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "scope": "tier1_core14",
+  "created_at": "2026-07-18T16:14:00.137118+00:00",
+  "scope_source": "submission/analysis/multicoder/target_systems.md",
+  "scope_source_sha256": "edb0d60ecc41dc0c9a4761b72ce93d1e8aa0335f893734d9a1c3a72fc661f8d3",
+  "description_source": "submission/analysis/multicoder/systems_desc.json",
+  "description_source_sha256": "67e684e831abac158ad74af9ce4a3fc91a78de7a60e72b2031cdf305b21b1865",
+  "sources": [
+    {
+      "index": 1,
+      "system_id": "coscientist",
+      "name": "Coscientist",
+      "citation_key": "boiko2023emergent",
+      "pdf_path": "~/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/Boiko 2023 - Autonomous Chemical Research with LLMs.pdf",
+      "pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+      "page_count": 13,
+      "version_status": "exact",
+      "manuscript_link_ids": [
+        "EN-C001:boiko2023emergent",
+        "EN-C002:boiko2023emergent",
+        "EN-C013:boiko2023emergent",
+        "EN-C026:boiko2023emergent",
+        "KO-C001:boiko2023emergent",
+        "KO-C008:boiko2023emergent",
+        "KO-C022:boiko2023emergent"
+      ],
+      "supplementary_description": "A large-language-model-driven agent that plans and executes chemistry experiments. It searches documentation, writes and runs code, and operates a robotic liquid-handling and analytical platform to carry out reactions (e.g., optimizing a palladium-catalyzed cross-coupling), using measured reaction yields to inform subsequent choices within a given task. Analytical characterization and the final scientific judgment, including novelty, were performed by humans. There is no autonomous certification of novelty.",
+      "report_path": "submission/analysis/citation_audit/papers/01-boiko2023emergent.md"
+    },
+    {
+      "index": 2,
+      "system_id": "ai_scientist_2024",
+      "name": "The AI Scientist (Sakana 2024)",
+      "citation_key": "lu2024aiscientist",
+      "pdf_path": "~/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/The AI Scientist_ Towards Fully Automated Open-Ended Scientific Discovery.pdf",
+      "pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+      "page_count": 186,
+      "version_status": "exact",
+      "manuscript_link_ids": [
+        "EN-C001:lu2024aiscientist",
+        "EN-C003:lu2024aiscientist",
+        "EN-C013:lu2024aiscientist",
+        "EN-C027:lu2024aiscientist",
+        "EN-C047:lu2024aiscientist",
+        "KO-C001:lu2024aiscientist",
+        "KO-C008:lu2024aiscientist",
+        "KO-C022:lu2024aiscientist"
+      ],
+      "supplementary_description": "An LLM pipeline that autonomously generates research ideas, writes and executes machine-learning experiment code, drafts a full manuscript, and then scores the manuscript with an automated LLM reviewer applying a conference rubric; candidate novelty is filtered by similarity search against a paper database. Review scores accumulate and condition the next greedy round of idea generation. The automated reviewer's agreement with human reviewers is only moderate (about 0.65 balanced accuracy). All steps are computational.",
+      "report_path": "submission/analysis/citation_audit/papers/02-lu2024aiscientist.md"
+    },
+    {
+      "index": 3,
+      "system_id": "ai_scientist_2026",
+      "name": "The AI Scientist (Nature 2026)",
+      "citation_key": "lu2026aiscientist",
+      "pdf_path": "~/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/Towards end-to-end automation of AI research.pdf",
+      "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+      "page_count": 9,
+      "version_status": "exact",
+      "manuscript_link_ids": [
+        "EN-C001:lu2026aiscientist",
+        "EN-C003:lu2026aiscientist",
+        "EN-C013:lu2026aiscientist",
+        "EN-C028:lu2026aiscientist",
+        "KO-C001:lu2026aiscientist",
+        "KO-C008:lu2026aiscientist",
+        "KO-C022:lu2026aiscientist"
+      ],
+      "supplementary_description": "A successor LLM system using agentic tree search over experiment plans, with replication nodes that re-run experiments and report results as mean and standard deviation over random seeds. It includes an automated LLM reviewer (about 0.69 balanced accuracy) and an open-endedness archive that conditions later search. One output cleared an external workshop peer-review bar. Experiments are computational only; no physical experiment.",
+      "report_path": "submission/analysis/citation_audit/papers/03-lu2026aiscientist.md"
+    },
+    {
+      "index": 4,
+      "system_id": "agent_laboratory",
+      "name": "Agent Laboratory",
+      "citation_key": "schmidgall2025agentlab",
+      "pdf_path": "~/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/Agent Laboratory - Using LLM Agents as Research Assistants.pdf",
+      "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+      "page_count": 84,
+      "version_status": "exact",
+      "manuscript_link_ids": [
+        "EN-C001:schmidgall2025agentlab",
+        "EN-C013:schmidgall2025agentlab",
+        "KO-C001:schmidgall2025agentlab",
+        "KO-C008:schmidgall2025agentlab",
+        "KO-C022:schmidgall2025agentlab"
+      ],
+      "supplementary_description": "A human-directed assistant: a person supplies the research idea and ongoing direction, and LLM agents carry out literature review, an iterative code-writing-and-execution loop for experiments, and writing. The only automated quality check is an LLM reviewer applying conference guidelines, which was documented to over-estimate quality by about +2.3 points relative to human graduate-student reviewers. There is no autonomous certification of novelty.",
+      "report_path": "submission/analysis/citation_audit/papers/04-schmidgall2025agentlab.md"
+    },
+    {
+      "index": 5,
+      "system_id": "robot_scientist",
+      "name": "Robot Scientist (Adam/Eve)",
+      "citation_key": "sparkes2010robot",
+      "pdf_path": "~/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/Sparkes 2010 - Towards Robot Scientists for Autonomous Scientific Discovery.pdf",
+      "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+      "page_count": 11,
+      "version_status": "exact",
+      "manuscript_link_ids": [
+        "EN-C011:sparkes2010robot",
+        "EN-C016:sparkes2010robot",
+        "EN-C021:sparkes2010robot",
+        "EN-C024:sparkes2010robot",
+        "KO-C011:sparkes2010robot",
+        "KO-C016:sparkes2010robot",
+        "KO-C023:sparkes2010robot"
+      ],
+      "supplementary_description": "An autonomous laboratory system for yeast functional genomics. It forms hypotheses about gene-enzyme relationships using a model of metabolism, selects which experiments to run via an active-learning criterion weighing expected information against cost, physically executes growth experiments with laboratory robotics, measures cell growth, and applies a statistical hypothesis test to accept or reject before forming the next round. It predates large language models. Final scientific conclusions were confirmed by human scientists.",
+      "report_path": "submission/analysis/citation_audit/papers/05-sparkes2010robot.md"
+    },
+    {
+      "index": 6,
+      "system_id": "ai_scientist_v2",
+      "name": "The AI Scientist-v2",
+      "citation_key": null,
+      "pdf_path": "~/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/The AI Scientist-v2 Workshop-Level Automated Scientific Discovery via Agentic Tree Search.pdf",
+      "pdf_sha256": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+      "page_count": 69,
+      "version_status": "exact",
+      "manuscript_link_ids": [],
+      "supplementary_description": "An LLM research pipeline for machine-learning experiments. From a broad topic prompt it generates many candidate ideas; a human selects a few (without editing them), then each run autonomously refines the hypothesis, writes and executes code, and produces a manuscript. An experiment-progress manager coordinates staged experimentation with agentic tree search and replication nodes reporting mean and standard deviation over seeds; a vision-language model gives figure-quality feedback during runs. Outputs were assessed by an automated reviewer and one cleared a workshop peer-review bar. Computational experiments only.",
+      "report_path": "submission/analysis/citation_audit/papers/06-ai-scientist-v2.md"
+    },
+    {
+      "index": 7,
+      "system_id": "ai_coscientist_google",
+      "name": "AI Co-Scientist (Google)",
+      "citation_key": "gottweis2026coscientist",
+      "pdf_path": "~/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/Towards an AI Co-Scientist (Google).pdf",
+      "pdf_sha256": "80730ea110ad450411aa8352a785e996cfcda06afd6e1c60277cb64a65cb676a",
+      "page_count": 81,
+      "version_status": "same_work_preprint",
+      "manuscript_link_ids": [
+        "EN-C018:gottweis2026coscientist",
+        "KO-C013:gottweis2026coscientist"
+      ],
+      "supplementary_description": "A multi-agent system that, given a human-specified research goal, generates and iteratively refines hypotheses and experimental protocols. Generation, reflection (critique of correctness, quality, and novelty), and evolution agents are ranked by an automatic Elo tournament under a supervisor running an asynchronous task queue; a scientist may give natural-language feedback but it is optional. The system does not execute experiments itself; physical wet-lab validation (cell lines, organoids, antimicrobial resistance) was carried out by independent laboratories. Evaluated by domain experts across open research goals.",
+      "report_path": "submission/analysis/citation_audit/papers/07-gottweis2026coscientist.md"
+    },
+    {
+      "index": 8,
+      "system_id": "ai_researcher",
+      "name": "AI-Researcher",
+      "citation_key": null,
+      "pdf_path": "~/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/AI-Researcher Autonomous Scientific Innovation.pdf",
+      "pdf_sha256": "a3f3334cc67685b925c9523dc19149806ee996e331623f84912e0354b18c9bce",
+      "page_count": 38,
+      "version_status": "exact",
+      "manuscript_link_ids": [],
+      "supplementary_description": "An LLM pipeline for machine-learning research across a few domains. A knowledge-acquisition step reads reference papers to scope the problem; a divergent-convergent step generates several research directions and selects one by novelty, soundness, and transformative-potential criteria; code and advisor agents implement and run experiments in containers with multi-stage refinement. Outputs were compared pairwise against human papers by several LLM judges on a benchmark. It uses no external memory beyond the model context, and the pipeline runs forward without feeding results back into ideation.",
+      "report_path": "submission/analysis/citation_audit/papers/08-ai-researcher.md"
+    },
+    {
+      "index": 9,
+      "system_id": "deepscientist",
+      "name": "DeepScientist",
+      "citation_key": null,
+      "pdf_path": "~/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/DeepScientist Advancing Frontier-Pushing Scientific Findings.pdf",
+      "pdf_sha256": "76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8",
+      "page_count": 19,
+      "version_status": "exact",
+      "manuscript_link_ids": [],
+      "supplementary_description": "A system that searches for methods exceeding a target state-of-the-art, formalized as Bayesian optimization over a value function. A surrogate LLM reviewer scores candidate ideas; a coding agent implements them in a sandbox with internet access on top of existing repositories, promoting a candidate only when it beats the baseline. A UCB acquisition function balances exploitation and exploration; a findings memory accumulates unverified, implemented, and SOTA-exceeding results. Across three computational domains it reported exceeding human SOTA; three human experts performed final verification and hallucination filtering.",
+      "report_path": "submission/analysis/citation_audit/papers/09-deepscientist.md"
+    },
+    {
+      "index": 10,
+      "system_id": "robin",
+      "name": "Robin",
+      "citation_key": "ghareeb2026robin",
+      "pdf_path": "~/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/Robin - A Multi-Agent System for Automating Scientific Discovery.pdf",
+      "pdf_sha256": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+      "page_count": 30,
+      "version_status": "exact",
+      "manuscript_link_ids": [],
+      "supplementary_description": "A system for biomedical therapeutic discovery (dry age-related macular degeneration). Cooperating agents perform literature search and deep evaluation, rank candidates via an LLM tournament, and design assays. Physical experiments (phagocytosis assays, RNA-seq sequencing and alignment) are performed by humans, while a bioinformatics agent autonomously analyzes flow-cytometry and differential-expression data and meta-analyzes multiple trajectories. Measured outcomes (e.g., phagocytosis improvement, gene upregulation with reported p-values) feed the next round; the full manuscript was system-generated and underwent peer review.",
+      "report_path": "submission/analysis/citation_audit/papers/10-robin.md"
+    },
+    {
+      "index": 11,
+      "system_id": "era",
+      "name": "ERA",
+      "citation_key": "aygun2026era",
+      "pdf_path": "~/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/ERA - An AI System to Help Scientists Write Expert-Level Empirical Software.pdf",
+      "pdf_sha256": "6a974d0c446c54653ffdf2765e75ab252e97aca3a201d930abacf91ec4d6a165",
+      "page_count": 78,
+      "version_status": "exact",
+      "manuscript_link_ids": [
+        "EN-C061:aygun2026era",
+        "KO-C055:aygun2026era"
+      ],
+      "supplementary_description": "A system that improves scientific software by mutating code. A model analyzes current code and generates improvement variants, optionally injecting external ideas, and recombines baseline methods; variants are executed in a sandbox and scored against public benchmarks/leaderboards, with errors fed back into later generation. A flat-UCB global search tree retains historical diversity. It reported beating the best human methods on several public leaderboards. Computational only (no wet-lab); the paper itself distinguishes empirical model optimization from genuine scientific discovery.",
+      "report_path": "submission/analysis/citation_audit/papers/11-aygun2026era.md"
+    },
+    {
+      "index": 12,
+      "system_id": "autoresearchclaw",
+      "name": "AutoResearchClaw",
+      "citation_key": "liu2026autoresearchclaw",
+      "pdf_path": "~/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/AutoResearchClaw - Self-Reinforcing Autonomous Research with Human-AI Collaboration.pdf",
+      "pdf_sha256": "be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491",
+      "page_count": 23,
+      "version_status": "exact",
+      "manuscript_link_ids": [],
+      "supplementary_description": "A multi-domain research system using structured multi-agent debate. A hypothesis stage (innovator, pragmatist, contrarian) and a results stage (optimist, skeptic, methodologist) produce and interpret hypotheses; a self-healing executor decides per run to proceed, refine, or pivot (regenerating the hypothesis), running in a sandbox. A hallucination-verification layer fact-checks numbers and citations; experiments use an external benchmark rather than wet-lab. A cross-project failure memory turns past mistakes into guards, and a seven-level human-intervention mode (full-auto to step-by-step) is supported.",
+      "report_path": "submission/analysis/citation_audit/papers/12-autoresearchclaw.md"
+    },
+    {
+      "index": 13,
+      "system_id": "scientistone",
+      "name": "ScientistOne",
+      "citation_key": "meng2026scientistone",
+      "pdf_path": "~/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/ScientistOne - Towards Human-Level Autonomous Research via Chain-of-Evidence.pdf",
+      "pdf_sha256": "9d4fa9d1e9e6b1cdccfeff02fecbd28b5b961594952a1ac96e00ad135bed0a51",
+      "page_count": 35,
+      "version_status": "exact",
+      "manuscript_link_ids": [],
+      "supplementary_description": "A research system grounded in the literature. A problem investigator builds a citation graph, filters thousands of papers to an elite set, and produces an experiment brief; an ideator proposes and ranks approaches. A parallel explore-exploit search runs branches, versions, and iterations with spec-violation pruning and automatic ablations. A four-part audit re-runs scores, checks spec violations, verifies reference APIs, and checks code-method alignment (reporting zero hallucinated citations). Memory is backed by files (citation graph, structured notes, logs). Computational benchmarks only; fully autonomous with no required human gate.",
+      "report_path": "submission/analysis/citation_audit/papers/13-scientistone.md"
+    },
+    {
+      "index": 14,
+      "system_id": "novelseek",
+      "name": "InternAgent / NovelSeek",
+      "citation_key": "zhang2025novelseek",
+      "pdf_path": "~/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/NovelSeek - When Agent Becomes the Scientist.pdf",
+      "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+      "page_count": 34,
+      "version_status": "exact",
+      "manuscript_link_ids": [
+        "EN-C017:zhang2025novelseek",
+        "EN-C025:zhang2025novelseek",
+        "KO-C012:zhang2025novelseek",
+        "KO-C024:zhang2025novelseek"
+      ],
+      "supplementary_description": "A unified multi-agent framework that runs idea generation, conversion of ideas into methodology, computational experiment execution, and result feedback in a loop across many tasks, reporting improvements on task benchmarks relative to baselines. A human-interaction interface is optional rather than required for operation. Experiments are computational.",
+      "report_path": "submission/analysis/citation_audit/papers/14-zhang2025novelseek.md"
+    }
+  ]
+}
