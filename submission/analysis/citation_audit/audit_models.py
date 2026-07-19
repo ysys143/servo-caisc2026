@@ -121,3 +121,78 @@ class ReportMarkers(StrictModel):
     en_links_covered: str
     ko_links_covered: str
     verdict: str
+
+
+class CoreFinalGateState(StrictModel):
+    joint_claims_reconciled: bool = False
+    korean_parity_reconciled: bool = False
+    manual_qa_complete: bool = False
+
+    def is_complete(self) -> bool:
+        return all(
+            (
+                self.joint_claims_reconciled,
+                self.korean_parity_reconciled,
+                self.manual_qa_complete,
+            )
+        )
+
+
+class CoreSourceRecord(StrictModel):
+    index: int
+    system_id: str
+    name: str
+    citation_key: str | None
+    pdf_path: str
+    pdf_sha256: str
+    page_count: int
+    version_status: str
+    manuscript_link_ids: tuple[str, ...]
+    supplementary_description: str
+    report_path: str
+
+    @property
+    def key(self) -> str:
+        return self.system_id
+
+    @property
+    def en_link_ids(self) -> tuple[str, ...]:
+        return tuple(link for link in self.manuscript_link_ids if link.startswith("EN-"))
+
+    @property
+    def ko_link_ids(self) -> tuple[str, ...]:
+        return tuple(link for link in self.manuscript_link_ids if link.startswith("KO-"))
+
+
+class CoreManifest(StrictModel):
+    schema_version: int
+    scope: str
+    created_at: str
+    scope_source: str
+    scope_source_sha256: str
+    description_source: str
+    description_source_sha256: str
+    sources: tuple[CoreSourceRecord, ...]
+
+
+class CoreSourceState(StrictModel):
+    system_id: str
+    status: WorkStatus
+    report_path: str
+    gates: GateState = GateState()
+    started_at: str | None = None
+    completed_at: str | None = None
+    overall_verdict: str | None = None
+
+    @property
+    def key(self) -> str:
+        return self.system_id
+
+
+class CoreStatusLedger(StrictModel):
+    schema_version: int
+    scope: str
+    manifest_sha256: str
+    active_system_id: str | None
+    final_gates: CoreFinalGateState = CoreFinalGateState()
+    sources: tuple[CoreSourceState, ...]

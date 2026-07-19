@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "scope": "tier1_core14",
+  "manifest_sha256": "db06a01f48314d8cb7ca92bfcba8138e1fce6b9e9a930960d393cc15f93aa2db",
+  "active_system_id": null,
+  "final_gates": {
+    "joint_claims_reconciled": true,
+    "korean_parity_reconciled": true,
+    "manual_qa_complete": true
+  },
+  "sources": [
+    {
+      "system_id": "coscientist",
+      "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/01-boiko2023emergent.md",
+      "gates": {
+        "identity": true,
+        "full_text": true,
+        "source_analysis": true,
+        "citations": true,
+        "korean_parity": true,
+        "self_qa": true
+      },
+      "started_at": "2026-07-18T15:31:04Z",
+      "completed_at": "2026-07-18T15:44:05Z",
+      "overall_verdict": "minor_revision"
+    },
+    {
+      "system_id": "ai_scientist_2024",
+      "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/02-lu2024aiscientist.md",
+      "gates": {
+        "identity": true,
+        "full_text": true,
+        "source_analysis": true,
+        "citations": true,
+        "korean_parity": true,
+        "self_qa": true
+      },
+      "started_at": "2026-07-18T15:45:09Z",
+      "completed_at": "2026-07-18T16:26:27Z",
+      "overall_verdict": "major_revision"
+    },
+    {
+      "system_id": "ai_scientist_2026",
+      "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/03-lu2026aiscientist.md",
+      "gates": {
+        "identity": true,
+        "full_text": true,
+        "source_analysis": true,
+        "citations": true,
+        "korean_parity": true,
+        "self_qa": true
+      },
+      "started_at": "2026-07-18T16:33:56Z",
+      "completed_at": "2026-07-18T16:49:07Z",
+      "overall_verdict": "major_revision"
+    },
+    {
+      "system_id": "agent_laboratory",
+      "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/04-schmidgall2025agentlab.md",
+      "gates": {
+        "identity": true,
+        "full_text": true,
+        "source_analysis": true,
+        "citations": true,
+        "korean_parity": true,
+        "self_qa": true
+      },
+      "started_at": "2026-07-18T16:50:11Z",
+      "completed_at": "2026-07-18T17:05:39Z",
+      "overall_verdict": "major_revision"
+    },
+    {
+      "system_id": "robot_scientist",
+      "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/05-sparkes2010robot.md",
+      "gates": {
+        "identity": true,
+        "full_text": true,
+        "source_analysis": true,
+        "citations": true,
+        "korean_parity": true,
+        "self_qa": true
+      },
+      "started_at": "2026-07-18T17:06:07Z",
+      "completed_at": "2026-07-18T17:18:39Z",
+      "overall_verdict": "major_revision"
+    },
+  {
+    "system_id": "ai_scientist_v2",
+    "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/06-ai-scientist-v2.md",
+    "gates": {
+      "identity": true,
+      "full_text": true,
+      "source_analysis": true,
+      "citations": true,
+      "korean_parity": true,
+      "self_qa": true
+    },
+    "started_at": "2026-07-18T17:19:32Z",
+    "completed_at": "2026-07-19T00:00:00Z",
+    "overall_verdict": "minor_revision"
+    },
+    {
+    "system_id": "ai_coscientist_google",
+    "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/07-gottweis2026coscientist.md",
+      "gates": {
+      "identity": true,
+      "full_text": true,
+      "source_analysis": true,
+      "citations": true,
+      "korean_parity": true,
+      "self_qa": true
+      },
+    "started_at": "2026-07-19T00:05:00Z",
+    "completed_at": "2026-07-19T01:00:00Z",
+    "overall_verdict": "minor_revision"
+    },
+    {
+    "system_id": "ai_researcher",
+    "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/08-ai-researcher.md",
+      "gates": {
+      "identity": true,
+      "full_text": true,
+      "source_analysis": true,
+      "citations": true,
+      "korean_parity": true,
+      "self_qa": true
+      },
+    "started_at": "2026-07-19T01:10:00Z",
+    "completed_at": "2026-07-19T02:20:00Z",
+    "overall_verdict": "minor_revision"
+    },
+    {
+    "system_id": "deepscientist",
+    "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/09-deepscientist.md",
+      "gates": {
+      "identity": true,
+      "full_text": true,
+      "source_analysis": true,
+      "citations": true,
+      "korean_parity": true,
+      "self_qa": true
+      },
+    "started_at": "2026-07-19T02:25:00Z",
+    "completed_at": "2026-07-19T03:20:00Z",
+    "overall_verdict": "minor_revision"
+    },
+    {
+    "system_id": "robin",
+    "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/10-robin.md",
+      "gates": {
+      "identity": true,
+      "full_text": true,
+      "source_analysis": true,
+      "citations": true,
+      "korean_parity": true,
+      "self_qa": true
+      },
+    "started_at": "2026-07-19T03:25:00Z",
+    "completed_at": "2026-07-19T04:20:00Z",
+    "overall_verdict": "minor_revision"
+    },
+    {
+    "system_id": "era",
+    "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/11-aygun2026era.md",
+      "gates": {
+      "identity": true,
+      "full_text": true,
+      "source_analysis": true,
+      "citations": true,
+      "korean_parity": true,
+      "self_qa": true
+      },
+    "started_at": "2026-07-19T04:25:00Z",
+    "completed_at": "2026-07-19T05:20:00Z",
+    "overall_verdict": "minor_revision"
+    },
+    {
+    "system_id": "autoresearchclaw",
+    "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/12-autoresearchclaw.md",
+      "gates": {
+      "identity": true,
+      "full_text": true,
+      "source_analysis": true,
+      "citations": true,
+      "korean_parity": true,
+      "self_qa": true
+      },
+    "started_at": "2026-07-19T05:25:00Z",
+    "completed_at": "2026-07-19T06:20:00Z",
+    "overall_verdict": "minor_revision"
+    },
+    {
+    "system_id": "scientistone",
+    "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/13-scientistone.md",
+      "gates": {
+      "identity": true,
+      "full_text": true,
+      "source_analysis": true,
+      "citations": true,
+      "korean_parity": true,
+      "self_qa": true
+      },
+    "started_at": "2026-07-19T06:25:00Z",
+    "completed_at": "2026-07-19T07:20:00Z",
+    "overall_verdict": "minor_revision"
+    },
+    {
+    "system_id": "novelseek",
+    "status": "complete",
+      "report_path": "submission/analysis/citation_audit/papers/14-zhang2025novelseek.md",
+      "gates": {
+      "identity": true,
+      "full_text": true,
+      "source_analysis": true,
+      "citations": true,
+      "korean_parity": true,
+      "self_qa": true
+      },
+    "started_at": "2026-07-19T07:25:00Z",
+    "completed_at": "2026-07-19T08:20:00Z",
+    "overall_verdict": "citation_invalid"
+    }
+  ]
+}

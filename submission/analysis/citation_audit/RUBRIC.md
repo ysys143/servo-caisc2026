@@ -108,8 +108,13 @@ AUDIT_COMPLETE: yes
 PAGES_COVERED: 1-N
 EN_LINKS_COVERED: comma-separated occurrence IDs or none
 KO_LINKS_COVERED: comma-separated occurrence IDs or none
+SYSTEM_DESCRIPTION_ASSESSED: yes
 VERDICT: clean | minor_revision | major_revision | citation_invalid
 ```
+
+`SYSTEM_DESCRIPTION_ASSESSED` confirms that a Codex agent compared the frozen
+core-system description with the full source. It does not certify the semantic
+verdict; the report's page-grounded reasoning remains the evidence.
 
 ## Final Closure
 

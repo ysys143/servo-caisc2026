@@ -154,7 +154,7 @@ def verify_link_counts(manifest: AuditManifest, issues: list[str]) -> None:
 
 
 def verify_pdf(source: SourceRecord, issues: list[str]) -> None:
-    path = Path(source.pdf_path)
+    path = Path(source.pdf_path).expanduser()
     if not path.is_file():
         issues.append(f"{source.key}: PDF is missing")
         return
@@ -209,22 +209,23 @@ def verify_final(manifest: AuditManifest, ledger: StatusLedger) -> None:
 def main() -> int:
     try:
         manifest, ledger = load_artifacts()
-        match sys.argv[1:]:
-            case ["baseline"]:
-                verify_baseline(manifest, ledger)
-                print("BASELINE PASS: 59 sources and frozen artifacts verified")
-            case ["paper", key]:
-                source = source_by_key(manifest, key)
-                state = state_by_key(ledger, key)
-                verify_paper(source, state, REPO_ROOT / state.report_path)
-                print(f"PAPER PASS: {key}")
-            case ["final"]:
-                verify_baseline(manifest, ledger)
-                verify_final(manifest, ledger)
-                print("FINAL PASS: 59 reports and all citation links verified")
-            case _:
-                print("usage: verify_audit.py baseline|paper KEY|final", file=sys.stderr)
-                return 2
+        arguments = sys.argv[1:]
+        if arguments == ["baseline"]:
+            verify_baseline(manifest, ledger)
+            print("BASELINE PASS: 59 sources and frozen artifacts verified")
+        elif len(arguments) == 2 and arguments[0] == "paper":
+            key = arguments[1]
+            source = source_by_key(manifest, key)
+            state = state_by_key(ledger, key)
+            verify_paper(source, state, REPO_ROOT / state.report_path)
+            print(f"PAPER PASS: {key}")
+        elif arguments == ["final"]:
+            verify_baseline(manifest, ledger)
+            verify_final(manifest, ledger)
+            print("FINAL PASS: 59 reports and all citation links verified")
+        else:
+            print("usage: verify_audit.py baseline|paper KEY|final", file=sys.stderr)
+            return 2
     except (AuditFailure, ValidationError, OSError, subprocess.CalledProcessError) as error:
         print(f"FAIL: {error}", file=sys.stderr)
         return 1
