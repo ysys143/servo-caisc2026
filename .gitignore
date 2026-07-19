@@ -18,3 +18,9 @@ submission/citation-review/results/*_fulltext.txt
 
 # Scratch: rendered PDF page images from citation auditing (814MB, regenerable)
 tmp/
+
+# post-submit 빌드 중간 산출물
+submission/main_post-submit.aux
+submission/main_post-submit.log
+submission/main_post-submit.out
+submission/main_post-submit.blg
