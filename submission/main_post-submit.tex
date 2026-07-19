@@ -211,7 +211,7 @@ CS / Algo. & $V_\text{emp}$ & High & Fully closed & Evol./LLM & Interpretability
 \label{tab:domain-comparison}
 \end{table}
 
-\noindent The pattern is largely shaped by $V$ type. Formal mathematics has a binary $V_\text{formal}$ that makes RL stable and the loop fully closed; natural-language proof reintroduces $V_\text{human}$ (Aletheia: 6.5\% audited-correct). Chemistry and biology close the computational loop but leave the physical loop open at the measurement boundary, where characterization stays human-delegated. Materials science is the surveyed domain whose policy most resembles active experimental design within a tractable computational surrogate: GNoME uses model uncertainty and DFT relaxations to close a computational loop for phase-stability prediction. But DFT approximates physical energies rather than being a fully calibrated oracle, and most predicted compounds still require synthesis and characterization~\citep{cheetham2024gnome}; the physical loop remains only partly closed. Social science suffers circular validity when $G$ and $E$ share a model, and CS/algorithms close the loop via reliable $V_\text{emp}$ but lack interpretability.
+\noindent The pattern is largely shaped by $V$ type. Formal mathematics has a binary $V_\text{formal}$ that enables mechanically closed evaluation within the formalized task; natural-language proof reintroduces $V_\text{human}$ (Aletheia: 6.5\% audited-correct). Chemistry and biology close the computational loop but leave the physical loop open at the measurement boundary, where characterization stays human-delegated. Materials science is the surveyed domain whose policy most resembles active experimental design within a tractable computational surrogate: GNoME uses model uncertainty and DFT relaxations to close a computational loop for phase-stability prediction. But DFT approximates physical energies rather than being a fully calibrated oracle, and most predicted compounds still require synthesis and characterization~\citep{cheetham2024gnome}; the physical loop remains only partly closed. Social science suffers circular validity when $G$ and $E$ share a model, and CS/algorithms close the loop via reliable $V_\text{emp}$ but lack interpretability.
 
 
 \section{Open Problems}
@@ -479,6 +479,20 @@ why, and whether the version of record is thereby wrong or merely less precise.
   original understates the breadth of expert endorsement by more than an order of
   magnitude. The claim the sentence supports---that expert oversight remains
   indispensable---is unaffected.
+
+  \item[R2. Formal validators and RL stability (Section~\ref{sec:domains}).]
+  \emph{Status in the version of record: overclaim; the sentence asserts more than the
+  evidence supports.} The version of record states that formal mathematics has ``a binary
+  $V_\text{formal}$ that makes RL stable and the loop fully closed.'' A deterministic
+  pass/fail oracle settles whether a candidate proof or program is acceptable, but the
+  stability of policy learning also depends on reward density, the state space, the policy
+  update rule, the exploration strategy, and function approximation; the surveyed formal
+  systems do not isolate the validator as the cause of stable training (DeepSeek-Prover-V1.5
+  additionally uses supervised fine-tuning and an MCTS variant with intrinsic rewards, and
+  FunSearch couples the evaluator to an LLM and an evolutionary procedure). The clause is
+  replaced here with ``enables mechanically closed evaluation within the formalized task,''
+  matching the wording already used for the same systems in
+  Appendix~\ref{app:domains}. No other claim depends on the removed clause.
 \end{description}
 
 \noindent\textbf{Scope of revision.} The entries above are the complete set of changes
