@@ -8,7 +8,7 @@ Supplementary material for *Formalizing AI Scientist Systems: A Component Framew
 - `analysis/systems.csv`, `analysis/domain_systems.csv` — coding sheets (core systems; the seven-domain map) with a representative source quote and citation per row.
 - `analysis/multicoder/` — multi-vendor blind re-coding: exact invocations and per-model outputs from three model-pinned LLM coders.
 - `analysis/reliability_report.md` — inter-coder reliability estimates (Fleiss'/Cohen's κ).
-- `analysis/build_servo_tables.py`, `analysis/build_domain_tables.py`, `analysis/association_descriptive.py` — citation-validating table-regeneration and descriptive-association scripts.
+- `analysis/build_servo_tables.py`, `analysis/build_domain_tables.py`, `analysis/multicoder/compute_calib.py` — the citation-validating table-regeneration and calibration scripts named in the paper's reproducibility statement. `analysis/association_descriptive.py` additionally reports the descriptive association between gating calibration and trustworthy closure.
 - `analysis/citation_audit/` — per-citation verification of the manuscript against the cited primary sources. Contains a coding rubric (`RUBRIC.md`), machine-readable manifests (`manifest.json`, `core14-manifest.json`, `*-status.json`), an audit harness (`audit_models.py`, `tests/`), and per-source evidence reports (`papers/`, `evidence/`) recording, for each in-text citation, the source claim, the supporting passage, a PASS/PARTIAL judgment with severity, and any recommended correction. Both the English and Korean manuscripts are covered.
 - `references.bib` — bibliography.
 
