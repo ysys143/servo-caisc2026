@@ -12,3 +12,6 @@ __pycache__/
 dist/
 build/
 *.egg-info/
+
+# Copyrighted paper full-text dumps (regenerable from PDFs; never publish)
+submission/citation-review/results/*_fulltext.txt
