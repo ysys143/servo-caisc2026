@@ -164,6 +164,11 @@ pdfinfo main.pdf | grep Pages  # 8 이하여야 함
 
 ## 6. OpenReview 제출 폼 정보
 
+> **[폐기됨 — 2026-07-19]** 아래 표는 2026-05-29 최초 제출 준비 시점의 것으로 **더 이상 유효하지 않다**.
+> 제목이 카메라레디와 다르고("A Unified Framework…" vs 실제 "A Component Framework and Theoretical
+> Analysis"), TL;DR은 카메라레디가 명시적으로 철회한 인과 주장을 담고 있다.
+> **현재 유효한 메타데이터는 [`submission/OPENREVIEW_METADATA.md`](./submission/OPENREVIEW_METADATA.md)를 쓸 것.**
+
 | 필드 | 내용 |
 |------|------|
 | Title | Formalizing AI Scientist Systems: A Unified Framework for Automated Scientific Discovery |
