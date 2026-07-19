@@ -15,3 +15,6 @@ build/
 
 # Copyrighted paper full-text dumps (regenerable from PDFs; never publish)
 submission/citation-review/results/*_fulltext.txt
+
+# Scratch: rendered PDF page images from citation auditing (814MB, regenerable)
+tmp/

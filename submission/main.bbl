@@ -1,4 +1,4 @@
-\begin{thebibliography}{59}
+\begin{thebibliography}{62}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -214,6 +214,15 @@ S.~Kim, D.~Yoon, K.~Gashteovski, J.~Suk, J.~Baek, P.~Aggarwal, I.~Wu, et~al.
   reviews of {Nature}-family papers with 45 expert scientists.
 \newblock \emph{arXiv preprint arXiv:2605.20668}, 2026.
 
+\bibitem[King et~al.(2004)King, Whelan, Jones, Reiser, Bryant, Muggleton, Kell,
+  and Oliver]{king2004robot}
+R.~D. King, K.~E. Whelan, F.~M. Jones, P.~G.~K. Reiser, C.~H. Bryant, S.~H.
+  Muggleton, D.~B. Kell, and S.~G. Oliver.
+\newblock Functional genomic hypothesis generation and experimentation by a
+  robot scientist.
+\newblock \emph{Nature}, 427\penalty0 (6971):\penalty0 247--252, 2004.
+\newblock \doi{10.1038/nature02236}.
+
 \bibitem[Lee et~al.(2025)Lee, Hwang, Moon, Nah, Koh, Cho, Park, Yoo, Park,
   Choi, Moon, Hwang, Kim, Kim, Kim, and Jung]{lee2025spacer}
 M.~Lee, S.~Hwang, S.~Moon, G.~Nah, D.~Koh, Y.~Cho, J.~Park, H.~Yoo, J.~Park,
@@ -372,6 +381,17 @@ N.~J. Szymanski, B.~Rendy, Y.~Fei, R.~E. Kumar, T.~He, D.~Milsted, M.~J.
 \newblock \emph{Nature}, 624:\penalty0 86--91, 2023.
 \newblock \doi{10.1038/s41586-023-06734-w}.
 
+\bibitem[Szymanski et~al.(2026)Szymanski, Rendy, Fei, Kumar, He, Milsted,
+  McDermott, Gallant, Cubuk, Merchant, Kim, Jain, Bartel, Persson, Zeng, and
+  Ceder]{szymanski2026correction}
+N.~J. Szymanski, B.~Rendy, Y.~Fei, R.~E. Kumar, T.~He, D.~Milsted, M.~J.
+  McDermott, M.~Gallant, E.~D. Cubuk, A.~Merchant, H.~Kim, A.~Jain, C.~J.
+  Bartel, K.~Persson, Y.~Zeng, and G.~Ceder.
+\newblock Author correction: An autonomous laboratory for the accelerated
+  synthesis of inorganic materials.
+\newblock \emph{Nature}, 650\penalty0 (8100), 2026.
+\newblock \doi{10.1038/s41586-025-09992-y}.
+
 \bibitem[Taniguchi et~al.(2025)Taniguchi, Takagi, Otsuka, Hayashi, and
   Hamada]{taniguchi2024cpc}
 T.~Taniguchi, S.~Takagi, J.~Otsuka, Y.~Hayashi, and H.~T. Hamada.
@@ -418,6 +438,13 @@ H.~Xin, Z.~Z. Ren, J.~Song, Z.~Shao, W.~Zhao, H.~Wang, B.~Liu, L.~Zhang, et~al.
   reinforcement learning and {Monte-Carlo} tree search.
 \newblock \emph{arXiv preprint arXiv:2408.08152}, 2024.
 \newblock arXiv:2408.08152.
+
+\bibitem[Yamada et~al.(2025)]{yamada2025aiscientistv2}
+Y.~Yamada et~al.
+\newblock The {AI} {Scientist-v2}: Workshop-level automated scientific
+  discovery via agentic tree search.
+\newblock \emph{arXiv preprint arXiv:2504.08066}, 2025.
+\newblock arXiv:2504.08066.
 
 \bibitem[Yanai and Lercher(2019)]{yanai2019night}
 I.~Yanai and M.~Lercher.
