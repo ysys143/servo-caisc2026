@@ -1,0 +1,78 @@
+{
+  "bibkey": "sprueill2024chemreasoner",
+  "read_status": "READ",
+  "note": "ChemReasoner (ICML 2024, arXiv:2402.10980v5). LLM heuristic tree search over catalyst space, pruned by BEAM search (width 6, depth 5, Nactions 8), reward = GNN computational surrogate (GemNet-dT trained on DFT) predicting adsorption energy; DFT (Quantum ESPRESSO) only post-hoc validation of top candidates. No physical/wet-lab execution. Both manuscript claims verified against the cited paper's full text.",
+  "claims": {
+    "C077": {
+      "location": "L176, BG (background domain list)",
+      "manuscript_claim": "chemistry~\\citep{...,sprueill2024chemreasoner,...} (ChemReasoner listed as an example under the 'chemistry' domain)",
+      "verdict": "ACCURATE",
+      "evidence": [
+        {
+          "quote": "ChemReasoner: Heuristic Search over a Large Language Model's Knowledge Space using Quantum-Chemical Feedback",
+          "location": "Title, p.1"
+        },
+        {
+          "quote": "The discovery of new catalysts is essential for the design of new and more efficient chemical processes... we introduce an AI-guided computational screening framework unifying linguistic reasoning with quantum-chemistry based feedback",
+          "location": "Abstract, p.1"
+        }
+      ],
+      "reasoning": "ChemReasoner is squarely a chemistry/catalyst-discovery paper (heterogeneous catalysis, adsorption energies, CO2-to-methanol). Listing it under the 'chemistry' domain is correct."
+    },
+    "C078": {
+      "location": "L442, CHAR (characterization)",
+      "manuscript_claim": "ChemCrow and ChemReasoner~\\citep{sprueill2024chemreasoner} validate computationally with surrogate signals and search by beam.",
+      "verdict": "ACCURATE",
+      "scope": "Verifies the ChemReasoner half only; the ChemCrow half is a separate citation outside this paper (see reverse_findings for a coupling caveat).",
+      "evidence": [
+        {
+          "claim_part": "search by beam",
+          "quote": "Each layer of the search tree is pruned using a beam search algorithm a beam search algorithm (Rubin & Reddy, 1977), leaving only those nodes with the highest rewards.",
+          "location": "Section 3.1 Heuristic Search, p.4 (txt L257-259)"
+        },
+        {
+          "claim_part": "search by beam (parameter)",
+          "quote": "We use a beam width parameter (set to 6) to control the number of nodes that are expanded in each iteration of the search.",
+          "location": "Section 5.2, p.8 (txt L628-630); max depth set to 5, Nactions set to 8"
+        },
+        {
+          "claim_part": "validate computationally with surrogate signals",
+          "quote": "A GNN (Gasteiger et al., 2021) is then used to calculate the adsorption energy from this state.",
+          "location": "Section 3.3, p.6 (txt L448-450); reward model is GemNet-dT surrogate"
+        },
+        {
+          "claim_part": "surrogate signals (surrogate stands in for DFT)",
+          "quote": "the use of DFT-based rewards would be the gold standard reward calculations. However, due to their significant computational cost, we are forced to employ GNNs for high-throughput evaluation of catalyst candidates",
+          "location": "Section 5.3, p.8 (txt L642-647)"
+        }
+      ],
+      "reasoning": "Both predicates hold for ChemReasoner: (a) the search tree is explicitly pruned by beam search (width 6); (b) validation/scoring is by a GNN computational surrogate (GemNet-dT trained on DFT) predicting adsorption energy, with true DFT used only offline. Purely computational, no physical execution — consistent with 'validate computationally with surrogate signals'."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "ChemReasoner's own search mechanism is BEAM search, not MCTS. MCTS (Monte Carlo Thought Search) belongs to the predecessor Sprueill et al. (2023), which this paper 'builds upon' but replaces LLM-computed rewards with computational-chemistry rewards and adds an LLM planner.",
+      "loc": "Title; Section 3.1 p.4; Section 2 p.3 ('we note that our method builds upon Sprueill et al. (2023)')",
+      "mismatch": "No mismatch for C078 (correctly says 'beam'). Guard: do NOT attribute MCTS to sprueill2024chemreasoner anywhere in the manuscript — MCTS is the earlier arXiv:2310.14420 paper.",
+      "severity": "low"
+    },
+    {
+      "fact": "The GNN surrogate diverges significantly from ground-truth DFT in several cases (e.g. CuZn *CHOH: GNN 0.552 eV vs DFT 5.951 eV; CuAlZn *OHCH3: GNN -1.589 vs DFT -5.615).",
+      "loc": "Section 5.3 p.8, Table 3 (txt L1638-1640)",
+      "mismatch": "No mismatch — C078 only asserts 'surrogate signals', which is accurate. But the surrogate is explicitly NOT DFT-accurate; any manuscript wording implying DFT-grade or experimentally-validated accuracy would over-claim.",
+      "severity": "low"
+    },
+    {
+      "fact": "Validation is entirely computational (GNN in-loop + post-hoc DFT + literature comparison); there is no wet-lab synthesis or physical/robotic execution. Impact statement: goal is 'not necessarily to claim the discovery of a novel catalyst.'",
+      "loc": "Impact Statement p.9; Section 5.4 CO2 Hydrogenation case study p.9",
+      "mismatch": "No mismatch — C078 says 'validate computationally', which is exactly right. Flag only if any other manuscript claim implies experimental validation of ChemReasoner.",
+      "severity": "none"
+    },
+    {
+      "fact": "C078 couples ChemCrow and ChemReasoner as jointly 'search by beam' and 'validate computationally with surrogate signals'. Within ChemReasoner's own related-work, ChemCrow (Bran et al. 2023) is characterized as a tool-interfacing agent-based approach with LLM-computed guidance, not a beam-search / surrogate-reward system.",
+      "loc": "ChemReasoner Section 2.2 p.3 (cites Bran et al. 2023 as GPT-4 agent interfacing with chemistry tools; contrasts with its own domain-specific simulation-backed reward)",
+      "mismatch": "Possible over-generalization: 'search by beam' + 'surrogate signals' is verified true for ChemReasoner but may not hold for ChemCrow (a ReAct-style tool-augmented LLM). Recommend a separate ChemCrow-side check before treating the coupled sentence as fully accurate.",
+      "severity": "medium"
+    }
+  ]
+}

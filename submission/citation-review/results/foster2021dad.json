@@ -1,0 +1,45 @@
+{
+  "bibkey": "foster2021dad",
+  "read_status": "READ",
+  "note": "Foster, Ivanova, Malik, Rainforth, 'Deep Adaptive Design: Amortizing Sequential Bayesian Experimental Design', ICML 2021 (PMLR 139; arXiv:2103.02438v2). DAD amortizes the cost of sequential Bayesian optimal experimental design (BOED) by learning a design POLICY network pi_phi offline (single forward pass at deployment, ms-scale), trained to maximize contrastive lower/upper bounds (sPCE Thm2 / sNMC Thm4) on the total expected information gain (EIG) I_T(pi) -- sidestepping both per-step posterior inference and per-step EIG estimation, and enabling non-myopic designs. DAD operates in a FIXED/closed hypothesis space: it requires an explicit, evaluable parametric likelihood p(y_t|theta,xi_t), a fixed prior p(theta), conditional independence of experiments given theta, and continuous designs xi_t; it never generates or searches over hypotheses/models. The manuscript cites DAD three times (all in Sec. after eq:eid / open-problems background) and each use is accurate and appropriately scope-bounded, including the L223 negative framing that amortized EIG estimation 'remains unsolved for open-ended S' -- which is CONSISTENT with DAD's own stated limitations. No numeric claims made against this paper.",
+  "claims": {
+    "C041": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "Manuscript L85 (CHAR): 'EIG can be approximated via variational methods~\\citep{foster2019variational}, amortized policies~\\citep{foster2021dad}, and RL~\\citep{blau2022rl}.' The 'amortized policies' item maps one-to-one onto DAD. Paper title: 'Deep Adaptive Design: Amortizing Sequential Bayesian Experimental Design'. Abstract (p.1): 'a method for amortizing the cost of adaptive Bayesian experimental design... DAD addresses this restriction by learning an amortized design network upfront... This network represents a design policy which takes as input the data from previous steps, and outputs the next design using a single forward pass.' Sec. 3-4: 'we introduce the concept of a design function, or policy, pi'; 'DAD looks to approximate pi* explicitly using a neural network... the design network pi_phi'; 'it learns a design policy... and we optimize the parameters of this policy rather than an individual design.' The policy is trained by maximizing the sequential PCE (sPCE) lower bound L_T(pi,L) on the total EIG I_T(pi) (Sec. 4.1, Thm 2). So 'EIG can be approximated via amortized policies [DAD]' is a faithful, understated paraphrase of DAD's central result. CONFIRMED.",
+      "fix": null
+    },
+    "C042": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "Manuscript L219 (BG, passing reference): '...conditions absent from the LLM-based systems here, where the ``posterior'' is implicit in model weights~\\citep{foster2021dad}.' DAD is cited to anchor the concept of an amortized design method that carries no EXPLICIT posterior. This faithfully characterizes DAD, which is posterior-free by construction: Sec. 4 'once pi is learned, it can just be directly evaluated during the experiment... eliminating the need to estimate intermediate posterior distributions'; Sec. 7 Discussion 'DAD sidesteps this problem altogether by eliminating the need for directly approximating a posterior distribution'; Sec. 7 Conclusions 'eliminating the need to estimate intermediate posterior distributions or optimize over designs during the live experiment.' The information a posterior would carry is instead encoded implicitly in the network weights phi via the permutation-invariant pooled history representation R(h_t)=Sum_k E_phi1(xi_k,y_k) (Sec. 4.3, Eq. 17). The scare quotes on 'posterior' correctly signal this is an implicit/no-explicit-posterior regime, which is exactly DAD's design. As a BG conceptual anchor the cite is accurate; nuance (weights encode a history->design POLICY, not a stored posterior) noted in reverse_findings but not a defect for this BG use.",
+      "fix": null
+    },
+    "C043": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "Manuscript L223 (CHAR): '...a system must either maintain an explicit probabilistic surrogate (GNoME's route...) or use amortized EIG estimation~\\citep{foster2021dad}, which remains unsolved for open-ended $\\mathcal{S}$.' (a) 'amortized EIG estimation [DAD]' is accurate: DAD amortizes the sequential-BED/EIG-maximization problem and estimates the EIG via contrastive bounds (sPCE lower L_T, sNMC upper U_T; Sec. 4.1, Thms 2 & 4). (b) The negative framing 'remains unsolved for open-ended S' is CONSISTENT with DAD's own scope. DAD requires a FIXED, pre-specified parametric model: explicit evaluable likelihood p(y_t|theta,xi_t), fixed prior p(theta), and a known latent theta; Sec. 7 Limitations: 'it requires the likelihood model to be explicit, i.e. that we can evaluate the density p(y_t|theta,xi_t)'; '...requires the experiments to be conditionally independent given theta'; '...requires the designs themselves, xi_t, to be continuous.' In location finding even the number of sources K is 'assumed to be known' (App. D.1). DAD refines beliefs about a pre-represented theta; it never generates new hypotheses / searches an open-ended S. Thus the manuscript's claim that amortized EIG estimation is unsolved for open-ended S is a correct, well-bounded use of DAD (the negative claim is the manuscript's own framing, and DAD's scope supports rather than contradicts it). Minor altitude nuance on 'estimation' vs 'policy amortization' noted in reverse_findings; not a defect.",
+      "fix": null
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "DAD requires a fully specified, known/differentiable parametric model: an EXPLICIT, evaluable likelihood p(y_t|theta,xi_t), a fixed prior p(theta), conditional independence of experiments given theta, and CONTINUOUS designs xi_t for gradient-based optimization; the latent theta and model are pre-specified (e.g. number of sources K assumed known). DAD reduces uncertainty about a pre-represented theta and never generates/searches hypotheses.",
+      "loc": "Sec. 7 'Limitations and Future Work' (p.9); model setup Sec. 2/4; App. D.1",
+      "mismatch": "NONE -- confirms and strengthens manuscript L223 ('amortized EIG estimation ... remains unsolved for open-ended S'). DAD is inherently confined to fixed/parametric/known-model hypothesis spaces, so it cannot address open-ended S. Manuscript's negative framing is accurate.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "DAD's amortization target is the design POLICY pi_phi (trained offline, evaluated in a single forward pass at deployment). The EIG itself is estimated/bounded via contrastive bounds (sPCE lower bound L_T, sNMC upper bound U_T) primarily during training; these bounds are inherited/extended from Foster et al. 2019/2020's PCE bound, not a new deployment-time EIG estimator.",
+      "loc": "Abstract; Sec. 4.1 (Thm 2 sPCE, Thm 4 sNMC); Sec. 2.2",
+      "mismatch": "LOW/altitude only: L85 'amortized policies' is the more precise label; L223 'amortized EIG estimation' slightly conflates policy amortization with EIG estimation. Reads acceptably as 'amortized approach to the EIG-based design problem' (parallel to the blau2022rl altitude note). No change required.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "DAD is posterior-free by construction: it explicitly eliminates computation/approximation of any (intermediate or final) posterior. The learned network weights phi encode a history->design POLICY, with a permutation-invariant pooled representation R(h_t)=Sum_k E_phi1(xi_k,y_k) serving as a fixed-dimensional history summary in place of an explicit posterior.",
+      "loc": "Sec. 7 Discussion & Conclusions (p.8-9); Sec. 4.3 Eq. 17; Thm 3 permutation invariance",
+      "mismatch": "NONE -- supports manuscript L219 'the ``posterior'' is implicit in model weights'. Scare-quoted 'posterior' is apt: DAD never represents it explicitly. Fine nuance: weights encode a design policy (the posterior is eliminated, not stored), but for a BG conceptual anchor the characterization is faithful.",
+      "severity": "LOW"
+    }
+  ]
+}

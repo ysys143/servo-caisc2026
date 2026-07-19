@@ -1,0 +1,45 @@
+{
+  "bibkey": "szymanski2023alab",
+  "read_status": "READ",
+  "note": "A-Lab (Nature 2023) reports 41 of 58 targets realized (71%) over 17 days; number is stated identically in abstract, results, and outlook. Manuscript C119 cites '36 of 57', which appears nowhere in this paper. The 'fixed screen-then-synthesize' characterization is defensible: all 58 screened targets are committed to synthesis, and active learning (ARROWS3) operates only on recipe optimization for already-committed targets, not on deciding which predictions warrant physical validation.",
+  "claims": {
+    "C119": {
+      "status": "FLAGGED",
+      "verdict": "IMPRECISE-OK",
+      "evidence": "NUMBER is wrong. This PDF states 41 of 58 in every location, never 36 of 57: abstract 'the A-Lab realized 41 novel compounds from a set of 58 targets' (l.59); Results 'the A-Lab synthesized 41 of the 58 target compounds over 17 days of continuous experimentation, representing a 71% success rate' (l.248-250); Outlook 'successfully realized 41 of 58 novel inorganic crystalline solids' (l.770). '36' and '57' as a target count appear nowhere in the paper (grep confirms). The clause '36 of 57' is therefore unsupported by the cited source (INACCURATE-NUM). The rest of the sentence is supported: (b) 'couples computational screening to robotic synthesis' is accurate -- 'Given a set of air-stable target materials... screened using the Materials Project, the A-Lab generates synthesis recipes using ML models... and then performs these recipes with robotics' (l.93-96). (c) 'fixed screen-then-synthesize rule rather than an evidence-informed criterion for when physical validation is warranted' is a fair characterization of the VALIDATION-DECISION policy: the 58 targets are fixed by an upfront screening funnel (432->146->58 selected, l.1052-1061) and ALL are synthesized ('The experiments reported in this study represent the first attempts by the A-Lab to synthesize any of these targets', l.202); the active-learning ARROWS3 loop is invoked only AFTER a committed target's initial recipes fail >50% yield (l.215-219), i.e. it optimizes recipes for targets already chosen for validation, not whether to validate. So (c) does not warrant a MISCHARACTERIZATION flag; only the number is defective.",
+      "fix": "TIER-2 OVERRIDE (orchestrator web-verified the 2026 Author Correction): do NOT revert to 41/58. The original A-Lab (this eScholarship vault PDF) reports 41/58, but the 2026 Author Correction (Nature 2026, doi:10.1038/s41586-025-09992-y; PMC12872444) reduced the confirmed successes to 36 (4 inconclusive from XRD, plus Zn2Cr3FeO8 removed for training-data contamination), framed as '36 of its 40 reported successes'. The manuscript's hedged 'reportedly realizing 36 of 57' reflects this corrected count (36 confirmed of 57 targets after removing the 1 contaminated target) and is the more accurate/current figure -- KEEP it. Recommended improvement (MED): cite the 2026 Author Correction alongside szymanski2023alab so the reduced figure is traceable (currently 36/57 is not verbatim in either the original report or the correction's own '36 of 40' framing). SEPARATE PROVENANCE ISSUE (not a manuscript error): the vault PDF is the uncorrected 41/58 eScholarship version and should be replaced with the corrected Nature version of record."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "Paper reports 41 of 58 targets realized = 71% success (l.59, l.248-250, l.770); manuscript's '36 of 57' (~63%) matches no figure in the paper and is below even the actual rate.",
+      "loc": "l.59; l.248-250; l.770",
+      "mismatch": "Manuscript numerator, denominator, and implied rate all differ from the source; likely a conflation with an external critique of the paper rather than the paper's own reported result.",
+      "severity": "HIGH"
+    },
+    {
+      "fact": "The paper presents 74% and 78% as PROJECTED/counterfactual rates -- 74% only after manual (non-autonomous) regrinding of 2 targets (l.718-721), and 78% (43/55) only after EXCLUDING 3 computationally problematic compounds (l.766-767). The autonomous-as-run rate is 71%.",
+      "loc": "l.250-253; l.718-721; l.766-767",
+      "mismatch": "If the manuscript's argument turns on realized-vs-projected performance, it omits that the headline high rates are partly manual/curated; the actual autonomous figure is 71% (41/58).",
+      "severity": "MED"
+    },
+    {
+      "fact": "Recipe-level success is only 37% (130/355): 'only 37% of the 355 synthesis recipes tested by the A-Lab produced their targets' (l.573-574; Fig 2 inset '130/355').",
+      "loc": "l.573-574; l.407",
+      "mismatch": "The manuscript's 'fixed screen-then-synthesize' critique could be strengthened by the paper's own evidence of heavy recipe-level trial-and-error, but this nuance is not surfaced.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "The paper prominently frames itself around active learning and evidence-informed decision-making ('autonomy -- the ability of an experimental agent to interpret data and make decisions based on it', l.72-74; ARROWS3 active-learning loop). Active learning improved 9 targets (6 from zero yield), but 35 of 41 successes came from literature-inspired recipes, not active learning (l.566-568, l.578-580).",
+      "loc": "l.72-74; l.215-219; l.566-568; l.578-580",
+      "mismatch": "Calling A-Lab 'fixed... rather than evidence-informed' is defensible for the physical-validation-escalation decision but understates the paper's active-learning recipe optimization; a reviewer could object. The manuscript should scope its claim to the validation-decision (which is fixed) and not to recipe selection (which is evidence-informed).",
+      "severity": "MED"
+    },
+    {
+      "fact": "The article's own title and abstract call the compounds 'novel'; novelty is operationally defined and hedged (52/58 'no previous reports... to the best of our knowledge', 6 had later-found literature evidence, screening called non-exhaustive, l.1046-1064). This wording is the subject of the 2026 author correction.",
+      "loc": "l.40; l.59; l.1046-1064",
+      "mismatch": "The manuscript's '36 of 57' may reflect the post-correction/critique skepticism about how many were genuinely novel and correctly synthesized; if so, that skepticism must be cited to the correction/critique, not attributed to szymanski2023alab's original report.",
+      "severity": "MED"
+    }
+  ]
+}

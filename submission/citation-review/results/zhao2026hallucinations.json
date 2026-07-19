@@ -1,0 +1,39 @@
+{
+  "bibkey": "zhao2026hallucinations",
+  "read_status": "READ",
+  "note": "Blind digest confirmed the paper's central finding: a sharp, corpus-wide rise in non-existent (fabricated) citations following LLM adoption, audited across 111M references / 2.5M papers in arXiv, bioRxiv, SSRN, PMC, with a conservative lower-bound estimate of 146,932 hallucinated citations in 2025. Method is corpus-level excess-of-unmatched-title over pre-LLM baseline (does NOT classify individual references; does NOT cover miscitation of real sources). C123 uses the paper as an ecosystem-scale symptom, which matches the paper's own framing exactly.",
+  "claims": {
+    "C123": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "The manuscript (L245, METHOD) cites zhao2026hallucinations as 'an ecosystem-scale symptom is the documented surge in fabricated citations.' The paper documents exactly this: (1) SURGE — 'a sharp rise in non-existent references following widespread LLM adoption' (Abstract l.32); unmatched rate 'stable through late 2022... increased sharply in 2023' (l.144-148); steepest growth from mid-2024, 'no signs of plateauing' (l.156, l.321). (2) ECOSYSTEM/CORPUS SCALE — audit of 111M references across 2.5M papers in four corpora, arXiv/bioRxiv/SSRN/PMC (Abstract l.31); estimated hallucination rates as of Aug 2025 of 0.39%/0.21%/1.91%/0.27% (l.155); conservative lower-bound of 146,932 hallucinated citations in 2025 alone (Abstract l.33, l.166-167, Discussion l.319). (3) FABRICATED = the paper's own terms are 'non-existent'/'hallucinated' references (references with non-existent titles, l.105-106), synonymous with 'fabricated citations' as used in the manuscript. The paper explicitly frames this as 'the first large-scale, cross-disciplinary audit of LLM hallucinations in real-world knowledge work' and a 'systems-level' (not individual-carelessness) phenomenon (l.317-318, l.333). The manuscript's ecosystem-scale characterization is a faithful, non-overstated use.",
+      "fix": null
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The paper's method measures the CORPUS-LEVEL EXCESS of unmatched-title citations above a pre-LLM (pre-2023) baseline; it explicitly does NOT classify individual references as hallucinated ('we use \"hallucinated citations\" to refer to the estimated excess of unmatched citations above the pre-LLM baseline, rather than classifications of individual references').",
+      "loc": "l.93-100, l.148-150, Discussion l.327-329",
+      "mismatch": "None. C123 makes an ecosystem/corpus-scale claim ('ecosystem-scale symptom'), which aligns precisely with the paper's population-level design. C123 makes no per-reference detection claim, so no overreach.",
+      "severity": "none"
+    },
+    {
+      "fact": "The 146,932 figure is an extrapolated, explicitly CONSERVATIVE LOWER BOUND for 2025 (assumes Aug-2025 trends persist to year-end; method is lenient on formatting/spelling and checks only title existence), not an exact or upper-bound count.",
+      "loc": "Abstract l.33, l.166-171, Discussion l.319",
+      "mismatch": "None. C123 says 'documented surge', not a precise figure, and does not cite or misrepresent the number. If the manuscript elsewhere quotes 146,932 it should preserve the 'conservative/lower-bound' qualifier, but C123 itself does not invoke it.",
+      "severity": "none"
+    },
+    {
+      "fact": "Scope is limited to ONE error type: references with non-existent titles. The paper explicitly excludes the harder, more prevalent variant of miscitation — real citations deployed to support claims the sources do not actually make — as an open, unsolved detection problem.",
+      "loc": "l.105-106, Discussion l.349-352",
+      "mismatch": "None. 'Fabricated citations' correctly denotes non-existent references, which is exactly the paper's scope. C123 does not extend the claim to miscitation of real sources, so there is no scope inflation.",
+      "severity": "none"
+    },
+    {
+      "fact": "Attribution of the surge to LLM use is ASSOCIATIONAL (LLM-use linguistic signatures, field patterns, timing relative to ChatGPT), described as 'consistent with LLM use being a major driver', not a per-citation causal proof.",
+      "loc": "l.196-202, l.348 (Pearson r=0.441, P<0.001)",
+      "mismatch": "None. C123 frames the paper as a 'symptom' (correlational/observational language), which is consistent with the paper's own associational framing.",
+      "severity": "none"
+    }
+  ]
+}

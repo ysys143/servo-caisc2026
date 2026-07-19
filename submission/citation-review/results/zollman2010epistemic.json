@@ -1,0 +1,28 @@
+{
+  "bibkey": "zollman2010epistemic",
+  "read_status": "READ",
+  "note": "Zollman, K.J.S., 'The Epistemic Benefit of Transient Diversity' (manuscript dated 2009-09-29, 28pp; published Erkenntnis 2010 per bibkey). Full paper read. Central, title-level thesis: cognitive/epistemic diversity in a scientific community is beneficial but only when TRANSIENT; demonstrated via multi-armed bandit + social-network + Bayesian (beta-distribution) simulations. Key mechanism (the 'Zollman effect'): less-connected communities (cycle) can out-converge more-connected ones (complete graph) because too much shared information causes premature convergence on a suboptimal method. Diversity is a DERIVATIVE, short-lived virtue, not to be maximized. C125 cites this paper only for 'the transient diversity that benefits epistemic communities' -- a faithful compression using Zollman's own coined term.",
+  "claims": {
+    "C125": {
+      "manuscript_text": "Such a collective must also preserve epistemic diversity: AI reviewers already overlap far more than humans~\\citep{kim2026aireviewers}, risking the transient diversity that benefits epistemic communities~\\citep{zollman2010epistemic}.",
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "The zollman2010epistemic citation supports only the clause 'the transient diversity that benefits epistemic communities', and this is the paper's title-level thesis, argued exactly via bandit/network models. (1) Title: 'The Epistemic Benefit of Transient Diversity' (p.1). (2) Abstract: 'cognitive diversity is maintained indefinitely, and as a result agents fail to converge to the truth... this shows that the real epistemic goal is not diversity but transient diversity' (Abstract, txt L13-15). (3) Conclusion, Sec 5: 'At the heart of these models is one single virtue, transient diversity. This diversity should be around long enough so that individuals do not discard theories too quickly, but also not stay around so long as to hinder the convergence to one action' (L791-794). (4) Method matches 'bandit/network models': multi-armed bandit problems + social networks (cycle/wheel/complete + exhaustive size-6 enumeration) + Bayesian beta-distribution learning; simulations show diversity lets the community avoid premature convergence on an inferior method (Sec 2-4, Figs 3-7). (5) 'epistemic communities' is Zollman's own framing: the analysis is generalized from scientists to 'any epistemic agents' and the reliability of 'the community as a whole' (Conclusion L822-824), and his companion model is titled 'The communication structure of epistemic communities' (Zollman 2007, refs L911-912). The manuscript adds no numeric/mechanistic claim beyond the general thesis, so there is nothing to over- or mis-state.",
+      "fix": "No change needed."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The specific mechanism by which Zollman shows diversity benefits the community is that OVER-connectivity / too much shared information causes agents to converge prematurely on a suboptimal method (complete graph worse than cycle; 'information appears to be harmful', L541-547; denser graphs on average worse, Fig 4).",
+      "loc": "Sec 3 (L505-637), Figs 3-4",
+      "mismatch": "No mismatch -- this actually REINFORCES C125's analogy: AI reviewers 'overlapping far more than humans' is precisely the highly-connected/homogeneous regime Zollman shows erodes the beneficial diversity. Supportive, not corrective.",
+      "severity": "none"
+    },
+    {
+      "fact": "For Zollman the benefit is strictly conditional on the diversity being TRANSIENT: diversity is a 'derivative' virtue 'only beneficial for a short time' (L88-90), and permanent diversity (both sparse information AND extreme priors together) is a FAILURE mode where agents never converge to the truth (Abstract L13-14; Conclusion L796-797).",
+      "loc": "Abstract (L11-15); L86-90; Conclusion (L791-807)",
+      "mismatch": "No mismatch -- the manuscript preserves the qualifier by writing 'transient diversity' (Zollman's exact term) rather than 'diversity' simpliciter, so it does not overclaim a benefit for diversity in general.",
+      "severity": "none"
+    }
+  ]
+}

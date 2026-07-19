@@ -1,0 +1,63 @@
+bibkey	pdf_path	pages	type	read_status	n_claims	n_verified	digest	reverse_done
+berk1966	/Users/jaesolshin/Documents/GitHub/ai_scientist/0_Theoretical_Foundations/Berk 1966 - Limiting Behavior of Posterior Distributions when the Model is Incorrect.pdf	8	short	READ	2	2	YES	YES
+chaloner1995bayesian	/Users/jaesolshin/Documents/GitHub/ai_scientist/0_Theoretical_Foundations/Chaloner Verdinelli 1995 - Bayesian Experimental Design A Review.pdf	33	long	READ	2	2	YES	YES
+ghosal2017fundamentals	/Users/jaesolshin/Documents/GitHub/ai_scientist/0_Theoretical_Foundations/Ghosal van der Vaart 2017 - Fundamentals of Nonparametric Bayesian Inference.pdf	671	textbook-TARGETED	TARGETED	1	1	YES	YES
+rainforth2024modern	/Users/jaesolshin/Documents/GitHub/ai_scientist/0_Theoretical_Foundations/Modern Bayesian Experimental Design.pdf	14	short	READ	2	2	YES	YES
+foster2019variational	/Users/jaesolshin/Documents/GitHub/ai_scientist/0_Theoretical_Foundations/Variational Bayesian Optimal Experimental Design.pdf	28	long	READ	1	1	YES	YES
+foster2021dad	/Users/jaesolshin/Documents/GitHub/ai_scientist/0_Theoretical_Foundations/Deep Adaptive Design - Amortizing Sequential Bayesian Experimental Design.pdf	28	long	READ	3	3	YES	YES
+blau2022rl	/Users/jaesolshin/Documents/GitHub/ai_scientist/0_Theoretical_Foundations/Reinforcement Learning for Bayesian Optimal Experimental Design.pdf	22	long	READ	1	1	YES	YES
+choudhury2026bedllm	/Users/jaesolshin/Documents/GitHub/ai_scientist/0_Theoretical_Foundations/BED-LLM - Intelligent Information Gathering with LLMs and Bayesian Experimental Design.pdf	31	long	READ	1	1	YES	YES
+taniguchi2024cpc	/Users/jaesolshin/Documents/GitHub/ai_scientist/0_Theoretical_Foundations/Taniguchi 2024 - Collective Predictive Coding as Model of Science.pdf	23	long	READ	4	4	YES	YES
+kaelbling1998pomdp	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/Kaelbling 1998 - Planning and Acting in Partially Observable Stochastic Domains (POMDP).pdf	36	long	READ	2	2	YES	YES
+lu2024aiscientist	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/The AI Scientist_ Towards Fully Automated Open-Ended Scientific Discovery.pdf	186	very-long	READ	7	7	YES	YES
+lu2026aiscientist	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/Towards end-to-end automation of AI research.pdf	9	short	READ	6	6	YES	YES
+gottweis2026coscientist	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/Gottweis 2026 - Accelerating Scientific Discovery with Co-Scientist (Nature).pdf	28	long	READ	1	1	YES	YES
+aygun2026era	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/ERA - An AI System to Help Scientists Write Expert-Level Empirical Software.pdf	78	very-long	READ	1	1	YES	YES
+boiko2023emergent	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/Boiko 2023 - Autonomous Chemical Research with LLMs.pdf	48	very-long	READ	4	4	YES	YES
+schmidgall2025agentlab	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/Agent Laboratory - Using LLM Agents as Research Assistants.pdf	84	very-long	READ	3	3	YES	YES
+liu2026lasthuman	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Core_Systems/The Last Human-Written Paper - Agent-Native Research Artifacts.pdf	46	very-long	READ	7	7	YES	YES
+si2024novelideas	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/Can Large Language Models Generate Novel Research Ideas.pdf	94	very-long	READ	1	1	YES	YES
+baek2024researchagent	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/ResearchAgent - Iterative Research Idea Generation over Scientific Literature.pdf	30	long	READ	1	1	YES	YES
+gu2024scimuse	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/SciMuse - Interesting Scientific Idea Generation using Knowledge Graphs and LLMs.pdf	14	short	READ	1	1	YES	YES
+huang2025popper	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/Popper - Automated Hypothesis Validation with Agentic Sequential Falsifications.pdf	65	very-long	READ	1	1	YES	YES
+liu2024aigs	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/AIGS Generating Science from AI-Powered Automated Falsification.pdf	36	long	READ	1	1	YES	YES
+liu2025researchbench	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/ResearchBench Benchmarking LLMs in Scientific Discovery.pdf	21	long	READ	1	1	YES	YES
+kim2026aireviewers	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/On the limits and opportunities of AI reviewers.pdf	91	very-long	READ	3	3	YES	YES
+lee2025spacer	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/Spacer - Towards Engineered Scientific Inspiration.pdf	48	very-long	READ	1	1	YES	YES
+zhang2025novelseek	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/NovelSeek - When Agent Becomes the Scientist.pdf	34	long	READ	2	2	YES	YES
+sparkes2010robot	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/Sparkes 2010 - Towards Robot Scientists for Autonomous Scientific Discovery.pdf	11	short	READ	5	5	YES	YES
+aher2023turing	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Social_Science/Using LLMs to Simulate Multiple Humans and Replicate Human Subject Studies.pdf	43	very-long	READ	4	4	YES	YES
+manning2024automated	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Social_Science/Automated Social Science - Language Models as Scientist and Subjects.pdf	63	very-long	READ	2	2	YES	YES
+park2023generative	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Social_Science/Generative Agents - Interactive Simulacra of Human Behavior.pdf	22	long	READ	2	2	YES	YES
+bran2023chemcrow	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Chemistry/ChemCrow - Augmenting large-language models with chemistry tools.pdf	38	long	READ	2	2	YES	YES
+gromski2019chemical	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Chemistry/Gromski 2019 - How to Explore Chemical Space Using Algorithms and Automation.pdf	10	short	READ	1	1	YES	YES
+sprueill2024chemreasoner	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Chemistry/ChemReasoner - Heuristic Search over LLM Knowledge Space for Catalyst Discovery.pdf	24	long	READ	2	2	YES	YES
+kamber2026chemist	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Chemistry/Kamber 2026 - Making Claude a Chemist.pdf	13	report	READ	2	2	YES	YES
+cheetham2024gnome	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Materials/Cheetham 2024 - AI Driving Materials Discovery (Perspective on GNoME).pdf	7	short	READ	4	4	YES	YES
+merchant2023gnome	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Materials/GNoME - Scaling deep learning for materials discovery.pdf	11	short	READ	6	6	YES	YES
+jumper2021alphafold	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Biology/AlphaFold2 - Highly accurate protein structure prediction.pdf	12	short	READ	1	1	YES	YES
+odonoghue2023bioplanner	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Biology/BioPlanner - Automatic Evaluation of LLMs on Protocol Planning in Biology.pdf	19	long	READ	3	3	YES	YES
+yanai2019night	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Biology/Yanai Lercher 2019 - Night Science.pdf	3	editorial	READ	1	1	YES	YES
+romera2023funsearch	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Mathematics/FunSearch - Mathematical discoveries from program search.pdf	14	short	READ	2	2	YES	YES
+google2026aletheia	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Mathematics/Towards Autonomous Mathematics Research.pdf	42	very-long	READ	5	5	YES	YES
+xin2024deepseek	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Mathematics/DeepSeek-Prover-V1.5.pdf	28	long	READ	2	2	YES	YES
+leiden2026	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Mathematics/Leiden Declaration on AI and Mathematics.pdf	11	declaration	READ	3	3	YES	YES
+udrescu2020afeynman	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Physics/AI Feynman - A physics-inspired method for symbolic regression.pdf	15	short	READ	2	2	YES	YES
+cranmer2020symbolic	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Physics/Discovering Symbolic Models from Deep Learning with Inductive Biases.pdf	25	long	READ	2	2	YES	YES
+real2020automlzero	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/CS/AutoML-Zero - Evolving Machine Learning Algorithms From Scratch.pdf	23	long	READ	2	2	YES	YES
+surina2025algodiscovery	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/CS/Algorithm Discovery with LLMs - Evolutionary Search Meets Reinforcement Learning.pdf	34	long	READ	2	2	YES	YES
+jaber2026autokernel	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/CS/AutoKernel - Autonomous GPU Kernel Optimization via Iterative Agent-Driven Search.pdf	11	short	READ	2	2	YES	YES
+jagadish2026automatize	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Neuroscience/Jagadish 2026 - Automatize Scientific Discovery in Cognitive Sciences.pdf	5	editorial	READ	1	1	YES	YES
+park2023disruptive	/Users/jaesolshin/Documents/GitHub/ai_scientist/4_Epistemic_Agents_Risk/Science_of_Science/Park2023 - Papers and Patents Are Becoming Less Disruptive Over Time.pdf	56	very-long	READ	1	1	YES	YES
+uzzi2013atypical	/Users/jaesolshin/Documents/GitHub/ai_scientist/4_Epistemic_Agents_Risk/Science_of_Science/Uzzi2013 - Atypical Combinations and Scientific Impact.pdf	6	short	READ	1	1	YES	YES
+zollman2010epistemic	/Users/jaesolshin/Documents/GitHub/ai_scientist/4_Epistemic_Agents_Risk/Science_of_Science/Zollman 2010 - The Epistemic Benefit of Transient Diversity.pdf	28	long	READ	1	1	YES	YES
+geng2025reliable	/Users/jaesolshin/Documents/GitHub/ai_scientist/4_Epistemic_Agents_Risk/Are LLMs Reliable AI Scientists - Assessing Reverse-Engineering of Black-Box Systems.pdf	30	long	READ	1	1	YES	YES
+vafa2025foundationmodel	/Users/jaesolshin/Documents/GitHub/ai_scientist/4_Epistemic_Agents_Risk/What Has a Foundation Model Found - Inductive Bias Probe for World Models.pdf	21	long	READ	1	1	YES	YES
+zhao2026hallucinations	/Users/jaesolshin/Documents/GitHub/ai_scientist/4_Epistemic_Agents_Risk/LLM Hallucinations in the Wild Large-Scale Evidence from Non-Existent Citations.pdf	16	long	READ	1	1	YES	YES
+darvish2024organa	/Users/jaesolshin/Documents/GitHub/ai_scientist/5_Wet_Lab_Infrastructure/ORGANA A Robotic Assistant for Automated Chemistry Experimentation and Characterization.pdf	49	very-long	READ	1	1	YES	YES
+panapitiya2025autolabs	/Users/jaesolshin/Documents/GitHub/ai_scientist/5_Wet_Lab_Infrastructure/AutoLabs Cognitive Multi-Agent Systems with Self-Correction for Autonomous Chemical Experimentation.pdf	39	long	READ	1	1	YES	YES
+szymanski2023alab	/Users/jaesolshin/Documents/GitHub/ai_scientist/5_Wet_Lab_Infrastructure/A-Lab - An Autonomous Laboratory for the Accelerated Synthesis of Inorganic Materials.pdf	13	short	READ	1	1	YES	YES
+tobias2025selfdriving	/Users/jaesolshin/Documents/GitHub/ai_scientist/5_Wet_Lab_Infrastructure/Autonomous Self-Driving Laboratories Review of Technology and Policy Implications.pdf	25	long	READ	1	1	YES	YES
+yamada2025aiscientistv2	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/Yamada 2025 - The AI Scientist-v2 Agentic Tree Search.pdf	69	long	READ	1	1	YES	YES
+king2004robot	/Users/jaesolshin/Documents/GitHub/ai_scientist/1_AI_Scientist_Core/Reference/King 2004 - Functional genomic hypothesis generation and experimentation by a robot scientist.pdf	6	short	READ	1	1	YES	YES
+szymanski2026correction	/Users/jaesolshin/Documents/GitHub/ai_scientist/2_Domain_Applications/Materials/Szymanski 2026 - A-Lab Author Correction (Nature, fulltext).txt	1	correction	READ	1	1	YES	YES

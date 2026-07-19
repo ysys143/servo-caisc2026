@@ -1,0 +1,75 @@
+{
+  "bibkey": "sparkes2010robot",
+  "read_status": "READ",
+  "note": "Sparkes et al. 2010, 'Towards Robot Scientists for autonomous scientific discovery', Automated Experimentation 2:1 -- a REVIEW/description of the group's two prototype Robot Scientists (Adam, Eve). Full text extracted and grepped. Adjudication hinges on two absent terms verified by grep of the full paper: the string 'active learning' NEVER appears (the only 'active' hit, L542, is 'active compounds' = pharmacologically active drug hits, unrelated), and 'Bayes'/'Bayesian' has ZERO occurrences. The paper describes a HYPOTHESIS-DRIVEN CLOSED LOOP (generate hypotheses -> design experiments to test them -> run on robot -> analyse -> update model -> repeat; Fig 1) but does NOT describe a cost/information-gain/Bayesian experiment-SELECTION (active-learning) policy. The active-learning cost-minimizing experiment-selection mechanism of the Robot Scientist is documented in King et al. 2004 Nature (this paper's ref [23], 'Functional genomic hypothesis generation and experimentation by a robot scientist', Nature 427:247-252), which THIS review cites merely as the origin of the 'Robot Scientist' concept (L164) without re-describing the mechanism. The word 'six' also never appears: the paper reviews the 'main components of autonomous scientific discovery' and enumerates ~5 elements (L32-40); the six-component enumeration is the MANUSCRIPT's own SERVO framework. The 12-gene result is attributed by this review to King et al. 2009 Science (ref [24], L386).",
+  "claims": {
+    "C045": {
+      "status": "PROBLEM",
+      "verdict": "MISATTRIBUTION",
+      "evidence": "Claim (L85): 'Domain-specific systems already use active-learning approximations---the Robot Scientist's experiment selection~\\citep{sparkes2010robot}'. THIS paper never uses the term 'active learning' (grep: 0 hits; the sole 'active' at L542 = 'active compounds'). It describes only a hypothesis-driven CLOSED LOOP with experiment DESIGN to test generated hypotheses -- L172: 'It automatically generates hypotheses from the available background knowledge and model(s), designs physical experiments to test these hypotheses, carries out the experiments on a laboratory robotic system, and then analyses and interprets the results'; L639-640 (contrasting with lab assistants): the Robot Scientist does 'form hypotheses, decide on the experiments to test them, automatically analyse and interpret the results'. Adam's actual experiment design is a fixed two-factor / Latin-square assay design 'to improve the detection of quantitatively small differences above the background noise' (L226-228, L364-368) -- i.e. a design to TEST hypotheses, not an active-learning policy to SELECT the most informative experiment. The active-learning experiment-selection mechanism of the Robot Scientist is in King et al. 2004 Nature (this paper's ref [23]), which THIS review cites only as the origin of the concept (L164) without describing the mechanism. So attributing an 'active-learning ... experiment selection' to sparkes2010robot is a misattribution: correct fact, wrong paper.",
+      "fix": "Attribute the active-learning experiment-selection policy to King et al. 2004 Nature ('Functional genomic hypothesis generation and experimentation by a robot scientist', Nature 427:247-252 = ref [23] in Sparkes). Either replace \\citep{sparkes2010robot} with the King 2004 citation for this specific claim, or pair them (sparkes2010robot as a general Robot Scientist review + King 2004 for the active-learning mechanism). If keeping only sparkes2010robot, soften to 'the Robot Scientist's closed-loop experiment design' (drop 'active-learning')."
+    },
+    "C046": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "Claim (L92): 'the Robot Scientist~\\citep{sparkes2010robot} integrated hypothesis generation, robotic experimentation, and statistical validation in yeast functional genomics'. Directly and precisely supported. Domain: L191-193 'designed to carry out microbial growth experiments to study functional genomics in the yeast Saccharomyces cerevisiae, specifically to identify the genes encoding \"locally orphan enzymes\"'. Hypothesis generation: L206 'This hypothesis generation process is abductive'; L172. Robotic experimentation: L251 'Adam's robotic system comprises various automated laboratory instruments served by three robotic arms', L256 'Adam is capable of creating up to 1000 individual experiments in a day'. Statistical validation: L372-378 'The parameters from multiple experiment replicates are analysed using machine learning (random forests [30]) to obtain statistically significant results that can be used to either confirm or refute hypotheses'. Abstract L17-20 confirms the integrated cycle.",
+      "fix": null
+    },
+    "C047": {
+      "status": "PROBLEM",
+      "verdict": "OVERCLAIM",
+      "evidence": "Claim (L92, CHAR): 'instantiating all six \\framework{} components---including an active-learning policy---in physical wet-lab form more than a decade before LLM-based systems.' Two issues re what THIS citation supports. (1) 'all six ... components': the word 'six' never appears (grep: 0 hits); the paper reviews 'the main components of autonomous scientific discovery' and enumerates ~5 elements (L32-40: 'computer controlled scientific instruments, integrated robotic automation ..., a computational model of the object of study, artificial intelligence and machine learning to iteratively create hypotheses ... and later interpret experimental results (closed-loop learning), and the formalisation of the scientific discovery process'). The six-component enumeration is the manuscript's own SERVO framework, not this paper's. (2) 'including an active-learning policy': this paper does NOT demonstrate/describe an active-learning policy (see C045/C048) -- so citing sparkes2010robot as evidence that the Robot Scientist instantiated an active-learning component overstates this specific source. The temporal claim 'more than a decade before LLM-based systems' is chronologically fine (Adam commissioned end of 2005, L189-190; results 2009-2010).",
+      "fix": "The six-component mapping is editorial (manuscript's framework) and defensible IF the active-learning component is sourced correctly. Add King et al. 2004 Nature for the active-learning-policy component, since sparkes2010robot does not document it. Alternatively soften 'including an active-learning policy' or footnote that the active-learning experiment selection is documented in the earlier King 2004 Nature paper. Keep the temporal phrasing."
+    },
+    "C048": {
+      "status": "PROBLEM",
+      "verdict": "MISATTRIBUTION",
+      "evidence": "Claim (L94): 'a long history of Bayesian-optimal experiment selection in automated science---most directly the Robot Scientist's active-learning policy~\\citep{sparkes2010robot}'. Both key terms are ABSENT from this paper: grep for 'Bayes' returns 0 occurrences, and 'active learning' returns 0 (only 'active compounds', L542). The paper describes no experiment-SELECTION optimization -- no cost/information-gain/probabilistic criterion for choosing which hypothesis or experiment to run next. The nearest language is generic closed-loop experiment DESIGN to test hypotheses (L172, L639-640) and cost discussion that is unrelated (L704-714, about capital/maintenance cost of the systems, explicitly stating they are NOT 'cost-effective' vs humans). The 'Bayesian-optimal / active-learning experiment selection' of the Robot Scientist is documented in King et al. 2004 Nature (ref [23]), not in this 2010 review. Strongest attribution error of the five.",
+      "fix": "Cite King et al. 2004 Nature ('Functional genomic hypothesis generation and experimentation by a robot scientist', Nature 427:247-252) for the Robot Scientist's active-learning / cost-based experiment selection instead of sparkes2010robot. Note also that even King 2004 describes a cost-minimizing naive-Bayes-scored active-learning strategy; verify whether 'Bayesian-optimal' is an accurate characterization of that source before asserting it."
+    },
+    "C049": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "Claim (L162, Table 1 caption): 'the pre-LLM Robot Scientist~\\citep{sparkes2010robot}'. Purely descriptive/label citation; no mechanism asserted. The Robot Scientist is genuinely pre-LLM (Adam physically commissioned end of 2005, L189-190; paper received 14 July 2009, published 4 Jan 2010, L808-809). Using this review as a general Robot Scientist reference in a table caption is appropriate.",
+      "fix": null
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The term 'active learning' NEVER appears in this paper (grep: 0 hits; the only 'active' occurrence, L542, is 'active compounds' = pharmacologically active drug-screen hits). The paper describes a hypothesis-driven CLOSED LOOP (Fig 1: 'Hypothesis-driven closed-loop learning'), i.e. experiment DESIGN to test generated hypotheses, not an active-learning experiment-SELECTION policy.",
+      "loc": "L542 (grep), Fig 1 (L229-234), L172, L364-368",
+      "mismatch": "C045, C047, C048 attribute an 'active-learning policy' / 'experiment selection' to this paper. The mechanism is not here; it is documented in King et al. 2004 Nature (this paper's ref [23], cited at L164 only as the origin of the 'Robot Scientist' concept).",
+      "severity": "HIGH"
+    },
+    {
+      "fact": "'Bayes'/'Bayesian' has ZERO occurrences in the paper. No experiment-selection optimization criterion (cost, information gain, entropy, or Bayesian) is described anywhere.",
+      "loc": "full-text grep",
+      "mismatch": "C048 asserts 'Bayesian-optimal experiment selection ... the Robot Scientist's active-learning policy~\\citep{sparkes2010robot}'. Unsupported by this source.",
+      "severity": "HIGH"
+    },
+    {
+      "fact": "The word 'six' never appears. The paper reviews 'the main components of autonomous scientific discovery' and enumerates ~5 elements (L32-40): computer-controlled instruments; integrated robotic automation; a computational model of the object of study; AI/ML to create hypotheses and interpret results (closed-loop learning); and formalisation of the discovery process.",
+      "loc": "L16, L32-40",
+      "mismatch": "C047 claims the paper shows 'all six SERVO components'. The six-component enumeration is the manuscript's own framework, not this paper's; the paper lists ~5 elements. Fair as editorial mapping only if each component (esp. active learning) is sourced correctly.",
+      "severity": "MEDIUM"
+    },
+    {
+      "fact": "The 12-gene discovery result is attributed by THIS review to King et al. 2009 Science (ref [24]): 'Adam ... was able to confirm by experimentation, with a high degree of confidence, the correctness of 12 of them [24]' (from 20 hypotheses / 13 locally orphan enzymes).",
+      "loc": "L384-386; Abstract L20-22; ref [24] at L912-914",
+      "mismatch": "None of the five audited claims state the 12-gene number, but if any downstream manuscript text attributes the discovery result itself to sparkes2010robot, note it is a secondary (review) source; primary is King 2009 Science.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "The authors explicitly state the systems are NOT cost-effective vs humans: 'we would not currently consider them to be \"cost-effective\" in comparison to human scientists' (early prototypes).",
+      "loc": "L704-714 (esp. L707-708)",
+      "mismatch": "No audited claim asserts a cost/efficiency advantage, but this is a caveat if the manuscript elsewhere implies the Robot Scientist is more efficient/cheaper than humans.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "This is a REVIEW / description article (labeled 'REVIEW'/'Review', L6, L10, L29), summarizing the group's own prototypes, not a primary experimental report.",
+      "loc": "L6, L10, L29",
+      "mismatch": "For mechanism-level claims (active learning, experiment selection), a review that does not describe the mechanism is a weak/incorrect citation; prefer the primary King 2004 (active learning) and King 2009 (Adam results) papers.",
+      "severity": "MEDIUM"
+    }
+  ]
+}

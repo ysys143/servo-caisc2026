@@ -1,0 +1,14 @@
+{
+  "bibkey": "yanai2019night",
+  "read_status": "READ",
+  "note": "Yanai & Lercher, 'Night science,' Genome Biology 2019;20:179. 3-page opinion editorial (no data). Blind digest confirmed the day/night distinction: DAY SCIENCE = rigorous falsification/testing of hypotheses; NIGHT SCIENCE = the creative, intuitive, associative GENERATION of genuinely new hypotheses/ideas, explicitly framed as a distinct, less-formalizable process ('rarely discussed... abstract and less concrete... far from clean and rigorous'). Editorial is about HUMAN creativity and says nothing about BED/EIG, AI, or automation; the linkage to 'BED formulations' is the manuscript author's own synthesis, which is a legitimate conceptual/analogical use of the reference.",
+  "claims": {
+    "C115": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "Claim C115 (L223): '...how genuinely new hypotheses or representations arise falls outside current BED formulations~\\citep{yanai2019night}---the generative counterpart to the non-identifiability...'. yanai2019night directly supports that the creative generation of new hypotheses is a distinct, less-formalizable process separate from rigorous hypothesis-testing. Direct support (p.1, opening/definition): 'Night science is where we explore the unstructured realm of possible hypotheses, of ideas not yet fully fleshed out. In day science, we falsify hypotheses and observe which are left standing; in night science, we create them.' Also (p.1): 'The workings of night science are rarely discussed, as they seem abstract and less concrete compared to the logical description of the formal scientific method.' And (p.2, night-science-as-creativity paragraph): 'Night science is a crucial part of science, and the creativity that we find in this realm is not only needed for the generation of novel hypotheses but also, for example, for the development of new methodologies.' The cite is used to ground a conceptual point (hypothesis generation is outside formal testing frameworks that presuppose an already-represented hypothesis space); the editorial supports the generation-vs-testing distinction. NOTE: Yanai does NOT itself mention BED/EIG/Bayesian experimental design or AI; the 'falls outside current BED formulations' framing is the manuscript author's inference, appropriate as an analogical/conceptual citation, not a claim attributed to Yanai as fact.",
+      "fix": null
+    }
+  },
+  "reverse_findings": []
+}

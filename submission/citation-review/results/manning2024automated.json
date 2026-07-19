@@ -1,0 +1,45 @@
+{
+  "bibkey": "manning2024automated",
+  "read_status": "READ",
+  "note": "Manning, Zhu & Horton, 'Automated Social Science: Language Models as Scientist and Subjects', arXiv:2404.11794v2 [econ.GN], 25 Apr 2024, 63pp. An automated social-science pipeline built on structural causal models (SCMs): GPT-4 acts as BOTH scientist (generates hypotheses/SCMs, operationalizations, experimental designs, protocols, analysis plan) AND subjects (independent GPT-4 instances role-play agents whose conversations are surveyed for outcomes). Four scenarios: mug bargaining (9x9x5=405), bail hearing (7x7x5, printed '243' but =245), lawyer interview (2x5x8=80; figure header misprints '405'), art auction (7^3=343). Fits linear SCMs with the R package lavaan, reporting path estimates, standard errors, p-values, standardized effect sizes, and offering likelihood-ratio/Wald/Lagrange-Multiplier tests. Full-factorial is the default design. External validation is against auction theory (Maskin & Riley 1985) + empirical timber auctions (Athey et al. 2011), NOT against human subjects; the sim-to-human gap is explicitly acknowledged. Section 4 probes the shared-model circularity: direct elicitation of results is inaccurate ('the LLM knows more than it can (immediately) tell'), so simulation is argued to add information rather than be merely circular.",
+  "claims": {
+    "C084": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "Manuscript L176 (BG) groups manning2024automated in a list of social-science application domains. The paper squarely covers social-science scenarios and enumerates them: abstract (txt l.25) 'several scenarios: a negotiation, a bail hearing, a job interview, and an auction'; system step 1 (txt l.177) 'selecting a topic or domain to study (e.g., misinformation, auctions, bargaining, etc)'; and Section 3 delivers four worked social scenarios (3.1 bargaining, 3.2 bail hearing, 3.3 job interview, 3.4 auction). The paper is explicitly framed as 'automated social science' and 'a system that can simulate the entire social scientific process' (txt l.162-163). A background/domain-list citation is fully supportable.",
+      "fix": "None. Keep as-is."
+    },
+    "C085": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "Manuscript L448 (CHAR): 'Automated-social-science pipelines~\\citep{manning2024automated} and LLM-simulation studies validate with statistical tests over full-factorial designs.' The manning half is accurate on BOTH counts. FULL-FACTORIAL: Section 3.3 (txt l.537-538) 'By default, the system runs a factorial experimental design for all proposed values of each cause.' All four reported experiments are full cross-products of the treatment levels: mug 9x9x5=405 (txt l.350-351), auction 7^3=343 (txt l.621), lawyer 2x5x8=80 (txt l.601), bail 7x7x5 (txt l.451). STATISTICAL TESTS: Section A.4 (txt l.1932-1938) 'The system uses the R package lavaan to estimate all paths in the model (Rosseel, 2012). The system can standardize all estimates, estimate interactions and non-linear terms... It can also provide likelihood ratio, Wald, and Lagrange Multiplier tests to evaluate the model fit and compare path estimates.' Path estimates are reported with standard errors and p-values throughout Section 3 (e.g., mug buyer budget 'β̂* = 0.51, p < 0.001', txt l.358; bail criminal history 'β̂* = 0.16, p = 0.012', txt l.515; auction bidders all 'p < 0.001', txt l.690). So 'validate with statistical tests over full-factorial designs' is an accurate characterization of the manning pipeline's methodology.",
+      "fix": "None required for the manning half. (Verify separately that the 'LLM-simulation studies' co-citation on L448 also supports the full-factorial claim; manning is confirmed.)"
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The statistical tests in manning validate the INTERNAL fitted SCM (significance of causal path estimates from a randomized factorial experiment); the only validation against EXTERNAL ground truth is the auction scenario matched to auction theory (Maskin & Riley 1985) and empirical timber auctions (Athey et al. 2011). Validation is NOT against human subjects, and the paper flags 'the fundamental jump from simulations to human subjects' (txt l.1283).",
+      "loc": "Abstract (txt l.31-33); Section 3.4 / Section 4.1 auction-vs-theory (txt l.109-112, 712-719); Section 6.1 (txt l.1283).",
+      "mismatch": "No contradiction of C085 as worded — 'validate with statistical tests over full-factorial designs' correctly describes the internal significance-testing methodology, which manning does for all four experiments. Flag only so the manuscript does not elsewhere imply manning validated its LLM-simulated results against real human outcomes; it did not (external benchmark exists for the auction only, and against theory, not humans).",
+      "severity": "info"
+    },
+    {
+      "fact": "Circular-validity / shared-model concern: the SAME model (GPT-4) is both the scientist (hypothesis generator + analyst) and the simulated subject. The paper does not use the term 'circular validity' but devotes Section 4 to the question 'are the simulations even necessary?' It finds direct elicitation fails (predict-yi MSE 8628 vs theory 128; predict-β̂ overestimates path magnitudes ~13.2x on average, 10/12 overestimates), concluding 'the LLM knows more than it can (immediately) tell' — i.e., simulation extracts latent information rather than being merely circular.",
+      "loc": "Abstract (txt l.35-36); Section 4.1-4.3 (txt l.712-719, 982-988, 999-1001).",
+      "mismatch": "Supports rather than undermines C085: manning's own robustness check shows the factorial-experiment + statistical-test route yields information the model cannot self-report, which is the value proposition the manuscript's 'validate with statistical tests' framing invokes. Provided as context in case the CAISc manuscript's surrounding argument touches generator/subject-sharing critiques.",
+      "severity": "info"
+    },
+    {
+      "fact": "Two internal arithmetic inconsistencies in the source (do not affect either claim): (a) bail hearing prints 'Simulations Run: 7 × 7 × 5 = 243' but 7x7x5 = 245, and the interaction-model figure states '245 simulations' (Fig A.5); (b) the lawyer-interview figure header prints 'Simulations Run: 2 × 5 × 8 = 405' but 2x5x8 = 80, and both the text and Fig A.6 confirm n=80 (the '405' is evidently copied from the mug figure).",
+      "loc": "Fig 3a (txt l.451) vs Fig A.5 note (txt l.2181-2182); Fig 4a header (txt l.545) vs Section 3.3 text (txt l.536, 601) and Fig A.6 note (txt l.2236).",
+      "mismatch": "No impact on C084 or C085 — full-factorial and statistical-test claims hold regardless (the designs are still full cross-products). Recorded only as source-side typos noticed during blind reading, in case any manning simulation count is quoted verbatim elsewhere in the manuscript.",
+      "severity": "info"
+    },
+    {
+      "fact": "Full-factorial is the DEFAULT but not unconditional: 'When the exogenous variable's values present too many combinations to sample from, a subset is randomly selected' (Section A.3.2). In the four reported experiments no subsampling was needed (all counts equal the full cross-product).",
+      "loc": "Section A.3.2 (txt l.1875-1876).",
+      "mismatch": "Consistent with C085; the reported experiments all use full factorial designs. Minor caveat that the pipeline can fall back to random subsampling for very large designs, which does not weaken the manuscript's characterization for the cited work.",
+      "severity": "info"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "bibkey": "ghosal2017fundamentals",
+  "read_status": "TARGETED",
+  "note": "Targeted read of the posterior-consistency chapters (Ch. 6 'Consistency: General Theory', Sec. 6.4 'Schwartz's Theorem'). The textbook is confirmed as a standard, authoritative reference presenting the standard sufficient conditions for Bayesian posterior consistency (Schwartz's theorem: prior KL-support + existence of consistent tests => strong consistency; Theorem 6.16, p. 138). The finite-dimensional/compact special case is Example 6.19, p. 140-141.",
+  "claims": {
+    "C126": {
+      "status": "verified",
+      "verdict": "ACCURATE",
+      "evidence": "LAYER 2: The book explicitly presents the standard sufficient conditions for Bayesian posterior consistency. Sec. 6.4 states (p. 138): 'Schwartz's theorem is the basic result on posterior consistency for dominated models. It has two conditions: the true density p0 should belong to the Kullback-Leibler support of the prior, and the hypothesis p = p0 should be testable against complements of neighborhoods of p0.' Formalized as Theorem 6.16 (Schwartz), p. 138: 'If p0 in KL(Pi) and for every neighborhood U of p0 there exist tests phi_n such that P0^n phi_n -> 0 and sup_{p in U^c} P^n(1 - phi_n) -> 0, then the posterior distribution ... is strongly consistent at p0.' KL property defined at Def. 6.15, p. 138. Posterior consistency = contraction of the posterior to a Dirac at the truth (Def. 6.1, p. 123; Prop. 6.2 'Consistency by convergence to Dirac', p. 124), matching the claim's 'b_t -> delta_{theta*}'. The citation is used correctly as a textbook reference for standard posterior-consistency sufficient conditions. LAYER 3: The claim's exact conditions (well-specified + identifying likelihood, divergent accumulated information, compact Theta => posterior -> Dirac at theta*) are a correct specialization of the book's Schwartz-type theory. Example 6.19 (Finite-dimensional models), p. 140-141: 'If the model is smoothly parameterized by a finite-dimensional parameter that varies over a bounded set, then consistent tests as required in Theorem 6.16 exist under mere regularity conditions.' Thus on a compact/bounded parameter set the testing condition holds automatically, and well-specification + identification (KL-separation, i.e. divergent information distinguishing theta from theta*) supplies the KL-support condition, yielding strong consistency b_t -> delta_{theta*} via Theorem 6.16. The paper's phrasing is an informal parametric gloss of the general Schwartz conditions rather than a verbatim restatement (the book's canonical conditions are 'prior KL-positivity + tests', not literally 'divergent information + compactness'), but it is a faithful and standard specialization, so the citation is used accurately.",
+      "fix": null
+    }
+  },
+  "reverse_findings": []
+}

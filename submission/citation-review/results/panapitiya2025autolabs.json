@@ -1,0 +1,45 @@
+{
+  "bibkey": "panapitiya2025autolabs",
+  "read_status": "READ",
+  "note": "Blind digest + Layer2/3 done. C121 (CHAR, L234 OpenProb): 'self-correcting multi-agent systems such as AutoLabs automate the generation of hardware-ready protocols...' is ACCURATE on both attributes. (a) Self-correcting multi-agent: supervisor + 5 specialized sub-agents (Understand-and-Refine, Chemical Calculations, Vial Arrangement, Processing Steps, Final Steps) on LangGraph, plus a dedicated Self-Checks agent with Guided and Unguided modes (Unguided reprocesses up to 5x) -- confirmed. (b) Automates GENERATION of hardware-ready protocols from NL: system takes natural-language dialogue and outputs the XML hardware file for Unchained Labs' Big Kahuna liquid handler -- confirmed. CRUCIAL boundary the claim RESPECTS: AutoLabs only GENERATES protocols/hardware files; it does NOT physically execute experiments in this study (evaluation is generated designs vs. manually-created ground truth, 5 benchmarks x 20 configs x 10 runs). The manuscript wording 'automate the generation of hardware-ready protocols' correctly limits the scope to generation, so no overclaim. Minor nuance: the NL->procedure-steps stage is LLM/agent-driven, but the final procedure->XML hardware-file translation is deliberately rule-based (not LLM); this does not contradict 'automate the generation'.",
+  "claims": {
+    "C121": {
+      "line": 234,
+      "section": "CHAR",
+      "claim_text": "self-correcting multi-agent systems such as AutoLabs~\\citep{panapitiya2025autolabs} automate the generation of hardware-ready protocols...",
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": [
+        "SELF-CORRECTING MULTI-AGENT (confirmed). Abstract L12-14: 'we introduce AutoLabs, a self-correcting, multi-agent architecture designed to autonomously translate natural-language instructions into executable protocols for a high-throughput liquid handler. The system engages users in dialogue, decomposes experimental goals into discrete tasks for specialized agents, performs tool-assisted stoichiometric calculations, and iteratively self-corrects its output before generating a hardware-ready file.'",
+        "Architecture L74: 'Our multi-agent architecture consists of a supervisor agent orchestrating workflow among specialized sub-agents.' Five sub-agents enumerated L103-125 (Understand and Refine; Chemical Calculations; Vial Arrangement; Processing Steps; Final Steps). Multi-agent system implemented on LangGraph (L70).",
+        "Self-correction mechanism L126-152: dedicated 'Self-Checks agent' validates procedures against system requirements and user specs; two modes -- Guided Self-Checks (specialized per-error-type functions, L132-136) and Unguided Self-Checks (holistic review by o3-mini medium reasoning, reprocessing 'multiple times up to a limit of 5 times', L147-152).",
+        "AUTOMATES GENERATION OF HARDWARE-READY PROTOCOLS FROM NL (confirmed). Intro L50-55: 'we present AutoLabs, an end-to-end LLM-based agentic system for automated chemical experiment design for Unchained Labs' Big Kahuna high-throughput liquid handler... AutoLabs engages users in natural-language dialogue, plans experimental steps via a modular LLM-agent architecture, performs stoichiometric calculations through tool-calling, self-validates the generated protocol, and finally outputs the XML hardware file that drives the robot.'",
+        "Hardware-file output L161-162: 'The final steps and options are input into a hardware file generation module to create the hardware file necessary for running experiments in Big Kahuna.'",
+        "Conclusion L640: 'we introduced AutoLabs, a self-correcting multi-agent architecture designed to automate chemical experiment design.'"
+      ],
+      "evidence_location": "autolabs.txt L12-14 (abstract), L50-55 (intro), L70/L74/L103-125 (multi-agent roster), L126-152 (Self-Checks Guided/Unguided), L161-162 (hardware file), L640 (conclusion)",
+      "rationale": "Both attributes the manuscript assigns are directly supported by the source. AutoLabs is described verbatim as a 'self-correcting, multi-agent architecture' (abstract + conclusion), and the multi-agent roster (supervisor + 5 sub-agents + Self-Checks) and the two self-correction modes are fully documented. It 'automate[s] the generation of hardware-ready protocols' from natural-language instructions, emitting the XML hardware file for the Big Kahuna liquid handler. The manuscript clause is scoped to 'generation' and does not assert physical execution, which matches the paper (the study evaluates generated protocols against ground truth, with no wet-lab run). No correction needed.",
+      "fix": "None required. Claim is accurate and appropriately scoped to protocol GENERATION (not physical execution)."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "AutoLabs is evaluated on GENERATED protocols only: for each of 5 benchmark experiments, 'we manually create the correct experimental procedures to use for comparison with the procedures that are generated by the AutoLabs system' (L176-177). No wet-lab / robotic execution or measured chemical outcome appears anywhere in the study; the output is the XML hardware file that would drive the robot (L55, L161-162).",
+      "loc": "autolabs.txt L176-177 (ground-truth comparison), L55 & L161-162 (hardware file output), L293-300 (fully automated eval design)",
+      "mismatch": "None material. The manuscript clause says 'automate the generation of hardware-ready protocols', which correctly limits AutoLabs to generation and does NOT claim physical execution. Flagged only to confirm the boundary is respected; had the claim said AutoLabs 'runs/executes' experiments, it would be an OVERCLAIM.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "The generation pipeline is hybrid: LLM agents produce structured procedure steps, but the final translation of those steps into the Big Kahuna XML hardware file is done by RULE-BASED coding, not by an LLM -- 'This process is primarily carried out using rule-based coding... the structured nature of hardware files allows them to be reliably generated with perfect accuracy using rule-based coding' (L162, L168-170). LLMs are used within this stage only for narrow subtasks (extracting chemical names, MW, density, physical state).",
+      "loc": "autolabs.txt L161-172 (hardware file generation), L744-752 (Methods 4.4)",
+      "mismatch": "Does not contradict the claim ('automate the generation'): the end-to-end system still automates producing the hardware-ready file. Nuance only -- if the manuscript elsewhere implied the hardware file itself is LLM-generated, that would be imprecise; the C121 wording does not.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "AutoLabs targets a single specific instrument (Unchained Labs Big Kahuna high-throughput liquid handler). The paper asserts its design capabilities 'extend beyond Big Kahuna' in principle (L51-53) but leaves generalization to other hardware as future work (L664-665). It is a liquid-handling / experiment-design system, not a general robotic synthesizer.",
+      "loc": "autolabs.txt L51-53 (Big Kahuna scope + extensibility claim), L664-665 (future-work generalization)",
+      "mismatch": "None for a characterization-level citation: 'hardware-ready protocols' is generic and accurate. Noted so that any manuscript statement implying demonstrated cross-hardware generality would need qualification.",
+      "severity": "LOW"
+    }
+  ]
+}

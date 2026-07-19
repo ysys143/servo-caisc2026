@@ -1,0 +1,110 @@
+{
+  "bibkey": "real2020automlzero",
+  "read_status": "READ",
+  "note": "AutoML-Zero (Real, Liang, So, Le; ICML 2020). Evolves complete ML algorithms (Setup/Predict/Learn programs) from 65 basic math ops via regularized evolution + tournament selection; no derivatives, so backprop must itself be evolved. Loop closes on high-reliability empirical validation: CIFAR-10 test accuracy 84.06+/-0.10% over 5 seeds, generalization to SVHN/ImageNet/Fashion-MNIST, p-value tests, ablation/knock-out/knock-in. Interpretability is an explicitly stated real limitation (raw code complexity, hyperparameter coupling requiring manual decoupling). Manuscript's AutoML-Zero characterization in both C092 and C093 is accurate; minor framing nuances noted in reverse_findings.",
+  "claims": {
+    "C092": {
+      "location": "main.tex L176 (Background / domain map)",
+      "claim_text": "CS/algorithms~\\citep{real2020automlzero,surina2025algodiscovery,jaber2026autokernel}",
+      "verdict": "ACCURATE",
+      "verification": "Cited only as an exemplar system in the CS/algorithms domain. AutoML-Zero is squarely CS/algorithms: it automatically discovers/evolves whole ML algorithms from scratch. Domain attribution is correct.",
+      "evidence": [
+        {
+          "quote": "AutoML-Zero: Evolving Machine Learning Algorithms From Scratch",
+          "location": "Title / p.1"
+        },
+        {
+          "quote": "it is possible today to automatically discover complete machine learning algorithms just using basic mathematical operations as building blocks",
+          "location": "Abstract / Sec 1 (Introduction)"
+        }
+      ]
+    },
+    "C093": {
+      "location": "main.tex L450 (Appendix domain analysis: 'Computer science / algorithms ($V_emp$; fully closed)')",
+      "claim_text": "AutoML-Zero~\\citep{real2020automlzero} ... close the loop via reliable benchmark/empirical validation and evolutionary or LLM-guided search. Validation is high-reliability and the loop is fully closed; the residual bottleneck is interpretability---the discovered artifacts work but resist human understanding, a limitation of $M$ and output form rather than of $V$.",
+      "verdict": "ACCURATE",
+      "subclaims": {
+        "a_reliable_benchmark_empirical_validation": {
+          "verdict": "SUPPORTED",
+          "evidence": [
+            {
+              "quote": "Evaluating with 5 different random seeds, the best evolved algorithm's accuracy (84.06 +/- 0.10%) significantly outperforms the linear baseline (logistic regression, 77.65 +/- 0.22%) and the nonlinear baseline (2-layer fully connected neural network, 82.22 +/- 0.17%).",
+              "location": "Sec 4.2"
+            },
+            {
+              "quote": "This gain also generalizes to binary classification tasks extracted from other datasets: SVHN ... downsampled ImageNet ... Fashion MNIST ...",
+              "location": "Sec 4.2"
+            },
+            {
+              "quote": "we calculate the average accuracy across a set of tasks to measure the quality of each algorithm ... holding out the CIFAR-10 test set for the final evaluation.",
+              "location": "Sec 3 (Methods)"
+            },
+            {
+              "quote": "the noisy ReLU is reproducible and arises preferentially in the case of little data (expt: 8/30, control: 0/30, p < 0.0005).",
+              "location": "Sec 4.3 (statistical-significance validation)"
+            }
+          ]
+        },
+        "b_evolutionary_search_from_basic_ops": {
+          "verdict": "SUPPORTED",
+          "evidence": [
+            {
+              "quote": "evolutionary search can still discover two-layer neural networks trained by backpropagation.",
+              "location": "Abstract"
+            },
+            {
+              "quote": "we use the regularized evolution search method ... Each cycle picks T < P algorithms at random and selects the best performing one as the parent, i.e. tournament selection ... This parent is then copied and mutated to produce a child algorithm",
+              "location": "Sec 3.2 (Search Method)"
+            },
+            {
+              "quote": "automatically search for whole ML algorithms using little restriction on form and only simple mathematical operations as building blocks. We call this approach AutoML-Zero",
+              "location": "Sec 1"
+            },
+            {
+              "quote": "We purposefully exclude machine learning concepts, matrix decompositions, and derivatives. ... Suppl. Section S2 contains the full list of 65 ops.",
+              "location": "Sec 3.1"
+            }
+          ]
+        },
+        "c_interpretability_real_limitation": {
+          "verdict": "SUPPORTED",
+          "evidence": [
+            {
+              "quote": "Interpreting evolved algorithms also required effort due to the complexity of their raw code (Suppl. Section S8).",
+              "location": "Sec 5 (Conclusion and Discussion)"
+            },
+            {
+              "quote": "we found a hyperparameter coupling phenomenon that hinders algorithm selection and tuning ... To resolve this, we identify these parameters by manual inspection of the evolved code. We then manually decouple them ... Automating the decoupling process would be a useful direction for future work.",
+              "location": "Suppl. Section S7"
+            },
+            {
+              "quote": "It is nontrivial to interpret the raw evolved code and decide which sections of it are important.",
+              "location": "Suppl. Section S8"
+            }
+          ]
+        }
+      },
+      "verification": "All three components of the AutoML-Zero characterization are directly supported. (a) Validation is empirical and high-reliability: measured test-set accuracy on real image benchmarks with multiple seeds, cross-dataset generalization, p-value tests, and ablation/knock-out/knock-in studies. (b) Search is evolutionary (regularized evolution + tournament selection) over programs built from basic math operations, matching 'evolving ML algorithms from basic ops'. (c) Interpretability is an explicitly named limitation: the discovered symbolic algorithms 'work' (achieve strong accuracy) but their raw code is complex and required effortful/manual interpretation and decoupling. The manuscript correctly attributes the residual bottleneck to M/output-form rather than to the validator V."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "AutoML-Zero self-describes its results as 'preliminary successes' and 'a promising new direction'; the search space explicitly 'cannot currently represent some techniques that are crucial in state-of-the-art models, like batch normalization or convolution.'",
+      "loc": "Abstract; Sec 4.2; Sec 5",
+      "mismatch": "Manuscript labels the CS/algorithms loop 'fully closed' and 'the loop is fully closed'. This is defensible for the manuscript's narrow meaning (the empirical search->evaluate->select loop closes reliably), but is a stronger framing than AutoML-Zero's own preliminary/limited self-assessment (cannot reach SOTA techniques). Framing nuance, not a factual error about validation type.",
+      "severity": "low-medium"
+    },
+    {
+      "fact": "AutoML-Zero positions symbolic discovery as MORE interpretable than numerically-learned optimizers: 'A symbolically discovered optimizer, like an equation or a computer program, can be easier to interpret or transfer.' The artifacts are human-readable symbolic programs, not opaque weight vectors.",
+      "loc": "Sec 2 / Suppl. S1",
+      "mismatch": "Manuscript says the discovered artifacts 'resist human understanding.' Substantively fine (the paper concedes interpretation was effortful/manual), but slightly overstated: the artifacts are in a relatively interpretable symbolic form, and the difficulty is raw-code complexity/hyperparameter coupling rather than fundamental opacity. The claim's core (interpretability is the effortful residual bottleneck) is still directly supported.",
+      "severity": "low"
+    },
+    {
+      "fact": "AutoML-Zero uses NO LLM; its search is purely evolutionary over a fixed op vocabulary.",
+      "loc": "Sec 3.2; whole paper",
+      "mismatch": "C093 phrases the mechanism as 'evolutionary or LLM-guided search' across three co-cited systems. This is correct only if 'evolutionary' is mapped to AutoML-Zero and 'LLM-guided' to the other two cites (surina2025algodiscovery / AutoKernel). No mismatch for AutoML-Zero specifically, but the disjunction should not be read as attributing LLM-guided search to AutoML-Zero.",
+      "severity": "low"
+    }
+  ]
+}

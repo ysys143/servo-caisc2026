@@ -1,0 +1,81 @@
+{
+  "bibkey": "lu2024aiscientist",
+  "read_status": "READ",
+  "note": "The AI Scientist (Sakana), arXiv:2408.06292v3 (Lu, Lu, Lange, Foerster, Clune, Ha). Full main body (pp.1-21) + reviewer prompts (App A.4) + Table 6 hyperparameters read; App C and D.1-D.9 sample papers skimmed. All 7 citing claims verified against Table 1 (p.5-6), Sec 4 text (p.6), Table 6 (p.37), and idea-generation prompt (App A.1). CRITICAL C009 resolution: the manuscript's '0.65 vs. human 0.66' is CORRECT and NOT a mislabeling. Both figures come from Table 1's BALANCED ACCURACY column: best AI reviewer GPT-4o (1-shot) @6 = 0.65, Human (NeurIPS) = 0.66. This exactly reproduces the paper's own Intro contribution 2: '65% vs. 66% balanced accuracy'. The team-lead's suspected confusion (that 0.66 is the AI's own accuracy) is a real numerical coincidence — the AI's accuracy also happens to be 0.66 — but the manuscript correctly uses the balanced-accuracy metric for BOTH, so 0.66 is genuinely the human baseline. C008 '5-ensemble' also ACCURATE: the '@6' in Table 1 is the calibration/decision threshold, NOT the ensemble size; ensemble size is 5 (5 ensembled reviews, per line 400-401 and Table 6). Only C011 is IMPRECISE-OK.",
+  "claims": {
+    "C005": {
+      "status": "checked",
+      "verdict": "ACCURATE",
+      "evidence": "Grouped background citation ('AI Scientist systems ... have proliferated rapidly'). lu2024aiscientist is the canonical foundational example: it bills itself as 'the first comprehensive framework for fully automatic scientific discovery' / 'the first fully automated and scalable pipeline for end-to-end paper generation' (Abstract p.1; Intro p.2, fulltext L15-17, L73-74). Legitimate member of a grouped existence claim.",
+      "fix": null
+    },
+    "C006": {
+      "status": "checked",
+      "verdict": "ACCURATE",
+      "evidence": "'closed-loop manuscript-writing pipeline' is a faithful characterization. Paper: 'The AI Scientist can run in an open-ended loop, building on its previous scientific discoveries to improve the next generation of ideas' (Intro p.2, L77) and 'adds the completed ideas and reviewer feedback to its archive ... and the process repeats' (Intro p.2, L91-92). Phase 3 is 'Paper Write-up' producing a full LaTeX manuscript (Sec 3, L199-228). Closed-loop + manuscript-writing both supported.",
+      "fix": null
+    },
+    "C007": {
+      "status": "checked",
+      "verdict": "ACCURATE",
+      "evidence": "Grouped background citation ('provides qualitative characterizations ... but no shared framework'). lu2024 supplies extensive qualitative characterization (in-depth case study Sec 5, failure-mode taxonomy and 'Safe Code Execution' anecdotes Sec 8, L1141-1207) but proposes no shared/standardized evaluation framework of the kind the manuscript contrasts against — its automated reviewer is presented as a validated tool, explicitly 'far from' calibrated (needs thresholding) rather than a general framework. Fair grouped attribution.",
+      "fix": null
+    },
+    "C008": {
+      "status": "checked",
+      "verdict": "ACCURATE",
+      "evidence": "'5-ensemble GPT-4o reviewer' is correct. 'we used our best overall reviewer: GPT-4o with 5 rounds of self-reflection, 5 ensembled reviews, a meta-aggregation step, and 1 few-shot example' (Sec 4, p.6, fulltext L400-401); '70% accuracy when combining 5 rounds of self-reflection, 5 ensembled reviews, and a 1-shot review example' (L355-356); Table 6 'Number of Ensembled Reviews = 5' (App B, p.37, L1998/2012). NOTE: the '@6'/'@8' suffix in Table 1 is the calibration DECISION THRESHOLD (score 6 = 'Weak Accept'; Sonnet needed @8 for over-optimism), NOT the ensemble size (L361-362, L392). Ensemble size = 5 as claimed.",
+      "fix": null
+    },
+    "C009": {
+      "status": "checked",
+      "verdict": "ACCURATE",
+      "evidence": "'balanced accuracy 0.65 vs. human 0.66' matches Table 1 (p.5-6) EXACTLY, both in the Balanced Acc column: best AI reviewer GPT-4o (1-shot) @6 (calibrated) = 0.65 (+/-0.04); Human (NeurIPS) = 0.66. Confirmed by the paper's own Intro contribution 2: 'near-human-level performance ... (e.g. 65% vs. 66% balanced accuracy) when evaluated on ICLR 2022 OpenReview data' (L116) and Sec 4 'achieves human-level accuracy (0.65% vs. 0.66%)' on the balanced dataset (L365-366, where the trailing '%' is an in-paper typo — values are fractions 0.65/0.66). The human 0.66 is genuinely a HUMAN figure (Table 1 Human row, footnote 1: 'Numbers are calculated based of the NeurIPS consistency experiment (Beygelzimer et al., 2021)', L378). No misattribution: 0.66 is NOT the AI's own metric relabeled — though note the coincidence that the AI's raw Accuracy is also 0.66, the manuscript correctly compares the balanced-accuracy metric for both systems. Metric label ('balanced accuracy') is correct.",
+      "fix": null
+    },
+    "C010": {
+      "status": "checked",
+      "verdict": "ACCURATE",
+      "evidence": "Characterizing the AI Scientist's value function V (its automated reviewer) as 'biased, uncalibrated' is well supported: 'persistent over-optimism bias' forcing Sonnet 3.5 to be thresholded at 8 (Sec 4, p.6, L392); 'judgments by LLMs can often have bias (Zheng et al., 2024) which we can observe in over-estimation of an idea's interestingness, feasibility, or novelty' (Sec 5, L425-426); Table 1 explicitly splits 'Uncalibrated' vs 'Calibrated' reviewer rows, i.e. the raw reviewer is uncalibrated and requires post-hoc thresholding (Sec 4, L253-264). The 'first structurally closed loop' portion is the MANUSCRIPT's own novelty claim, not attributed to lu2024, so it is out of scope for this citation; the lu2024-relevant descriptor (biased/uncalibrated V) is accurate.",
+      "fix": null
+    },
+    "C011": {
+      "status": "checked",
+      "verdict": "IMPRECISE-OK",
+      "evidence": "Factual anchor 'The AI Scientist's 1--10 score' is supported: idea-generation ratings are explicitly 'A rating from 1 to 10' for Interestingness, Feasibility, and Novelty (App A.1 prompt, fulltext L1775, L1781-1782); the reviewer's Overall recommendation uses the NeurIPS 1-10 scale (score 6 = 'Weak Accept', ~avg accepted paper; L361-362, case-study 'Overall: 5' L675). HOWEVER the characterization 'collapse [novelty/significance/correctness] into one scalar' is a mild oversimplification: the reviewer actually outputs SEPARATE sub-dimensions (Soundness, Presentation, Contribution, Originality, Quality, Clarity, Significance, Overall, Confidence; case-study review JSON L646-676) rather than literally reducing everything to one number — though the accept/reject DECISION is thresholded on the single Overall scalar, which fits the manuscript's point. Core claim accurate; the 'collapse into one scalar' framing is defensible as decision-level but not literal.",
+      "fix": "Optional tightening: '...collapse these into one decision scalar (e.g., The AI Scientist thresholds an accept/reject on a single 1--10 overall score, despite emitting separate soundness/significance/etc. sub-scores).' Not required — current wording is within acceptable citation tolerance."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "In-paper typo NOT propagated: the paper writes balanced-dataset accuracy as '(0.65% vs. 0.66%)' with an erroneous percent sign (L365-366). The manuscript correctly renders it as '0.65 vs. human 0.66' (no % error).",
+      "loc": "paper Sec 4 p.6 (fulltext L366) vs manuscript L166",
+      "mismatch": "None — manuscript avoided the source typo. Positive note.",
+      "severity": "none"
+    },
+    {
+      "fact": "Numerical coincidence risk: best AI reviewer GPT-4o(1-shot)@6 has Balanced Acc 0.65 AND raw Accuracy 0.66; the Human row has Balanced Acc 0.66 AND raw Accuracy 0.73. So '0.66' appears as BOTH the AI's own accuracy and the human's balanced accuracy.",
+      "loc": "Table 1, paper p.5-6 (fulltext L278-300)",
+      "mismatch": "Potential reader confusion, but the manuscript's C009 uses the balanced-accuracy metric consistently for both (AI 0.65, human 0.66), so no actual error. Flag only as an easy-to-misread pair.",
+      "severity": "low"
+    },
+    {
+      "fact": "The human baseline numbers (0.66 balanced acc, 0.73 accuracy, F1 0.49, AUC 0.65, FPR 0.17, FNR 0.52) are NOT measured in lu2024 — they are computed from Beygelzimer et al. 2021 (NeurIPS 2021 consistency experiment), per Table 1 footnote 1.",
+      "loc": "Table 1 footnote, paper p.6 (fulltext L378)",
+      "mismatch": "Manuscript says 'human 0.66' without noting provenance. This is acceptable (0.66 is the correct human baseline value), but if the manuscript ever implies lu2024 itself ran the human comparison, that would be an overreach. As written ('vs. human 0.66') it is fine.",
+      "severity": "low"
+    },
+    {
+      "fact": "lu2024's own automated reviewer REJECTED the one fully-analyzed case-study paper ('Adaptive Dual-Scale Denoising'): Overall 5, Decision 'Reject' (below the score-6 acceptance threshold).",
+      "loc": "Sec 5 review JSON, paper p.10-11 (fulltext L675, L677)",
+      "mismatch": "No conflict with any of the 7 claims; relevant context for any manuscript statement implying the reviewer accepts AI-generated papers. None of C005-C011 make such a claim, so no defect.",
+      "severity": "none"
+    },
+    {
+      "fact": "The raw-accuracy figure a reader might grab is 0.70 (GPT-4o 1-shot, uncalibrated) or human 0.73 (Beygelzimer 2021); the balanced-accuracy pair is 0.65/0.66. The manuscript uses balanced accuracy, which is the correct metric for the class-imbalanced ICLR-2022 dataset (paper notes 'very class-imbalanced ... many more rejected papers', L364).",
+      "loc": "Sec 4 p.6 (fulltext L355-366)",
+      "mismatch": "None — manuscript's choice of balanced accuracy is the methodologically appropriate metric and matches the paper's headline comparison.",
+      "severity": "none"
+    }
+  ]
+}

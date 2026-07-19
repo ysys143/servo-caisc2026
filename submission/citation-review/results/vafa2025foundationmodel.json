@@ -1,0 +1,33 @@
+{
+  "bibkey": "vafa2025foundationmodel",
+  "read_status": "READ",
+  "note": "Vafa, Chang, Rambachan, Mullainathan, 'What Has a Foundation Model Found? Using Inductive Bias to Probe for World Models', ICML 2025 (PMLR 267); arXiv:2507.06952v4. Central finding directly supports C124: strong task/predictive performance does NOT entail an internalized world model. Method is the 'inductive bias probe' -- a BEHAVIORAL probe (how the model extrapolates when adapted to new synthetic tasks), not a representational/mechanistic probe.",
+  "claims": {
+    "C124": {
+      "status": "verified",
+      "verdict": "ACCURATE",
+      "evidence": "The paper's central, empirically-supported thesis is exactly C124's claim. Abstract (lines 29-33): 'foundation models can excel at their training tasks yet fail to develop inductive biases towards the underlying world model when adapted to new tasks.' Physics case: a 109M-parameter transformer (line 766) predicts orbital trajectories at R^2 > 0.9999 (line 689) yet, when fine-tuned to predict force vectors, recovers a nonsensical, non-Newtonian force law that differs for every galaxy sample (Fig 1; Table 1, lines 791-833). Othello/lattice: models generate legal moves ~90-100% of the time (lines 1087-1089; Table 7) but have weak inductive bias toward the true board/state, grouping distinct states by legal-next-token equivalence (D-IBq= < D-IBq!=, Table 9). Method (Fig 2, sec 2.3): the 'inductive bias probe' repeatedly fine-tunes the foundation model on small synthetic datasets consistent with a POSTULATED world model, extracts the learned/extrapolated functions, and compares them to the world model's functions -- via R-IB (respect state, Eq 1) and D-IB (distinguish state, Eq 2) for finite-state binary cases, or extrapolative predictability vs. an oracle (Eq 3-6; 45-deg calibration line = perfect, Fig 4). Conclusion (lines 1283-1288): 'while many sequence models excel at next-token prediction tasks, they often have limited inductive bias toward genuine world models.' The manuscript's hedged phrasing 'need not imply' matches the paper's own boundary (models are not claimed to have NO world model; Lemos et al. 2023 recover Newton's law with architecturally imposed inductive biases, lines 1245-1251).",
+      "fix": null
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The inductive bias probe is a BEHAVIORAL method: it measures how the foundation model extrapolates/adapts to new synthetic tasks (its inductive bias), NOT its internal weight-level representations. It depends only on state equality and is explicitly 'insensitive to equivalent representations' of the world-model state, deliberately sidestepping the reliability issues of representation/SAE probing.",
+      "loc": "lines 175-176 (mechanistic probing rejected), 451-463 (contrast with standard/linear probes; representation-invariance), 1215-1220 ('how a model learns, rather than what's encoded in its fixed representations')",
+      "mismatch": "None for C124 as written -- C124 makes no claim about internal representations. This would become a mismatch ONLY if the manuscript elsewhere attributes to this citation a representational / mechanistic-probing style result, or claims the method reads out internal world-model encodings.",
+      "severity": "info"
+    },
+    {
+      "fact": "The probe requires the analyst to POSTULATE / specify a world model in advance; the paper does not automatically discover the world model implicit in the foundation model. The authors flag this as a limitation and call for future work to automate constructing the implicit world model.",
+      "loc": "lines 1289-1308 (Conclusion / limitations)",
+      "mismatch": "None for C124. Note only: the citation supports a negative existence claim ('performance need not imply a world model'), which is well within scope; it does not support any claim that the method identifies which world model a good performer actually uses.",
+      "severity": "info"
+    },
+    {
+      "fact": "The claim is 'need NOT imply' (existence of a counterexample), not 'CANNOT imply'. The paper shows models DO learn substantial structure (excellent next-token prediction, ~90-100% legal moves) and that Newton's gravitational law CAN be recovered from a GNN when Newton's laws are imposed as architectural inductive biases (Lemos et al., 2023).",
+      "loc": "lines 1083-1089, 1245-1251",
+      "mismatch": "None -- the manuscript's hedged 'need not imply' is precisely the correct strength and matches the paper's boundary. Flagged so any future strengthening to 'cannot' / 'do not have world models' would be an overclaim.",
+      "severity": "info"
+    }
+  ]
+}

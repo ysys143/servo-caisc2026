@@ -1,0 +1,21 @@
+{
+  "bibkey": "park2023disruptive",
+  "read_status": "READ",
+  "note": "EXAMPLE CITATION, ACCURATE. C110 (main.tex L215, Background) cites park2023disruptive alongside uzzi2013atypical as an example of a 'disruption or atypicality measure' -- i.e., a definition of 'novel to the field' beyond lexical training-set membership. The source is squarely a disruption-measure paper: it is built on the CD index (CD5), a citation-network metric that quantifies how consolidating vs. disruptive each paper/patent is, ranging -1 (consolidating) to +1 (disruptive), applied across ~45M papers / 3.9M patents over 6 decades. Using it as a canonical example of a 'disruption measure' for field-level novelty is correct. ONE NUANCE (not a defect of C110): the CD index is NOT invented by park2023disruptive -- it originates in Funk & Owen-Smith (2017, Management Science 63:791-817, ref 12); park2023 applies/scales it. C110 only calls it an example of a 'disruption measure' and does NOT credit invention, so the citation is accurate as written; the attribution caveat matters only if the manuscript elsewhere credits park2023 with originating the CD index.",
+  "claims": {
+    "C110": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "Manuscript main.tex L215 (Background): '...a definition of ``novel to the field'' beyond lexical training-set membership (e.g.\\ disruption or atypicality measures~\\citep{park2023disruptive,uzzi2013atypical})...'. park2023disruptive is precisely a disruption-measure paper. Source Abstract: 'a novel quantitative metric---the CD index[12]---that characterizes how papers and patents change networks of citations in science and technology' (parkdisr.txt L19-21). Source 'Measurement of disruptiveness' section: 'We quantify this distinction using a measure---the CD index[12]---that characterizes the consolidating or disruptive nature of science and technology (Figure 1)... The CD index ranges from -1 (consolidating) to 1 (disruptive). We measure the CD index five years after the year of each paper's publication (indicated by CD5)' (L69-75). The metric operationalizes field-level disruption/novelty at scale (WoS analytical sample n=24,659,076 papers; Patents View n=3,912,353 patents; headline 45M papers / 3.9M patents across 6 datasets over 6 decades). This is exactly a 'disruption measure' of novelty-to-the-field, matching the manuscript's example usage. Co-cited uzzi2013atypical covers the 'atypicality' half (audited separately).",
+      "fix": null
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The CD index is NOT original to park2023disruptive. The source explicitly attributes it to prior work: 'a measure---the CD index[12]' where ref 12 = Funk, R. J. & Owen-Smith, J. 'A dynamic network measure of technological change.' Management Science 63, 791-817 (2017) (parkdisr.txt L69, L256). park2023disruptive applies and scales the measure and documents declining disruptiveness; it does not invent the metric.",
+      "loc": "parkdisr.txt L69, L256 (ref 12)",
+      "mismatch": "No mismatch with C110 as written (C110 calls park2023disruptive an 'example of a disruption measure', which is accurate, and does NOT claim it invented the CD index). Flagged only as a guardrail: if any OTHER passage in the manuscript credits park2023disruptive with originating/introducing the disruption (CD) index, that would be a misattribution -- the correct originator is Funk & Owen-Smith (2017).",
+      "severity": "LOW"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "bibkey": "aygun2026era",
+  "read_status": "READ",
+  "note": "ERA (Empirical Research Assistance; arXiv:2509.06503v2, Aygun et al., Google DeepMind/Research) pairs an LLM with tree search to write code that maximizes a task-defined quality score, executed and scored in a CPU/GPU sandbox. All three manuscript sub-claims are directly supported: (a) it optimizes within a fixed computational evaluator (the LLM hill-climbs on a sandbox score); (b) it produces expert-level empirical software judged by held-out quality metrics (OpenProblems overall score on 1.7M holdout cells, WIS, MASE on test splits, mIoU on held-out images, MAE, log-fractional-error on held-out integrals); (c) there is no physical escalation whatsoever -- no wet-lab, robotics, or physical measurement; scoring is purely computational. The paper itself draws the empirical-optimization vs genuine-discovery distinction the manuscript relies on, and its 'towards discovery' cases are also computational. Manuscript C118 CORRECT.",
+  "claims": {
+    "C118": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "All three sub-claims confirmed. (a) 'optimizes within a fixed computational evaluator': Methods 'We prompt an LLM providing a description, the evaluation metric and the relevant data. The LLM produces Python code, which is then executed and scored on a sandbox... The system uses the score... to hill climb towards a better score' (l.680-683); Discussion frames the whole method as 'a search for a program whose output maximizes a quality score' (l.585-586); Intro defines empirical software as 'designed to maximize a measurable quality score' (l.55). The evaluator is fixed per task (task-defined scoring function). (b) 'expert-level empirical software judged by a held-out quality metric': abstract 'creates expert-level scientific software whose goal is to maximize a quality metric' (l.32-34); held-out metrics used across all scientific tasks -- scRNA-seq: 'report the performance on the holdout OpenProblems datasets (n=1,747,937 total cells)' scored by overall score (l.204-205); COVID: 'Google Retrospective' average WIS of 26 vs CovidHub Ensemble 29 on rolling validation window (l.358-359); GIFT-Eval: 'evaluated the solution on the held-out test set using MASE point forecast' (l.944-945); geospatial: 'validated model performance on the held out test set of 420 randomly selected images using... mIoU' (l.9838-9840); ZAPBench: MAE on 20%-per-stimulus test split (l.9875-9877); integrals: 'correctly evaluated 17 out of 19 held-out integrals to within a fractional error of less than 3 percent' (l.9968-9969). Expert-level demonstrated: 'the first work demonstrating a system that beats human performance on a wide range of relevant and well-studied scientific problems' (l.639-640). (c) 'without physical escalation': all execution is in a code sandbox (CPU/GPU only; Supplementary Table S1 lists Sandbox Type CPU/GPU with NVIDIA Tesla T4, l.19308-19320) -- no wet-lab, robotics, or physical measurement anywhere in the paper. The paper explicitly separates 'optimizing empirical predictive models' from 'genuine scientific discovery, the latter of which requires reasoning about underlying theories, causal mechanisms, and mathematical frameworks' (l.648-653), and even its 'Towards Genuine Discovery' cases (cosmic-string radiation spectrum, in-silico zebrafish) are computational/symbolic (l.9974-9996). Manuscript characterization is faithful.",
+      "fix": "None needed. Claim is accurate and well-supported. Optional (LOW): if the manuscript wants to be maximally precise, 'held-out quality metric' is exact for the headline scientific benchmarks (scRNA-seq holdout, COVID rolling validation, GIFT-Eval/ZAPBench test splits, held-out integrals); a couple of ablations (Best-of-N Table 1) and the Kaggle development benchmark are scored on a validation set / public leaderboard rather than a strict test holdout -- but these are not what the sentence points to, so no change is required."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The paper itself makes exactly the empirical-optimization-vs-genuine-discovery distinction the manuscript leans on: 'the critical distinction between optimizing empirical predictive models and performing genuine scientific discovery, the latter of which requires reasoning about underlying theories, causal mechanisms, and mathematical frameworks' (l.648-651); core benchmarks 'primarily emphasize advanced empirical software engineering to allow for rigorous, automated scoring' (l.651-652).",
+      "loc": "l.648-653",
+      "mismatch": "None -- this corroborates the manuscript. The characterization 'optimizes within a fixed computational evaluator... without physical escalation' aligns with the paper's own self-description.",
+      "severity": "INFO"
+    },
+    {
+      "fact": "The paper contains a 'Towards Genuine Discovery' section (Supplementary Note A.4) claiming derivation of the exact analytical power spectrum of gravitational radiation from cosmic strings (six novel analytical derivations) and recovery of causal effective connectivity in an in-silico zebrafish (l.9974-9996). These use symbolic-math / in-silico scoring, not physical experiments.",
+      "loc": "l.9974-9996",
+      "mismatch": "Minor scope nuance: the manuscript's 'without physical escalation' remains fully accurate (these cases are still computational), but a reader should note ERA is positioned as reaching 'towards' discovery beyond pure prediction. Does not weaken the claim.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "'Held-out' is exact for the primary scientific results but not universal: the Best-of-N ablation (Table 1) and inline model comparisons are 'measured on the validation set' (l.800-803), and the Kaggle development benchmark is scored by direct submission to the public leaderboard percentile (l.164-166).",
+      "loc": "l.800-803; l.164-166; l.204-205",
+      "mismatch": "The manuscript's 'held-out quality metric' is accurate for the headline scientific tasks the citation supports; only some secondary ablations use a validation set. No correction needed, noted for completeness.",
+      "severity": "LOW"
+    }
+  ]
+}

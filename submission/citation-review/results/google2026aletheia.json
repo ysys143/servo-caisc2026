@@ -1,0 +1,57 @@
+{
+  "bibkey": "google2026aletheia",
+  "read_status": "READ",
+  "note": "Aletheia (arXiv:2602.10177v3, Google DeepMind). Central methodological fact: Aletheia operates END-TO-END IN NATURAL LANGUAGE, explicitly contrasted with the FORMAL-language systems AlphaGeometry/AlphaProof (p.3, l.154-155). Verification = LLM 'informal verifier' subagent as a filter + human-expert grading; NOT a formal proof checker. Erdos audit: 700 deployed -> 212 returned as potentially-correct -> 200 human-markable -> 137 (68.5%) fundamentally flawed / 63 (31.5%) technically correct / 13 (6.5%) meaningfully correct. The manuscript's L69 'formal-mathematics agent' label inverts the paper and contradicts its own L176/L438 usage.",
+  "claims": {
+    "C021": {
+      "status": "OK",
+      "verdict": "IMPRECISE-OK",
+      "evidence": "L69 grouped background citation: 'AI Scientist systems ... have proliferated rapidly~\\citep{...,google2026aletheia}'. The paper is titled 'Towards Autonomous Mathematics Research' and presents Aletheia, 'a math research agent that iteratively generates, verifies, and revises solutions end-to-end in natural language' (abstract, l.16-17). As a 2026 autonomous math-research system it is a defensible instance of the recent proliferation of autonomous AI research systems. 'AI Scientist system' is a loose umbrella label (that specific term is not used by the paper), but for a grouped 'proliferated rapidly' background claim the citation is legitimate and not load-bearing on specifics.",
+      "fix": "No change required. Optional: if precision matters, 'autonomous math/science research agents' is a tighter descriptor than 'AI Scientist systems'."
+    },
+    "C022": {
+      "status": "FLAG",
+      "verdict": "MISCHARACTERIZATION",
+      "evidence": "L69 labels Aletheia a 'formal-mathematics agent (Aletheia~\\citep{google2026aletheia})'. This inverts the paper. p.3 l.154-155 verbatim: 'In contrast to AlphaGeometry (Chervonyi et al., 2025; Trinh et al., 2024) and AlphaProof (Hubert et al., 2025), that use formal language, Aletheia operates end-to-end in natural language.' Abstract l.16-17 and l.41 likewise state Aletheia works 'end-to-end in natural language'. Aletheia is precisely the NON-formal system; the formal-mathematics agents are AlphaProof/AlphaGeometry. The manuscript is also internally inconsistent: C023 (L176) labels this same cite 'NL' and C024 (L438) calls it 'natural-language proofs'.",
+      "fix": "Relabel: 'formal-mathematics agents (Aletheia~\\citep{google2026aletheia})' -> 'natural-language mathematics agents (Aletheia~\\citep{google2026aletheia})'. If a genuine formal-mathematics-agent exemplar is needed at that spot, cite AlphaProof (Hubert et al., 2025) or AlphaGeometry (Trinh et al., 2024) instead, and keep Aletheia only on the natural-language side."
+    },
+    "C023": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "L176 domain list: 'mathematics (... NL:~\\citep{google2026aletheia})'. The 'NL' (natural-language) tag is correct: paper states Aletheia 'operates end-to-end in natural language' (p.3 l.155; abstract l.16-17; l.41). Correctly places Aletheia on the natural-language side.",
+      "fix": ""
+    },
+    "C024": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "L438: 'Aletheia~\\citep{google2026aletheia} produces natural-language proofs scored by LLM and human judgment. The loop closes mechanically, but V_sem is imperfect...'. All four sub-claims supported: (1) 'natural-language proofs' -> p.3 l.155, abstract l.16-17. (2) 'scored by LLM and human judgment' -> 'Aletheia's informal verifier mechanism streamlined the initial pool ... the model returned 212 responses as potentially correct. These candidates were then evaluated by a team of mathematicians' (l.380-382); 'verified semi-autonomously using both AI grading and human experts' (l.62-63). (3) 'loop closes mechanically' -> Generator/Verifier/Reviser subagents 'interact continuously until a solution is found that the Verifier approves, or until the attempts reach a preset limit' (p.3, Fig.1). (4) 'V_sem imperfect' -> 'Even with its verifier mechanism, Aletheia is still more prone to errors than human experts' (l.863); 'Natural language verification by human experts inherently involves some subjectivity' (fn.15, l.711).",
+      "fix": ""
+    },
+    "C025": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "L438 number: 'of 200 audited Erdos solutions only 13 (6.5%) were rated meaningfully correct.' Exact match to paper: 'out of the 200 solution candidates that we were definitely able to mark correct or incorrect, 137 (68.5%) of the responses were fundamentally flawed, while 63 (31.5%) of the responses were technically correct, of which only 13 (6.5%) were meaningfully correct' (p.9, l.402-405). Table 6 confirms: Meaningfully Correct 13 = 6.5%, Total Candidates 200, title 'Solution accuracy on 200 AI-generated responses, as graded by humans' (l.755). Denominator (200 human-graded candidates), count (13), percentage (6.5%), and the stricter label 'meaningfully correct' (vs the looser 31.5%/'technically correct') are all faithful.",
+      "fix": ""
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "Formal-vs-NL characterization. Aletheia is explicitly a NATURAL-LANGUAGE agent, contrasted against the FORMAL systems AlphaProof/AlphaGeometry.",
+      "loc": "paper p.3 l.154-155, abstract l.16-17; manuscript L69",
+      "mismatch": "Manuscript L69 (C022) calls Aletheia a 'formal-mathematics agent' — the inverse of the paper's central distinction, and self-contradictory with the manuscript's own L176 ('NL') and L438 ('natural-language proofs'). This is the single highest-value error in this citation.",
+      "severity": "HIGH"
+    },
+    {
+      "fact": "Erdos audit funnel: 700 problems deployed -> 212 returned as potentially-correct by the informal verifier -> 200 human-markable candidates (212 minus 12 marked ambiguous) -> of those 200, 13 (6.5%) meaningfully correct, 63 (31.5%) technically correct, 137 (68.5%) fundamentally flawed.",
+      "loc": "paper l.380-405, Table 6 l.731-755",
+      "mismatch": "None in the manuscript's number (13/6.5%/200 all exact). Clarity note only: '200 audited' is the correct denominator for 6.5%, but 200 is neither the total deployed (700) nor the returned-candidate count (212); a reader could misread 'audited' as the full deployment. Also worth guarding: 6.5% is the stricter 'meaningfully correct' figure — do not conflate with the 31.5% 'technically correct'. Manuscript currently uses them correctly.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "The paper reports exactly FOUR autonomous Erdos solutions: Erdos-652, 654, 1040, 1051 ('The \"4\" autonomous solutions cited above refer to Erdos-652, Erdos-654, Erdos-1040, and Erdos-1051', p.9 l.419-420).",
+      "loc": "paper l.419-420, Table 2",
+      "mismatch": "Not referenced by any of the five audited claims (informational). If the manuscript states an autonomous-Erdos count elsewhere, the correct figure is 4 (and none of the four individually rises to research-paper level, per the paper).",
+      "severity": "INFO"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "bibkey": "bran2023chemcrow",
+  "read_status": "READ",
+  "note": "Blind digest + Layer2/3 done. The word 'beam' appears ZERO times in the paper; 'search algorithms' appears once (line 611) inside the third-party RXN4Chemistry ReactionPlanner tool, never in ChemCrow's own agent loop. ChemCrow's control/search paradigm is ReAct (Thought/Action/Action Input/Observation) + MRKL, an iterative chain-of-thought. ChemCrow's headline validation is REAL wet-lab execution on IBM RoboRXN (4 MS-confirmed syntheses + 1 physically synthesized/measured chromophore), plus expert-chemist and EvaluatorGPT judging on 14 tasks — not a purely computational surrogate-signal loop. Tool count stated as 18 but 19 are described in Section 5.3; public release = subset of 12.",
+  "claims": {
+    "C075": {
+      "line": 176,
+      "section": "BG",
+      "claim_text": "domain list: chemistry~\\citep{bran2023chemcrow,sprueill2024chemreasoner,kamber2026chemist}",
+      "verdict": "ACCURATE",
+      "evidence": [
+        "L27-29: 'we introduce ChemCrow, an LLM chemistry agent designed to accomplish tasks across organic synthesis, drug discovery, and materials design. By integrating 18 expert-designed tools, ChemCrow augments the LLM performance in chemistry'"
+      ],
+      "evidence_location": "Abstract (chemcrow.txt L27-29)",
+      "rationale": "ChemCrow is unambiguously an LLM agent in the chemistry domain. Listing it as an exemplar of the chemistry domain is fully supported."
+    },
+    "C076": {
+      "line": 442,
+      "section": "CHAR",
+      "claim_text": "ChemCrow~\\citep{bran2023chemcrow} and ChemReasoner~\\citep{sprueill2024chemreasoner} validate computationally with surrogate signals and search by beam.",
+      "verdict": "MISCHARACTERIZATION",
+      "scope": "Applies only to the ChemCrow half of the bundled sentence; ChemReasoner not assessed here.",
+      "evidence": [
+        "SEARCH = ReAct, not beam. L86-87: 'The model is guided to follow the Thought, Action, Action Input, Observation format [43], which requires it to reason about the current state of the task, consider its relevance to the final goal, and plan the next steps accordingly'.",
+        "L95: 'This workflow, previously described in the ReAct [43] and MRKL [53] papers, effectively combines chain-of-thought reasoning with tools relevant to the tasks.'",
+        "L439-440: 'Usage of LLMs is further overpowered when used as part of some frameworks designed to exploit their zero-shot reasoning capabilities, as can be demonstrated by architectures like ReAct [43] and MRKL [53].'",
+        "L1027: '...to hide the characteristic ReAct style...' (paper self-describes its output as ReAct-style).",
+        "The word 'beam' occurs 0 times in the entire paper (verified by grep). 'search algorithms' occurs once, L610-611, inside the ReactionPlanner TOOL only: 'This powerful tool also employs the RXN4Chemistry API from IBM Research... but adding search algorithms to handle multi-step synthesis' — this is internal to the third-party RXN4Chemistry tool, NOT ChemCrow's agent loop.",
+        "VALIDATION is not purely computational/surrogate. L123-124: 'executed the syntheses on the cloud-connected, proprietary RoboRXN platform from IBM Research [55]. Using RoboRXN, ChemCrow autonomously ran the syntheses of an insect repellent (DEET) and three known thiourea organocatalysts (Schreiner's, Ricci's and Takemoto's).'",
+        "L127-128: 'The four syntheses yielded the anticipated compounds successfully, demonstrating synthesis planning and execution-related LLM agent interactions with the physical world.'",
+        "L396-397: 'ChemCrow showcases one of the first chemistry-related LLM agent interactions with the physical world.'",
+        "L241-242: 'The selected tasks are executed by both ChemCrow and GPT-4... these results are evaluated with a combination of LLM-based and expert human assessments.' (EvaluatorGPT + panel of 4 expert chemists, Appendix B)."
+      ],
+      "evidence_location": "chemcrow.txt L86-87, L95, L439-440, L610-611, L123-128, L396-397, L241-242",
+      "rationale": "Both attributes the sentence assigns to ChemCrow are inaccurate. (1) 'search by beam': ChemCrow's agent searches/plans via ReAct+MRKL (iterative CoT), not beam search; 'beam' never appears, and the only search-algorithm mention is inside the RXN4Chemistry tool, not the agent. (2) 'validate computationally with surrogate signals': ChemCrow's distinguishing, headline validation is physical wet-lab robotic execution (RoboRXN, 4 MS-confirmed syntheses + a synthesized/measured chromophore) plus human-expert and LLM-judge evaluation — describing it as a computation-only surrogate loop omits its defining physical-world contribution. The 'beam / computational-surrogate' description fits ChemReasoner but is projected onto ChemCrow by the bundling.",
+      "fix": "Separate the two systems, or correct the ChemCrow description: ChemCrow searches via ReAct/tool-planning (not beam) and validates in part through physical wet-lab execution on a robotic platform (plus expert + LLM evaluation). The 'validate computationally with surrogate signals and search by beam' characterization should be attributed to ChemReasoner alone unless independently verified for ChemCrow."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "ChemCrow performs REAL physical/wet-lab execution on the IBM RoboRXN robotic platform (autonomously planned + ran 4 syntheses: DEET + Schreiner's/Ricci's/Takemoto's organocatalysts, all MS-confirmed; plus a physically synthesized/measured novel chromophore). It is 'one of the first chemistry-related LLM agent interactions with the physical world.' Validation is not computation-only.",
+      "loc": "chemcrow.txt L123-128, L396-397, L618; Appendix A (L907-947)",
+      "mismatch": "Manuscript C076 characterizes ChemCrow as validating 'computationally with surrogate signals', omitting its defining physical wet-lab validation.",
+      "severity": "high"
+    },
+    {
+      "fact": "ChemCrow's search/reasoning paradigm is ReAct (Thought/Action/Action Input/Observation) + MRKL, an iterative chain-of-thought agent loop. The word 'beam' does not appear anywhere in the paper; the only 'search algorithms' reference is internal to the third-party RXN4Chemistry ReactionPlanner tool.",
+      "loc": "chemcrow.txt L86-87, L95, L439-440 (ReAct/MRKL); L610-611 (search algorithms inside ReactionPlanner tool only); 'beam' absent (grep-verified)",
+      "mismatch": "Manuscript C076 states ChemCrow searches 'by beam'; the paper supports ReAct, not beam search, for the agent.",
+      "severity": "high"
+    },
+    {
+      "fact": "Paper states '18 expert-designed tools' / 'We implemented 18 tools', but Section 5.3 actually describes 19 distinct tools (4 general + 8 molecule + 3 safety + 4 reaction). Public open-source release ships a subset of 12 tools.",
+      "loc": "chemcrow.txt L28-29 & L102 ('18'); Section 5.3 (L463-623) enumerates 19; L629 ('subset of 12')",
+      "mismatch": "Internal count discrepancy in the cited paper itself (18 claimed vs 19 described); relevant if the manuscript ever cites a specific tool count.",
+      "severity": "low"
+    }
+  ]
+}

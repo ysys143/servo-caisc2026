@@ -1,0 +1,45 @@
+{
+  "bibkey": "zhang2025novelseek",
+  "read_status": "READ",
+  "note": "NAMING NUANCE (informational, not necessarily a manuscript error): the cited arXiv version read for this audit is v3 (arXiv:2505.16938v3, 22 Jul 2025), titled 'InternAgent: When Agent Becomes the Scientist -- Building Closed-Loop System from Hypothesis to Verification' by the InternAgent Team, Shanghai AI Laboratory. 'NovelSeek' is the earlier (v1) name of the SAME project (GitHub: Alpha-Innovator/InternAgent; HF: U4R/InternAgent). The manuscript's use of 'NovelSeek' is a valid, widely-recognized alias and not an error; recorded for awareness only. Both manuscript claims (C060, C061) are ACCURATE and faithfully reproduce the paper's own terminology ('12 scientific research tasks', 'unified closed-loop multi-agent framework').",
+  "claims": {
+    "C060": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "manuscript_quote": "More recent unified frameworks include NovelSeek~\\citep{zhang2025novelseek}, a closed-loop multi-agent system spanning idea generation to verification across twelve scientific tasks",
+      "location_in_manuscript": "L92 (NUM)",
+      "evidence": [
+        "'closed-loop multi-agent system' <- paper: 'We introduce InternAgent, a unified closed-loop multi-agent framework to conduct Autonomous Scientific Research (ASR)' (abstract, line 102-104); also 'As a unified closed-loop multi-agent framework for ASR' (Sec. 2, line 195); 'We have introduced a closed-loop multi-agent framework for the first time' (Conclusion, line 2231).",
+        "'spanning idea generation to verification' <- paper title: 'Building Closed-Loop System from Hypothesis to Verification' (line 4); Conclusion: 'completing the closed-loop process in scientific research---from hypothesis generation to verification' (line 2237); 'idea generation' is the pipeline's first module (Sec. 1, line 145-147). Faithful.",
+        "'across twelve scientific tasks' <- paper states EXACTLY 12, repeatedly: 'InternAgent can support 12 types of scientific research tasks' (Fig. 1 caption, line 91); 'demonstrated its versatility across 12 scientific research tasks' (abstract, line 105); 'validated across 12 scientific research tasks' (Sec. 1, line 157); 'We select 12 distinct tasks' (Sec. 3.1.1, line 842); 'supports 12 types of scientific research tasks' (Conclusion, line 2232). twelve = 12. Accurate."
+      ],
+      "nuance": "The 12 tasks span BOTH the AI field and the science field (Fig. 1 caption line 91-92: 'ranging from the AI field to the science field'; e.g. 2D image classification, semantic segmentation, sentiment, VLM finetuning alongside chemistry/biology/power). They are NOT twelve distinct natural-science disciplines. HOWEVER, the manuscript's phrase 'twelve scientific tasks' directly echoes the paper's own label '12 scientific research tasks', so this is faithful reproduction of the source's framing, not an overclaim. No fix required; verdict remains ACCURATE.",
+      "fix": null
+    },
+    "C061": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "manuscript_quote": "the recent unified framework NovelSeek~\\citep{zhang2025novelseek}",
+      "location_in_manuscript": "L162 (BG) -- Table 1 caption",
+      "evidence": [
+        "Identification only. Paper self-describes as 'a unified closed-loop multi-agent framework' / 'a unified closed-loop scientific research framework' (abstract line 102-104; Sec. 1 line 175). Calling it 'the recent unified framework NovelSeek' is an accurate identification. Recency: arXiv:2505.16938, 2025. NovelSeek is the project's v1 name (same work cited by bibkey)."
+      ],
+      "nuance": "See top-level note on NovelSeek/InternAgent renaming; the alias is valid.",
+      "fix": null
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The 12 tasks explicitly span BOTH the AI field and the science field (Fig. 1: 'ranging from the AI field to the science field'), i.e. AI/CV/NLP benchmark tasks (2D image classification, 3D point cloud classification/detection, semantic segmentation, sentiment classification, VLM finetuning) plus natural-science tasks (reaction yield, molecular dynamics, power flow, enhancer/transcription prediction). They are NOT twelve distinct scientific disciplines.",
+      "loc": "Fig. 1 caption (line 91-94); Sec. 3.1.1 task list (lines 854-927)",
+      "mismatch": "The manuscript's 'twelve scientific tasks' could be read by an outsider as twelve natural-science domains. It is NOT a mismatch with the source, because the paper itself labels all twelve as 'scientific research tasks' and the manuscript reproduces that wording. Flagged only so authors avoid implying, elsewhere, that NovelSeek covers twelve scientific disciplines.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "The cited arXiv version (v3, 22 Jul 2025) is titled and self-named 'InternAgent'; 'NovelSeek' was the earlier v1 name of the same project (GitHub Alpha-Innovator/InternAgent, HF U4R/InternAgent).",
+      "loc": "Paper header/title (lines 1-11); abstract (line 102)",
+      "mismatch": "Manuscript refers to the work as 'NovelSeek'. Not an error (NovelSeek is a legitimate, widely-cited alias for the project), but the current title uses 'InternAgent'. Informational; consider a parenthetical '(now InternAgent)' if precision is desired.",
+      "severity": "LOW"
+    }
+  ]
+}

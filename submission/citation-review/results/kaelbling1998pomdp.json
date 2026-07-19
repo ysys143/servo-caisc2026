@@ -1,0 +1,20 @@
+{
+  "bibkey": "kaelbling1998pomdp",
+  "read_status": "READ",
+  "note": "Kaelbling, Littman & Cassandra (1998), Artificial Intelligence 101:99-134. This is THE classical POMDP reference. Confirmed via blind digest: POMDP = tuple <S,A,T,R,Omega,O>; the agent cannot observe the true state and instead maintains a belief state b (probability distribution over S) that is a sufficient statistic, updated by observations via a Bayesian state-estimator SE(b,a,o). Belief-update equation given explicitly in Section 3.3 (p.107): b'(s') = O(s',a,o) * sum_{s in S} T(s,a,s') b(s) / Pr(o|a,b), with Pr(o|a,b) a normalizing constant. Section 3.2 (p.106): 'It keeps an internal belief state, b, that summarizes its previous experience. The component labeled SE is the state estimator: it is responsible for updating the belief state based on the last action, the current observation, and the previous belief state.' Both manuscript claims are foundational-grounding citations and are correctly attributed. The manuscript's application to 'AI Scientist systems' with 'experimental observations' is the authors' own analogy/mapping, not attributed to Kaelbling; only the POMDP framework itself is credited, which is accurate.",
+  "claims": {
+    "C034": {
+      "status": "ACCURATE",
+      "verdict": "SUPPORTED",
+      "evidence": "The manuscript models systems as POMDPs where the true state s is inaccessible and the system maintains a belief b(s) updated by observations -- this is exactly Kaelbling et al.'s formulation. Section 3.1 (p.105): 'A POMDP is an MDP in which the agent is unable to observe the current state. Instead, it makes an observation based on the action and resulting state.' Section 3.2 (p.106): belief state b is a probability distribution over S, a sufficient statistic, updated by state estimator SE based on last action, current observation, and previous belief state. Section 3.3 (p.107) belief update: b'(s') = O(s',a,o) * sum_{s in S} T(s,a,s') b(s) / Pr(o|a,b). The manuscript's notation b(s) matches the paper's notation exactly. Attribution ('Following ~cite') is correct: the POMDP-with-belief-state formulation is precisely what this paper presents.",
+      "fix": null
+    },
+    "C035": {
+      "status": "ACCURATE",
+      "verdict": "SUPPORTED",
+      "evidence": "Calling the POMDP framework 'classical' and citing Kaelbling, Littman & Cassandra (1998) is appropriate: this is a canonical, widely-cited foundational POMDP reference (Artificial Intelligence journal, 1998), which itself recapitulates the classical operations-research POMDP theory (Smallwood & Sondik 1973, Sondik 1971/1978, Monahan 1982, Lovejoy 1991) and presents an exact solution algorithm. It is a standard/foundational grounding citation for the POMDP framework.",
+      "fix": null
+    }
+  },
+  "reverse_findings": []
+}

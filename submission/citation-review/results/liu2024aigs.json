@@ -1,0 +1,33 @@
+{
+  "bibkey": "liu2024aigs",
+  "read_status": "READ",
+  "note": "AIGS (BABY-AIGS), Liu et al., arXiv:2411.11910v2, 24 Nov 2024. LLM multi-agent system whose distinguishing component is FALSIFICATIONAGENT: it proposes scientific-discovery candidates (hypothesized key factors), designs automated single-factor ablation experiments, and ACCEPTS a discovery only if it survives/withstands those ablations (falsified otherwise). No information-theoretic objective anywhere: full-text grep finds no EIG / expected or mutual information gain / entropy / Bayesian experimental design / active learning / acquisition function. Two selection layers exist beyond falsification: (i) pre-falsification proposal reranking by average benchmark performance, and (ii) 'significance screening' selecting candidates by magnitude of adjacent-turn performance change. Neither contradicts the manuscript claim, which concerns hypothesis selection by refutation-survival (holds at the verification stage).",
+  "claims": {
+    "C113": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "Manuscript asserts two things about liu2024aigs: (a) 'AIGS selects hypotheses by their survival of automated refutation' and (b) it does not compute/maximize EIG. Both hold. (a) CONFIRMED at the verification stage: FALSIFICATIONAGENT accepts a discovery candidate only if it survives automated ablation. Verbatim (p.13, ~lines 1188-1191): 'If a particular discovery withstands this process and consistently produces results similar to those in the main experiment, it is regarded as a verified and valuable Scientific Discovery. And it is falsified otherwise.' Supported by the paper's framing that 'falsification is the essence of both human research process and the design of an AIGS system' (abstract) and the novelty claim (p.15, ~lines 1270-1271): 'FALSIFICATIONAGENT is the first agent within AI-accelerated scientific discovery systems capable of autonomously completing the falsification process, by independently proposing scientific discovery candidates, designing and executing ablation experiments, and performing verification.' (b) CONFIRMED absent: full-text grep for information gain / expected information / mutual information / entropy / Bayesian / EIG / acquisition function / active learning / posterior returns only incidental matches (e.g., 'weight_decay', 'informative'); AIGS's selection signals are benchmark performance, magnitude of performance change, and ablation reproducibility only, so it neither computes nor maximizes EIG.",
+      "fix": "None required. The claim as written is accurate for liu2024aigs. Optional precision (not necessary): the refutation-survival selection in AIGS operates at the discovery-VERIFICATION stage; upstream proposal/candidate selection uses benchmark-performance heuristics rather than falsification. This nuance does not affect the manuscript's assertion, which is scoped to hypothesis selection by refutation-survival."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "Pre-falsification proposal selection in AIGS is by benchmark-PERFORMANCE reranking (average score across benchmarks), not by falsification.",
+      "loc": "Section 3.3.4 Multi-Sampling Strategy, p.12, ~line 1118: 'Reranking: All samples are reranked on the basis of the benchmarking result during experimentation. For simplicity, we adopt the average performance score of all benchmarks.'",
+      "mismatch": "Not a contradiction of C113. The manuscript's phrase 'selects hypotheses by their survival of automated refutation' targets the discovery-verification stage (FALSIFICATIONAGENT accept/falsify), which is accurate. AIGS additionally has a performance-based proposal-selection layer that the manuscript does not mention; omitting it is acceptable given the claim's scope, but a reader could over-generalize 'AIGS selects hypotheses by refutation-survival' to the entire pipeline.",
+      "severity": "low"
+    },
+    {
+      "fact": "Which candidates ENTER falsification is chosen by 'Significance Screening' = greatest performance discrepancy between adjacent pre-falsification turns (magnitude of result change), not by an information-gain / refutation criterion.",
+      "loc": "Section 3.3.5 FALSIFICATIONAGENT, p.13, ~lines 1154-1159 and Figure 6: FALSIFICATIONAGENT 'first performs a \"Significance Screening\" to identify adjacent turns from pre-falsification phase with greatest performance discrepancies ... identifies results with significant performance increase or decrease for probably important scientific discoveries.'",
+      "mismatch": "Consistent with C113's negative claim (no EIG): candidate triage is by magnitude of performance change, an ad hoc heuristic, reinforcing that AIGS does not use expected information gain. Provides positive support for the 'neither computes or maximizes EIG' half of the claim rather than undermining it.",
+      "severity": "info"
+    },
+    {
+      "fact": "AIGS's falsification is empirically weak and the study is small (20 samples; Correctness AVG 0.95/2 vs Top-Conference 2.00; falsification 'significantly less satisfactory' than human literature, p<0.05).",
+      "loc": "Table 2 (p.16) and Section 3.5 (p.17, ~lines 1518-1524).",
+      "mismatch": "No mismatch with C113 (which is a mechanistic claim about how AIGS selects hypotheses, not a performance claim). Flag only so the manuscript does not elsewhere overstate AIGS's falsification quality; C113 itself makes no such quality claim.",
+      "severity": "info"
+    }
+  ]
+}

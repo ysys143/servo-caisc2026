@@ -1,0 +1,81 @@
+{
+  "bibkey": "merchant2023gnome",
+  "read_status": "READ",
+  "note": "Cross-check for the cheetham citation: the '736 independently experimentally realized' figure ORIGINATES IN THIS PAPER (merchant2023gnome), not (only) cheetham. It appears four times: Abstract p.80 ('Of the stable structures, 736 have already been independently experimentally realized'); Fig.1c caption p.81 ('736 structures have been independently experimentally verified'); Validation section p.82 ('Of the experimental structures aggregated in the ICSD, 736 match structures that were independently obtained through GNoME'); and Methods 'Definition of experimental match' ('Overall, we found 736 matches ... 184 of these structures correspond to novel discoveries since the start of the project'). Manuscript C053 cites the 736 to cheetham2024gnome, which is a plausible MISATTRIBUTION or at least a redundant attribution to flag on the cheetham side. IMPORTANT MECHANISM: the 736 are strict compositional matches of GNoME-predicted structures against ICSD experimental entries (queried Jan 2023) that other researchers created independently/concurrently -- NOT crystals synthesized by the GNoME authors; the paper calls it a conservative 'lower bound'. Only 184/736 are novel discoveries since the project started. Separately, the paper's own stability is DFT(PBE)-level: under the higher-fidelity r2SCAN functional only 84% of binary/ternary and 86.8% of quaternary discoveries retain stability. All six manuscript claims are substantively supported; the two NUM claims use minor rounding (381,000->380,000) and the three METHOD claims about 'uncertainty sampling / EIG / BED' are the manuscript's interpretive gloss -- the paper's actual active-learning acquisition is a stability/energy threshold (50 meV atom-1, to maximize recall of stable crystals), with deep ensembles used for uncertainty QUANTIFICATION/stabilization, and the paper never invokes EIG, BED, or expected information gain.",
+  "claims": {
+    "C050": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "Faithful description of GNoME's mechanism. Intro p.80: 'The energy of the filtered candidates is computed using DFT, both verifying model predictions and serving as a data flywheel to train more robust models on larger datasets in the next round of active learning.' Methods 'Active learning' p.82: 'candidate structures filtered using GNoME are evaluated using DFT calculations with standardized settings from the Materials Project. Resulting energies of relaxed structures not only verify the stability of crystal structures but are also incorporated into the iterative active-learning workflow as further training data...' Six rounds of active learning. 'DFT-in-the-loop active learning' is exactly what the paper does.",
+      "fix": null
+    },
+    "C051": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "Trivially correct categorization. Paper title (p.80): 'Scaling deep learning for materials discovery'; the entire work is inorganic-crystal / materials discovery (Google DeepMind, Nature 624, 80-85, 2023). Listing GNoME under 'materials' is accurate.",
+      "fix": null
+    },
+    "C052": {
+      "status": "VERIFIED",
+      "verdict": "IMPRECISE-OK",
+      "evidence": "Interpretive positioning claim; components are grounded but 'uncertainty sampling approximates EIG' is the manuscript's gloss, not the paper's language. GROUNDED: deep ensembles exist -- Methods 'Deep ensembles and uncertainty quantification' p.499: 'we use n = 10 graph networks ... the uncertainty can be measured by the spread of the n outputs'; filtration uses 'uncertainty quantification through deep ensembles33' (p.80/82). DFT as well-calibrated computational oracle/V is accurate (DFT verifies every candidate). CAVEAT: GNoME's acquisition is NOT uncertainty-maximizing sampling -- Methods 'Model-based filtration' p.82: 'filter candidate materials based on energy ... a threshold of 50 meV atom-1 was used for active learning to improve the recall of stable crystal discovery.' i.e. it selects predicted-STABLE candidates (exploitation for discovery), using ensemble uncertainty to STABILIZE predictions (median/IQR), not to select high-information points. The paper never mentions EIG or expected information gain. The manuscript hedges heavily ('partial exception', 'approximates'), so this is interpretive-but-fair.",
+      "fix": "Optional softening for precision: replace 'deep-ensemble uncertainty sampling approximates EIG' with 'deep-ensemble uncertainty quantification within a stability-thresholded (recall-maximizing) acquisition, which can be read as a coarse EIG surrogate'. Not required if the surrounding text keeps the 'approximates/partial exception' hedge."
+    },
+    "C053": {
+      "status": "VERIFIED",
+      "verdict": "IMPRECISE-OK",
+      "evidence": "Merchant-attributed portion is '380,000 stable compounds via DFT'. Paper reports 381,000 on the updated convex hull -- Intro p.81: 'the updated convex hull consists of 381,000 new entries for a total of 421,000 stable crystals'; Fig.1b caption p.81: 'has led to 381,000 new stable materials, almost an order of magnitude larger than previous work.' 380,000 is a valid 2-significant-figure rounding of 381,000. '...via DFT' correctly scopes the stability to DFT(PBE)-level. (The '736 experimentally realized' clause in the same sentence is cited to cheetham2024gnome, out of scope for merchant's verdict -- but see note: 736 originates in THIS paper.)",
+      "fix": "Optional: use 381,000 for exactness, or keep 380,000 as an explicit round number. Substance is correct."
+    },
+    "C054": {
+      "status": "VERIFIED",
+      "verdict": "IMPRECISE-OK",
+      "evidence": "Both figures are the paper's. '2.2 million' -- Abstract p.80: 'the discovery of 2.2 million structures below the current convex hull'; p.82: 'GNoME models found 2.2 million crystal structures stable with respect to the Materials Project.' '380,000 stable' = the 381,000 on the updated convex hull (p.81, above). The 2-tier reading (2.2M predicted -> ~381k stable on final hull) is reasonable and arguably the technically-correct nuance (the 2.2M compete for stability; only 381k remain on the rebuilt hull). CAVEAT ON TERMINOLOGY: the paper labels the 2.2M as 'stable with respect to previous work', not 'candidate structures'; the true raw candidate pool is >10^9 -- Overview p.81: 'more than 10^9 candidates over the course of active learning.' So 'candidate structures' relabels the paper's 'stable-wrt-prior' set, flattening the paper's actual 3 tiers (>10^9 candidates -> 2.2M stable-wrt-prior -> 381k on updated hull). Numbers correct; wording is a mild simplification. The METHOD clause ('runs DFT-in-the-loop active learning') is accurate (see C050).",
+      "fix": "Optional: say 'predicting 2.2 million structures stable with respect to prior work (381,000 on the updated convex hull)' to match the paper's terminology, or note the >10^9 raw candidate pool if 'candidate' is meant literally."
+    },
+    "C055": {
+      "status": "VERIFIED",
+      "verdict": "IMPRECISE-OK",
+      "evidence": "Same interpretive gloss as C052. 'uncertainty sampling approximating the BED ideal within the computational surrogate': 'within the computational surrogate' correctly identifies DFT as the oracle/V. But GNoME's actual acquisition is a stability/energy threshold to maximize recall (Methods 'Model-based filtration' p.82: 'filter candidate materials based on energy ... a threshold of 50 meV atom-1 was used for active learning to improve the recall of stable crystal discovery'), NOT uncertainty-maximizing sampling; deep ensembles (n=10) provide uncertainty quantification/stabilization only. The paper never uses 'Bayesian experimental design', 'BED', 'EIG', or 'expected information gain'. Fair as a hedged theoretical positioning of GNoME within the manuscript's BED framework.",
+      "fix": "Optional softening: 'ensemble uncertainty quantification within a stability-driven acquisition, which the manuscript reads as a coarse approximation to the BED ideal.' Keep only if the BED-framing is explicitly the manuscript's interpretation, not attributed to GNoME's authors."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The '736 independently experimentally realized/verified' figure is stated by THIS paper (merchant2023gnome) -- Abstract p.80, Fig.1c p.81, Validation p.82, and Methods -- yet manuscript C053 attributes the 736 to cheetham2024gnome only.",
+      "loc": "merchant Abstract p.80 / Fig.1c p.81 / Validation p.82 / Methods 'Definition of experimental match'; manuscript main.tex L230",
+      "mismatch": "Possible misattribution/incomplete attribution on the cheetham side: the primary source of the 736 count is merchant2023gnome. Recommend the audit verify cheetham2024gnome independently reports 736 rather than merely citing merchant.",
+      "severity": "MEDIUM"
+    },
+    {
+      "fact": "The 736 are strict COMPOSITIONAL matches of GNoME-predicted structures to ICSD experimental entries (queried Jan 2023), described as a conservative 'lower bound'; only 184 of the 736 are 'novel discoveries since the start of the project'. They were created independently/concurrently by other researchers -- NOT synthesized by the GNoME authors.",
+      "loc": "merchant Methods 'Definition of experimental match': '...we found 736 matches, providing experimental confirmation ... 184 of these structures correspond to novel discoveries since the start of the project'",
+      "mismatch": "Manuscript phrasing 'independently experimentally realized' (L230) is defensible against merchant's own wording, but 'experimentally realized' can read as author-led synthesis / prospective validation. In truth ~552/736 are not project-era-novel matches to pre-existing experimental structures. If the manuscript's argument leans on GNoME's predictive/experimental success rate, the 184 (or the 736/2.2M ratio) is the honest denominator.",
+      "severity": "MEDIUM"
+    },
+    {
+      "fact": "Manuscript rounds 381,000 -> 380,000 (C053 and C054).",
+      "loc": "merchant p.81 '381,000 new entries'; manuscript L230 and L444",
+      "mismatch": "Minor rounding; 380,000 is a valid 2-sig-fig rounding of 381,000. No material error.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "Manuscript labels the 2.2 million as 'candidate structures' (C054); the paper labels them 'stable with respect to previous work / below the current convex hull'. The true raw candidate pool is >10^9.",
+      "loc": "merchant Abstract p.80 / p.82 (2.2M 'stable'); Overview p.81 ('more than 10^9 candidates'); manuscript L444",
+      "mismatch": "Terminology flattening: the manuscript's 2-tier (2.2M candidate -> 380k stable) telescopes the paper's 3 tiers (>10^9 candidates -> 2.2M stable-wrt-prior -> 381k on updated hull). Numbers are right; 'candidate' is a mild relabel.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "GNoME's DFT-level (PBE) stability is itself uncertain at higher fidelity: under r2SCAN, only 84% of discovered binary/ternary and 86.8% of quaternary crystals retain stability.",
+      "loc": "merchant Validation p.82-83 / Fig.2d caption: '84% of the discovered binaries and ternary materials also present negative phase-separation energies ... 86.8% of tested quaternaries also remain stable on the r2SCAN convex hull'",
+      "mismatch": "Manuscript's '380,000 stable via DFT' correctly scopes to DFT, so this is not an error -- but if any downstream claim treats the 380k/2.2M as firmly stable, the ~13-16% r2SCAN attrition is the relevant caveat.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "GNoME's active-learning acquisition is a stability/energy threshold (50 meV atom-1) chosen to maximize RECALL of stable crystals; deep ensembles (n=10) provide uncertainty quantification/stabilization, not an information-gain acquisition. The paper never mentions EIG/BED/expected information gain.",
+      "loc": "merchant Methods 'Model-based filtration' p.82 ('filter candidate materials based on energy ... threshold of 50 meV atom-1 ... to improve the recall of stable crystal discovery') and 'Deep ensembles and uncertainty quantification' (n=10)",
+      "mismatch": "Manuscript C052/C055 characterize GNoME as doing 'uncertainty sampling' approximating EIG/BED. This is an interpretive gloss that overstates the role of uncertainty in the acquisition; GNoME's acquisition is exploitation-for-stability, not uncertainty/information-gain maximization. Acceptable as hedged positioning, but flag if the manuscript's argument relies on GNoME literally implementing a BED-style acquisition.",
+      "severity": "MEDIUM"
+    }
+  ]
+}

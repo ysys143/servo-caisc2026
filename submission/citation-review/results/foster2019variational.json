@@ -1,0 +1,18 @@
+{
+  "bibkey": "foster2019variational",
+  "read_status": "READ",
+  "note": "Foster, Jankowiak, Bingham, Horsfall, Teh, Rainforth, Goodman, 'Variational Bayesian Optimal Experimental Design', NeurIPS 2019 (arXiv:1903.05480v3). Core contribution is exactly the introduction of variational methods to estimate/approximate the Expected Information Gain (EIG) in Bayesian optimal experimental design: four amortized-variational EIG estimators (mu_post lower bound Eq6, mu_marg upper bound Eq9, mu_VNMC consistent upper bound Eq11, mu_m+l non-bound Eq12). Claim C040 maps one-to-one onto the paper's thesis; no exaggeration.",
+  "claims": {
+    "C040": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "Direct support. Title: 'Variational Bayesian Optimal Experimental Design'. Abstract (p.1): 'its applicability is hampered by the difficulty of obtaining accurate estimates of the expected information gain (EIG) of an experiment. To address this, we introduce several classes of fast EIG estimators by building on ideas from amortized variational inference.' Introduction (Sec 1, p.2): 'we propose a variational BOED approach that sidesteps the double intractability of the EIG in a principled manner... we introduce four efficient and widely applicable variational estimators for the EIG.' Section 3 ('Variational Estimators', p.3-5) formalizes the four estimators as variational bounds on EIG(d) (Eqs 6, 9, 11, 12; Table 1). The manuscript claim at L85 ('EIG can be approximated via variational methods') is a faithful, understated paraphrase of the paper's central result.",
+      "fix": null
+    }
+  },
+  "reverse_findings": [
+    "Support is stronger than the claim states: the paper does not merely show EIG 'can be approximated via variational methods' -- it proves the variational estimators achieve O(T^-1/2) convergence (when the variational family contains the target) vs nested-MC's best-case O(T^-1/3) (Abstract, Sec 4, Theorem 1), and provides an open-source Pyro implementation. If the manuscript wants a stronger/quantitative cite, this paper supports 'faster-converging variational EIG estimators', not just feasibility.",
+    "Nuance available if the manuscript ever leans on it: only the mu_VNMC estimator is asymptotically consistent; mu_post, mu_marg, mu_m+l converge to a biased estimate if the variational family excludes the target (Table 1, Sec 3-4). The bare claim C040 does not assert consistency, so this is not a defect for C040 -- flagged only as a boundary for any adjacent claim.",
+    "Author-name spelling for the .bib: last author is 'Noah Goodman' (Noah D. Goodman); first author 'Adam Foster'. Verify bib entry lists NeurIPS 2019 / arXiv:1903.05480. No citation-metadata error observed against the PDF, but bib not inspected in this task."
+  ]
+}

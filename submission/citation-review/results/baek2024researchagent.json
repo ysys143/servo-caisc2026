@@ -1,0 +1,33 @@
+{
+  "bibkey": "baek2024researchagent",
+  "read_status": "READ",
+  "note": "ResearchAgent (Baek et al., arXiv:2404.07738v2). Iterative research-idea-generation system over scientific literature: core paper + citation-graph refs + entity-centric knowledge store -> generates [problem, method, experiment-design], refined by 15 LLM ReviewingAgents. Evaluates idea quality via GPT-4 (model-based) + human eval, 5 criteria per aspect. Explicitly scoped to the 'first phase' (ideation) only; no code writing, no experiment execution, no empirical validation. Both halves of C057 supported.",
+  "claims": {
+    "C057": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "(a) Establishes quality baselines via LLM+human evaluation: abstract states effectiveness 'in generating novel, clear, and valid ideas based on both human and model-based evaluation results' (L26-28); GPT-4 used as judge on 5-point Likert + pairwise (L573-581), each of problem/method/experiment scored on 'its own specific five criteria' (L478, L487-488, Table 12). Novel task with 'no baselines for direct comparison' (L545), so it sets its own quality benchmarks against ablations + prior hypothesis-gen methods (SciMON, Hypothesis Proposer; Table 3). (b) Does NOT unify a full discovery loop: 'in this paper, we leverage LLMs in the first phase of scientific research - specifically idea generation' (L171-173); explicitly contrasted vs Lu et al. 2024 (AI Scientist) which 'aim to automatically generate full research papers (including idea development, code writing, and experiment execution)' (L249-251); the third output 'experiment design' is a written design, not execution; Limitations concede 'validating these generated research ideas with experiments is essential to truly accelerate scientific research' (L1272-1274) -> empirical validation left undone. Both clauses of the claim are correct.",
+      "fix": null
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "ResearchAgent employs an iterative review-and-refine loop: 15 LLM ReviewingAgents (3 idea aspects x 5 criteria) provide feedback that the system uses to iteratively update ideas; performance saturates after ~3 refinement iterations (L467-481, L1059-1061, L1277-1278).",
+      "loc": "L467-481, L1059-1061, L1277-1278",
+      "mismatch": "None. This is a refinement loop over WRITTEN ideas, not a discovery loop with experiment execution. It does not contradict 'without unifying the full discovery loop'; the claim's 'full discovery loop' (ideate->implement->run->validate) is precisely what the paper omits. Note only to preempt a misreading that 'iterative' implies a closed empirical loop.",
+      "severity": "NONE"
+    },
+    {
+      "fact": "The paper frames idea generation as a novel task with no direct baselines and no ground-truth answers; 'quality' is judged (LLM + human), not empirically verified against experimental outcomes (L543-571).",
+      "loc": "L543-571",
+      "mismatch": "Minor wording nuance: the paper does not literally use the phrase 'quality baselines,' but it does establish quality-evaluation criteria and performance benchmarks for idea generation. 'Establish quality baselines' is a fair paraphrase.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "LLM-based generation can hallucinate ideas; the authors note references/entities only partially mitigate this and true validation requires experiments (L1266-1274).",
+      "loc": "L1266-1274",
+      "mismatch": "None. Reinforces the 'no full discovery loop' clause of C057.",
+      "severity": "NONE"
+    }
+  ]
+}

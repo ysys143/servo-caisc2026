@@ -1,0 +1,57 @@
+{
+  "bibkey": "cheetham2024gnome",
+  "read_status": "READ",
+  "note": "Cheetham & Seshadri, 'Artificial Intelligence Driving Materials Discovery? Perspective on the Article: Scaling Deep Learning for Materials Discovery', Chem. Mater. 2024, 36(8), 3490-3495. A Perspective/critique of the GNoME/Merchant Nature 2023 paper. Central thesis: GNoME output is a list of PROPOSED COMPOUNDS, not new MATERIALS; predicted != validated. KEY AUDIT FACT: the figure '736' appears ZERO times in this paper (exhaustively grep-confirmed, 0 occurrences). The paper reports NO count of experimentally realized/synthesized compounds; it uses 'experimentally realizable' only as a NORMATIVE criterion (one leg of its credible/novel/useful 'trifecta', p.3490 l.145). The paper's canonical counts are 384,870 (Stable Structure DB) and 'almost 400,000'; radioactive-element counts 27/6754/18,138/23,529. Manuscript C099 & C100 attribute a '736 independently experimentally realized' figure to THIS paper => MISATTRIBUTION (the 736 figure originates in merchant2023gnome, the GNoME paper, not in this critique). Manuscript C098 & C101 (predicted compounds require synthesis/characterization; should not be equated with validated materials) ARE this paper's core thesis => ACCURATE.",
+  "claims": {
+    "C098": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "Manuscript L200 (CHAR): '...most predicted compounds still require synthesis and characterization~\\citep{cheetham2024gnome}; the physical loop remains only partly closed.' This is squarely the paper's thesis. Verbatim support: 'the work by Merchant et al. does not report any new materials but reports a list of proposed compounds. In our view, a compound can be called a material when it exhibits some functionality... Since no functionality has been demonstrated for the 384,870 compositions in the Stable Structure database, they cannot yet be regarded as materials' (p.3494, l.560-565). Also the credibility criterion: 'the proposed structure and composition of matter should be experimentally realizable' (p.3490, l.143-146), and 'chemical compounds become materials when they demonstrate some utility' (l.140-142). The paper's entire method is to argue these are unsynthesized/unvalidated predictions ('predictions that are highly unlikely to be confirmed', l.206-208). 'Require synthesis and characterization' faithfully captures this.",
+      "fix": ""
+    },
+    "C099": {
+      "status": "FLAG",
+      "verdict": "MISATTRIBUTION",
+      "evidence": "Manuscript L230 (NUM): 'GNoME predicts 380,000 stable compounds via DFT~\\citep{merchant2023gnome}, but only 736 have been independently experimentally realized~\\citep{cheetham2024gnome}...'. The '736 independently experimentally realized' figure is attributed to cheetham2024gnome, but the number 736 appears NOWHERE in this paper (grep: 0 occurrences), and this paper reports NO count of experimentally realized compounds at all. Its canonical counts are 384,870 and 'almost 400,000' (Table 1 header l.275; l.544). The paper's only use of the realization concept is the NORMATIVE phrase 'experimentally realizable' (a criterion, not a measured count; l.145). The 736 figure originates in the GNoME paper (merchant2023gnome), which reported that count of predicted structures independently observed experimentally. Attributing 736 to this critique is a misattribution.",
+      "fix": "Re-attribute the 736 figure to \\citep{merchant2023gnome}: '...but only 736 have been independently experimentally realized~\\citep{merchant2023gnome}...'. If a citation for the qualitative 'predicted != realized materials' point is wanted at this location, cheetham2024gnome may be retained ONLY for that qualitative framing, never as the source of the 736 number. (Verify 736 against merchant2023gnome before final placement.)"
+    },
+    "C100": {
+      "status": "FLAG",
+      "verdict": "MISATTRIBUTION",
+      "evidence": "Manuscript L444 (NUM): '...of the predicted stable structures, only 736 have been independently experimentally realized, and critics note that predicted compounds should not be equated with validated materials... ~\\citep{cheetham2024gnome}.' Same defect as C099 for the NUMERIC element: the 736 figure is attributed (via the trailing \\citep) to cheetham2024gnome, but 736 appears 0 times in this paper and it reports no realized-count. The paper reports 384,870 / 'almost 400,000' and the normative 'experimentally realizable' criterion only (l.145, l.275, l.544). The 736 count belongs to merchant2023gnome. (The qualitative tail of this same sentence is adjudicated separately as C101 and is accurate.)",
+      "fix": "Split the citation so the 736 figure is credited to \\citep{merchant2023gnome} and cheetham2024gnome is kept only for the qualitative 'predicted compounds should not be equated with validated materials' clause, e.g.: '...only 736 have been independently experimentally realized~\\citep{merchant2023gnome}, and critics note that predicted compounds should not be equated with validated materials exhibiting demonstrated functionality~\\citep{cheetham2024gnome}.'"
+    },
+    "C101": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "Manuscript L444 (CHAR): '...critics note that predicted compounds should not be equated with validated materials exhibiting demonstrated functionality~\\citep{cheetham2024gnome}.' This is a precise paraphrase of the paper's central argument. Verbatim: 'the work by Merchant et al. does not report any new materials but reports a list of proposed compounds. In our view, a compound can be called a material when it exhibits some functionality and, therefore, has potential utility. Since no functionality has been demonstrated for the 384,870 compositions in the Stable Structure database, they cannot yet be regarded as materials' (p.3494, l.560-565). Reinforced by the Abstract: 'scant evidence for compounds that fulfill the trifecta of novelty, credibility, and utility' (l.65-68), and 'display some evidence of utility so that they can truly be recognized as materials' (l.147-148). 'Validated materials exhibiting demonstrated functionality' maps exactly onto the paper's utility/functionality requirement.",
+      "fix": ""
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The number 736 does not exist in this paper. Exhaustive grep returns 0 occurrences. The paper's canonical large count is 384,870 (Stable Structure DB, Table 1 header l.275; repeated l.409, 483, 545, 564, 634) and 'almost 400,000' (l.83, l.544). The GNoME Explorer subset is 2047 entries (l.222-223), of which the first 250 were examined.",
+      "loc": "paper Table 1 l.275, l.544; manuscript L230 (C099) and L444 (C100)",
+      "mismatch": "Manuscript C099/C100 attribute a '736 independently experimentally realized' figure to this paper. The figure is absent here and belongs to merchant2023gnome. This is the single highest-value error in this citation.",
+      "severity": "HIGH"
+    },
+    {
+      "fact": "The paper NEVER reports a count of experimentally realized / synthesized / validated compounds. It uses 'experimentally realizable' solely as a normative criterion (one leg of the credible/novel/useful 'trifecta'/'triangle'): 'the proposed structure and composition of matter should be experimentally realizable' (l.143-146). Its stance is that functionality has been demonstrated for NONE of the 384,870 (l.563-565) and that it has 'yet to find any strikingly novel compounds' (l.631-632).",
+      "loc": "paper l.143-146, l.563-565, l.631-632",
+      "mismatch": "Directly refutes any reading in which this paper supplies a realized/verified count (such as 736). Confirms C098/C101 qualitative framing is what this paper actually supports.",
+      "severity": "HIGH"
+    },
+    {
+      "fact": "The manuscript's '380,000' (attributed to merchant2023gnome, C099) vs this paper's own figure. This paper states 384,870 exactly and 'almost 400,000' for the Stable Structure database; it never states '380,000'.",
+      "loc": "paper l.275, l.544",
+      "mismatch": "Not a defect in the cheetham citation itself (the 380,000 is credited to merchant), but if any '380,000' is ever sourced to this paper it should be 384,870. Informational.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "The paper's actual quantitative critiques, none of which the manuscript uses: 18,138 compounds of radioactive Pm/Ac/Pa (l.396; 'more than 18,000', l.602); 23,529 compounds of Tc/Np/Pu (l.400); 27 actinium compounds in GNoME Explorer / ~6754 in the Stable Structure DB (l.382-383); an anomalous space-group distribution in which the top four Stable Structure space groups are all non-centrosymmetric (~34%) vs ~1% in the ICSD (Table 1; l.420-423), attributed to artificial DFT-0K atomic ordering.",
+      "loc": "paper l.382-400, Table 1, l.420-423",
+      "mismatch": "None (these are additional supporting critiques the manuscript could optionally cite to strengthen C101; not misuses). The manuscript's use of this paper is confined to the qualitative predicted-vs-validated point, which these critiques reinforce.",
+      "severity": "INFO"
+    }
+  ]
+}

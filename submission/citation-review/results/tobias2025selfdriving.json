@@ -1,0 +1,21 @@
+{
+  "bibkey": "tobias2025selfdriving",
+  "read_status": "READ",
+  "note": "Blind digest confirms: Tobias & Wahab 2025 (R. Soc. Open Sci. 12:250646) is a REVIEW of self-driving-lab (SDL) technology + policy implications (IP, safety/security, labour). It documents SDL hardware extensively across chemistry/materials/biology and narrates maturation ('emerged from obscure and clunky academic curiosities into demonstrably useful tools'). IMPORTANT nuance: the paper's own thesis DE-EMPHASIZES hardware -- 'software autonomy is preeminent'; lab robots 'almost never perform tasks that would be outright impossible for a human'; via Moravec's paradox hardware/robotic tasks are the 'easy for humans' dimension. Developmental arc is decades-long (HPLC-separation SDL 1982, reaction-optimization SDL 1988, Adam 2009), with recent acceleration credited to the AI/LLM wave (software), not hardware. Self-declared NOT comprehensive (defers to Tom et al. [6]).",
+  "claims": {
+    "C122": {
+      "status": "VERIFIED",
+      "verdict": "IMPRECISE-OK",
+      "evidence": "Claim (main.tex L234, BG): 'reviews document the rapid maturation of the underlying hardware~\\citep{tobias2025selfdriving}.' SUPPORTED as a review citation: tobias2025 IS a review of SDL technology that documents SDL hardware development and its maturation -- Intro/section 1 'Self-driving labs have emerged from obscure and clunky academic curiosities into demonstrably useful tools for contemporary science'; sections 2.2-2.4 catalog increasingly sophisticated hardware (A-Lab three integrated stations, sec 2.2; Ada six-axis robotic arm, sec 2.3; AMANDA '150 automated instruments spanning 37 different device types', sec 2.3; Synbot '9.35 x 6.65 m' assemblage, Table 3; humanoid-robot RPE platform, Table 5). Contextually ALIGNED: the manuscript uses the cite to establish hardware is maturing but is NOT the bottleneck ('The bottleneck is thus orthogonal to hardware automation'), which matches tobias2025's own thesis that hardware autonomy is the 'easy for humans' dimension while 'software autonomy is preeminent' (sec 2.1, sec 6). IMPRECISION (why not clean ACCURATE): (a) 'rapid' -- the paper frames the arc as decades-long (first SDLs 1982/1988, Adam 2009) with recent acceleration attributed to the AI/LLM wave, i.e. software not hardware; (b) the paper actively de-emphasizes hardware relative to software, so it is not the ideal source for a hardware-centric reading. No factual error; within tolerance for a background citation.",
+      "fix": "No change required (VERIFIED). Optional tightening: 'reviews document the growing maturity and integration of SDL hardware~\\citep{tobias2025selfdriving}', which avoids the 'rapid'/hardware-primacy emphasis the source itself down-weights. Or pair with a more hardware-focused review (Tom et al. Chem. Rev. 2024, ref [6] in tobias2025)."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "tobias2025 reports A-Lab success as '71-74% of the target materials it was presented' (sec 2.2)",
+      "loc": "tobias2025 sec 2.2 (Chemistry)",
+      "mismatch": "CROSS-REF ONLY, not a defect in the C122/tobias2025 citation. The manuscript's A-Lab figure '36 of 57 targeted compounds' (~63%, main.tex L234) is cited to the PRIMARY source szymanski2023alab, not to tobias2025; tobias2025's 71-74% is higher. Flag for the szymanski2023alab auditor to reconcile (A-Lab's real success rate is contested in post-2023 reanalyses). No action for tobias2025.",
+      "severity": "LOW"
+    }
+  ]
+}

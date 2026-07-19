@@ -1,0 +1,48 @@
+{
+  "bibkey": "cranmer2020symbolic",
+  "read_status": "READ",
+  "note": "Cranmer et al. 2020 (NeurIPS), 'Discovering Symbolic Models from Deep Learning with Inductive Biases'. Distills closed-form symbolic expressions from the internal functions (edge/message phi^e, node phi^v, global phi^u) of a trained Graph Neural Network via symbolic regression. The SR engine is eureqa (and the authors' PySR), a STOCHASTIC GENETIC ALGORITHM -- not a deterministic search. The paper explicitly disclaims being a new SR technique; it is a neural-factorization wrapper that extends any existing SR method to high-dimensional data. C073 (physics-domain listing) is accurate. C074 attributes 'deterministic search' jointly to AI Feynman and cranmer; for cranmer this half is a mischaracterization -- the search is a stochastic GA.",
+  "claims": {
+    "C073": {
+      "location": "main.tex L176 (Sec. Domain Analysis, domain map)",
+      "context_type": "BG",
+      "manuscript_claim": "physics~\\citep{udrescu2020afeynman,cranmer2020symbolic} -- cranmer2020symbolic listed under the 'physics' field of the seven-field domain map.",
+      "verdict": "ACCURATE",
+      "note": "cranmer2020symbolic is unambiguously a physics paper. Its three case studies are Newtonian dynamics (rediscovering force laws), Hamiltonian dynamics (extracting scalar potential energies), and a cosmology problem (dark-matter halo overdensity from a state-of-the-art dark matter simulation). Listing it under 'physics' is correct.",
+      "evidence": "Paper Abstract/Intro (fulltext L36-40, L78-80): 'We find the correct known equations, including force laws and Hamiltonians, can be extracted from the neural network. We then apply our method to a non-trivial cosmology example -- a detailed dark matter simulation -- and discover a new analytic formula...'; Sec. 3 case studies: 'Newtonian dynamics', 'Hamiltonian dynamics', 'Dark matter halos for cosmology' (fulltext L244, L265, L287).",
+      "fix": "None needed."
+    },
+    "C074": {
+      "location": "main.tex L440 (Appendix, 'Physics ($V_emp+V_h$; none/partial)' paragraph)",
+      "context_type": "CHAR",
+      "manuscript_claim": "AI Feynman~\\citep{udrescu2020afeynman} and symbolic-model discovery~\\citep{cranmer2020symbolic} fit equations to data with deterministic search. Validation is empirical and of medium reliability, but the systems carry no memory transfer across problems: each task starts fresh.",
+      "verdict": "MISCHARACTERIZATION",
+      "applies_to": "cranmer2020symbolic only (AI Feynman half already VERIFIED ACCURATE in C072)",
+      "note": "Two sub-claims are attributed jointly to cranmer. (1) 'fit equations to data' -- ACCURATE for cranmer: it distills closed-form analytic expressions from a trained GNN's internal functions by fitting them to recorded input/output samples, then refits constants to the data. (2) 'deterministic search' -- INACCURATE for cranmer: the symbolic-regression search is eureqa (and PySR), a STOCHASTIC genetic algorithm ('combine algebraic expressions stochastically... similar to natural selection'). A genetic algorithm is the textbook example of a stochastic/randomized search, i.e. the opposite of deterministic. The paper also explicitly disclaims being a new SR technique -- its contribution is a neural-network factorization that extends an existing (stochastic) SR method to high-dimensional data. So the 'deterministic search' descriptor, correct for AI Feynman's brute-force enumeration, is a mischaracterization of cranmer's method. The paragraph's other claims about cranmer ('Validation is empirical', 'no memory transfer across problems: each task starts fresh') remain accurate (fits minimize MAE empirically; each case study trains a fresh GN and runs fresh SR).",
+      "confirm_fits_equations_to_data": "YES -- 'we use the symbolic regression package eureqa [2] to perform symbolic regression and fit compact closed-form analytical expressions to phi^e, phi^v, and phi^u independently' (fulltext L179-181); Sec. 2 step 3: 'Fit symbolic expressions to the distinct functions learned by the model internally' (fulltext L89-90).",
+      "evidence": "SR-engine description, Sec. 2 'Symbolic regression' (fulltext L181-183): 'eureqa works by using a genetic algorithm to combine algebraic expressions stochastically. The technique is similar to natural selection, where the \"fitness\" of each expression is defined in terms of simplicity and accuracy.' Also Sec. 2 (fulltext L206-208): 'We emphasize that this method is not a new symbolic regression technique by itself; rather, it is a way of extending any existing symbolic regression method to high-dimensional datasets by the use of a neural network with a well-motivated inductive bias.' And App. C (fulltext L1440-1441): success/failure table generated with PySR (also a genetic-algorithm SR package).",
+      "severity": "medium",
+      "fix": "Do not attribute 'deterministic search' to cranmer. Since the descriptor is correct only for AI Feynman, separate the two, e.g.: 'AI Feynman~\\citep{udrescu2020afeynman} fits equations to data with deterministic search; symbolic-model discovery~\\citep{cranmer2020symbolic} distills equations from trained neural networks via stochastic symbolic regression (genetic algorithms).' Alternatively generalize the shared verb: '...fit equations to data via symbolic search (deterministic enumeration for AI Feynman; a stochastic genetic algorithm for symbolic-model discovery).' The downstream claims (empirical validation, no cross-problem memory transfer) need no change."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The symbolic-regression search in cranmer is a stochastic genetic algorithm (eureqa; also the authors' PySR): 'eureqa works by using a genetic algorithm to combine algebraic expressions stochastically... similar to natural selection'.",
+      "loc": "Paper Sec. 2 'Symbolic regression' (fulltext L181-183); PySR used for the success/fail table, App. C (fulltext L1440-1441)",
+      "mismatch": "Manuscript L440 characterizes cranmer's method as 'deterministic search'. The actual search is stochastic (genetic algorithm) -- the opposite of deterministic.",
+      "severity": "medium"
+    },
+    {
+      "fact": "cranmer explicitly is NOT a new symbolic-regression / search method: 'this method is not a new symbolic regression technique by itself; rather, it is a way of extending any existing symbolic regression method to high-dimensional datasets by the use of a neural network with a well-motivated inductive bias.'",
+      "loc": "Paper Sec. 2 (fulltext L206-208)",
+      "mismatch": "Manuscript frames 'symbolic-model discovery' as a search method comparable to AI Feynman; cranmer's actual novelty is a neural-network factorization wrapper around an existing (stochastic) SR engine, not a search algorithm of its own. Reinforces that any 'deterministic search' attribution is misplaced.",
+      "severity": "low"
+    },
+    {
+      "fact": "The equations in cranmer are fit not to the raw dataset directly but to the observed inputs/outputs of the trained GNN's internal functions (phi^e, phi^v, phi^u); a further refit of constants to data follows to remove accumulated approximation error.",
+      "loc": "Paper Sec. 2 steps 3-4 (fulltext L89-92) and 'refit any parameters in the symbolic model to the data a second time' (fulltext L186-187)",
+      "mismatch": "Manuscript's compact phrase 'fit equations to data' is defensible as an end-result summary but elides the distinctive deep-learning-distillation step (extract from a trained network, then refit to data). Minor imprecision, not an error.",
+      "severity": "low"
+    }
+  ]
+}

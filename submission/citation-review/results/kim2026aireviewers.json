@@ -1,0 +1,48 @@
+{
+  "bibkey": "kim2026aireviewers",
+  "read_status": "READ",
+  "note": "Kim et al. 2026, arXiv:2605.20668v1, 'On the limits and opportunities of AI reviewers: Reviewing the reviews of Nature-family papers with 45 expert scientists'. Full main body (S1-7) read; appendices A-H skimmed. This paper contains NO '+2.3-point' figure and NO mention of 'Agent Laboratory' (grep-verified across all 7,881 extracted lines). Its overlap and complements/not-substitutes findings, and the 45-expert / 82-Nature-paper scale, are all directly and verbatim supported.",
+  "claims": {
+    "C102": {
+      "manuscript_text": "Agent Laboratory delegates $V_s$ (NeurIPS-guideline LLM reviewer) but documents $+$2.3-point systematic over-estimation relative to human PhD students---adding a $V$ layer does not guarantee completeness if the layer is unreliable~\\citep{kim2026aireviewers}.",
+      "status": "FLAGGED",
+      "verdict": "MISATTRIBUTION",
+      "evidence": "The cited claim is entirely foreign to kim2026aireviewers. (1) The string '+2.3' / '2.3-point' does NOT appear anywhere in the paper (grep over all 7,881 extracted lines returns empty). (2) 'Agent Laboratory' (and 'Agent-Lab'/'AgentLab'/'schmidgall') is NEVER mentioned or cited in this paper. (3) The paper does not measure any '+2.3-point systematic over-estimation relative to human PhD students'; it studies GPT-5.2 / Claude Opus 4.5 / Gemini 3.0 Pro agents rated by 45 domain scientists, and its actual quantitative direction is the OPPOSITE of over-estimation: AI reviewers are LESS correct than the top-rated human (correctness 86.2%/83.7%/81.9% vs 92.3% top human, Table 3, S3), i.e., they raise MORE incorrect items. The only 'over'-analog in the paper is a qualitative weakness ('overly critical stance that inflates minor issues', abstract L119 / S5 W2), never a +2.3 numeric or a PhD-student comparison. The entire sentence subject is Agent Laboratory, so the citation is misdirected.",
+      "fix": "Re-point the citation: the '+2.3-point systematic over-estimation relative to human PhD students' figure belongs to Agent Laboratory (Schmidgall et al.), not to kim2026aireviewers. Change \\citep{kim2026aireviewers} to \\citep{schmidgall2025agentlab} (the +2.3 over-estimation appears in Agent Laboratory S4.1.1 / Fig 6). kim2026aireviewers may instead be cited for a genuinely supported point (e.g., the complement-not-substitute conclusion in C103), but must NOT be cited for the +2.3 figure or for anything about Agent Laboratory."
+    },
+    "C103": {
+      "manuscript_text": "A 45-expert evaluation likewise positions current AI reviewers as complements to, not substitutes for, human experts---strong on aggregate criticism yet sharing blind spots and overlapping far more than independent humans do~\\citep{kim2026aireviewers}.",
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "Every element is directly supported. (1) '45-expert': exactly 45 domain scientists (title L2, abstract L56, S2.4 L420 '45 domain scientists from 25 institutions', S7 L1310). (2) 'complements to, not substitutes for, human experts': verbatim in abstract L66 'our results position current AI reviewers as complements to, not substitutes for, human reviewers.' (3) 'overlapping far more than independent humans do': abstract L63 'AI reviewers overlap far more than humans do (21% vs. 3% for cross-reviewer pairs)'; S4 L897-898 'different AI reviewers overlap with each other (A-A, same target and same criticism: 20.9% [16.2, 25.4]) roughly six times more than two human reviewers do (3.4%)'. (4) 'strong on aggregate criticism': supported by the composite 'fully positive' result (GPT-5.2 60.0% vs top human 48.2%, p=0.009; all 3 AI exceed lowest human; AI raise more significant, better-evidenced items, Table 4 / S3). (5) 'sharing blind spots': supported by the 16 recurring failure modes 'humans do not share' (abstract L64-65, S5) plus AI-AI redundancy (W4 n=28) and high AI-AI overlap, i.e., the AI reviewers converge on shared limitations.",
+      "fix": "No change needed. Optionally, 'strong on aggregate criticism' slightly compresses the paper's nuance (only GPT-5.2 exceeds the top human on composite; Claude Opus 4.5 and Gemini 3.0 Pro sit between top- and lowest-rated human, and all three are LESS correct than the top human), but this is acceptable summarization for a one-line related-work sentence."
+    },
+    "C104": {
+      "manuscript_text": "AI reviewers already overlap far more than humans~\\citep{kim2026aireviewers}",
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "Directly supported and near-verbatim. Abstract L63: 'AI reviewers overlap far more than humans do (21% vs. 3% for cross-reviewer pairs)'. S1 intro L114-115: AI reviewers 'overlap more substantially with each other (21.0% for AI-AI pairs versus 3.1% for human-human pairs)'. S4 L928: 'AI reviewers overlap with each other (20.9% same-target-same-criticism) far more than humans do.' The manuscript's 'far more' matches the paper's 'roughly six times more' (20.9% vs 3.4%).",
+      "fix": "No change needed."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The +2.3-point over-estimation figure and 'Agent Laboratory' are absent from kim2026aireviewers; the paper's actual quantitative direction is the reverse (AI reviewers are LESS correct than the top human, 86.2/83.7/81.9% vs 92.3%, Table 3), with only a qualitative 'overly critical' weakness and no +2.3 numeric or PhD-student comparison.",
+      "loc": "Table 3 (S3, L477-565); abstract L119; grep-confirmed absence of '2.3-point' and 'Agent Laboratory' across all 7,881 lines",
+      "mismatch": "C102 attributes a specific numeric over-estimation statistic to this paper that does not exist in it and that runs opposite to the paper's finding; the citation belongs to Agent Laboratory / schmidgall2025agentlab.",
+      "severity": "high"
+    },
+    {
+      "fact": "The paper's 'blind spots' shared by AI reviewers are characterized primarily as shared FAILURE MODES / over-criticism and inter-AI redundancy (16 recurring weaknesses 'humans do not share'; W4 redundancy; 20.9% AI-AI overlap), not primarily as omissions/missed content.",
+      "loc": "abstract L64-65; S4 L897-928; S5 (Fig 5, W1-W5)",
+      "mismatch": "C103's phrase 'sharing blind spots' leans on a missed-content connotation, whereas the paper's dominant shared weakness is severity miscalibration / over-criticism plus convergent overlap; still a defensible paraphrase (AI panels also converge and match only 46.3% of criticisms), so no correction required.",
+      "severity": "low"
+    },
+    {
+      "fact": "On the composite, only GPT-5.2 exceeds the top-rated human (60.0% vs 48.2%, p=0.009); Claude Opus 4.5 (53.1%) and Gemini 3.0 Pro (50.2%) are statistically indistinguishable from the top human, and all three AI reviewers are LESS correct than the top human.",
+      "loc": "Table 4 (S3, L604-651); Table 3 (S3)",
+      "mismatch": "C103's 'strong on aggregate criticism' compresses a model-dependent, correctness-tradeoff result into a flat positive; acceptable for a related-work one-liner but technically an over-generalization if read strictly.",
+      "severity": "low"
+    }
+  ]
+}

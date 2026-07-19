@@ -1,0 +1,47 @@
+{
+  "bibkey": "geng2025reliable",
+  "read_status": "READ",
+  "note": "Geng, Chen, Arumugam, Griffiths (Princeton), 'Are LLMs Reliable AI Scientists? Assessing Reverse-Engineering of Black-Box Systems' (arXiv:2505.17968v1, preprint under review). Studies whether GPT-4o (plus Claude-3.5-Sonnet, DeepSeek-R1, Llama-3.3-70B in App. E) can reverse-engineer three deterministic black-box types (list-mapping Programs, Formal Languages, CES Math Equations) from passive observations vs. active intervention. Core result: from passive observations LLM performance plateaus (~10 obs) below the Bayesian-inference reference; active intervention (LLM designing its own queries with deterministic feedback) improves performance consistently but STILL does not close the gap with Bayesian inference. Benefit of intervention comes mainly from the process of generating queries (yoked/transferred data underperforms; effect is model-specific). Two failure modes: overcomplication, overlooking. Boundary: for the Board Game black box (App. I) intervention does NOT help at all (sparse signal).",
+  "claims": {
+    "C105": {
+      "manuscript_sentence": "This unreliability is not confined to novelty scoring: LLMs asked to reverse-engineer black-box systems---a canonical scientific inference task---fail to do so reliably even with systematic query access~\\citep{geng2025reliable}.",
+      "manuscript_location": "L211, METHOD",
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "part_check": {
+        "(a) paper is about LLMs reverse-engineering black-box systems": "SUPPORTED. This is the paper's entire subject (title + Abstract). Abstract, p.1, l.31-34: 'We investigate the reverse-engineering capabilities of LLMs across three distinct types of black-box systems ... programs, formal languages, and math equations.'",
+        "(b) they FAIL to do so reliably": "SUPPORTED. Conclusion, §7, p.9, l.836-839: 'We showed that current LLMs still struggle to effectively leverage passive observations even on seemingly simple and controlled black-boxes. Allowing LLMs to actively collect intervention data improves performance, but still falls short of closing the gap with Bayesian inference, casting doubt on the promise of truly reliable AI scientists.' Also §7 l.846-849: 'if an LLM cannot reliably reverse-engineer even simple or controlled systems, this raises concerns regarding its dependability...'. The manuscript's word 'reliably' maps directly to the paper's own 'truly reliable AI scientists' framing.",
+        "(c) 'even with systematic query access'": "SUPPORTED. The paper's 'observation-intervention' setting IS systematic query access: the LLM actively queries the black box with self-chosen inputs and receives deterministic feedback in a multi-round protocol (§3.1, p.4). Even in this setting, performance 'still falls short of closing the gap with Bayesian inference' (§7, l.838-839). Abstract l.36-38 corroborates: intervention 'improves performance' but the plateau/gap framing persists.",
+        "(d) 'a canonical scientific inference task'": "SUPPORTED as fair paraphrase. §7, l.835-836: reverse-engineering is 'a core ability and prerequisite for building a reliable AI scientists'; §7 l.844-846: 'This capacity mirrors the fundamental scientific discovery process, which relies heavily on identifying hidden relationships and principles behind observed phenomena.'"
+      },
+      "evidence": "Conclusion §7, p.9, l.838-839: 'Allowing LLMs to actively collect intervention data improves performance, but still falls short of closing the gap with Bayesian inference, casting doubt on the promise of truly reliable AI scientists.' + §7 l.846-849: 'if an LLM cannot reliably reverse-engineer even simple or controlled systems, this raises concerns regarding its dependability in addressing more complex and ambiguous scientific challenges.' + Abstract p.1 l.35-36: 'LLMs fail to extract information from observations, reaching a performance plateau that falls short of the ideal of Bayesian inference.'",
+      "fix": "None required. Claim is an accurate characterization of the paper's central finding. The phrase 'systematic query access' is a reasonable label for the paper's active-intervention regime, and 'fail to do so reliably even with' it is directly supported by the paper's conclusion that intervention does not close the Bayesian gap. Optional (not necessary): the manuscript could hedge with 'improves but does not fully' to acknowledge that intervention does help — but 'reliably' already carries the correct meaning, so this is stylistic, not a correction."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "Active intervention (systematic query access) DOES help substantially and consistently — it is not a null result. The paper's headline positive contribution is that intervention 'significantly improves performance' over observation-only across all three black-box types. The manuscript phrase 'fail to do so reliably even with systematic query access' is correct on 'reliably' (gap with Bayesian not closed) but, read literally in isolation, could understate that query access materially improves LLM performance.",
+      "loc": "§4.2, p.5-6, l.474-477: 'enabling the LLM to actively intervene significantly improves performance (red) over observation-only ... the LLM consistently improves as more data becomes available across all three black-box types.'",
+      "mismatch": "Nuance/emphasis only — the claim is about *reliability* (not closing the gap), which is accurate; but 'fail even with query access' risks implying intervention is futile, whereas the paper's point is 'helps but insufficient.'",
+      "severity": "LOW"
+    },
+    {
+      "fact": "Boundary/counterexample: for the Board Game black box (4th, exploratory type), active intervention does NOT improve performance at all — 'actively collected data does not improve the reverse-engineering performance of the model.' The manuscript's blanket 'even with systematic query access they fail' is, if anything, MORE strongly supported for Board Game (query access provably useless there), but the manuscript does not rely on this; it is a supportive edge case rather than a counter to the claim.",
+      "loc": "App. I.2, p.25, l.1959-1966: 'For Board Game, actively collected data does not improve the reverse-engineering performance of the model ... When the information signal from the black-box is sparse, actively collected data remain of limited utility.'",
+      "mismatch": "None against the claim (strengthens it); noted for completeness.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "Scope caveat: the finding is established primarily on GPT-4o with an LLM-as-judge (also GPT-4o), across three (four incl. Board Game) narrow, deterministic, noise-free black-box types. The authors explicitly call this 'only a narrow slice of possible tasks' and note the noise-free / trustworthy-data assumption is 'rarely met in real scientific practices.' The manuscript's generalization to 'a canonical scientific inference task ... fail to do so reliably' is defensible but rests on a deliberately controlled testbed.",
+      "loc": "§6 Limitations, p.9, l.812-818: 'the three black-box types we studied represent only a narrow slice of possible tasks ... we have assumed idealized, noise-free black-boxes and fully trustworthy data—a condition that is rarely met in real scientific practices.'",
+      "mismatch": "Generalization breadth — manuscript states the conclusion crisply; paper hedges scope. Not an inaccuracy given the manuscript is citing it as one data point ('not confined to novelty scoring').",
+      "severity": "LOW"
+    },
+    {
+      "fact": "The Bayesian 'optimal' reference is optimal only under a well-specified prior (true rule inside the hypothesis space). The 'fail relative to reliable' framing is anchored to this Bayesian oracle, not to absolute task success. This does not undermine the manuscript claim (which is about reliability/falling short) but is the operative definition of 'reliably.'",
+      "loc": "App. B, p.16, l.1210-1213: 'Under the critical assumption that the true underlying rule resides within this hypothesis space (that is, the standard assumption of a well-specified prior), Bayesian models serve as an optimal reference standard...'",
+      "mismatch": "Definitional context; no conflict with claim.",
+      "severity": "LOW"
+    }
+  ]
+}

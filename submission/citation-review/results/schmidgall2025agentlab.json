@@ -1,0 +1,51 @@
+{
+  "bibkey": "schmidgall2025agentlab",
+  "read_status": "READ",
+  "note": "Agent Laboratory (Schmidgall et al., arXiv:2501.04227v2, AMD/JHU/ETH). Human-idea-driven autonomous LLM research pipeline (Lit Review -> Experimentation via mle-solver -> Report Writing via paper-solver), with autonomous and co-pilot modes. Central empirical finding relevant to the manuscript: the LLM automated reviewer (NeurIPS-guideline, adapted from Lu et al. 2024b) systematically OVER-estimates paper quality vs. human reviewers -- automated 6.1/10 vs. human 3.8/10 overall on a NeurIPS-style 1-10 scale = 2.3-point over-estimation. The human reviewers were 10 volunteer PhD students who each reviewed 3 of the 15 autonomously-generated papers. Paper explicitly positions itself as a co-pilot that takes a HUMAN-provided research idea, NOT an autonomous hypothesis generator (its central design distinction vs The AI Scientist).",
+  "claims": {
+    "C018": {
+      "status": "VERIFIED",
+      "verdict": "IMPRECISE-OK",
+      "evidence": "Manuscript L69 groups schmidgall2025agentlab among 'AI Scientist systems---agents that independently generate hypotheses, execute experiments, and synthesize knowledge---[that] have proliferated rapidly'. Category-level membership is VALID: Agent Laboratory is an autonomous LLM research framework and legitimately part of this proliferation (paper abstract p.1: 'autonomous LLM-based framework capable of completing the entire research process'; Discussion line 845: 'builds upon an emerging trend in the use of language agents for science'). HOWEVER the umbrella gloss 'independently generate hypotheses' does NOT fit this specific member: Agent Laboratory explicitly 'takes as input a human research idea' (lines 15, 31, 63) and is 'designed to assist human scientists in executing their own research ideas' (lines 62-63), contrasted against systems 'where agents participate in their own research ideation independent of human input' (lines 61-62) and 'fully automated research pipelines that attempt to conceive their own research directions' (lines 824-826). Even in autonomous mode the research question is human-provided (5 templates, lines 428-441), not agent-generated. Acceptable as a grouped background citation about proliferation, but the descriptor mismatch is recorded as a reverse finding.",
+      "fix": "No hard change required for a grouped proliferation cite. If precision desired, the category gloss 'independently generate hypotheses' should be softened, since Agent Laboratory (a human-idea co-pilot) does not generate its own hypotheses; consider noting the human-in-the-loop members of the group are idea-driven rather than idea-generating."
+    },
+    "C019": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "Manuscript L90: 'Prior work~\\citep{lu2024aiscientist,lu2026aiscientist,schmidgall2025agentlab,boiko2023emergent} provides qualitative characterizations of individual systems but no shared framework for cross-system comparison'. The operative assertion holds for Agent Laboratory: it is a single-system paper that characterizes/evaluates its own system and does NOT propose any shared/formal framework for cross-system comparison. Minor imprecision: 'qualitative characterizations' understates the paper, which also provides substantial QUANTITATIVE evaluation (human + automated NeurIPS-style reviewer scores, per-phase cost/time, success rates, MLE-Bench medal counts). But the core claim ('no shared framework for cross-system comparison') is true, so the grouped BG cite is accurate.",
+      "fix": "None required. Optional: acknowledge that some grouped works (incl. Agent Laboratory) provide quantitative as well as qualitative characterization; the load-bearing claim ('no shared framework for cross-system comparison') is unaffected."
+    },
+    "C020": {
+      "status": "FLAGGED",
+      "verdict": "MISATTRIBUTION",
+      "evidence": "Manuscript L166 (full sentence): 'Agent Laboratory delegates $V_s$ (NeurIPS-guideline LLM reviewer) but documents $+$2.3-point systematic over-estimation relative to human PhD students---adding a $V$ layer does not guarantee completeness if the layer is unreliable~\\citep{kim2026aireviewers}.' The +2.3 CONTENT is faithfully Agent Laboratory's OWN documented finding, so the fact itself is ACCURATE: (1) 'delegates V_s (NeurIPS-guideline LLM reviewer)' -> paper-solver Paper Review uses an LLM reviewer simulating NeurIPS review, adapted from Lu et al. 2024b (lines 348-354); (2) the +2.3 over-estimation is documented verbatim -- 'While the automated reviewers gave an average overall above average NeurIPS paper score of 6.1/10, human reviewers provided a much lower average of 3.8/10 (-2.3 points)' (lines 511-513; also Intro contribution 3, lines 76-81: 'automated scores significantly overestimating quality (6.1/10 vs. 3.8/10 overall)'; Fig 6 caption, lines 519-524: 'an average of -2.3 points lower'). Scale is NeurIPS-style overall 1-10; the human comparators were 10 volunteer PhD students who reviewed the 15 AI-generated papers (lines 442-443). The manuscript's '+2.3' over-estimation sign convention (automated over human) is correct and consistent with the paper's '-2.3' (human minus automated). PROBLEM: this Agent-Laboratory-origin fact is attributed to \\citep{kim2026aireviewers} instead of \\citep{schmidgall2025agentlab}. Cross-confirmed independently (findings.md HIGH): kim2026aireviewers contains zero '+2.3' occurrences and never mentions Agent Laboratory, while schmidgall2025agentlab documents it as a primary result.",
+      "fix": "MISATTRIBUTION -- change/add citation for the +2.3 fact from \\citep{kim2026aireviewers} to \\citep{schmidgall2025agentlab} (Agent Laboratory is the primary source that documents this finding; keep kim2026aireviewers only if it is a legitimate secondary/aggregating source, but schmidgall2025agentlab must be the primary attribution). SECONDARY (IMPRECISE): 'over-estimation relative to human PhD students' should read 'relative to human PhD-student REVIEWERS of the AI-generated papers' -- the comparison is the LLM reviewer over-scoring the SAME AI-generated papers relative to what the human PhD-student reviewers assigned (automated 6.1/10 vs human 3.8/10), NOT the system's papers being rated +2.3 above PhD students' own work."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "'over-estimation relative to human PhD students' (C020 phrasing)",
+      "loc": "manuscript L166 vs paper lines 442-443 & 507-513, Fig 6 (p.12-13)",
+      "mismatch": "The paper's human comparators are 10 volunteer PhD students acting as REVIEWERS who scored the 15 AI-generated papers on a NeurIPS-style 1-10 scale. The manuscript drops the 'reviewer' role, so 'relative to human PhD students' can be misread as comparing Agent Laboratory's papers against PhD students' own papers. Precise: automated LLM reviewer over-estimates by 2.3 points relative to the human PhD-student reviewers' scores of the same AI-generated papers.",
+      "severity": "low"
+    },
+    {
+      "fact": "exact scale behind '+2.3-point over-estimation'",
+      "loc": "paper Intro contribution 3 (lines 76-81), §4.1.1 (lines 511-513), Fig 6 caption (lines 519-524)",
+      "mismatch": "Underlying values: automated reviewer 6.1/10 vs human 3.8/10 overall on a NeurIPS-style 1-10 scale (delta = 2.3). No numeric error in the manuscript; sign convention ('+2.3' over-estimation) is correct (paper states the reciprocal '-2.3 points' = human minus automated). Recorded for completeness of the underlying 6.1-vs-3.8 figures.",
+      "severity": "info"
+    },
+    {
+      "fact": "C018 category gloss 'agents that independently generate hypotheses'",
+      "loc": "manuscript L69 vs paper lines 59-63, 824-826",
+      "mismatch": "Agent Laboratory explicitly does NOT independently generate hypotheses -- it takes a human-provided research idea and is designed as a co-pilot, its central distinction from The AI Scientist. The 'independently generate hypotheses' clause is the one feature Agent Laboratory disclaims. Category membership ('AI Scientist system', proliferation) remains valid; the descriptor is the mismatch.",
+      "severity": "low-medium"
+    },
+    {
+      "fact": "C019 gloss 'qualitative characterizations'",
+      "loc": "manuscript L90 vs paper §4 (Results)",
+      "mismatch": "Agent Laboratory provides substantial QUANTITATIVE evaluation (human + automated reviewer scores, per-phase cost/time, success rates, MLE-Bench medals), not merely qualitative characterization. The operative claim ('no shared framework for cross-system comparison') is unaffected and true.",
+      "severity": "low"
+    }
+  ]
+}

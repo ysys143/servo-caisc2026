@@ -1,0 +1,81 @@
+{
+  "bibkey": "liu2026lasthuman",
+  "read_status": "READ",
+  "note": "Adjudication of 7 atomic manuscript claims against liu2026lasthuman ('The Last Human-Written Paper: Agent-Native Research Artifacts', arXiv:2604.24658v2). All numeric anchors verified against the paper's own Tables 3, 4, 8-10 and body. Six of seven claims ACCURATE. One FLAGGED: C030 states two correct figures from this paper WITHOUT a citation (missing-citation), and additionally slips the 45.4% denominator from 'reproduction requirements' to 'papers'. Reverse sweep confirms the manuscript correctly uses 'five ... types' (=5 injection types, Table 4) and does NOT conflate with the 6 Rigor Auditor scoring dimensions; 82.6% is labeled 'average' by the manuscript but 'Overall/pooled' (95/115) by the paper, which coincidentally equals the mean of the five per-type rates, so no numeric error. Three internal numeric inconsistencies in the paper's own App. A.3 self-artifact are noted but do not touch any manuscript claim.",
+  "claims": {
+    "C026": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "L69 (BG) groups liu2026lasthuman in a multi-cite '...proliferated rapidly~\\citep{...,liu2026lasthuman}'. liu2026lasthuman (arXiv:2604.24658v2, 29 Apr 2026) is a bona fide recent agent-native-research-artifact protocol and positions itself amid 'A growing line of work argues that scientific knowledge should be authored in machine-readable form' (Sec.8, Related Work). As one member of a grouped background citation about the rapid emergence of agent-native research artifacts/tooling, its inclusion is defensible. (Note: the subject noun of 'proliferated rapidly' is not in the supplied verbatim snippet, so adjudication is on membership-in-class, which holds.)",
+      "fix": ""
+    },
+    "C027": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "Fair characterization. liu2026lasthuman's core contribution IS the artifact layer: a four-layer output format (Sec.2.2) plus a verification protocol (the ARA Seal, Sec.5.2, 'verification protocol (Figure 8)', line ~580). It explicitly distinguishes itself from the discovery loop, contrasting with 'autonomous research agents that conduct experiments end-to-end (Boiko et al., 2023; M. Bran et al., 2024; Schmidgall et al., 2025; Baek et al., 2025)' (Sec.8, lines 1176-1180) and stating ARA 'encodes claims, evidence, heuristics, and their executable bindings at authoring time' (line 1189). The paper does capture the research PROCESS via the Live Research Manager/Exploration Graph, but as artifact structure, not as an autonomous discovery agent -- so 'address the artifact layer ... rather than the discovery loop itself' is accurate.",
+      "fix": ""
+    },
+    "C028": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "All components verified. Four-layer ontology /logic, /src, /trace, /evidence: confirmed Sec.2.2 (Cognitive/Physical/Exploration Graph/Evidence Layers). ARA Seal three automated levels map cleanly to the manuscript's V_syntax/V_semantic/V_empirical: Level 1 Structural Integrity (schema/structural = V_syntax); Level 2 Argumentative Rigor = the Rigor Auditor (= V_semantic); Level 3 Execution Reproducibility, run by a 'sandboxed coding agent' (Fig.8) = V_empirical. 'reserving V_human for significance and novelty' matches Stage 3 human review, which focuses on 'significance, novelty, and taste' (Sec.5.1 P1; Sec.5.3 Stage 3). '82.6% detection' for the Rigor Auditor matches Table 4 overall (95/115 = 82.6%).",
+      "fix": ""
+    },
+    "C029": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "Table 4 ('Rigor Auditor effectiveness on the mutation benchmark, 23 ARAs x 5 injection types'), Overall row: n=115, Detected 95 (82.6%). The 82.6% figure is exact. See also Sec.7.5 'catches 100% of three high-severity classes ... and 91% of missing falsifications, but only 22% of orphan experiments'. (Reverse note logged: manuscript's 'detection' vs paper's 'Overall' pooled 95/115 -- both round to 82.6%.)",
+      "fix": ""
+    },
+    "C030": {
+      "status": "FLAGGED",
+      "verdict": "IMPRECISE-OK",
+      "evidence": "Both numbers are genuinely from liu2026lasthuman and correct in value, but the clause carries NO \\citep. (1) 45.4% -- Sec.1/Sec.7.1: 'Across PaperBench's 8,921 expert reproduction requirements, only 45.4% are fully specified in the source PDF' (line 726); Table 8 Overall 8,921 -> 45.4% sufficient; App. A.3.3 O4: 'Across 23 PaperBench papers (8,921 rubric requirements), only 45.4% of reproduction requirements are fully specified in the PDF' (lines 1789-1790). SOURCE UNIT = fraction of REQUIREMENTS, not papers. The manuscript's wording 'only 45.4% of papers fully specify reproduction requirements' slips the denominator to 'papers'. (2) 90.2% -- Sec.7.4/App. E.3/Table 10: on RE-Bench (24,008 runs), '90.2% of dollar cost is spent on failed exploration' / '59.2% of agent tokens (and 90.2% of dollar cost) ... spent on dead-end exploration'. Value correct; 'extension cost' is a slightly loose gloss for 'RE-Bench agent-run dollar cost on failed/dead-end exploration' that the extension experiment builds on.",
+      "fix": "Add \\citep{liu2026lasthuman} to the clause. Also tighten the 45.4% wording from 'papers' to requirements, e.g.: 'only 45.4% of reproduction requirements are fully specified in source PDFs (8,921 requirements across 23 PaperBench papers), and 90.2% of RE-Bench dollar cost goes to failed/dead-end exploration~\\citep{liu2026lasthuman}.'"
+    },
+    "C031": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "Both figures exact. Table 4: Overall 95/115 = 82.6% across the five injection types; Orphan experiment 5/23 = 22%. The manuscript's 'five structural violation types' correctly denotes the 5 INJECTION types (Table 4 caption: '23 ARAs x 5 injection types': fabricated claim, missing falsification, orphan experiment, over-claim, rebutted-branch leak), NOT the 6 Rigor Auditor SCORING dimensions -- so the '5 vs 6' trap is avoided. 'only 22% on orphaned-experiment violations' matches the paper's own headline blind spot ('only 22% of orphan experiments', Sec.7.5; App. H.2.2 Table 14 Total detected 5/23).",
+      "fix": ""
+    },
+    "C032": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "Appropriately hedged ('a plausible entry point'). liu2026lasthuman positions ARA as a shared substrate / collective memory: Sec.6 (Human+AI)^2 Network describes a 'shared ARA network' and 'a common substrate through which human and machine researchers alike publish, verify, and build on scientific knowledge' (line 1284); Sec.9 'Long term: cross-disciplinary collective memory' and 'a natural substrate for cross-disciplinary knowledge transfer' (lines 1172, 1183); aggregated lineages 'form a queryable scientific knowledge graph'. Casting ARA as a plausible entry point for shared memory (w) is well supported.",
+      "fix": ""
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "C030: '45.4% of papers fully specify reproduction requirements' -- denominator unit slip.",
+      "loc": "Manuscript L171; source Sec.1/7.1/Table 8/App. A.3.3 (lines 726, 1789-1790, 2216).",
+      "mismatch": "The paper's 45.4% is the fraction of the 8,921 reproduction REQUIREMENTS (across 23 papers) that are fully specified, NOT the fraction of PAPERS. Read literally, 'of papers' implies ~10 of 23 papers are fully reproducible, which the source does not claim. Value correct; unit/denominator misstated.",
+      "severity": "medium"
+    },
+    {
+      "fact": "'82.6% average detection' -- 'average' vs the paper's 'Overall' (pooled) label.",
+      "loc": "Manuscript L171 (C029) and L211 (C031); source Table 4 'Overall 115 95 (82.6%)'.",
+      "mismatch": "Table 4 reports 82.6% as the POOLED rate (95/115 = 82.61%). The manuscript calls it 'average'. Coincidentally the unweighted mean of the five per-type rates (100,100,100,91.3,21.7) also = 82.6%, so there is NO numeric discrepancy either way; only a minor semantic mislabel (pooled vs mean).",
+      "severity": "low"
+    },
+    {
+      "fact": "'five structural violation types' correctly = 5 injection types, not the 6 Rigor Auditor scoring dimensions.",
+      "loc": "Manuscript L211 (C031); source Table 4 caption (5 injection types) vs Sec.5.2/App. H.2.2 (6 dimensions: evidence relevance, falsifiability, scope calibration, argument coherence, exploration integrity, methodological rigor).",
+      "mismatch": "No mismatch -- checked and CLEAR. The manuscript uses '5' for the violation/injection types (matching Table 4) and does not conflate with the 6 scoring dimensions. Logged for audit transparency.",
+      "severity": "none"
+    },
+    {
+      "fact": "Three internal numeric inconsistencies within the cited paper's own App. A.3 self-artifact.",
+      "loc": "liu2026lasthuman App. A.3.1 vs A.3.4/A.3.5/A.3.6/A.3.7: heuristics '23' (directory/Layer Index) vs '18' ('18 heuristics total'/'all 18 heuristics'); exploration tree '114-node decision DAG' vs '94-node tree'/'94 nodes total'; sessions '38 session logs' vs '36 sessions'/'all 36 sessions'.",
+      "mismatch": "Source-internal inconsistencies in the paper's illustrative self-ARA. They do NOT affect any of the 7 manuscript claims (no manuscript claim cites these counts). Recorded per instruction as a data-integrity note about the source.",
+      "severity": "low"
+    },
+    {
+      "fact": "Confirmation that C030's two figures map to the correct benchmarks.",
+      "loc": "Source: 45.4% = PaperBench (8,921 requirements, 23 papers); 90.2% = RE-Bench (24,008 runs, dollar cost on failed/dead-end exploration).",
+      "mismatch": "No cross-benchmark mixup -- checked and CLEAR. 45.4% is the PaperBench figure and 90.2% is the RE-Bench figure, as the manuscript pairs them. Only the missing citation (C030) and the 45.4% unit slip remain as findings.",
+      "severity": "none"
+    }
+  ]
+}

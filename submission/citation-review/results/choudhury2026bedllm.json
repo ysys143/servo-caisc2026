@@ -1,0 +1,38 @@
+{
+  "bibkey": "choudhury2026bedllm",
+  "read_status": "READ",
+  "note": "BED-LLM (ICLR 2026, arXiv:2508.21184v3). Applies sequential Bayesian experimental design to LLM information gathering: iteratively selects questions maximizing EIG about a target theta, with the EIG estimated from the LLM's predictive distributions (Rao-Blackwellized estimator, Eq. 3, using LLM logits). Two experimental domains only: 20 Questions (guess a hidden entity via yes/no questions) and film-preference elicitation (multiple-choice questions, MovieLens-100K profiles). Deployment-time, no fine-tuning; myopic/greedy. NO physical/scientific experiment design is performed. Both factual assertions in manuscript claim C112 verified.",
+  "claims": {
+    "C112": {
+      "status": "verified",
+      "verdict": "ACCURATE",
+      "location_in_manuscript": "L219, METHOD",
+      "claim_text": "BED-LLM~\\citep{choudhury2026bedllm} derives a usable EIG posterior from an LLM's predictive distributions, but for conversational queries rather than experiment design---so the gap is integration with reliable E and V, not impossibility.",
+      "evidence": [
+        "(a) EIG from LLM predictive distributions -- CONFIRMED. Abstract (lines 30-32): 'this EIG can be formulated (and then estimated) in a principled way using a probabilistic model derived from the LLM's predictive distributions.' Section 3.3 (line 368): 'we use the following Rao-Blackwellized estimator based on the LLM's predictive distribution' -- Eq. 3 (lines 368-373) sums the LLM's per-answer likelihoods pLLM(y;[theta,x]), computed 'using the LLM's logits whenever possible' (line 382). The belief/posterior state pf(theta;h) over the target is derived from the filtered LLM in-context distribution pLLM(theta;h) (section 3.1, lines 240-255). The paper itself frames the prior-likelihood construction as 'deriving our beliefs about theta from a conventional Bayesian posterior' (section 4, lines 410-411), so the manuscript's phrase 'EIG posterior' is a fair characterization.",
+        "(b) 'for conversational queries rather than experiment design' -- CONFIRMED. Abstract (line 25): the approach 'enables LLMs to act as effective multi-turn conversational agents.' Queries are 'explicit questions asked to the user' (section 2, line 109). The only two experimental domains are the 20 Questions game and film-preference elicitation (section 6, lines 490-493; sections 6.1-6.2). No physical or scientific experiment design is performed; tool-use / document retrieval / web search and 'AI-driven scientific inquiries' (section 1, line 58) are mentioned only as aspirational generalizations or motivating domains, never run."
+      ],
+      "fix": "None required -- claim is accurate. OPTIONAL nuance (non-blocking): the paper deliberately avoids full Bayesian posterior inference; its belief update pf(theta;h) is a sample-filter-uniform approximation that sits 'somewhere between the in-context and Bayesian updating' (sections 3/3.1, lines 203-206, 1649). If the manuscript wants to be maximally precise, 'EIG posterior' could read 'EIG-driven belief state / posterior-like belief over the target.' Substance is correct as written. The 'integration with reliable E and V' is the manuscript's own downstream inference (E/V are manuscript-internal quantities) and is not attributed to BED-LLM, so it introduces no citation error."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "BED-LLM's belief state pf(theta;h) is explicitly a filtered/uniform approximation described as 'somewhere between the in-context and Bayesian updating'; the paper avoids full Bayesian posterior inference for tractability and even distinguishes conditioning p(a|b) from general dependency p(a;b) (footnote 1).",
+      "loc": "section 3 lines 203-206; section 3.1 lines 227-255; section B.3 line 1649; footnote 1 lines 126-128",
+      "mismatch": "Minor phrasing only: manuscript's 'EIG posterior' slightly overstates the strictness of the object (it is a belief state, not a strict Bayesian posterior). Substance of C112 unaffected.",
+      "severity": "minor"
+    },
+    {
+      "fact": "Headline quantified result: BED-LLM improves 20 Questions success rate by 37.4 percentage points on average vs. direct prompting, more than doubling in over half of setups and never decreasing.",
+      "loc": "Abstract line 82; section 1 lines 80-83",
+      "mismatch": "None with C112 (C112 quotes no number). Flag only if any other manuscript passage cites a different BED-LLM figure.",
+      "severity": "info"
+    },
+    {
+      "fact": "'AI-driven scientific inquiries (Lu et al., 2024; Mandal et al., 2025)' appears only as one item in a motivating list; BED-LLM runs no physical/scientific experiment-design task. This directly SUPPORTS C112's contrast ('rather than experiment design').",
+      "loc": "section 1 line 58; section 6 lines 490-493",
+      "mismatch": "None -- consistent with and supportive of the claim.",
+      "severity": "info"
+    }
+  ]
+}

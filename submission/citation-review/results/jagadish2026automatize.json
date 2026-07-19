@@ -1,0 +1,33 @@
+{
+  "bibkey": "jagadish2026automatize",
+  "note": "Jagadish et al. 'Can we automatize scientific discovery in the cognitive sciences?' (arXiv:2603.20988v1, 22 Mar 2026; 5-page perspective/vision piece; senior author Schulz, Helmholtz Munich) proposes a fully in-silico closed loop for cognitive-science discovery (propose experiments -> generate data -> synthesize models -> close loop). All three manuscript sub-claims of C117 are directly supported: (a) it uses a behavioral/cognitive foundation model (Centaur) to generate synthetic behavioral data in lieu of collecting from human participants -- i.e. the foundation model IS the proxy for the experiment E; (b) it gives no operational criterion (no threshold, statistical gate, or decision rule) for escalating from synthetic to in-vivo validation -- the only selector offered is the qualitative 'highest-scoring discoveries can then be validated in vivo'; (c) it explicitly flags synthetic data as a hypothesis accelerator, not ground truth ('treat such models as accelerators for hypothesis generation rather than as ground truth'). Manuscript C117 CORRECT.",
+  "read_status": "READ",
+  "claims": {
+    "C117": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "All three sub-claims confirmed. (a) 'behavioral foundation model as proxy E (synthetic participant data in lieu of human subjects)': the 'Generating data' section replaces human data collection with a cognitive foundation model -- 'Once a task is specified, the cycle proceeds to the generation of synthetic behavioral data. This is achieved using recent iterations of the Centaur model, a foundation model of human cognition' (L99-100); Figure 1 labels the step 'Cognitive foundation model produces behavioral data for proposed set-up' (L58-59); 'foundation models, like Centaur, can generate de novo data that are often indistinguishable from human behavior' (L105-106); it is conditioned on subject metadata to 'simulate not just a generic agent, but a targeted participant profile, for instance, simulating the behavior of a 30-year-old individual with high scores in obsessive-compulsive traits performing a specific planning task' (L110-112). (b) 'give no criterion for escalating to in-vivo validation': the paper asserts the endpoint of in-vivo validation but supplies only a qualitative interestingness-ranking selector, not any threshold/gate -- 'The highest-scoring discoveries can then be validated in vivo with human participants, keeping the process anchored to biological cognition while dramatically scaling up and accelerating the search for theory' (L160-161); the abstract likewise says outputs are surfaced 'for subsequent validation in real human populations' (L23) and the Discussion only calls to 'develop norms that keep automated discovery tethered to empirical validation' (L213) -- no statistical gate, threshold, cost/benefit rule, or procedure specifying when/how much to escalate. (c) 'themselves flagging synthetic data as a hypothesis accelerator, not ground truth': Discussion, failure-mode #2 -- 'synthetic data generation is not guaranteed to be a faithful substitute for humans. Behavioral foundation models may rely on shortcuts, drift toward average subjects, or fail under genuine distribution shift... A pragmatic stance is to treat such models as accelerators for hypothesis generation rather than as ground truth: they should be continuously calibrated against benchmark effects, challenged with adversarial tasks...' (L185-190). Attribution 'Jagadish et al.' is correct (Akshay K. Jagadish is first author). Manuscript characterization is faithful.",
+      "fix": "None needed. Claim is accurate and well-supported. Optional (LOW) precision note: the paper does offer a loose qualitative selector for escalation ('highest-scoring discoveries can then be validated in vivo', ranked by the LLM-critic's interestingness score), so 'give no criterion' is best read as 'no operational/quantitative criterion (no threshold or statistical gate)', which is what the paper indeed lacks; the manuscript wording is defensible as-is."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The paper does provide one selector for what gets escalated to human testing, but it is purely qualitative and interestingness-driven, with no threshold or statistical gate: 'The highest-scoring discoveries can then be validated in vivo with human participants' (L160), where 'highest-scoring' means top-ranked by the LLM-critic's 'interestingness' metric (novelty, compressibility, qualitative signatures, transferability; L150-153).",
+      "loc": "L160-161; L147-153",
+      "mismatch": "Minor nuance, does not weaken the claim: the manuscript says 'no criterion for escalating to in-vivo validation.' Strictly the paper offers a loose qualitative heuristic (rank by interestingness), but no operational criterion -- no threshold, statistical gate, power/cost calculation, or decision rule. So 'no criterion' is accurate in the meaningful (operational) sense; a maximally precise reading is 'no operational escalation criterion beyond interestingness ranking.'",
+      "severity": "LOW"
+    },
+    {
+      "fact": "The paper's own Discussion corroborates the accelerator-not-ground-truth framing and adds explicit calibration recommendations rather than an escalation rule: synthetic models 'should be continuously calibrated against benchmark effects, challenged with adversarial tasks designed to expose heuristics, and, where appropriate, complemented or replaced by smaller, local simulators tuned to specific task families' (L188-190); it warns 'Even plausible-looking behavior can be produced for the wrong reasons, yielding an illusion of mechanistic clarity' (L187).",
+      "loc": "L185-190",
+      "mismatch": "None -- corroborates the manuscript. These are ongoing-calibration checks, not a synthetic-to-human escalation criterion, which reinforces sub-claim (b).",
+      "severity": "INFO"
+    },
+    {
+      "fact": "The paper is explicitly a cognitive-sciences perspective ('a fully automated, in silico science of the mind', abstract L16-17), so the manuscript's framing 'In cognitive science, Jagadish et al. use a behavioral foundation model...' correctly situates the domain.",
+      "loc": "L1-2, L16-17",
+      "mismatch": "None -- domain attribution ('cognitive science') is accurate.",
+      "severity": "INFO"
+    }
+  ]
+}

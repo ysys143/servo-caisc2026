@@ -1,0 +1,33 @@
+{
+  "bibkey": "si2024novelideas",
+  "read_status": "READ",
+  "note": "Si, Yang, Hashimoto (Stanford), 'Can LLMs Generate Novel Research Ideas? A Large-Scale Human Study with 100+ NLP Researchers' (arXiv:2409.04109). Large-scale human study: 100+ NLP researchers (N=104 unique = 49 idea writers + 79 reviewers, 24 overlap), N=298 blind reviews across 3 conditions (Human / AI / AI+Human-Rerank, 49 ideas each). Establishes human-expert quality baseline + standardized evaluation protocol. Headline: LLM-generated ideas judged MORE NOVEL than human expert ideas (p<0.05; novelty 5.64 AI / 5.81 AI+Rerank vs 4.84 human) but slightly weaker/comparable on feasibility. Evaluation-centric IDEATION ONLY (prompting-based NLP); execution into full projects is Phase II future work, and the attempted execution agent (Appendix Y) is shown unreliable and left to future work -> does NOT unify a full discovery loop.",
+  "claims": {
+    "C056": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": "Claim: 'idea-generation studies~\\citep{si2024novelideas,baek2024researchagent} establish quality baselines without unifying the full discovery loop.' (a) ESTABLISHES QUALITY BASELINES: CONFIRMED. si2024 is a large-scale idea-generation human study recruiting 100+ NLP researchers (N=104 unique participants; 49 idea writers, 79 reviewers) collecting 298 blind reviews to compare LLM vs human ideas on novelty/excitement/feasibility/effectiveness/overall; it provides an expert human baseline + standardized protocol 'to serve as a foundation for future follow-up studies and methods work' (Sec 1), with the concrete quality result that LLM ideas are judged significantly more novel than human expert ideas (p<0.05; novelty means 5.64/5.81 AI vs 4.84 human, Table 7 / Fig 1). (b) WITHOUT FULL DISCOVERY LOOP: CONFIRMED. Study is explicitly evaluation-centric and scoped to idea generation + human evaluation only; ideation is framed as 'the very first step' and 'only one part of the research process' (Sec 1). Idea execution/verification is deferred to Phase II future work (Sec 10 Q2/Q4); the attempted end-to-end execution agent (Appendix Y, Table 18) is found unreliable (agent skips/modifies steps, mis-defines metrics; only 5/1 of tested ideas beat baseline) and left to future work. No unified generate->execute->verify loop is claimed.",
+      "fix": null
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The novelty win is specific and directional: LLM ideas judged MORE NOVEL than human expert ideas (p<0.05) but slightly WEAKER on feasibility (Human 6.61 vs AI 6.34 / AI+Rerank 6.44, n.s.), and comparable on effectiveness/overall in most tests.",
+      "loc": "Abstract; Fig 2; Sec 5.1 / Table 7; Sec 5.2 / Table 8",
+      "mismatch": "C056 only claims 'quality baselines', which is fully supported. Flag for any OTHER manuscript sentence that summarizes si2024 as LLMs matching/surpassing humans on overall research quality: the robust finding is NOVELTY only, with a feasibility trade-off; overstating to 'better ideas overall' would be inaccurate.",
+      "severity": "none-for-C056 (advisory for reuse elsewhere)"
+    },
+    {
+      "fact": "Scope is strictly prompting-based NLP research ideation with 7 topics (Bias, Coding, Safety, Multilingual, Factuality, Math, Uncertainty); ideas evaluated as written proposals, not executed. Authors state conclusions 'could be different' in other domains.",
+      "loc": "Sec 2 (Problem Setup); Sec 10 Q3; Appendix A",
+      "mismatch": "Supports C056's 'idea-generation studies ... without unifying the full discovery loop.' Would contradict any claim that si2024 evaluated executed/full research outcomes or generalized beyond NLP ideation.",
+      "severity": "none-for-C056"
+    },
+    {
+      "fact": "si2024 DID attempt an idea-execution agent (Appendix Y) but reports it as unreliable and explicitly leaves faithful implementation/verification to future work; it also shows LLM self-evaluation (LLM-as-judge) is unreliable (best LLM evaluator 53.3% vs human 56.1% agreement).",
+      "loc": "Appendix Y / Table 18; Sec 7.2 / Table 11; Sec 10 Q4",
+      "mismatch": "Reinforces 'without unifying the full discovery loop' (they tried and could not close it). Only a nuance: si2024 is not indifferent to execution -- it probed and abandoned it. C056's wording ('establish quality baselines without unifying the full discovery loop') remains accurate.",
+      "severity": "none-for-C056"
+    }
+  ]
+}

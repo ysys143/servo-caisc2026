@@ -1,0 +1,70 @@
+{
+  "bibkey": "leiden2026",
+  "read_status": "READ",
+  "note": "Leiden Declaration on Artificial Intelligence and Mathematics, June 2026, DOI 10.5281/zenodo.20302944, 11pp. Normative community declaration (not a study). Read in full via pdftotext. Key audit-relevant fact: the archived PDF states NO signatory count anywhere; the only concrete headcounts are 'around 60 participants from 10 countries' at the Sept 2025 Lorentz Center conference and 16 named working-group members. Signing is done post-hoc via the external site https://leidendeclaration.ai (ORCID-authenticated), so any specific signatory number is NOT attributable to the cited document itself.",
+  "claims": {
+    "C106": {
+      "manuscript_loc": "L211",
+      "claim_text": "The Leiden Declaration~\\citep{leiden2026}, signed by over 130 mathematicians, corroborates the indispensability of expert oversight...",
+      "type": "NUM",
+      "verdict": "UNSUPPORTED",
+      "evidence": [
+        "PDF states no signatory number. Verbatim (p.10, About this document): 'The Declaration can be signed, with authentication through an ORCID identifier, at https://leidendeclaration.ai.' -> count lives on the external site, not in the archived document.",
+        "Only headcounts present. Verbatim (p.10): 'The around 60 participants from 10 countries comprised mathematicians, computer scientists, philosophers, historians, and social scientists...' and 16 named working-group members (p.11: Alper, Barany, Chavarri Villarello, Dahmen, Dean, Ganapathy, Harris, Holmes, Jamnik, Kelk, Kra, Martin, Naskrecki, Ochigame, Portegies, Schmitt).",
+        "The string 'over 130', '130', or any count of signatories does NOT appear anywhere in the 11-page PDF."
+      ],
+      "analysis": "The number 'over 130 mathematicians' is not stated in the cited artifact and cannot be verified against it. It is neither confirmed nor contradicted by the PDF (the PDF gives no count to contradict), which makes the claim UNSUPPORTED relative to the cited source rather than INACCURATE-NUM. The figure most plausibly comes from the live signatory tally at leidendeclaration.ai, which is a different, time-varying artifact than the archived Zenodo document under \\citep{leiden2026}.",
+      "severity": "medium",
+      "fix": "Either (a) cite the live signatory count with an access date, e.g. 'signed by over N mathematicians (leidendeclaration.ai, accessed <date>)', and set N to the verified current tally; or (b) soften/remove the count and attribute it to the sign-on site, e.g. 'The Leiden Declaration~\\citep{leiden2026}, endorsed by a broad group of mathematicians, corroborates...'. Do NOT attribute a specific signatory number to the Zenodo PDF, which states none. The archived document's own headcounts, if a number is wanted, are ~60 conference participants and 16 working-group members. (Orchestrator to Tier-2 verify the true website count.)"
+    },
+    "C107": {
+      "manuscript_loc": "L211",
+      "claim_text": "...AI-produced proofs may contain almost-invisible errors that resist detection without human scrutiny, so no automated layer fully substitutes for $V_\\text{human}$...",
+      "type": "CHAR",
+      "verdict": "ACCURATE",
+      "evidence": [
+        "Potential threat #1 (p.3): 'Current automated techniques can produce plausible but unreliable (or even incorrect) arguments which are difficult to distinguish from correct mathematical proofs. This applies not only to informal arguments, but also to formalizations...' and '...jeopardizing our ability to implement traditional standards for the correctness, transparency, and independent verifiability of proof.'",
+        "Individual Rec. 04 'Retain the responsibility for correctness' (p.5): '...the responsibility for the correctness and adequacy of the arguments and results... remains exclusively with the human authors.'",
+        "Individual Rec. 05 'Affirm the humanity of authorship' (p.5): 'Artificial intelligence may obscure, but does not replace, the collective human labor behind a result.'"
+      ],
+      "analysis": "The manuscript's characterization is a faithful paraphrase. 'almost-invisible errors that resist detection' maps to 'plausible but unreliable (or even incorrect) arguments which are difficult to distinguish from correct mathematical proofs'; 'no automated layer fully substitutes for V_human' maps to the Declaration assigning correctness responsibility 'exclusively' to human authors and stating AI 'does not replace' human labor. Wording is not verbatim (the exact phrase 'almost-invisible errors' is the manuscript's, not the PDF's) but the substance is directly supported.",
+      "severity": "none",
+      "fix": "No change required. Optional: since the framing is a paraphrase, it reads as supported as-is; no verbatim-quote obligation."
+    },
+    "C108": {
+      "manuscript_loc": "L438",
+      "claim_text": "The Leiden Declaration~\\citep{leiden2026} corroborates ... AI-produced natural-language proofs may contain almost-invisible errors that resist detection without expert scrutiny, reinforcing that $V_\\text{human}$ is not replaceable...",
+      "type": "CHAR",
+      "verdict": "ACCURATE",
+      "evidence": [
+        "Potential threat #1 (p.3): 'Current automated techniques can produce plausible but unreliable (or even incorrect) arguments which are difficult to distinguish from correct mathematical proofs. This applies not only to informal arguments, but also to formalizations...'",
+        "Individual Rec. 04 (p.5): responsibility for correctness '...remains exclusively with the human authors.'",
+        "Individual Rec. 05 (p.5): AI 'may obscure, but does not replace, the collective human labor behind a result.'",
+        "Individual Rec. 07 (p.6) supports the 'expert scrutiny' element: '...specialized knowledge is required to assess claims about the depth, difficulty, and significance of results.'"
+      ],
+      "analysis": "Well supported, same basis as C107. The manuscript's restriction to 'natural-language proofs' is a subset of what the Declaration covers: threat #1 explicitly says the problem applies to 'informal arguments' (i.e. natural-language) AND formalizations, so limiting the claim to natural-language proofs is a conservative narrowing that remains fully supported. 'V_human is not replaceable' is directly reinforced by Recs 04/05.",
+      "severity": "none",
+      "fix": "No change required."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The phrase describing automatic proof-checking without human oversight appears in the PDF, but ONLY as a description of why industry finds mathematics attractive as training data, NOT as the Declaration's own endorsement. Verbatim (p.9, Recommendations for commercial AI): 'What currently makes mathematics attractive for general-purpose artificial intelligence development is that the correctness of formalized proofs can be checked automatically, without the need for human oversight.'",
+      "loc": "Leiden PDF p.9 (Recommendations for commercial artificial intelligence)",
+      "mismatch": "No mismatch with the manuscript's claims (C107/C108 align with the Declaration). This is a guard flag: the sentence must NOT be mined out of context to argue the Declaration endorses removing human oversight. Read in context it is descriptive of industry rationale and is countered by threat #1 (formalization difficulty) and Recs 04/05 (human responsibility).",
+      "severity": "info"
+    },
+    {
+      "fact": "The archived Zenodo PDF contains no count of signatories; signing occurs on the external live site. Verbatim (p.10): 'The Declaration can be signed, with authentication through an ORCID identifier, at https://leidendeclaration.ai.'",
+      "loc": "Leiden PDF p.10 (About this document)",
+      "mismatch": "Directly bears on C106: 'signed by over 130 mathematicians' is not sourceable from the cited document. Any signatory count must be attributed to the website (with access date), not to \\citep{leiden2026}.",
+      "severity": "medium"
+    },
+    {
+      "fact": "Declaration is explicitly time-bounded. Verbatim (p.10): 'The Declaration reflects artificial intelligence technologies and mathematical practice as of May 2026.'",
+      "loc": "Leiden PDF p.10",
+      "mismatch": "No manuscript conflict; noted so that any dated claim about the Declaration's scope stays consistent with its May 2026 snapshot.",
+      "severity": "info"
+    }
+  ]
+}

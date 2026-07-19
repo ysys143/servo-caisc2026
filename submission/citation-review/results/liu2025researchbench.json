@@ -1,0 +1,52 @@
+{
+  "bibkey": "liu2025researchbench",
+  "read_status": "READ",
+  "note": "ResearchBench (arXiv 2503.21248v3). Blind digest + Layer2/3 adjudication done against full text. Manuscript makes 1 claim (C109). Both sub-claims verified true against the paper: (1) it restricts to papers published from 2024 onward to control contamination; (2) it evaluates an inspiration-based 3-sub-task decomposition (inspiration retrieval / hypothesis composition / hypothesis ranking) and establishes NO expert/human performance baseline. The paper's experts (5 PhD students, 62 papers) validate only the extraction/decomposition ACCURACY (91.9% major / 82.3% all), never task performance. The word 'baseline' appears once in the paper (App. A.1 l.1908) and refers to 'baseline model cutoff dates', not an expert baseline — confirming no expert-baseline exists to close. The 3-sub-task 'sufficient set' is imported from MOOSE-Chem (Yang et al. 2025b), not original to ResearchBench, but C109 does not claim otherwise. Minor lexical nuance: paper says '2024 onward'/'2024 or later' (inclusive) while manuscript writes 'post-2024 findings'; non-material since the contamination-strict subset is explicitly 'after July 2024' and the substantive point is faithful.",
+  "claims": {
+    "C109": {
+      "manuscript_location": "L213 (METHOD)",
+      "manuscript_text": "Constructing the contamination-controlled benchmark and the expert baseline is itself an open task; a recent benchmark takes a step by restricting to post-2024 findings to control contamination~\\citep{liu2025researchbench}, though it evaluates inspiration-based decomposition rather than closing the expert-baseline gap.",
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "evidence": [
+        "(a) post-2024 contamination control — Abstract l.29-31: 'To prevent data contamination, we focus exclusively on publications from 2024 onward, ensuring minimal overlap with LLM pretraining data'; Body l.159: 'To prevent data contamination, we select only papers published from 2024 onward'; l.371-374: 'we apply the agentic framework only to papers published in 2024 or later, thereby minimizing overlap with the pretraining data of LLMs'; strict subset App. A.1 l.1906-1908: 'includes only papers published after July 2024 ... farther away from the baseline model cutoff dates'.",
+        "(b) inspiration-based decomposition — Title l.2: 'via Inspiration-Based Task Decomposition'; Abstract l.24-25: 'a sufficient set of scientific discovery sub-tasks—inspiration retrieval, hypothesis composition, and hypothesis ranking'; Sec 3.1 l.277-284 formalizes the decomposition (Eqs 1-4).",
+        "(c) does NOT close an expert-baseline gap — experts appear ONLY to validate extraction accuracy: l.150-156 '...check whether the decomposition is accurate ... decomposition accuracy was 91.9% ... 82.3%'; App. A.2 l.2057 'They check the accuracy of the extracted research questions, inspirations, and hypotheses'. No human-vs-LLM performance comparison anywhere; the lone occurrence of 'baseline' (l.1908) denotes model cutoff dates, not an expert baseline. Novelty claim is inferred from OOD inspiration-retrieval Hit Ratio (GPT-4o 45.65% at top-4%, Table 2b l.833-834), not benchmarked against experts."
+      ],
+      "nuance": "Mild imprecision: paper's window is '2024 onward' (inclusive) whereas manuscript writes 'post-2024'; and 'findings' stands in for 'papers/publications'. Neither changes meaning — the contamination-strict subset is literally post-July-2024, and the characterization of what the benchmark does vs. does not do is faithful. Borderline IMPRECISE-OK but the substantive claim is accurate.",
+      "fix": "None required. Optional (LOW): change 'post-2024 findings' to 'papers published from 2024 onward' to mirror the paper's exact window; purely cosmetic."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The 3-sub-task 'sufficient set' decomposition (inspiration retrieval / hypothesis composition / hypothesis ranking) is imported from MOOSE-Chem (Yang et al. 2025b), not originated by ResearchBench.",
+      "loc": "l.61-64, l.206-213, l.253, l.277-284",
+      "mismatch": "None — C109 says the benchmark 'evaluates inspiration-based decomposition', which is exactly right and does not attribute invention to ResearchBench.",
+      "severity": "INFO"
+    },
+    {
+      "fact": "Expert evaluation (5 PhD students; 62 sampled papers) is used solely to validate extraction/decomposition ACCURACY (91.9% major-only / 82.3% all issues), not to establish a human performance baseline on any of the three tasks.",
+      "loc": "l.150-158, l.839-860, App. A.2 l.2051-2069",
+      "mismatch": "None — this directly SUPPORTS the manuscript's assertion that the paper does not close the expert-baseline gap.",
+      "severity": "INFO"
+    },
+    {
+      "fact": "Paper's contamination window is '2024 onward' / '2024 or later' (2024 inclusive); a stricter re-run uses papers 'after July 2024'. Strict vs Original results are 'very close ... consistent with normal sample variance'.",
+      "loc": "l.29-31, l.159, l.371-374, l.1906-1908, l.2046-2048",
+      "mismatch": "Minor lexical — manuscript's 'post-2024' reads as after-2024 while the main benchmark is inclusive of 2024. Non-material; the strict subset is literally post-July-2024.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "Headline empirical result: LLMs excel at OOD inspiration retrieval (most models ~80% at 20% retained; GPT-4o 45.65% at 4% retained); composition and ranking are only moderate ('none of the models achieve consistently high performance').",
+      "loc": "l.1056-1061, Table 2 l.823-834, l.1557-1559, l.1674-1676",
+      "mismatch": "None — C109 does not cite these numbers; no conflict.",
+      "severity": "INFO"
+    }
+  ],
+  "summary": {
+    "status": "VERIFIED",
+    "verdict": "ACCURATE",
+    "evidence": "post-2024 (l.29-31/159/373), inspiration-based 3-sub-task decomposition (title/l.24-25/277-284), no expert performance baseline (experts validate extraction accuracy only, l.150-156/2057; 'baseline' at l.1908 = model cutoff dates).",
+    "fix": "None required; optional cosmetic rewording of 'post-2024 findings' -> 'papers published from 2024 onward'."
+  }
+}

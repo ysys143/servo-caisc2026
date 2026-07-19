@@ -1,0 +1,44 @@
+{
+  "bibkey": "romera2023funsearch",
+  "read_status": "READ",
+  "note": "Nature 625:468-475 (2024), Romera-Paredes et al., 'Mathematical discoveries from program search with large language models.' FunSearch pairs a frozen pretrained LLM (Codey/PaLM2) with a systematic, code-executed 'evaluate' oracle in an island-based evolutionary loop. The evaluator is deterministic: it executes each LLM-generated program and rejects any that violate time/memory limits or produce invalid output, then assigns a real-valued score to valid ones. This is exactly the 'evaluator function returning deterministic pass/fail' mechanism claimed in C068 (FunSearch half). Two figure tables (Table 1 bin packing, Fig 5a capacity) were verified against PDF page images. No LLM fine-tuning; theorem proving explicitly out of scope.",
+  "claims": {
+    "C067": {
+      "location": "main L176 (Background)",
+      "type": "BG",
+      "claim_gist": "FunSearch listed among math/formal-oracle domain applications.",
+      "verdict": "ACCURATE",
+      "evidence": "FunSearch operates squarely in the math/formal-oracle domain described: it targets 'problems admitting an efficient evaluate function, which measures the quality of a candidate solution' (Intro), demonstrated on the cap set problem (extremal combinatorics) and online bin packing (combinatorial optimization). Inclusion in a math-formal domain list is consistent with the paper's self-description as making 'mathematical discoveries.' No mismatch.",
+      "confidence": "high"
+    },
+    "C068": {
+      "location": "main L436 (Characterization)",
+      "type": "CHAR",
+      "claim_gist": "FunSearch (and DeepSeek-Prover) validate against a formal or numeric oracle -- an evaluator function or proof kernel returning a deterministic pass/fail. [Only the FunSearch half is assessed against this paper.]",
+      "verdict": "ACCURATE",
+      "evidence": "The FunSearch half is directly supported. (1) 'The input to FunSearch is a specification of the problem in the form of an evaluate function, which scores candidate solutions' (Specification section, Nature p469). (2) The evaluate oracle is deterministic and code-executed: cap set evaluate 'Returns size of candidate_set if it is a cap set, None otherwise' via utils_capset.is_capset(); bin packing evaluate 'Returns the negative of the number of bins required... if utils_packing.is_valid_packing(bins, problem)... else None' (Fig 2a,b). (3) Deterministic pass/fail: 'Programs that were incorrect (that did not execute within the imposed time and memory limits, or produced invalid outputs) are discarded' (Evaluation section, Nature p470). The evaluator 'guards against confabulations and incorrect ideas' (Intro). So 'evaluator function ... returning a deterministic pass/fail' is an accurate characterization of FunSearch. The 'numeric oracle' phrasing is also apt: valid programs receive a real-valued score aggregated across inputs (e.g., mean).",
+      "scope_note": "This paper covers only the FunSearch clause; the DeepSeek-Prover / proof-kernel clause must be verified against that separate citation.",
+      "confidence": "high"
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "Theorem proving is explicitly OUT of FunSearch's scope because a rich scoring signal cannot be provided.",
+      "loc": "Discussion, Nature p473: 'the problem of generating proofs for theorems... falls outside this scope, because it is unclear how to provide a rich enough scoring signal. By contrast, for MAX-SAT, the number of satisfied clauses can be used as a scoring signal.'",
+      "mismatch": "none -- confirms the manuscript's implied distinction that FunSearch relies on a numeric/rich evaluator, unlike proof-search settings.",
+      "severity": "none"
+    },
+    {
+      "fact": "FunSearch uses a frozen, pretrained LLM with NO fine-tuning on the problems.",
+      "loc": "Pretrained LLM section, Nature p469: 'We obtain our results with a pretrained model, that is, without any fine-tuning on our problems.' Reinforced in Code availability: 'No training or fine-tuning of a LLM is required; API access for inference is sufficient.' LLM = Codey (built on PaLM2).",
+      "mismatch": "none -- flagged for downstream claims: any manuscript statement that FunSearch fine-tunes or trains the LLM would be a mismatch.",
+      "severity": "none"
+    },
+    {
+      "fact": "FunSearch improved the largest known cap set in n=8 dimensions from 496 to 512 (all n<=7 values unchanged vs best-known).",
+      "loc": "Fig 4a (verified against PDF page image): n=8 Best known 496, FunSearch 512; n=3..7 both rows 9/20/45/112/236.",
+      "mismatch": "none -- the 496->512 figure is exact. Note: this is the finite-dimensional result; the asymptotic capacity lower bound improved 2.2180->2.2202 (separate figure).",
+      "severity": "none"
+    }
+  ]
+}

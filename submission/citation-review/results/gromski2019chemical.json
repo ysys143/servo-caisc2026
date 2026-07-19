@@ -1,0 +1,51 @@
+{
+  "bibkey": "gromski2019chemical",
+  "read_status": "READ",
+  "note": "Nature Reviews Chemistry PERSPECTIVE (Gromski, Henson, Granda, Cronin 2019), 'How to explore chemical space using algorithms and automation'. Opinion/review, no original experimental data. Core thesis: searching chemical space needs BOTH automation (fast, consistent physical execution + logging) AND algorithms (database/ML search) to discover novel (unpredictable-by-current-knowledge) reactivity; proposes a 'chemical AI (CAI)' closed loop. The paper emphatically frames physical characterization instruments as the physical feedback that couples wet-lab reactions to an in-silico search algorithm: it explicitly names real-time in-line NMR (ref 8, Sans/Cronin), GC-MS (MacMillan/Hartwig random-search workflow, Fig 3b), LC/MS/ELS (Beeler), plus UV/vis, IR, in-line spectrometer, HPLC. Fig 4b's 'two separate worlds' states the search algorithm 'operates entirely in silico' while a physical control side (pumps, valves, sensors, measuring instruments) physically performs and characterizes reactions.",
+  "claims": {
+    "C116": {
+      "manuscript_text": "In chemistry, ChemCrow and ChemReasoner close the computational loop but leave the wet-lab loop open: NMR and MS characterization require physical execution that no current system knows when to invoke~\\citep{gromski2019chemical}.",
+      "manuscript_location": "L230, background (BG)",
+      "citation_role": "BG",
+      "verdict": "ACCURATE",
+      "supported": true,
+      "reasoning": "The load-bearing factual claim cited to gromski2019chemical is that in chemistry there is a wet-lab loop in which NMR and MS characterization require PHYSICAL EXECUTION (as opposed to a purely computational loop). The paper supports this squarely. Both named modalities are literally present: NMR appears as real-time in-line NMR spectroscopy (ref 8, cited at L61-62 'coupled with real-time chemistry'), and MS appears as GC-MS (Fig 3b workflow) and LC/MS/ELS (Beeler). The paper's central architecture (Fig 4b, 'two separate worlds') explicitly separates an in-silico search algorithm from a physical control side that must physically run reactions and take measurements with instruments/sensors, and it argues automation is required precisely because 'chemistry costs both time and physical resources.' Thus the paper supports the manuscript's point that characterization is a physical/wet-lab step that cannot be done in silico. The verdict is ACCURATE for a background citation. (Minor caveat captured in reverse_findings: the added editorial clause 'that no current system knows when to invoke' and the ChemCrow/ChemReasoner comparison are the manuscript's own 2024-era synthesis and are not themselves asserted by this 2019 paper; but that clause is not attributed to gromski and does not contradict it.)",
+      "evidence": [
+        {
+          "quote": "chemistry costs both time and physical resources, resulting in a limit on the number of experiments that can be conducted and the speed at which they can be safely performed",
+          "location": "L95-99 (main text, 'Algorithms in chemistry')"
+        },
+        {
+          "quote": "Sans, V., Porwol, L., Dragone, V. & Cronin, L. A self optimizing synthetic organic reactor system using real-time in-line NMR spectroscopy. Chem. Sci. 6, 1258-1264 (2015).",
+          "location": "L1779-1782 (reference 8; cited in text at L61-62 'machine learning, coupled with real-time chemistry7,8')"
+        },
+        {
+          "quote": "the potential coupling for each reaction is estimated on the basis of gas chromatography-mass spectrometry (GC-MS) measurements",
+          "location": "L872-873 (Fig 3b caption); also L708-713 'GC-MS hits ... Peaks of significant intensity and molecular weight indicate new bond formation'; L889 'using rapid analysis by GC-MS'"
+        },
+        {
+          "quote": "liquid chromatography/mass spectrometry/electrophoretic light scattering (LC/MS/ELS) screening, structure elucidation and reaction optimization",
+          "location": "L855-857 (Beeler et al. workflow)"
+        },
+        {
+          "quote": "Closed-loop robots work across two separate worlds. The control uses different operations needed to perform the desired reactions, such as fluid handling, measuring instruments and sensors, and communication and device-level control. The search algorithm operates entirely in silico with data from both a priori knowledge ... and the live database of current experimental results.",
+          "location": "L1290-1297 (Fig 4b caption)"
+        }
+      ]
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "gromski2019chemical is a Nature Reviews Chemistry Perspective (opinion/review) with NO original experimental data; it curates and frames others' work (Glorius, MacMillan, Santanilla, Raccuglia, Doyle, Burke, ChemOS, etc.).",
+      "loc": "Whole paper; PERSPECTIVE header L1; author contributions L2020-2025 ('performed the literature review')",
+      "mismatch": "None for C116, which uses it as a background (BG) citation for a general well-established fact. Would be a mismatch only if the manuscript cited it as primary/experimental evidence for a specific system or quantitative result.",
+      "severity": "info"
+    },
+    {
+      "fact": "The paper argues FOR closing the physical loop via automation + algorithms (a forward-looking 'chemical AI / CAI' vision, 'in the not-too-distant future'). It predates ChemCrow (2023) and ChemReasoner (2024) and does not discuss LLM agents or the scheduling/'when to invoke characterization' problem.",
+      "loc": "Abstract L22-27; Conclusions L1652-1677; 'Automating the search' L1314-1465",
+      "mismatch": "The manuscript's editorial clause 'that no current system knows when to invoke' and the ChemCrow/ChemReasoner framing are the manuscript's own synthesis, not claims of this 2019 paper. Low risk because that clause is not directly attributed to gromski (the citep grounds the prior, general fact that NMR/MS characterization requires physical execution). The citation does not overreach on the load-bearing fact.",
+      "severity": "low"
+    }
+  ]
+}

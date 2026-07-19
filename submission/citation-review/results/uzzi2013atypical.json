@@ -1,0 +1,14 @@
+{
+  "bibkey": "uzzi2013atypical",
+  "read_status": "READ",
+  "note": "Single claim C111 (L215, BG) lists uzzi2013atypical among 'disruption or atypicality measures~\\citep{park2023disruptive,uzzi2013atypical}'. This is an EXAMPLE-OF-A-MEASURE citation, and it is ACCURATE: Uzzi et al. 2013 (Science 342:468, 'Atypical Combinations and Scientific Impact') is the canonical atypicality-of-novelty measure. It scores atypical vs conventional knowledge combinations via journal-pair z-scores -- observed co-citation frequency of each journal pair vs a Monte-Carlo randomized citation-network null; z<0 = atypical/novel, z>0 = conventional -- summarized per paper as median z ('conventionality') and 10th-percentile z ('tail novelty'), and links this to scientific impact (top-5% 'hit' papers). The manuscript's descriptor 'atypicality' is the paper's own term (in its very title and throughout). Correct pairing: the co-cited park2023disruptive supplies the 'disruption' half, uzzi2013atypical the 'atypicality' half -- accurate division of labor. No overclaim: the manuscript does not attribute any specific numeric result or mechanism to uzzi here, only classes it as an atypicality measure.",
+  "claims": {
+    "C111": {
+      "status": "OK",
+      "verdict": "ACCURATE",
+      "evidence": "Manuscript L215 (BG) groups uzzi2013atypical under 'disruption or atypicality measures~\\citep{park2023disruptive,uzzi2013atypical}'. The source IS an atypicality measure of novelty: title 'Atypical Combinations and Scientific Impact' (p.468). Method (p.469, sec 'Comparing the observed frequency...'): 'we generated a z score for each journal pair. This normalized measure describes whether any given pair appeared novel or conventional. Z scores above zero indicate pairs that appeared more often in the observed data than expected by chance, indicating relatively common or \"conventional\" pairings. Z scores below zero indicate pairs that appear less often in the observed WOS than expected by chance, indicating relatively atypical or \"novel\" pairings.' The z-scores derive from comparing observed co-citation frequencies to 'randomized citation networks' via a 'Monte Carlo algorithm' (p.468) over '122 million potential journal pairs' from '15,613 journals' (p.468). Per paper: median z = 'median conventionality', 10th-percentile z = 'tail novelty' (p.469). Linked to impact: high-conventionality + high-tail-novelty papers are 'hits' (top 5% citations) at 9.11/100, ~2x the 5/100 background (p.469-470, Fig 2). Calling this an 'atypicality measure' for novelty is exactly correct.",
+      "fix": null
+    }
+  },
+  "reverse_findings": []
+}

@@ -1,0 +1,45 @@
+{
+  "bibkey": "xin2024deepseek",
+  "read_status": "READ",
+  "note": "Xin, Ren, Song, Shao, et al. (DeepSeek-AI), 'DeepSeek-Prover-V1.5: Harnessing Proof Assistant Feedback for Reinforcement Learning and Monte-Carlo Tree Search', arXiv:2408.08152v1 [cs.CL], 15 Aug 2024. A 7B open-source LLM for formal theorem proving in Lean 4. Pipeline: pre-training (extends DeepSeekMath-Base 7B) -> SFT (thought-augmented CoT + tactic-state) -> RLPAF via GRPO -> inference by single-pass sampling OR RMaxTS (MCTS). Every generated proof is checked by the Lean 4 prover, which returns a DETERMINISTIC verified/failed result driving a binary 0/1 reward. The 'compiler oracle' is the world model, NOT a learned/neural reward model -- the paper explicitly contrasts this exact verifier with typical trained reward models. Both C069 (domain: mathematics, formal) and C070 (proof-kernel deterministic pass/fail) are ACCURATE for the DeepSeek-Prover half. (FunSearch half of C070 belongs to romera2023funsearch / C068.)",
+  "claims": {
+    "C069": {
+      "status": "verified",
+      "verdict": "ACCURATE",
+      "evidence": "DeepSeek-Prover-V1.5 is squarely a FORMAL MATHEMATICS system: 'an open-source language model designed for theorem proving in Lean 4' (abstract, l.9-10); 'formal theorem proving' throughout; benchmarks are the formal miniF2F-test (l.476-480) and ProofNet (l.481-485), both proofs written in Lean 4.9.0 and checked by the Lean prover. Listing it at main.tex L176 under 'mathematics (formal: romera2023funsearch, xin2024deepseek)' is a correct domain placement -- the system operates entirely in formalized Lean, distinct from the natural-language mathematics slot (google2026aletheia).",
+      "fix": null
+    },
+    "C070": {
+      "status": "verified",
+      "verdict": "ACCURATE",
+      "evidence": "DeepSeek-Prover half of the L436 sentence ('...DeepSeek-Prover validate against a formal or numeric oracle---an evaluator function or proof kernel returning a deterministic pass/fail'): CONFIRMED. Whole-proof generation is verified by the Lean prover: 'The Lean prover then verifies this code. If the proof is correct and complete, the procedure terminates. If an error is detected, the code is truncated at the first error message' (l.116-123). RL reward is exactly a deterministic pass/fail: 'each generated proof receives a reward of 1 if verified as correct, and 0 otherwise' (l.367); Fig 2 calls these 'binary (0-1) rewards' from the Lean prover (l.248). Evaluation: 'generated proofs are then verified using the Lean 4 theorem prover... import Mathlib4... and Aesop... The verification process is subject to a time limit of 300 seconds' (l.498-501). MCTS extrinsic reward is likewise R_extrinsic=1 for completed proofs, 0 for unsolved (l.738). The descriptor apportions correctly: 'proof kernel' <-> DeepSeek-Prover (Lean), 'evaluator function/numeric' <-> FunSearch; DeepSeek-Prover is the formal/proof-kernel side, so 'formal... proof kernel returning a deterministic pass/fail' is an accurate characterization of this paper.",
+      "fix": null
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The feedback source is the exact Lean verifier ('compiler oracle'), explicitly framed as the world model in an AlphaZero-like pipeline -- NOT a learned/neural reward model. The paper deliberately contrasts it: 'When training LLMs via RL, a trained reward model typically provides feedback signals. In contrast, formal theorem proving benefits from the rigorous verification of generated proofs by proof assistants' (l.364-366); 'the compiler oracle serving as the world model to provide environmental supervision' (l.1377-1378).",
+      "loc": "l.364-367, l.1375-1378, Fig 2 (l.242-251)",
+      "mismatch": "None -- this REINFORCES C070. Because the pass/fail comes from the Lean kernel/compiler rather than a probabilistic evaluator, the 'deterministic' qualifier is precisely correct. Would only become a mismatch if the manuscript elsewhere described DeepSeek-Prover's oracle as a learned/neural reward model.",
+      "severity": "info"
+    },
+    {
+      "fact": "The deterministic Lean pass/fail drives the ENTIRE pipeline, not a one-off eval: it is the RLPAF reward under GRPO during training (RL algorithm = GRPO; binary 0/1; l.270-272, l.352-383) AND the extrinsic reward inside RMaxTS/MCTS at inference (R_extrinsic 1/0; l.732-740). 'RLPAF' = Reinforcement Learning from Proof Assistant Feedback.",
+      "loc": "l.270-272 (RLPAF/GRPO), l.352-383 (RL from proof-assistant feedback), l.732-740, l.751-760 (RMaxTS)",
+      "mismatch": "None -- supports C070's characterization that validation against the formal oracle is the operative feedback mechanism. Also confirms the earlier digest reply to team-lead (RLPAF + RMaxTS both consume the same deterministic verifier signal).",
+      "severity": "info"
+    },
+    {
+      "fact": "Terminology: the paper says 'Lean prover' / 'Lean 4 theorem prover' / 'compiler', verifying via the Lean REPL (l.337-338) with Mathlib4 + Aesop imported and a 300s limit -- it does not use the literal words 'proof kernel'. Lean's soundness ultimately rests on its trusted kernel, so 'proof kernel' is an accurate shorthand for the deterministic verification, but the checked object is full Lean code (elaborator + tactics + Mathlib), not a raw kernel-term check.",
+      "loc": "l.337-338, l.498-501, l.823-825",
+      "mismatch": "None as written. Minor terminological note only: 'proof kernel' is a defensible summary of the Lean verification; it would be a mischaracterization only if read to exclude the elaboration/tactic layer.",
+      "severity": "info"
+    },
+    {
+      "fact": "DeepSeek-Prover only proves GIVEN formal statements drawn from fixed benchmarks (miniF2F/ProofNet); it makes NO claim about novelty, memorization, or pretraining contamination of those benchmarks, and does not itself certify that a proved result is novel.",
+      "loc": "l.476-485 (benchmarks), l.869-925 (results); no contamination/novelty analysis anywhere in paper",
+      "mismatch": "None -- the manuscript's very next sentence at L436 ('pretraining contamination makes it hard to certify that a discovered result is genuinely novel...') is the authors' OWN framework reading, not attributed to xin2024deepseek, and the appendix preamble already labels these entries 'a structured reading of the cited work rather than an independent empirical study' (main.tex L434). Flagged so no future edit attributes the novelty/contamination bottleneck to this paper as its empirical finding.",
+      "severity": "info"
+    }
+  ]
+}

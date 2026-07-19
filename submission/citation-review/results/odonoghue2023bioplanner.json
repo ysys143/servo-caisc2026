@@ -1,0 +1,60 @@
+{
+  "bibkey": "odonoghue2023bioplanner",
+  "read_status": "READ",
+  "note": "BioPlanner (EMNLP 2023, arXiv:2310.10632). Contributes (1) an automatic evaluation FRAMEWORK for LLM protocol planning and (2) the BioProt dataset (100 biology protocols with pseudocode). Mechanism: a teacher (GPT-4) converts a full free-text protocol into pseudofunctions + pseudocode = ground truth; a student LLM must reconstruct the pseudocode from a short description + admissible pseudofunctions. So it DOES generate experimental protocols (as pseudocode) and DOES auto-evaluate LLMs on protocol planning. KEY for the manuscript's claims: every automatic metric (function accuracy, precision/recall, normalized Levenshtein, argument BLEU, SciBERTScore, and GPT-4-as-evaluator) scores pseudocode-RECONSTRUCTION fidelity against the LLM-generated (manually corrected) ground truth -- NOT biological validity / physical execution. GPT-4-as-evaluator is explicitly 'only slightly above chance' (l.873-876); function retrieval is 'generally poor' (l.683); the Conclusion concedes 'there is more to be desired in terms of performance' (l.1095-1097). Biological validity is checked ONLY by manual scientist review plus a SINGLE, human-driven wet-lab run (E. coli glycerol stock; l.1064-1072). So 'validation signals weak', 'V metrics insufficient', and 'biological-validity metrics insufficient to close the loop autonomously' are all ACCURATE. Two nuances to carry: (a) the paper does contain ONE manual physical execution (so 'physical execution question is never reached' is true of the AUTOMATIC metric loop, not of the paper as a whole); (b) the real-world demo uses a Toolformer-like CoT agent that RETRIEVES protocols/pseudofunctions before generating -- a mild retrieval step, though not an iterative experiment-selection search policy. All three manuscript claims are supportable.",
+  "claims": {
+    "C081": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "loc": "L176 (BG)",
+      "claim_text": "BioPlanner listed as a member of the biology-domain group of AI-for-science systems.",
+      "evidence": "Domain attribution is correct. BioPlanner is squarely a biology paper: title 'BioPlanner: Automatic Evaluation of LLMs on Protocol Planning in Biology' (l.3); abstract 'we introduce BioProt: a dataset of biology protocols with corresponding pseudocode representations' (l.43-45); Sec 3 'a collection of publicly available protocols that are used to evaluate the performance of LLMs on protocol generation on a large range of topics in biology' (l.243-245); filtering keeps only protocols 'related to biology' (l.262, l.1374). Grouping it in a biology-domain background list is fully supported."
+    },
+    "C082": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "loc": "L230 (CHAR)",
+      "claim_text": "In biology, BioPlanner's V metrics are insufficient to close the loop autonomously---the physical execution question is never reached.",
+      "evidence": "ACCURATE as scoped to the automatic validation (V) metrics / autonomous loop. Every metric BioPlanner defines scores pseudocode-RECONSTRUCTION fidelity against ground-truth pseudocode, not biological validity or physical execution: 'we report the percentage of the number of correct function assignments' (accuracy, l.516), function precision/recall, normalized Levenshtein distance for order (l.543-551), argument-name precision/recall + argument-value BLEU + SciBERTScore (Sec 4, l.504-638). The self-evaluation signal is explicitly weak: 'GPT-4 only performs slightly above chance in identifying the ground truth protocol, versus LLM generations, although it is unclear whether this is because the machine-generated protocols are largely correct, or because GPT-4 is unable to distinguish correct from incorrect protocols' (l.873-876). None of these metrics asks whether the protocol would physically execute / be biologically valid -- that question is left entirely outside the automatic loop, confirming 'the physical execution question is never reached' by the metrics. CAVEAT (see reverse_findings): the paper DOES contain one human-driven wet-lab execution (E. coli, l.1064-1072) as a separate proof-of-concept demo; the claim is accurate under the intended 'V-metrics/autonomous-loop' scope but would overstate if read as 'no physical execution occurs anywhere in the paper.'"
+    },
+    "C083": {
+      "status": "VERIFIED",
+      "verdict": "ACCURATE",
+      "loc": "L446 (CHAR)",
+      "claim_text": "BioPlanner generates experimental protocols, but the validation signals are weak and biological-validity metrics are insufficient to close the loop autonomously, so reliability is low-to-medium with effectively no search policy beyond generation.",
+      "evidence": "All load-bearing clauses supported. (1) 'generates experimental protocols' -- ACCURATE: 'we use an LLM to convert a natural language protocol into pseudocode, and then evaluate an LLM's ability to reconstruct the pseudocode' (l.45-49); teacher GPT-4 'define[s] a set of pseudofunctions that suffice to execute the protocol' and converts steps to pseudocode (l.402-405); the real-world agent generates two novel protocols (l.1064-1067). (2) 'validation signals are weak' -- ACCURATE: GPT-4-as-evaluator 'only performs slightly above chance' (l.873-876), and the paper cites prior work that GPT evaluators 'prefer longer and more coherent, but not necessarily more correct generations' (l.876-878); function retrieval 'results on this task appear generally poor' (l.683); Conclusion 'we ... find that there is more to be desired in terms of performance' (l.1095-1097). (3) 'biological-validity metrics are insufficient to close the loop autonomously' -- ACCURATE: no automatic metric measures biological validity (all measure pseudocode fidelity); biological correctness is established only by manual scientist review plus one manual lab run (l.1064-1072). (4) 'reliability low-to-medium' is the manuscript's own rating, consistent with the paper's hedged performance. (5) 'effectively no search policy beyond generation' -- DEFENSIBLE: BioPlanner is a generate-then-evaluate framework with no iterative experiment/hypothesis-selection search. NUANCE (reverse_findings): the real-world demo builds a Toolformer-like CoT agent that RETRIEVES protocols/pseudofunctions from BioProt before generating (l.895-903) -- a retrieval step, though not a closed-loop search policy; 'effectively no search policy beyond generation' still holds but the retrieval component is a minor counterpoint a reviewer could raise."
+    }
+  },
+  "reverse_findings": [
+    {
+      "fact": "The paper DOES include one physical wet-lab execution: a GPT-4 agent generated 2 novel protocols; 1 (overnight E. coli culture + glycerol cryopreservation) was manually run in the lab and 'ran successfully: the cells remained viable after storage at -80 C' (l.1064-1072, Fig 3). The second (Symbiodinium) was reviewed but NOT executed ('we did not have Symbiodinium available', l.1067-1069).",
+      "loc": "l.1064-1072; Fig 3 (l.1078-1084)",
+      "mismatch": "C082's absolute phrasing 'the physical execution question is never reached' is true of the AUTOMATIC V-metrics loop but not of the paper as a whole -- one human-driven physical execution exists. Scoped to 'V metrics/autonomous loop' the claim is accurate; if the surrounding manuscript text implies BioPlanner never touches physical execution at all, add a hedge (e.g. 'never reached by the automatic metrics' or 'reached only via a single manual proof-of-concept run').",
+      "severity": "LOW"
+    },
+    {
+      "fact": "The single executed protocol (E. coli glycerol stock) is a standard, textbook microbiology technique, not a scientific discovery; and it is one of only two generated protocols. This makes the 'real-world validation' a narrow proof-of-concept, reinforcing 'validation signals weak' rather than undercutting it.",
+      "loc": "l.904-906; l.1064-1072",
+      "mismatch": "Supports the manuscript's low-to-medium reliability rating; no correction needed. Surfaced so the orchestrator can, if desired, strengthen the manuscript's point (a single manual run of a standard protocol is not autonomous biological validation).",
+      "severity": "LOW"
+    },
+    {
+      "fact": "The real-world demo uses a 'Toolformer-like chain-of-thought LLM agent' with a tool to search/retrieve protocols in the BioProt database, then generates new pseudocode from the retrieved pseudofunctions (l.895-903). Function Retrieval is also one of the paper's three evaluation tasks (Sec 4, Table 6).",
+      "loc": "l.628-638; l.895-903; Table 6 (l.811-864)",
+      "mismatch": "C083's 'effectively no search policy beyond generation' is defensible (no iterative experiment-selection loop), but the retrieval agent is a mild search/retrieval component. Consider softening to 'no iterative experiment-selection search policy' to preempt a reviewer noting the retrieval step.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "The ground-truth pseudocode against which all metrics are computed is itself GPT-4-generated and then manually corrected -- only 59% of protocols required no edits (Table 3, l.440-448); 41% needed edits. So the 'V metrics' compare student output to an LLM-authored, human-patched reference, not an independent gold standard.",
+      "loc": "Sec 3.2-3.3 (l.400-462); Table 3 (l.431-448)",
+      "mismatch": "Further supports 'validation signals weak / biological-validity metrics insufficient': the ground truth is not an independently authored biological-validity standard. No manuscript correction needed; strengthens C082/C083.",
+      "severity": "LOW"
+    },
+    {
+      "fact": "Appendix F internal inconsistency in the SOURCE (not the manuscript): human function-selection 'Precision was 87.5%, and human Recall was 0.84%, (n=20), indicating a significant increase in performance over GPT-4' (l.1609-1611). A 0.84% recall cannot indicate an increase over GPT-4 (recall 39.2); the figure is almost certainly a typo for 84%.",
+      "loc": "l.1609-1611",
+      "mismatch": "Not cited by any of C081-C083, so no impact on these claims. Flagged defensively: if any manuscript passage ever cites BioPlanner's human-benchmark recall, do not quote '0.84%' verbatim.",
+      "severity": "LOW"
+    }
+  ]
+}
