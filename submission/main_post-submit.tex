@@ -222,7 +222,7 @@ Our analysis identifies three open problems that recur across the surveyed syste
 \subsection{The Lack of Validated Automated Novelty Gates}
 \label{sec:op1}
 
-No automated validator among the surveyed systems reliably evaluates novelty---every surveyed system, from Coscientist (no mechanism) to The AI Scientist Nature (three-layer validation), converges on this. Two failure modes are documented: LLM self-evaluation bias (systematic over-estimation; hallucinated results) and pretraining contamination (systems may ``discover'' results implicit in training data, as Aletheia documents for Erd\H{o}s problems). The ARA Seal's Rigor Auditor~\citep{liu2026lasthuman} achieves 82.6\% average detection across five structural violation types but only 22\% on orphaned-experiment violations; it cannot cross the novelty boundary. Concretely: Agent Laboratory's LLM reviewer over-estimated paper quality by $+$2.3 points relative to human PhD students~\citep{schmidgall2025agentlab}; The AI Scientist (Sakana) hallucinated ablation tables; and of 200 Erd\H{o}s solutions audited (from 700 attempted), only 13 (6.5\%) were rated meaningfully correct. A 45-expert evaluation likewise positions current AI reviewers as complements to, not substitutes for, human experts---strong on aggregate criticism yet sharing blind spots and overlapping far more than independent humans do~\citep{kim2026aireviewers}. This unreliability is not confined to novelty scoring: LLMs asked to reverse-engineer black-box systems---a canonical scientific inference task---fail to do so reliably even with systematic query access~\citep{geng2025reliable}. The Leiden Declaration~\citep{leiden2026}, signed by over 3{,}000 mathematicians, corroborates the indispensability of expert oversight: AI-produced proofs may contain almost-invisible errors that resist detection without human scrutiny, so no automated layer fully substitutes for $V_\text{human}$ even where automated checking is most mature.
+No automated validator among the surveyed systems reliably evaluates novelty---every surveyed system, from Coscientist (no mechanism) to The AI Scientist Nature (three-layer validation), converges on this. Two failure modes are documented: LLM self-evaluation bias (systematic over-estimation; hallucinated results) and pretraining contamination (systems may ``discover'' results implicit in training data, as Aletheia documents for Erd\H{o}s problems). The ARA Seal's Rigor Auditor~\citep{liu2026lasthuman} achieves 82.6\% average detection across five structural violation types but only 22\% on orphaned-experiment violations; it cannot cross the novelty boundary. Concretely: Agent Laboratory's LLM reviewer over-estimated paper quality by $+$2.3 points relative to human PhD students~\citep{schmidgall2025agentlab}; The AI Scientist (Sakana) hallucinated ablation tables; and of 200 Erd\H{o}s solutions audited (from 700 attempted), only 13 (6.5\%) were rated meaningfully correct. A 45-expert evaluation likewise positions current AI reviewers as complements to, not substitutes for, human experts---strong on aggregate criticism yet sharing blind spots and overlapping far more than independent humans do~\citep{kim2026aireviewers}. This unreliability is not confined to novelty scoring: LLMs asked to reverse-engineer black-box systems---a canonical scientific inference task---fail to do so reliably even with systematic query access~\citep{geng2025reliable}. The Leiden Declaration~\citep{leiden2026}, signed by over 3{,}000 mathematicians as of July~2026 (count from the signature site, \url{https://leidendeclaration.ai}; the declaration text itself states none), corroborates the indispensability of expert oversight: AI-produced proofs may contain almost-invisible errors that resist detection without human scrutiny, so no automated layer fully substitutes for $V_\text{human}$ even where automated checking is most mature.
 
 \textit{Proposed falsification test:} The thesis is refuted if an automated validator matches a panel of $\geq$3 domain experts on novelty discrimination---Cohen's $\kappa \geq 0.80$ against the expert majority---on a benchmark of published-versus-withheld findings whose training-set membership is fixed by a pretraining cutoff date, across $\geq$3 distinct domains. Constructing the contamination-controlled benchmark and the expert baseline is itself an open task; a recent benchmark takes a step by restricting to post-2024 findings to control contamination~\citep{liu2025researchbench}, though it evaluates inspiration-based decomposition rather than closing the expert-baseline gap.
 
@@ -471,14 +471,17 @@ why, and whether the version of record is thereby wrong or merely less precise.
 
 \begin{description}
   \item[R1. Leiden Declaration signatory count (Section~\ref{sec:openproblems}).]
-  \emph{Status in the version of record: true but understated; not an error.}
-  The version of record states that the Leiden Declaration was ``signed by over 130
-  mathematicians.'' The declaration had 3{,}071 signatories when verified at
-  \texttt{leidendeclaration.ai} on 2026-07-19. Both figures are true lower bounds, so the
-  version of record contains no false statement; the figure is raised here because the
-  original understates the breadth of expert endorsement by more than an order of
-  magnitude. The claim the sentence supports---that expert oversight remains
-  indispensable---is unaffected.
+  \emph{Status in the version of record: unsupported by the source cited for it.} The version
+  of record states that the Leiden Declaration was ``signed by over 130 mathematicians,''
+  attributing that figure to the declaration document. The document states no signatory count
+  at all: its only numerals are section numbers and the year of the meeting that produced it.
+  The count is maintained on the separate signature site, which recorded 3{,}071 signatories
+  when checked on 20~July~2026. The defect is therefore not that the figure was understated
+  but that it was attributed to a text that does not contain it. This revision cites the
+  signature site for the count, marks it as of a date because it grows over time, and notes
+  that the declaration itself gives none. The substantive claim the sentence supports---that
+  AI-produced proofs may carry errors that resist detection without expert scrutiny---is
+  stated in the declaration and is unaffected.
 
   \item[R2. Formal validators and RL stability (Section~\ref{sec:domains}).]
   \emph{Status in the version of record: overclaim; the sentence asserts more than the
