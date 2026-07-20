@@ -66,10 +66,21 @@ continuous H is 0.10.
   descriptions as `PARTIAL` or worse. They have deliberately not been updated: the
   agreement figures in this report were produced by coders reading exactly those
   descriptions, so revising them now would leave the reported kappas describing an input
-  that no longer exists. The consequence is that where a frozen description overstates a
-  system, the coders inherited that overstatement, and the agreement figures measure
-  agreement about the description rather than about the system. A re-run against corrected
-  descriptions would be a different study and is left as future work.
+  that no longer exists. The risk this creates is that where a frozen description overstates
+  a system, the coders inherit that overstatement and the agreement figure measures
+  agreement about the description rather than about the system.
+
+  We checked for that. The audit marks four of the fourteen descriptions adversely
+  (Co-Scientist, Robin, AutoResearchClaw, ScientistOne; six `PARTIAL` and one
+  `CONTRADICTED` between them), and the fields those verdicts touch are `Vhuman`,
+  `Vsemantic` and `Vempirical`. Coder dispersion does not track them: on every flagged
+  field the three coders agree unanimously, while the two split codings on `Vhuman`
+  (AI Scientist-v2 0/0/1, Robin 1/0/1) sit on fields the audit did not flag. In the
+  sharpest case the coders went against the description -- Co-Scientist's frozen text calls
+  scientist feedback optional, which under this protocol implies `Vhuman=0`, and all three
+  coders recorded 1. The propagation risk is therefore real in principle but leaves no
+  visible trace in this data. A re-run against corrected descriptions would be a different
+  study and is left as future work.
   It is an automated multi-rater transparency measure, not a claim of human-level
   inter-rater reliability.
 - **The aggregate `V_completeness` ordinal is the single noisy construct**
