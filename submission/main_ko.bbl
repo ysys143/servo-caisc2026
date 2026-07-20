@@ -172,6 +172,15 @@ K.~Huang, Y.~Jin, R.~Li, M.~Y. Li, E.~Cand{\`e}s, and J.~Leskovec.
   falsifications, 2025.
 \newblock arXiv:2502.09858; ICML 2025.
 
+\bibitem[{InternAgent Team, Shanghai Artificial Intelligence
+  Laboratory}(2025)]{zhang2025novelseek}
+{InternAgent Team, Shanghai Artificial Intelligence Laboratory}.
+\newblock {InternAgent}: When agent becomes the scientist -- building a
+  closed-loop system from hypothesis to verification.
+\newblock \emph{arXiv preprint arXiv:2505.16938}, 2025.
+\newblock arXiv:2505.16938v3. Circulated as {NovelSeek} in earlier versions;
+  the key is retained for continuity with prior citations of this work.
+
 \bibitem[Jaber and Jaber(2026)]{jaber2026autokernel}
 J.~Jaber and O.~Jaber.
 \newblock {AutoKernel}: {Autonomous} {GPU} kernel optimization via iterative
@@ -444,15 +453,6 @@ I.~Yanai and M.~Lercher.
 \newblock Night science.
 \newblock \emph{Genome Biology}, 20\penalty0 (1):\penalty0 179, 2019.
 \newblock \doi{10.1186/s13059-019-1800-6}.
-
-\bibitem[Zhang et~al.(2025)Zhang, Feng, Yan, Yuan, Yu, Huang, Bai, He, Peng,
-  et~al.]{zhang2025novelseek}
-B.~Zhang, S.~Feng, X.~Yan, J.~Yuan, Z.~Yu, S.~Huang, L.~Bai, X.~He, T.~Peng,
-  et~al.
-\newblock {NovelSeek}: When agent becomes the scientist -- building closed-loop
-  system from hypothesis to verification.
-\newblock \emph{arXiv preprint arXiv:2505.16938}, 2025.
-\newblock arXiv:2505.16938.
 
 \bibitem[Zhao et~al.(2026)Zhao, Wang, Stuart, De~Vaan, Ginsparg, and
   Yin]{zhao2026hallucinations}
