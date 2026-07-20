@@ -46,6 +46,14 @@ single `V_calibrated` flag proved to conflate two questions. They were defined i
 paper's central claim rests on the second of them:
 
 - `V_present`  {0,1}: a calibrated automated layer exists anywhere in the system.
+  *Scope.* This field asks for a **substantive validity oracle** -- an empirical
+  measurement, a formal kernel, or a calibrated surrogate model -- of the kind the
+  `V_calibrated` examples name (DFT, proof kernel). A deterministic syntax or execution
+  check (`V_syntax`) is reliable at what it tests but establishes only that code ran, not
+  that a scientific claim holds, so it does **not** by itself set `V_present` to 1. The
+  completeness ordinal is scoped differently: its reliability partial order does include
+  `V_syntax`, as its lowest rung. The two fields use the word *calibrated* over different
+  ranges, and that difference is deliberate.
 - `V_gating`   {0,1}: the layer that *decides acceptance* is itself calibrated. This is a
   property of calibration, not of who performs the gating; a biased automated reviewer and
   a social review process both yield 0.
