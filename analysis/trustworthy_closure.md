@@ -14,8 +14,26 @@ restated. We therefore separate two outcomes and code the second one independent
   audit, documented hallucination, real human peer review), with a source per system.
 
 The predictor (`A_Vcalibrated`, from `systems.csv`) and the outcome
-(`trustworthy_closure`, from `trustworthy_closure.csv`) thus come from different
-sheets and different evidence, which is what breaks the circularity.
+(`trustworthy_closure`, from `trustworthy_closure.csv`) come from different sheets and
+different evidence, which removes the most direct form of circularity: the outcome is
+not read off the predictor.
+
+**It does not make the pairing prospective, and one predictor label was revised after
+this outcome sheet existed.** The outcome sheet was created on 2026-06-01
+(`9318a48`); `A_Vcalibrated` for AI Scientist (Nature 2026) was changed from 1 to 0 on
+2026-06-04 (`03955cb`) as part of introducing the `V_present`/`V_gating` split, which
+moved that system into the cell the calibration reading predicts. The change is
+defensible on its own terms — three blind coders had independently assigned 0 — but it
+was made with the outcome column already visible, so the resulting table cannot be
+treated as an out-of-sample test. A further eleven cells were corrected on 2026-07-20
+under the same condition; none of them is `A_Vcalibrated`, so this table's predictor
+column is unaffected by that later pass.
+
+Two things do limit the damage, and neither is a substitute for a prospective design.
+The recoding below uses only signals that are not derived from `V` at all, and it moves
+AI Scientist (Nature 2026) to `unknown` rather than to a confirming cell. And the
+manuscript states the association as direction-consistent under some outcome-recoding
+assumptions but not adjudicated, rather than as a finding.
 
 ## External-signal coding (six core systems)
 
