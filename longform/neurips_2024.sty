@@ -1,0 +1,78 @@
+%% neurips_2024.sty — NeurIPS 2024 compatible style (basic TeX install variant)
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{neurips_2024}[2024/05/01 NeurIPS 2024 Style]
+
+%% --- Options ---
+\newif\if@preprint\@preprintfalse
+\newif\if@final\@finalfalse
+\newif\if@nonatbib\@nonatbibfalse
+
+\DeclareOption{preprint}{\@preprinttrue}
+\DeclareOption{final}{\@finaltrue}
+\DeclareOption{nonatbib}{\@nonatbibtrue}
+\ProcessOptions\relax
+
+%% --- Page layout ---
+\RequirePackage{geometry}
+\geometry{
+  paperwidth=8.5in,
+  paperheight=11in,
+  left=1.25in,
+  right=1.25in,
+  top=1.5in,
+  bottom=1.0in,
+  headheight=14pt,
+  headsep=0.2in,
+  footskip=0.4in
+}
+
+%% --- Paragraph spacing ---
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0pt}
+\linespread{1.0}
+
+%% --- Headers / footers ---
+\pagestyle{plain}
+
+%% --- Abstract ---
+\renewenvironment{abstract}{%
+  \begin{center}%
+    {\bfseries\large Abstract}%
+  \end{center}%
+  \begin{quote}\small
+}{%
+  \end{quote}%
+  \vskip 1em%
+}
+
+%% --- Section headings (using built-in LaTeX commands) ---
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+  {-1.5ex \@plus -0.5ex \@minus -0.2ex}%
+  {0.8ex \@plus 0.2ex}%
+  {\normalfont\large\bfseries}}
+
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+  {-1.2ex \@plus -0.3ex \@minus -0.2ex}%
+  {0.5ex \@plus 0.1ex}%
+  {\normalfont\normalsize\bfseries}}
+
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+  {-1.0ex \@plus -0.2ex \@minus -0.1ex}%
+  {0.4ex}%
+  {\normalfont\normalsize\itshape}}
+
+%% --- Captions ---
+\RequirePackage{caption}
+\captionsetup{font=small,labelfont=bf,labelsep=period,skip=4pt}
+
+%% --- Footnote spacing ---
+\setlength{\footnotesep}{6pt}
+
+%% --- Bibliography ---
+\if@nonatbib\else
+  \RequirePackage{natbib}
+  \setlength{\bibsep}{0pt}
+\fi
+
+\endinput
