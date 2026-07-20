@@ -1,5 +1,30 @@
 # Full-Text Citation Audit Rubric
 
+## Scope of this rubric, and what it is not
+
+This rubric governs the **Tier-1 core-14 audit** (`core14-manifest.json`,
+`core14-status.json`, `papers/`, `evidence/`, `final-reconciliation.md`), which is
+complete: 14 of 14 sources, all gates passed, English--Korean parity reconciled.
+
+A second harness once aimed the same procedure at the **whole 59-source bibliography**.
+It was retired at 5 of 59 and its ledger (`status.json`) has been deleted, because the
+work it was going to do had already been done, more cheaply, in a different track:
+`../../citation-review/` completed a full-text read of all 59 sources and adjudicated
+128 of 128 atomic claims (ACCURATE 97, IMPRECISE-OK 17, MISATTRIBUTION 8,
+MISCHARACTERIZATION 4, CONTEXT-MISUSE 1, OVERCLAIM 1), and every one of its 14 flagged
+claims has been applied to the manuscript. Keeping a half-finished duplicate alongside it
+signalled an incomplete audit where none existed --- it misled a later reviewer into
+scoping 2,288 pages of re-reading that no one needed.
+
+`manifest.json` is deliberately kept. It is not sweep state: it carries the citation-link
+inventory (which manuscript sentence cites which source), and `verify_core14.py` reads it
+to check that each core-14 report covers exactly its assigned links. Deleting it breaks
+core-14 verification.
+
+**Where to look for citation verification:** `../../citation-review/findings.md` for
+coverage of the full bibliography; this directory for the deep per-source reports on the
+fourteen systems the paper analyses.
+
 ## Unit of Work
 
 One cited source is active at a time. A source is complete only after its full
