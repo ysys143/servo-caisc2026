@@ -37,8 +37,12 @@
 ```
 
 **원본 논문 위치:**
-- 한국어본: `/Users/jaesolshin/Documents/GitHub/ai_scientist/paper/main_ko.tex`
-- 영문본(동일): `/Users/jaesolshin/Documents/GitHub/ai_scientist/paper/main.tex`
+- **[2026-07-20 갱신]** 아래 두 경로는 더 이상 유효하지 않다. `ai_scientist/paper/`는 제거됐다.
+  - **정본**: `submission/main.tex` (EN) · `submission/main_ko.tex` (KO) — `REFERENCE_GUIDE.md` 참조
+  - **사후 수정본**: `submission/main_post-submit.tex` (변경 이력 R1~R12는 그 부록 D)
+  - **압축 이전 장문 원본**: `longform/main_full.tex` · `longform/main_ko_full.tex`
+  - ~~`ai_scientist/paper/main_ko.tex`~~ → `longform/main_ko_full.tex`로 이관
+  - ~~`ai_scientist/paper/main.tex`~~ → `longform/main_full.tex`로 이관
 - xelatex: `/usr/local/texlive/2026basic/bin/universal-darwin/xelatex`
 - bibtex: `/usr/local/texlive/2026basic/bin/universal-darwin/bibtex`
 
