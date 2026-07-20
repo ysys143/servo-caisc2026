@@ -80,7 +80,7 @@ The field of \emph{AI Scientist} systems---agents that generate hypotheses, exec
 
 \section{Introduction}
 
-AI Scientist systems---agents that independently generate hypotheses, execute experiments, and synthesize knowledge---have proliferated rapidly~\citep{boiko2023emergent,lu2024aiscientist,lu2026aiscientist,schmidgall2025agentlab,google2026aletheia,liu2026lasthuman}, yet the field lacks a shared formal vocabulary. Systems range from tool-augmented synthesis agents (Coscientist~\citep{boiko2023emergent}) through closed-loop manuscript-writing pipelines (The AI Scientist~\citep{lu2024aiscientist,lu2026aiscientist}) to natural-language mathematics agents (Aletheia~\citep{google2026aletheia}), each introducing bespoke terminology that makes systematic cross-system comparison difficult. Without a shared decomposition, questions that bear directly on deployment remain unanswered: \textit{What determines whether a system can operate in a closed loop? Why does autonomous novelty evaluation fail consistently? What is the theoretically optimal search policy?}
+AI Scientist systems---agents that independently generate hypotheses, execute experiments, and synthesize knowledge---have proliferated rapidly~\citep{boiko2023emergent,lu2024aiscientist,lu2026aiscientist,google2026aletheia,liu2026lasthuman}, yet the field lacks a shared formal vocabulary. Systems range from tool-augmented synthesis agents (Coscientist~\citep{boiko2023emergent}) through closed-loop manuscript-writing pipelines (The AI Scientist~\citep{lu2024aiscientist,lu2026aiscientist}) to natural-language mathematics agents (Aletheia~\citep{google2026aletheia}), each introducing bespoke terminology that makes systematic cross-system comparison difficult. Without a shared decomposition, questions that bear directly on deployment remain unanswered: \textit{What determines whether a system can operate in a closed loop? Why does autonomous novelty evaluation fail consistently? What is the theoretically optimal search policy?}
 
 We propose \framework{}\footnote{We name the framework after the \emph{servomechanism}: as a servo loop converges on a target by acting on a feedback (error) signal, an AI Scientist closes the discovery loop only when its validator $V$ supplies a reliable feedback signal---the framework's central concern.} \sgmvpi{}, a formal framework grounding AI Scientist systems in POMDP and Bayesian Experimental Design theory (Section~\ref{sec:framework}). We apply it to analyze six core systems, an artifact infrastructure proposal, and instantiations across seven scientific fields (Sections~\ref{sec:core},~\ref{sec:domains}); and identify three open problems with falsification criteria (Section~\ref{sec:openproblems}). The analysis reveals a recurring diagnostic distinction: systems that mechanically close the loop differ sharply in whether their acceptance gate, novelty judgment, and memory structure can support trustworthy discovery claims; we develop the supporting theory in Appendix~\ref{app:vformal}. The contribution is thus a diagnostic vocabulary that keeps mechanical closure, validator calibration, novelty judgment, and memory separable rather than collapsing them into a single notion of autonomy.
 
@@ -165,7 +165,7 @@ We apply \framework{} to the core systems in Table~\ref{tab:core-comparison} and
 \toprule
 & \textbf{Robot Sci.} & \textbf{Coscientist} & \textbf{AI Sci.\ (2024)} & \textbf{AI Sci.\ (2026)} & \textbf{AgentLab} & \textbf{NovelSeek} \\
 \midrule
-Novelty measure   & Stat.\ test   & None         & LLM self-score & 3-layer         & Human-deleg.\   & Perf.\ gain   \\
+Novelty measure   & None (corr.)  & None         & LLM self-score & 3-layer         & Human-deleg.\   & Perf.\ gain   \\
 Loop closed?      & Yes (wet-lab) & Partial      & Yes (greedy)   & Yes (tree)      & Partial         & Yes (comp.)   \\
 $\pi$ type        & Active learn.\ & ReAct       & Greedy         & Tree search     & Human/seq.\     & Feedback      \\
 $V$ completeness  & $V_e$         & $V_h+V_e$    & $V_s$ (biased) & $V_e+V_s+V_h$  & $V_s$ (biased)  & $V_e$         \\
@@ -173,11 +173,11 @@ $M$ structure     & $M_e+M_s$     & Ephemeral    & $M_e$          & $M_e+M_s$   
 $H$ (approx.)     & Low           & G (${\approx}1$) & Low (${\approx}0$) & Low (${\approx}0$) & G+$\pi$ (${\approx}0.8$) & Low \\
 \bottomrule
 \end{tabular}}
-\caption{Comparative \framework{} analysis of core AI Scientist systems, including the pre-LLM Robot Scientist~\citep{sparkes2010robot} and the recent unified framework NovelSeek~\citep{zhang2025novelseek}. $V_s$=semantic, $V_e$=empirical, $V_h$=human. For AI Scientist (Nature~2026), $V_s$ is present but non-gating; the decisive acceptance gate is $V_h$ (ICLR peer review), consistent with \texttt{V\_gating=0} in the released coding (\texttt{analysis/systems.csv}).}
+\caption{Comparative \framework{} analysis of core AI Scientist systems, including the pre-LLM Robot Scientist~\citep{sparkes2010robot} and the recent unified framework NovelSeek~\citep{zhang2025novelseek}. $V_s$=semantic, $V_e$=empirical, $V_h$=human. The Robot Scientist's active-learning policy is documented in~\citep{king2004robot}; the 2010 review~\citep{sparkes2010robot} describes the system without stating a selection objective. For AI Scientist (Nature~2026), $V_s$ is present but non-gating; the decisive acceptance gate is $V_h$ (ICLR peer review), consistent with \texttt{V\_gating=0} in the released coding (\texttt{analysis/systems.csv}).}
 \label{tab:core-comparison}
 \end{table}
 
-\noindent Across these four LLM-based end-to-end systems (Coscientist, the two AI Scientist systems, and Agent Laboratory), those that close the loop are also those that upgrade or add validators; $G$ or $\pi$ advances are not absent---several also upgrade ideation, tool use, and search---but validator reliability is the constraint gating whether such advances can be exploited in a closed loop. Coscientist has only constrained task-level feedback (measured outcomes inform later choices~\citep{boiko2023emergent}); its loop is \emph{partial}, with novelty/significance validation human-mediated. The AI Scientist (Sakana) adds $V_s$ via a 5-ensemble GPT-4o reviewer (balanced accuracy 0.65 vs.\ human 0.66~\citep{lu2024aiscientist}), enabling the first \emph{structurally} closed loop on a biased, uncalibrated $V$. The AI Scientist (Nature)\footnote{The AI Scientist's (2024) and (2026) variants are its template-based and agentic-tree-search (``AI Scientist-v2''~\citep{yamada2025aiscientistv2}) modes, the latter its peer-reviewed Nature version~\citep{lu2026aiscientist}.} stacks $V_e$ (replication nodes with mean $\pm$ s.d.), $V_s$ (automated reviewer, balanced accuracy 0.69~\citep{lu2026aiscientist}), and actual peer review ($V_h$ via ICLR workshop), giving the most layers in the class---though its automated \emph{internal} acceptance gate (the biased $V_s$ reviewer) stays uncalibrated (\S\ref{sec:discussion}). Agent Laboratory delegates $V$ to $V_s$ (NeurIPS-guideline LLM reviewer) but documents $+$2.3-point systematic over-estimation relative to the human PhD-student reviewers of the same AI-generated papers---adding a $V$ layer does not guarantee completeness if the layer is unreliable~\citep{schmidgall2025agentlab}. Four end-to-end systems, however, cannot establish general impossibility.
+\noindent Across these four LLM-based end-to-end systems (Coscientist, the two AI Scientist systems, and Agent Laboratory), those that close the loop are also those that upgrade or add validators; $G$ or $\pi$ advances are not absent---several also upgrade ideation, tool use, and search---but validator reliability is the constraint gating whether such advances can be exploited in a closed loop. Coscientist has only constrained task-level feedback (measured outcomes inform later choices~\citep{boiko2023emergent}); its loop is \emph{partial}, with novelty/significance validation human-mediated. The AI Scientist (Sakana) adds $V_s$ via a 5-ensemble GPT-4o reviewer (balanced accuracy 0.65 predicting ICLR~2022 accept/reject labels, alongside a 0.66 human inter-reviewer consistency baseline measured on a different pool---the two are not the same quantity~\citep{lu2024aiscientist}), enabling the first \emph{structurally} closed loop on a biased, uncalibrated $V$. The AI Scientist (Nature)\footnote{The AI Scientist's (2024) and (2026) variants are its template-based and agentic-tree-search (``AI Scientist-v2''~\citep{yamada2025aiscientistv2}) modes, the latter its peer-reviewed Nature version~\citep{lu2026aiscientist}.} stacks $V_e$ (replication nodes with mean $\pm$ s.d.), $V_s$ (automated reviewer, balanced accuracy 0.69~\citep{lu2026aiscientist}), and actual peer review ($V_h$ via ICLR workshop), giving the most layers in the class---though its automated \emph{internal} acceptance gate (the biased $V_s$ reviewer) stays uncalibrated (\S\ref{sec:discussion}). Agent Laboratory delegates $V$ to $V_s$ (NeurIPS-guideline LLM reviewer) but documents $+$2.3-point systematic over-estimation relative to the human PhD-student reviewers of the same AI-generated papers---adding a $V$ layer does not guarantee completeness if the layer is unreliable~\citep{schmidgall2025agentlab}. Four end-to-end systems, however, cannot establish general impossibility.
 
 \subsection{Artifact Infrastructure: Agent-Native Research Artifacts}
 \label{sec:ara}
@@ -226,11 +226,11 @@ No automated validator among the surveyed systems reliably evaluates novelty---e
 
 \textit{Proposed falsification test:} The thesis is refuted if an automated validator matches a panel of $\geq$3 domain experts on novelty discrimination---Cohen's $\kappa \geq 0.80$ against the expert majority---on a benchmark of published-versus-withheld findings whose training-set membership is fixed by a pretraining cutoff date, across $\geq$3 distinct domains. Constructing the contamination-controlled benchmark and the expert baseline is itself an open task; a recent benchmark takes a step by restricting to post-2024 findings to control contamination~\citep{liu2025researchbench}, though it evaluates inspiration-based decomposition rather than closing the expert-baseline gap.
 
-Novelty, significance, and correctness are distinct properties that current systems collapse into one scalar (e.g., The AI Scientist's 1--10 score~\citep{lu2024aiscientist}); a viable automated novelty $V$ would need a contamination-controlled reference corpus, architectural separation between $G$ and $V$, and a definition of ``novel to the field'' beyond lexical training-set membership (e.g.\ disruption or atypicality measures~\citep{park2023disruptive,uzzi2013atypical})---none of which current systems provide.
+Novelty, significance, and correctness are distinct properties that current systems keep apart when scoring but collapse at the decision point (The AI Scientist rates ideas on separate interestingness, feasibility and novelty scales, yet accepts or rejects a paper on a single aggregate \texttt{Overall} threshold~\citep{lu2024aiscientist}); a viable automated novelty $V$ would need a contamination-controlled reference corpus, architectural separation between $G$ and $V$, and a definition of ``novel to the field'' beyond lexical training-set membership (e.g.\ disruption or atypicality measures~\citep{park2023disruptive,uzzi2013atypical})---none of which current systems provide.
 
 \subsection{The BED--Practice Gap for $\pi$}
 
-Equation~\ref{eq:eid} specifies the theoretically optimal policy, yet no surveyed LLM-based system implements it: all deployed LLM-based policies are heuristic (ReAct, greedy, tree search, human-guided). The partial exception is GNoME~\citep{merchant2023gnome}, whose deep-ensemble uncertainty estimates over a tractable GNN posterior can be read as a coarse EIG surrogate---but only because DFT provides a well-calibrated computational $V$ and the hypothesis space admits a learnable probabilistic model, conditions absent from the LLM-based systems here, where the ``posterior'' is implicit in model weights~\citep{foster2021dad}. BED-LLM~\citep{choudhury2026bedllm} derives a usable EIG posterior from an LLM's predictive distributions, but for conversational queries rather than experiment design---so the gap is integration with reliable $E$ and $V$, not impossibility. Concretely, every LLM-based system in Table~\ref{tab:core-comparison} degrades to heuristic $\pi$: Coscientist selects tools reactively, The AI Scientist (Sakana) greedily avoids archive similarity, and Agent Laboratory follows a fixed schedule---none improve with additional experimental data, the failure mode EIG-optimal $\pi$ would avoid. Recent falsification-driven approaches ground hypothesis selection in executable tests rather than free generation---AIGS selects hypotheses by their survival of automated refutation~\citep{liu2024aigs}, and Popper runs sequential falsification experiments with statistical error control~\citep{huang2025popper}---but neither computes or maximizes EIG: they substitute a falsification heuristic for the BED-optimal policy rather than realizing it.
+Equation~\ref{eq:eid} specifies the theoretically optimal policy, yet no surveyed LLM-based system implements it: all deployed LLM-based policies are heuristic (ReAct, greedy, tree search, human-guided). The partial exception is GNoME~\citep{merchant2023gnome}, whose deep-ensemble uncertainty estimates over a tractable GNN posterior can be read as a coarse EIG surrogate---but only because DFT provides a well-calibrated computational $V$ and the hypothesis space admits a learnable probabilistic model, conditions absent from the LLM-based systems here, where the ``posterior'' is implicit in model weights~\citep{foster2021dad}. BED-LLM~\citep{choudhury2026bedllm} derives a usable EIG posterior from an LLM's predictive distributions, but for conversational queries rather than experiment design---so the gap is integration with reliable $E$ and $V$, not impossibility. Concretely, every LLM-based system in Table~\ref{tab:core-comparison} degrades to heuristic $\pi$: Coscientist selects tools reactively, The AI Scientist (Sakana) filters ideas by archive similarity (which we code as greedy; the source states no selection objective), and Agent Laboratory follows a fixed schedule---none improve with additional experimental data, the failure mode EIG-optimal $\pi$ would avoid. Recent falsification-driven approaches ground hypothesis selection in executable tests rather than free generation---AIGS selects hypotheses by their survival of automated refutation~\citep{liu2024aigs}, and Popper runs sequential falsification experiments with statistical error control~\citep{huang2025popper}---but neither computes or maximizes EIG: they substitute a falsification heuristic for the BED-optimal policy rather than realizing it.
 
 \textit{Proposed falsification test:} The gap is refuted if a system explicitly computes and maximizes EIG over a posterior $p(\theta \mid y)$ whose hypothesis space admits no closed-form or finite-ensemble surrogate---a posterior defined directly over natural-language hypotheses or program text rather than a hand-specified low-dimensional model---thereby excluding tractable-model proxies such as GNoME's deep-ensemble policy.
 
@@ -493,14 +493,51 @@ why, and whether the version of record is thereby wrong or merely less precise.
   replaced here with ``enables mechanically closed evaluation within the formalized task,''
   matching the wording already used for the same systems in
   Appendix~\ref{app:domains}. No other claim depends on the removed clause.
+
+  \item[R3. Scoring of novelty, significance and correctness (Section~\ref{sec:openproblems}).]
+  \emph{Status in the version of record: contradicted by the cited source.} The version of
+  record cited ``The AI Scientist's 1--10 score'' as an instance of collapsing the three
+  properties into one scalar. The cited system in fact rates ideas on \emph{separate}
+  interestingness, feasibility and novelty scales, and its reviewer emits several axes; the
+  collapse occurs not in scoring but at the accept/reject decision, which thresholds a single
+  aggregate. The sentence now locates the collapse where it happens. The open problem is
+  unchanged.
+
+  \item[R4. ``Greedy'' as a coding, not a source claim (Section~\ref{sec:openproblems}).]
+  \emph{Status in the version of record: unsupported interpretation.} The cited source
+  describes archive-conditioned idea generation but defines no argmax, best-score or greedy
+  selection rule; ``greedy'' is this paper's own coding. The sentence now says so.
+
+  \item[R5. Two different quantities compared (Section~\ref{sec:core}).]
+  \emph{Status in the version of record: contradicted in metric meaning.} The version of
+  record read ``balanced accuracy 0.65 vs.\ human 0.66,'' which invites reading 0.65 as
+  agreement with human reviewers. It is the balanced accuracy of predicting ICLR~2022
+  accept/reject labels; 0.66 is human inter-reviewer consistency measured on a different
+  pool. The two are now distinguished.
+
+  \item[R6. Class definition and Agent Laboratory (Introduction).]
+  \emph{Status in the version of record: contradicted by the cited source.} The opening
+  sentence defines the class as agents that \emph{independently} generate hypotheses and
+  cited Agent Laboratory among them; in that system the research idea is supplied by a human.
+  The citation has been removed from the class-defining list. Agent Laboratory remains
+  analysed throughout the paper.
+
+  \item[R7. Robot Scientist table cells (Table~\ref{tab:core-comparison}).]
+  \emph{Status in the version of record: one unsupported, one mislabelled.} The novelty-measure
+  cell read ``Stat.\ test''; the statistical test in the cited source adjudicates growth
+  phenotypes and gene-function hypotheses, not scientific novelty, so the cell now reads
+  ``None (corr.).'' The policy cell ``Active learn.'' is not supported by the 2010 review used
+  for that column; the caption now attributes the active-learning policy to the primary source
+  that documents it.
 \end{description}
 
 \noindent\textbf{Scope of revision.} The entries above are the complete set of changes
 made since the archival deposit. Across all of them the substance of the paper is
-unchanged: no proposition, assumption, or proof sketch has been altered; no numerical
-result, coded value, or reliability estimate has been revised; no open problem or
-falsification criterion has been added, removed, or reworded; and the bibliography is
-unchanged. Should this manuscript be revised further, later entries will be appended to
+unchanged in structure: no proposition, assumption, or proof sketch has been altered; no
+open problem or falsification criterion has been added, removed, or reworded; and the
+bibliography is unchanged. Entries R3--R7 narrow statements that this paper's own citation
+audit judged unsupported by, or contradicted by, the sources cited for them; each is
+reduced to what its source establishes. Should this manuscript be revised further, later entries will be appended to
 the list above so that the full distance from the version of record remains
 reconstructible from this appendix alone.
 
