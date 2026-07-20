@@ -88,6 +88,17 @@ continuous H is 0.10.
   holistic ordinal judgment (whether V_human counts toward the layer total;
   whether a biased layer is discounted), not a mechanical function of the binary
   indicators. We therefore rest the claim on calibration, not on this ordinal.
+- **`V_present` scope, and the one disagreement it does not explain.** After the
+  2026-07-20 `Vsyntax` correction, two systems (AI Scientist 2024, Agent Laboratory) carry
+  a deterministic execution check while `V_present` remains 0. That is not an
+  inconsistency: `V_present` asks for a substantive validity oracle, not for a syntax
+  check, and `coding_protocol.md` now says so explicitly. Under that reading five of the
+  six core systems agree with the recoders. The remaining case is AI Scientist (2024),
+  where the author has `V_present=0` and both recoders have 1; that gap traces to a
+  separate, pre-existing disagreement about `Vempirical` for the same system (author 0,
+  main-round coders 1/0/1), not to the syntax question, and is left standing rather than
+  resolved by fiat.
+
 - **Author-vs-coder agreement, and a later correction to the author labels.**
   Against the author's (Coder A) labels on the overlapping systems, Cohen's kappa
   is high or perfect for loop_status (1.0), Vsemantic (1.0), and Vcalibrated
