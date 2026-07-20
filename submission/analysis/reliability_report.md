@@ -62,14 +62,47 @@ Vcalibrated: agy-claude 0.71, agy-codex 1.00, claude-codex 0.70; loop_status:
   holistic ordinal judgment (whether V_human counts toward the layer total;
   whether a biased layer is discounted), not a mechanical function of the binary
   indicators. We therefore rest the claim on calibration, not on this ordinal.
-- **The author disagrees with the LLM coders precisely on V_completeness.**
+- **Author-vs-coder agreement, and a later correction to the author labels.**
   Against the author's (Coder A) labels on the overlapping systems, Cohen's kappa
   is high or perfect for loop_status (1.0), Vsemantic (1.0), and Vcalibrated
   (1.00 after the V_gating refinement in §2b; the pre-refinement value was 0.62–0.67,
-  reflecting the single-system disagreement that the V_present/V_gating split resolved),
-  but *negative* for V_completeness (-0.25 to -0.43). The construct
-  on which independent coders most disagree is exactly the holistic ordinal, and
-  the construct they agree on is the calibration sub-construct the paper rests on.
+  reflecting the single-system disagreement that the V_present/V_gating split resolved).
+
+  As originally coded, author-vs-coder kappa was **negative for V_completeness
+  (-0.25 to -0.43)**, 0.00 across the board for Vsyntax, and 0.00-0.55 for Vhuman.
+  A later audit found that part of this gap was author coding error rather than
+  construct noise:
+
+  | field | system(s) | author (orig.) | blind coders | corrected |
+  |---|---|---|---|---|
+  | Vsyntax | Coscientist, AI Sci 2024/2026, AgentLab, NovelSeek | 0 | 1 (unanimous on 4) | 1 |
+  | Vhuman | AI Scientist (Nature 2026) | 1 | 0,0,1 | 0 |
+  | Vhuman | Agent Laboratory | 0 | 1,1,1 | 1 |
+  | Vcompleteness | Robot Sci / Coscientist / NovelSeek / AI Sci 2026 | 2 / 1 / 1 / 3 | 1 / 2 / 2 / 2 | 1 / 2 / 2 / 2 |
+
+  The Vsyntax labels contradicted the rubric's own example ("code compiles/executes")
+  for systems that execute code. The AI Scientist (Nature 2026) `Vhuman=1` rested on
+  an external post-hoc workshop review, which the protocol's "required for the
+  validity/novelty signal" test does not cover. The Agent Laboratory `Vhuman=0`
+  contradicted the manuscript's own table, which records that system's novelty
+  measure as human-delegated. `Vcompleteness=3` for AI Scientist (Nature 2026) was a
+  stale value: it had been licensed by `Vcalibrated=1`, which was later corrected to
+  0 without propagating to the ordinal. The remaining ordinals were re-derived from
+  the protocol anchor after the Vsyntax correction, not copied from the coders; that
+  derivation independently reproduces the coder consensus on all four.
+
+  **After correction, author-vs-coder kappa rises to 0.55-1.00 for Vsyntax,
+  0.55-1.00 for Vhuman, and 0.17-0.67 for V_completeness.** This rise is a
+  consequence of revising the reference labels and must not be read as evidence of
+  reliability. The statistics that are independent of the author labels are
+  unchanged: **Fleiss kappa among the three blind coders is identical before and
+  after the correction** (Vcalibrated 0.79, V_completeness 0.39, and all others), as
+  are the pairwise coder agreements. The paper's reported reliability figures are
+  those coder-only statistics.
+
+  The substantive reading also survives: the construct on which independent coders
+  most disagree with one another is still the holistic ordinal (Fleiss 0.39), and the
+  construct they agree on is still the calibration sub-construct (Fleiss 0.79).
 
 ## 2. Counterexample search
 
