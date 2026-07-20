@@ -159,12 +159,12 @@ We apply \framework{} to the core systems in Table~\ref{tab:core-comparison} and
 \toprule
 & \textbf{Robot Sci.} & \textbf{Coscientist} & \textbf{AI Sci.\ (2024)} & \textbf{AI Sci.\ (2026)} & \textbf{AgentLab} & \textbf{NovelSeek} \\
 \midrule
-Novelty measure   & None (corr.)  & None         & LLM self-score & 3-layer         & Human-deleg.\   & Perf.\ gain   \\
+Novelty gate      & Predefined    & Human        & Biased auto    & Biased auto     & Biased auto     & None          \\
 Loop closed?      & Yes (wet-lab) & Partial      & Yes (greedy)   & Yes (tree)      & Partial         & Yes (comp.)   \\
 $\pi$ type        & Active learn.\ & ReAct       & Greedy         & Tree search     & Human/seq.\     & Feedback      \\
 $V$ layers        & $V_e{+}V_h$   & $V_y{+}V_e{+}V_h$ & $V_y{+}V_s^{*}$ & $V_y{+}V_s^{*}{+}V_e$ & $V_y{+}V_s^{*}{+}V_h$ & $V_y{+}V_e$ \\
 $M$ structure     & $M_e+M_s$     & Ephemeral    & $M_e$          & $M_e+M_s$       & $M_e$           & $M_e$         \\
-$H$ (approx.)     & Low           & G (${{\approx}}1$) & Low (${{\approx}}0$) & Low (${{\approx}}0$) & G+$\pi$ (${{\approx}}0.8$) & Low \\
+$H$ (approx.)     & 0.25          & 0.75 (G)     & 0.1            & 0.1             & 0.8 (G+$\pi$)   & 0.25          \\
 \bottomrule
 \end{tabular}}
 \caption{Comparative \framework{} analysis of core AI Scientist systems, including the pre-LLM Robot Scientist~\citep{sparkes2010robot} and the recent unified framework NovelSeek~\citep{zhang2025novelseek}, which later versions of that preprint retitle \emph{InternAgent}. $V_y$=syntax, $V_s$=semantic, $V_e$=empirical, $V_h$=human; an asterisk marks a layer the source itself reports as systematically biased. The row lists the layers present, not the holistic completeness ordinal (released separately; see Appendix~\ref{app:coding}). The Robot Scientist's active-learning policy is documented in~\citep{king2004robot}; the 2010 review~\citep{sparkes2010robot} describes the system without stating a selection objective. For AI Scientist (Nature~2026) no automated layer is calibrated, so \texttt{V\_gating=0} in the released coding (\texttt{analysis/systems.csv}); the external workshop review its outputs received sits outside the loop and is not counted as a validator layer.}
@@ -650,10 +650,21 @@ why, and whether the version of record is thereby wrong or merely less precise.
   empirical conclusion to the surveyed systems: their novelty and significance judgments are
   human-mediated or lack a validated automated gate. This leaves the novelty open problem and
   its falsification criterion unchanged while removing a universal impossibility claim.
+
+  \item[R17. Table~\ref{tab:core-comparison} reconciled with the coding sheet.]
+  \emph{Status in the version of record: two rows disagreed with the released coding they
+  summarise.} The novelty row read ``None'' for Coscientist, where the sheet codes a human
+  gate, and ``Human-deleg.'' for Agent Laboratory, where the sheet codes a biased automated
+  gate---the latter also contradicting Section~\ref{sec:core}, which describes that system's
+  reviewer as biased. The $H$ row rendered Coscientist's 0.75 as ``${\approx}1$'' while giving
+  Agent Laboratory's 0.8 exactly, so one table rounded two neighbouring values by different
+  rules. Both rows now reproduce \texttt{novelty\_gate} and \texttt{A\_H} verbatim and the row
+  is renamed to name what it reports. This also settles the Robot Scientist cell left open by
+  R7: the sheet codes a predefined novelty criterion, which is what the cell now reads.
 \end{description}
 
 \noindent\textbf{Scope of revision.} The entries above are the complete set of changes
-made since the archival deposit, R1--R16. Entries R3--R12 narrow or correct statements
+made since the archival deposit, R1--R17. Entries R3--R12 narrow or correct statements
 that the citation audit judged unsupported by, contradicted by, or less precise than their
 cited sources. Entries R13--R16 record the subsequent adversarial mathematical review: they
 replace the proposition/assumption/proof-sketch presentation with bounded analytical
