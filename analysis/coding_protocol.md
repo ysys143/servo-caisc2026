@@ -40,6 +40,24 @@ disagree unambiguously:
 - `V_calibrated`{0,1}: the highest automated layer present is reliably calibrated
   (e.g., DFT, formal kernel) rather than systematically biased (e.g., LLM judge).
 
+Three further columns were added to `systems.csv` after the first coding pass, when the
+single `V_calibrated` flag proved to conflate two questions. They were defined in
+`multicoder/rubric_calib.txt` for the recoding round and are restated here, because the
+paper's central claim rests on the second of them:
+
+- `V_present`  {0,1}: a calibrated automated layer exists anywhere in the system.
+- `V_gating`   {0,1}: the layer that *decides acceptance* is itself calibrated. This is a
+  property of calibration, not of who performs the gating; a biased automated reviewer and
+  a social review process both yield 0.
+- `novelty_gate` {`none`|`human`|`predefined`|`biased_auto`|`calibrated_auto`}: what, if
+  anything, gates on novelty.
+
+Note also that this protocol describes two things the released sheets do not carry as
+columns. The per-component S/G/E/V/M/pi labels of §"Unit of coding" are given in the
+manuscript's comparison table rather than in `systems.csv`, and the three loop boundaries
+`L_task`/`L_measurement`/`L_discovery` are collapsed into the single `A_loop_status`
+field. Anyone reconciling this document against the CSV should expect those two gaps.
+
 ### V_completeness (ordinal 0-3, holistic judgment --- NOT mechanically derived)
 A 0-3 ordinal summarizing how much of the validity burden is carried by reliable
 automated layers: 0 = V_human only; 1 = one reliable automated layer; 2 = two;

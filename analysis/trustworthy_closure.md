@@ -41,7 +41,7 @@ assumptions but not adjudicated, rather than as a finding.
 |--------|-----------------|---------------|--------------------------|---------------------|
 | Robot Scientist / Adam | closed-wetlab | 1 | yeast functional-genomics hypotheses experimentally confirmed and published (King et al. 2009, *Science*; Sparkes et al. 2010) | **yes** |
 | AI Scientist (2024) | closed-comp | 0 | hallucinated results (e.g. ablation tables); authors advise not taking generated content at face value (Lu et al. 2024) | **no** |
-| AI Scientist (Nature 2026) | closed-comp | 0 | outputs passed human peer review (ICLR workshop track only---a weak social signal, not independent replication); published in *Nature* (Lu et al. 2026). Note: A_Vcalibrated updated to 0 (V_gating=0; calibrated layer present but non-gating). | **weak** |
+| AI Scientist (Nature 2026) | closed-comp | 0 | one of three submitted manuscripts scored above an ICLR workshop acceptance bar (mean 6.33); the other two did not, and all three were withdrawn under a pre-established protocol, so none was formally accepted --- a weak social signal, not independent replication; the system itself was published in *Nature* (Lu et al. 2026). Note: A_Vcalibrated updated to 0 (V_gating=0; calibrated layer present but non-gating). | **weak** |
 | NovelSeek | closed-comp | 1 | reports closed-loop benchmark gains across twelve tasks; no independent third-party replication/audit located (Zhang et al. 2025) | **unknown** |
 | Coscientist | partial-task | 1 | real chemistry executed, but the discovery loop is not closed (Boiko et al. 2023) | n/a (loop open) |
 | Agent Laboratory | partial-task | 0 | automated reviewer over-estimates quality by +2.3 vs. human PhD students; human-directed (Schmidgall et al. 2025) | **no** |

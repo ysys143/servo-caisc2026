@@ -43,9 +43,13 @@ multi-vendor reliability coding extends to all 14 Tier-1 systems (see
 | Vcompleteness  | 0.69          | 0.39         |
 | **mean**       | --            | **0.68**     |
 
-Pairwise Cohen's kappa is consistent and shows no outlier vendor (e.g.,
-Vcalibrated: agy-claude 0.71, agy-codex 1.00, claude-codex 0.70; loop_status:
-0.75 / 0.75 / 0.74). Mean pairwise difference on the continuous H is 0.10.
+Pairwise Cohen's kappa shows no outlier vendor on the constructs the paper relies on
+(Vcalibrated: agy-claude 0.71, agy-codex 1.00, claude-codex 0.70; loop_status:
+0.75 / 0.75 / 0.74). It is not uniform across all fields: Vsyntax (1.00 / 0.58 / 0.58) and
+Vempirical (0.42 / 0.63 / 0.63) both show one vendor pairing apart from the other two, so
+the claim of vendor consistency should be read as holding for the calibration and
+loop-status constructs, not for the sheet as a whole. Mean pairwise difference on the
+continuous H is 0.10.
 
 ### How to read these numbers
 
@@ -55,6 +59,17 @@ Vcalibrated: agy-claude 0.71, agy-codex 1.00, claude-codex 0.70; loop_status:
   raw 0.90), and loop status is substantial (kappa = 0.74). Because the three
   coders are different model families (Anthropic / OpenAI / Google), this reflects
   the rubric and source descriptions rather than one model agreeing with itself.
+
+  **The source descriptions are frozen and predate the citation audit.**
+  `multicoder/systems_desc.json` was last written on 2026-06-01; the per-source citation
+  audit in `citation_audit/` was completed on 2026-07-19 and marks several of those
+  descriptions as `PARTIAL` or worse. They have deliberately not been updated: the
+  agreement figures in this report were produced by coders reading exactly those
+  descriptions, so revising them now would leave the reported kappas describing an input
+  that no longer exists. The consequence is that where a frozen description overstates a
+  system, the coders inherited that overstatement, and the agreement figures measure
+  agreement about the description rather than about the system. A re-run against corrected
+  descriptions would be a different study and is left as future work.
   It is an automated multi-rater transparency measure, not a claim of human-level
   inter-rater reliability.
 - **The aggregate `V_completeness` ordinal is the single noisy construct**
@@ -218,14 +233,23 @@ adjudication of the labels remains future work.
   The old disagreement was the conflation, not noise.
 - **The decisive construct is reproducible.** Gating calibration agrees across
   vendors on 13/14 systems, more cleanly than the old holistic label.
-- **No calibrated automated novelty gate exists** (`novelty_gate=calibrated_auto`
-  on 1/28 codings, itself a coder error), empirically grounding the
-  novelty-non-automatability open problem.
+- **No calibrated automated novelty gate exists** in 27 of 28 codings, empirically
+  grounding the novelty-non-automatability open problem. The single exception is
+  `novelty_gate=calibrated_auto` assigned by one coder to AI Scientist (2024). We do not
+  treat that coding as evidence for a calibrated gate, because the same coder recorded
+  `Vcalibrated=0` for that system in the same pass, which contradicts it, and because the
+  cited source reports no calibration analysis for its reviewer. Readers who reject that
+  reasoning should treat the count as 26/28 rather than 27/28; the open problem does not
+  turn on the single cell, but the dismissal is a judgement and is recorded here as one.
 
-We therefore frame the survey as exposing failure modes in validator architecture
-(mechanical closure without trustworthy gating; validation presence without decisive
-calibration; external acceptance without independent replication), not as estimating
-an association.
+We therefore frame the survey primarily as exposing failure modes in validator
+architecture (mechanical closure without trustworthy gating; validation presence without
+decisive calibration; external acceptance without independent replication) rather than as
+estimating an effect. Where the manuscript does speak of an association -- as it does in
+the abstract and in §8 -- it states it as a co-occurrence that is direction-consistent
+under some outcome-recoding assumptions and not adjudicated, never as an estimate. The
+earlier sections of this report that call the claim an `association/correlate' should be
+read in that weaker sense; nothing here is offered as an effect size.
 
 ## 3. Net effect on the manuscript
 
