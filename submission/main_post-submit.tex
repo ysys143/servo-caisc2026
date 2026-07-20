@@ -173,7 +173,7 @@ $M$ structure     & $M_e+M_s$     & Ephemeral    & $M_e$          & $M_e+M_s$   
 $H$ (approx.)     & Low           & G (${\approx}1$) & Low (${\approx}0$) & Low (${\approx}0$) & G+$\pi$ (${\approx}0.8$) & Low \\
 \bottomrule
 \end{tabular}}
-\caption{Comparative \framework{} analysis of core AI Scientist systems, including the pre-LLM Robot Scientist~\citep{sparkes2010robot} and the recent unified framework NovelSeek~\citep{zhang2025novelseek}. $V_y$=syntax, $V_s$=semantic, $V_e$=empirical, $V_h$=human; an asterisk marks a layer the source itself reports as systematically biased. The row lists the layers present, not the holistic completeness ordinal (released separately; see Appendix~\ref{app:coding}). The Robot Scientist's active-learning policy is documented in~\citep{king2004robot}; the 2010 review~\citep{sparkes2010robot} describes the system without stating a selection objective. For AI Scientist (Nature~2026) no automated layer is calibrated, so \texttt{V\_gating=0} in the released coding (\texttt{analysis/systems.csv}); the external workshop review its outputs received sits outside the loop and is not counted as a validator layer.}
+\caption{Comparative \framework{} analysis of core AI Scientist systems, including the pre-LLM Robot Scientist~\citep{sparkes2010robot} and the recent unified framework NovelSeek~\citep{zhang2025novelseek}, which later versions of that preprint retitle \emph{InternAgent}. $V_y$=syntax, $V_s$=semantic, $V_e$=empirical, $V_h$=human; an asterisk marks a layer the source itself reports as systematically biased. The row lists the layers present, not the holistic completeness ordinal (released separately; see Appendix~\ref{app:coding}). The Robot Scientist's active-learning policy is documented in~\citep{king2004robot}; the 2010 review~\citep{sparkes2010robot} describes the system without stating a selection objective. For AI Scientist (Nature~2026) no automated layer is calibrated, so \texttt{V\_gating=0} in the released coding (\texttt{analysis/systems.csv}); the external workshop review its outputs received sits outside the loop and is not counted as a validator layer.}
 \label{tab:core-comparison}
 \end{table}
 
@@ -576,13 +576,25 @@ why, and whether the version of record is thereby wrong or merely less precise.
   author's reference labels---necessarily, because those labels were revised. The released
   reliability report now states both the original and the corrected values and warns that the
   rise is an artefact of the revision rather than evidence of reliability.
+
+  \item[R11. NovelSeek / InternAgent citation identity (Section~\ref{sec:related}).]
+  \emph{Status in the version of record: bibliographic entry does not match the work as it
+  now stands.} The entry keyed \texttt{zhang2025novelseek} gave the title and individual
+  author list under which arXiv:2505.16938 first circulated. Later versions of the same
+  preprint (v3, the one audited here) retitle the work \emph{InternAgent} and place it
+  under a laboratory team byline. The citation is to the right work---the identifier is
+  unchanged---but a reader retrieving 2505.16938 today finds a different title and author
+  line than the bibliography gives. The entry now carries the current title and byline,
+  records the former name, and keeps the key so that earlier citations of this work still
+  resolve. The manuscript continues to call the system NovelSeek, which is how it is named
+  in the analysis released with this paper, and notes the retitling at first mention.
 \end{description}
 
 \noindent\textbf{Scope of revision.} The entries above are the complete set of changes
 made since the archival deposit. Across all of them the substance of the paper is
 unchanged in structure: no proposition, assumption, or proof sketch has been altered; no
 open problem or falsification criterion has been added, removed, or reworded; and the
-bibliography is unchanged. Entries R3--R10 narrow or correct statements that this paper's own citation
+bibliography is unchanged apart from the single entry corrected in R11. Entries R3--R11 narrow or correct statements that this paper's own citation
 audit judged unsupported by, or contradicted by, the sources cited for them; each is
 reduced to what its source establishes. Should this manuscript be revised further, later entries will be appended to
 the list above so that the full distance from the version of record remains
