@@ -102,7 +102,7 @@ def test_execution_repair_requires_explicit_later_execution(package) -> None:
     witness = next(
         row
         for row in tables["closure_witnesses"].rows
-        if row["predicate"] == "execution_repair"
+        if row["predicate"] == "execution_repair" and row["case_id"] == "C04"
     )
     event_ids = {
         occurrence.split("@")[0]
@@ -111,6 +111,25 @@ def test_execution_repair_requires_explicit_later_execution(package) -> None:
     for event in tables["events"].rows:
         if event["event_id"] in event_ids and event["event_class"] == "execution":
             event["event_class"] = "runtime_validation"
+
+    with pytest.raises(Servo2Error, match="EXECUTION_REPAIR_PATTERN_MISMATCH"):
+        validate_graph(tables)
+
+
+def test_execution_repair_requires_changed_versioned_artifact(package) -> None:
+    tables = read_tables(package)
+    witness = next(
+        row
+        for row in tables["closure_witnesses"].rows
+        if row["predicate"] == "execution_repair" and row["case_id"] == "C04"
+    )
+    event_ids = {
+        occurrence.split("@")[0]
+        for occurrence in witness["ordered_event_ids"].split(";")
+    }
+    for event in tables["events"].rows:
+        if event["event_id"] in event_ids and event["event_class"] == "runtime_validation":
+            event["output_artifact_ids"] = "not_applicable"
 
     with pytest.raises(Servo2Error, match="EXECUTION_REPAIR_PATTERN_MISMATCH"):
         validate_graph(tables)
@@ -157,6 +176,25 @@ def test_predicate_witness_requires_evaluation_evidence(
             event["event_class"] = "state_update"
 
     with pytest.raises(Servo2Error, match=diagnostic):
+        validate_graph(tables)
+
+
+def test_artifact_revision_witness_names_versioned_successor_pair(package) -> None:
+    tables = read_tables(package)
+    witness = next(
+        row
+        for row in tables["closure_witnesses"].rows
+        if row["predicate"] == "artifact_revision"
+    )
+    event_ids = {
+        occurrence.split("@")[0]
+        for occurrence in witness["ordered_event_ids"].split(";")
+    }
+    for event in tables["events"].rows:
+        if event["event_id"] in event_ids:
+            event["output_artifact_ids"] = "not_applicable"
+
+    with pytest.raises(Servo2Error, match="ARTIFACT_REVISION_PATTERN_MISMATCH"):
         validate_graph(tables)
 
 

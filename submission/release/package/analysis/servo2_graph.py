@@ -8,6 +8,7 @@ def validate_graph(tables: dict[str, Table]) -> None:
     events = _index(tables["events"], "event_id")
     endpoints = _index(tables["endpoints"], "endpoint_id")
     edges = _index(tables["edges"], "edge_id")
+    artifacts = _index(tables["artifacts"], "artifact_id")
     _validate_routes(tables["edges"], events)
     reliability_ids = set(_index(tables["reliability"], "reliability_id"))
     if reliability_ids & set(events):
@@ -21,7 +22,9 @@ def validate_graph(tables: dict[str, Table]) -> None:
         event_refs, event_rows, edge_rows, endpoint_refs = _validate_witness_path(
             witness, events, endpoints, edges
         )
-        validate_predicate_pattern(witness, event_rows, edge_rows, endpoint_refs)
+        validate_predicate_pattern(
+            witness, event_rows, edge_rows, endpoint_refs, artifacts
+        )
         if (
             require(witness, "predicate", "closure_witnesses")
             == "discovery_cycle_feedback"

@@ -3,7 +3,7 @@ from __future__ import annotations
 from enum import StrEnum
 from typing import assert_never
 
-from .servo2_io import Servo2Error, require
+from .servo2_io import Servo2Error, require, split_values
 
 
 class Predicate(StrEnum):
@@ -18,6 +18,7 @@ def validate_predicate_pattern(
     event_rows: tuple[dict[str, str], ...],
     edge_rows: tuple[dict[str, str], ...],
     endpoint_refs: tuple[str, ...],
+    artifacts: dict[str, dict[str, str]],
 ) -> None:
     witness_id = require(witness, "witness_id", "closure_witnesses")
     try:
@@ -28,7 +29,9 @@ def validate_predicate_pattern(
     match predicate:
         case Predicate.EXECUTION_REPAIR:
             _validate_common_route(witness_id, edge_rows)
-            _require_execution_repair(witness_id, event_rows, edge_rows, endpoint_refs)
+            _require_execution_repair(
+                witness_id, event_rows, edge_rows, endpoint_refs, artifacts
+            )
         case Predicate.EXPERIMENTAL_ADAPTATION:
             _validate_common_route(witness_id, edge_rows)
             _require_experimental_adaptation(
@@ -37,7 +40,7 @@ def validate_predicate_pattern(
         case Predicate.ARTIFACT_REVISION:
             _validate_common_route(witness_id, edge_rows)
             _require_artifact_revision(
-                witness_id, event_rows, edge_rows, endpoint_refs
+                witness_id, event_rows, edge_rows, endpoint_refs, artifacts
             )
         case Predicate.DISCOVERY_CYCLE_FEEDBACK:
             return
@@ -62,6 +65,7 @@ def _require_execution_repair(
     event_rows: tuple[dict[str, str], ...],
     edge_rows: tuple[dict[str, str], ...],
     endpoint_refs: tuple[str, ...],
+    artifacts: dict[str, dict[str, str]],
 ) -> None:
     edge_types = {edge["edge_type"] for edge in edge_rows}
     validation_indexes = tuple(
@@ -82,6 +86,11 @@ def _require_execution_repair(
     valid = (
         len(event_rows) >= 2
         and validation_precedes_execution
+        and any(
+            event["event_class"] == "runtime_validation"
+            and _event_names_versioned_successor(event, artifacts)
+            for event in event_rows
+        )
         and {"artifact_revision", "feedback_control"} <= edge_types
         and any(endpoint.endswith(".W_A") for endpoint in endpoint_refs)
         and endpoint_refs[-1].endswith(".E")
@@ -125,15 +134,41 @@ def _require_artifact_revision(
     event_rows: tuple[dict[str, str], ...],
     edge_rows: tuple[dict[str, str], ...],
     endpoint_refs: tuple[str, ...],
+    artifacts: dict[str, dict[str, str]],
 ) -> None:
     valid = (
         bool(event_rows)
-        and any(_is_evaluation(event) for event in event_rows)
+        and any(
+            _is_evaluation(event)
+            and _event_names_versioned_successor(event, artifacts)
+            for event in event_rows
+        )
         and any(edge["edge_type"] == "artifact_revision" for edge in edge_rows)
         and any(endpoint.endswith(".W_A") for endpoint in endpoint_refs)
     )
     if not valid:
         raise Servo2Error("ARTIFACT_REVISION_PATTERN_MISMATCH", witness_id)
+
+
+def _event_names_versioned_successor(
+    event: dict[str, str], artifacts: dict[str, dict[str, str]]
+) -> bool:
+    inputs = set(split_values(event["input_artifact_ids"])) - {"not_applicable"}
+    outputs = set(split_values(event["output_artifact_ids"])) - {"not_applicable"}
+    for output_id in outputs:
+        output = artifacts.get(output_id)
+        if output is None:
+            continue
+        predecessor_id = output["predecessor_artifact_id"]
+        predecessor = artifacts.get(predecessor_id)
+        if (
+            predecessor_id in inputs
+            and predecessor is not None
+            and output["artifact_type"] == predecessor["artifact_type"]
+            and int(output["version"]) == int(predecessor["version"]) + 1
+        ):
+            return True
+    return False
 
 
 def _is_evaluation(event: dict[str, str]) -> bool:

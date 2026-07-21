@@ -110,8 +110,17 @@ def test_artifact_must_appear_in_producer_event_output(package) -> None:
 def test_artifact_predecessor_version_must_increment(package) -> None:
     path = table(package, "artifacts")
     header, rows = csv_rows(path)
+    _, witnesses = csv_rows(table(package, "closure_witnesses"))
+    referenced_events = {
+        occurrence.split("@")[0]
+        for witness in witnesses
+        for occurrence in witness["ordered_event_ids"].split(";")
+    }
     target = next(
-        row for row in rows if row["predecessor_artifact_id"] != "not_applicable"
+        row
+        for row in rows
+        if row["predecessor_artifact_id"] != "not_applicable"
+        and row["producer_event_id"] not in referenced_events
     )
     target["version"] = "99"
     write_rows(path, header, rows)

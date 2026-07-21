@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "review_basis": "three-round adversarial audit plus actor-topology, predicate-pattern, and explicit repair-execution completion audits completed 2026-07-22",
+  "review_basis": "three-round adversarial audit plus actor-topology, predicate-pattern, explicit repair-execution, and witness-level artifact-successor completion audits completed 2026-07-22",
   "manuscripts": {
-    "main_post-submit.tex": "b88aee91d51979c07a382cfb96baec396baff31acae76af58a2399d295436c63",
-    "main_ko.tex": "31ae36a445f6daa14571b0d0cceca6773b1a72a12eb2b6f9484a98bd475ff2db"
+    "main_post-submit.tex": "47702b21cb8a11b0c67d968e56376c65650f5431de63310ca4881c7f9ddcf546",
+    "main_ko.tex": "b95691132a2c11d83297b15cad89f7b8e471da75316169331423c2da28a71e64"
   },
   "citation_keys": [
     "berk1966",
