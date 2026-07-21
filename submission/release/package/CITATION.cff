@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: >-
+  Cite the version of record for the original publication, and identify this
+  dated post-submission package when relying on corrected claims.
+title: Servo Public Regeneration and Audit Metadata Package
+type: dataset
+version: 0.0.0-unreleased
+authors:
+  - family-names: Shin
+    given-names: Jaesol
+    affiliation: WeDataLab
+repository-code: https://github.com/ysys143/servo-caisc2026
+preferred-citation:
+  type: article
+  title: "Formalizing AI Scientist Systems: A Component Framework and Theoretical Analysis"
+  year: 2026
+  authors:
+    - family-names: Shin
+      given-names: Jaesol

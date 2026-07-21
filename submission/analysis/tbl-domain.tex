@@ -1,15 +1,15 @@
 % AUTO-GENERATED from analysis/domain_systems.csv by build_domain_tables.py -- do not edit by hand.
-\begin{tabular}{@{}lccccp{2.6cm}@{}}
+\begin{tabular}{@{}p{1.5cm}p{2.3cm}p{3.0cm}p{3.0cm}p{2.2cm}p{2.5cm}@{}}
 \toprule
-Domain & $V$ type & $V$ reliability & Loop & $\pi$ & Primary bottleneck \\
+Domain & Target property & Evidence / evaluator & Role / feedback & Fidelity boundary & Local bottleneck \\
 \midrule
-Math (formal) & $V_\text{formal}$ & Perfect oracle & Fully closed & RL/MCTS & Pretraining contamination \\
-Math (NL) & $V_\text{sem}+V_h$ & Imperfect & Closed (low quality) & Seq.\ refine & Hallucination; plagiarism \\
-Physics & $V_\text{emp}+V_h$ & Medium & None/partial & Deterministic & No cross-problem $M$ \\
-Chemistry & $V_\text{emp}$ (surr.) & Medium & Comp.\ only & Beam & Wet-lab loop open \\
-Materials & $V_\text{emp}$ (DFT) & High (comp.) & Comp.\ closed & Uncert.\ samp. & DFT wall-time; synth.\ lag \\
-Biology & $V_\text{emp}+V_h$ & Low--med & Partial & None & $V$ metrics insufficient \\
-Social science & Stat.\ test & Low--med & Partial & Factorial/ablation & Circular validity \\
-CS / Algo. & $V_\text{emp}$ & High & Fully closed & Evol./LLM & Interpretability absent \\
+Math (formal) & Formal validity & Numeric/formal checker & Ranking and search control & Computational oracle & Novelty and contamination \\
+Math (NL) & Proof correctness & Natural-language proof review by LLM and humans & Diagnostic or terminal assessment; sequential revision & Natural-language artifact & Hallucination and plagiarism \\
+Physics & Empirical adequacy & Observed or simulated data with statistical fit & Diagnostic or ranking; no cross-problem update & Computational data fit & No cross-problem memory \\
+Chemistry & Proxy performance and empirical adequacy & Computational score or physical assay & Ranking and search control; partial physical feedback & Computational proxy to wet lab & Characterization boundary \\
+Materials & Phase stability & DFT relaxation and uncertainty model & Ranking and policy control & Computational surrogate & Synthesis and characterization \\
+Biology & Protocol executability and biological validity & Protocol artifact review; evaluator incompletely reported & Diagnostic; downstream feedback incompletely reported & Protocol to physical experiment & Biological-validity evidence \\
+Social science & Model fit and behavioral correspondence & Statistical test on experimental or simulated behavior & Diagnostic and ranking & Human or simulated subjects & Circular validity \\
+CS / Algo. & Benchmark performance & Executable benchmark evaluated by program & Ranking and policy control & Computational benchmark & Interpretability \\
 \bottomrule
 \end{tabular}

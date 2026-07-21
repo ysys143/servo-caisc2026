@@ -1,0 +1,19 @@
+% AUTO-GENERATED from validated Servo v1 canonical records; do not edit by hand.
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.95cm}>{\raggedright\arraybackslash}p{3.35cm}>{\raggedright\arraybackslash}p{3.35cm}>{\raggedright\arraybackslash}p{1.85cm}>{\raggedright\arraybackslash}p{2.15cm}@{}}
+\caption{Schema consistency를 통과한 여섯 시스템 정본의 compact 투영. Closure witness, terminal·external event, 탐색공간 변화, fidelity, policy, 인간 권한은 서로 다른 비순서형 필드다. 완전한 event 정렬과 근거는 표~\ref{tab:core-channels}와 정본 CSV에 있다.}\label{tab:core-comparison} \\
+\toprule
+\textbf{시스템} & \textbf{폐쇄 / 채널} & \textbf{탐색} & \textbf{인간 권한} & \textbf{충실도} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{시스템} & \textbf{폐쇄 / 채널} & \textbf{탐색} & \textbf{인간 권한} & \textbf{충실도} \\
+\midrule
+\endhead
+Robot Sci. & 예 (2 routed channels);  2 (2 routed;  0 terminal-\allowbreak{}only;  0 external-\allowbreak{}only);  novelty 0 & policy: active learning;  delta S: none identified in bounded packet & S, E & fixed fidelity \\
+Coscientist & 예 (2 routed channels);  3 (2 routed;  1 terminal-\allowbreak{}only;  0 external-\allowbreak{}only);  novelty 0 & policy: reactive;  delta S: none identified in bounded packet & S, E, V & fixed fidelity \\
+AI Sci.\ (2024) & 예 (3 routed channels);  4 (3 routed;  1 terminal-\allowbreak{}only;  0 external-\allowbreak{}only);  novelty 1 (search control) & policy: sequential replanning;  delta S: none identified in bounded packet & S & fixed fidelity \\
+AI Sci.\ (2026) & 예 (4 routed channels);  6 (4 routed;  1 terminal-\allowbreak{}only;  1 external-\allowbreak{}only);  novelty 1 (search control) & policy: best first tree;  delta S: implemented & S, V & fixed fidelity \\
+AgentLab & 예 (2 routed channels);  2 (2 routed;  0 terminal-\allowbreak{}only;  0 external-\allowbreak{}only);  novelty 0 & policy: staged revision;  delta S: none identified in bounded packet & S, V & fixed fidelity \\
+NovelSeek & 예 (4 routed channels);  4 (4 routed;  0 terminal-\allowbreak{}only;  0 external-\allowbreak{}only);  novelty 1 (ranking/search control) & policy: multi agent adaptive;  delta S: implemented & S, V & fixed fidelity \\
+\bottomrule
+\end{longtable}

@@ -7,7 +7,10 @@ that resolve in references.bib. Fails (exit 1) otherwise.
 
 Usage: python3 build_domain_tables.py   # validates domain_systems.csv, writes tbl-domain.tex
 """
-import csv, os, re, sys
+import csv
+import os
+import re
+import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CSV_PATH = os.path.join(HERE, "domain_systems.csv")
@@ -50,11 +53,11 @@ def main():
     print(f"OK: {len(rows)} domains coded; every row has a source quote and resolvable citations.")
 
     lines = [r"% AUTO-GENERATED from analysis/domain_systems.csv by build_domain_tables.py -- do not edit by hand.",
-             r"\begin{tabular}{@{}lccccp{2.6cm}@{}}", r"\toprule",
-             r"Domain & $V$ type & $V$ reliability & Loop & $\pi$ & Primary bottleneck \\", r"\midrule"]
+             r"\begin{tabular}{@{}p{1.5cm}p{2.3cm}p{3.0cm}p{3.0cm}p{2.2cm}p{2.5cm}@{}}", r"\toprule",
+             r"Domain & Target property & Evidence / evaluator & Role / feedback & Fidelity boundary & Local bottleneck \\", r"\midrule"]
     for r in rows:
-        lines.append(f"{r['domain']} & {r['V_type']} & {r['V_reliability']} & "
-                     f"{r['loop']} & {r['pi']} & {r['bottleneck']} \\\\")
+        lines.append(f"{r['domain']} & {r['target_property']} & {r['evidence_and_evaluator']} & "
+                     f"{r['decision_role_and_feedback']} & {r['fidelity_boundary']} & {r['bottleneck']} \\\\")
     lines += [r"\bottomrule", r"\end{tabular}"]
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")

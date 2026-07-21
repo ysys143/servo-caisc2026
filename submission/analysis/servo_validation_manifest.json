@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "schema_version": "1.0.0",
+  "canonical_input_sha256": {
+    "servo_schema.yaml": "f7a1432b24769c3155c1fb742795059067b27d72b11d0419b4bcef81841d70d5",
+    "servo_core_systems.csv": "ab63bec1f22b1c8d3f33292ba2493d2049e06c9e39e48b2961959cbe3cfe7190",
+    "servo_validator_channels.csv": "164cac403761c710b3566b61e43ff962e99b17a656ab66fe7e493b03a02d4c0f",
+    "core_servo_evidence_ledger.json": "4464213a2c1207ce9a3ea7704889ecf2a28e3fe9d84f3839eb3b5b9ddee5df91",
+    "servo_claim_map.csv": "597ddefbe1c70ee59401546e46a59bbfc7e60a0cff80bfa4e2667bd98e024596"
+  },
+  "derived_output_sha256": {
+    "servo_derived_closure.json": "e1f23113bd0f0f144e4ab19c48fc1132aa4dbb72ff14f25f1d59f3cb57ca8767"
+  },
+  "verification_input_sha256": {
+    "main_post-submit.tex": "3a02a1e2cd6ed71962c579b6ffa854cef3b936f325bbe21ec2aa906d95593a44",
+    "main_ko.tex": "a581cf4294cace5884df57745eead8184cbbf32e78986ef0e913b5049994f919",
+    "citation_audit/core14-manifest.json": "db06a01f48314d8cb7ca92bfcba8138e1fce6b9e9a930960d393cc15f93aa2db",
+    "source:01:Boiko 2023 - Autonomous Chemical Research with LLMs.pdf": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+    "source:02:The AI Scientist_ Towards Fully Automated Open-Ended Scientific Discovery.pdf": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+    "source:03:Towards end-to-end automation of AI research.pdf": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+    "source:04:Agent Laboratory - Using LLM Agents as Research Assistants.pdf": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+    "source:05:Sparkes 2010 - Towards Robot Scientists for Autonomous Scientific Discovery.pdf": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+    "source:06:The AI Scientist-v2 Workshop-Level Automated Scientific Discovery via Agentic Tree Search.pdf": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+    "source:07:Towards an AI Co-Scientist (Google).pdf": "80730ea110ad450411aa8352a785e996cfcda06afd6e1c60277cb64a65cb676a",
+    "source:08:AI-Researcher Autonomous Scientific Innovation.pdf": "a3f3334cc67685b925c9523dc19149806ee996e331623f84912e0354b18c9bce",
+    "source:09:DeepScientist Advancing Frontier-Pushing Scientific Findings.pdf": "76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8",
+    "source:10:Robin - A Multi-Agent System for Automating Scientific Discovery.pdf": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+    "source:11:ERA - An AI System to Help Scientists Write Expert-Level Empirical Software.pdf": "6a974d0c446c54653ffdf2765e75ab252e97aca3a201d930abacf91ec4d6a165",
+    "source:12:AutoResearchClaw - Self-Reinforcing Autonomous Research with Human-AI Collaboration.pdf": "be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491",
+    "source:13:ScientistOne - Towards Human-Level Autonomous Research via Chain-of-Evidence.pdf": "9d4fa9d1e9e6b1cdccfeff02fecbd28b5b961594952a1ac96e00ad135bed0a51",
+    "source:14:NovelSeek - When Agent Becomes the Scientist.pdf": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+    "protected:main.pdf": "7d48eeb1c71ed2cd12e9a677d62587d5f749c5ec19bd8faf0dc9926801bc138d",
+    "protected:main_post-submit.pdf": "4a45951cffd67a80dc25531f103a9a49d65a4c42fed951bdf13eaa07e97e9a01",
+    "protected:servo_caiscfp2026.pdf": "7d48eeb1c71ed2cd12e9a677d62587d5f749c5ec19bd8faf0dc9926801bc138d"
+  },
+  "historical_inputs_used": [],
+  "generated_artifact_sha256": {
+    "tbl-core.tex": "015914171c161fb8513f19030cdc4ae9ec6405e12aaa8255534b0603e46ae8b5",
+    "tbl-core-ko.tex": "dbedfa55d07b784ac43259d4bd00440debaaf1311cb087c6a975c36cec243014",
+    "tbl-core-channels.tex": "9bf96262692411259f08c7cc7559a37793aa01dcdca62a2d191a88ff1aa2df36",
+    "tbl-core-channels-ko.tex": "dfe72c7ab2faa7488dd69cde0dc7c3475e2648ca55593d1b0cf885ef47b98060",
+    "core_servo_channels.csv": "2608c647ef57925cc6931bb7d4861bea101e6aa0ad36fa873c6f14f8f0ecd917",
+    "core_servo_channel_timing.csv": "014afc4c15046b7924399e2d123bc70feb84aea632e7bf43590c9e8ab1219c49",
+    "core_servo_components.csv": "20be333461f72469d0c00f859fd52e75f2fc5d8a6ab48347633543b17ef3399c"
+  }
+}

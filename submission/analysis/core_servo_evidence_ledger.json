@@ -1,0 +1,981 @@
+{
+  "adjudication_policy": "author interpretation of bounded primary-source packet; split distinct trigger phase, evaluator, target, decision role, or destination; merge only the same reported mechanism; none identified means not found in packet; no majority vote or independent channel-level reproducibility claim",
+  "channels": [
+    {
+      "adjudication": "Execution error triggers documentation lookup and protocol correction; this is operational feedback, not final acceptance.",
+      "channel_id": "protocol_execution_correction",
+      "decision_role": "diagnostic",
+      "evaluator_substrate": "deterministic_program;LLM",
+      "evidence": [
+        {
+          "evidence_id": "R01-E03",
+          "pdf_page": 5,
+          "pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+          "quote": "However, an incorrect heater-shaker module method name was used. Upon making this mistake, Coscientist uses the Docs searcher module to consult the OT-2 documentation. Next, Coscientist modifies the protocol to a corrected version, which ran successfully.",
+          "record_id": "R01"
+        }
+      ],
+      "evidence_ids": "R01-E03",
+      "evidence_source": "execution_trace;artifact_review",
+      "evidential_status": "directly_stated",
+      "feedback_path": "candidate_revision",
+      "operational_status": "implemented",
+      "record_id": "R01",
+      "system": "Coscientist",
+      "target_property": "executability;correctness_or_formal_validity"
+    },
+    {
+      "adjudication": "The source states that information is reused for more specific guidance, but does not expose a distinct calibrated gate or policy rule.",
+      "channel_id": "reactivity_guidance",
+      "decision_role": "diagnostic;ranking",
+      "evaluator_substrate": "LLM",
+      "evidence": [
+        {
+          "evidence_id": "R01-E04",
+          "pdf_page": 8,
+          "pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+          "quote": "The normalized advantage values increase over time, suggesting that the model can effectively reuse the information obtained to provide more specific guidance on reactivity.",
+          "record_id": "R01"
+        }
+      ],
+      "evidence_ids": "R01-E04",
+      "evidence_source": "physical_measurement;execution_trace",
+      "evidential_status": "structurally_inferred",
+      "feedback_path": "memory_update;candidate_revision",
+      "operational_status": "implemented",
+      "record_id": "R01",
+      "system": "Coscientist",
+      "target_property": "task_performance"
+    },
+    {
+      "adjudication": "Subjective labels are assessment evidence only; they are not shown to control the physical experiment loop.",
+      "channel_id": "subjective_labeling",
+      "decision_role": "diagnostic",
+      "evaluator_substrate": "human",
+      "evidence": [
+        {
+          "evidence_id": "R01-E05",
+          "pdf_page": 2,
+          "pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+          "quote": "Despite our attempts to better formalize the scale, labelling is inherently subjective and so, may be different between the labelers.",
+          "record_id": "R01"
+        }
+      ],
+      "evidence_ids": "R01-E05",
+      "evidence_source": "human_judgment",
+      "evidential_status": "directly_stated",
+      "feedback_path": "terminal_only",
+      "operational_status": "implemented",
+      "record_id": "R01",
+      "system": "Coscientist",
+      "target_property": "aggregate_quality"
+    },
+    {
+      "adjudication": "The filter discards ideas judged too similar to retrieved literature; no novelty-specific validation is reported.",
+      "channel_id": "ideation_prior_art_filter",
+      "decision_role": "search_control",
+      "evaluator_substrate": "LLM",
+      "evidence": [
+        {
+          "evidence_id": "R02-E01",
+          "pdf_page": 4,
+          "pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+          "quote": "After idea generation, we filter ideas by connecting the language model with the Semantic Scholar API (Fricke, 2018) and web access as a tool (Schick et al., 2024). This allows The AI Scientist to discard any idea that is too similar to existing literature.",
+          "record_id": "R02"
+        }
+      ],
+      "evidence_ids": "R02-E01",
+      "evidence_source": "prior_art_corpus",
+      "evidential_status": "directly_stated",
+      "feedback_path": "policy_control",
+      "operational_status": "implemented",
+      "record_id": "R02",
+      "system": "AI Scientist 2024",
+      "target_property": "novelty"
+    },
+    {
+      "adjudication": "Results are journaled and condition the next implemented experiment, establishing computational closure.",
+      "channel_id": "experiment_result_replanner",
+      "decision_role": "diagnostic;search_control",
+      "evaluator_substrate": "LLM",
+      "evidence": [
+        {
+          "evidence_id": "R02-E02",
+          "pdf_page": 4,
+          "pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+          "quote": "After the completion of each experiment, Aider is then given the results and told to take notes in the style of an experimental journal. Currently, it only conditions on text but in future versions, this could include data visualizations or any modality. Conditional on the results, it then re-plans and implements the next experiment. This process is repeated up to five times.",
+          "record_id": "R02"
+        }
+      ],
+      "evidence_ids": "R02-E02",
+      "evidence_source": "execution_trace",
+      "evidential_status": "directly_stated",
+      "feedback_path": "memory_update;candidate_revision;policy_control",
+      "operational_status": "implemented",
+      "record_id": "R02",
+      "system": "AI Scientist 2024",
+      "target_property": "executability;task_performance"
+    },
+    {
+      "adjudication": "Reviewer benchmarking concerns terminal paper assessment and does not validate the ideation filter or experimental feedback channel.",
+      "channel_id": "automated_paper_reviewer",
+      "decision_role": "terminal_assessment",
+      "evaluator_substrate": "LLM",
+      "evidence": [
+        {
+          "evidence_id": "R02-E03",
+          "pdf_page": 6,
+          "pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+          "quote": "To evaluate the LLM-based reviewer\u2019s performance, we compared the artificially generated decisions with ground truth data for 500 ICLR 2022 papers extracted from the publicly available OpenReview dataset (Berto, 2024).",
+          "record_id": "R02"
+        },
+        {
+          "evidence_id": "R02-E05",
+          "pdf_page": 18,
+          "pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+          "quote": "Unlike standard reviewers, the automated reviewer is unable to ask questions to the authors in a rebuttal phase, although this could readily be incorporated into our framework.",
+          "record_id": "R02"
+        },
+        {
+          "evidence_id": "R02-E06",
+          "pdf_page": 18,
+          "pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+          "quote": "Finally, since it does not currently use any vision capabilities, The AI Scientist (including the reviewer) is unable to view figures and must rely on textual descriptions of them.",
+          "record_id": "R02"
+        },
+        {
+          "evidence_id": "R02-E07",
+          "pdf_page": 7,
+          "pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+          "quote": "Review ensembling (5 reviews) and subsequent meta-aggregation, on the other hand, did not affect the reviewer\u2019s performance, but can reduce variance.",
+          "record_id": "R02"
+        }
+      ],
+      "evidence_ids": "R02-E03;R02-E05;R02-E06;R02-E07",
+      "evidence_source": "artifact_review;benchmark_metric",
+      "evidential_status": "directly_stated",
+      "feedback_path": "terminal_only",
+      "operational_status": "implemented",
+      "record_id": "R02",
+      "system": "AI Scientist 2024",
+      "target_property": "aggregate_quality"
+    },
+    {
+      "adjudication": "Completed ideas and reviews enter the archive even though the source cautions that generated content should be treated as provisional hints.",
+      "channel_id": "archive_admission",
+      "decision_role": "memory_admission",
+      "evaluator_substrate": "LLM",
+      "evidence": [
+        {
+          "evidence_id": "R02-E04",
+          "pdf_page": 2,
+          "pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+          "quote": "Finally, The AI Scientist adds the completed ideas and reviewer feedback to its archive of scientific findings, and the process repeats.",
+          "record_id": "R02"
+        },
+        {
+          "evidence_id": "R02-E08",
+          "pdf_page": 19,
+          "pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+          "quote": "More generally, we do not recommend taking the scientific content of this version of The AI Scientist at face value. Instead, we advise treating generated papers as hints of promising ideas for practitioners to follow up on.",
+          "record_id": "R02"
+        }
+      ],
+      "evidence_ids": "R02-E04;R02-E08",
+      "evidence_source": "artifact_review",
+      "evidential_status": "directly_stated",
+      "feedback_path": "memory_update",
+      "operational_status": "implemented",
+      "record_id": "R02",
+      "system": "AI Scientist 2024",
+      "target_property": "aggregate_quality"
+    },
+    {
+      "adjudication": "The common idea-generation phase discards ideas judged too similar to retrieved literature; later template-free prompts also use literature-grounded reflection.",
+      "channel_id": "ideation_prior_art_filter",
+      "decision_role": "search_control",
+      "evaluator_substrate": "LLM",
+      "evidence": [
+        {
+          "evidence_id": "R03-E01",
+          "pdf_page": 7,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "To ensure the proposals are both grounded and new, this process is tightly integrated with a literature review module that queries external academic databases to identify knowledge gaps and avoid rediscovering existing work. The system uses structured prompts to guide idea generation and reflection rounds to refine proposals based on the literature search results (see Supplementary Information section A.2.6 for prompts).",
+          "record_id": "R03"
+        },
+        {
+          "evidence_id": "R03-E13",
+          "pdf_page": 2,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "After idea generation, The AI Scientist filters ideas by connecting the language model to the Semantic Scholar application programming interface (API) and web access as tools. This allows The AI Scientist to discard any idea that too closely resembles a work in the existing literature.",
+          "record_id": "R03"
+        }
+      ],
+      "evidence_ids": "R03-E01;R03-E13",
+      "evidence_source": "prior_art_corpus",
+      "evidential_status": "directly_stated",
+      "feedback_path": "policy_control",
+      "operational_status": "implemented",
+      "record_id": "R03",
+      "system": "AI Scientist 2026",
+      "target_property": "novelty"
+    },
+    {
+      "adjudication": "Leaf-node assessment selects the root of the next stage and is an operational gate.",
+      "channel_id": "stage_evaluator",
+      "decision_role": "ranking;stage_transition",
+      "evaluator_substrate": "LLM",
+      "evidence": [
+        {
+          "evidence_id": "R03-E02",
+          "pdf_page": 7,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "At the end of each stage, an LLM-based evaluator assesses all leaf nodes and selects the most promising one to serve as the root for the next stage of exploration, thus effectively pruning less promising research avenues.",
+          "record_id": "R03"
+        }
+      ],
+      "evidence_ids": "R03-E02",
+      "evidence_source": "artifact_review",
+      "evidential_status": "directly_stated",
+      "feedback_path": "stage_transition",
+      "operational_status": "implemented",
+      "record_id": "R03",
+      "system": "AI Scientist 2026",
+      "target_property": "aggregate_quality"
+    },
+    {
+      "adjudication": "A vision-capable language model critiques plots and generates new experimental nodes; this feedback enters the search loop.",
+      "channel_id": "plot_critique",
+      "decision_role": "diagnostic;search_control",
+      "evaluator_substrate": "LLM",
+      "evidence": [
+        {
+          "evidence_id": "R03-E03",
+          "pdf_page": 8,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "During experimentation, the plots generated are fed to a VLM, which is prompted to act as a scientist and critique them. For example, it might flag nonsensical axes or issues in the quality of generated examples or suggest clearer ways to present the data. This feedback is used to generate new experimental nodes in the tree search aimed at addressing the identified issues.",
+          "record_id": "R03"
+        }
+      ],
+      "evidence_ids": "R03-E03",
+      "evidence_source": "artifact_review;execution_trace",
+      "evidential_status": "directly_stated",
+      "feedback_path": "candidate_revision",
+      "operational_status": "implemented",
+      "record_id": "R03",
+      "system": "AI Scientist 2026",
+      "target_property": "executability;task_performance"
+    },
+    {
+      "adjudication": "Metrics, dynamics, and plot quality guide node selection and expansion.",
+      "channel_id": "best_first_node_evaluator",
+      "decision_role": "ranking;search_control",
+      "evaluator_substrate": "LLM",
+      "evidence": [
+        {
+          "evidence_id": "R03-E04",
+          "pdf_page": 8,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "When choosing between non-buggy nodes, the system uses a best-first search strategy guided by GPT-4o, which evaluates candidates based on factors like performance metrics, training dynamics and the quality of the plots generated. The selected nodes are expanded by creating a new child node.",
+          "record_id": "R03"
+        }
+      ],
+      "evidence_ids": "R03-E04",
+      "evidence_source": "benchmark_metric;execution_trace;artifact_review",
+      "evidential_status": "directly_stated",
+      "feedback_path": "policy_control",
+      "operational_status": "implemented",
+      "record_id": "R03",
+      "system": "AI Scientist 2026",
+      "target_property": "task_performance"
+    },
+    {
+      "adjudication": "The manuscript reviewer is distinct from the evaluators that control tree expansion.",
+      "channel_id": "automated_paper_reviewer",
+      "decision_role": "terminal_assessment",
+      "evaluator_substrate": "LLM",
+      "evidence": [
+        {
+          "evidence_id": "R03-E05",
+          "pdf_page": 8,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "The agent processes the PDF of a manuscript to produce a structured review, including numerical scores for soundness, presentation and contribution, along with a list of strengths and weaknesses and a preliminary accept or reject decision (Supplementary Information section A.3).",
+          "record_id": "R03"
+        },
+        {
+          "evidence_id": "R03-E06",
+          "pdf_page": 9,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "We benchmarked The Automated Reviewer against human decisions using ICLR data from the publicly available OpenReview dataset33. The Automated Reviewer achieved a comparable balanced accuracy with humans (69% versus 66%; see Supplementary Information section A.3.2 for details) and a higher F1 score compared with inter-human group agreement (0.62 versus 0.49) in the NeurIPS 2021 consistency experiment34, for which roughly 10% of submissions were randomly selected and sent to two independent review committees, thus providing a real-world benchmark of inter-reviewer consistency (Table 1).",
+          "record_id": "R03"
+        },
+        {
+          "evidence_id": "R03-E14",
+          "pdf_page": 3,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "Automated Reviewer 0.69 ± 0.04 0.65 ± 0.10 0.62 ± 0.09 0.69 ± 0.09 0.45 ± 0.10 0.17 ± 0.08 Year after knowledge cutoff (2025) Random decision 0.52 0.51 0.48 0.49 0.50 0.48 Always reject 0.50 0.56 0.00 0.50 0.00 1.00 Automated Reviewer 0.66 ± 0.03 0.63 ± 0.09 0.67 ± 0.09 0.65 ± 0.10 0.52 ± 0.10 0.17 ± 0.07",
+          "record_id": "R03"
+        }
+      ],
+      "evidence_ids": "R03-E05;R03-E06;R03-E14",
+      "evidence_source": "artifact_review;benchmark_metric",
+      "evidential_status": "directly_stated",
+      "feedback_path": "terminal_only",
+      "operational_status": "implemented",
+      "record_id": "R03",
+      "system": "AI Scientist 2026",
+      "target_property": "aggregate_quality"
+    },
+    {
+      "adjudication": "Manual submission selection and workshop review occur outside the autonomous computational loop.",
+      "channel_id": "workshop_review",
+      "decision_role": "external_assessment;final_acceptance",
+      "evaluator_substrate": "human",
+      "evidence": [
+        {
+          "evidence_id": "R03-E07",
+          "pdf_page": 3,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "The overall process was then run to generate ideas, experiments and papers. We manually filtered the most promising outputs at each stage (Supplementary Information section A.4). Had this filtering not occurred, the papers under analysis would still have been produced in their final form, just along with other papers and, thus, at a greater total cost. This process resulted in three complete manuscripts being selected for submission.",
+          "record_id": "R03"
+        },
+        {
+          "evidence_id": "R03-E12",
+          "pdf_page": 3,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "These three submissions were included among the 43 papers reviewed for the workshop. Reviewers were informed that some of the submissions were AI-generated but not which ones, ensuring a blind process.",
+          "record_id": "R03"
+        }
+      ],
+      "evidence_ids": "R03-E07;R03-E12",
+      "evidence_source": "human_judgment",
+      "evidential_status": "directly_stated",
+      "feedback_path": "external_only",
+      "operational_status": "external",
+      "record_id": "R03",
+      "system": "AI Scientist 2026",
+      "target_property": "aggregate_quality"
+    },
+    {
+      "adjudication": "Compile outcomes and dev-set scores drive iterative code repair and improvement.",
+      "channel_id": "mle_execution_feedback",
+      "decision_role": "diagnostic;search_control",
+      "evaluator_substrate": "deterministic_program;LLM",
+      "evidence": [
+        {
+          "evidence_id": "R04-E02",
+          "pdf_page": 6,
+          "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+          "quote": "This is facilitated by mle-solver, a specialized module designed to generate, test, and refine machine learning code autonomously. mle-solver begins by producing initial code based on the research plan and insights from the literature review.",
+          "record_id": "R04"
+        },
+        {
+          "evidence_id": "R04-E03",
+          "pdf_page": 7,
+          "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+          "quote": "Whether the code succeeds or fails, a self-reflection is produced based on the experimental results or the encountered error signal (Renze & Guven (2024); Shinn et al. (2024)). Here, the mle-solver is prompted to reflect on the outcome of its actions. If the program failed to compile, the solver reflects on how to fix this issue in next iterations. If it successfuly compiles and returns a score, the solver will reflect on how to increase this score.",
+          "record_id": "R04"
+        },
+        {
+          "evidence_id": "R04-E07",
+          "pdf_page": 18,
+          "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+          "quote": "Instead of using an LLM scoring function, the mle-solver score is evaluated on the dev set, which is a 20% random sample taken from the original training set, and the training set is represented by the other 80% split.",
+          "record_id": "R04"
+        }
+      ],
+      "evidence_ids": "R04-E02;R04-E03;R04-E07",
+      "evidence_source": "execution_trace;benchmark_metric",
+      "evidential_status": "directly_stated",
+      "feedback_path": "candidate_revision;policy_control",
+      "operational_status": "implemented",
+      "record_id": "R04",
+      "system": "Agent Laboratory",
+      "target_property": "executability;task_performance"
+    },
+    {
+      "adjudication": "The PhD agent may finalize or revisit prior subtasks; this is internal revision control, not independently validated acceptance.",
+      "channel_id": "phd_revision_evaluator",
+      "decision_role": "stage_transition;terminal_assessment",
+      "evaluator_substrate": "LLM",
+      "evidence": [
+        {
+          "evidence_id": "R04-E04",
+          "pdf_page": 10,
+          "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+          "quote": "Based on these scores, the PhD agent then decides whether to finalize the project or revisit earlier subtasks\u2014such as planning, experimentation, or results interpretation\u2014to address the feedback. This allows the agents to refine the research report until it meets sufficiently high standards, effectively simulating the real-world academic revision process.",
+          "record_id": "R04"
+        },
+        {
+          "evidence_id": "R04-E09",
+          "pdf_page": 2,
+          "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+          "quote": "However, a clear gap emerged between human and automated evaluations, with automated scores significantly overestimating quality (6.1/10 vs. 3.8/10 overall).",
+          "record_id": "R04"
+        }
+      ],
+      "evidence_ids": "R04-E04;R04-E09",
+      "evidence_source": "artifact_review",
+      "evidential_status": "directly_stated",
+      "feedback_path": "candidate_revision;stage_transition",
+      "operational_status": "implemented",
+      "record_id": "R04",
+      "system": "Agent Laboratory",
+      "target_property": "aggregate_quality"
+    },
+    {
+      "adjudication": "Robotic experiments and statistical analysis confirm or refute hypotheses and update the domain model.",
+      "channel_id": "physical_hypothesis_test",
+      "decision_role": "diagnostic;search_control",
+      "evaluator_substrate": "statistical_model",
+      "evidence": [
+        {
+          "evidence_id": "R05-E01",
+          "pdf_page": 1,
+          "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "quote": "This is a system which uses techniques from artificial intelligence to automate all aspects of the scientific discovery process: it generates hypotheses from a computer model of the domain, designs experiments to test these hypotheses, runs the physical experiments using robotic systems, analyses and interprets the resulting data, and repeats the cycle.",
+          "record_id": "R05"
+        },
+        {
+          "evidence_id": "R05-E02",
+          "pdf_page": 4,
+          "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "quote": "The growth curves are smoothed, after which biologically significant parameters are extracted and statistically analysed to determine whether the original hypotheses have been confirmed or refuted. Scientific knowledge gained from this process is used to update the model of yeast metabolism.",
+          "record_id": "R05"
+        },
+        {
+          "evidence_id": "R05-E03",
+          "pdf_page": 5,
+          "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "quote": "Adam conceived 20 hypotheses concerning the identity of genes encoding 13 locally orphan enzymes in S. cerevisiae. Adam tested all these hypotheses on its robotic system and was able to confirm by experimentation, with a high degree of confidence, the correctness of 12 of them [24].",
+          "record_id": "R05"
+        },
+        {
+          "evidence_id": "R05-E08",
+          "pdf_page": 5,
+          "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "quote": "Experiment design code then uses the system model to generate biological experiment plans involving deletant strains and metabolite solutions to test the hypotheses, creating microplate layouts using Latin-square design to improve the detection of quantitatively small differences above the background noise. The microplate layouts and related liquid handler volume files are passed to the robotic system control software, that executes the experiment plans. The resulting growth curve data is processed using algorithms based on cubic splines to fit, smooth and denoise the curves, and then to extract biologically significant parameters such as growth rate and lag time. The parameters from multiple experiment replicates are analysed using machine learning (random forests [30]) to obtain statistically significant results that can be used to either confirm or refute hypotheses, potentially resulting in new scientific knowledge that can be used to update the system model. The cycle can then repeat with further hypothesis generation.",
+          "record_id": "R05"
+        }
+      ],
+      "evidence_ids": "R05-E01;R05-E02;R05-E03;R05-E08",
+      "evidence_source": "physical_measurement;statistical_test",
+      "evidential_status": "directly_stated",
+      "feedback_path": "memory_update;policy_control",
+      "operational_status": "implemented",
+      "record_id": "R05",
+      "system": "Adam (Robot Scientist)",
+      "target_property": "empirical_adequacy;correctness_or_formal_validity"
+    },
+    {
+      "adjudication": "Results and metadata enter a relational database and update the yeast-metabolism model.",
+      "channel_id": "knowledge_admission",
+      "decision_role": "memory_admission",
+      "evaluator_substrate": "statistical_model",
+      "evidence": [
+        {
+          "evidence_id": "R05-E02",
+          "pdf_page": 4,
+          "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "quote": "The growth curves are smoothed, after which biologically significant parameters are extracted and statistically analysed to determine whether the original hypotheses have been confirmed or refuted. Scientific knowledge gained from this process is used to update the model of yeast metabolism.",
+          "record_id": "R05"
+        },
+        {
+          "evidence_id": "R05-E04",
+          "pdf_page": 5,
+          "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "quote": "Finally, there is a comprehensive custom-made relational database that stores all the data and meta-data generated throughout the various stages (MySQL).",
+          "record_id": "R05"
+        }
+      ],
+      "evidence_ids": "R05-E02;R05-E04",
+      "evidence_source": "physical_measurement;statistical_test",
+      "evidential_status": "directly_stated",
+      "feedback_path": "memory_update",
+      "operational_status": "implemented",
+      "record_id": "R05",
+      "system": "Adam (Robot Scientist)",
+      "target_property": "empirical_adequacy"
+    },
+    {
+      "adjudication": "Multidimensional coherence, credibility, verifiability, novelty, and alignment scores rank ideas; the source reports no property-specific validation or calibration of these scores.",
+      "channel_id": "idea_assessment",
+      "decision_role": "ranking;search_control",
+      "evaluator_substrate": "LLM",
+      "evidence": [
+        {
+          "evidence_id": "R14-E02",
+          "pdf_page": 6,
+          "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+          "quote": "The primary responsibility of the Assessment Agent is to critically evaluate ideas using multidimensional scoring. Each idea is analyzed across key dimensions: coherence, credibility, verifiability, novelty, and alignment. Coherence checks the logical consistency and structure of the idea, while credibility assesses its trustworthiness based on existing knowledge. Verifiability examines the idea\u2019s testability through empirical methods. Novelty measures originality, and alignment ensures consistency with research goals. Moreover, for each dimension, the Assessment Agent provides a detailed evaluation narrative to explain its reasoning. It assigns scores from 0 to 10, which are combined using a weighted summation to produce an overall score for each idea, aiding in the ranking process.",
+          "record_id": "R14"
+        }
+      ],
+      "evidence_ids": "R14-E02",
+      "evidence_source": "artifact_review",
+      "evidential_status": "directly_stated",
+      "feedback_path": "policy_control",
+      "operational_status": "implemented",
+      "record_id": "R14",
+      "system": "NovelSeek",
+      "target_property": "novelty;executability;aggregate_quality"
+    },
+    {
+      "adjudication": "Human feedback can refine ideas and is distinct from automatically generated agent feedback.",
+      "channel_id": "human_feedback",
+      "decision_role": "diagnostic;search_control",
+      "evaluator_substrate": "human",
+      "evidence": [
+        {
+          "evidence_id": "R14-E03",
+          "pdf_page": 6,
+          "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+          "quote": "The human-interactive feedback mechanism of InternAgent is categorized into two primary types: 1) feedback directly provided by humans and 2) feedback automatically generated by agent. Human-provided feedback can address one or multiple ideas, offering insights and critiques that lead to further refinement and adjustment of these ideas based on the feedback received.",
+          "record_id": "R14"
+        }
+      ],
+      "evidence_ids": "R14-E03",
+      "evidence_source": "human_judgment",
+      "evidential_status": "directly_stated",
+      "feedback_path": "candidate_revision",
+      "operational_status": "implemented",
+      "record_id": "R14",
+      "system": "NovelSeek",
+      "target_property": "aggregate_quality"
+    },
+    {
+      "adjudication": "Exception capture and traceback analysis iterate until success or a fixed limit.",
+      "channel_id": "debugging_loop",
+      "decision_role": "diagnostic;search_control",
+      "evaluator_substrate": "deterministic_program;LLM",
+      "evidence": [
+        {
+          "evidence_id": "R14-E04",
+          "pdf_page": 9,
+          "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+          "quote": "The debugging process follows a systematic cycle: (1) execution attempt, (2) exception capture and traceback analysis, (3) contextual code structure understanding, (4) debugging strategy formulation, and (5) targeted implementation. This cycle continues iteratively until successful execution or reaching a predefined iteration threshold.",
+          "record_id": "R14"
+        }
+      ],
+      "evidence_ids": "R14-E04",
+      "evidence_source": "execution_trace",
+      "evidential_status": "directly_stated",
+      "feedback_path": "candidate_revision;policy_control",
+      "operational_status": "implemented",
+      "record_id": "R14",
+      "system": "NovelSeek",
+      "target_property": "executability"
+    },
+    {
+      "adjudication": "Performance assessment and stored implementation decisions guide subsequent experiments and replanning.",
+      "channel_id": "adaptive_evolution",
+      "decision_role": "ranking;search_control",
+      "evaluator_substrate": "LLM;statistical_model",
+      "evidence": [
+        {
+          "evidence_id": "R14-E05",
+          "pdf_page": 9,
+          "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+          "quote": "Rather than employing a single-pass implementation strategy, we designed an adaptive evolution approach for our implementation process. This approach involves structured iterations where each implementation attempt is followed by performance assessment and potential refinement. We maintain records of implementation decisions across iterations, which helps track changes and their corresponding effects. This directed adaptation process enables the gradual refinement of complex implementations based on empirical results rather than theoretical assumptions alone.",
+          "record_id": "R14"
+        },
+        {
+          "evidence_id": "R14-E07",
+          "pdf_page": 13,
+          "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+          "quote": "Table 3: Experiments statistics across different tasks. Each cell shows the number of ideas that improved performance, the number of ideas that successfully ran, and the total number of ideas tested (format: improved / successful / tested). For all the tasks, we conduct experiments with 10 ideas.",
+          "record_id": "R14"
+        },
+        {
+          "evidence_id": "R14-E08",
+          "pdf_page": 17,
+          "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+          "quote": "This is because our coder agent can automatically analyze the previous results and baseline results and further re-plan the following experiments. Besides, the successful execution rate and the percentage of performance gains will also improve (e.g., on AutoRYP, the percentage of performance gains is 40% compared to 20% without AE).",
+          "record_id": "R14"
+        }
+      ],
+      "evidence_ids": "R14-E05;R14-E07;R14-E08",
+      "evidence_source": "benchmark_metric;execution_trace",
+      "evidential_status": "directly_stated",
+      "feedback_path": "memory_update;candidate_revision;policy_control",
+      "operational_status": "implemented",
+      "record_id": "R14",
+      "system": "NovelSeek",
+      "target_property": "task_performance"
+    }
+  ],
+  "components": [
+    {
+      "evidence": [
+        {
+          "evidence_id": "R01-E01",
+          "pdf_page": 1,
+          "pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+          "quote": "The initial user input along with command outputs are treated as user messages to the Planner.",
+          "record_id": "R01"
+        },
+        {
+          "evidence_id": "R01-E02",
+          "pdf_page": 4,
+          "pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+          "quote": "Access to documentation enables us to provide sufficient information for Coscientist to conduct experiments in the physical world.",
+          "record_id": "R01"
+        },
+        {
+          "evidence_id": "R01-E03",
+          "pdf_page": 5,
+          "pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+          "quote": "However, an incorrect heater-shaker module method name was used. Upon making this mistake, Coscientist uses the Docs searcher module to consult the OT-2 documentation. Next, Coscientist modifies the protocol to a corrected version, which ran successfully.",
+          "record_id": "R01"
+        },
+        {
+          "evidence_id": "R01-E04",
+          "pdf_page": 8,
+          "pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+          "quote": "The normalized advantage values increase over time, suggesting that the model can effectively reuse the information obtained to provide more specific guidance on reactivity.",
+          "record_id": "R01"
+        },
+        {
+          "evidence_id": "R01-E07",
+          "pdf_page": 5,
+          "pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+          "quote": "Although our setup is not yet fully automated (plates were moved manually), no human decision-making was involved.",
+          "record_id": "R01"
+        }
+      ],
+      "evidence_ids": "R01-E01;R01-E02;R01-E03;R01-E04;R01-E07",
+      "evidential_status": "mixed_direct_and_inferred",
+      "experiment_executor": "documentation-guided code execution and partially manual plate handling",
+      "experimental_fidelity": "computational tooling plus robotic/physical experiment",
+      "generator": "planner plus tool-using LLM modules",
+      "human_authority": "human supplies the task and manually moves plates; no decision is reported during the demonstrated plate workflow",
+      "memory": "tool outputs and reusable reaction information; no stable taxonomy-native store is reported",
+      "record_id": "R01",
+      "search_policy": "reactive correction and result-informed guidance",
+      "search_space": "user-specified chemistry tasks and reaction conditions",
+      "system": "Coscientist"
+    },
+    {
+      "evidence": [
+        {
+          "evidence_id": "R02-E01",
+          "pdf_page": 4,
+          "pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+          "quote": "After idea generation, we filter ideas by connecting the language model with the Semantic Scholar API (Fricke, 2018) and web access as a tool (Schick et al., 2024). This allows The AI Scientist to discard any idea that is too similar to existing literature.",
+          "record_id": "R02"
+        },
+        {
+          "evidence_id": "R02-E02",
+          "pdf_page": 4,
+          "pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+          "quote": "After the completion of each experiment, Aider is then given the results and told to take notes in the style of an experimental journal. Currently, it only conditions on text but in future versions, this could include data visualizations or any modality. Conditional on the results, it then re-plans and implements the next experiment. This process is repeated up to five times.",
+          "record_id": "R02"
+        },
+        {
+          "evidence_id": "R02-E04",
+          "pdf_page": 2,
+          "pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+          "quote": "Finally, The AI Scientist adds the completed ideas and reviewer feedback to its archive of scientific findings, and the process repeats.",
+          "record_id": "R02"
+        },
+        {
+          "evidence_id": "R02-E08",
+          "pdf_page": 19,
+          "pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+          "quote": "More generally, we do not recommend taking the scientific content of this version of The AI Scientist at face value. Instead, we advise treating generated papers as hints of promising ideas for practitioners to follow up on.",
+          "record_id": "R02"
+        }
+      ],
+      "evidence_ids": "R02-E01;R02-E02;R02-E04;R02-E08",
+      "evidential_status": "directly_stated",
+      "experiment_executor": "Aider edits and runs computational experiments",
+      "experimental_fidelity": "computational experiment",
+      "generator": "LLM idea generation followed by prior-art filtering",
+      "human_authority": "human setup and downstream practitioner follow-up remain outside the internal loop",
+      "memory": "experimental-journal notes and archive of ideas/reviewer feedback",
+      "record_id": "R02",
+      "search_policy": "result-conditioned sequential replanning for up to five experiments",
+      "search_space": "research ideas and bounded computational experiment variants",
+      "system": "AI Scientist 2024"
+    },
+    {
+      "evidence": [
+        {
+          "evidence_id": "R03-E01",
+          "pdf_page": 7,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "To ensure the proposals are both grounded and new, this process is tightly integrated with a literature review module that queries external academic databases to identify knowledge gaps and avoid rediscovering existing work. The system uses structured prompts to guide idea generation and reflection rounds to refine proposals based on the literature search results (see Supplementary Information section A.2.6 for prompts).",
+          "record_id": "R03"
+        },
+        {
+          "evidence_id": "R03-E02",
+          "pdf_page": 7,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "At the end of each stage, an LLM-based evaluator assesses all leaf nodes and selects the most promising one to serve as the root for the next stage of exploration, thus effectively pruning less promising research avenues.",
+          "record_id": "R03"
+        },
+        {
+          "evidence_id": "R03-E04",
+          "pdf_page": 8,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "When choosing between non-buggy nodes, the system uses a best-first search strategy guided by GPT-4o, which evaluates candidates based on factors like performance metrics, training dynamics and the quality of the plots generated. The selected nodes are expanded by creating a new child node.",
+          "record_id": "R03"
+        },
+        {
+          "evidence_id": "R03-E07",
+          "pdf_page": 3,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "The overall process was then run to generate ideas, experiments and papers. We manually filtered the most promising outputs at each stage (Supplementary Information section A.4). Had this filtering not occurred, the papers under analysis would still have been produced in their final form, just along with other papers and, thus, at a greater total cost. This process resulted in three complete manuscripts being selected for submission.",
+          "record_id": "R03"
+        },
+        {
+          "evidence_id": "R03-E08",
+          "pdf_page": 3,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "The entire scientific workflow for each paper, from ideation and coding to manuscript writing, was performed without any human modification.",
+          "record_id": "R03"
+        },
+        {
+          "evidence_id": "R03-E09",
+          "pdf_page": 7,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "To go further and effectively use more test-time compute, the template-free system uses LLMs to power a tree search without relying on Aider.",
+          "record_id": "R03"
+        },
+        {
+          "evidence_id": "R03-E10",
+          "pdf_page": 8,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "Aggregation nodes are special nodes created to consolidate and visualize the combined results of replication nodes. Unlike other node types, aggregation nodes do not conduct new experiments but simply generate a Python script to aggregate and summarize previous results.",
+          "record_id": "R03"
+        },
+        {
+          "evidence_id": "R03-E11",
+          "pdf_page": 4,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "At present, The AI Scientist conducts computational experiments only. In future work, this same playbook could be applied to other scientific domains where one can automatically conduct experiments (or have humans conduct them) and collect data from them (for example, automated chemistry laboratories, on which swift progress is being made46).",
+          "record_id": "R03"
+        },
+        {
+          "evidence_id": "R03-E12",
+          "pdf_page": 3,
+          "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+          "quote": "These three submissions were included among the 43 papers reviewed for the workshop. Reviewers were informed that some of the submissions were AI-generated but not which ones, ensuring a blind process.",
+          "record_id": "R03"
+        }
+      ],
+      "evidence_ids": "R03-E01;R03-E02;R03-E04;R03-E07;R03-E08;R03-E09;R03-E10;R03-E11;R03-E12",
+      "evidential_status": "directly_stated",
+      "experiment_executor": "computational experiments only; aggregation nodes summarize rather than execute new experiments",
+      "experimental_fidelity": "computational experiment only",
+      "generator": "LLM ideation, literature-grounded reflection, and tree-node expansion",
+      "human_authority": "no human modification inside each workflow; humans manually select submissions and external reviewers decide acceptance",
+      "memory": "tree history, replication results, and aggregation artifacts",
+      "record_id": "R03",
+      "search_policy": "best-first node expansion plus LLM stage-root selection",
+      "search_space": "template-free research trees of ideas, experiment nodes, replication nodes, and aggregation nodes",
+      "system": "AI Scientist 2026"
+    },
+    {
+      "evidence": [
+        {
+          "evidence_id": "R04-E01",
+          "pdf_page": 2,
+          "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+          "quote": "Unlike previous approaches, where agents participate in their own research ideation independent of human input (Baek et al. (2024); Lu et al. (2024b)), Agent Laboratory is designed to assist human scientists in executing their own research ideas using language agents. Agent Laboratory takes as input a human research idea and outputs a research report and code repository produced by autonomous language agents",
+          "record_id": "R04"
+        },
+        {
+          "evidence_id": "R04-E02",
+          "pdf_page": 6,
+          "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+          "quote": "This is facilitated by mle-solver, a specialized module designed to generate, test, and refine machine learning code autonomously. mle-solver begins by producing initial code based on the research plan and insights from the literature review.",
+          "record_id": "R04"
+        },
+        {
+          "evidence_id": "R04-E03",
+          "pdf_page": 7,
+          "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+          "quote": "Whether the code succeeds or fails, a self-reflection is produced based on the experimental results or the encountered error signal (Renze & Guven (2024); Shinn et al. (2024)). Here, the mle-solver is prompted to reflect on the outcome of its actions. If the program failed to compile, the solver reflects on how to fix this issue in next iterations. If it successfuly compiles and returns a score, the solver will reflect on how to increase this score.",
+          "record_id": "R04"
+        },
+        {
+          "evidence_id": "R04-E04",
+          "pdf_page": 10,
+          "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+          "quote": "Based on these scores, the PhD agent then decides whether to finalize the project or revisit earlier subtasks\u2014such as planning, experimentation, or results interpretation\u2014to address the feedback. This allows the agents to refine the research report until it meets sufficiently high standards, effectively simulating the real-world academic revision process.",
+          "record_id": "R04"
+        },
+        {
+          "evidence_id": "R04-E05",
+          "pdf_page": 10,
+          "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+          "quote": "In autonomous mode, there is no human involvement other than providing the initial research idea for agents to produce research for. Each subtask moves on to the next subtask sequentially upon completion.",
+          "record_id": "R04"
+        },
+        {
+          "evidence_id": "R04-E06",
+          "pdf_page": 8,
+          "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+          "quote": "The paper-solver aims to act as a report generator, positioning the work that has been produced by previous stages of Agent Laboratory. paper-solver does not aim to entirely replace the academic paper-writing process, but rather to summarize the research that has been produced in a human-readable format so that the researcher using Agent Laboratory understands what has been accomplished.",
+          "record_id": "R04"
+        },
+        {
+          "evidence_id": "R04-E08",
+          "pdf_page": 20,
+          "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+          "quote": "Agent Laboratory is also not able to manage repository-level code on its own, but rather the appropriate files are provided to it at each necessary step and files are saved based on which phase produced the file. Enabling flexible repository-level file modification and execution is a clear next step for future work.",
+          "record_id": "R04"
+        }
+      ],
+      "evidence_ids": "R04-E01;R04-E02;R04-E03;R04-E04;R04-E05;R04-E06;R04-E08",
+      "evidential_status": "directly_stated",
+      "experiment_executor": "mle-solver generates, executes, tests, and refines ML code",
+      "experimental_fidelity": "computational experiment",
+      "generator": "specialized agents generate plans, code, and reports",
+      "human_authority": "human supplies the idea and remains intended final consumer; autonomous mode otherwise proceeds sequentially",
+      "memory": "phase-specific files and reflection records; repository-level memory management is limited",
+      "record_id": "R04",
+      "search_policy": "sequential workflow with execution reflection and PhD-agent revision decisions",
+      "search_space": "a human-supplied research idea, workflow subtasks, and code variants",
+      "system": "Agent Laboratory"
+    },
+    {
+      "evidence": [
+        {
+          "evidence_id": "R05-E01",
+          "pdf_page": 1,
+          "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "quote": "This is a system which uses techniques from artificial intelligence to automate all aspects of the scientific discovery process: it generates hypotheses from a computer model of the domain, designs experiments to test these hypotheses, runs the physical experiments using robotic systems, analyses and interprets the resulting data, and repeats the cycle.",
+          "record_id": "R05"
+        },
+        {
+          "evidence_id": "R05-E02",
+          "pdf_page": 4,
+          "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "quote": "The growth curves are smoothed, after which biologically significant parameters are extracted and statistically analysed to determine whether the original hypotheses have been confirmed or refuted. Scientific knowledge gained from this process is used to update the model of yeast metabolism.",
+          "record_id": "R05"
+        },
+        {
+          "evidence_id": "R05-E03",
+          "pdf_page": 5,
+          "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "quote": "Adam conceived 20 hypotheses concerning the identity of genes encoding 13 locally orphan enzymes in S. cerevisiae. Adam tested all these hypotheses on its robotic system and was able to confirm by experimentation, with a high degree of confidence, the correctness of 12 of them [24].",
+          "record_id": "R05"
+        },
+        {
+          "evidence_id": "R05-E04",
+          "pdf_page": 5,
+          "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "quote": "Finally, there is a comprehensive custom-made relational database that stores all the data and meta-data generated throughout the various stages (MySQL).",
+          "record_id": "R05"
+        },
+        {
+          "evidence_id": "R05-E06",
+          "pdf_page": 4,
+          "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "quote": "Adam is intended to be fully automated, with human intervention required only to supply library strain stocks and consumables.",
+          "record_id": "R05"
+        },
+        {
+          "evidence_id": "R05-E07",
+          "pdf_page": 9,
+          "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "quote": "There is a substantial cost for these systems, not only in initial capital outlay and user training, but also in ongoing servicing and maintenance costs, and we would not currently consider them to be 'cost-effective' in comparison to human scientists.",
+          "record_id": "R05"
+        },
+        {
+          "evidence_id": "R05-E08",
+          "pdf_page": 5,
+          "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "quote": "Experiment design code then uses the system model to generate biological experiment plans involving deletant strains and metabolite solutions to test the hypotheses, creating microplate layouts using Latin-square design to improve the detection of quantitatively small differences above the background noise. The microplate layouts and related liquid handler volume files are passed to the robotic system control software, that executes the experiment plans. The resulting growth curve data is processed using algorithms based on cubic splines to fit, smooth and denoise the curves, and then to extract biologically significant parameters such as growth rate and lag time. The parameters from multiple experiment replicates are analysed using machine learning (random forests [30]) to obtain statistically significant results that can be used to either confirm or refute hypotheses, potentially resulting in new scientific knowledge that can be used to update the system model. The cycle can then repeat with further hypothesis generation.",
+          "record_id": "R05"
+        }
+      ],
+      "evidence_ids": "R05-E01;R05-E02;R05-E03;R05-E04;R05-E06;R05-E07;R05-E08",
+      "evidential_status": "directly_stated",
+      "experiment_executor": "robotic physical experiments followed by statistical analysis",
+      "experimental_fidelity": "robotic physical assay",
+      "generator": "AI hypothesis generation from the domain model",
+      "human_authority": "humans supply strains and consumables and maintain the platform",
+      "memory": "relational database plus updated yeast-metabolism model",
+      "record_id": "R05",
+      "search_policy": "active closed cycle selecting experiments from the updated model",
+      "search_space": "gene-function hypotheses generated from a yeast-metabolism domain model",
+      "system": "Adam (Robot Scientist)"
+    },
+    {
+      "evidence": [
+        {
+          "evidence_id": "R14-E01",
+          "pdf_page": 5,
+          "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+          "quote": "In the context of idea generation, the agent utilizes a general LLM configured with a higher temperature setting. This configuration encourages the generation of more diverse and creative outputs. This enables the agent to identify patterns and insights that might be overlooked in traditional research, generating novel hypotheses and strategies based on task definitions, baseline methods, and current scientific knowledge.",
+          "record_id": "R14"
+        },
+        {
+          "evidence_id": "R14-E02",
+          "pdf_page": 6,
+          "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+          "quote": "The primary responsibility of the Assessment Agent is to critically evaluate ideas using multidimensional scoring. Each idea is analyzed across key dimensions: coherence, credibility, verifiability, novelty, and alignment. Coherence checks the logical consistency and structure of the idea, while credibility assesses its trustworthiness based on existing knowledge. Verifiability examines the idea\u2019s testability through empirical methods. Novelty measures originality, and alignment ensures consistency with research goals. Moreover, for each dimension, the Assessment Agent provides a detailed evaluation narrative to explain its reasoning. It assigns scores from 0 to 10, which are combined using a weighted summation to produce an overall score for each idea, aiding in the ranking process.",
+          "record_id": "R14"
+        },
+        {
+          "evidence_id": "R14-E03",
+          "pdf_page": 6,
+          "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+          "quote": "The human-interactive feedback mechanism of InternAgent is categorized into two primary types: 1) feedback directly provided by humans and 2) feedback automatically generated by agent. Human-provided feedback can address one or multiple ideas, offering insights and critiques that lead to further refinement and adjustment of these ideas based on the feedback received.",
+          "record_id": "R14"
+        },
+        {
+          "evidence_id": "R14-E04",
+          "pdf_page": 9,
+          "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+          "quote": "The debugging process follows a systematic cycle: (1) execution attempt, (2) exception capture and traceback analysis, (3) contextual code structure understanding, (4) debugging strategy formulation, and (5) targeted implementation. This cycle continues iteratively until successful execution or reaching a predefined iteration threshold.",
+          "record_id": "R14"
+        },
+        {
+          "evidence_id": "R14-E05",
+          "pdf_page": 9,
+          "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+          "quote": "Rather than employing a single-pass implementation strategy, we designed an adaptive evolution approach for our implementation process. This approach involves structured iterations where each implementation attempt is followed by performance assessment and potential refinement. We maintain records of implementation decisions across iterations, which helps track changes and their corresponding effects. This directed adaptation process enables the gradual refinement of complex implementations based on empirical results rather than theoretical assumptions alone.",
+          "record_id": "R14"
+        },
+        {
+          "evidence_id": "R14-E06",
+          "pdf_page": 12,
+          "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+          "quote": "The survey agent searches and reviews 50 papers to provide domain knowledge for the subsequent idea generation agent, and then the idea generation agent generates 15 ideas. The self-evolving agent evolves each idea into 3 ideas and then selects the top 5 ideas for the next evolving process until the maximum number of evolutions (i.e., 4) is reached.",
+          "record_id": "R14"
+        },
+        {
+          "evidence_id": "R14-E07",
+          "pdf_page": 13,
+          "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+          "quote": "Table 3: Experiments statistics across different tasks. Each cell shows the number of ideas that improved performance, the number of ideas that successfully ran, and the total number of ideas tested (format: improved / successful / tested). For all the tasks, we conduct experiments with 10 ideas.",
+          "record_id": "R14"
+        },
+        {
+          "evidence_id": "R14-E08",
+          "pdf_page": 17,
+          "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+          "quote": "This is because our coder agent can automatically analyze the previous results and baseline results and further re-plan the following experiments. Besides, the successful execution rate and the percentage of performance gains will also improve (e.g., on AutoRYP, the percentage of performance gains is 40% compared to 20% without AE).",
+          "record_id": "R14"
+        }
+      ],
+      "evidence_ids": "R14-E01;R14-E02;R14-E03;R14-E04;R14-E05;R14-E06;R14-E07;R14-E08",
+      "evidential_status": "directly_stated",
+      "experiment_executor": "code execution across twelve computational tasks with iterative debugging",
+      "experimental_fidelity": "computational experiment",
+      "generator": "high-temperature LLM ideation, survey-grounded generation, and self-evolution",
+      "human_authority": "humans define scope and may inject feedback; agent-level authority is not fully captured by a system tuple",
+      "memory": "records of implementation decisions, prior results, and baseline results",
+      "record_id": "R14",
+      "search_policy": "multi-agent ranking, bounded idea evolution, adaptive implementation, and result-conditioned replanning",
+      "search_space": "task-defined scientific ideas, evolved ideas, implementations, and experiment variants",
+      "system": "NovelSeek"
+    }
+  ],
+  "schema_version": 1,
+  "unit": "source-defined system record with channel-level validators"
+}

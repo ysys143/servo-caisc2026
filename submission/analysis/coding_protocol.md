@@ -1,123 +1,146 @@
-# SERVO Cross-System Coding Protocol
+# SERVO cross-system coding protocol
 
-This protocol operationalizes the component extraction behind the cross-system
-tables so the V-completeness pattern is auditable. It addresses the
-reproducibility critique (no rubric / no inter-coder reliability / convenience
-sample) raised in review.
+## Status and unit of analysis
 
-## Inclusion / exclusion criteria
+This document records the current Servo schema 1.0 author coding protocol. Its
+normative machine-readable definition is `servo_schema.yaml`; the only current
+substantive inputs are `servo_core_systems.csv` and
+`servo_validator_channels.csv`. The validator derives closure and generates the
+English and Korean projections from those files. The frozen R24
+artifacts under `multicoder/r24_final/` preserve the instructions actually shown
+to the three vendors and are a development audit, not an independent recoding of
+the current event-channel schema. The current schema supersedes the historical
+layer, scalar-human-intervention, `V_present`, `V_gating`, and `V_completeness`
+rubrics for substantive analysis. Those columns remain in `systems.csv` only to
+reconstruct earlier revisions and must not be used to rank systems.
 
-**Include** a system if it automates at least one full hypothesis -> experiment
--> validation cycle (a generation step G, an execution step E, and a validation
-step V that produces a signal used by the system).
+The final unit is a source-defined system version plus a validator channel. The
+14 records comprise 13 lineages because AI Scientist-v2 and the Nature 2026 AI
+Scientist describe the same agentic-tree method family at different publication
+stages. AI Scientist 2024 and Nature 2026 remain separate system versions. The
+Nature record covers only its template-free agentic-tree configuration.
 
-**Exclude** specialized predictors with no generation-and-search loop
-(e.g., AlphaFold), pure benchmarks, and tool libraries without an internal loop.
+The sample is a convenience sample, not an estimate of the population of AI
+Scientist systems. Domain Table 2 is a separate single-coder illustration and is
+not part of the R24 recoding.
 
-**Search log.** Candidate systems were drawn from (a) the AI Scientist survey
-literature, (b) the venues NeurIPS/ICLR/Nature 2023-2026, and (c) backward/
-forward citation from the core systems. This is a convenience sample of
-widely-cited representatives, not an exhaustive enumeration; the selection bias
-this introduces is stated in the paper's Limitations. The candidate universe and
-the include/exclude decision per system are recorded in
-`multicoder/target_systems.md`.
+The manuscript's substantive comparison uses six core records: Coscientist,
+AI Scientist 2024, AI Scientist Nature 2026, Agent Laboratory, Robot Scientist,
+and NovelSeek. The remaining eight records are supplementary applications for
+scope, boundary-case, and counterexample inspection. This role split is frozen
+in the R24 source manifest before generation.
 
-## Operational rubric (each cell answerable from an explicit source quote)
+## Frozen source inputs
 
-For every system we record, for each of S, G, E, V, M, pi, a short label, and we
-attach at least one direct source quote with a citation as the evidentiary
-anchor. (The released `systems.csv` carries one representative source quote per
-system for the existence/citation check enforced by `build_servo_tables.py`; the
-per-component values are the coded fields, not one quote per component.) The
-decisive constructs are coded as discrete indicators so coders can agree or
-disagree unambiguously:
+Each coder receives a fresh, identity-minimized source packet built only from the
+local primary-source PDFs. A packet contains a record identifier, PDF hash, page
+anchors, paragraph identifiers, and source text. It does not contain the
+manuscript, historical coder output, author labels, citation-audit verdicts, or
+other coders' results. No web retrieval is allowed during coding.
 
-### V layers (binary presence; each requires a source quote)
-- `V_syntax`  {0,1}: a deterministic automated pass/fail check exists.
-- `V_semantic`{0,1}: an LLM/rubric-based score of outputs is used.
-- `V_empirical`{0,1}: measured experimental/benchmark outcomes feed the loop.
-- `V_human`   {0,1}: human judgment is required for the validity/novelty signal.
-- `V_calibrated`{0,1}: the highest automated layer present is reliably calibrated
-  (e.g., DFT, formal kernel) rather than systematically biased (e.g., LLM judge).
+The manual, JSON schema, packet manifest, prompts, model identifiers, run order,
+and statistical plan are hashed before the first run. A substantive change after
+coding begins creates a new protocol version and requires a complete rerun; cells
+are never selectively rerun.
 
-Three further columns were added to `systems.csv` after the first coding pass, when the
-single `V_calibrated` flag proved to conflate two questions. They were defined in
-`multicoder/rubric_calib.txt` for the recoding round and are restated here, because the
-paper's central claim rests on the second of them:
+## Current post-R27 author schema
 
-- `V_present`  {0,1}: a calibrated automated layer exists anywhere in the system.
-  *Scope.* This field asks for a **substantive validity oracle** -- an empirical
-  measurement, a formal kernel, or a calibrated surrogate model -- of the kind the
-  `V_calibrated` examples name (DFT, proof kernel). A deterministic syntax or execution
-  check (`V_syntax`) is reliable at what it tests but establishes only that code ran, not
-  that a scientific claim holds, so it does **not** by itself set `V_present` to 1. The
-  completeness ordinal is scoped differently: its reliability partial order does include
-  `V_syntax`, as its lowest rung. The two fields use the word *calibrated* over different
-  ranges, and that difference is deliberate.
-- `V_gating`   {0,1}: the layer that *decides acceptance* is itself calibrated. This is a
-  property of calibration, not of who performs the gating; a biased automated reviewer and
-  a social review process both yield 0.
-- `novelty_gate` {`none`|`human`|`predefined`|`biased_auto`|`calibrated_auto`}: what, if
-  anything, gates on novelty.
+For each implemented, proposed, external, unreported, or unclear validator
+channel, the current author synthesis records:
 
-Note also that this protocol describes two things the released sheets do not carry as
-columns. The per-component S/G/E/V/M/pi labels of §"Unit of coding" are given in the
-manuscript's comparison table rather than in `systems.csv`, and the three loop boundaries
-`L_task`/`L_measurement`/`L_discovery` are collapsed into the single `A_loop_status`
-field. Anyone reconciling this document against the CSV should expect those two gaps.
+- `trigger_phase`: pre-action, in-execution, post-observation, terminal, or
+  external; this locates the validation event rather than assuming one
+  post-observation call;
+- `target_property`: executability, specification compliance, task performance,
+  correctness or formal validity, empirical adequacy, reproducibility, novelty,
+  significance, or aggregate quality;
+- `evidence_source`: execution trace, benchmark metric, statistical test,
+  physical measurement, replication, prior-art corpus, artifact review, or human
+  judgment;
+- `evaluator_substrate`: deterministic program, statistical model, formal
+  kernel, LLM, human, or hybrid;
+- `decision_role`: diagnostic, ranking, search control, stage transition, memory
+  admission, terminal assessment, final acceptance, or external assessment;
+- `feedback_path`: terminal only, memory update, candidate revision, policy
+  control, stage transition, external only, or unclear;
+- `external_independence`: internal self-evaluation, internal separate component,
+  external non-independent, external independent, or not reported;
+- `reliability_evidence_type`: none reported, discrimination study, agreement
+  study, systematic-error or bias test, property-specific external validation,
+  or probabilistic calibration analysis;
+- `reliability_finding`: not evaluated, not established, evidence of error or
+  bias, positive property-specific evidence, mixed, or unclear; and
+- `experimental_fidelity`: simulation or proxy, computational experiment,
+  computational oracle or benchmark, robotic experiment, physical assay, not
+  applicable, or not reported.
 
-### V_completeness (ordinal 0-3, holistic judgment --- NOT mechanically derived)
-A 0-3 ordinal summarizing how much of the validity burden is carried by reliable
-automated layers: 0 = V_human only; 1 = one reliable automated layer; 2 = two;
-3 = three automated layers AND the top automated layer is calibrated. This
-ordinal is an interpreted summary, NOT a deterministic function of the binary
-indicators above: coders may legitimately differ on whether V_human counts
-toward the total and whether an accessible-but-biased layer (e.g., an LLM judge)
-is discounted. It is therefore the lowest-agreement field; the paper rests its
-claim on the calibration sub-construct, not on this ordinal.
+Multiple values may apply within a facet. `not_reported`, explicit absence,
+`unclear`, and `not_applicable` are distinct. Every value carries the PDF record,
+page, paragraph identifier, exact source excerpt, and rationale.
 
-### loop_status (3-boundary, resolves the Coscientist ambiguity)
-- `L_task` {0,1}: results inform later choices within a predefined task.
-- `L_measurement` {0,1}: the measurement->analysis step is automated (not human).
-- `L_discovery` {0,1}: an autonomous hypothesis->experiment->new-hypothesis cycle
-  exists that certifies new knowledge (novelty).
-Label (as recorded in systems.csv): none / partial-task / partial-analysis /
-closed-comp / closed-wetlab, derived from which boundaries are crossed.
+System-level fields record policy type, memory structure, search-space expansion,
+fidelity choice, cost or budget state when reported, and component-specific human
+authority over `S`, `G`, `E`, `V`, `M`, and `pi`. `H_S` distinguishes authority
+over the initial problem or represented search space from candidate generation. Human authority is categorical, not a
+percentage. Computational closure is derived from an implemented feedback edge
+that changes later memory, candidates, represented search space, policy, or
+stage. A channel routed only to terminal or external assessment does not close
+the loop; an evaluation occurring after manuscript generation can qualify only
+when the source reports an explicit route back to a later stage or component.
 
-### H (human intervention, continuous in [0,1])
-Approximate fraction of the loop's decision burden a human carries, judged from
-which of G / pi / V_human a human performs. Reported on a continuous [0,1] scale
-(values such as 0.1 or 0.8 denote "almost none" / "almost all" of that burden);
-the quartile points {0,.25,.5,.75,1} are reference anchors, not the only allowed
-values.
+## AI Scientist channel boundary
 
-## Multi-coder reliability
-- **Coder A (reference):** the manuscript authors (labels in `systems.csv`,
-  columns `A_*`), re-verified against the cited primary source.
-- **Independent coders:** three model-pinned, blind LLM-based coder agents from
-  different vendors -- Claude Code (`claude-opus-4-8`, Anthropic), Codex CLI
-  (`gpt-5.5`, OpenAI), and Antigravity `agy` (Gemini 3.1 Pro High, Google) --
-  each given ONLY this protocol and the neutral source descriptions in
-  `multicoder/systems_desc.json`, blind to the author's labels and to one
-  another (but NOT blind to system identity -- the systems are widely known and
-  may be memorized, which the paper states as a limitation). Per-coder outputs
-  are in `multicoder/codings.csv` and
-  `multicoder/raters/`.
-- **Agreement:** Fleiss' kappa across the three coders plus pairwise Cohen's
-  kappa, per categorical field, reported in `reliability_report.md`. Because the
-  coders are LLMs scoring structural indicators (not human raters), kappa is a
-  transparency measure, not a claim of human-level inter-rater reliability.
-- The published per-system labels remain Coder A (`systems.csv`); the
-  multi-coder matrix (`multicoder/codings.csv`) is the reliability evidence.
+AI Scientist 2024 contains three distinct channels: a literature-similarity
+filter that can discard ideas during ideation; execution status and metrics that
+can trigger bounded revision and replanning; and a terminal simulated paper
+reviewer. The reviewer error study does not establish bias in the ideation filter.
 
-## Counterexample search
-We explicitly seek systems that (a) are V-incomplete yet loop-closed, or
-(b) V-complete yet loop-open. A confirmed case of (a) would refute the claim that
-V-completeness is necessary for closure. Result reported in
-`reliability_report.md`.
+In the Nature 2026 paper, the common idea-generation phase connects to Semantic
+Scholar and can discard ideas that closely resemble existing work. The
+template-free prompts also use literature-grounded reflection and refinement.
+The current record therefore codes one pre-action prior-art gate and keeps it
+separate from the later metrics, training dynamics, plot checks, and stage evaluators that
+control tree expansion and stage transitions. Its paper reviewer is terminal.
+Workshop review is external to the computational loop after manual submission
+selection. False-positive-rate results are reviewer-error evidence, not
+probabilistic calibration and not a head-to-head comparison with the separately
+sampled human-review figure.
 
-## Regeneration
-`build_servo_tables.py` regenerates the core table (TeX) from `systems.csv` and
-fails if any cell lacks a source quote or any cited source key is absent.
-`multicoder/run_coders.py` re-runs the blind multi-vendor coding and
-`multicoder/compute_fleiss.py` recomputes the reliability statistics.
+## Servo recoding
+
+Claude, Codex, and Gemini each coded all 14 packets in isolated stateless sessions
+using the then-frozen R24 record-level facet schema, with fresh processes and a
+fixed randomized record order. They did not code post-R24 trigger phase, routed
+channel alignment, search-space expansion, fidelity choice, cost, budget, or
+`H_S`. The stopped paired free-form baseline design is retained only as audit
+history and is not part of the R24 production protocol.
+
+Transport or strict output-validation failure permits one identical fresh-session
+retry; both attempts remain in the run ledger. Model substitution is prohibited. Author adjudication begins only after
+all raw outputs are frozen and is excluded from inter-coder agreement.
+
+## Interpretation boundary
+
+The frozen model run supplies record-level facet proposals, a supplementary
+scope audit, and explicit disagreement diagnostics. Because a record-level
+union does not preserve which facet values belong to the same validator
+channel, it is not the final substantive table. After all responses are frozen,
+the six core cases are author-interpreted and editorially reconciled against the source packets in
+`servo_validator_channels.csv`, with complete evidence provenance in
+`core_servo_evidence_ledger.json` and resolutions in
+`core_servo_disagreement_adjudication.md`. This author adjudication is disclosed
+as source-grounded case analysis rather than treated as a coder or reference
+standard. A channel is split when the source reports a distinct trigger phase,
+evaluator, target, decision role, or downstream destination. Channels are merged only
+when one reported mechanism supplies those roles. `None identified` means that
+the bounded evidence packet reports no separate terminal or external channel;
+it is not evidence of ontological absence. Trigger phase and destination are
+retained together so a pre-action novelty filter, an in-execution evaluator,
+and a terminal reviewer cannot collapse into one vector reward. These rules have not been tested in
+an independent channel-level reproducibility study. Agreement
+statistics, when defined, are descriptive summaries for the fixed 14-record
+convenience set. They are not success thresholds and do not establish source
+entailment, population reliability, construct validity, human reliability,
+probabilistic calibration, prevalence, or diagnostic superiority. The former
+gate-reliability/``trustworthy closure'' association is withdrawn as
+definitionally entangled rather than retained as an untested hypothesis.

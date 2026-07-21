@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "unpublished-local-candidate",
+  "absolute_paths_allowed": false,
+  "roles": {
+    "public_regeneration": "portable derived-artifact validation and rebuild",
+    "source_byte_audit": "optional local primary-source byte verification"
+  },
+  "required_documentation": [
+    "README.md",
+    "LICENSE",
+    "LICENSE-CODE",
+    "THIRD_PARTY_NOTICES.md",
+    "CITATION.cff",
+    "PROTECTED_ARTIFACTS.md"
+  ],
+  "planned_entrypoint": "analysis/validate_servo2.py",
+  "forbidden_globs": ["**/source-pdfs/**", "**/.env", "**/*raw-log*", "**/*source-map*"],
+  "forbidden_content_policy": "reject personal absolute paths and credential-shaped text",
+  "licenses": {
+    "data_and_documentation": "CC-BY-4.0",
+    "code": "MIT"
+  },
+  "allowed_pdf": "servo_caiscfp2026_post-submit.pdf"
+}

@@ -1,0 +1,186 @@
+schema_version: "2.0.0"
+status: current_normative
+title: Servo portable event-and-evidence contract
+scope_statement: >-
+  Servo is a non-exhaustive system-level diagnostic schema and vocabulary. It is
+  not a causal theory, exhaustive ontology, or demonstrated superior taxonomy.
+
+case_boundary:
+  unit: versioned system configuration in a bounded task regime
+  required_identity: [case_id, lineage_id, version_id, configuration_id, task_regime_id]
+  frozen_case_count: 6
+  frozen_lineage_count: 5
+  lineage_rule: AI Scientist 2024 and AI Scientist 2026 are distinct versioned cases in one lineage.
+
+core_model:
+  components: [S, G, E, V, M, pi]
+  outside_core:
+    O_env: environment observation law, distinct from the system executor E
+    A: versioned artifact state consumed or produced by events
+    W_A: optional artifact synthesis or revision interface
+  authority_fields: [H_S, H_G, H_E, H_V, H_M, H_pi]
+
+records:
+  cases:
+    file: analysis/servo2_cases.csv
+    key: case_id
+  endpoints:
+    file: analysis/servo2_endpoints.csv
+    key: endpoint_id
+  artifacts:
+    file: analysis/servo2_artifacts.csv
+    key: artifact_id
+  events:
+    file: analysis/servo2_events.csv
+    key: event_id
+  edges:
+    file: analysis/servo2_edges.csv
+    key: edge_id
+  reliability_evaluations:
+    file: analysis/servo2_reliability.csv
+    key: reliability_id
+  closure_witnesses:
+    file: analysis/servo2_closure_witnesses.csv
+    key: witness_id
+  closure_statuses:
+    file: analysis/servo2_closure_statuses.csv
+    key: [case_id, predicate]
+  domain_anchors:
+    file: analysis/servo2_domain_anchors.csv
+    key: anchor_id
+    frozen_count: 7
+  domain_anchor_channels:
+    file: analysis/servo2_domain_anchor_channels.csv
+    key: channel_id
+  selection_ledger:
+    file: analysis/servo2_selection_ledger.csv
+    key: selection_id
+
+unknown_states: [not_reported, unclear, not_applicable, none_identified_in_bounded_source]
+evidence_statuses: [directly_stated, structurally_inferred, mixed_direct_and_inferred, not_yet_source_adjudicated]
+
+table_headers:
+  cases: [schema_version, case_id, lineage_id, version_id, configuration_id, task_regime_id, system, citation_key, source_pdf_sha256, S, G, E, V, M, pi, O_env_status, A_status, W_A_status, H_S, H_G, H_E, H_V, H_M, H_pi, evidence_status, evidence_ids, uncertainty]
+  endpoints: [schema_version, endpoint_id, case_id, endpoint_kind, component, description, status]
+  artifacts: [schema_version, artifact_id, case_id, artifact_type, version, producer_endpoint_id, producer_event_id, producer_sequence, first_consumed_sequence, predecessor_artifact_id, evidence_ids, status, uncertainty]
+  events: [schema_version, event_id, case_id, configuration_id, task_regime_id, phase, event_class, evaluator_endpoint_id, target_property, evidence_source, input_artifact_ids, output_artifact_ids, reliability_ids, evidence_status, evidence_ids, uncertainty, event_kind, update_semantics]
+  edges: [schema_version, edge_id, case_id, configuration_id, task_regime_id, source_event_id, source_endpoint_id, destination_endpoint_id, edge_type, route_status, feedback_dependent, evidence_ids, closure_eligible, exclusion_reason, mediator, edge_scope]
+  reliability: [schema_version, reliability_id, case_id, evaluated_event_id, evaluation_target, benchmark_population, metric_or_test, finding, independence_status, runtime_edge_eligible, evidence_status, evidence_ids, uncertainty]
+  closure_witnesses: [schema_version, witness_id, case_id, configuration_id, task_regime_id, predicate, ordered_event_ids, ordered_edge_ids, ordered_endpoint_ids, evidence_ids, predicate_status, execution_status, uncertainty]
+  closure_statuses: [schema_version, case_id, predicate, status, witness_ids, rationale]
+  domain_anchors: [schema_version, anchor_id, system, domain, citation_key, source_pdf_sha256, pdf_page, exact_quote, version_id, configuration_id, task_regime_id, S, G, E, V, M, pi, A, W_A, H_S, H_G, H_E, H_V, H_M, H_pi, analysis_target, evidence_source, evaluator_or_mechanism, decision_role, fidelity_boundary, feedback_summary, boundary, evidence_status, uncertainty]
+  domain_anchor_channels: [schema_version, channel_id, anchor_id, phase, target, evidence_source, evaluator, decision_role, routed_destination, independence_status, fidelity, pdf_page, exact_quote, evidence_status, uncertainty]
+  selection_ledger: [schema_version, selection_id, record_kind, record_id, lineage_id, selection_status, selection_basis, comparison_role, exclusion_boundary, frozen]
+
+enum_fields:
+  cases.H_S: [human_controls, human_participates, system_controls, shared, not_reported]
+  cases.H_G: [human_controls, human_participates, system_controls, shared, not_reported]
+  cases.H_E: [human_controls, human_participates, system_controls, shared, not_reported]
+  cases.H_V: [human_controls, human_participates, system_controls, shared, not_reported]
+  cases.H_M: [human_controls, human_participates, system_controls, shared, not_reported]
+  cases.H_pi: [human_controls, human_participates, system_controls, shared, not_reported]
+  cases.evidence_status: [directly_stated, structurally_inferred, mixed_direct_and_inferred, not_yet_source_adjudicated]
+  endpoints.endpoint_kind: [artifact_store, component, external, interface]
+  endpoints.component: [S, G, E, V, M, pi, A, W_A, external]
+  endpoints.status: [implemented, not_applicable, unclear]
+  artifacts.status: [reported, structurally_inferred, not_reported]
+  events.phase: [pre_action, in_execution, post_observation, post_artifact, terminal, external]
+  events.event_class: [runtime_validation, artifact_assessment, human_feedback, external_assessment, artifact_production, execution, generation]
+  events.evidence_status: [directly_stated, structurally_inferred, mixed_direct_and_inferred, not_yet_source_adjudicated]
+  events.event_kind: [retry_with_revision, evidence_event, repeated_evidence_cycle, epistemic_update, epistemic_action, pre_action_filter, pre_action_refinement, archive_admission, artifact_revision_action, human_feedback, terminal_assessment, external_assessment, external_authority, artifact_production, execution, generation]
+  edges.edge_type: [observation, epistemic_update, feedback_control, artifact_revision, human_mediation, external_only]
+  edges.route_status: [implemented, proposed, external, not_reported, unclear]
+  edges.edge_scope: [case_internal, case_external]
+  reliability.evidence_status: [directly_stated, structurally_inferred, mixed_direct_and_inferred, not_yet_source_adjudicated]
+  reliability.finding: [evidence_of_overestimation, mixed, reported_positive_for_aggregate_review]
+  reliability.independence_status: [external_nonindependent]
+  closure_witnesses.predicate: [execution_repair, experimental_adaptation, artifact_revision, discovery_cycle_feedback, human_mediated_feedback]
+  closure_witnesses.predicate_status: [established, not_established, unknown, not_applicable]
+  closure_witnesses.execution_status: [implemented_reported, optional_configurable, structurally_inferred, trace_demonstrated]
+  closure_statuses.predicate: [execution_repair, experimental_adaptation, artifact_revision, discovery_cycle_feedback, human_mediated_feedback]
+  closure_statuses.status: [established, not_established, unknown, not_applicable]
+  domain_anchors.evidence_status: [directly_stated, structurally_inferred, mixed_direct_and_inferred, not_yet_source_adjudicated]
+  domain_anchors.H_S: [human_controls, human_participates, system_controls, shared, not_reported]
+  domain_anchors.H_G: [human_controls, human_participates, system_controls, shared, not_reported]
+  domain_anchors.H_E: [human_controls, human_participates, system_controls, shared, not_reported]
+  domain_anchors.H_V: [human_controls, human_participates, system_controls, shared, not_reported]
+  domain_anchors.H_M: [human_controls, human_participates, system_controls, shared, not_reported]
+  domain_anchors.H_pi: [human_controls, human_participates, system_controls, shared, not_reported]
+  domain_anchor_channels.evidence_status: [directly_stated, structurally_inferred, mixed_direct_and_inferred, not_yet_source_adjudicated]
+  domain_anchor_channels.independence_status: [not_applicable, not_independently_established, not_reported_as_independent]
+  selection_ledger.record_kind: [core_case, domain_anchor]
+  selection_ledger.selection_status: [included, excluded]
+
+boolean_fields:
+  edges: [feedback_dependent, closure_eligible]
+  reliability: [runtime_edge_eligible]
+  selection_ledger: [frozen]
+
+event_contract:
+  phases: [pre_action, in_execution, post_observation, post_artifact, terminal, external]
+  classes: [runtime_validation, artifact_assessment, human_feedback, external_assessment, artifact_production, execution, generation]
+  event_kinds: [retry_with_revision, evidence_event, repeated_evidence_cycle, epistemic_update, epistemic_action, pre_action_filter, pre_action_refinement, archive_admission, artifact_revision_action, human_feedback, terminal_assessment, external_assessment, external_authority, artifact_production, execution, generation]
+  required_semantic_fields: [event_kind, update_semantics]
+  event_rule: An event records an evaluation occurrence; it does not by itself establish a routed feedback edge.
+  terminal_rule: A terminal event has no outgoing internal edge.
+  reliability_rule: A reliability evaluation is not a runtime event and can never be used as a runtime edge.
+
+edge_contract:
+  edge_types: [observation, epistemic_update, feedback_control, artifact_revision, human_mediation, external_only]
+  route_statuses: [implemented, proposed, external, not_reported, unclear]
+  target_components: [S, G, E, V, M, pi, A, W_A, external]
+  required_routing_fields: [mediator, edge_scope]
+  edge_scopes: [case_internal, case_external]
+  invariants:
+    - source and destination endpoints belong to the same case unless edge_type is external_only
+    - case_id, configuration_id, and task_regime_id are invariant along any closure witness
+    - an artifact input must reference an artifact record with a producer and version
+    - pre-action filters, fixed schedules, append-only memory, formatting, and terminal assessment alone are not closure witnesses
+
+closure_contract:
+  predicates:
+    - execution_repair
+    - experimental_adaptation
+    - artifact_revision
+    - discovery_cycle_feedback
+    - human_mediated_feedback
+  statuses: [established, not_established, unknown, not_applicable]
+  witness_execution_statuses: [implemented_reported, optional_configurable, structurally_inferred, trace_demonstrated]
+  set_valued: true
+  discovery_cycle_required_sequence:
+    - evidence_event
+    - epistemic_update_edge
+    - feedback_dependent_epistemic_action
+    - new_evidence_generating_execution
+    - new_evidence_event
+  witness_rule: >-
+    Every witness remains within one case, version, configuration, and task regime;
+    all referenced events, edges, endpoints, and artifacts must exist and preserve order.
+  occurrence_rule: An ordered event token EVENT_ID@t or EVENT_ID@t+1 instantiates a repeated source-supported event type; the base EVENT_ID must exist.
+  prohibited_shortcuts:
+    - retry_without_epistemic_update
+    - append_only_memory
+    - formatting_or_copying
+    - fixed_schedule
+    - pre_action_filter_only
+    - terminal_assessment_only
+
+artifact_contract:
+  required_lifecycle_fields: [producer_endpoint_id, producer_event_id, producer_sequence, first_consumed_sequence]
+  temporal_rule: A produced artifact cannot be consumed before its producer sequence.
+  producer_rule: Every artifact references an existing same-case producer event; source-bounded inferred production events carry structurally_inferred evidence status rather than a sentinel event ID.
+
+domain_anchor_contract:
+  frozen_ids: [DA01, DA02, DA03, DA04, DA05, DA06, DA07]
+  frozen_names: [FunSearch, AI Feynman, ChemCrow, GNoME, BioPlanner, Manning automated social science, AutoML-Zero]
+  unit: one named system and one bounded primary source per row
+  merge_forbidden: true
+  required_mini_case_fields: [version_id, configuration_id, task_regime_id, S, G, E, V, M, pi, A, W_A, H_S, H_G, H_E, H_V, H_M, H_pi, feedback_summary, boundary]
+  channel_rule: Distinct automated, human-review, and physical-execution mechanisms are separate channel records and cannot be presented as one routed validator.
+
+provenance:
+  core_evidence_ledger: analysis/core_servo_evidence_ledger.json
+  local_source_policy: local PDFs only; no web retrieval
+  r24_status: historical development-audit material only
+  public_mode: derived regeneration requires no PDFs, network, login, API key, cache, or inherited HOME
+  source_audit_mode: exact hashes and locators require an explicit source root and fail closed if absent

@@ -1,0 +1,31 @@
+schema_version,case_id,predicate,status,witness_ids,rationale
+2.0.0,C01,execution_repair,established,W01,documented correction and successful rerun
+2.0.0,C01,experimental_adaptation,unknown,not_applicable,reuse for guidance is inferred but a later evidence-generating execution is not directly linked
+2.0.0,C01,artifact_revision,established,W15,protocol v1 is corrected to v2
+2.0.0,C01,discovery_cycle_feedback,unknown,not_applicable,new evidence after feedback-dependent epistemic action is not established
+2.0.0,C01,human_mediated_feedback,not_established,not_applicable,manual handling and terminal labeling are not reported as feedback control
+2.0.0,C02,execution_repair,not_established,not_applicable,no error-repair route required for this predicate
+2.0.0,C02,experimental_adaptation,established,W02,results condition next experiment
+2.0.0,C02,artifact_revision,not_established,not_applicable,terminal reviewer-to-manuscript revision edge is not reported
+2.0.0,C02,discovery_cycle_feedback,not_established,not_applicable,result journal and replanning do not explicitly update a hypothesis; domain model; represented search space; or belief before new evidence
+2.0.0,C02,human_mediated_feedback,not_established,not_applicable,human setup is outside the internal feedback path
+2.0.0,C03,execution_repair,unknown,not_applicable,plot critique creates nodes but a correction rerun chain is not fully quoted
+2.0.0,C03,experimental_adaptation,unknown,not_applicable,selection and expansion are reported but execution of the selected successor is not explicit in bounded evidence
+2.0.0,C03,artifact_revision,not_established,not_applicable,terminal reviewer-to-manuscript revision is not reported
+2.0.0,C03,discovery_cycle_feedback,unknown,not_applicable,the executor link ED15 is unclear
+2.0.0,C03,human_mediated_feedback,not_established,not_applicable,manual selection and workshop review are external
+2.0.0,C04,execution_repair,established,W04,compile failure drives next-iteration repair
+2.0.0,C04,experimental_adaptation,unknown,not_applicable,the quoted score and error reflection supports code optimization but does not establish adaptation of a scientific experiment design
+2.0.0,C04,artifact_revision,established,W06,PhD evaluation can revisit and revise earlier work
+2.0.0,C04,discovery_cycle_feedback,not_established,not_applicable,execution reflection does not explicitly trace a scientific epistemic-state update through new execution and new evidence
+2.0.0,C04,human_mediated_feedback,not_established,not_applicable,initial human idea is authority rather than within-loop feedback
+2.0.0,C05,execution_repair,not_established,not_applicable,no execution-error correction chain is reported
+2.0.0,C05,experimental_adaptation,established,W08,physical result updates model and experiment selection
+2.0.0,C05,artifact_revision,not_applicable,not_applicable,no paper-like artifact revision interface is part of the bounded case
+2.0.0,C05,discovery_cycle_feedback,established,W09,physical evidence closes a model-mediated discovery cycle
+2.0.0,C05,human_mediated_feedback,not_established,not_applicable,supplies and maintenance do not constitute reported epistemic feedback
+2.0.0,C06,execution_repair,established,W10,debugging iterates to success or limit
+2.0.0,C06,experimental_adaptation,established,W11,performance results guide following experiments
+2.0.0,C06,artifact_revision,established,W12,code successor follows execution critique
+2.0.0,C06,discovery_cycle_feedback,not_established,not_applicable,task metrics and stored implementation decisions do not explicitly update a scientific epistemic state
+2.0.0,C06,human_mediated_feedback,established,W14,human feedback is an explicit in-workflow channel

@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "systems": [
+    {
+      "record_id": "R01",
+      "system": "Coscientist",
+      "computational_closure": true,
+      "qualifying_channel_ids": [
+        "protocol_execution_correction",
+        "reactivity_guidance"
+      ],
+      "rule": "implemented channel routed to later G/pi/M/stage/S and not terminal-only or external-only"
+    },
+    {
+      "record_id": "R02",
+      "system": "AI Scientist 2024",
+      "computational_closure": true,
+      "qualifying_channel_ids": [
+        "archive_admission",
+        "experiment_result_replanner",
+        "ideation_prior_art_filter"
+      ],
+      "rule": "implemented channel routed to later G/pi/M/stage/S and not terminal-only or external-only"
+    },
+    {
+      "record_id": "R03",
+      "system": "AI Scientist 2026",
+      "computational_closure": true,
+      "qualifying_channel_ids": [
+        "best_first_node_evaluator",
+        "ideation_prior_art_filter",
+        "plot_critique",
+        "stage_evaluator"
+      ],
+      "rule": "implemented channel routed to later G/pi/M/stage/S and not terminal-only or external-only"
+    },
+    {
+      "record_id": "R04",
+      "system": "Agent Laboratory",
+      "computational_closure": true,
+      "qualifying_channel_ids": [
+        "mle_execution_feedback",
+        "phd_revision_evaluator"
+      ],
+      "rule": "implemented channel routed to later G/pi/M/stage/S and not terminal-only or external-only"
+    },
+    {
+      "record_id": "R05",
+      "system": "Robot Scientist",
+      "computational_closure": true,
+      "qualifying_channel_ids": [
+        "knowledge_admission",
+        "physical_hypothesis_test"
+      ],
+      "rule": "implemented channel routed to later G/pi/M/stage/S and not terminal-only or external-only"
+    },
+    {
+      "record_id": "R14",
+      "system": "NovelSeek",
+      "computational_closure": true,
+      "qualifying_channel_ids": [
+        "adaptive_evolution",
+        "debugging_loop",
+        "human_feedback",
+        "idea_assessment"
+      ],
+      "rule": "implemented channel routed to later G/pi/M/stage/S and not terminal-only or external-only"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": "2.0.0",
+  "sources": [
+    {
+      "citation_key": "boiko2023emergent",
+      "filename_hint": "boiko2023emergent.pdf",
+      "pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+      "public_locator": "https://doi.org/10.1038/s41586-023-06792-0",
+      "record_id": "C01"
+    },
+    {
+      "citation_key": "lu2024aiscientist",
+      "filename_hint": "lu2024aiscientist.pdf",
+      "pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+      "public_locator": "https://arxiv.org/abs/2408.06292",
+      "record_id": "C02"
+    },
+    {
+      "citation_key": "lu2026aiscientist",
+      "filename_hint": "lu2026aiscientist.pdf",
+      "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+      "public_locator": "https://doi.org/10.1038/s41586-026-10265-5",
+      "record_id": "C03"
+    },
+    {
+      "citation_key": "schmidgall2025agentlab",
+      "filename_hint": "schmidgall2025agentlab.pdf",
+      "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+      "public_locator": "https://arxiv.org/abs/2501.04227",
+      "record_id": "C04"
+    },
+    {
+      "citation_key": "sparkes2010robot",
+      "filename_hint": "sparkes2010robot.pdf",
+      "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+      "public_locator": "https://doi.org/10.1186/1759-4499-2-1",
+      "record_id": "C05"
+    },
+    {
+      "citation_key": "zhang2025novelseek",
+      "filename_hint": "zhang2025novelseek.pdf",
+      "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+      "public_locator": "https://arxiv.org/abs/2505.16938",
+      "record_id": "C06"
+    },
+    {
+      "citation_key": "romera2023funsearch",
+      "filename_hint": "romera2023funsearch.pdf",
+      "pdf_sha256": "ed64cc4af49a8010ec0313c166b622e75a1c1d548b71d5a582f934d6ed0df635",
+      "public_locator": "https://doi.org/10.1038/s41586-023-06924-6",
+      "record_id": "DA01"
+    },
+    {
+      "citation_key": "udrescu2020afeynman",
+      "filename_hint": "udrescu2020afeynman.pdf",
+      "pdf_sha256": "bea0a57b25041b2fab181efdf543279de6f7ac88ab3aca2fff92173c56cd801f",
+      "public_locator": "https://doi.org/10.1126/sciadv.aay2631",
+      "record_id": "DA02"
+    },
+    {
+      "citation_key": "bran2023chemcrow",
+      "filename_hint": "bran2023chemcrow.pdf",
+      "pdf_sha256": "28be4990cf5fc5fa50b379684a9d4c31c3a0ad36aeab1759d324ee428b29de16",
+      "public_locator": "https://arxiv.org/abs/2304.05376",
+      "record_id": "DA03"
+    },
+    {
+      "citation_key": "merchant2023gnome",
+      "filename_hint": "merchant2023gnome.pdf",
+      "pdf_sha256": "f1af6c92eda54f5bd84eb5012f3010d7bb9167dca337414cffca81623b4a535a",
+      "public_locator": "https://doi.org/10.1038/s41586-023-06735-9",
+      "record_id": "DA04"
+    },
+    {
+      "citation_key": "odonoghue2023bioplanner",
+      "filename_hint": "odonoghue2023bioplanner.pdf",
+      "pdf_sha256": "7f075e98d6eacf26f4487b24a3917861ab78abc0e564a4f39062ddf38bf5078d",
+      "public_locator": "https://arxiv.org/abs/2310.10632",
+      "record_id": "DA05"
+    },
+    {
+      "citation_key": "manning2024automated",
+      "filename_hint": "manning2024automated.pdf",
+      "pdf_sha256": "c44f50f3fb217788fe19523e77e0818247405e581531c5ad4956037b7e2f6192",
+      "public_locator": "https://arxiv.org/abs/2404.11794",
+      "record_id": "DA06"
+    },
+    {
+      "citation_key": "real2020automlzero",
+      "filename_hint": "real2020automlzero.pdf",
+      "pdf_sha256": "bc2fa7326dc5c2f579aa92dfefd42643779665cb3bc6e469d864506fc96241c5",
+      "public_locator": "https://proceedings.mlr.press/v119/real20a.html",
+      "record_id": "DA07"
+    }
+  ]
+}

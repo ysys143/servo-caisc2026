@@ -1,0 +1,13 @@
+claim_id,status,topic,canonical_fields,evidence_ids,en_location,ko_location,appendix_d_entry,note
+C01,current,component interface,schema.scope.components;system_record.required_fields,not_applicable,sec:framework,sec:framework,R29,Six system components plus auxiliary O_env
+C02,current,event-channel interface,channel_record.required_fields;channel_record.split_rule,not_applicable,sec:framework,sec:framework,R29,Trigger and destination are constitutive channel fields
+C03,current,computational closure,derivations.computational_closure;servo_derived_closure.json,@all_channel_evidence,sec:framework;tab:core-comparison,sec:framework;tab:core-comparison,R29,Derived without legacy loop labels
+C04,current,six case classifications,servo_derived_closure.json,@all_channel_evidence,sec:core,sec:core,R29,Author source synthesis over six bounded records
+C05,current,human authority,H_S;H_G;H_E;H_V;H_M;H_pi,@all_system_evidence,sec:framework;sec:core,sec:framework;sec:core,R29,Component-specific categorical authority
+C06,current,search-space expansion,delta_S_status;delta_S_operator,@all_system_evidence,sec:framework;sec:discussion,sec:framework;sec:discussion,R29,Representation only; no generative law claimed
+C07,current,multi-fidelity representation,fidelity_choice_status;fidelity_levels;cost_function_status;budget_state_status,@all_system_evidence,sec:framework;sec:op3,sec:framework;sec:op3,R29,Most surveyed records are fixed or unreported
+C08,current,novelty validation claim,target_property;reliability_evidence_type;reliability_finding,R02-E01;R03-E01;R03-E13;R14-E02,sec:op1,sec:op1,R29,No independently validated automated novelty gate reported
+C09,current,framework comparison scope,not_applicable,not_applicable,tab:framework-crosswalk;sec:discussion,tab:framework-crosswalk;sec:discussion,R29,Qualitative foregrounding claim only
+C10,current,R24 status,provenance.r24_boundary,not_applicable,app:coding;sec:discussion,app:coding;sec:discussion,R29,Historical development audit only
+C11,superseded,gate reliability and trustworthy closure association,not_applicable,not_applicable,app:coding,app:coding,R27;R29,Withdrawn as definitionally circular
+C12,historical,legacy validator layers and scalar authority,historical_non_authoritative,not_applicable,app:postsubmit,not_applicable,R20;R21;R23;R29,Reconstruction only; barred from current projections
