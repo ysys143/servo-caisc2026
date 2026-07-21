@@ -2,6 +2,11 @@ from __future__ import annotations
 
 import copy
 
+import pytest
+
+from analysis.servo2_graph import validate_graph
+from analysis.servo2_io import Servo2Error, read_tables
+
 from conftest import assert_rejected, column, csv_rows, run_cli, table, write_rows
 
 
@@ -78,6 +83,20 @@ def test_human_actor_facet_cannot_replace_a_structural_edge_type(package) -> Non
     assert_rejected(run_cli(package, "public-regeneration"), "SCHEMA_ENUM_INVALID")
 
 
+def test_human_actor_facet_may_qualify_a_valid_discovery_path(package) -> None:
+    tables = read_tables(package)
+    discovery = next(
+        row
+        for row in tables["closure_witnesses"].rows
+        if row["predicate"] == "discovery_cycle_feedback"
+    )
+    edge_ids = discovery["ordered_edge_ids"].split(";")
+    edge = next(row for row in tables["edges"].rows if row["edge_id"] == edge_ids[0])
+    edge["mediation_actor"] = "human"
+
+    validate_graph(tables)
+
+
 def test_adaptation_path_cannot_be_counted_as_artifact_revision(package) -> None:
     path = table(package, "closure_witnesses")
     header, rows = csv_rows(path)
@@ -87,6 +106,39 @@ def test_adaptation_path_cannot_be_counted_as_artifact_revision(package) -> None
     write_rows(path, header, rows)
 
     assert_rejected(run_cli(package, "public-regeneration"), "ARTIFACT_REVISION_PATTERN_MISMATCH")
+
+
+@pytest.mark.parametrize(
+    ("predicate", "diagnostic"),
+    (
+        ("experimental_adaptation", "EXPERIMENTAL_ADAPTATION_PATTERN_MISMATCH"),
+        ("artifact_revision", "ARTIFACT_REVISION_PATTERN_MISMATCH"),
+    ),
+)
+def test_predicate_witness_requires_evaluation_evidence(
+    package, predicate: str, diagnostic: str
+) -> None:
+    tables = read_tables(package)
+    witness = next(
+        row
+        for row in tables["closure_witnesses"].rows
+        if row["predicate"] == predicate
+    )
+    event_ids = {
+        occurrence.split("@")[0]
+        for occurrence in witness["ordered_event_ids"].split(";")
+    }
+    for event in tables["events"].rows:
+        if event["event_id"] in event_ids and event["event_class"] in {
+            "runtime_validation",
+            "artifact_assessment",
+            "human_feedback",
+            "external_assessment",
+        }:
+            event["event_class"] = "state_update"
+
+    with pytest.raises(Servo2Error, match=diagnostic):
+        validate_graph(tables)
 
 
 def test_human_mediation_is_not_a_closure_predicate(package) -> None:

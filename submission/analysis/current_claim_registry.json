@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "review_basis": "three-round adversarial audit plus strict witness, portability, and tuple-graph completion audits completed 2026-07-22",
+  "review_basis": "three-round adversarial audit plus actor-topology and predicate-pattern completion audits completed 2026-07-22",
   "manuscripts": {
-    "main_post-submit.tex": "9da91d79886e1b173201495219bfb050be683c5ce18bd94a8b539f4405289a29",
-    "main_ko.tex": "d9eb5e6994ee46ef4dd796d627aa1baeed7b155970ae58ce5e6ccd601ba5af51"
+    "main_post-submit.tex": "6638c3c011f72921ff6b781139fc057b0c0646dfd948453503d10db3e335fecd",
+    "main_ko.tex": "bba46c593e21225b34edf379572e8c953ae60e2939d5908d54bd1cac62597ad8"
   },
   "citation_keys": [
     "berk1966",

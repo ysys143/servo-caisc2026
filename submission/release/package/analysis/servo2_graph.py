@@ -53,7 +53,7 @@ def _validate_witness_path(
     )
     event_rows = tuple(_event(events, ref.split("@")[0]) for ref in event_refs)
     edge_rows = tuple(_edge(edges, ref) for ref in edge_refs)
-    tuple(_endpoint(endpoints, ref) for ref in endpoint_refs)
+    _ = tuple(_endpoint(endpoints, ref) for ref in endpoint_refs)
     if not event_rows or not edge_rows or len(endpoint_refs) != len(edge_rows) + 1:
         code = (
             "DISCOVERY_WITNESS_PATH_TRUNCATED"
@@ -156,14 +156,6 @@ def _validate_discovery_witness(
     if any(row.get("exclusion_reason") == "append_only_memory" for row in edge_rows):
         raise Servo2Error(
             "APPEND_ONLY_MEMORY_NOT_EPISTEMIC_UPDATE",
-            require(witness, "witness_id", "closure_witnesses"),
-        )
-    if any(
-        row.get("mediation_actor") == "human"
-        for row in edge_rows
-    ):
-        raise Servo2Error(
-            "HUMAN_EDGE_MISCLASSIFIED_AUTOMATED",
             require(witness, "witness_id", "closure_witnesses"),
         )
     _validate_discovery_sequence(

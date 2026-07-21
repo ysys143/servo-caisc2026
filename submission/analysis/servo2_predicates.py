@@ -36,7 +36,9 @@ def validate_predicate_pattern(
             )
         case Predicate.ARTIFACT_REVISION:
             _validate_common_route(witness_id, edge_rows)
-            _require_artifact_revision(witness_id, edge_rows, endpoint_refs)
+            _require_artifact_revision(
+                witness_id, event_rows, edge_rows, endpoint_refs
+            )
         case Predicate.DISCOVERY_CYCLE_FEEDBACK:
             return
         case unreachable:
@@ -80,14 +82,24 @@ def _require_experimental_adaptation(
     endpoint_refs: tuple[str, ...],
 ) -> None:
     edge_types = {edge["edge_type"] for edge in edge_rows}
-    execution_supported = any(
-        event["event_class"] == "execution" for event in event_rows[1:]
+    evaluation_indexes = tuple(
+        index for index, event in enumerate(event_rows) if _is_evaluation(event)
+    )
+    execution_indexes = tuple(
+        index
+        for index, event in enumerate(event_rows)
+        if event["event_class"] == "execution"
+    )
+    evaluation_precedes_execution = any(
+        evaluation < execution
+        for evaluation in evaluation_indexes
+        for execution in execution_indexes
     )
     valid = (
         len(event_rows) >= 2
         and "feedback_control" in edge_types
         and any(endpoint.endswith(".E") for endpoint in endpoint_refs)
-        and execution_supported
+        and evaluation_precedes_execution
     )
     if not valid:
         raise Servo2Error("EXPERIMENTAL_ADAPTATION_PATTERN_MISMATCH", witness_id)
@@ -95,11 +107,24 @@ def _require_experimental_adaptation(
 
 def _require_artifact_revision(
     witness_id: str,
+    event_rows: tuple[dict[str, str], ...],
     edge_rows: tuple[dict[str, str], ...],
     endpoint_refs: tuple[str, ...],
 ) -> None:
-    valid = any(edge["edge_type"] == "artifact_revision" for edge in edge_rows) and any(
-        endpoint.endswith(".W_A") for endpoint in endpoint_refs
+    valid = (
+        bool(event_rows)
+        and any(_is_evaluation(event) for event in event_rows)
+        and any(edge["edge_type"] == "artifact_revision" for edge in edge_rows)
+        and any(endpoint.endswith(".W_A") for endpoint in endpoint_refs)
     )
     if not valid:
         raise Servo2Error("ARTIFACT_REVISION_PATTERN_MISMATCH", witness_id)
+
+
+def _is_evaluation(event: dict[str, str]) -> bool:
+    return event["event_class"] in {
+        "runtime_validation",
+        "artifact_assessment",
+        "human_feedback",
+        "external_assessment",
+    }
