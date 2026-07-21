@@ -80,3 +80,14 @@ def test_public_normative_paths_and_event_semantics_are_current() -> None:
     assert not stale_package_name
     assert not post_submit_declared_immutable
     assert not post_submit_schema_protected
+
+
+def test_c03_discovery_rationale_matches_current_graph_boundary() -> None:
+    # Given: the canonical matrix rationale exposed by the public package.
+    statuses = (ROOT / "analysis" / "servo2_closure_statuses.csv").read_text(
+        encoding="utf-8"
+    )
+
+    # When/Then: it names the missing discovery conditions, not implemented ED15.
+    assert "the executor link ED15 is unclear" not in statuses
+    assert "explicit epistemic update and a distinct later evidence occurrence" in statuses

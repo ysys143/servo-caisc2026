@@ -46,6 +46,10 @@ def validate_component_graph_conformance(tables: dict[str, Table]) -> None:
                 "EVENT_COMPONENT_MISMATCH", require(event, "event_id", "events")
             )
     for edge in tables["edges"].rows:
+        edge_id = require(edge, "edge_id", "edges")
+        mediator_id = require(edge, "mediator_endpoint_id", "edges")
+        if mediator_id not in endpoints:
+            raise Servo2Error("EDGE_MEDIATOR_ENDPOINT_INVALID", edge_id)
         source = endpoints[require(edge, "source_endpoint_id", "edges")]["component"]
         destination = endpoints[
             require(edge, "destination_endpoint_id", "edges")
@@ -54,11 +58,11 @@ def validate_component_graph_conformance(tables: dict[str, Table]) -> None:
         if (source, destination) not in EDGE_TRANSITIONS[edge_type]:
             raise Servo2Error(
                 "EDGE_COMPONENT_TRANSITION_INVALID",
-                require(edge, "edge_id", "edges"),
+                edge_id,
             )
         if source == "external" and edge_type == "feedback_control":
             if edge["mediation_actor"] != "human":
                 raise Servo2Error(
                     "EXTERNAL_FEEDBACK_ACTOR_INVALID",
-                    require(edge, "edge_id", "edges"),
+                    edge_id,
                 )

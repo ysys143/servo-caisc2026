@@ -959,7 +959,7 @@ Answer: [Yes]
 Justification: This paper contains no computational experiment, but its main case annotations and closure predicates depend on the Servo event–artifact package. The
 synchronized package, validator, canonical records, generated tables, evidence ledger,
 audit record, and corrected manuscript are bound in the versioned, checksumbound release at https://github.com/ysys143/servo-caisc2026/releases/tag/
-servo-corrected-v3.0.11. Its manifest and attestation provide file-level checksums for
+servo-corrected-v3.0.12. Its manifest and attestation provide file-level checksums for
 the revised status matrix and make later asset replacement detectable; the hosting platform
 does not make the release immutable.
 5. Open access to data and code
@@ -1560,16 +1560,23 @@ now aligns its Schema 3 project identity, citation version, release URL, event s
 and evidence-ledger path. The artifact policy also distinguishes immutable submitted
 PDFs from rebuildable post-submission products and requires the released corrected PDF
 to remain byte-identical to its reader-facing counterpart.
-Scope of revision. The entries above are the complete set of changes made since the archival deposit, R1–R44. Entries R3–R12 narrow or correct statements that the citation audit judged unsupported by, contradicted by, or less precise than their cited sources. Entries R13–R16 record the
+R45. Predicate semantics and matrix totality. Scope: Predicate contract; closure matrix; tuple–
+graph conformance; canonical C03 rationale; regression suite. Execution repair now requires an explicit retry-with-revision event whose update semantics record failure-driven
+artifact change. Experimental adaptation requires one of the enumerated evidence-tochanged-action update semantics in addition to its routed later execution. The validator
+also enforces exactly one status for every case–predicate pair, rejects missing or duplicate
+cells and negative cells that contradict an established canonical witness, and resolves every edge’s mediator endpoint. The AI Scientist 2026 discovery-cycle rationale now states
+the actual missing conditions—an explicit epistemic update and a distinct later evidence
+occurrence—rather than calling its implemented executor edge unclear.
+Scope of revision. The entries above are the complete set of changes made since the archival deposit, R1–R45. Entries R3–R12 narrow or correct statements that the citation audit judged unsup28
+
+ported by, contradicted by, or less precise than their cited sources. Entries R13–R16 record the
 subsequent adversarial mathematical review: they replace the proposition/assumption/proof-sketch
 presentation with bounded analytical observations, correct the EIG statement, delimit the conditions
 under which the Ghosal–van der Vaart and Berk references may be invoked, and distinguish mathematical non-identification from the surveyed use of human judgment. R17 reconciles two table
 rows with the released coding sheet. R18 records the adversarial recheck that completed the propagation of the earlier mathematical corrections, including the stronger prior-factorization premise
 and the removal of residual universal, causal, and human-only wording. R19 corrects the citation
 guidance, distinguishes novelty assessment from operational gating, and withdraws the untestable
-28
-
-direction-consistency statement. R20 makes gate-zero semantics explicit, withdraws the holistic validator order from substantive analysis, narrows closure and formal-oracle language, and replaces the
+direction-consistency statement. R20 makes gate-zero semantics explicit, withdraws the holistic validator order from substantive analysis, narrows closure and formal-oracle language, and replaces the
 novelty majority-agreement threshold with a prospective validation design. R21 types the generator–
 policy interface, identifies the internal experimental feedback that supports the AI Scientist (2024)
 computational-loop coding, replaces scalar human-intervention scores, and reframes the BED and
@@ -1608,10 +1615,13 @@ audit delimited by R28 and R29; in particular, R24’s contemporaneous phrases 
 and schema” and “application of the final schema” are superseded and do not describe schema 1.0;
 R25’s six-case synthesis is read through the canonical event records introduced in R29; and R27’s
 event-channel interface and R29’s Schema 1 closure derivation are superseded by the Schema 2
-event–artifact graph, bounded case identity, and predicate-specific witness contract introduced in
+
+29
+
+event–artifact graph, bounded case identity, and predicate-specific witness contract introduced in
 R30. References in earlier entries to “final” Schema 1 tables or current six-case closure labels are
 historical statements, not present semantics. This index does not alter the historical text or chronology of those entries.
 
-29
+30
 
 

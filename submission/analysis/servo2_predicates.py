@@ -13,6 +13,18 @@ class Predicate(StrEnum):
     DISCOVERY_CYCLE_FEEDBACK = "discovery_cycle_feedback"
 
 
+REPAIR_FAILURE_SEMANTICS = {
+    "failure_evidence_changes_code",
+    "failure_evidence_changes_protocol",
+}
+ADAPTATION_CHANGE_SEMANTICS = {
+    "evidence_guided_node_selection",
+    "evidence_to_epistemic_update_to_new_execution",
+    "evidence_to_memory_to_replanned_execution",
+    "evidence_to_model_update_to_new_physical_execution",
+}
+
+
 def validate_predicate_pattern(
     witness: dict[str, str],
     event_rows: tuple[dict[str, str], ...],
@@ -86,6 +98,8 @@ def _require_execution_repair(
         and validation_precedes_execution
         and any(
             event["event_class"] == "runtime_validation"
+            and event["event_kind"] == "retry_with_revision"
+            and event["update_semantics"] in REPAIR_FAILURE_SEMANTICS
             and _event_names_versioned_successor(event, artifacts)
             for event in event_rows
         )
@@ -122,6 +136,11 @@ def _require_experimental_adaptation(
         and "feedback_control" in edge_types
         and any(endpoint.endswith(".E") for endpoint in endpoint_refs)
         and evaluation_precedes_execution
+        and any(
+            _is_evaluation(event)
+            and event["update_semantics"] in ADAPTATION_CHANGE_SEMANTICS
+            for event in event_rows
+        )
         and _adaptation_route_connects_evaluation_to_execution(
             event_rows, edge_rows, endpoint_refs
         )

@@ -21,7 +21,9 @@ def _cff_fields(path: Path) -> dict[str, str]:
     return fields
 
 
-def _verify_release_identity(root: Path, state: object, release: object) -> None:
+def _verify_release_identity(
+    root: Path, state: str | None, release: str | None
+) -> None:
     try:
         project = tomllib.loads((root / "pyproject.toml").read_text(encoding="utf-8"))
         project_name = project["project"]["name"]

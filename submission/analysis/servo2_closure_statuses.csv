@@ -10,7 +10,7 @@ schema_version,case_id,predicate,status,witness_ids,rationale,decision_basis,evi
 3.0.0,C03,execution_repair,unknown,not_applicable,plot critique creates nodes but a correction rerun chain is not fully quoted,insufficient_reporting,not_applicable
 3.0.0,C03,experimental_adaptation,established,W16,metric- and plot-guided selection creates and executes a successor experiment,positive_witness,not_applicable
 3.0.0,C03,artifact_revision,unknown,not_applicable,terminal reviewer-to-manuscript revision is not reported,insufficient_reporting,not_applicable
-3.0.0,C03,discovery_cycle_feedback,unknown,not_applicable,the executor link ED15 is unclear,insufficient_reporting,not_applicable
+3.0.0,C03,discovery_cycle_feedback,unknown,not_applicable,an explicit epistemic update and a distinct later evidence occurrence are not reported,insufficient_reporting,not_applicable
 3.0.0,C04,execution_repair,established,W04,compile failure drives next-iteration repair,positive_witness,not_applicable
 3.0.0,C04,experimental_adaptation,unknown,not_applicable,the quoted score and error reflection supports code optimization but does not establish adaptation of a scientific experiment design,insufficient_reporting,not_applicable
 3.0.0,C04,artifact_revision,established,W06,PhD evaluation can revisit and revise earlier work,positive_witness,not_applicable

@@ -13,6 +13,7 @@ from .servo2_io import TABLES, Table, read_tables, sha256
 MODULES = (
     "servo2_audit.py",
     "servo2_build.py",
+    "servo2_closure.py",
     "servo2_curate.py",
     "servo2_conformance.py",
     "servo2_evidence.py",

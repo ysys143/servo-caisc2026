@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from .servo2_closure import validate_closure_statuses
 from .servo2_io import Servo2Error, Table, require, split_values
 
 
@@ -23,7 +24,7 @@ def validate_relations(tables: dict[str, Table]) -> None:
     _reliability_links(tables["reliability"], events)
     _artifact_links(tables["artifacts"], cases, events, endpoints, artifacts)
     _witness_links(tables["closure_witnesses"], cases, events, edges, endpoints)
-    _closure_links(tables["closure_statuses"], cases, witnesses)
+    validate_closure_statuses(tables["closure_statuses"], cases, witnesses)
     _anchor_channel_links(tables["domain_anchor_channels"], anchors)
     _selection_links(tables["selection_ledger"], cases, tables["domain_anchors"])
     del anchor_channels
@@ -150,49 +151,6 @@ def _witness_links(
             _same_case(edges, edge_id, case_id, "WITNESS_EDGE")
         for endpoint_id in split_values(row["ordered_endpoint_ids"]):
             _same_case(endpoints, endpoint_id, case_id, "WITNESS_ENDPOINT")
-
-
-def _closure_links(
-    table: Table,
-    cases: dict[str, dict[str, str]],
-    witnesses: dict[str, dict[str, str]],
-) -> None:
-    del cases
-    allowed_bases = {
-        "established": {"positive_witness"},
-        "not_established": {"explicit_negative"},
-        "unknown": {"insufficient_reporting"},
-        "not_applicable": {"out_of_scope"},
-    }
-    for row in table.rows:
-        identity = f"{row['case_id']}:{row['predicate']}"
-        if row["rationale"].strip() == "":
-            raise Servo2Error("CLOSURE_STATUS_RATIONALE_MISSING", identity)
-        if row["decision_basis"] not in allowed_bases[row["status"]]:
-            raise Servo2Error(
-                "CLOSURE_STATUS_BASIS_MISMATCH",
-                identity,
-            )
-        if row["status"] == "not_established" and not split_values(
-            row["evidence_ids"]
-        ):
-            raise Servo2Error("NEGATIVE_STATUS_EVIDENCE_MISSING", identity)
-        refs = split_values(row["witness_ids"])
-        if row["status"] == "established" and not refs:
-            raise Servo2Error(
-                "ESTABLISHED_CLOSURE_WITNESS_MISSING",
-                identity,
-            )
-        for witness_id in refs:
-            witness = witnesses.get(witness_id)
-            if witness is None:
-                raise Servo2Error("CLOSURE_WITNESS_UNKNOWN", witness_id)
-            if (
-                witness["case_id"] != row["case_id"]
-                or witness["predicate"] != row["predicate"]
-                or witness["predicate_status"] != "established"
-            ):
-                raise Servo2Error("CLOSURE_WITNESS_STATUS_MISMATCH", witness_id)
 
 
 def _selection_links(

@@ -151,10 +151,13 @@ closure_contract:
   predicate_patterns:
     execution_repair:
       event_classes: [runtime_validation]
+      required_event_kind: retry_with_revision
+      failure_update_semantics: [failure_evidence_changes_code, failure_evidence_changes_protocol]
       required_edge_types: [artifact_revision, feedback_control]
       required_endpoints: [W_A, E]
       minimum_event_occurrences: 2
     experimental_adaptation:
+      changed_action_update_semantics: [evidence_guided_node_selection, evidence_to_epistemic_update_to_new_execution, evidence_to_memory_to_replanned_execution, evidence_to_model_update_to_new_physical_execution]
       required_edge_types: [feedback_control]
       required_endpoints: [E]
       minimum_event_occurrences: 2

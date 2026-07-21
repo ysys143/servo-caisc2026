@@ -78,7 +78,7 @@ def test_release_ready_rejects_unreleased_citation_identity(package: Path) -> No
     citation = package / "CITATION.cff"
     citation.write_text(
         citation.read_text(encoding="utf-8").replace(
-            "version: 3.0.11", "version: 0.0.0-unreleased"
+            "version: 3.0.12", "version: 0.0.0-unreleased"
         ),
         encoding="utf-8",
     )

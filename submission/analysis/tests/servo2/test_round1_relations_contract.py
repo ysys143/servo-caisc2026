@@ -100,6 +100,44 @@ def test_not_applicable_requires_explicit_scope_rationale(package) -> None:
         validate_relations(tables)
 
 
+def test_closure_matrix_rejects_duplicate_case_predicate_cell(package) -> None:
+    # Given: a duplicated cell in the frozen case-by-predicate matrix.
+    tables = read_tables(package)
+    rows = tables["closure_statuses"].rows
+    rows[1].update(rows[0])
+
+    # When/Then: the composite key must remain unique.
+    with pytest.raises(Servo2Error, match="CLOSURE_STATUS_DUPLICATE"):
+        validate_relations(tables)
+
+
+def test_closure_matrix_rejects_missing_case_predicate_cell(package) -> None:
+    # Given: one matrix cell removed without changing the six frozen cases.
+    tables = read_tables(package)
+    table = tables["closure_statuses"]
+    tables["closure_statuses"] = type(table)(table.name, table.header, table.rows[:-1])
+
+    # When/Then: every case must retain all four predicate decisions.
+    with pytest.raises(Servo2Error, match="CLOSURE_STATUS_MATRIX_INCOMPLETE"):
+        validate_relations(tables)
+
+
+def test_negative_status_rejects_existing_positive_witness(package) -> None:
+    # Given: an established cell relabelled negative while its witness remains canonical.
+    tables = read_tables(package)
+    target = next(
+        row for row in tables["closure_statuses"].rows if row["status"] == "established"
+    )
+    target["status"] = "not_established"
+    target["witness_ids"] = "not_applicable"
+    target["decision_basis"] = "explicit_negative"
+    target["evidence_ids"] = "R01-E01"
+
+    # When/Then: a positive canonical witness and negative cell cannot coexist.
+    with pytest.raises(Servo2Error, match="CLOSURE_STATUS_WITNESS_CONTRADICTION"):
+        validate_relations(tables)
+
+
 def test_unknown_rejects_explicit_negative_basis(package) -> None:
     header, rows = _add_decision_basis_contract(package)
     target = next(row for row in rows if row["status"] == "unknown")
