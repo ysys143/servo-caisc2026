@@ -454,7 +454,7 @@ The checklist has two parts: a \textbf{Research Stage Assessment} (items 1--4) r
 \item {\bf Experimental result reproducibility}
     \item[] Question: Does the paper fully disclose all information needed to reproduce the main experimental results?
     \item[] Answer: \answerYes{}
-    \item[] Justification: This paper contains no computational experiment, but its main case annotations and closure predicates depend on the Servo event--artifact package. The synchronized package, validator, canonical records, generated tables, evidence ledger, audit record, and corrected manuscript are bound in the versioned, checksum-bound release at \url{https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v3.0.10}. Its manifest and attestation provide file-level checksums for the revised status matrix and make later asset replacement detectable; the hosting platform does not make the release immutable.
+    \item[] Justification: This paper contains no computational experiment, but its main case annotations and closure predicates depend on the Servo event--artifact package. The synchronized package, validator, canonical records, generated tables, evidence ledger, audit record, and corrected manuscript are bound in the versioned, checksum-bound release at \url{https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v3.0.11}. Its manifest and attestation provide file-level checksums for the revised status matrix and make later asset replacement detectable; the hosting platform does not make the release immutable.
 
 \item {\bf Open access to data and code}
     \item[] Question: Does the paper provide open access to data and code?
@@ -1090,10 +1090,13 @@ why, and whether the version of record is thereby wrong or merely less precise.
   \item[R43. Cross-surface adaptation contract and release mutability.]
   \textbf{Scope:} Predicate contract; reproducibility checklist; regression suite.
   The human-readable normative table now matches the manuscript and validator: experimental adaptation ends at a later explicit execution and does not require the second evidence occurrence reserved for discovery-cycle feedback. A regression test guards that recurrence boundary. Static package documentation now defers publication state to the generated attestation and names the current Schema~3 contract instead of the superseded Schema~2 contract. The checklist also replaces ``immutable release'' with ``versioned, checksum-bound release'': the checksums make replacement detectable, but the hosting platform reports that the release itself is not immutable.
+  \item[R44. Closure-route and release-identity consistency.]
+  \textbf{Scope:} Normative contract; closure records and validator; public release metadata and artifact policy; regression suite.
+  Every predicate, including discovery-cycle feedback, now passes the same common-route checks for implemented, case-internal, closure-eligible edges. A \texttt{not\_established} status must cite source-grounded evidence, while every status retains a nonempty rationale; this prevents missing reporting from being converted into a negative finding. The public package now aligns its Schema~3 project identity, citation version, release URL, event semantics, and evidence-ledger path. The artifact policy also distinguishes immutable submitted PDFs from rebuildable post-submission products and requires the released corrected PDF to remain byte-identical to its reader-facing counterpart.
 \end{description}
 
 \noindent\textbf{Scope of revision.} The entries above are the complete set of changes
-made since the archival deposit, R1--R43. Entries R3--R12 narrow or correct statements
+made since the archival deposit, R1--R44. Entries R3--R12 narrow or correct statements
 that the citation audit judged unsupported by, contradicted by, or less precise than their
 cited sources. Entries R13--R16 record the subsequent adversarial mathematical review: they
 replace the proposition/assumption/proof-sketch presentation with bounded analytical

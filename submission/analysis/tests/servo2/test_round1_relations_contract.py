@@ -1,5 +1,10 @@
 from __future__ import annotations
 
+import pytest
+
+from analysis.servo2_io import Servo2Error, read_tables
+from analysis.servo2_relations import validate_relations
+
 from conftest import assert_rejected, csv_rows, run_cli, table, write_rows
 
 
@@ -66,6 +71,33 @@ def test_not_established_rejects_unverified_complete_trace_claim(package) -> Non
     assert_rejected(
         run_cli(package, "public-regeneration"), "SCHEMA_ENUM_INVALID"
     )
+
+
+def test_not_established_requires_source_grounded_evidence_id(package) -> None:
+    # Given: a source-silent unknown row relabelled as explicitly negative.
+    tables = read_tables(package)
+    rows = tables["closure_statuses"].rows
+    for row in rows:
+        row["evidence_ids"] = "not_applicable"
+    target = next(row for row in rows if row["status"] == "unknown")
+    target["status"] = "not_established"
+    target["decision_basis"] = "explicit_negative"
+
+    # When/Then: a decision-basis token cannot substitute for source evidence.
+    with pytest.raises(Servo2Error, match="NEGATIVE_STATUS_EVIDENCE_MISSING"):
+        validate_relations(tables)
+
+
+def test_not_applicable_requires_explicit_scope_rationale(package) -> None:
+    # Given: the sole out-of-scope row with its rationale erased.
+    tables = read_tables(package)
+    rows = tables["closure_statuses"].rows
+    target = next(row for row in rows if row["status"] == "not_applicable")
+    target["rationale"] = ""
+
+    # When/Then: not-applicable cannot be asserted without the predeclared reason.
+    with pytest.raises(Servo2Error, match="CLOSURE_STATUS_RATIONALE_MISSING"):
+        validate_relations(tables)
 
 
 def test_unknown_rejects_explicit_negative_basis(package) -> None:

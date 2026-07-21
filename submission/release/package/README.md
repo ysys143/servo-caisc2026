@@ -1,5 +1,9 @@
 # Servo corrected package
 
+Package release 3.0.11 implements the normative Servo schema version 3.0.0.
+The package release number identifies this synchronized manuscript and audit
+snapshot; it does not change the schema contract version.
+
 Package state is recorded in `release_attestation.json`, which is written during
 finalization. Cite a DOI or release tag only when that attestation names it.
 

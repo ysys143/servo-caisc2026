@@ -13,6 +13,7 @@ EVIDENCE_TABLES = (
     "edges",
     "reliability",
     "closure_witnesses",
+    "closure_statuses",
 )
 
 

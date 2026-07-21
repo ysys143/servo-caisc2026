@@ -12,7 +12,7 @@ since that deposit is listed, with its rationale, in Appendix D. For bibliograph
 of record; when relying on a claim corrected here, cite or identify this dated revision alongside it and
 do not attribute the corrected claim to the archival text. The correction should also be linked from the
 official record when that repository permits.
-Revised: 2026-07-19; last revised 2026-07-21.
+Revised: 2026-07-19; last revised 2026-07-22.
 
 Abstract
 Existing surveys organize AI Scientist systems by capabilities and workflow
@@ -21,7 +21,7 @@ evaluation events, versioned artifacts, routed edges, memory, and policy. The si
 executor, Validator, Memory, and search Policy (π); the environment observation
 law Oenv , artifact state A, and optional artifact synthesis or revision interface WA
 are explicit boundary objects rather than additional core components. We apply
-the schema to six versioned cases from five lineages and seven selected, frozen domain anchors. It replaces a single closure label with five conservative, set-valued
+the schema to six versioned cases from five lineages and seven selected, frozen domain anchors. It replaces a single closure label with four conservative, set-valued
 predicates whose statuses require source-traceable witnesses within one case, version, configuration, and task regime. The case and anchor records illustrate use of
 the vocabulary; they are not a representative sample, prevalence estimate, causal
 test, or demonstration that Servo is superior to another framework. Appendix A
@@ -60,7 +60,7 @@ maps information about an incompletely observed environment to an action, and a 
 space A, transition kernel, observation kernel, reward function, initial belief, and discount. Servo
 does not specify those objects and is not a POMDP instantiation. Its S is a candidate search space
 rather than the world state, and any bt is used only when a bounded source defines a belief or posterior. Appendix A separately analyzes fixed statistical models. Posterior concentration is not any of
-Servo’s five closure predicates, and no predicate status defines a trustworthy scientific outcome. An
+Servo’s four closure predicates, and no predicate status defines a trustworthy scientific outcome. An
 outcome study must predeclare a gate-independent endpoint Yq for each target property q. Bayesian
 Experimental Design [Chaloner and Verdinelli, 1995, Rainforth et al., 2024] provides one possible
 normative information criterion for π: select d∗ maximizing Expected Information Gain (EIG),
@@ -88,12 +88,10 @@ versioned case identity, events, artifacts, routes, and predicate witnesses. Thi
 analytical unit, not evidence that Servo is more complete or useful.
 Autonomous-science frameworks. Automated feedback architectures predate the LLM era: the
 Robot Scientist [Sparkes et al., 2010] integrated hypothesis generation, robotic experimentation,
-statistical testing, model update, and active experiment selection [King et al., 2004]. More recent
-architectures include NovelSeek [InternAgent Team, Shanghai Artificial Intelligence Laboratory,
-2025] and Co-Scientist [Gottweis et al., 2026]. We therefore position Servo not as the first unified
-framework but as a vocabulary for separating observation generation, evaluation events, artifacts,
-routed edges, and acceptance. Its diagnostic value is illustrated, not independently tested against
-another framework.
+statistical testing, model update, and active experiment selection [King et al., 2004]. More recent architectures include InternAgent (formerly NovelSeek) [InternAgent Team, Shanghai Artificial Intelligence Laboratory, 2025] and Co-Scientist [Gottweis et al., 2026]. We therefore position Servo not
+as the first unified framework but as a vocabulary for separating observation generation, evaluation
+events, artifacts, routed edges, and acceptance. Its diagnostic value is illustrated, not independently
+tested against another framework.
 Decision-theoretic foundations.
 The POMDP framework [Kaelbling et al., 1998] and
 BED [Chaloner and Verdinelli, 1995, Rainforth et al., 2024] are classical, with a long history of
@@ -104,12 +102,48 @@ path is reliable, epistemic, autonomous, or scientifically successful.
 
 2
 
-active-learning policy [King et al., 2004]. Servo borrows terminology rather than claiming a complete POMDP or priority for BED. Its portable contract records validation target, evidence, evaluator,
-decision role, artifact state, and routed edge without treating those fields as a reliability hierarchy.
+active-learning policy [King et al., 2004]. Servo borrows terminology rather than claiming a complete POMDP or priority for BED. Its machine-readable contract records validation target, evidence,
+evaluator, decision role, artifact state, and routed edge without treating those fields as a reliability
+hierarchy.
 Formal models and artifact infrastructure. Taniguchi et al. [2025] model collective scientific
 inference, whereas Servo records one system-level case and deliberately compresses social organization. Liu et al. [2026] foreground artifact format, provenance, and verification. The Servo event–
 artifact schema can record such artifacts as versioned A states and, where the source reports it, an
 artifact synthesis or revision interface WA ; this is a boundary mapping rather than subsumption.
+Provenance and workflow-run standards. PROV-DM already defines entities, activities, agents,
+generation, usage, derivation, revision, and association [Moreau and Missier, 2013]. Workflow Run
+RO-Crate similarly records a workflow plan and run with code and input/output artifacts [Workflow
+Run RO-Crate Community, 2023]. Servo does not redefine these base provenance objects. Its artifacts map to PROV entities, events to activities or run actions, producers and consumers to generation
+and usage, and human or system actors to agents and associations. The added profile is narrower:
+scientific target properties, validator-reliability records, typed epistemic and control routes, bounded
+case identity, component-specific authority, and predicate-specific closure witnesses. Table 1 states
+this reuse boundary; formal conformance would additionally require an executable serializer and the
+relevant conformance tests.
+Servo record
+
+Existing analogue
+
+Servo-specific scientific semantics
+
+Artifact/version
+Event
+
+PROV Entity; derivation/revision
+PROV Activity; RO-Crate run action
+Agent/Association;
+generation/usage
+Connected provenance subgraph
+
+Version identity required by a bounded predicate witness
+Target property, evaluator, reliability evidence, update semantics
+
+Actor/route
+Closure witness
+
+Component authority and typed epistemic, control, revision, or mediation role
+Minimum predicate path and evidential decision status
+
+Table 1: Construct-level provenance crosswalk. Servo is a scientific-diagnostic profile over reusable
+provenance concepts, not a replacement base ontology.
 Framework
 
 Unit and aim
@@ -149,11 +183,9 @@ Wei et al.
 Tie et al.
 [2025]
 
-Table 1: Direct construct-level comparison with AI Scientist survey frameworks, using each framework’s native unit. This is not a performance ranking. Servo’s claimed increment is selected systemlevel channel and interface resolution, not the first unified framework or information that the alternatives are incapable of representing.
-POMDP, NovelSeek, CPC-MS, and ARA remain complementary rather than direct survey-taxonomy
-baselines. POMDP supplies a sequential decision model when states and kernels are specified [Kaelbling et al., 1998]; NovelSeek foregrounds implemented multi-agent organization [InternAgent
-Team, Shanghai Artificial Intelligence Laboratory, 2025]; CPC-MS models community-level epistemic dynamics [Taniguchi et al., 2025]; and ARA foregrounds artifact provenance and replay [Liu
-et al., 2026]. Servo does not subsume these analytical units.
+Table 2: Direct construct-level comparison with AI Scientist survey frameworks, using each framework’s native unit. This is not a performance ranking. Servo’s claimed increment is selected systemlevel channel and interface resolution, not the first unified framework or information that the alternatives are incapable of representing.
+POMDP, InternAgent, CPC-MS, and ARA remain complementary rather than direct surveytaxonomy baselines. POMDP supplies a sequential decision model when states and kernels are specified [Kaelbling et al., 1998]; InternAgent foregrounds implemented multi-agent organization [InternAgent Team, Shanghai Artificial Intelligence Laboratory, 2025]; CPC-MS models communitylevel epistemic dynamics [Taniguchi et al., 2025]; and ARA foregrounds artifact provenance and
+replay [Liu et al., 2026]. Servo does not subsume these analytical units.
 
 4
 
@@ -165,7 +197,9 @@ Servo = (S, G, E, V, M, π)
 (2)
 
 S: Search Space The currently represented candidate hypotheses, programs, molecules, experimental conditions, or other objects subject to exploration. St may be fixed or expanded;
-calling a process open-ended requires an explicit expansion rather than merely searching a
+3
+
+calling a process open-ended requires an explicit expansion rather than merely searching a
 large fixed set.
 G : M × S → (C, ∆S): Hypothesis Generator A function that proposes both newly instantiated
 candidates and an optional search-space expansion. We set St+ = expand(St , ∆St ) and
@@ -180,9 +214,7 @@ o ∼ Oenv (· | x, Eexec (h, d, P, f )), with a Dirac law as the deterministic 
 is not a seventh Servo component or a field inferred by the architectural coding; it must be
 supplied by a statistical model before a belief update or EIG is computable. V remains a
 separate contextual assessment of the realized evidence.
-3
-
-V = {Vj : (zj , Av ) → rj }j∈J : Validator events A family of context-dependent assessment functions rather than one compulsory post-observation call. Av identifies every versioned artifact consumed by the event; its producer, version, and case boundary must resolve in
+V = {Vj : (zj , Av ) → rj }j∈J : Validator events A family of context-dependent assessment functions rather than one compulsory post-observation call. Av identifies every versioned artifact consumed by the event; its producer, version, and case boundary must resolve in
 the artifact records. The contextual input zj = (h, d, P, o, M, Kext , τ ) may additionally
 contain the candidate claim or hypothesis, design, protocol, observation, internal memory, an external reference corpus, and an evaluation-time cutoff. Its result rj may contain property-specific components for executability, empirical adequacy, reproducibility,
 novelty, significance, and acceptance. A particular validator uses only the coordinates it
@@ -205,144 +237,123 @@ a (or its design component d) to maximize conditional EIG; this is a one-step a
 not a globally optimal sequential policy. In practice, systems use reactive, greedy, activelearning, or tree-search policies. Thus G generates candidates while π chooses what to do
 with them, consistent with the POMDP convention that a policy maps a belief state to an
 action [Kaelbling et al., 1998].
-Portable event–artifact graph. For a bounded case c, Servo records endpoints, versioned artifacts,
-evaluation events, and directed edges,
+Operational event–artifact graph. For a bounded case c, Servo records endpoints, versioned artifacts, evaluation events, and directed edges,
 Gc = (Nc , Ac , Ec , Rc ),
 
 (3)
 
 where Nc are typed component or boundary endpoints, Ac are artifacts with producers and versions,
-Ec are evaluation occurrences, and Rc are observation, epistemic-update, feedback-control, artifactrevision, human-mediation, or external-only edges. Events and reliability evaluations are different
-records: an evaluation study is not a runtime event and cannot serve as a feedback edge. A denotes
-artifact state consumed or produced by events, while the optional WA denotes a reported artifact synthesis or revision interface. Both lie at the six-component boundary; neither silently expands the core
-tuple. A terminal event has no outgoing internal edge. Pre-action filtering, a fixed schedule, appendonly memory, formatting or copying, retry without epistemic update, and terminal assessment alone
-are prohibited shortcuts rather than closure witnesses.
+Ec are evaluation occurrences, and Rc are observation, epistemic-update, feedback-control, artifact4
+
+revision, or external-only edges. Each event class has an allowed actor component, and each edge
+type has allowed source–destination component pairs; the package rejects graphs that violate these
+tuple–graph consistency constraints. Human, system, mixed, or unreported mediation is an actor
+facet rather than a distinct edge topology. Events and reliability evaluations are different records:
+an evaluation study is not a runtime event and cannot serve as a feedback edge. A denotes artifact
+state consumed or produced by events, while the optional WA denotes a reported artifact synthesis or
+revision interface. Both lie at the six-component boundary; neither silently expands the core tuple.
+A terminal event has no outgoing internal edge. Pre-action filtering, a fixed schedule, append-only
+memory, formatting or copying, retry without epistemic update, and terminal assessment alone are
+prohibited shortcuts rather than closure witnesses.
+The admissibility maps from graph records to tuple or boundary components are explicit. For event
+class k and edge type r, let η(k) be the allowed actor-component set and τ (r) the allowed ordered
+component pair set:
+η(runtime validation) = {V },
+η(generation) = {G},
+η(artifact production) = {WA },
+η(human feedback) = {external},
+
+η(artifact assessment) = {V },
+η(execution) = {E},
+η(state update) = {M },
+η(external assessment) = {external},
+
+(4)
+
+and
+τ (observation) = {(E, V )},
+τ (epistemic update) = {(V, M )},
+τ (artifact revision) = {(V, WA ), (π, WA )},
+τ (external only) = {(external, external)},
+τ (feedback control) = {(V, G), (V, π), (M, G), (M, π),
+(π, G), (π, E), (G, E), (WA , E),
+(external, WA )}.
+
+(5)
+
+For every event, the actor component must belong to η of its event class; for every edge, the ordered
+endpoint-component pair must belong to τ of its edge type. These are integrity constraints, not an
+assertion that every component invocation is observable in a bounded source; unreported mappings
+remain evidentially unknown.
 Set-valued closure description. Servo does not assign one yes/partial/full loop label. For each
-case it reports a status in {established, not established, unknown, not applicable} for each of five
-predicates: execution repair, experimental adaptation, artifact revision, discovery-cycle feedback,
-and human-mediated feedback. An established predicate requires an ordered witness whose events,
-edges, endpoints, and artifacts remain within the same case, version, configuration, and task regime.
-Discovery-cycle feedback has the strongest contract: an evidence event must lead through an
-epistemic-update edge to a feedback-dependent epistemic action, a new evidence-generating execution, and a new evidence event. Missing or ambiguous source links yield unknown or not established;
-they are not completed by architectural plausibility.
+case it reports a status in {established, not established, unknown, not applicable} for each of four
+predicates: execution repair, experimental adaptation, artifact revision, discovery-cycle feedback.
+An established predicate requires an ordered witness whose events, edges, endpoints, and artifacts
+remain within the same case, version, configuration, and task regime. Execution repair requires
+runtime failure evidence, artifact revision through WA , and a later execution; experimental adaptation requires evaluation evidence to control a changed experimental action that is subsequently
+executed; artifact revision requires a successor versioned artifact; and discovery-cycle feedback further requires an explicit epistemic update, an intervening epistemic action and execution, and new
+evidence. The predicates may share records only when the path independently satisfies each contract. Human mediation is reported separately as an actor facet and may qualify any of these paths;
+it is not itself evidence that a loop closes.
+The evidential statuses are not interchangeable. Established requires a positive witness. Unknown
+means that a required event, edge, order, artifact identity, or source link is missing or ambiguous. Not
+established is reserved for explicit source-grounded contrary evidence; source silence, an incomplete
+trace, or an unverified assertion that a trace is complete remains unknown. Not applicable requires
+a predeclared out-of-scope reason. These graph patterns, mismatch rules, and counterexamples are
+specified in predicate_contract.md and enforced by the package validator.
 Human involvement is recorded as a categorical authority vector rather than the former scalar
 H ∈ [0, 1]: H = (HS , HG , HE , HV , HM , Hπ ) states whether humans define the initial problem or
-4
-
-ID
-
-Lineage
-
-System/version
-
-Configuration
-
-Task regime
-
-C01
-C02
-
-coscientist
-ai_scientist
-
-Coscientist (2023 paper)
-AI Scientist 2024 (2024 paper)
-
-Reported demonstration
-Reported default
-
-C03
-C04
-C05
-C06
-
-ai_scientist
-agent_laboratory
-robot_scientist
-novelseek
-
-AI Scientist 2026 (2026 Nature)
-Agent Laboratory (2025 paper)
-Robot Scientist (2010 review of Adam)
-NovelSeek/InternAgent (2025 InternAgent)
-
-Template-free tree
-Autonomous mode
-Adam yeast
-Reported multi-agent
-
-Six chemistry tasks
-At most five computational
-experiments
-Computational tree search
-Human-provided ML idea
-Yeast functional genomics
-Twelve computational tasks
-
-Table 2: Six versioned cases from five lineages. IDs, versions, configurations, and task regimes are
-generated from the canonical Servo records.
-ID
-
-Execution repair
-
-Experimental adaptation
-
-Artifact revision
-
-Discovery-cycle feedback
-
-Human-mediated
-feedback
-
-C01
-C02
-C03
-C04
-C05
-C06
-
-{established}
-{not established}
-{unknown}
-{established}
-{not established}
-{established}
-
-{unknown}
-{established}
-{unknown}
-{unknown}
-{established}
-{established}
-
-{established}
-{not established}
-{not established}
-{established}
-{not applicable}
-{established}
-
-{unknown}
-{not established}
-{unknown}
-{not established}
-{established}
-{not established}
-
-{not established}
-{not established}
-{not established}
-{not established}
-{not established}
-{established}
-
-Table 3: Set-valued closure-predicate statuses. Columns are independent predicates, not levels of
-one closure scale; every established value requires an explicit within-case witness.
 represented search space and, for every other component, whether they initiate, advise, approve, execute, or retain final decision authority. HS distinguishes authority over S0 and later space expansion
 from candidate generation by G. The vector is descriptive, not numeric or ordered [Parasuraman
 et al., 2000].
 Faceted validator description. The former labels Vsyntax , Vsemantic , Vempirical , Vhuman , and Vformal
 mixed target properties, evidence sources, evaluator substrates, and decision roles; they were neither
+5
+
+Table 3: Predicate-level graph patterns. Every edge in an established witness must be implemented,
+feedback-dependent, closure-eligible, source-grounded, and connected in the listed order.
+Predicate
+
+Required evidence con- Required route and endpoint
+dition
+
+Minimum recurrence and
+exclusions
+
+Execution repair Runtime-validation fail- artifact_revision
+through A later execution; retry
+ure evidence
+WA , then feedback_control to without a changed exeE
+cutable or protocol artifact and terminal review
+do not qualify
+Experimental
+A later event explicitly
+Evaluation
+evidence Feedback-dependent
+reaching typed as execution; selecadaptation
+that
+conditions
+a feedback_control
+tion alone, a fixed schedchanged experimental E
+ule, or code repair alone
+action
+does not qualify
+Artifact revision Evaluation occurrence artifact_revision to a succes- A distinct versioned suclinked to an artifact
+sor artifact through WA
+cessor; formatting, copying, in-place mutation,
+and unlinked terminal assessment do not qualify
+Discovery-cycle An evidence occurrence epistemic_update, an explicit A second distinct evoccurrence;
+feedback
+epistemic_action event on the idence
+feedback-controlled route, execu- endpoint-only
+action
+tion at E, then observation back inference,
+retry-only,
+to V
+append-only
+memory,
+and terminal-only paths
+do not qualify
+
 mutually exclusive layers nor a reliability order. Gate reliability evidence is recorded separately from
 runtime events and is called probabilistic calibration only when confidence–outcome correspondence
 is measured. Balanced accuracy, false-positive rate, mean score bias, and coder agreement are not
@@ -358,72 +369,153 @@ necessary or sufficient for trustworthy autonomous discovery.
 
 Analysis of Core AI Scientist Systems
 
-The frozen application contains six versioned cases from five lineages: Coscientist; AI Scientist
-2024 and AI Scientist 2026 as two versions in one lineage; Agent Laboratory; Robot Scientist; and
-NovelSeek/InternAgent. Each case is bounded by a reported configuration and task regime. The
-records are selected source-traceable examples, not “core” representatives of a population. They
+The frozen application contains six versioned cases from five lineages: Coscientist; AI Scientist 2024
+and AI Scientist 2026 as two versions in one lineage; Agent Laboratory; Robot Scientist; and InternAgent (formerly NovelSeek). Each case is bounded by a reported configuration and task regime.
+The records are selected source-traceable examples, not “core” representatives of a population. They
 describe S, G, E, V, M, π, the boundary objects Oenv , A, WA , human authority, endpoints, events,
 artifacts, routed edges, reliability evaluations, and any closure witnesses that satisfy the Servo event–
 artifact contract.
+Every cell is keyed by case_id and predicate in servo2_closure_statuses.csv. Established
+cells name their ordered witness_ids; each witness resolves event, edge, endpoint, artifact, evidence, source-location, and source-hash records in the release package.
 The event graph preserves distinctions that a bare loop label would erase. In the AI Scientist lineage,
 pre-action literature filtering, runtime experiment or tree evaluation, manuscript assessment, and external review are separate events with different artifacts and destinations [Lu et al., 2024, 2026]. Coscientist and Agent Laboratory report execution or artifact-revision paths, but each closure predicate
 is stated only where an ordered within-case witness is available [Boiko et al., 2023, Schmidgall et al.,
-2025]. Robot Scientist reports a physical assay and model-update cycle within its bounded yeast5
+6
 
-functional-genomics regime [King et al., 2004, Sparkes et al., 2010]; NovelSeek reports multi-agent
+ID
+
+Lineage
+
+C01
+C02
+
+coscientist
+ai_scientist
+
+C03
+C04
+C05
+C06
+
+System/version
+
+Coscientist (2023 paper)
+AI Scientist 2024 (2024
+paper)
+ai_scientist
+AI Scientist 2026 (2026
+Nature)
+agent_laboratory Agent Laboratory (2025
+paper)
+robot_scientist Robot Scientist (2010 review of Adam)
+novelseek
+InternAgent
+(formerly
+NovelSeek) (2025 InternAgent)
+
+Configuration
+
+Task regime
+
+Reported demonstration
+Reported default
+
+Six chemistry tasks
+At most five computational experiments
+Computational
+tree
+search
+Human-provided
+ML
+idea
+Yeast functional genomics
+Twelve
+computational
+tasks
+
+Template-free tree
+Autonomous mode
+Adam yeast
+Reported multi-agent
+
+Table 4: Six versioned cases from five lineages. IDs, versions, configurations, and task regimes are
+generated from the canonical Servo records.
+ID
+
+Execution repair
+
+Experimental adaptation
+
+Artifact revision
+
+Discovery-cycle feedback
+
+C01
+C02
+C03
+C04
+C05
+C06
+
+{established}
+{unknown}
+{unknown}
+{established}
+{unknown}
+{established}
+
+{unknown}
+{established}
+{established}
+{unknown}
+{established}
+{established}
+
+{established}
+{unknown}
+{unknown}
+{established}
+{not applicable}
+{established}
+
+{unknown}
+{unknown}
+{unknown}
+{unknown}
+{established}
+{unknown}
+
+Table 5: Set-valued closure-predicate statuses. Columns are independent predicates, not levels of
+one closure scale; every established value requires an explicit within-case witness.
+2025]. Robot Scientist reports a physical assay and model-update cycle within its bounded yeastfunctional-genomics regime [King et al., 2004, Sparkes et al., 2010]; InternAgent reports multi-agent
 assessment, debugging, and evolution while Servo deliberately compresses agent-to-agent organization [InternAgent Team, Shanghai Artificial Intelligence Laboratory, 2025]. Human scope, manual
 execution, terminal authority, and external assessment remain separately recorded rather than being
 converted into a scalar autonomy or closure value.
 The normative data model consists of the case, endpoint, artifact, event, edge, reliabilityevaluation, closure-witness, closure-status, domain-anchor, and selection-ledger records named in
-servo_schema.yaml. The earlier multicoder audit used a superseded record-level rubric and did
-not code the current event, artifact, edge, or predicate units; it is retained only as a development
-audit.
+servo_schema.yaml. The frozen 42-session, three-vendor multicoder audit used a superseded
+record-level rubric and did not code the current event, artifact, edge, or predicate units; it is retained
+only as a development audit.
 5.1
 
 Contrastive framework readings
 
-The crosswalk in Table 1 is made concrete by three contrasts. First, a single loop label for AI Scientist (Nature 2026) hides the difference between stage and tree evaluators, a manuscript reviewer,
+The crosswalk in Table 2 is made concrete by three contrasts. First, a single loop label for AI Scientist (Nature 2026) hides the difference between stage and tree evaluators, a manuscript reviewer,
 and workshop review after manual submission selection. Second, Agent Laboratory’s internal execution and artifact-revision paths are distinct from its paper-quality assessment and retained human
-authority. Third, NovelSeek’s native multi-agent architecture represents agent roles and communication more directly than Servo’s system-level case record [InternAgent Team, Shanghai Artificial
+authority. Third, InternAgent’s native multi-agent architecture represents agent roles and communication more directly than Servo’s system-level case record [InternAgent Team, Shanghai Artificial
 Intelligence Laboratory, 2025]. These are differences in foregrounded units, not a performance or
 superiority comparison.
 The Robot Scientist is a negative case against an automatic claim of added diagnostic value: its
 source already exposes the relevant hypothesis, assay, update, and selection sequence [King et al.,
-2004, Sparkes et al., 2010]. Servo supplies a portable record format but does not thereby discover a
-hidden mechanism. The examples show only what the schema foregrounds.
+2004, Sparkes et al., 2010]. Servo supplies a consistently validated record format and a documented
+mapping target, but does not thereby discover a hidden mechanism. The examples show only what
+the schema foregrounds.
 5.2
 
 Artifact Infrastructure: Agent-Native Research Artifacts
 
 Liu et al. [2026] address a complementary problem—what the output of the loop should be and how
 to verify it. Agent-Native Research Artifacts (ARA) replace the narrative paper with a four-part
-ontology (/logic, /src, /trace, /evidence). In the final Servo facets, its Seal targets schema
-compliance, argumentative rigor, and reproducibility using deterministic checks, an automated Rigor
-Auditor (82.6% detection), and sandboxed execution; significance and novelty remain assigned to
-human judgment [Liu et al., 2026]. Motivating figures: only 45.4% of reproduction requirements are
-fully specified and 90.2% of extension cost is failed exploration [Liu et al., 2026]. The /trace part
-externalizes Me /Ms , but preserved traces both accelerated and anchored downstream agents—richer
-Me does not monotonically improve π.
-
-6
-
-Domain Analysis
-
-Table 4 lists seven selected, frozen source anchors. Each row names one system and one bounded
-primary source; rows are not merged into a domain-level case, sampling frame, prevalence claim, or
-cross-domain outcome comparison.
-The anchor rows support only source-local descriptions. They do not establish that a pattern holds
-across a domain, that one validator type causes an outcome, or that the seven anchors cover the
-relevant design space. DFT approximates physical energies rather than serving as a physical oracle,
-and predicted compounds still require synthesis and characterization [Cheetham and Seshadri, 2024].
-
 7
-
-Open Problems
-
-The selected case and anchor sources motivate three prospective design questions. They do not
-establish prevalence or field-wide absence, and none of the proposed evaluations is executed here.
-6
 
 ID
 
@@ -513,9 +605,35 @@ Causal model and LLM
 agents
 Executable benchmark
 
-Table 4: Seven selected, frozen source anchors. The rows demonstrate how the vocabulary can be
+Table 6: Seven selected, frozen source anchors. The rows demonstrate how the vocabulary can be
 instantiated at named boundaries; they are not representative domain samples or a common outcome
 scale.
+ontology (/logic, /src, /trace, /evidence). In the final Servo facets, its Seal targets schema
+compliance, argumentative rigor, and reproducibility using deterministic checks, an automated Rigor
+Auditor (82.6% detection), and sandboxed execution; significance and novelty remain assigned to
+human judgment [Liu et al., 2026]. Motivating figures: only 45.4% of reproduction requirements are
+fully specified and 90.2% of extension cost is failed exploration [Liu et al., 2026]. The /trace part
+externalizes Me /Ms , but preserved traces both accelerated and anchored downstream agents—richer
+Me does not monotonically improve π.
+
+6
+
+Domain Analysis
+
+Table 6 lists seven selected, frozen source anchors. Each row names one system and one bounded
+primary source; rows are not merged into a domain-level case, sampling frame, prevalence claim, or
+cross-domain outcome comparison.
+The anchor rows support only source-local descriptions. They do not establish that a pattern holds
+across a domain, that one validator type causes an outcome, or that the seven anchors cover the
+relevant design space. DFT approximates physical energies rather than serving as a physical oracle,
+and predicted compounds still require synthesis and characterization [Cheetham and Seshadri, 2024].
+
+7
+
+Open Problems
+
+The selected case and anchor sources motivate three prospective design questions. They do not
+establish prevalence or field-wide absence, and none of the proposed evaluations is executed here.
 7.1
 
 The Lack of Validated Automated Novelty Gates
@@ -529,7 +647,11 @@ temporal cutoff, domain strata, novelty prevalence or sampling scheme, primary d
 and rater counts per domain; “three domains” and “five experts” may serve as diversity floors but
 never substitute for that calculation. Experts label independently, human–human agreement is reported with uncertainty, and held-out adjudicated field-novelty labels use explicit prior-art search
 kept separate from significance and correctness. Follow-up duration, censoring, and the rule for
-later priority or prior-art outcomes must also be preregistered. The automated system is evaluated
+8
+
+Computational data fit
+
+later priority or prior-art outcomes must also be preregistered. The automated system is evaluated
 against held-out adjudicated labels rather than the majority vote from the same raters. High agreement with a small panel or separation of published from withheld findings remains only an initial
 benchmark result. A recent benchmark takes a step by restricting to post-2024 findings to control
 contamination [Liu et al., 2025], though it evaluates inspiration-based decomposition rather than
@@ -551,11 +673,7 @@ path, not an asserted field-wide absence.
 Prospective success criterion: A deployed AI Scientist narrows the survey gap if it maintains
 an observation-updated probabilistic model—exact, variational, ensemble, or other documented
 surrogate—and uses a validated EIG or sequential information objective to select actions at under
-7
-
-Computational data fit
-
-explicit budgets. Evaluation should compare discovery-relevant utility and information efficiency
+explicit budgets. Evaluation should compare discovery-relevant utility and information efficiency
 against matched heuristic policies. Direct Bayesian representation of open-ended natural-language
 or program hypotheses is a separate, stronger representation problem; it is not required to count a
 practical BED integration.
@@ -580,7 +698,9 @@ physical characterization remains protocol-specific [Bran et al., 2024, Gromski 
 multi-fidelity integration problem.
 This design problem is distinct from Op1 and Op2: a proposed implementation would need to make
 evidence comparable across fidelities and expose fidelity and cost to π. Existing MFBO supplies acquisition criteria under stated surrogate assumptions; whether those assumptions and protocol transitions hold in an AI Scientist workflow is an empirical question.
-Autonomous laboratories such as A-Lab [Szymanski et al., 2023], ORGANA [Darvish et al., 2024],
+9
+
+Autonomous laboratories such as A-Lab [Szymanski et al., 2023], ORGANA [Darvish et al., 2024],
 and AutoLabs [Panapitiya et al., 2025] show that execution automation and fidelity selection are
 separate engineering questions. They are cited as adjacent examples, not as an exhaustive audit of
 multi-fidelity policy evaluation.
@@ -601,24 +721,22 @@ Any future outcome analysis must use gate-independent external endpoints Yq .
 Human oversight. The categorical authority vector makes explicit where humans initiate, advise,
 approve, execute, or retain final authority; it is not a quantity to minimize. Human authority in
 novelty/significance assessment and policy is appropriate for the surveyed workflows because their
-8
-
-automated proxies do not yet provide independently validated judgments of those targets. This is a
+automated proxies do not yet provide independently validated judgments of those targets. This is a
 current-workflow finding, not a claim that those judgments are non-automatizable in principle [Parasuraman et al., 2000].
-Towards collective AI co-scientists. Some analyzed systems, including NovelSeek, are explicitly multi-agent [InternAgent Team, Shanghai Artificial Intelligence Laboratory, 2025]; this paper
+Towards collective AI co-scientists. Some analyzed systems, including InternAgent, are explicitly multi-agent [InternAgent Team, Shanghai Artificial Intelligence Laboratory, 2025]; this paper
 nevertheless collapses each implementation into one system-level (S, G, E, V, M, π) tuple and does
 not model agent-level roles, communication, disagreement, or authority. The relevant extension is
 therefore from that system-level abstraction to an agent graph, shared-memory process, collective
 validator, or Dec-POMDP-like model, rather than the introduction of multi-agent systems as such.
 Collective Predictive Coding [Taniguchi et al., 2025] and ARA [Liu et al., 2026] offer possible starting points for shared epistemic state. Such an extension must preserve diversity: AI reviewers already overlap more than independent humans [Kim et al., 2026], risking the transient diversity that
 benefits epistemic communities [Zollman, 2010].
-Limitations. Servo is non-exhaustive and abstracts away agent-level and social organization [Taniguchi et al., 2025]. The six cases and seven anchors are selected source-traceable records,
-not representative or population-valid samples. A predicate status concerns only its bounded case
-and witness; it does not imply scientific outcome quality. Servo supplies neither a causal model nor a
-generative law for missing routes, costs, fidelity transitions, or artifacts. An earlier multicoder audit
-predates the current event–artifact contract and is retained only as a historical development audit; its
-agreement coefficients do not establish reproducibility, source entailment, construct validity, human
-reliability, real-world utility, or comparative superiority.
+Limitations. Servo is non-exhaustive and abstracts away agent-level and social organization [Taniguchi et al., 2025]. The six cases informed framework development, while the seven
+anchors are partial records rather than complete held-out graphs. No untouched case has yet been instantiated end-to-end under a prospectively frozen contract. The present evidence therefore supports
+internal consistency and a loss-aware standards mapping, not demonstrated out-of-sample portability; a future holdout that triggers a schema change must be reclassified as formative. A predicate status concerns only its bounded case and witness and does not imply scientific outcome quality. Servo
+supplies neither a causal model nor a generative law for missing routes, costs, fidelity transitions,
+or artifacts. The frozen 42-session, three-vendor multicoder audit predates the current event–artifact
+contract and is retained only as a historical development audit; its agreement coefficients do not establish reproducibility, source entailment, construct validity, human reliability, real-world utility, or
+comparative superiority.
 
 9
 
@@ -626,8 +744,12 @@ Conclusion
 
 We introduced Servo (S, G, E, V, M, π) as a non-exhaustive, source-traceable event-and-evidence
 schema. Its six versioned cases from five lineages and seven frozen anchors illustrate how to record
-evaluation events, artifact versions, routes, authority, and five conservative closure predicates. They
-do not establish prevalence, causality, comparative superiority, or scientific outcome effects.
+evaluation events, artifact versions, routes, authority, and four conservative closure predicates. The
+schema reuses generic provenance concepts while adding scientific target, reliability, authority,
+epistemic-route, and closure-witness semantics. These formative cases and partial anchors do not
+10
+
+establish out-of-sample portability, prevalence, causality, comparative superiority, or scientific outcome effects.
 
 References
 R. H. Berk. Limiting behavior of posterior distributions when the model is incorrect. The Annals of
@@ -651,9 +773,7 @@ T. Rainforth. BED-LLM: Intelligent information gathering with LLMs and Bayesian 
 K. Darvish, M. Skreta, Y. Zhao, N. Yoshikawa, S. Som, M. Bogdanovic, Y. Cao, H. Hao, H. Xu,
 A. Aspuru-Guzik, A. Garg, and F. Shkurti. ORGANA: A robotic assistant for automated chemistry
 experimentation and characterization, 2024. arXiv:2401.06949; also in Matter (Cell Press) 2025.
-9
-
-T. Feng, Q. V. Le, T. Luong, T. H. Trinh, G. Bingham, D. Hwang, Y. Chervonyi, et al. Towards
+T. Feng, Q. V. Le, T. Luong, T. H. Trinh, G. Bingham, D. Hwang, Y. Chervonyi, et al. Towards
 autonomous mathematics research. arXiv preprint arXiv:2602.10177, 2026. arXiv:2602.10177.
 A. Foster, M. Jankowiak, E. Bingham, P. Horsfall, Y. W. Teh, T. Rainforth, and N. Goodman. Variational Bayesian optimal experimental design. In Advances in Neural Information Processing
 Systems, 2019. arXiv:1903.05480.
@@ -671,7 +791,9 @@ arXiv:2505.16938, 2025. arXiv:2505.16938v3. Circulated as NovelSeek in earlier v
 key is retained for continuity with prior citations of this work.
 L. P. Kaelbling, M. L. Littman, and A. R. Cassandra. Planning and acting in partially observable
 stochastic domains. Artificial Intelligence, 101(1–2):99–134, 1998.
-K. Kandasamy, G. Dasarathy, J. B. Oliva, J. Schneider, and B. Póczos. Multi-fidelity Bayesian optimisation with continuous approximations. In Proceedings of the 34th International Conference on
+11
+
+K. Kandasamy, G. Dasarathy, J. B. Oliva, J. Schneider, and B. Póczos. Multi-fidelity Bayesian optimisation with continuous approximations. In Proceedings of the 34th International Conference on
 Machine Learning, volume 70 of Proceedings of Machine Learning Research, pages 1799–1808,
 2017.
 S. Kim, D. Yoon, K. Gashteovski, J. Suk, J. Baek, P. Aggarwal, I. Wu, et al. On the limits and
@@ -695,11 +817,11 @@ B. S. Manning, K. Zhu, and J. J. Horton. Automated social science: Language mode
 subjects. Working Paper 32381, National Bureau of Economic Research, 2024. arXiv:2404.11794.
 A. Merchant, S. Batzner, S. S. Schoenholz, M. Aykol, G. Cheon, and E. D. Cubuk. Scaling deep
 learning for materials discovery. Nature, 624:80–85, 2023.
+L. Moreau and P. Missier. PROV-DM: The PROV data model. W3c recommendation, World Wide
+Web Consortium, 2013. URL https://www.w3.org/TR/prov-dm/.
 O. O’Donoghue, A. Shtedritski, J. Ginger, R. Abboud, A. E. Ghareeb, J. Booth, and S. G. Rodriques. BioPlanner: Automatic evaluation of LLMs on protocol planning in biology. arXiv
 preprint arXiv:2310.10632, 2023. EMNLP 2023.
-10
-
-G. Panapitiya, E. Saldanha, H. Job, and O. Hess. AutoLabs: Cognitive multi-agent systems with
+G. Panapitiya, E. Saldanha, H. Job, and O. Hess. AutoLabs: Cognitive multi-agent systems with
 self-correction for autonomous chemical experimentation, 2025. arXiv:2509.25651.
 R. Parasuraman, T. B. Sheridan, and C. D. Wickens. A model for types and levels of human interaction with automation. IEEE Transactions on Systems, Man, and Cybernetics—Part A: Systems
 and Humans, 30(3):286–297, 2000. doi: 10.1109/3468.844354.
@@ -716,7 +838,9 @@ Agent Laboratory: Using LLM agents as research assistants. arXiv preprint arXiv:
 J. Song, Y. Chen, and Y. Yue. A general framework for multi-fidelity Bayesian optimization with
 Gaussian processes. In Proceedings of the 22nd International Conference on Artificial Intelligence
 and Statistics, volume 89 of Proceedings of Machine Learning Research, pages 3158–3167, 2019.
-A. Sparkes, W. Aubrey, E. Byrne, A. Clare, M. N. Khan, M. Liakata, M. Markham, J. Rowland, L. N.
+12
+
+A. Sparkes, W. Aubrey, E. Byrne, A. Clare, M. N. Khan, M. Liakata, M. Markham, J. Rowland, L. N.
 Soldatova, K. E. Whelan, M. Young, and R. D. King. Towards robot scientists for autonomous
 scientific discovery. Automated Experimentation, 2(1):1, 2010. doi: 10.1186/1759-4499-2-1.
 N. J. Szymanski, B. Rendy, Y. Fei, R. E. Kumar, T. He, D. Milsted, M. J. McDermott, M. Gallant,
@@ -736,6 +860,11 @@ Using inductive bias to probe for world models. In International Conference on M
 J. Wei, Y. Yang, X. Zhang, Y. Chen, X. Zhuang, Z. Gao, D. Zhou, G. Wang, et al. From AI
 for science to agentic science: A survey on autonomous scientific discovery. arXiv preprint
 arXiv:2508.14111, 2025. arXiv:2508.14111v2.
+Workflow Run RO-Crate Community.
+Workflow run RO-Crate profile.
+https:
+//www.researchobject.org/workflow-run-crate/profiles/workflow_run_crate/,
+2023. Specification, version 0.5.
 I. Yanai and M. Lercher.
 s13059-019-1800-6.
 
@@ -749,7 +878,7 @@ Z. Zhao, Y. Wang, T. Stuart, M. De Vaan, P. Ginsparg, and Y. Yin. LLM hallucinat
 Large-scale evidence from non-existent citations. arXiv preprint arXiv:2605.07723, 2026.
 K. J. S. Zollman. The epistemic benefit of transient diversity. Erkenntnis, 72(1):17–35, 2010.
 
-11
+13
 
 Conference For AI Scientists 2026 - AI Involvement Checklist
 This checklist documents the role of AI systems at each stage of this research. The checklist has two
@@ -794,12 +923,12 @@ execute and debug Python simulations, and iteratively revise LaTeX manuscripts.
 Description: (1) Systematic citation fabrication: the agent generated plausible but nonexistent quotes and statistics, requiring four dedicated citation-verification sweeps using
 parallel sub-agents. (2) Analytical overconfidence: the agent initially overclaimed empirical significance for mechanically-entailed theoretical consequences; multiple adversarial
 review rounds were needed to correct framing and remove overclaims. (3) Context drift:
-12
+14
 
 over long sessions, the agent occasionally regressed previously corrected errors, requiring
 explicit re-verification of integrity items before each commit.
 
-13
+15
 
 Conference For AI Scientists 2026 - Reproducibility and Responsibility
 Checklist
@@ -826,25 +955,25 @@ open-ended regimes outside their scope. The selected source anchors illustrate v
 use rather than serving as a proof.
 4. Experimental result reproducibility
 Question: Does the paper fully disclose all information needed to reproduce the main experimental results?
-Answer: [No] Not yet
-Justification: This paper contains no computational experiment, but its main case annotations and closure predicates depend on the Servo event–artifact package. A complete local
-package exists, including six versioned cases, seven frozen anchors, selection, provenance,
-event, artifact, edge, reliability, and closure-witness records. It has not yet been independently published at a verified public repository or DOI and therefore is not yet externally
-reproducible from the official record.
+Answer: [Yes]
+Justification: This paper contains no computational experiment, but its main case annotations and closure predicates depend on the Servo event–artifact package. The
+synchronized package, validator, canonical records, generated tables, evidence ledger,
+audit record, and corrected manuscript are bound in the versioned, checksumbound release at https://github.com/ysys143/servo-caisc2026/releases/tag/
+servo-corrected-v3.0.11. Its manifest and attestation provide file-level checksums for
+the revised status matrix and make later asset replacement detectable; the hosting platform
+does not make the release immutable.
 5. Open access to data and code
 Question: Does the paper provide open access to data and code?
-Answer: [No] Not yet
-Justification: The working tree contains the Servo event–artifact schema and its case, endpoint, artifact, event, edge, reliability, closure-witness, closure-status, domain-anchor, and
-selection-ledger records. This local availability is not open access. No public repository
-snapshot or DOI for the complete package has been verified, and the package is not part of
-the archival version of record.
+Answer: [Yes]
+Justification: The release above binds the current case, endpoint, artifact, event, edge, reliability, closure-witness, closure-status, domain-anchor, selection-ledger, contract, code,
+tables, audit record, and corrected manuscript files.
 6. Experimental setting/details
 Question: Does the paper specify all details necessary to understand the results?
 Answer: [Yes]
 Justification: The cross-domain analysis methodology is described in §5 and §6. No computational experiments were performed in this submission.
 7. Experiment statistical significance
 Question: Does the paper report error bars or statistical significance information?
-14
+16
 
 Answer: [NA]
 Justification: This paper contains no computational experiments and reports no statistical
@@ -893,13 +1022,13 @@ divergent sum of these one-step values. For example, when θ is discrete with fi
 conditional-information chain rule gives
 ∑
 E[EIGt ] = I(θ; H∞ ) ≤ H(θ),
-(4)
+(6)
 t≥1
 
 so finite cumulative expected information is compatible with posterior concentration. If V remains
 outside the likelihood, it has no direct role in this fixed-model consistency statement, although policy
 use of V can indirectly change which future designs and observations occur.
-15
+17
 
 Observation 2: a coupled validator changes the pseudo-true target only through a normalized
 likelihood. For a fixed design d, suppose an update uses
@@ -907,14 +1036,14 @@ likelihood. For a fixed design d, suppose an update uses
 p(o | θ, d) exp{βV (o)}
 qθ,d (o) =
 ,
-Zθ (d) = p(u | θ, d) exp{βV (u)} du < ∞. (5)
+Zθ (d) = p(u | θ, d) exp{βV (u)} du < ∞. (7)
 Zθ (d)
 Let F denote the fixed i.i.d. data-generating distribution. Under the regularity, integrability, separation, and prior-mass conditions required for a Berk-type misspecification result, posterior mass is
 driven toward a minimizer set rather than automatically toward a unique point:
 Θ† = arg min KL(F ∥ qθ,d )
 θ∈Θ
 
-(6)
+(8)
 
 Only when this set is a singleton do we denote its member by θ† [Berk, 1966]. Validator-induced
 drift means that this minimizer set differs from the corresponding projection under p(· | θ, d); an
@@ -945,7 +1074,7 @@ Cross-System Coding Reliability
 
 The Servo event–artifact schema is the current normative contract. It records six versioned cases
 from five lineages, their endpoints, artifacts, events, edges, reliability evaluations, predicate-specific
-witnesses and statuses, seven frozen source anchors, and a selection ledger. The five closure predicates are set-valued and bounded by case, version, configuration, and task regime; no single stored
+witnesses and statuses, seven frozen source anchors, and a selection ledger. The four closure predicates are set-valued and bounded by case, version, configuration, and task regime; no single stored
 loop label is authoritative. The records are author-interpreted source annotations. Structural validation cannot establish semantic entailment, construct validity, or scientific outcomes.
 Three independent, model-pinned LLM coders from different vendors coded the earlier 14system rubric (13 systems had all three usable outputs). The resulting Fleiss statistics—historical
 Vcalibrated κ=0.79, loop status κ=0.74, semantic-validation presence κ=1.0, mean κ=0.68, and
@@ -955,18 +1084,18 @@ The subsequent two-vendor recode over 14 systems produced raw agreement 13/14 an
 κ=0.86 for the historical present-versus-gating distinction. That exercise documents one post-hoc
 construct refinement, chiefly the AI Scientist (Nature 2026) reviewer-role ambiguity; it is not a reliability study of the final faceted taxonomy. The legacy Vpresent , Vgating , and Vcalibrated columns therefore
 remain in the supplement only for reconstruction.
-The subsequent multicoder audit froze its then-current manual and obtained 42 accepted freshsession codings, three vendors for each of 14 source records. It is retained only as a historical
-16
+The frozen 42-session, three-vendor multicoder audit used a then-current manual to code 14 source
+records. It is retained only as a historical development audit. Its record-level token unions, Jaccard summaries, MASI-based Krippendorff α, and disagreement log neither align current events and
+18
 
-development audit. Its record-level token unions, Jaccard summaries, MASI-based Krippendorff
-α, and disagreement log neither align current events and edges nor reproduce the current closure
-witnesses. No statistic from this audit is transferred to the current contract or case statuses.
+edges nor reproduce the current closure witnesses. No statistic from this audit is transferred to the
+current contract or case statuses. Its provenance is retained in the revision-history appendix.
 
 C
 
 Per-Domain Analysis
 
-This appendix comments on the same seven frozen anchors as Table 4. Each paragraph is bounded
+This appendix comments on the same seven frozen anchors as Table 6. Each paragraph is bounded
 to one named system and source. It does not describe a domain population.
 FunSearch. FunSearch [Romera-Paredes et al., 2024] records program generation with executable
 scoring in a bounded computational task. This anchor does not supply field-novelty evidence.
@@ -1008,7 +1137,7 @@ This revision cites the signature site for the count, marks it as of a date beca
 time, and notes that the declaration itself gives none. The substantive claim the sentence
 supports—that AI-produced proofs may carry errors that resist detection without expert
 scrutiny—is stated in the declaration and is unaffected.
-17
+19
 
 R2. Formal validators and RL stability (Section 6). Status in the version of record: overclaim;
 the sentence asserts more than the evidence supports. The version of record states that formal mathematics has “a binary Vformal that makes RL stable and the loop fully closed.” A
@@ -1037,7 +1166,7 @@ measured on a different pool. The two are now distinguished.
 R6. Class definition and Agent Laboratory (Introduction). Status in the version of record: contradicted by the cited source. The opening sentence defines the class as agents that independently generate hypotheses and cited Agent Laboratory among them; in that system the
 research idea is supplied by a human. The citation has been removed from the class-defining
 list. Agent Laboratory remains analysed throughout the paper.
-R7. Robot Scientist table cells (Table 2). Status in the version of record: one unsupported, one
+R7. Robot Scientist table cells (Table 4). Status in the version of record: one unsupported, one
 mislabelled. The novelty-measure cell read “Stat. test”; the statistical test in the cited source
 adjudicates growth phenotypes and gene-function hypotheses, not scientific novelty, so the
 cell now reads “None (corr.).” The policy cell “Active learn.” is not supported by the 2010
@@ -1058,7 +1187,7 @@ the system’s “internal acceptance gate.” In the cited source the reviewer 
 manuscripts and configurations; what advances the search is a stage evaluator, a best-first
 policy and a compute budget, and the manuscripts sent for external review were chosen by
 hand. The reviewer is an evaluation instrument, not a gate. The sentence now says so, and
-18
+20
 
 the acceptance bias it does exhibit is stated with the figure that supports it (false-positive
 rate 0.45 against 0.17 for human reviewers).
@@ -1077,17 +1206,18 @@ among the three blind coders, which are the figures this paper quotes, are ident
 and after the correction, as are the pairwise coder agreements. What moves is agreement between the coders and the author’s reference labels—necessarily, because those labels were
 revised. The released reliability report now states both the original and the corrected values
 and warns that the rise is an artefact of the revision rather than evidence of reliability.
-R11. NovelSeek / InternAgent citation identity (Table 2). Status in the version of record:
-bibliographic entry does not match the work as it now stands. The entry keyed
-zhang2025novelseek gave the title and individual author list under which
-arXiv:2505.16938 first circulated. Later versions of the same preprint (v3, the one
-audited here) retitle the work InternAgent and place it under a laboratory team byline.
-The citation is to the right work—the identifier is unchanged—but a reader retrieving
-2505.16938 today finds a different title and author line than the bibliography gives. The
-entry now carries the current title and byline, records the former name, and keeps the key
-so that earlier citations of this work still resolve. The manuscript continues to call the
-system NovelSeek, which is how it is named in the analysis released with this paper, and
-notes the retitling in the caption of Table 2, where the system is introduced.
+R11. InternAgent / InternAgent citation identity (Table 4). Status in the version of record:
+bibliographic entry does not match the work as it now stands.
+The entry
+keyed zhang2025novelseek gave the title and individual author list under which
+arXiv:2505.16938 first circulated. Later versions of the same preprint (v3, the one audited
+here) retitle the work InternAgent and place it under a laboratory team byline. The citation
+is to the right work—the identifier is unchanged—but a reader retrieving 2505.16938 today
+finds a different title and author line than the bibliography gives. The entry now carries the
+current title and byline, records the former name, and keeps the key so that earlier citations
+of this work still resolve. The manuscript continues to call the system InternAgent, which is
+how it is named in the analysis released with this paper, and notes the retitling in the caption
+of Table 4, where the system is introduced.
 R12. What the 736 GNoME matches are (Section 7). Status in the version of record: the phrase
 is the source’s own, but it invites a reading the source does not support. The version of
 record wrote that of 380,000 predicted stable compounds “only 736 have been independently experimentally realized,” which is verbatim from the cited abstract. The cited Methods make the mechanism explicit: the 736 are matches between GNoME’s predicted structures and entries already present in, or added to, the ICSD when it was queried in January
@@ -1109,7 +1239,7 @@ appendix imports standard fixed-setting distinctions rather than proving the fra
 The six-component framework, three-way closure distinction, and provisional survey
 claims are unchanged; their evidential status is made explicit rather than upgraded by
 mathematical presentation.
-19
+21
 
 R14. Posterior consistency and cumulative EIG (Appendix A). Status in the version of record:
 partly incorrect. The version of record treats compactness, identification, prior support,
@@ -1136,7 +1266,7 @@ theorem that this channel must always be human or that human validation is irrep
 in principle. The revision makes that logical boundary explicit and limits the empirical
 conclusion to the surveyed systems: their novelty and significance judgments are humanmediated or lack a validated automated gate. This leaves the novelty open problem and its
 falsification criterion unchanged while removing a universal impossibility claim.
-R17. Table 2 reconciled with the coding sheet. Status in the version of record: two rows disagreed with the released coding they summarise. The novelty row read “None” for Coscientist, where the sheet codes a human gate, and “Human-deleg.” for Agent Laboratory,
+R17. Table 4 reconciled with the coding sheet. Status in the version of record: two rows disagreed with the released coding they summarise. The novelty row read “None” for Coscientist, where the sheet codes a human gate, and “Human-deleg.” for Agent Laboratory,
 where the sheet codes a biased automated gate—the latter also contradicting Section 5,
 which describes that system’s reviewer as biased. The H row rendered Coscientist’s 0.75
 as “≈1” while giving Agent Laboratory’s 0.8 exactly, so one table rounded two neighbouring values by different rules. Both rows now reproduce novelty_gate and A_H verbatim
@@ -1153,22 +1283,22 @@ but left several stronger English sentences in place and retained the insufficie
 prior from every likelihood-relevant latent component, limits human mediation to a finding
 about the surveyed workflows, and recasts cross-domain validator patterns as provisional
 associations rather than necessity or causality. The Korean source is narrowed to the same
-20
+22
 
 scope. These changes repair the logical propagation of R13–R16 without changing the
 six-component framework, the three open problems, or their proposed falsification tests.
-R19. Correction status and gate semantics (Abstract; Table 2; Appendix B). Status in the version of record: materially inaccurate in several claims, while the earlier post-submission
+R19. Correction status and gate semantics (Abstract; Table 4; Appendix B). Status in the version of record: materially inaccurate in several claims, while the earlier post-submission
 citation and coding language remained insufficiently precise. Appendix D records corrections to factual, coding, statistical, and mathematical statements, so readers should not be
 directed to the archival text alone when relying on a corrected claim. The notice now asks
 readers to pair the version-of-record citation with this dated correction and states that the
-correction should be linked from the official record when possible. Table 2 also called a
+correction should be linked from the official record when possible. Table 4 also called a
 biased automated score a “novelty gate” for AI Scientist (Nature 2026), although the paper and released coding set V_gating=0: the reviewer scores completed outputs but does
 not advance search or select external submissions. The row is therefore renamed “Novelty assessment,” the non-gating status is explicit, and the caption distinguishes the legacy
 novelty_gate field from operational gating. Finally, the abstract withdraws the claim of
 direction consistency: because the six-system outcome coding partly overlaps V , even the
 direction of association remains untested. These corrections preserve the framework and
 hypotheses while removing unsupported evidential status.
-R20. Validator roles, closure scope, and novelty validation (Sections 3–8; Table 4). Status in
+R20. Validator roles, closure scope, and novelty validation (Sections 3–8; Table 6). Status in
 the version of record: partly incorrect and conceptually under-specified. Related Work
 described AI Scientist (Nature 2026)’s biased automated reviewer as the gating layer even
 though the system description and R19 establish that it is a non-gating assessment instrument. The text now treats Vgating = 0 only as failure to establish a calibrated decisive gate
@@ -1176,7 +1306,7 @@ and states that the binary field does not distinguish absence, non-gating, unide
 identified-but-uncalibrated cases. The manuscript also withdraws the proposed reliability
 partial order and any substantive use of the low-agreement holistic V -completeness ordinal,
 replacing it with a vector of gate identity, target property, bias/calibration evidence, experimental fidelity, and external independence. The introductory servo analogy is restricted
-to trustworthy acceptance feedback, and formal mathematics in Table 4 is described as
+to trustworthy acceptance feedback, and formal mathematics in Table 6 is described as
 exact and mechanically closed only for formal validity, not as a perfect scientific oracle
 or a fully closed discovery process. Finally, the novelty “falsification test” is recast as a
 prospective validation design requiring independent expert labels, human–human agreement, prior-art adjudication, separate endpoints, held-out evaluation, uncertainty reporting,
@@ -1199,7 +1329,7 @@ Bayesian representation of natural-language hypotheses is identified as a strong
 problem; the former experiment-fidelity problem is narrowed to a multi-fidelity integration
 gap in light of existing cost–information acquisition criteria. These corrections preserve
 the six-component vocabulary and the AI Scientist (2024) computational-loop classification, but repair the component interfaces, the evidence for that classification, the humanauthority coding, and the claimed novelty and success criteria of two open problems.
-21
+23
 
 R22. Validator context and scope (Sections 4 and 8). Status in the version of record: partly incorrect and materially under-specified. The version of record typed the validator as
 V : o → r, which can represent observation scoring but not novelty, significance, reproducibility, or acceptance judgments that depend on a candidate claim, protocol, memory,
@@ -1210,7 +1340,7 @@ candidate search space S from a POMDP world-state space X , lists the kernels a 
 terminology because those kernels and a reward model are not specified here. The novelty
 open problem is narrowed from a performance conclusion to the documented absence of independently validated novelty-specific gates; paper quality, hallucination, correctness, and
 review agreement are retained only as adjacent general assessment failures, not noveltydiscrimination measurements. Finally, cross-domain relation language is removed, and the
-multi-agent limitation now states that systems such as NovelSeek are multi-agent but are
+multi-agent limitation now states that systems such as InternAgent are multi-agent but are
 collapsed into one system-level tuple. These changes preserve the component taxonomy
 and open research questions while correcting their formal expressiveness, evidential status,
 and abstraction boundary.
@@ -1223,7 +1353,7 @@ without adding a seventh component and states explicitly that EIG and belief upd
 not computable when a system does not expose the required probability law. The former
 syntax/semantic/empirical/human/formal layer labels also mixed target property, evidence
 source, evaluator substrate, decision role, and external independence. They are replaced
-in substantive analysis and Table 2 by those separate facets; legacy layer columns remain
+in substantive analysis and Table 4 by those separate facets; legacy layer columns remain
 only for audit reconstruction. Likewise, absence of documented bias is no longer called
 calibration. Gate reliability evidence is reported by evidence type, and probabilistic calibration is reserved for an evaluated confidence–outcome correspondence. Finally, all reported κ values are explicitly limited to the earlier rubric: they do not validate the R20–R23
 facets, contextual validator, human-authority vector, or diagnostic utility. A frozen-manual,
@@ -1242,7 +1372,7 @@ and their hashes are sealed before analysis. Facet-wise mean pairwise Jaccard va
 They are descriptive audit results, not pass thresholds, inferential validation, a human reference standard, or evidence that Servo outperforms a free-form or competing framework.
 The change strengthens traceability and demonstrates application of the final schema while
 leaving diagnostic superiority and downstream utility untested.
-22
+24
 
 R25. Channel-aware core cases and construct crosswalk (Sections 3, 5, and Appendix B).
 Status in the version of record: materially under-specified and partly conflates validator
@@ -1257,13 +1387,13 @@ M , π, component-specific human authority, and experimental fidelity. The resul
 distinguishes operational feedback from terminal and external assessment and supersedes
 the record-level majority projection for substantive case reading. A framework-native
 crosswalk and three contrastive readings identify Servo’s selected system-level resolution
-while acknowledging NovelSeek’s advantage for agent organization and the Robot Scientist as a negative case where the central closed loop was already explicit. The change
+while acknowledging InternAgent’s advantage for agent organization and the Robot Scientist as a negative case where the central closed loop was already explicit. The change
 improves traceability and construct clarity but does not establish population reliability,
 universal superiority, exhaustiveness, causal utility, or improved system design.
 R26. Framework boundary corrections (Sections 3, 4, 6, and Appendix B). Status in the version of record: partly incorrect and materially under-specified. The version of record
 claimed that no shared cross-system framework existed, although direct AI-Scientist surveys already organize autonomous discovery by capabilities, mechanisms, and workflow
-stages. The revision therefore compares Servo first with the unified frameworks of Wei
-et al. and Tie et al.; POMDP, NovelSeek, CPC-MS, and ARA remain complementary adjacent formalisms rather than selected direct baselines. Servo’s contribution is narrowed
+stages. The revision therefore compares Servo first with the unified frameworks of Wei et
+al. and Tie et al.; POMDP, InternAgent, CPC-MS, and ARA remain complementary adjacent formalisms rather than selected direct baselines. Servo’s contribution is narrowed
 to making selected system-level distinctions explicit and comparable, not supplying the
 first shared vocabulary or a universally superior taxonomy. The substantive domain table
 and appendix also replace residual syntax/semantic/empirical/human/formal layer shorthand and common reliability rankings with target property, evidence and evaluator, decision role and feedback, fidelity boundary, and local bottleneck fields. The six-case validator table is now explicitly an author-interpreted source synthesis: channel split/merge and
@@ -1289,7 +1419,7 @@ discrimination targets, confidence-interval precision, and follow-up/censoring r
 changes make the six-component vocabulary capable of locating the stated open problems
 but do not establish open-endedness, cost-aware optimization, external outcome validity,
 or a sufficient novelty-validation protocol in any surveyed system.
-23
+25
 
 R28. Closure coding, audit status, and search-space authority (Sections 4, 5, 7, and Appendix B).
 Status in the version of record: partly incorrect and materially under-specified. The version of record and subsequent tables coded Coscientist and Agent Laboratory as “partial”
@@ -1307,7 +1437,7 @@ the surveyed reports do not establish. Finally, the authority vector adds HS so 
 control of the initial problem and represented search space is not silently folded into G.
 These changes preserve the diagnostic framework and open problems while correcting two
 case labels and narrowing its reproducibility and architecture claims.
-R29. Canonical schema, derived closure, and projection integrity (Sections 4 and 5, Tables 2 and 3, and Appendix B).
+R29. Canonical schema, derived closure, and projection integrity (Sections 4 and 5, Tables 4 and 5, and Appendix B).
 Status in the version of record: materially under-specified, with later revisions internally
 inconsistent. The version of record did not provide a machine-checkable source of truth for
 the framework, and revisions through R28 still distributed current judgments among legacy
@@ -1341,20 +1471,105 @@ Status in the version of record: absent, and later post-submission wording overs
 availability. The archival record did not contain Schema 2.0. A complete working-tree
 package now exists locally, including the normative schema and case, endpoint, artifact,
 event, edge, reliability, closure-witness, closure-status, domain-anchor, and selectionledger records. No public repository snapshot or DOI for that complete package has yet
-24
+26
 
 been verified, and it is neither published nor part of the official record. The reproducibility
 and open-access checklist answers are therefore changed to “No—not yet.” This correction separates local preparation from public availability; it does not change the paper’s
 diagnostic argument or supply external reproduction, peer validation, or official erratum
 linkage.
-Scope of revision. The entries above are the complete set of changes made since the archival deposit, R1–R31. Entries R3–R12 narrow or correct statements that the citation audit judged unsupported by, contradicted by, or less precise than their cited sources. Entries R13–R16 record the
+R32. Predicate conformance and provenance. Scope: Related Work; §4, §5, §8; reproducibility checklist. Status in the version of record: absent; the earlier post-submission contract
+specified a full pattern only for discovery-cycle feedback and did not separate source silence
+from negative evidence. This revision defines minimum graph patterns for all five predicates, adds machine-readable decision bases for established, unknown, not-established, and
+not-applicable statuses, and reclassifies source-silent negatives as unknown. It maps base
+objects and relations to PROV-DM and Workflow Run RO-Crate while limiting Servo’s
+increment to scientific diagnostic semantics. It also withdraws demonstrated portability:
+the six complete cases were formative and the seven anchors are partial, so no prospective
+held-out full instantiation has yet been reported. The public 2.0.0 snapshot predates these
+changes; the checklist remains “No—not yet” for the current analysis until a synchronized
+successor release is published.
+R33. Closure-axis correction and cross-representation conformance. Scope: Abstract; §4; §5;
+Appendix B; public analysis package. Status before this correction: the actor providing
+feedback was mixed with path topology, and the AI Scientist 2026 adaptation cell omitted
+a source-stated execution transition. Human mediation is now an actor facet rather than a
+fifth closure predicate. The four remaining predicates describe path topology. Event classes
+and edge types are constrained to compatible six-component actors and source–destination
+pairs. The AI Scientist 2026 experimental-adaptation status is corrected to established because metric- and plot-guided node selection is followed by child-code generation and reported parallel execution. This does not promote that path to discovery-cycle feedback,
+which still requires an explicit epistemic update and a second evidence occurrence.
+R34. Explicit execution occurrences in adaptation witnesses. Scope: Predicate contract and
+public analysis package. The experimental-adaptation validator now requires a later event
+whose class is explicitly execution; reaching endpoint E or repeating an evaluation event
+is insufficient. The AI Scientist 2024 and InternAgent witnesses now name their already
+source-grounded execution events directly. This tightens conformance without changing
+their established statuses.
+R35. Portability-claim boundary. Scope: Related Work; §4; normative contract and provenance
+crosswalk. The manuscript no longer labels the current contract or event–artifact graph
+portable. The evidence establishes an operational, machine-readable representation and a
+construct-level mapping to PROV-DM and Workflow Run RO-Crate. It does not establish
+executable serialization, standards conformance, or out-of-sample portability; those require
+a tested serializer and a prospectively frozen holdout application.
+R36. Explicit tuple–graph admissibility maps. Scope: §4; normative contract and validator. The
+manuscript now states the complete event-class–actor map η and edge-type–componenttransition map τ enforced by the validator. This makes the six-component tuple and event–
+artifact graph jointly checkable while preserving the distinction between an invalid mapping
+and a source that does not report one.
+R37. Actor–topology independence and explicit predicate patterns. Scope: §4; normative contract, validator, and regression suite. Human mediation may now qualify a structurally valid
+discovery-cycle path without being mistaken for a closure type or an automation claim. Table 3 states the required evidence condition, ordered route, endpoint or recurrence, and
+exclusions for all four predicates; the validator continues to reject retry-only, append-only,
+disconnected, and otherwise nonconforming paths.
+R38. Explicit execution-repair occurrences. Scope: Table 3; execution-repair witnesses, validator, and regression suite. An execution-repair witness must now name a later event whose
+class is explicitly execution; reaching endpoint E or repeating a runtime-validation event
+is insufficient. The three established repair witnesses now identify the reported post-repair
+execution occurrence, so the released records and the reader-facing graph pattern enforce
+the same rule.
+27
+
+R39. Witness-level artifact successor linkage. Scope: Table 3; execution-repair and artifactrevision validators; regression suite. A qualifying evaluation event must now name both
+the predecessor artifact and a same-type output artifact whose version is exactly one greater
+and whose predecessor_artifact_id points to that input. A routed edge to WA or an
+unrelated valid successor elsewhere in the case is insufficient. This enforces the changedartifact and distinct-successor conditions stated in Table 3.
+R40. Evaluation-to-action connectivity for adaptation. Scope:
+Table 3;
+experimentaladaptation validator and regression suite. An adaptation witness must now connect an
+evaluation endpoint through at least one intervening action component in {M, π, G, WA }
+and feedback control before reaching the endpoint of a later explicit execution. An unrelated G → E edge cannot be paired with otherwise ordered evaluation and execution events
+to establish adaptation.
+R41. Explicit epistemic-action occurrence in discovery feedback. Scope: Table 3; discoverycycle witness, normative contract, validator, and regression suite. Discovery-cycle feedback must now name an event whose event_kind is epistemic_action between the
+first evidence occurrence and the later execution, and that event’s actor endpoint must lie
+on the routed action segment after the epistemic update. The Robot Scientist witness now
+records the source-stated hypothesis-generation and experiment-design action explicitly;
+endpoints and control edges alone are insufficient.
+R42. Negative-status evidence boundary. Scope: §4; Table 5; normative contract, status records,
+validator, and regression suite. not_established now requires explicit source-grounded
+contrary evidence; an incomplete trace or an unverified claim that a trace is complete is classified as unknown. The three discovery-cycle rows formerly labelled not_established
+are corrected to unknown: their graphs already contain epistemic-update edges, contrary
+to the former rationales, while a distinct later evidence occurrence and, in two cases, an
+explicit scientific action event remain insufficiently reported.
+R43. Cross-surface adaptation contract and release mutability. Scope: Predicate contract; reproducibility checklist; regression suite. The human-readable normative table now matches
+the manuscript and validator: experimental adaptation ends at a later explicit execution and
+does not require the second evidence occurrence reserved for discovery-cycle feedback. A
+regression test guards that recurrence boundary. Static package documentation now defers
+publication state to the generated attestation and names the current Schema 3 contract instead of the superseded Schema 2 contract. The checklist also replaces “immutable release”
+with “versioned, checksum-bound release”: the checksums make replacement detectable,
+but the hosting platform reports that the release itself is not immutable.
+R44. Closure-route and release-identity consistency. Scope:
+Normative contract; closure
+records and validator; public release metadata and artifact policy; regression suite. Every
+predicate, including discovery-cycle feedback, now passes the same common-route checks
+for implemented, case-internal, closure-eligible edges. A not_established status must
+cite source-grounded evidence, while every status retains a nonempty rationale; this prevents missing reporting from being converted into a negative finding. The public package
+now aligns its Schema 3 project identity, citation version, release URL, event semantics,
+and evidence-ledger path. The artifact policy also distinguishes immutable submitted
+PDFs from rebuildable post-submission products and requires the released corrected PDF
+to remain byte-identical to its reader-facing counterpart.
+Scope of revision. The entries above are the complete set of changes made since the archival deposit, R1–R44. Entries R3–R12 narrow or correct statements that the citation audit judged unsupported by, contradicted by, or less precise than their cited sources. Entries R13–R16 record the
 subsequent adversarial mathematical review: they replace the proposition/assumption/proof-sketch
 presentation with bounded analytical observations, correct the EIG statement, delimit the conditions
 under which the Ghosal–van der Vaart and Berk references may be invoked, and distinguish mathematical non-identification from the surveyed use of human judgment. R17 reconciles two table
 rows with the released coding sheet. R18 records the adversarial recheck that completed the propagation of the earlier mathematical corrections, including the stronger prior-factorization premise
 and the removal of residual universal, causal, and human-only wording. R19 corrects the citation
 guidance, distinguishes novelty assessment from operational gating, and withdraws the untestable
-direction-consistency statement. R20 makes gate-zero semantics explicit, withdraws the holistic validator order from substantive analysis, narrows closure and formal-oracle language, and replaces the
+28
+
+direction-consistency statement. R20 makes gate-zero semantics explicit, withdraws the holistic validator order from substantive analysis, narrows closure and formal-oracle language, and replaces the
 novelty majority-agreement threshold with a prospective validation design. R21 types the generator–
 policy interface, identifies the internal experimental feedback that supports the AI Scientist (2024)
 computational-loop coding, replaces scalar human-intervention scores, and reframes the BED and
@@ -1376,20 +1591,18 @@ budgeted fidelity explicit, and turns the novelty benchmark checklist into preci
 R24 to a pre-final-schema development audit, separates functional reviewer architecture from validated novelty discrimination, and adds authority over the search space to the human-authority vector.
 R29 consolidates the current six-case semantics in a versioned schema, derives closure and bilingual
 tables from canonical records, rejects legacy/R24 inputs from current projections, and corrects the
-residual Appendix-B restatement of the withdrawn closure hypothesis. R30 supersedes Schema 1 as
-the current interpretation: it introduces bounded versioned case identity, explicit artifact state and revision, typed event and edge records, and five predicate-specific closure judgments with ordered witnesses; it also replaces domain aggregation with seven selected frozen source anchors. R31 records
-that the complete Schema 2 working package exists locally but is unpublished and not part of the
-official record, and changes the reproducibility and open-access checklist answers accordingly. The
-six component labels persist, as do the three prospective design questions, but their interfaces and
-operationalization have changed materially: Schema 2 adds bounded identity, versioned artifacts,
-WA , typed event and edge records, and predicate-specific witnesses in place of Schema 1’s channel
-and single-closure interpretation. The application remains non-representative source annotation. In
-addition to the entry corrected in R11, R21 adds Parasuraman et al. on function-specific human–
-automation authority and Kandasamy et al. and Song et al. on multi-fidelity Bayesian optimization;
-R26 adds Wei et al. and Tie et al. as the closest direct AI-Scientist survey frameworks.
-25
-
-Current-interpretation supersession index. R23’s stochastic executor formulation is read with
+residual Appendix-B restatement of the withdrawn closure hypothesis. R30 supersedes Schema 1
+as the current interpretation: it introduces bounded versioned case identity, explicit artifact state
+and revision, typed event and edge records, and five predicate-specific closure judgments with ordered witnesses; it also replaces domain aggregation with seven selected frozen source anchors. R31
+records the then-local package state; R32 records the later public 2.0.0 snapshot, clarifies all predicate
+and evidential-status contracts, adds the provenance mapping, and marks the revised working tree as
+awaiting a synchronized successor release. The six component labels persist, as do the three prospective design questions, but their interfaces and operationalization have changed materially: Schema 2
+adds bounded identity, versioned artifacts, WA , typed event and edge records, and predicate-specific
+witnesses in place of Schema 1’s channel and single-closure interpretation. The application remains
+non-representative source annotation. In addition to the entry corrected in R11, R21 adds Parasuraman et al. on function-specific human–automation authority and Kandasamy et al. and Song et
+al. on multi-fidelity Bayesian optimization; R26 adds Wei et al. and Tie et al. as the closest direct
+AI-Scientist survey frameworks.
+Current-interpretation supersession index. R23’s stochastic executor formulation is read with
 R26’s executor/environment separation; R24’s agreement results are read only as the development
 audit delimited by R28 and R29; in particular, R24’s contemporaneous phrases “final coding manual
 and schema” and “application of the final schema” are superseded and do not describe schema 1.0;
@@ -1399,6 +1612,6 @@ event–artifact graph, bounded case identity, and predicate-specific witness co
 R30. References in earlier entries to “final” Schema 1 tables or current six-case closure labels are
 historical statements, not present semantics. This index does not alter the historical text or chronology of those entries.
 
-26
+29
 
 

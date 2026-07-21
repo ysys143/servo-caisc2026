@@ -1,25 +1,25 @@
-schema_version,case_id,predicate,status,witness_ids,rationale,decision_basis
-3.0.0,C01,execution_repair,established,W01,documented correction and successful rerun,positive_witness
-3.0.0,C01,experimental_adaptation,unknown,not_applicable,reuse for guidance is inferred but a later evidence-generating execution is not directly linked,insufficient_reporting
-3.0.0,C01,artifact_revision,established,W15,protocol v1 is corrected to v2,positive_witness
-3.0.0,C01,discovery_cycle_feedback,unknown,not_applicable,new evidence after feedback-dependent epistemic action is not established,insufficient_reporting
-3.0.0,C02,execution_repair,unknown,not_applicable,the bounded source does not report an eligible error-repair trace,insufficient_reporting
-3.0.0,C02,experimental_adaptation,established,W02,results condition next experiment,positive_witness
-3.0.0,C02,artifact_revision,unknown,not_applicable,terminal reviewer-to-manuscript revision is not reported,insufficient_reporting
-3.0.0,C02,discovery_cycle_feedback,unknown,not_applicable,result-conditioned replanning and execution are reported but a distinct post-execution evidence occurrence is not directly linked,insufficient_reporting
-3.0.0,C03,execution_repair,unknown,not_applicable,plot critique creates nodes but a correction rerun chain is not fully quoted,insufficient_reporting
-3.0.0,C03,experimental_adaptation,established,W16,metric- and plot-guided selection creates and executes a successor experiment,positive_witness
-3.0.0,C03,artifact_revision,unknown,not_applicable,terminal reviewer-to-manuscript revision is not reported,insufficient_reporting
-3.0.0,C03,discovery_cycle_feedback,unknown,not_applicable,the executor link ED15 is unclear,insufficient_reporting
-3.0.0,C04,execution_repair,established,W04,compile failure drives next-iteration repair,positive_witness
-3.0.0,C04,experimental_adaptation,unknown,not_applicable,the quoted score and error reflection supports code optimization but does not establish adaptation of a scientific experiment design,insufficient_reporting
-3.0.0,C04,artifact_revision,established,W06,PhD evaluation can revisit and revise earlier work,positive_witness
-3.0.0,C04,discovery_cycle_feedback,unknown,not_applicable,execution reflection and re-execution are reported but an explicit scientific epistemic-action event and subsequent evidence occurrence are not directly linked,insufficient_reporting
-3.0.0,C05,execution_repair,unknown,not_applicable,the bounded source does not report an execution-error correction chain,insufficient_reporting
-3.0.0,C05,experimental_adaptation,established,W08,physical result updates model and experiment selection,positive_witness
-3.0.0,C05,artifact_revision,not_applicable,not_applicable,no paper-like artifact revision interface is part of the bounded case,out_of_scope
-3.0.0,C05,discovery_cycle_feedback,established,W09,physical evidence closes a model-mediated discovery cycle,positive_witness
-3.0.0,C06,execution_repair,established,W10,debugging iterates to success or limit,positive_witness
-3.0.0,C06,experimental_adaptation,established,W11,performance results guide following experiments,positive_witness
-3.0.0,C06,artifact_revision,established,W12,code successor follows execution critique,positive_witness
-3.0.0,C06,discovery_cycle_feedback,unknown,not_applicable,result-conditioned replanning and execution are reported but an explicit scientific epistemic-action event and subsequent evidence occurrence are not directly linked,insufficient_reporting
+schema_version,case_id,predicate,status,witness_ids,rationale,decision_basis,evidence_ids
+3.0.0,C01,execution_repair,established,W01,documented correction and successful rerun,positive_witness,not_applicable
+3.0.0,C01,experimental_adaptation,unknown,not_applicable,reuse for guidance is inferred but a later evidence-generating execution is not directly linked,insufficient_reporting,not_applicable
+3.0.0,C01,artifact_revision,established,W15,protocol v1 is corrected to v2,positive_witness,not_applicable
+3.0.0,C01,discovery_cycle_feedback,unknown,not_applicable,new evidence after feedback-dependent epistemic action is not established,insufficient_reporting,not_applicable
+3.0.0,C02,execution_repair,unknown,not_applicable,the bounded source does not report an eligible error-repair trace,insufficient_reporting,not_applicable
+3.0.0,C02,experimental_adaptation,established,W02,results condition next experiment,positive_witness,not_applicable
+3.0.0,C02,artifact_revision,unknown,not_applicable,terminal reviewer-to-manuscript revision is not reported,insufficient_reporting,not_applicable
+3.0.0,C02,discovery_cycle_feedback,unknown,not_applicable,result-conditioned replanning and execution are reported but a distinct post-execution evidence occurrence is not directly linked,insufficient_reporting,not_applicable
+3.0.0,C03,execution_repair,unknown,not_applicable,plot critique creates nodes but a correction rerun chain is not fully quoted,insufficient_reporting,not_applicable
+3.0.0,C03,experimental_adaptation,established,W16,metric- and plot-guided selection creates and executes a successor experiment,positive_witness,not_applicable
+3.0.0,C03,artifact_revision,unknown,not_applicable,terminal reviewer-to-manuscript revision is not reported,insufficient_reporting,not_applicable
+3.0.0,C03,discovery_cycle_feedback,unknown,not_applicable,the executor link ED15 is unclear,insufficient_reporting,not_applicable
+3.0.0,C04,execution_repair,established,W04,compile failure drives next-iteration repair,positive_witness,not_applicable
+3.0.0,C04,experimental_adaptation,unknown,not_applicable,the quoted score and error reflection supports code optimization but does not establish adaptation of a scientific experiment design,insufficient_reporting,not_applicable
+3.0.0,C04,artifact_revision,established,W06,PhD evaluation can revisit and revise earlier work,positive_witness,not_applicable
+3.0.0,C04,discovery_cycle_feedback,unknown,not_applicable,execution reflection and re-execution are reported but an explicit scientific epistemic-action event and subsequent evidence occurrence are not directly linked,insufficient_reporting,not_applicable
+3.0.0,C05,execution_repair,unknown,not_applicable,the bounded source does not report an execution-error correction chain,insufficient_reporting,not_applicable
+3.0.0,C05,experimental_adaptation,established,W08,physical result updates model and experiment selection,positive_witness,not_applicable
+3.0.0,C05,artifact_revision,not_applicable,not_applicable,no paper-like artifact revision interface is part of the bounded case,out_of_scope,not_applicable
+3.0.0,C05,discovery_cycle_feedback,established,W09,physical evidence closes a model-mediated discovery cycle,positive_witness,not_applicable
+3.0.0,C06,execution_repair,established,W10,debugging iterates to success or limit,positive_witness,not_applicable
+3.0.0,C06,experimental_adaptation,established,W11,performance results guide following experiments,positive_witness,not_applicable
+3.0.0,C06,artifact_revision,established,W12,code successor follows execution critique,positive_witness,not_applicable
+3.0.0,C06,discovery_cycle_feedback,unknown,not_applicable,result-conditioned replanning and execution are reported but an explicit scientific epistemic-action event and subsequent evidence occurrence are not directly linked,insufficient_reporting,not_applicable

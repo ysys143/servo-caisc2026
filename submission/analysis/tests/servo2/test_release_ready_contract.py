@@ -5,7 +5,12 @@ import json
 from pathlib import Path
 
 from conftest import assert_rejected, run_cli
-from analysis.servo2_release import verify_repository_pdf_sync
+from analysis.servo2_build import find_manifest
+from analysis.servo2_release import (
+    manifest_binding,
+    verify_release_ready,
+    verify_repository_pdf_sync,
+)
 from analysis.servo2_io import Servo2Error
 import pytest
 
@@ -58,3 +63,25 @@ def test_repository_sync_rejects_different_reader_and_packaged_pdf(
 
     with pytest.raises(Servo2Error, match="RELEASE_SOURCE_PDF_MISMATCH"):
         verify_repository_pdf_sync(reader_pdf, package)
+
+
+def test_release_ready_rejects_unreleased_citation_identity(package: Path) -> None:
+    # Given: a published attestation paired with candidate-only citation metadata.
+    raw = b"candidate corrected manuscript"
+    (package / PDF_NAME).write_bytes(raw)
+    _, manifest = find_manifest(package)
+    _write_attestation(
+        package,
+        hashlib.sha256(raw).hexdigest(),
+        manifest_binding(manifest),
+    )
+    citation = package / "CITATION.cff"
+    citation.write_text(
+        citation.read_text(encoding="utf-8").replace(
+            "version: 3.0.11", "version: 0.0.0-unreleased"
+        ),
+        encoding="utf-8",
+    )
+    # When/Then: release readiness checks the public citation surface itself.
+    with pytest.raises(Servo2Error, match="RELEASE_IDENTITY_MISMATCH"):
+        verify_release_ready(package, manifest)

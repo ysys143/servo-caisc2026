@@ -8,7 +8,7 @@
   "generator_sha256": "fffcbc07a3fa6f6ed17ee6e233a4ccca5e2b7bf57a20fd4de87e20b4bdfda87a",
   "inputs": {
     "servo2_cases.csv": "6c9bf08f366d19cf19735c9d931b2ad1553910b1b3ca40148ecd3652bae098ed",
-    "servo2_closure_statuses.csv": "7120a51e9fcfdd4f2735ebb5fd6ab246caf4bd1b87cc733b63db971c8aac31a0",
+    "servo2_closure_statuses.csv": "8990a2c699f8aea150f48d84e5b68e0aac78ab8de55b7e185ce6dd0496ac2ded",
     "servo2_closure_witnesses.csv": "5d6b7b88311db2d84e5f3352d8cbe68c5673c23b5679c587e56f4f078c1f771d",
     "servo2_domain_anchors.csv": "0a8c015f5c60aec202f35c3e386a818303064c9cd49a2ba34cbe1c2692e20574",
     "servo2_selection_ledger.csv": "3a80bf220079e825ad347aae03478eb82b90a629f58ae7ae6b418ac96640bf2d"

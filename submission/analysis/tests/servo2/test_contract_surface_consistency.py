@@ -57,3 +57,26 @@ def test_reader_facing_audit_documents_name_current_schema_three() -> None:
     # Then: none presents Schema 2 as the current Schema 3 contract.
     assert all("current Schema 2" not in text for text in texts)
     assert all("current normative contract is Servo Schema 2" not in text for text in texts)
+
+
+def test_public_normative_paths_and_event_semantics_are_current() -> None:
+    # Given: the schema and release metadata copied into the public package.
+    schema = (ROOT / "analysis" / "servo_schema.yaml").read_text(encoding="utf-8")
+    project = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+    protected = (ROOT / "release" / "PROTECTED_ARTIFACTS.md").read_text(
+        encoding="utf-8"
+    )
+
+    # When: current event, evidence-ledger, package, and PDF roles are inspected.
+    stale_event_claim = "An event records an evaluation occurrence" in schema
+    stale_ledger_path = "analysis/core_servo_evidence_ledger.json" in schema
+    stale_package_name = "servo-schema2-reproducibility" in project
+    post_submit_declared_immutable = "`main_post-submit.pdf`" in protected
+    post_submit_schema_protected = "main_post-submit.pdf:" in schema
+
+    # Then: no public surface revives superseded or false contracts.
+    assert not stale_event_claim
+    assert not stale_ledger_path
+    assert not stale_package_name
+    assert not post_submit_declared_immutable
+    assert not post_submit_schema_protected

@@ -3,12 +3,51 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+import tomllib
 
 from .servo2_io import Servo2Error, sha256
 
 
 PDF_NAME = "servo_caiscfp2026_post-submit.pdf"
 ATTESTATION_NAME = "release_attestation.json"
+
+
+def _cff_fields(path: Path) -> dict[str, str]:
+    fields: dict[str, str] = {}
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        if raw_line.startswith(("version:", "date-released:", "url:")):
+            key, value = raw_line.split(":", 1)
+            fields[key] = value.strip().strip("\"'")
+    return fields
+
+
+def _verify_release_identity(root: Path, state: object, release: object) -> None:
+    try:
+        project = tomllib.loads((root / "pyproject.toml").read_text(encoding="utf-8"))
+        project_name = project["project"]["name"]
+        project_version = project["project"]["version"]
+        citation = _cff_fields(root / "CITATION.cff")
+    except (FileNotFoundError, KeyError, tomllib.TOMLDecodeError) as error:
+        raise Servo2Error("RELEASE_IDENTITY_MISMATCH", "release metadata") from error
+
+    citation_version = citation.get("version", "")
+    if (
+        project_name != "servo-schema3-reproducibility"
+        or not isinstance(project_version, str)
+        or citation_version != project_version
+        or "unreleased" in citation_version.lower()
+    ):
+        raise Servo2Error("RELEASE_IDENTITY_MISMATCH", "project and citation version")
+
+    if state == "published_github_release":
+        expected_suffix = f"/servo-corrected-v{project_version}"
+        if (
+            not isinstance(release, str)
+            or not release.endswith(expected_suffix)
+            or citation.get("url") != release
+            or not citation.get("date-released")
+        ):
+            raise Servo2Error("RELEASE_IDENTITY_MISMATCH", "published release citation")
 
 
 def manifest_binding(manifest: dict[str, str | dict[str, str]]) -> str:
@@ -54,6 +93,7 @@ def verify_release_ready(root: Path, manifest: dict[str, str | dict[str, str]]) 
         or attestation.get("publication_doi") not in {None, "not_published"}
     ):
         raise Servo2Error("RELEASE_ATTESTATION_INVALID", "publication state")
+    _verify_release_identity(root, state, release)
     actual_pdf_hash = sha256(pdf)
     if attestation.get("pdf_sha256") != actual_pdf_hash:
         raise Servo2Error("RELEASE_PDF_CHECKSUM_MISMATCH", PDF_NAME)

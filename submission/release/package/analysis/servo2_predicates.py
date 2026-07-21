@@ -26,19 +26,17 @@ def validate_predicate_pattern(
     except ValueError as error:
         raise Servo2Error("CLOSURE_PREDICATE_UNKNOWN", witness_id) from error
 
+    _validate_common_route(witness_id, edge_rows)
     match predicate:
         case Predicate.EXECUTION_REPAIR:
-            _validate_common_route(witness_id, edge_rows)
             _require_execution_repair(
                 witness_id, event_rows, edge_rows, endpoint_refs, artifacts
             )
         case Predicate.EXPERIMENTAL_ADAPTATION:
-            _validate_common_route(witness_id, edge_rows)
             _require_experimental_adaptation(
                 witness_id, event_rows, edge_rows, endpoint_refs
             )
         case Predicate.ARTIFACT_REVISION:
-            _validate_common_route(witness_id, edge_rows)
             _require_artifact_revision(
                 witness_id, event_rows, edge_rows, endpoint_refs, artifacts
             )

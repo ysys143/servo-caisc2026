@@ -67,7 +67,7 @@ table_headers:
   edges: [schema_version, edge_id, case_id, configuration_id, task_regime_id, source_event_id, source_endpoint_id, destination_endpoint_id, edge_type, route_status, feedback_dependent, evidence_ids, closure_eligible, exclusion_reason, mediator_endpoint_id, mediation_actor, edge_scope]
   reliability: [schema_version, reliability_id, case_id, evaluated_event_id, evaluation_target, benchmark_population, metric_or_test, finding, independence_status, runtime_edge_eligible, evidence_status, evidence_ids, uncertainty]
   closure_witnesses: [schema_version, witness_id, case_id, configuration_id, task_regime_id, predicate, ordered_event_ids, ordered_edge_ids, ordered_endpoint_ids, evidence_ids, predicate_status, execution_status, uncertainty]
-  closure_statuses: [schema_version, case_id, predicate, status, witness_ids, rationale, decision_basis]
+  closure_statuses: [schema_version, case_id, predicate, status, witness_ids, rationale, decision_basis, evidence_ids]
   domain_anchors: [schema_version, anchor_id, system, domain, citation_key, source_pdf_sha256, pdf_page, exact_quote, version_id, configuration_id, task_regime_id, S, G, E, V, M, pi, A, W_A, H_S, H_G, H_E, H_V, H_M, H_pi, analysis_target, evidence_source, evaluator_or_mechanism, decision_role, fidelity_boundary, feedback_summary, boundary, evidence_status, uncertainty]
   domain_anchor_channels: [schema_version, channel_id, anchor_id, phase, target, evidence_source, evaluator, decision_role, routed_destination, independence_status, fidelity, pdf_page, exact_quote, evidence_status, uncertainty]
   selection_ledger: [schema_version, selection_id, record_kind, record_id, lineage_id, selection_status, selection_basis, comparison_role, exclusion_boundary, frozen]
@@ -123,7 +123,7 @@ event_contract:
   classes: [runtime_validation, artifact_assessment, human_feedback, external_assessment, artifact_production, execution, generation, state_update]
   event_kinds: [retry_with_revision, evidence_event, repeated_evidence_cycle, epistemic_update, epistemic_action, pre_action_filter, pre_action_refinement, archive_admission, artifact_revision_action, human_feedback, terminal_assessment, external_assessment, external_authority, artifact_production, execution, generation]
   required_semantic_fields: [event_kind, update_semantics]
-  event_rule: An event records an evaluation occurrence; it does not by itself establish a routed feedback edge.
+  event_rule: An event records a typed occurrence; evaluation is one event class, and no event by itself establishes a routed feedback edge.
   terminal_rule: A terminal event has no outgoing internal edge.
   reliability_rule: A reliability evaluation is not a runtime event and can never be used as a runtime edge.
 
@@ -221,7 +221,10 @@ domain_anchor_contract:
   channel_rule: Distinct automated, human-review, and physical-execution mechanisms are separate channel records and cannot be presented as one routed validator.
 
 provenance:
-  core_evidence_ledger: analysis/core_servo_evidence_ledger.json
+  core_evidence_ledger: analysis/servo2_evidence_ledger.json
+  protected_pdf_sha256:
+    main.pdf: 7d48eeb1c71ed2cd12e9a677d62587d5f749c5ec19bd8faf0dc9926801bc138d
+    servo_caiscfp2026.pdf: 7d48eeb1c71ed2cd12e9a677d62587d5f749c5ec19bd8faf0dc9926801bc138d
   local_source_policy: local PDFs only; no web retrieval
   r24_status: historical development-audit material only
   public_mode: derived regeneration requires no PDFs, network, login, API key, cache, or inherited HOME

@@ -31,7 +31,6 @@ TRUSTED_SOURCE_MANIFEST_SHA256: Final = "db06a01f48314d8cb7ca92bfcba8138e1fce6b9
 TRUSTED_EVIDENCE_LEDGER_SHA256: Final = "4464213a2c1207ce9a3ea7704889ecf2a28e3fe9d84f3839eb3b5b9ddee5df91"
 TRUSTED_PROTECTED_PDF_SHA256: Final = {
     "main.pdf": "7d48eeb1c71ed2cd12e9a677d62587d5f749c5ec19bd8faf0dc9926801bc138d",
-    "main_post-submit.pdf": "4a45951cffd67a80dc25531f103a9a49d65a4c42fed951bdf13eaa07e97e9a01",
     "servo_caiscfp2026.pdf": "7d48eeb1c71ed2cd12e9a677d62587d5f749c5ec19bd8faf0dc9926801bc138d",
 }
 

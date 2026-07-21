@@ -70,7 +70,7 @@ def test_append_only_memory_cannot_supply_epistemic_update(package) -> None:
     rows.append(forged)
     write_rows(witness_path, header, rows)
 
-    assert_rejected(run_cli(package, "public-regeneration"), "APPEND_ONLY_MEMORY_NOT_EPISTEMIC_UPDATE")
+    assert_rejected(run_cli(package, "public-regeneration"), "CLOSURE_ROUTE_INELIGIBLE")
 
 
 def test_discovery_requires_explicit_epistemic_action_event(package) -> None:

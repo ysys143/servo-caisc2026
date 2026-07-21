@@ -165,16 +165,23 @@ def _closure_links(
         "not_applicable": {"out_of_scope"},
     }
     for row in table.rows:
+        identity = f"{row['case_id']}:{row['predicate']}"
+        if row["rationale"].strip() == "":
+            raise Servo2Error("CLOSURE_STATUS_RATIONALE_MISSING", identity)
         if row["decision_basis"] not in allowed_bases[row["status"]]:
             raise Servo2Error(
                 "CLOSURE_STATUS_BASIS_MISMATCH",
-                f"{row['case_id']}:{row['predicate']}",
+                identity,
             )
+        if row["status"] == "not_established" and not split_values(
+            row["evidence_ids"]
+        ):
+            raise Servo2Error("NEGATIVE_STATUS_EVIDENCE_MISSING", identity)
         refs = split_values(row["witness_ids"])
         if row["status"] == "established" and not refs:
             raise Servo2Error(
                 "ESTABLISHED_CLOSURE_WITNESS_MISSING",
-                f"{row['case_id']}:{row['predicate']}",
+                identity,
             )
         for witness_id in refs:
             witness = witnesses.get(witness_id)
