@@ -1,0 +1,30 @@
+schema_version,artifact_id,case_id,artifact_type,version,producer_endpoint_id,producer_event_id,producer_sequence,first_consumed_sequence,predecessor_artifact_id,evidence_ids,status,uncertainty
+2.0.0,C01.protocol.v1,C01,experimental_protocol,1,C01.W_A,EV23,0,1,not_applicable,R01-E03,reported,incorrect method name in source example
+2.0.0,C01.protocol.v2,C01,experimental_protocol,2,C01.V,EV01,1,2,C01.protocol.v1,R01-E03,reported,corrected executable version
+2.0.0,C01.result.v1,C01,physical_result,1,C01.E,EV24,2,2,not_applicable,R01-E04,reported,measurement detail bounded by source packet
+2.0.0,C02.idea.v1,C02,research_idea,1,C02.G,EV25,0,1,not_applicable,R02-E01,reported,prior-art filtered candidate
+2.0.0,C02.journal.v1,C02,experiment_journal,1,C02.V,EV05,2,3,not_applicable,R02-E02,reported,contains result-conditioned notes
+2.0.0,C02.result.v1,C02,computational_result,1,C02.E,EV26,2,2,not_applicable,R02-E02,reported,individual iteration not separately indexed
+2.0.0,C02.manuscript.v1,C02,manuscript,1,C02.W_A,EV27,3,3,not_applicable,R02-E03,reported,no reviewer-dependent successor established
+2.0.0,C02.review.v1,C02,review,1,C02.V,EV06,3,4,not_applicable,R02-E03;R02-E05;R02-E06;R02-E07,reported,terminal assessment artifact that consumes but does not descend from the manuscript
+2.0.0,C02.archive.v1,C02,archive_record,1,C02.V,EV07,4,not_applicable,not_applicable,R02-E04;R02-E08,reported,admission is not independently validated acceptance
+2.0.0,C03.proposal.v1,C03,research_proposal,1,C03.V,EV08,1,1,not_applicable,R03-E01,reported,literature-refined proposal
+2.0.0,C03.node.v1,C03,tree_node,1,C03.G,EV39,2,2,not_applicable,R03-E02,reported,initial evaluated leaf-node abstraction
+2.0.0,C03.node.v2,C03,tree_node,2,C03.G,EV40,3,4,C03.node.v1,R03-E03,reported,plot-conditioned experimental node
+2.0.0,C03.node.v3,C03,tree_node,3,C03.G,EV41,4,not_applicable,C03.node.v2,R03-E04,reported,selected-node child expansion
+2.0.0,C03.plot.v1,C03,plot,1,C03.E,EV28,3,3,not_applicable,R03-E03,reported,plot critique input
+2.0.0,C03.aggregate.v1,C03,aggregate_result,1,C03.W_A,EV29,4,not_applicable,not_applicable,R03-E10,reported,does not execute a new experiment
+2.0.0,C03.manuscript.v1,C03,manuscript,1,C03.W_A,EV30,5,5,not_applicable,R03-E05;R03-E06,reported,no automated reviewer-dependent successor established
+2.0.0,C04.code.v1,C04,source_code,1,C04.G,EV31,0,1,not_applicable,R04-E02,reported,initial mle-solver output
+2.0.0,C04.code.v2,C04,source_code,2,C04.V,EV14,1,not_applicable,C04.code.v1,R04-E03,reported,feedback-dependent correction or improvement
+2.0.0,C04.result.v1,C04,computational_result,1,C04.E,EV32,1,1,not_applicable,R04-E03,reported,compile outcome or score
+2.0.0,C04.report.v1,C04,research_report,1,C04.W_A,EV33,2,2,not_applicable,R04-E04;R04-E06,reported,PhD evaluator input
+2.0.0,C04.report.v2,C04,research_report,2,C04.V,EV15,2,3,C04.report.v1,R04-E04,reported,revision can revisit earlier stages
+2.0.0,C05.measurement.v1,C05,physical_measurement,1,C05.E,EV34,1,1,not_applicable,R05-E01;R05-E02;R05-E03,reported,hypothesis-test evidence
+2.0.0,C05.model.v1,C05,domain_model,1,C05.M,EV35,0,1,not_applicable,R05-E01,reported,pre-update yeast model
+2.0.0,C05.model.v2,C05,domain_model,2,C05.V,EV17,1,2,C05.model.v1,R05-E02;R05-E04;R05-E08,reported,updated after experiment and available to the repeating cycle
+2.0.0,C06.idea.v1,C06,research_idea,1,C06.G,EV36,0,1,not_applicable,R14-E01;R14-E02,reported,initial scored idea
+2.0.0,C06.idea.v2,C06,research_idea,2,C06.external,EV20,2,not_applicable,C06.idea.v1,R14-E03;R14-E06,reported,human-refined or evolved idea
+2.0.0,C06.code.v1,C06,source_code,1,C06.G,EV37,3,3,not_applicable,R14-E04,reported,initial implementation
+2.0.0,C06.code.v2,C06,source_code,2,C06.V,EV21,3,4,C06.code.v1,R14-E04;R14-E05,reported,debugged or adaptively evolved implementation
+2.0.0,C06.result.v1,C06,computational_result,1,C06.E,EV38,4,4,not_applicable,R14-E05;R14-E07;R14-E08,reported,performance and execution evidence

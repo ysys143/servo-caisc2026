@@ -33,3 +33,13 @@ Supplementary material for *Formalizing AI Scientist Systems: A Component Framew
 The coding is released as **provisional structured annotation**: the scripts verify citation presence and non-empty source quotes but do not validate the semantic entailment of each coded field; independent reproduction of the interpretive coding requires consulting the cited primary sources directly. All analyzed papers are publicly accessible; no separate dataset was generated.
 
 The completed `citation_audit/` reports (the 14 Tier-1 systems) were produced with model assistance and manual cross-checking against the primary sources; each judgment cites the specific passage it relies on. They are offered as a transparency record of citation-level verification, not as an infallible oracle—readers should consult the cited sources directly for any claim they wish to rely on.
+
+## Corrected Schema 2 package
+
+The versioned corrected package is under `schema2/`. It contains the bounded
+six-case analysis, seven source anchors, event-channel and closure-witness
+records, bilingual generated tables, the corrected post-submission PDF, and
+fail-closed public/source/release validation commands. The package is licensed
+under CC BY 4.0 for documentation and structured data and MIT for code.
+
+Release: `servo-corrected-v2.0.0`.
