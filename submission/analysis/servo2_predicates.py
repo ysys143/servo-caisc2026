@@ -64,9 +64,24 @@ def _require_execution_repair(
     endpoint_refs: tuple[str, ...],
 ) -> None:
     edge_types = {edge["edge_type"] for edge in edge_rows}
+    validation_indexes = tuple(
+        index
+        for index, event in enumerate(event_rows)
+        if event["event_class"] == "runtime_validation"
+    )
+    execution_indexes = tuple(
+        index
+        for index, event in enumerate(event_rows)
+        if event["event_class"] == "execution"
+    )
+    validation_precedes_execution = any(
+        validation < execution
+        for validation in validation_indexes
+        for execution in execution_indexes
+    )
     valid = (
         len(event_rows) >= 2
-        and all(event["event_class"] == "runtime_validation" for event in event_rows)
+        and validation_precedes_execution
         and {"artifact_revision", "feedback_control"} <= edge_types
         and any(endpoint.endswith(".W_A") for endpoint in endpoint_refs)
         and endpoint_refs[-1].endswith(".E")

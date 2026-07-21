@@ -6,7 +6,17 @@ from conftest import assert_rejected, csv_rows, run_cli, table, write_rows
 def test_event_class_must_match_actor_component(package) -> None:
     path = table(package, "events")
     header, rows = csv_rows(path)
-    event = next(row for row in rows if row["event_class"] == "execution")
+    _, witnesses = csv_rows(table(package, "closure_witnesses"))
+    referenced = {
+        occurrence.split("@")[0]
+        for witness in witnesses
+        for occurrence in witness["ordered_event_ids"].split(";")
+    }
+    event = next(
+        row
+        for row in rows
+        if row["event_class"] == "execution" and row["event_id"] not in referenced
+    )
     event["event_class"] = "runtime_validation"
     write_rows(path, header, rows)
 

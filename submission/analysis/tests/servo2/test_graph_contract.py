@@ -97,6 +97,25 @@ def test_human_actor_facet_may_qualify_a_valid_discovery_path(package) -> None:
     validate_graph(tables)
 
 
+def test_execution_repair_requires_explicit_later_execution(package) -> None:
+    tables = read_tables(package)
+    witness = next(
+        row
+        for row in tables["closure_witnesses"].rows
+        if row["predicate"] == "execution_repair"
+    )
+    event_ids = {
+        occurrence.split("@")[0]
+        for occurrence in witness["ordered_event_ids"].split(";")
+    }
+    for event in tables["events"].rows:
+        if event["event_id"] in event_ids and event["event_class"] == "execution":
+            event["event_class"] = "runtime_validation"
+
+    with pytest.raises(Servo2Error, match="EXECUTION_REPAIR_PATTERN_MISMATCH"):
+        validate_graph(tables)
+
+
 def test_adaptation_path_cannot_be_counted_as_artifact_revision(package) -> None:
     path = table(package, "closure_witnesses")
     header, rows = csv_rows(path)
