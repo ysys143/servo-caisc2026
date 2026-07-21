@@ -16,15 +16,17 @@ def find_manifest(root: Path) -> tuple[Path, dict[str, str | dict[str, str]]]:
     manifest = read_json(path)
     if "generated_artifact_sha256" not in manifest:
         raise Servo2Error("PUBLIC_MANIFEST_INVALID", "generated artifacts are unbound")
+    if "generated_artifacts" in manifest:
+        raise Servo2Error(
+            "PUBLIC_MANIFEST_LEGACY_ALIAS", "generated_artifacts is forbidden"
+        )
     return path, manifest
 
 
 def regenerate(
     root: Path, tables: dict[str, Table], manifest: dict[str, str | dict[str, str]]
 ) -> None:
-    generated = manifest.get(
-        "generated_artifacts", manifest.get("generated_artifact_sha256")
-    )
+    generated = manifest.get("generated_artifact_sha256")
     if not isinstance(generated, dict) or not generated:
         raise Servo2Error("PUBLIC_MANIFEST_INVALID", "generated artifacts are unbound")
     expected_content = _derived_content(tables)

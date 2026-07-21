@@ -28,7 +28,7 @@ def _manifest(package: Path) -> Path:
 
 def _generated_paths(package: Path) -> list[Path]:
     manifest = json.loads(_manifest(package).read_text(encoding="utf-8"))
-    generated = manifest.get("generated_artifacts") or manifest.get("generated_artifact_sha256")
+    generated = manifest.get("generated_artifact_sha256")
     assert isinstance(generated, dict) and generated, "manifest does not bind generated artifacts"
     paths: list[Path] = []
     for name in generated:
@@ -80,6 +80,22 @@ def test_public_regeneration_rejects_manifest_schema_drift(package: Path) -> Non
     assert_rejected(
         run_cli(package, "public-regeneration"),
         "RELEASE_SCHEMA_IDENTITY_MISMATCH",
+    )
+
+
+def test_public_regeneration_rejects_legacy_generated_artifact_alias(
+    package: Path,
+) -> None:
+    manifest_path = _manifest(package)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    name = next(iter(manifest["generated_artifact_sha256"]))
+    manifest["generated_artifacts"] = {
+        name: manifest["generated_artifact_sha256"][name]
+    }
+    manifest_path.write_text(json.dumps(manifest, sort_keys=True) + "\n", encoding="utf-8")
+
+    assert_rejected(
+        run_cli(package, "public-regeneration"), "PUBLIC_MANIFEST_LEGACY_ALIAS"
     )
 
 

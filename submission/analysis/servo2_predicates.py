@@ -154,9 +154,8 @@ def _adaptation_route_connects_evaluation_to_execution(
     edge_rows: tuple[dict[str, str], ...],
     endpoint_refs: tuple[str, ...],
 ) -> bool:
-    evaluation_endpoints = {
-        event["actor_endpoint_id"] for event in event_rows if _is_evaluation(event)
-    }
+    evaluation_events = tuple(event for event in event_rows if _is_evaluation(event))
+    evaluation_endpoints = {event["actor_endpoint_id"] for event in evaluation_events}
     execution_endpoints = {
         event["actor_endpoint_id"]
         for event in event_rows
@@ -164,7 +163,13 @@ def _adaptation_route_connects_evaluation_to_execution(
     }
     action_components = {"M", "pi", "G", "W_A"}
     for evaluation_index, endpoint in enumerate(endpoint_refs):
-        if endpoint not in evaluation_endpoints:
+        if endpoint not in evaluation_endpoints or evaluation_index >= len(edge_rows):
+            continue
+        if not any(
+            event["actor_endpoint_id"] == endpoint
+            and event["event_id"] == edge_rows[evaluation_index]["source_event_id"]
+            for event in evaluation_events
+        ):
             continue
         for execution_index in range(evaluation_index + 1, len(endpoint_refs)):
             if endpoint_refs[execution_index] not in execution_endpoints:

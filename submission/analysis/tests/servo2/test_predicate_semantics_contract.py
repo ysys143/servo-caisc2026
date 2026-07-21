@@ -58,6 +58,20 @@ def test_experimental_adaptation_requires_changed_action_semantics(
         validate_graph(tables)
 
 
+def test_experimental_adaptation_evaluation_must_source_its_route(
+    package: Path,
+) -> None:
+    tables = read_tables(package)
+    for edge in tables["edges"].rows:
+        if edge["edge_id"] in {"ED13", "ED14", "ED15"}:
+            edge["source_event_id"] = "EV42"
+        elif edge["edge_id"] == "ED39":
+            edge["source_event_id"] = "EV43"
+
+    with pytest.raises(Servo2Error, match="EXPERIMENTAL_ADAPTATION_PATTERN_MISMATCH"):
+        validate_graph(tables)
+
+
 def test_edge_requires_existing_mediator_endpoint(package: Path) -> None:
     # Given: an otherwise typed edge with an unresolved mediator endpoint.
     tables = read_tables(package)

@@ -73,3 +73,23 @@ def test_every_established_adaptation_names_a_later_execution(package) -> None:
     for witness in adaptations:
         event_ids = [token.split("@")[0] for token in witness["ordered_event_ids"].split(";")]
         assert any(classes[event_id] == "execution" for event_id in event_ids[1:])
+
+
+def test_mediator_endpoint_must_share_edge_case(package) -> None:
+    path = table(package, "edges")
+    header, rows = csv_rows(path)
+    edge = next(row for row in rows if row["case_id"] == "C03")
+    edge["mediator_endpoint_id"] = "C01.V"
+    write_rows(path, header, rows)
+
+    assert_rejected(run_cli(package, "public-regeneration"), "EDGE_MEDIATOR_CASE_MISMATCH")
+
+
+def test_external_mediator_cannot_be_labelled_system(package) -> None:
+    path = table(package, "edges")
+    header, rows = csv_rows(path)
+    edge = next(row for row in rows if row["mediator_endpoint_id"].endswith(".external"))
+    edge["mediation_actor"] = "system"
+    write_rows(path, header, rows)
+
+    assert_rejected(run_cli(package, "public-regeneration"), "EDGE_MEDIATION_ACTOR_INVALID")

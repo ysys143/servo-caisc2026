@@ -50,6 +50,13 @@ def validate_component_graph_conformance(tables: dict[str, Table]) -> None:
         mediator_id = require(edge, "mediator_endpoint_id", "edges")
         if mediator_id not in endpoints:
             raise Servo2Error("EDGE_MEDIATOR_ENDPOINT_INVALID", edge_id)
+        mediator = endpoints[mediator_id]
+        if mediator["case_id"] != edge["case_id"]:
+            raise Servo2Error("EDGE_MEDIATOR_CASE_MISMATCH", edge_id)
+        human_mediation = edge["mediation_actor"] == "human"
+        external_mediator = mediator["component"] == "external"
+        if human_mediation != external_mediator:
+            raise Servo2Error("EDGE_MEDIATION_ACTOR_INVALID", edge_id)
         source = endpoints[require(edge, "source_endpoint_id", "edges")]["component"]
         destination = endpoints[
             require(edge, "destination_endpoint_id", "edges")

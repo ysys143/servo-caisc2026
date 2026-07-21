@@ -1,6 +1,6 @@
 # Servo corrected package
 
-Package release 3.0.14 implements the normative Servo schema version 3.0.0.
+Package release 3.0.15 implements the normative Servo schema version 3.0.0.
 The package release number identifies this synchronized manuscript and audit
 snapshot; it does not change the schema contract version.
 
