@@ -121,7 +121,7 @@
     },
     {
       "evidence_id": "R03-E04",
-      "exact_quote": "When choosing between non-buggy nodes, the system uses a best-first search strategy guided by GPT-4o, which evaluates candidates based on factors like performance metrics, training dynamics and the quality of the plots generated. The selected nodes are expanded by creating a new child node.",
+      "exact_quote": "When choosing between non-buggy nodes, the system uses a best-first search strategy guided by GPT-4o, which evaluates candidates based on factors like performance metrics, training dynamics and the quality of the plots generated. The selected nodes are expanded by creating a new child node. Claude Sonnet 4 is used to generate the plan and experiment code for each new child node, after which all new nodes are executed concurrently in parallel.",
       "owner_record_id": "R03",
       "pdf_page": 8,
       "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d"

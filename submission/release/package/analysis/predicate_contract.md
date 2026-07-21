@@ -17,10 +17,22 @@ predicate by itself.
 | Predicate | Start and required route | Required destination or recurrence | Exclusions |
 |---|---|---|---|
 | `execution_repair` | Runtime-validation evidence followed by an `artifact_revision` edge and a `feedback_control` edge through `W_A` | A later execution occurrence in the same bounded context | A retry without a changed executable/protocol artifact; terminal review |
-| `experimental_adaptation` | Execution/evaluation evidence followed by `epistemic_update` and `feedback_control` | A later evidence-generating execution; the path contains `E` | Code repair alone; fixed schedules; selection without successor execution |
+| `experimental_adaptation` | Evaluation evidence followed by feedback-dependent control of a changed experimental action | A later execution and resulting evidence in the same bounded context; the path contains `E` and returns to `V` | Code repair alone; fixed schedules; selection without successor execution |
 | `artifact_revision` | An evaluation occurrence followed by an `artifact_revision` edge | A successor versioned artifact through `W_A` | Formatting, copying, or an unlinked terminal assessment |
-| `discovery_cycle_feedback` | Evidence event, epistemic update, feedback-dependent epistemic action, new execution, and new evidence event | At least two distinct evidence occurrences with an intervening execution | Retry-only, append-only memory, human-mediated edge counted as automated, or a terminal-only path |
-| `human_mediated_feedback` | Human-feedback event followed by a `human_mediation` edge | A routed destination inside the bounded workflow | Initial task specification or external terminal review without a return edge |
+| `discovery_cycle_feedback` | Evidence event, epistemic update, feedback-dependent epistemic action, new execution, and new evidence event | At least two distinct evidence occurrences with an intervening execution | Retry-only, append-only memory, or a terminal-only path |
+
+Human mediation is recorded separately as an actor facet (`mediation_actor`) on
+the routed edge and by the component-level authority vector. It can qualify any
+of the four topological predicates and is not itself a fifth closure type.
+
+## Component--graph integrity
+
+Every event class has an allowed actor component, and every structural edge type
+has allowed source--destination component pairs. The validator rejects, for
+example, an execution event attributed to `V`, an observation routed from `E`
+to `G`, or external human feedback labelled as system mediation. These
+constraints make the six-component description and the event--artifact graph
+two checked views of one bounded case rather than independent vocabularies.
 
 A path may establish more than one predicate only when it independently
 satisfies every predicate-specific pattern. Sharing event or edge identifiers is

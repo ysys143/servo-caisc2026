@@ -14,6 +14,7 @@ MODULES = (
     "servo2_audit.py",
     "servo2_build.py",
     "servo2_curate.py",
+    "servo2_conformance.py",
     "servo2_evidence.py",
     "servo2_finalize.py",
     "servo2_graph.py",
@@ -45,6 +46,8 @@ SERVO_TABLE_FILES = (
     "servo2_generated_manifest.json",
 )
 ANALYSIS_DOCS = (
+    "adversarial_validation.md",
+    "current_claim_registry.json",
     "holdout_protocol.md",
     "predicate_contract.md",
     "provenance_crosswalk.md",

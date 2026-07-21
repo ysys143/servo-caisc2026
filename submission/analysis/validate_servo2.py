@@ -13,7 +13,7 @@ from .servo2_build import (
 )
 from .servo2_evidence import validate_evidence
 from .servo2_io import Servo2Error, read_tables
-from .servo2_release import verify_release_ready
+from .servo2_release import verify_release_ready, verify_repository_pdf_sync
 from .servo2_schema import validate_schema_contract
 from .servo2_validate import (
     validate_legacy_headers,
@@ -33,6 +33,9 @@ def parser() -> argparse.ArgumentParser:
     audit.add_argument("--source-root", type=Path, required=True)
     ready = commands.add_parser("release-ready")
     ready.add_argument("--package-root", type=Path, required=True)
+    sync = commands.add_parser("repository-sync")
+    sync.add_argument("--package-root", type=Path, required=True)
+    sync.add_argument("--reader-pdf", type=Path, required=True)
     return value
 
 
@@ -40,6 +43,10 @@ def run(arguments: list[str]) -> int:
     options = parser().parse_args(arguments)
     package_root: Path = options.package_root.resolve()
     try:
+        if options.mode == "repository-sync":
+            verify_repository_pdf_sync(options.reader_pdf.resolve(), package_root)
+            print(f"SERVO2_OK: {options.mode}")
+            return 0
         if options.mode in {"public-regeneration", "release-ready"}:
             validate_public_paths(package_root)
         tables = read_tables(package_root)

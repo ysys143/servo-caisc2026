@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from .servo2_graph import validate_graph
+from .servo2_conformance import validate_component_graph_conformance
 from .servo2_io import Servo2Error, Table, require, split_values
 from .servo2_relations import validate_relations
 
@@ -46,6 +47,7 @@ def validate_tables(tables: dict[str, Table]) -> None:
     _validate_anchors(tables["domain_anchors"])
     _validate_artifacts(tables["artifacts"], tables["events"])
     validate_graph(tables)
+    validate_component_graph_conformance(tables)
     validate_relations(tables)
 
 

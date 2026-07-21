@@ -2,8 +2,12 @@ from __future__ import annotations
 
 import hashlib
 import json
+from pathlib import Path
 
 from conftest import assert_rejected, run_cli
+from analysis.servo2_release import verify_repository_pdf_sync
+from analysis.servo2_io import Servo2Error
+import pytest
 
 
 PDF_NAME = "servo_caiscfp2026_post-submit.pdf"
@@ -43,3 +47,14 @@ def test_release_ready_rejects_attestation_manifest_mismatch(package) -> None:
         run_cli(package, "release-ready"),
         "RELEASE_ATTESTATION_MANIFEST_MISMATCH",
     )
+
+
+def test_repository_sync_rejects_different_reader_and_packaged_pdf(
+    package: Path, tmp_path: Path
+) -> None:
+    reader_pdf = tmp_path / PDF_NAME
+    reader_pdf.write_bytes(b"new reader-facing manuscript")
+    (package / PDF_NAME).write_bytes(b"stale packaged manuscript")
+
+    with pytest.raises(Servo2Error, match="RELEASE_SOURCE_PDF_MISMATCH"):
+        verify_repository_pdf_sync(reader_pdf, package)

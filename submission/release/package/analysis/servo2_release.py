@@ -59,3 +59,11 @@ def verify_release_ready(root: Path, manifest: dict[str, str | dict[str, str]]) 
     for name, path in ((PDF_NAME, pdf), (ATTESTATION_NAME, attestation_path)):
         if public_files.get(name) != sha256(path):
             raise Servo2Error("RELEASE_MANIFEST_INCOMPLETE", name)
+
+
+def verify_repository_pdf_sync(reader_pdf: Path, package_root: Path) -> None:
+    packaged_pdf = package_root / PDF_NAME
+    if not reader_pdf.is_file() or not packaged_pdf.is_file():
+        raise Servo2Error("RELEASE_SOURCE_PDF_MISSING", PDF_NAME)
+    if sha256(reader_pdf) != sha256(packaged_pdf):
+        raise Servo2Error("RELEASE_SOURCE_PDF_MISMATCH", PDF_NAME)

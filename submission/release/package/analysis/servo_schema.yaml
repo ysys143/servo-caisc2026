@@ -63,8 +63,8 @@ table_headers:
   cases: [schema_version, case_id, lineage_id, version_id, configuration_id, task_regime_id, system, citation_key, source_pdf_sha256, S, G, E, V, M, pi, O_env_status, A_status, W_A_status, H_S, H_G, H_E, H_V, H_M, H_pi, evidence_status, evidence_ids, uncertainty]
   endpoints: [schema_version, endpoint_id, case_id, endpoint_kind, component, description, status]
   artifacts: [schema_version, artifact_id, case_id, artifact_type, version, producer_endpoint_id, producer_event_id, producer_sequence, first_consumed_sequence, predecessor_artifact_id, evidence_ids, status, uncertainty]
-  events: [schema_version, event_id, case_id, configuration_id, task_regime_id, phase, event_class, evaluator_endpoint_id, target_property, evidence_source, input_artifact_ids, output_artifact_ids, reliability_ids, evidence_status, evidence_ids, uncertainty, event_kind, update_semantics]
-  edges: [schema_version, edge_id, case_id, configuration_id, task_regime_id, source_event_id, source_endpoint_id, destination_endpoint_id, edge_type, route_status, feedback_dependent, evidence_ids, closure_eligible, exclusion_reason, mediator, edge_scope]
+  events: [schema_version, event_id, case_id, configuration_id, task_regime_id, phase, event_class, actor_endpoint_id, target_property, evidence_source, input_artifact_ids, output_artifact_ids, reliability_ids, evidence_status, evidence_ids, uncertainty, event_kind, update_semantics]
+  edges: [schema_version, edge_id, case_id, configuration_id, task_regime_id, source_event_id, source_endpoint_id, destination_endpoint_id, edge_type, route_status, feedback_dependent, evidence_ids, closure_eligible, exclusion_reason, mediator_endpoint_id, mediation_actor, edge_scope]
   reliability: [schema_version, reliability_id, case_id, evaluated_event_id, evaluation_target, benchmark_population, metric_or_test, finding, independence_status, runtime_edge_eligible, evidence_status, evidence_ids, uncertainty]
   closure_witnesses: [schema_version, witness_id, case_id, configuration_id, task_regime_id, predicate, ordered_event_ids, ordered_edge_ids, ordered_endpoint_ids, evidence_ids, predicate_status, execution_status, uncertainty]
   closure_statuses: [schema_version, case_id, predicate, status, witness_ids, rationale, decision_basis]
@@ -85,19 +85,20 @@ enum_fields:
   endpoints.status: [implemented, not_applicable, unclear]
   artifacts.status: [reported, structurally_inferred, not_reported]
   events.phase: [pre_action, in_execution, post_observation, post_artifact, terminal, external]
-  events.event_class: [runtime_validation, artifact_assessment, human_feedback, external_assessment, artifact_production, execution, generation]
+  events.event_class: [runtime_validation, artifact_assessment, human_feedback, external_assessment, artifact_production, execution, generation, state_update]
   events.evidence_status: [directly_stated, structurally_inferred, mixed_direct_and_inferred, not_yet_source_adjudicated]
   events.event_kind: [retry_with_revision, evidence_event, repeated_evidence_cycle, epistemic_update, epistemic_action, pre_action_filter, pre_action_refinement, archive_admission, artifact_revision_action, human_feedback, terminal_assessment, external_assessment, external_authority, artifact_production, execution, generation]
-  edges.edge_type: [observation, epistemic_update, feedback_control, artifact_revision, human_mediation, external_only]
+  edges.edge_type: [observation, epistemic_update, feedback_control, artifact_revision, external_only]
+  edges.mediation_actor: [system, human, mixed, not_reported]
   edges.route_status: [implemented, proposed, external, not_reported, unclear]
   edges.edge_scope: [case_internal, case_external]
   reliability.evidence_status: [directly_stated, structurally_inferred, mixed_direct_and_inferred, not_yet_source_adjudicated]
   reliability.finding: [evidence_of_overestimation, mixed, reported_positive_for_aggregate_review]
   reliability.independence_status: [external_nonindependent]
-  closure_witnesses.predicate: [execution_repair, experimental_adaptation, artifact_revision, discovery_cycle_feedback, human_mediated_feedback]
+  closure_witnesses.predicate: [execution_repair, experimental_adaptation, artifact_revision, discovery_cycle_feedback]
   closure_witnesses.predicate_status: [established, not_established, unknown, not_applicable]
   closure_witnesses.execution_status: [implemented_reported, optional_configurable, structurally_inferred, trace_demonstrated]
-  closure_statuses.predicate: [execution_repair, experimental_adaptation, artifact_revision, discovery_cycle_feedback, human_mediated_feedback]
+  closure_statuses.predicate: [execution_repair, experimental_adaptation, artifact_revision, discovery_cycle_feedback]
   closure_statuses.status: [established, not_established, unknown, not_applicable]
   closure_statuses.decision_basis: [positive_witness, explicit_negative, complete_trace_failure, insufficient_reporting, out_of_scope]
   domain_anchors.evidence_status: [directly_stated, structurally_inferred, mixed_direct_and_inferred, not_yet_source_adjudicated]
@@ -119,7 +120,7 @@ boolean_fields:
 
 event_contract:
   phases: [pre_action, in_execution, post_observation, post_artifact, terminal, external]
-  classes: [runtime_validation, artifact_assessment, human_feedback, external_assessment, artifact_production, execution, generation]
+  classes: [runtime_validation, artifact_assessment, human_feedback, external_assessment, artifact_production, execution, generation, state_update]
   event_kinds: [retry_with_revision, evidence_event, repeated_evidence_cycle, epistemic_update, epistemic_action, pre_action_filter, pre_action_refinement, archive_admission, artifact_revision_action, human_feedback, terminal_assessment, external_assessment, external_authority, artifact_production, execution, generation]
   required_semantic_fields: [event_kind, update_semantics]
   event_rule: An event records an evaluation occurrence; it does not by itself establish a routed feedback edge.
@@ -127,10 +128,10 @@ event_contract:
   reliability_rule: A reliability evaluation is not a runtime event and can never be used as a runtime edge.
 
 edge_contract:
-  edge_types: [observation, epistemic_update, feedback_control, artifact_revision, human_mediation, external_only]
+  edge_types: [observation, epistemic_update, feedback_control, artifact_revision, external_only]
   route_statuses: [implemented, proposed, external, not_reported, unclear]
   target_components: [S, G, E, V, M, pi, A, W_A, external]
-  required_routing_fields: [mediator, edge_scope]
+  required_routing_fields: [mediator_endpoint_id, mediation_actor, edge_scope]
   edge_scopes: [case_internal, case_external]
   invariants:
     - source and destination endpoints belong to the same case unless edge_type is external_only
@@ -144,7 +145,6 @@ closure_contract:
     - experimental_adaptation
     - artifact_revision
     - discovery_cycle_feedback
-    - human_mediated_feedback
   statuses: [established, not_established, unknown, not_applicable]
   witness_execution_statuses: [implemented_reported, optional_configurable, structurally_inferred, trace_demonstrated]
   set_valued: true
@@ -155,7 +155,7 @@ closure_contract:
       required_endpoints: [W_A, E]
       minimum_event_occurrences: 2
     experimental_adaptation:
-      required_edge_types: [epistemic_update, feedback_control]
+      required_edge_types: [feedback_control]
       required_endpoints: [E]
       minimum_event_occurrences: 2
     artifact_revision:
@@ -167,10 +167,12 @@ closure_contract:
       required_endpoints: [E, V]
       minimum_evidence_occurrences: 2
       minimum_intervening_executions: 1
-    human_mediated_feedback:
-      event_kinds: [human_feedback]
-      required_edge_types: [human_mediation]
-      minimum_event_occurrences: 1
+  mediation_rule: >-
+    Human, system, mixed, or unreported mediation is an actor facet on an event
+    or edge. It does not define a fifth closure topology.
+  component_graph_constraints:
+    event_actors: [runtime_validation:V, artifact_assessment:V, human_feedback:external, external_assessment:external, artifact_production:W_A, execution:E, generation:G, state_update:M]
+    edge_transitions: [observation:E-to-V, epistemic_update:V-to-M, artifact_revision:V-or-pi-to-W_A, feedback_control:typed-action-route, external_only:external-to-external]
   discovery_cycle_required_sequence:
     - evidence_event
     - epistemic_update_edge

@@ -3,29 +3,23 @@ schema_version,case_id,predicate,status,witness_ids,rationale,decision_basis
 3.0.0,C01,experimental_adaptation,unknown,not_applicable,reuse for guidance is inferred but a later evidence-generating execution is not directly linked,insufficient_reporting
 3.0.0,C01,artifact_revision,established,W15,protocol v1 is corrected to v2,positive_witness
 3.0.0,C01,discovery_cycle_feedback,unknown,not_applicable,new evidence after feedback-dependent epistemic action is not established,insufficient_reporting
-3.0.0,C01,human_mediated_feedback,unknown,not_applicable,manual handling and terminal labeling are not reported as feedback control,insufficient_reporting
 3.0.0,C02,execution_repair,unknown,not_applicable,the bounded source does not report an eligible error-repair trace,insufficient_reporting
 3.0.0,C02,experimental_adaptation,established,W02,results condition next experiment,positive_witness
 3.0.0,C02,artifact_revision,unknown,not_applicable,terminal reviewer-to-manuscript revision is not reported,insufficient_reporting
 3.0.0,C02,discovery_cycle_feedback,not_established,not_applicable,the complete reported replanning trace lacks an epistemic-state update before new evidence,complete_trace_failure
-3.0.0,C02,human_mediated_feedback,not_established,not_applicable,the documented human setup occurs outside the bounded internal feedback path,explicit_negative
 3.0.0,C03,execution_repair,unknown,not_applicable,plot critique creates nodes but a correction rerun chain is not fully quoted,insufficient_reporting
-3.0.0,C03,experimental_adaptation,unknown,not_applicable,selection and expansion are reported but execution of the selected successor is not explicit in bounded evidence,insufficient_reporting
+3.0.0,C03,experimental_adaptation,established,W16,metric- and plot-guided selection creates and executes a successor experiment,positive_witness
 3.0.0,C03,artifact_revision,unknown,not_applicable,terminal reviewer-to-manuscript revision is not reported,insufficient_reporting
 3.0.0,C03,discovery_cycle_feedback,unknown,not_applicable,the executor link ED15 is unclear,insufficient_reporting
-3.0.0,C03,human_mediated_feedback,not_established,not_applicable,the documented manual selection and workshop review are external to the bounded workflow,explicit_negative
 3.0.0,C04,execution_repair,established,W04,compile failure drives next-iteration repair,positive_witness
 3.0.0,C04,experimental_adaptation,unknown,not_applicable,the quoted score and error reflection supports code optimization but does not establish adaptation of a scientific experiment design,insufficient_reporting
 3.0.0,C04,artifact_revision,established,W06,PhD evaluation can revisit and revise earlier work,positive_witness
 3.0.0,C04,discovery_cycle_feedback,not_established,not_applicable,the complete execution-reflection trace lacks a scientific epistemic-state update and subsequent evidence cycle,complete_trace_failure
-3.0.0,C04,human_mediated_feedback,not_established,not_applicable,the documented human idea is initial authority rather than within-loop feedback,explicit_negative
 3.0.0,C05,execution_repair,unknown,not_applicable,the bounded source does not report an execution-error correction chain,insufficient_reporting
 3.0.0,C05,experimental_adaptation,established,W08,physical result updates model and experiment selection,positive_witness
 3.0.0,C05,artifact_revision,not_applicable,not_applicable,no paper-like artifact revision interface is part of the bounded case,out_of_scope
 3.0.0,C05,discovery_cycle_feedback,established,W09,physical evidence closes a model-mediated discovery cycle,positive_witness
-3.0.0,C05,human_mediated_feedback,unknown,not_applicable,the source does not report supplies or maintenance as epistemic feedback,insufficient_reporting
 3.0.0,C06,execution_repair,established,W10,debugging iterates to success or limit,positive_witness
 3.0.0,C06,experimental_adaptation,established,W11,performance results guide following experiments,positive_witness
 3.0.0,C06,artifact_revision,established,W12,code successor follows execution critique,positive_witness
 3.0.0,C06,discovery_cycle_feedback,not_established,not_applicable,the complete reported trace stores implementation decisions but lacks a scientific epistemic-state update,complete_trace_failure
-3.0.0,C06,human_mediated_feedback,established,W14,human feedback is an explicit in-workflow channel,positive_witness

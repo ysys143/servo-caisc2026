@@ -1,39 +1,40 @@
-schema_version,edge_id,case_id,configuration_id,task_regime_id,source_event_id,source_endpoint_id,destination_endpoint_id,edge_type,route_status,feedback_dependent,evidence_ids,closure_eligible,exclusion_reason,mediator,edge_scope
-3.0.0,ED01,C01,reported-demonstration,six-chemistry-tasks,EV01,C01.V,C01.W_A,artifact_revision,implemented,true,R01-E03,true,not_applicable,C01.V,case_internal
-3.0.0,ED02,C01,reported-demonstration,six-chemistry-tasks,EV01,C01.W_A,C01.E,feedback_control,implemented,true,R01-E03,true,not_applicable,C01.W_A,case_internal
-3.0.0,ED03,C01,reported-demonstration,six-chemistry-tasks,EV02,C01.V,C01.M,epistemic_update,implemented,true,R01-E04,true,structurally inferred reuse,C01.V,case_internal
-3.0.0,ED04,C01,reported-demonstration,six-chemistry-tasks,EV02,C01.M,C01.G,feedback_control,implemented,true,R01-E04,true,new evidence-generating execution after guidance not separately stated,C01.M,case_internal
-3.0.0,ED05,C02,reported-default,up-to-five-computational-experiments,EV04,C02.V,C02.pi,feedback_control,implemented,true,R02-E01,false,pre_action_filter_only,C02.V,case_internal
-3.0.0,ED06,C02,reported-default,up-to-five-computational-experiments,EV05,C02.V,C02.M,epistemic_update,implemented,true,R02-E02,true,not_applicable,C02.V,case_internal
-3.0.0,ED07,C02,reported-default,up-to-five-computational-experiments,EV05,C02.M,C02.pi,feedback_control,implemented,true,R02-E02,true,not_applicable,C02.M,case_internal
-3.0.0,ED08,C02,reported-default,up-to-five-computational-experiments,EV05,C02.pi,C02.E,feedback_control,implemented,true,R02-E02,true,not_applicable,C02.pi,case_internal
-3.0.0,ED09,C02,reported-default,up-to-five-computational-experiments,EV07,C02.V,C02.M,epistemic_update,implemented,false,R02-E04;R02-E08,false,append_only_memory,C02.V,case_internal
-3.0.0,ED10,C03,template-free-tree,computational-tree-search,EV08,C03.V,C03.G,feedback_control,implemented,true,R03-E01,false,pre_action_refinement_alone,C03.V,case_internal
-3.0.0,ED11,C03,template-free-tree,computational-tree-search,EV09,C03.V,C03.pi,feedback_control,implemented,true,R03-E02,true,not_applicable,C03.V,case_internal
-3.0.0,ED12,C03,template-free-tree,computational-tree-search,EV10,C03.V,C03.G,feedback_control,implemented,true,R03-E03,true,new node stated,C03.V,case_internal
-3.0.0,ED13,C03,template-free-tree,computational-tree-search,EV11,C03.V,C03.pi,feedback_control,implemented,true,R03-E04,true,not_applicable,C03.V,case_internal
-3.0.0,ED14,C03,template-free-tree,computational-tree-search,EV11,C03.pi,C03.G,feedback_control,implemented,true,R03-E04,true,selected nodes are expanded,C03.pi,case_internal
-3.0.0,ED15,C03,template-free-tree,computational-tree-search,EV11,C03.G,C03.E,feedback_control,unclear,true,R03-E04,false,later execution of selected child not explicit in bounded quote,C03.G,case_internal
-3.0.0,ED16,C03,template-free-tree,computational-tree-search,EV13,C03.external,C03.external,external_only,external,false,R03-E07;R03-E12,false,external_only,C03.external,case_external
-3.0.0,ED17,C04,autonomous-mode,human-provided-idea-computational-ml,EV14,C04.V,C04.W_A,artifact_revision,implemented,true,R04-E02;R04-E03,true,not_applicable,C04.V,case_internal
-3.0.0,ED18,C04,autonomous-mode,human-provided-idea-computational-ml,EV14,C04.W_A,C04.E,feedback_control,implemented,true,R04-E03,true,next iteration stated,C04.W_A,case_internal
-3.0.0,ED19,C04,autonomous-mode,human-provided-idea-computational-ml,EV15,C04.V,C04.pi,feedback_control,implemented,true,R04-E04,true,revisit prior subtasks,C04.V,case_internal
-3.0.0,ED20,C04,autonomous-mode,human-provided-idea-computational-ml,EV15,C04.pi,C04.W_A,artifact_revision,implemented,true,R04-E04,true,not_applicable,C04.pi,case_internal
-3.0.0,ED21,C04,autonomous-mode,human-provided-idea-computational-ml,EV16,C04.external,C04.external,external_only,external,false,R04-E01;R04-E05;R04-E06,false,external_only,C04.external,case_external
-3.0.0,ED22,C05,adam-yeast,yeast-functional-genomics,EV17,C05.V,C05.M,epistemic_update,implemented,true,R05-E01;R05-E02;R05-E03;R05-E08,true,analysis yields knowledge used to update the system model,C05.V,case_internal
-3.0.0,ED23,C05,adam-yeast,yeast-functional-genomics,EV17,C05.M,C05.pi,feedback_control,implemented,true,R05-E01;R05-E02;R05-E03;R05-E08,true,updated model supports further hypothesis and experiment design,C05.M,case_internal
-3.0.0,ED24,C05,adam-yeast,yeast-functional-genomics,EV17,C05.pi,C05.E,feedback_control,implemented,true,R05-E01;R05-E02;R05-E03;R05-E08,true,experiment design code passes plans to robotic execution and the cycle repeats,C05.pi,case_internal
-3.0.0,ED25,C05,adam-yeast,yeast-functional-genomics,EV18,C05.V,C05.M,epistemic_update,implemented,true,R05-E02;R05-E04,true,not_applicable,C05.V,case_internal
-3.0.0,ED26,C06,reported-multi-agent,twelve-computational-tasks,EV19,C06.V,C06.pi,feedback_control,implemented,true,R14-E02,false,pre_action_filter_only,C06.V,case_internal
-3.0.0,ED27,C06,reported-multi-agent,twelve-computational-tasks,EV20,C06.external,C06.W_A,human_mediation,implemented,true,R14-E03,true,not_applicable,C06.external,case_internal
-3.0.0,ED28,C06,reported-multi-agent,twelve-computational-tasks,EV21,C06.V,C06.W_A,artifact_revision,implemented,true,R14-E04,true,not_applicable,C06.V,case_internal
-3.0.0,ED29,C06,reported-multi-agent,twelve-computational-tasks,EV21,C06.W_A,C06.E,feedback_control,implemented,true,R14-E04,true,retry alone excluded from discovery feedback,C06.W_A,case_internal
-3.0.0,ED30,C06,reported-multi-agent,twelve-computational-tasks,EV22,C06.V,C06.M,epistemic_update,implemented,true,R14-E05;R14-E07;R14-E08,true,not_applicable,C06.V,case_internal
-3.0.0,ED31,C06,reported-multi-agent,twelve-computational-tasks,EV22,C06.M,C06.pi,feedback_control,implemented,true,R14-E05;R14-E07;R14-E08,true,not_applicable,C06.M,case_internal
-3.0.0,ED32,C06,reported-multi-agent,twelve-computational-tasks,EV22,C06.pi,C06.W_A,artifact_revision,implemented,true,R14-E05;R14-E08,true,not_applicable,C06.pi,case_internal
-3.0.0,ED33,C06,reported-multi-agent,twelve-computational-tasks,EV22,C06.W_A,C06.E,feedback_control,implemented,true,R14-E05;R14-E08,true,following experiments are replanned,C06.W_A,case_internal
-3.0.0,ED34,C04,autonomous-mode,human-provided-idea-computational-ml,EV14,C04.V,C04.M,epistemic_update,implemented,true,R04-E03,true,self-reflection records the outcome,C04.V,case_internal
-3.0.0,ED35,C04,autonomous-mode,human-provided-idea-computational-ml,EV14,C04.M,C04.pi,feedback_control,implemented,true,R04-E03,true,reflection controls the next iteration,C04.M,case_internal
-3.0.0,ED36,C04,autonomous-mode,human-provided-idea-computational-ml,EV14,C04.pi,C04.W_A,artifact_revision,implemented,true,R04-E03,true,policy selects revised implementation,C04.pi,case_internal
-3.0.0,ED37,C05,adam-yeast,yeast-functional-genomics,EV34,C05.E,C05.V,observation,implemented,true,R05-E01;R05-E02;R05-E03;R05-E08,true,physical execution supplies measurement evidence to statistical analysis,C05.E,case_internal
-3.0.0,ED38,C05,adam-yeast,yeast-functional-genomics,EV34,C05.E,C05.V,observation,implemented,true,R05-E01;R05-E02;R05-E03;R05-E08,true,repeated-cycle execution supplies the next measurement evidence,C05.E,case_internal
+schema_version,edge_id,case_id,configuration_id,task_regime_id,source_event_id,source_endpoint_id,destination_endpoint_id,edge_type,route_status,feedback_dependent,evidence_ids,closure_eligible,exclusion_reason,mediator_endpoint_id,mediation_actor,edge_scope
+3.0.0,ED01,C01,reported-demonstration,six-chemistry-tasks,EV01,C01.V,C01.W_A,artifact_revision,implemented,true,R01-E03,true,not_applicable,C01.V,system,case_internal
+3.0.0,ED02,C01,reported-demonstration,six-chemistry-tasks,EV01,C01.W_A,C01.E,feedback_control,implemented,true,R01-E03,true,not_applicable,C01.W_A,system,case_internal
+3.0.0,ED03,C01,reported-demonstration,six-chemistry-tasks,EV02,C01.V,C01.M,epistemic_update,implemented,true,R01-E04,true,structurally inferred reuse,C01.V,system,case_internal
+3.0.0,ED04,C01,reported-demonstration,six-chemistry-tasks,EV02,C01.M,C01.G,feedback_control,implemented,true,R01-E04,true,new evidence-generating execution after guidance not separately stated,C01.M,system,case_internal
+3.0.0,ED05,C02,reported-default,up-to-five-computational-experiments,EV04,C02.V,C02.pi,feedback_control,implemented,true,R02-E01,false,pre_action_filter_only,C02.V,system,case_internal
+3.0.0,ED06,C02,reported-default,up-to-five-computational-experiments,EV05,C02.V,C02.M,epistemic_update,implemented,true,R02-E02,true,not_applicable,C02.V,system,case_internal
+3.0.0,ED07,C02,reported-default,up-to-five-computational-experiments,EV05,C02.M,C02.pi,feedback_control,implemented,true,R02-E02,true,not_applicable,C02.M,system,case_internal
+3.0.0,ED08,C02,reported-default,up-to-five-computational-experiments,EV05,C02.pi,C02.E,feedback_control,implemented,true,R02-E02,true,not_applicable,C02.pi,system,case_internal
+3.0.0,ED09,C02,reported-default,up-to-five-computational-experiments,EV07,C02.V,C02.M,epistemic_update,implemented,false,R02-E04;R02-E08,false,append_only_memory,C02.V,system,case_internal
+3.0.0,ED10,C03,template-free-tree,computational-tree-search,EV08,C03.V,C03.G,feedback_control,implemented,true,R03-E01,false,pre_action_refinement_alone,C03.V,system,case_internal
+3.0.0,ED11,C03,template-free-tree,computational-tree-search,EV09,C03.V,C03.pi,feedback_control,implemented,true,R03-E02,true,not_applicable,C03.V,system,case_internal
+3.0.0,ED12,C03,template-free-tree,computational-tree-search,EV10,C03.V,C03.G,feedback_control,implemented,true,R03-E03,true,new node stated,C03.V,system,case_internal
+3.0.0,ED13,C03,template-free-tree,computational-tree-search,EV11,C03.V,C03.pi,feedback_control,implemented,true,R03-E04,true,not_applicable,C03.V,system,case_internal
+3.0.0,ED14,C03,template-free-tree,computational-tree-search,EV11,C03.pi,C03.G,feedback_control,implemented,true,R03-E04,true,selected nodes are expanded,C03.pi,system,case_internal
+3.0.0,ED15,C03,template-free-tree,computational-tree-search,EV11,C03.G,C03.E,feedback_control,implemented,true,R03-E04,true,not_applicable,C03.G,system,case_internal
+3.0.0,ED16,C03,template-free-tree,computational-tree-search,EV13,C03.external,C03.external,external_only,external,false,R03-E07;R03-E12,false,external_only,C03.external,human,case_external
+3.0.0,ED17,C04,autonomous-mode,human-provided-idea-computational-ml,EV14,C04.V,C04.W_A,artifact_revision,implemented,true,R04-E02;R04-E03,true,not_applicable,C04.V,system,case_internal
+3.0.0,ED18,C04,autonomous-mode,human-provided-idea-computational-ml,EV14,C04.W_A,C04.E,feedback_control,implemented,true,R04-E03,true,next iteration stated,C04.W_A,system,case_internal
+3.0.0,ED19,C04,autonomous-mode,human-provided-idea-computational-ml,EV15,C04.V,C04.pi,feedback_control,implemented,true,R04-E04,true,revisit prior subtasks,C04.V,system,case_internal
+3.0.0,ED20,C04,autonomous-mode,human-provided-idea-computational-ml,EV15,C04.pi,C04.W_A,artifact_revision,implemented,true,R04-E04,true,not_applicable,C04.pi,system,case_internal
+3.0.0,ED21,C04,autonomous-mode,human-provided-idea-computational-ml,EV16,C04.external,C04.external,external_only,external,false,R04-E01;R04-E05;R04-E06,false,external_only,C04.external,human,case_external
+3.0.0,ED22,C05,adam-yeast,yeast-functional-genomics,EV17,C05.V,C05.M,epistemic_update,implemented,true,R05-E01;R05-E02;R05-E03;R05-E08,true,analysis yields knowledge used to update the system model,C05.V,system,case_internal
+3.0.0,ED23,C05,adam-yeast,yeast-functional-genomics,EV17,C05.M,C05.pi,feedback_control,implemented,true,R05-E01;R05-E02;R05-E03;R05-E08,true,updated model supports further hypothesis and experiment design,C05.M,system,case_internal
+3.0.0,ED24,C05,adam-yeast,yeast-functional-genomics,EV17,C05.pi,C05.E,feedback_control,implemented,true,R05-E01;R05-E02;R05-E03;R05-E08,true,experiment design code passes plans to robotic execution and the cycle repeats,C05.pi,system,case_internal
+3.0.0,ED25,C05,adam-yeast,yeast-functional-genomics,EV18,C05.V,C05.M,epistemic_update,implemented,true,R05-E02;R05-E04,true,not_applicable,C05.V,system,case_internal
+3.0.0,ED26,C06,reported-multi-agent,twelve-computational-tasks,EV19,C06.V,C06.pi,feedback_control,implemented,true,R14-E02,false,pre_action_filter_only,C06.V,system,case_internal
+3.0.0,ED27,C06,reported-multi-agent,twelve-computational-tasks,EV20,C06.external,C06.W_A,feedback_control,implemented,true,R14-E03,false,available channel; invocation in bounded run not reported,C06.external,human,case_internal
+3.0.0,ED28,C06,reported-multi-agent,twelve-computational-tasks,EV21,C06.V,C06.W_A,artifact_revision,implemented,true,R14-E04,true,not_applicable,C06.V,system,case_internal
+3.0.0,ED29,C06,reported-multi-agent,twelve-computational-tasks,EV21,C06.W_A,C06.E,feedback_control,implemented,true,R14-E04,true,retry alone excluded from discovery feedback,C06.W_A,system,case_internal
+3.0.0,ED30,C06,reported-multi-agent,twelve-computational-tasks,EV22,C06.V,C06.M,epistemic_update,implemented,true,R14-E05;R14-E07;R14-E08,true,not_applicable,C06.V,system,case_internal
+3.0.0,ED31,C06,reported-multi-agent,twelve-computational-tasks,EV22,C06.M,C06.pi,feedback_control,implemented,true,R14-E05;R14-E07;R14-E08,true,not_applicable,C06.M,system,case_internal
+3.0.0,ED32,C06,reported-multi-agent,twelve-computational-tasks,EV22,C06.pi,C06.W_A,artifact_revision,implemented,true,R14-E05;R14-E08,true,not_applicable,C06.pi,system,case_internal
+3.0.0,ED33,C06,reported-multi-agent,twelve-computational-tasks,EV22,C06.W_A,C06.E,feedback_control,implemented,true,R14-E05;R14-E08,true,following experiments are replanned,C06.W_A,system,case_internal
+3.0.0,ED34,C04,autonomous-mode,human-provided-idea-computational-ml,EV14,C04.V,C04.M,epistemic_update,implemented,true,R04-E03,true,self-reflection records the outcome,C04.V,system,case_internal
+3.0.0,ED35,C04,autonomous-mode,human-provided-idea-computational-ml,EV14,C04.M,C04.pi,feedback_control,implemented,true,R04-E03,true,reflection controls the next iteration,C04.M,system,case_internal
+3.0.0,ED36,C04,autonomous-mode,human-provided-idea-computational-ml,EV14,C04.pi,C04.W_A,artifact_revision,implemented,true,R04-E03,true,policy selects revised implementation,C04.pi,system,case_internal
+3.0.0,ED37,C05,adam-yeast,yeast-functional-genomics,EV34,C05.E,C05.V,observation,implemented,true,R05-E01;R05-E02;R05-E03;R05-E08,true,physical execution supplies measurement evidence to statistical analysis,C05.E,system,case_internal
+3.0.0,ED38,C05,adam-yeast,yeast-functional-genomics,EV34,C05.E,C05.V,observation,implemented,true,R05-E01;R05-E02;R05-E03;R05-E08,true,repeated-cycle execution supplies the next measurement evidence,C05.E,system,case_internal
+3.0.0,ED39,C03,template-free-tree,computational-tree-search,EV42,C03.E,C03.V,observation,implemented,true,R03-E04,true,executed child returns metrics and plots used by subsequent selection,C03.E,system,case_internal

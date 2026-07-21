@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import re
 import subprocess
@@ -14,6 +15,8 @@ REVIEW = ROOT / "submission" / "citation-review"
 AUDIT = ROOT / "submission" / "analysis" / "citation_audit"
 TEX = ROOT / "submission" / "main.tex"
 KO_TEX = ROOT / "submission" / "main_ko.tex"
+CURRENT_TEX = ROOT / "submission" / "main_post-submit.tex"
+CURRENT_REGISTRY = ROOT / "submission" / "analysis" / "current_claim_registry.json"
 
 
 def tsv(path: Path) -> list[dict[str, str]]:
@@ -23,11 +26,40 @@ def tsv(path: Path) -> list[dict[str, str]]:
 
 def cited_keys() -> set[str]:
     keys: set[str] = set()
-    for path in (TEX, KO_TEX):
+    for path in (TEX,):
         text = path.read_text()
         for match in re.finditer(r"\\cite[a-zA-Z]*\{([^}]+)\}", text):
             keys.update(key.strip() for key in match.group(1).split(","))
     return keys
+
+
+def keys_in(path: Path) -> set[str]:
+    keys: set[str] = set()
+    for match in re.finditer(r"\\cite[a-zA-Z]*\{([^}]+)\}", path.read_text()):
+        keys.update(key.strip() for key in match.group(1).split(","))
+    return keys
+
+
+def check_current_registry() -> bool:
+    registry = json.loads(CURRENT_REGISTRY.read_text())
+    current = keys_in(CURRENT_TEX) | keys_in(KO_TEX)
+    declared = set(registry["citation_keys"])
+    if current != declared:
+        print(f"[FAIL] current claim registry drift: added={sorted(current-declared)} removed={sorted(declared-current)}")
+        return False
+    for name, expected in registry["manuscripts"].items():
+        path = ROOT / "submission" / name
+        if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+            print(f"[FAIL] current claim registry manuscript drift: {name}")
+            return False
+    reader = CURRENT_TEX.read_text().split(r"\section{Post-Submission Revisions}", 1)[0]
+    korean = KO_TEX.read_text().split(r"\section{제출 후 수정 상태}", 1)[0]
+    forbidden = re.compile(r"Schema~?[0-9]|(?<![A-Za-z])R[0-9]{1,2}(?![A-Za-z0-9])")
+    if forbidden.search(reader) or forbidden.search(korean):
+        print("[FAIL] internal revision identifier leaked into reader-facing text")
+        return False
+    print(f"[current-claims] {len(current)} citation keys; no reader-facing internal revision tokens")
+    return True
 
 
 def run(label: str, command: list[str], cwd: Path = ROOT) -> bool:
@@ -124,8 +156,20 @@ def main() -> int:
     ok &= run("core14/final", ["uv", "run", "verify_core14.py", "final"], AUDIT)
     ok &= run("pytest", ["uv", "run", "--with", "pytest", "--with", "pydantic", "python", "-m", "pytest", "-q", "tests/test_verify_audit.py", "tests/test_verify_core14.py"], AUDIT)
     ok &= check_repaired_claims()
+    ok &= check_current_registry()
     ok &= compile_tex("main.tex")
     ok &= compile_tex("main_ko.tex")
+    ok &= compile_tex("main_post-submit.tex")
+    ok &= run(
+        "servo/release-ready",
+        ["uv", "run", "python", "-m", "analysis.validate_servo2", "release-ready", "--package-root", "release/package"],
+        ROOT / "submission",
+    )
+    ok &= run(
+        "servo/repository-sync",
+        ["uv", "run", "python", "-m", "analysis.validate_servo2", "repository-sync", "--package-root", "release/package", "--reader-pdf", "servo_caiscfp2026_post-submit.pdf"],
+        ROOT / "submission",
+    )
 
     print("=== ALL AUTOMATED GATES PASS ===" if ok else "=== AUTOMATED GATES FAILED ===")
     return 0 if ok else 1

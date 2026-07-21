@@ -12,6 +12,7 @@ schema_version,artifact_id,case_id,artifact_type,version,producer_endpoint_id,pr
 3.0.0,C03.node.v1,C03,tree_node,1,C03.G,EV39,2,2,not_applicable,R03-E02,reported,initial evaluated leaf-node abstraction
 3.0.0,C03.node.v2,C03,tree_node,2,C03.G,EV40,3,4,C03.node.v1,R03-E03,reported,plot-conditioned experimental node
 3.0.0,C03.node.v3,C03,tree_node,3,C03.G,EV41,4,not_applicable,C03.node.v2,R03-E04,reported,selected-node child expansion
+3.0.0,C03.result.v1,C03,computational_result,1,C03.E,EV42,5,5,not_applicable,R03-E04,reported,metrics and plots from the executed child experiment
 3.0.0,C03.plot.v1,C03,plot,1,C03.E,EV28,3,3,not_applicable,R03-E03,reported,plot critique input
 3.0.0,C03.aggregate.v1,C03,aggregate_result,1,C03.W_A,EV29,4,not_applicable,not_applicable,R03-E10,reported,does not execute a new experiment
 3.0.0,C03.manuscript.v1,C03,manuscript,1,C03.W_A,EV30,5,5,not_applicable,R03-E05;R03-E06,reported,no automated reviewer-dependent successor established

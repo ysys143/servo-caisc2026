@@ -64,7 +64,7 @@ def _event_links(
     del cases
     for row in table.rows:
         case_id = row["case_id"]
-        _same_case(endpoints, row["evaluator_endpoint_id"], case_id, "EVENT_ENDPOINT")
+        _same_case(endpoints, row["actor_endpoint_id"], case_id, "EVENT_ENDPOINT")
         for artifact_id in split_values(row["input_artifact_ids"]):
             _same_case(artifacts, artifact_id, case_id, "EVENT_INPUT_ARTIFACT")
         for artifact_id in split_values(row["output_artifact_ids"]):
@@ -104,7 +104,7 @@ def _artifact_links(
         _same_case(events, row["producer_event_id"], case_id, "ARTIFACT_PRODUCER")
         _same_case(endpoints, row["producer_endpoint_id"], case_id, "ARTIFACT_ENDPOINT")
         event = events[row["producer_event_id"]]
-        if row["producer_endpoint_id"] != event["evaluator_endpoint_id"]:
+        if row["producer_endpoint_id"] != event["actor_endpoint_id"]:
             raise Servo2Error("ARTIFACT_PRODUCER_ENDPOINT_MISMATCH", artifact_id)
         if artifact_id not in split_values(event["output_artifact_ids"]):
             raise Servo2Error("ARTIFACT_NOT_IN_PRODUCER_OUTPUT", artifact_id)

@@ -11,7 +11,6 @@ class Predicate(StrEnum):
     EXPERIMENTAL_ADAPTATION = "experimental_adaptation"
     ARTIFACT_REVISION = "artifact_revision"
     DISCOVERY_CYCLE_FEEDBACK = "discovery_cycle_feedback"
-    HUMAN_MEDIATED_FEEDBACK = "human_mediated_feedback"
 
 
 def validate_predicate_pattern(
@@ -40,9 +39,6 @@ def validate_predicate_pattern(
             _require_artifact_revision(witness_id, edge_rows, endpoint_refs)
         case Predicate.DISCOVERY_CYCLE_FEEDBACK:
             return
-        case Predicate.HUMAN_MEDIATED_FEEDBACK:
-            _validate_common_route(witness_id, edge_rows)
-            _require_human_feedback(witness_id, event_rows, edge_rows)
         case unreachable:
             assert_never(unreachable)
 
@@ -84,11 +80,15 @@ def _require_experimental_adaptation(
     endpoint_refs: tuple[str, ...],
 ) -> None:
     edge_types = {edge["edge_type"] for edge in edge_rows}
+    event_ids = {event["event_id"] for event in event_rows}
+    execution_supported = any(
+        event["event_class"] == "execution" for event in event_rows
+    ) or len(event_ids) == 1
     valid = (
         len(event_rows) >= 2
-        and "epistemic_update" in edge_types
         and "feedback_control" in edge_types
         and any(endpoint.endswith(".E") for endpoint in endpoint_refs)
+        and execution_supported
     )
     if not valid:
         raise Servo2Error("EXPERIMENTAL_ADAPTATION_PATTERN_MISMATCH", witness_id)
@@ -104,16 +104,3 @@ def _require_artifact_revision(
     )
     if not valid:
         raise Servo2Error("ARTIFACT_REVISION_PATTERN_MISMATCH", witness_id)
-
-
-def _require_human_feedback(
-    witness_id: str,
-    event_rows: tuple[dict[str, str], ...],
-    edge_rows: tuple[dict[str, str], ...],
-) -> None:
-    valid = (
-        any(event["event_kind"] == "human_feedback" for event in event_rows)
-        and any(edge["edge_type"] == "human_mediation" for edge in edge_rows)
-    )
-    if not valid:
-        raise Servo2Error("HUMAN_MEDIATED_FEEDBACK_PATTERN_MISMATCH", witness_id)

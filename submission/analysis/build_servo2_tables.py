@@ -17,14 +17,12 @@ PREDICATES = (
     "experimental_adaptation",
     "artifact_revision",
     "discovery_cycle_feedback",
-    "human_mediated_feedback",
 )
 PREDICATE_LABELS = {
     "execution_repair": ("Execution repair", "실행 복구"),
     "experimental_adaptation": ("Experimental adaptation", "실험 적응"),
     "artifact_revision": ("Artifact revision", "산출물 수정"),
     "discovery_cycle_feedback": ("Discovery-cycle feedback", "발견 주기 피드백"),
-    "human_mediated_feedback": ("Human-mediated feedback", "인간 매개 피드백"),
 }
 STATUS_LABELS = {
     "established": (r"\{established\}", r"\{확립\}"),
@@ -70,7 +68,7 @@ CASE_LABELS = {
         "regime": ("Yeast functional genomics", "효모 기능유전체학"),
     },
     "C06": {
-        "system": ("NovelSeek/InternAgent", "NovelSeek/InternAgent"),
+        "system": ("InternAgent (formerly NovelSeek)", "InternAgent(구 NovelSeek)"),
         "version": ("2025 InternAgent", "2025년 InternAgent"),
         "configuration": ("Reported multi-agent", "보고된 다중 에이전트"),
         "regime": ("Twelve computational tasks", "계산 과제 12개"),
@@ -112,7 +110,7 @@ def validate(cases: list[dict[str, str]], closure: list[dict[str, str]], anchors
         raise TableBuildError("expected exactly six cases, five lineages, and IDs C01--C06")
     pairs = {(row["case_id"], row["predicate"]) for row in closure}
     expected_pairs = {(case_id, predicate) for case_id in case_ids for predicate in PREDICATES}
-    if len(closure) != 30 or pairs != expected_pairs:
+    if len(closure) != 24 or pairs != expected_pairs:
         raise TableBuildError("closure matrix must contain every case-predicate pair exactly once")
     if any(row["status"] not in STATUS_LABELS for row in closure):
         raise TableBuildError("unknown closure status")
@@ -141,14 +139,18 @@ def build_cases(cases: list[dict[str, str]], language: int) -> str:
     for source in sorted(cases, key=lambda row: row["case_id"]):
         labels = CASE_LABELS[source["case_id"]]
         rows.append([source["case_id"], tex(source["lineage_id"]), tex(labels["system"][language] + " (" + labels["version"][language] + ")"), tex(labels["configuration"][language]), tex(labels["regime"][language])])
-    return table("llllp{.25\\linewidth}", header, rows)
+    return table(
+        "lp{.13\\linewidth}p{.24\\linewidth}p{.22\\linewidth}p{.23\\linewidth}",
+        header,
+        rows,
+    )
 
 
 def build_closure(cases: list[dict[str, str]], closure: list[dict[str, str]], language: int) -> str:
     indexed = {(row["case_id"], row["predicate"]): row["status"] for row in closure}
     header = ["ID"] + [PREDICATE_LABELS[predicate][language] for predicate in PREDICATES]
     rows = [[case["case_id"]] + [STATUS_LABELS[indexed[(case["case_id"], predicate)]][language] for predicate in PREDICATES] for case in sorted(cases, key=lambda row: row["case_id"])]
-    return table("l" + "p{.16\\linewidth}" * 5, header, rows)
+    return table("l" + "p{.20\\linewidth}" * len(PREDICATES), header, rows)
 
 
 def build_anchors(anchors: list[dict[str, str]], language: int) -> str:
@@ -188,7 +190,7 @@ def main() -> None:
         "generator_sha256": digest(Path(__file__)),
         "inputs": {path.name: digest(path) for path in (CASE_PATH, CLOSURE_PATH, WITNESS_PATH, ANCHOR_PATH, LEDGER_PATH)},
         "outputs": {name: digest(ROOT / name) for name in sorted(outputs)},
-        "counts": {"cases": 6, "lineages": 5, "closure_cells": 30, "anchors": 7},
+        "counts": {"cases": 6, "lineages": 5, "closure_cells": 24, "anchors": 7},
     }
     (ROOT / "servo2_generated_manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 

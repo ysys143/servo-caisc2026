@@ -1,8 +1,8 @@
 {
   "github_release": "not_published",
-  "manifest_binding_sha256": "24635e064641bf1aa1f8e564dec9231fded942162695ab49cda94f2c0de15813",
+  "manifest_binding_sha256": "faa82f381646348439f2e145b7532f13f4fc023a726d18c834ee30e97170d14c",
   "pdf_filename": "servo_caiscfp2026_post-submit.pdf",
-  "pdf_sha256": "046b48a3e3cf613e6c0f3306527f6b859c05664e8a729072874605244bd8d4f4",
+  "pdf_sha256": "66b639ffd7991855940f29623b842ad2e05aafd20e95a6313460535a5825523e",
   "publication_doi": "not_published",
   "schema_version": "3.0.0",
   "state": "unpublished_local_candidate"

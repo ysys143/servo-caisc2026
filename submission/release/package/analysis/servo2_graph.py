@@ -159,7 +159,7 @@ def _validate_discovery_witness(
             require(witness, "witness_id", "closure_witnesses"),
         )
     if any(
-        row.get("mediator") == "human" or row.get("edge_type") == "human_mediation"
+        row.get("mediation_actor") == "human"
         for row in edge_rows
     ):
         raise Servo2Error(
@@ -217,7 +217,7 @@ def _validate_discovery_sequence(
     update_index = edge_types.index("epistemic_update")
     if (
         edge_rows[update_index]["source_endpoint_id"]
-        != event_rows[first_evidence]["evaluator_endpoint_id"]
+        != event_rows[first_evidence]["actor_endpoint_id"]
     ):
         raise Servo2Error("DISCOVERY_WITNESS_PATH_REORDERED", witness_id)
     action_edges = tuple(
@@ -228,9 +228,9 @@ def _validate_discovery_sequence(
     )
     if (
         not action_edges
-        or execution["evaluator_endpoint_id"] != endpoint_refs[-2]
-        or event_rows[first_evidence]["evaluator_endpoint_id"] not in endpoint_refs
-        or event_rows[final_evidence]["evaluator_endpoint_id"] != endpoint_refs[-1]
+        or execution["actor_endpoint_id"] != endpoint_refs[-2]
+        or event_rows[first_evidence]["actor_endpoint_id"] not in endpoint_refs
+        or event_rows[final_evidence]["actor_endpoint_id"] != endpoint_refs[-1]
         or edge_rows[-1]["edge_type"] != "observation"
     ):
         raise Servo2Error("DISCOVERY_WITNESS_ACTION_EXECUTION_MISSING", witness_id)
