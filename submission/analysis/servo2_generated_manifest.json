@@ -9,7 +9,7 @@
   "inputs": {
     "servo2_cases.csv": "6c9bf08f366d19cf19735c9d931b2ad1553910b1b3ca40148ecd3652bae098ed",
     "servo2_closure_statuses.csv": "7d90a95091e0987fb8efad39935374e89fa5454f72eef86c6797e97a87829eed",
-    "servo2_closure_witnesses.csv": "a6bcc974d3c406ae61ce3a3f07c817258c9993268467e557b6deb3fc0a019a24",
+    "servo2_closure_witnesses.csv": "0c5b8ac6ece5b75494b1160ea8b1d5e48b1c931f09b616113c483897513ed7ec",
     "servo2_domain_anchors.csv": "0a8c015f5c60aec202f35c3e386a818303064c9cd49a2ba34cbe1c2692e20574",
     "servo2_selection_ledger.csv": "3a80bf220079e825ad347aae03478eb82b90a629f58ae7ae6b418ac96640bf2d"
   },

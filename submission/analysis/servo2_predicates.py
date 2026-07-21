@@ -80,10 +80,9 @@ def _require_experimental_adaptation(
     endpoint_refs: tuple[str, ...],
 ) -> None:
     edge_types = {edge["edge_type"] for edge in edge_rows}
-    event_ids = {event["event_id"] for event in event_rows}
     execution_supported = any(
-        event["event_class"] == "execution" for event in event_rows
-    ) or len(event_ids) == 1
+        event["event_class"] == "execution" for event in event_rows[1:]
+    )
     valid = (
         len(event_rows) >= 2
         and "feedback_control" in edge_types

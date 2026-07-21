@@ -44,3 +44,22 @@ def test_experimental_adaptation_requires_later_execution(package) -> None:
         run_cli(package, "public-regeneration"),
         "EXPERIMENTAL_ADAPTATION_PATTERN_MISMATCH",
     )
+
+
+def test_every_established_adaptation_names_a_later_execution(package) -> None:
+    witness_path = table(package, "closure_witnesses")
+    _, witnesses = csv_rows(witness_path)
+    event_path = table(package, "events")
+    _, events = csv_rows(event_path)
+    classes = {row["event_id"]: row["event_class"] for row in events}
+
+    adaptations = [
+        row
+        for row in witnesses
+        if row["predicate"] == "experimental_adaptation"
+        and row["predicate_status"] == "established"
+    ]
+    assert adaptations
+    for witness in adaptations:
+        event_ids = [token.split("@")[0] for token in witness["ordered_event_ids"].split(";")]
+        assert any(classes[event_id] == "execution" for event_id in event_ids[1:])

@@ -1,8 +1,8 @@
 {
-  "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v3.0.0",
-  "manifest_binding_sha256": "4641917e67d80a4e1ece423ab19db539e683f194422774615fde14e12c5a3078",
+  "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v3.0.1",
+  "manifest_binding_sha256": "a3adee08e77269370ed7a36d6575a66e14277dd17ed17b4e8e0496cb3ffa38b1",
   "pdf_filename": "servo_caiscfp2026_post-submit.pdf",
-  "pdf_sha256": "9842fe8dcfa1e5e6bd84803dee992252ce41e11b6edd26664d387e2769ac4a48",
+  "pdf_sha256": "cf263c45d2e8c8bef9801b36fb38a47a39a6803f01e6b199398f0de39f68c99d",
   "publication_doi": "not_published",
   "schema_version": "3.0.0",
   "state": "published_github_release"
