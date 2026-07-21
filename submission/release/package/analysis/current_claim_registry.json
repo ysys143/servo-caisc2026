@@ -2,8 +2,8 @@
   "schema_version": "1.0",
   "review_basis": "three-round adversarial audit completed 2026-07-22",
   "manuscripts": {
-    "main_post-submit.tex": "aecb985b8f23dcc7740d7a22234226050deb83cca2703714c2cf60a525a4883a",
-    "main_ko.tex": "c4cceb24bcd05a16cff6ac28bdcf8d1b993b62bb9d906f343903dc43482968fc"
+    "main_post-submit.tex": "513c896e6d71d2488ab8f81ccef74443628fb8446439c5b56ea95cfc09797f34",
+    "main_ko.tex": "7b6ff966930ea03855952f9563ab3c61c3dbc19beef805d5c9aadf792332b325"
   },
   "citation_keys": [
     "berk1966",

@@ -29,7 +29,9 @@ from .servo2_validate import (
 )
 
 
-def finalize(package_root: Path, corrected_pdf: Path) -> None:
+def finalize(
+    package_root: Path, corrected_pdf: Path, github_release: str | None = None
+) -> None:
     if corrected_pdf.name != PDF_NAME:
         raise Servo2Error("FINALIZATION_PDF_FILENAME_INVALID", corrected_pdf.name)
     if corrected_pdf.is_symlink():
@@ -61,12 +63,12 @@ def finalize(package_root: Path, corrected_pdf: Path) -> None:
     manifest["public_file_sha256"] = public_hashes
     attestation = {
         "schema_version": "3.0.0",
-        "state": "unpublished_local_candidate",
+        "state": "published_github_release" if github_release else "unpublished_local_candidate",
         "pdf_filename": PDF_NAME,
         "pdf_sha256": sha256(target),
         "manifest_binding_sha256": manifest_binding(manifest),
         "publication_doi": "not_published",
-        "github_release": "not_published",
+        "github_release": github_release or "not_published",
     }
     attestation_path = root / ATTESTATION_NAME
     attestation_path.write_text(
@@ -85,12 +87,14 @@ def main() -> None:
     parser = argparse.ArgumentParser(prog="servo2-finalize")
     parser.add_argument("--package-root", type=Path, required=True)
     parser.add_argument("--corrected-pdf", type=Path, required=True)
+    parser.add_argument("--github-release")
     options = parser.parse_args()
     try:
-        finalize(options.package_root, options.corrected_pdf)
+        finalize(options.package_root, options.corrected_pdf, options.github_release)
     except Servo2Error as error:
         raise SystemExit(str(error)) from error
-    print("SERVO2_FINALIZED: unpublished_local_candidate")
+    state = "published_github_release" if options.github_release else "unpublished_local_candidate"
+    print(f"SERVO2_FINALIZED: {state}")
 
 
 if __name__ == "__main__":

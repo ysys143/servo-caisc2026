@@ -367,11 +367,11 @@ Test-time scaling은 이 격차를 해소하지 못한다. 더 많은 추론 단
 
   \item \textbf{한계.} 이 논문은 기존 출판 시스템의 개념적 메타 분석이며 독창적인 실험을 포함하지 않는다. 여섯 case는 framework 개발에 사용됐고 일곱 anchor는 complete held-out graph가 아닌 partial record다. 전향적으로 동결된 contract를 미사용 case에 end-to-end 적용한 결과는 아직 없으므로 현재 근거는 내부 정합성과 표준 mapping을 지지할 뿐 out-of-sample portability를 입증하지 않는다. 선정된 case와 anchor는 구성타당성, 모집단 일반화 또는 다른 framework 대비 우월성도 검증하지 않는다.
 
-  \item \textbf{실험 결과 재현성: 아니오---아직 아님.} 이 논문에는 계산 실험이 없지만 주요 case annotation과 closure predicate는 Servo event--artifact package에 의존한다. 이전 공개 snapshot은 \url{https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v2.0.0}에 있으나 이번에 명확해진 predicate/status contract와 수정된 status matrix보다 앞선다. 현재 successor package가 불변 공개 release로 게시되기 전까지 수정 결과는 외부에서 완전히 재현할 수 없다.
+  \item \textbf{실험 결과 재현성: 예.} 이 논문에는 계산 실험이 없지만 주요 case annotation과 closure predicate는 Servo event--artifact package에 의존한다. 동기화된 package, validator, 정본 record, 생성 표, evidence ledger, audit 기록과 교정 원고는 \url{https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v3.0.0}의 불변 release에 결속돼 있으며 manifest와 attestation이 파일별 checksum을 제공한다.
 
   \item \textbf{실험 세부사항.} 문헌 검토 방법론은 Muka et al.\ (2020) 24단계 체계적 검토 지침을 따른다. 시스템 선택 기준: 가설--실험--검증 루프의 최소 하나의 구성요소를 자동화한다.
 
-  \item \textbf{데이터 및 코드 공개 접근: 아니오---아직 아님.} 이전 공개 snapshot은 접근 가능하지만 현재 작업 tree의 명확해진 predicate contract, provenance crosswalk와 수정 status를 포함하지 않는다. 현재 case, endpoint, artifact, event, edge, reliability, closure-witness, closure-status, domain-anchor, selection-ledger, code, table과 manuscript를 하나의 successor release가 결속하기 전까지 현재 분석에 대한 공개 접근은 불완전하다.
+  \item \textbf{데이터 및 코드 공개 접근: 예.} 위 release는 현재 case, endpoint, artifact, event, edge, reliability, closure-witness, closure-status, domain-anchor, selection-ledger, contract, code, table, audit 기록과 교정 원고를 함께 결속한다.
 
   \item \textbf{윤리적 및 사회적 영향.} 인간 권한 벡터는 현재 시스템에서 인간 감독의 기능별 역할을 명시적으로 다룬다. §\ref{sec:openproblems}은 다중 충실도 통합 및 검증된 자동 신규성 게이트의 현재 부재와 관련된 조기 수렴 위험을 논의한다.
 \end{itemize}

@@ -41,11 +41,17 @@ def verify_release_ready(root: Path, manifest: dict[str, str | dict[str, str]]) 
         attestation = json.loads(attestation_path.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, TypeError) as error:
         raise Servo2Error("RELEASE_ATTESTATION_INVALID", ATTESTATION_NAME) from error
+    state = attestation.get("state")
+    release = attestation.get("github_release")
+    publication_valid = (state == "unpublished_local_candidate" and release in {None, "not_published"}) or (
+        state == "published_github_release"
+        and isinstance(release, str)
+        and release.startswith("https://github.com/")
+    )
     if (
-        attestation.get("state") != "unpublished_local_candidate"
+        not publication_valid
         or attestation.get("pdf_filename") != PDF_NAME
         or attestation.get("publication_doi") not in {None, "not_published"}
-        or attestation.get("github_release") not in {None, "not_published"}
     ):
         raise Servo2Error("RELEASE_ATTESTATION_INVALID", "publication state")
     actual_pdf_hash = sha256(pdf)
