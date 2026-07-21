@@ -38,7 +38,7 @@ def sanitize_ledger(source: Path) -> bytes:
                 raise Servo2Error("EVIDENCE_ID_CONFLICT", identifier)
             indexed[identifier] = entry
     payload = {
-        "schema_version": "2.0.0",
+        "schema_version": "3.0.0",
         "evidence": [indexed[key] for key in sorted(indexed)],
     }
     return (

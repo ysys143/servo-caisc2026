@@ -1,55 +1,55 @@
 schema_version,endpoint_id,case_id,endpoint_kind,component,description,status
-2.0.0,C01.S,C01,component,S,represented chemistry task and procedure space,implemented
-2.0.0,C01.G,C01,component,G,planner and tool-using generation modules,implemented
-2.0.0,C01.E,C01,component,E,code and partially manual physical execution,implemented
-2.0.0,C01.V,C01,component,V,execution and reactivity evaluation,implemented
-2.0.0,C01.M,C01,component,M,reused tool outputs and reaction information,unclear
-2.0.0,C01.pi,C01,component,pi,reactive correction and guidance policy,implemented
-2.0.0,C01.A,C01,artifact_store,A,protocol and result artifact state,implemented
-2.0.0,C01.W_A,C01,interface,W_A,protocol synthesis and correction,implemented
-2.0.0,C01.external,C01,external,external,human task input; manual plate motion; and labeling,implemented
-2.0.0,C02.S,C02,component,S,idea and computational experiment space,implemented
-2.0.0,C02.G,C02,component,G,idea and experiment generator,implemented
-2.0.0,C02.E,C02,component,E,Aider computational experiment executor,implemented
-2.0.0,C02.V,C02,component,V,prior-art; result; archive; and paper evaluation,implemented
-2.0.0,C02.M,C02,component,M,experiment journal and archive,implemented
-2.0.0,C02.pi,C02,component,pi,result-conditioned sequential replanning,implemented
-2.0.0,C02.A,C02,artifact_store,A,idea; journal; manuscript; review; and archive state,implemented
-2.0.0,C02.W_A,C02,interface,W_A,manuscript synthesis and optional revision,implemented
-2.0.0,C02.external,C02,external,external,human setup and downstream use,implemented
-2.0.0,C03.S,C03,component,S,template-free tree search space,implemented
-2.0.0,C03.G,C03,component,G,ideation; reflection; and node expansion,implemented
-2.0.0,C03.E,C03,component,E,computational experiment execution,implemented
-2.0.0,C03.V,C03,component,V,stage; plot; node; manuscript; and external evaluation,implemented
-2.0.0,C03.M,C03,component,M,tree history; replication; and aggregation state,implemented
-2.0.0,C03.pi,C03,component,pi,best-first and stage-root selection,implemented
-2.0.0,C03.A,C03,artifact_store,A,node; plot; aggregate; and manuscript state,implemented
-2.0.0,C03.W_A,C03,interface,W_A,aggregation and manuscript synthesis,implemented
-2.0.0,C03.external,C03,external,external,manual submission selection and workshop review,implemented
-2.0.0,C04.S,C04,component,S,human idea; workflow; and code-variant space,implemented
-2.0.0,C04.G,C04,component,G,specialized planning; coding; and reporting agents,implemented
-2.0.0,C04.E,C04,component,E,mle-solver execution,implemented
-2.0.0,C04.V,C04,component,V,execution and PhD revision evaluation,implemented
-2.0.0,C04.M,C04,component,M,phase files and reflection records,implemented
-2.0.0,C04.pi,C04,component,pi,sequential stage and revisit decisions,implemented
-2.0.0,C04.A,C04,artifact_store,A,code; result; plan; and report state,implemented
-2.0.0,C04.W_A,C04,interface,W_A,code and report revision,implemented
-2.0.0,C04.external,C04,external,external,human research idea and final use,implemented
-2.0.0,C05.S,C05,component,S,yeast-model hypothesis space,implemented
-2.0.0,C05.G,C05,component,G,hypothesis generation from domain model,implemented
-2.0.0,C05.E,C05,component,E,robotic physical experiment execution,implemented
-2.0.0,C05.V,C05,component,V,statistical physical hypothesis test,implemented
-2.0.0,C05.M,C05,component,M,relational database and domain model,implemented
-2.0.0,C05.pi,C05,component,pi,experiment selection from updated model,implemented
-2.0.0,C05.A,C05,artifact_store,A,measurement; metadata; and domain-model state,implemented
-2.0.0,C05.W_A,C05,interface,W_A,no distinct artifact-writing interface,not_applicable
-2.0.0,C05.external,C05,external,external,human supplies and platform maintenance,implemented
-2.0.0,C06.S,C06,component,S,task; idea; implementation; and experiment space,implemented
-2.0.0,C06.G,C06,component,G,ideation; survey grounding; and self-evolution,implemented
-2.0.0,C06.E,C06,component,E,iterative code execution,implemented
-2.0.0,C06.V,C06,component,V,idea; human; debug; and performance evaluation,implemented
-2.0.0,C06.M,C06,component,M,implementation and result records,implemented
-2.0.0,C06.pi,C06,component,pi,ranking; evolution; and replanning,implemented
-2.0.0,C06.A,C06,artifact_store,A,idea; code; and result state,implemented
-2.0.0,C06.W_A,C06,interface,W_A,idea and code revision,implemented
-2.0.0,C06.external,C06,external,external,human scope and optional feedback,implemented
+3.0.0,C01.S,C01,component,S,represented chemistry task and procedure space,implemented
+3.0.0,C01.G,C01,component,G,planner and tool-using generation modules,implemented
+3.0.0,C01.E,C01,component,E,code and partially manual physical execution,implemented
+3.0.0,C01.V,C01,component,V,execution and reactivity evaluation,implemented
+3.0.0,C01.M,C01,component,M,reused tool outputs and reaction information,unclear
+3.0.0,C01.pi,C01,component,pi,reactive correction and guidance policy,implemented
+3.0.0,C01.A,C01,artifact_store,A,protocol and result artifact state,implemented
+3.0.0,C01.W_A,C01,interface,W_A,protocol synthesis and correction,implemented
+3.0.0,C01.external,C01,external,external,human task input; manual plate motion; and labeling,implemented
+3.0.0,C02.S,C02,component,S,idea and computational experiment space,implemented
+3.0.0,C02.G,C02,component,G,idea and experiment generator,implemented
+3.0.0,C02.E,C02,component,E,Aider computational experiment executor,implemented
+3.0.0,C02.V,C02,component,V,prior-art; result; archive; and paper evaluation,implemented
+3.0.0,C02.M,C02,component,M,experiment journal and archive,implemented
+3.0.0,C02.pi,C02,component,pi,result-conditioned sequential replanning,implemented
+3.0.0,C02.A,C02,artifact_store,A,idea; journal; manuscript; review; and archive state,implemented
+3.0.0,C02.W_A,C02,interface,W_A,manuscript synthesis and optional revision,implemented
+3.0.0,C02.external,C02,external,external,human setup and downstream use,implemented
+3.0.0,C03.S,C03,component,S,template-free tree search space,implemented
+3.0.0,C03.G,C03,component,G,ideation; reflection; and node expansion,implemented
+3.0.0,C03.E,C03,component,E,computational experiment execution,implemented
+3.0.0,C03.V,C03,component,V,stage; plot; node; manuscript; and external evaluation,implemented
+3.0.0,C03.M,C03,component,M,tree history; replication; and aggregation state,implemented
+3.0.0,C03.pi,C03,component,pi,best-first and stage-root selection,implemented
+3.0.0,C03.A,C03,artifact_store,A,node; plot; aggregate; and manuscript state,implemented
+3.0.0,C03.W_A,C03,interface,W_A,aggregation and manuscript synthesis,implemented
+3.0.0,C03.external,C03,external,external,manual submission selection and workshop review,implemented
+3.0.0,C04.S,C04,component,S,human idea; workflow; and code-variant space,implemented
+3.0.0,C04.G,C04,component,G,specialized planning; coding; and reporting agents,implemented
+3.0.0,C04.E,C04,component,E,mle-solver execution,implemented
+3.0.0,C04.V,C04,component,V,execution and PhD revision evaluation,implemented
+3.0.0,C04.M,C04,component,M,phase files and reflection records,implemented
+3.0.0,C04.pi,C04,component,pi,sequential stage and revisit decisions,implemented
+3.0.0,C04.A,C04,artifact_store,A,code; result; plan; and report state,implemented
+3.0.0,C04.W_A,C04,interface,W_A,code and report revision,implemented
+3.0.0,C04.external,C04,external,external,human research idea and final use,implemented
+3.0.0,C05.S,C05,component,S,yeast-model hypothesis space,implemented
+3.0.0,C05.G,C05,component,G,hypothesis generation from domain model,implemented
+3.0.0,C05.E,C05,component,E,robotic physical experiment execution,implemented
+3.0.0,C05.V,C05,component,V,statistical physical hypothesis test,implemented
+3.0.0,C05.M,C05,component,M,relational database and domain model,implemented
+3.0.0,C05.pi,C05,component,pi,experiment selection from updated model,implemented
+3.0.0,C05.A,C05,artifact_store,A,measurement; metadata; and domain-model state,implemented
+3.0.0,C05.W_A,C05,interface,W_A,no distinct artifact-writing interface,not_applicable
+3.0.0,C05.external,C05,external,external,human supplies and platform maintenance,implemented
+3.0.0,C06.S,C06,component,S,task; idea; implementation; and experiment space,implemented
+3.0.0,C06.G,C06,component,G,ideation; survey grounding; and self-evolution,implemented
+3.0.0,C06.E,C06,component,E,iterative code execution,implemented
+3.0.0,C06.V,C06,component,V,idea; human; debug; and performance evaluation,implemented
+3.0.0,C06.M,C06,component,M,implementation and result records,implemented
+3.0.0,C06.pi,C06,component,pi,ranking; evolution; and replanning,implemented
+3.0.0,C06.A,C06,artifact_store,A,idea; code; and result state,implemented
+3.0.0,C06.W_A,C06,interface,W_A,idea and code revision,implemented
+3.0.0,C06.external,C06,external,external,human scope and optional feedback,implemented

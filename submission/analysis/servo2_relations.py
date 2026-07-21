@@ -158,7 +158,18 @@ def _closure_links(
     witnesses: dict[str, dict[str, str]],
 ) -> None:
     del cases
+    allowed_bases = {
+        "established": {"positive_witness"},
+        "not_established": {"explicit_negative", "complete_trace_failure"},
+        "unknown": {"insufficient_reporting"},
+        "not_applicable": {"out_of_scope"},
+    }
     for row in table.rows:
+        if row["decision_basis"] not in allowed_bases[row["status"]]:
+            raise Servo2Error(
+                "CLOSURE_STATUS_BASIS_MISMATCH",
+                f"{row['case_id']}:{row['predicate']}",
+            )
         refs = split_values(row["witness_ids"])
         if row["status"] == "established" and not refs:
             raise Servo2Error(

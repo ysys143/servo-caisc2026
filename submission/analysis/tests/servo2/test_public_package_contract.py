@@ -10,6 +10,11 @@ from conftest import assert_rejected, run_cli, tree_digest
 SECRET_MARKERS = ("OPENAI_API_KEY", "ANTHROPIC_API_KEY", "GEMINI_API_KEY")
 SECRET_TOKEN = re.compile(r"(?<![A-Za-z0-9])sk-(?:proj|ant)-[A-Za-z0-9_-]{24,}(?![A-Za-z0-9])")
 ALLOWED_RELEASE_PDFS = {"servo_caiscfp2026_post-submit.pdf"}
+NORMATIVE_ANALYSIS_DOCS = {
+    "holdout_protocol.md",
+    "predicate_contract.md",
+    "provenance_crosswalk.md",
+}
 
 
 def _manifest(package: Path) -> Path:
@@ -33,6 +38,14 @@ def _generated_paths(package: Path) -> list[Path]:
         assert candidate.is_file(), f"manifest target not found: {name}"
         paths.append(candidate)
     return paths
+
+
+def test_public_package_contains_normative_analysis_documents(package: Path) -> None:
+    present = {path.name for path in (package / "analysis").glob("*.md")}
+    assert NORMATIVE_ANALYSIS_DOCS <= present
+    manifest = json.loads(_manifest(package).read_text(encoding="utf-8"))
+    canonical = manifest["canonical_input_sha256"]
+    assert {f"analysis/{name}" for name in NORMATIVE_ANALYSIS_DOCS} <= set(canonical)
 
 
 def test_public_package_contains_no_absolute_paths_secrets_or_source_pdfs(valid_public: Path) -> None:

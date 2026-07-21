@@ -107,7 +107,7 @@ def _derived_content(tables: dict[str, Table]) -> dict[str, bytes]:
     counts = {name: len(table.rows) for name, table in sorted(tables.items())}
     summary = (
         json.dumps(
-            {"schema_version": "2.0.0", "record_counts": counts},
+            {"schema_version": "3.0.0", "record_counts": counts},
             ensure_ascii=True,
             indent=2,
             sort_keys=True,

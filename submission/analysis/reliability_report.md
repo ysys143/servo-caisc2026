@@ -2,12 +2,15 @@
 
 ## Current schema and two historical audits
 
-Servo schema 1.0 is defined in `servo_schema.yaml`. The six current system
-records and 21 event-channel records are author-interpreted case data, not a new
-independent coding study. `validate_servo_consistency.py` checks controlled
-fields, evidence ownership, trigger/destination compatibility, derived closure,
-the historical/current boundary, and bilingual table generation. Its PASS does
-not establish semantic entailment or construct validity.
+The current normative contract is Servo Schema 2, defined in
+`servo_schema.yaml`. Its case, endpoint, artifact, event, edge, reliability,
+closure-witness, closure-status, domain-anchor, and selection-ledger records are
+author-interpreted source annotations, not a new independent coding study.
+`python -m analysis.validate_servo2` checks their structural and provenance
+contracts and generates the bilingual projections. Its PASS does not establish
+semantic entailment or construct validity. Schema 1 and its
+`validate_servo_consistency.py` entry point are retained only as historical,
+non-authoritative migration material.
 
 The repository contains historical agreement results and the R24 frozen-schema
 audit. They use different constructs and must not be combined.
@@ -77,14 +80,16 @@ adjudicated channel boundaries against the frozen local-source packets. A
 channel is split for a distinct evaluator, target, decision role, or downstream
 destination and merged only when the same reported mechanism supplies those
 roles. `None identified` means that the bounded packet reports no separate
-terminal or external channel, not that one is known to be absent. The
-current result is `servo_validator_channels.csv`; the legacy-named
-`core_servo_channels.csv` is a generated compatibility projection.
-`core_servo_evidence_ledger.json` resolves
+terminal or external channel, not that one is known to be absent. That
+development-era result is preserved in `servo_validator_channels.csv`;
+`core_servo_channels.csv` is its generated compatibility projection. Neither is
+a current semantic input. The current representation is the set of Schema 2
+case, endpoint, artifact, event, edge, reliability, and predicate-witness
+records named in `servo_schema.yaml`. `core_servo_evidence_ledger.json` resolves
 every cited evidence ID to an exact quote, page, and PDF hash, and
-`core_servo_disagreement_adjudication.md` records the principal editorial
-resolutions. This is author-interpreted source-grounded case analysis, not a
-fourth coder, a gold standard, a channel-level reproducibility study, or a
+`core_servo_disagreement_adjudication.md` records the principal historical
+editorial resolutions. This is author-interpreted source-grounded case analysis,
+not a fourth coder, a gold standard, a channel-level reproducibility study, or a
 post-hoc improvement to the agreement coefficients.
 
 The 42 model calls and individual facets are not independent scientific systems.

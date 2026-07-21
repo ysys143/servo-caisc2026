@@ -47,7 +47,7 @@ def curate(package_root: Path, source_root: Path, destination: Path) -> None:
                 "pdf_sha256": digest,
             }
         )
-    manifest = {"schema_version": "2.0.0", "sources": copied}
+    manifest = {"schema_version": "3.0.0", "sources": copied}
     (destination / "curated_source_manifest.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )

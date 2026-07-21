@@ -60,7 +60,7 @@ def finalize(package_root: Path, corrected_pdf: Path) -> None:
     }
     manifest["public_file_sha256"] = public_hashes
     attestation = {
-        "schema_version": "2.0.0",
+        "schema_version": "3.0.0",
         "state": "unpublished_local_candidate",
         "pdf_filename": PDF_NAME,
         "pdf_sha256": sha256(target),

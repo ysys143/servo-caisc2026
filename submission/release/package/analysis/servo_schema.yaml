@@ -1,4 +1,4 @@
-schema_version: "2.0.0"
+schema_version: "3.0.0"
 status: current_normative
 title: Servo portable event-and-evidence contract
 scope_statement: >-
@@ -67,7 +67,7 @@ table_headers:
   edges: [schema_version, edge_id, case_id, configuration_id, task_regime_id, source_event_id, source_endpoint_id, destination_endpoint_id, edge_type, route_status, feedback_dependent, evidence_ids, closure_eligible, exclusion_reason, mediator, edge_scope]
   reliability: [schema_version, reliability_id, case_id, evaluated_event_id, evaluation_target, benchmark_population, metric_or_test, finding, independence_status, runtime_edge_eligible, evidence_status, evidence_ids, uncertainty]
   closure_witnesses: [schema_version, witness_id, case_id, configuration_id, task_regime_id, predicate, ordered_event_ids, ordered_edge_ids, ordered_endpoint_ids, evidence_ids, predicate_status, execution_status, uncertainty]
-  closure_statuses: [schema_version, case_id, predicate, status, witness_ids, rationale]
+  closure_statuses: [schema_version, case_id, predicate, status, witness_ids, rationale, decision_basis]
   domain_anchors: [schema_version, anchor_id, system, domain, citation_key, source_pdf_sha256, pdf_page, exact_quote, version_id, configuration_id, task_regime_id, S, G, E, V, M, pi, A, W_A, H_S, H_G, H_E, H_V, H_M, H_pi, analysis_target, evidence_source, evaluator_or_mechanism, decision_role, fidelity_boundary, feedback_summary, boundary, evidence_status, uncertainty]
   domain_anchor_channels: [schema_version, channel_id, anchor_id, phase, target, evidence_source, evaluator, decision_role, routed_destination, independence_status, fidelity, pdf_page, exact_quote, evidence_status, uncertainty]
   selection_ledger: [schema_version, selection_id, record_kind, record_id, lineage_id, selection_status, selection_basis, comparison_role, exclusion_boundary, frozen]
@@ -99,6 +99,7 @@ enum_fields:
   closure_witnesses.execution_status: [implemented_reported, optional_configurable, structurally_inferred, trace_demonstrated]
   closure_statuses.predicate: [execution_repair, experimental_adaptation, artifact_revision, discovery_cycle_feedback, human_mediated_feedback]
   closure_statuses.status: [established, not_established, unknown, not_applicable]
+  closure_statuses.decision_basis: [positive_witness, explicit_negative, complete_trace_failure, insufficient_reporting, out_of_scope]
   domain_anchors.evidence_status: [directly_stated, structurally_inferred, mixed_direct_and_inferred, not_yet_source_adjudicated]
   domain_anchors.H_S: [human_controls, human_participates, system_controls, shared, not_reported]
   domain_anchors.H_G: [human_controls, human_participates, system_controls, shared, not_reported]
@@ -147,6 +148,29 @@ closure_contract:
   statuses: [established, not_established, unknown, not_applicable]
   witness_execution_statuses: [implemented_reported, optional_configurable, structurally_inferred, trace_demonstrated]
   set_valued: true
+  predicate_patterns:
+    execution_repair:
+      event_classes: [runtime_validation]
+      required_edge_types: [artifact_revision, feedback_control]
+      required_endpoints: [W_A, E]
+      minimum_event_occurrences: 2
+    experimental_adaptation:
+      required_edge_types: [epistemic_update, feedback_control]
+      required_endpoints: [E]
+      minimum_event_occurrences: 2
+    artifact_revision:
+      required_edge_types: [artifact_revision]
+      required_endpoints: [W_A]
+      minimum_event_occurrences: 1
+    discovery_cycle_feedback:
+      required_edge_types: [epistemic_update, feedback_control, observation]
+      required_endpoints: [E, V]
+      minimum_evidence_occurrences: 2
+      minimum_intervening_executions: 1
+    human_mediated_feedback:
+      event_kinds: [human_feedback]
+      required_edge_types: [human_mediation]
+      minimum_event_occurrences: 1
   discovery_cycle_required_sequence:
     - evidence_event
     - epistemic_update_edge
@@ -164,6 +188,18 @@ closure_contract:
     - fixed_schedule
     - pre_action_filter_only
     - terminal_assessment_only
+  status_decision_rules:
+    established: positive_witness
+    not_established: [explicit_negative, complete_trace_failure]
+    unknown: insufficient_reporting
+    not_applicable: out_of_scope
+  mismatch_rules:
+    missing_required_event: unknown
+    ambiguous_order: unknown
+    ambiguous_artifact_identity: unknown
+    source_silent_about_required_edge: unknown
+    explicit_external_only_route: not_established
+    complete_trace_missing_required_transition: not_established
 
 artifact_contract:
   required_lifecycle_fields: [producer_endpoint_id, producer_event_id, producer_sequence, first_consumed_sequence]

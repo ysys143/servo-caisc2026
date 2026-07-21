@@ -48,7 +48,7 @@ in whether their acceptance gate, novelty judgment, and memory structure can sup
 diagnostic vocabulary that keeps mechanical closure, validator calibration, novelty judgment, and
 memory separable rather than collapsing them into a single notion of autonomy.
 Scope. We include systems whose primary goal is automated scientific discovery through
-hypothesis-experiment-validation cycles, and exclude specialized predictors without a generationand-search loop (e.g., AlphaFold [Jumper et al., 2021]). Within that scope we analyze widely-cited
+hypothesis-experiment-validation cycles, and exclude specialized predictors without a hypothesisvalidation loop (e.g., AlphaFold [Jumper et al., 2021]). Within that scope we analyze widely-cited
 representative systems rather than an exhaustive enumeration; this convenience sampling introduces
 selection bias that we flag in Section 8.
 
@@ -474,10 +474,6 @@ Proposed falsification test: The gap is refuted if a system implements an eviden
 for escalating E from computational proxy to physical experiment and achieves a higher rate of
 experimentally validated discoveries per unit of physical experimental cost than a fixed-escalation
 system, evaluated on a pre-registered benchmark.
-The hard questions: how confident must computational evidence be before warranting physical escalation, and how should oracle calibration error (e.g., DFT approximation) inform the threshold?
-No surveyed system answers either.
-The three open problems form a dependency chain: V calibrates reward at each fidelity level; π determines which hypotheses most warrant escalation; and E escalation criteria connect computational
-closure to physical discovery.
 
 8
 
@@ -510,18 +506,18 @@ and multi-vendor reliability estimates are in Appendix B (calibration Fleiss’ 
 characterize systems whose validators we argue are unreliable is a reflexive limitation, which is
 why the central claim is pinned to the calibration sub-construct and human expert coding remains
 necessary future work.
-8
 
-9
+9
 
 Conclusion
 
-We introduced Servo (S, G, E, V, M, π), connecting AI Scientist systems to POMDP and BED
-theory across six core systems and seven domains. Its propositions support only narrow claims—
-separating observation, reward validation, and human novelty judgment rather than proving V completeness is the primary determinant—and the organizing hypothesis linking gating calibration to
-trustworthy closure remains provisional. Servo names the vocabulary for closing the remaining bottlenecks: validator completeness, search-policy design, and experiment-fidelity escalation.
+We introduced Servo (S, G, E, V, M, π), connecting AI Scientist systems to POMDP and BED theory across six core systems and seven domains. Its propositions support only narrow claims, and the
+organizing hypothesis linking gating calibration to trustworthy closure remains provisional. Servo
+names the vocabulary for closing the remaining bottlenecks: validator completeness, search-policy
+design, and experiment-fidelity escalation.
+8
 
-References
+References
 G. V. Aher, R. I. Arriaga, and A. T. Kalai. Using large language models to simulate multiple humans
 and replicate human subject studies. In International Conference on Machine Learning, 2023.
 arXiv:2208.10264.
@@ -556,15 +552,15 @@ Processing Systems, 2020. arXiv:2006.11287.
 K. Darvish, M. Skreta, Y. Zhao, N. Yoshikawa, S. Som, M. Bogdanovic, Y. Cao, H. Hao, H. Xu,
 A. Aspuru-Guzik, A. Garg, and F. Shkurti. ORGANA: A robotic assistant for automated chemistry
 experimentation and characterization, 2024. arXiv:2401.06949; also in Matter (Cell Press) 2025.
-9
-
-T. Feng, Q. V. Le, T. Luong, T. H. Trinh, G. Bingham, D. Hwang, Y. Chervonyi, et al. Towards
+T. Feng, Q. V. Le, T. Luong, T. H. Trinh, G. Bingham, D. Hwang, Y. Chervonyi, et al. Towards
 autonomous mathematics research. arXiv preprint arXiv:2602.10177, 2026. arXiv:2602.10177.
 A. Foster, M. Jankowiak, E. Bingham, P. Horsfall, Y. W. Teh, T. Rainforth, and N. Goodman. Variational Bayesian optimal experimental design. In Advances in Neural Information Processing
 Systems, 2019. arXiv:1903.05480.
 A. Foster, D. R. Ivanova, I. Malik, and T. Rainforth. Deep adaptive design: Amortizing sequential Bayesian experimental design. In International Conference on Machine Learning, 2021.
 arXiv:2103.02438.
-J. Geng, H. Chen, D. Arumugam, and T. L. Griffiths. Are large language models reliable AI scientists? assessing reverse-engineering of black-box systems, 2025. arXiv:2505.17968.
+9
+
+J. Geng, H. Chen, D. Arumugam, and T. L. Griffiths. Are large language models reliable AI scientists? assessing reverse-engineering of black-box systems, 2025. arXiv:2505.17968.
 S. Ghosal and A. van der Vaart. Fundamentals of Nonparametric Bayesian Inference. Cambridge
 Series in Statistical and Probabilistic Mathematics. Cambridge University Press, 2017.
 J. Gottweis, W.-H. Weng, A. Daryin, T. Tu, P. Sirkovic, A. Myaskovsky, G. Glowatyj, F. Weissenberger, A. Orlandi, D. Popovici, et al. Accelerating scientific discovery with Co-Scientist.
@@ -598,11 +594,10 @@ T. Hwang, S. Kim, J. Kim, S. Kim, and J. Jung. Spacer: Towards engineered scient
 arXiv preprint arXiv:2508.17661, 2025. arXiv:2508.17661.
 J. Liu et al. The last human-written paper: Agent-Native research artifacts.
 arXiv:2604.24658, 2026. arXiv:2604.24658.
-10
 
 arXiv preprint
 
-Y. Liu, Z. Yang, T. Xie, J. Ni, B. Gao, Y. Li, S. Tang, W. Ouyang, E. Cambria, and D. Zhou.
+Y. Liu, Z. Yang, T. Xie, J. Ni, B. Gao, Y. Li, S. Tang, W. Ouyang, E. Cambria, and D. Zhou.
 ResearchBench: Benchmarking LLMs in scientific discovery via inspiration-based task decomposition, 2025. arXiv:2503.21248; Findings of ACL 2026.
 Z. Liu, K. Liu, Y. Zhu, X. Lei, Z. Yang, Z. Zhang, P. Li, and Y. Liu. AIGS: Generating science from
 AI-powered automated falsification, 2024. arXiv:2411.11910.
@@ -610,7 +605,9 @@ C. Lu, C. Lu, R. T. Lange, J. Foerster, J. Clune, and D. Ha. The AI Scientist: T
 open-ended scientific discovery. arXiv preprint arXiv:2408.06292, 2024.
 C. Lu, C. Lu, R. T. Lange, Y. Yamada, S. Hu, J. Foerster, D. Ha, and J. Clune. Towards end-to-end
 automation of AI research. Nature, 651:914–919, 2026. doi: 10.1038/s41586-026-10265-5.
-B. S. Manning, K. Zhu, and J. J. Horton. Automated social science: Language models as scientist and
+10
+
+B. S. Manning, K. Zhu, and J. J. Horton. Automated social science: Language models as scientist and
 subjects. Working Paper 32381, National Bureau of Economic Research, 2024. arXiv:2404.11794.
 A. Merchant, S. Batzner, S. S. Schoenholz, M. Aykol, G. Cheon, and E. D. Cubuk. Scaling deep
 learning for materials discovery. Nature, 624:80–85, 2023.
@@ -644,9 +641,7 @@ using quantum-chemical feedback. In International Conference on Machine Learning
 arXiv:2402.10980.
 A. Surina, A. Mansouri, L. Quaedvlieg, A. Seddas, M. Viazovska, E. Abbe, and C. Gulcehre. Algorithm discovery with LLMs: Evolutionary search meets reinforcement learning. arXiv preprint
 arXiv:2504.05108, 2025.
-11
-
-N. J. Szymanski, B. Rendy, Y. Fei, R. E. Kumar, T. He, D. Milsted, M. J. McDermott, M. Gallant,
+N. J. Szymanski, B. Rendy, Y. Fei, R. E. Kumar, T. He, D. Milsted, M. J. McDermott, M. Gallant,
 E. D. Cubuk, A. Merchant, H. Kim, A. Jain, C. J. Bartel, K. Persson, Y. Zeng, and G. Ceder. An
 autonomous laboratory for the accelerated synthesis of inorganic materials. Nature, 624:86–91,
 2023. doi: 10.1038/s41586-023-06734-w.
@@ -657,7 +652,9 @@ correction: An autonomous laboratory for the accelerated synthesis of inorganic 
 T. Taniguchi, S. Takagi, J. Otsuka, Y. Hayashi, and H. T. Hamada. Collective predictive coding
 as model of science: Formalizing scientific activities towards generative science. Royal Society
 Open Science, 12(6):241678, 2025. doi: 10.1098/rsos.241678. arXiv:2409.00102.
-A. V. Tobias and A. Wahab. Autonomous ‘self-driving’ laboratories: a review of technology and
+11
+
+A. V. Tobias and A. Wahab. Autonomous ‘self-driving’ laboratories: a review of technology and
 policy implications. Royal Society Open Science, 12(7):250646, 2025. doi: 10.1098/rsos.250646.
 S.-M. Udrescu and M. Tegmark. AI Feynman: A physics-inspired method for symbolic regression.
 Science Advances, 6(16):eaay2631, 2020.

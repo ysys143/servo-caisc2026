@@ -19,6 +19,7 @@ MODULES = (
     "servo2_graph.py",
     "servo2_io.py",
     "servo2_package.py",
+    "servo2_predicates.py",
     "servo2_relations.py",
     "servo2_release.py",
     "servo2_schema.py",
@@ -42,6 +43,11 @@ SERVO_TABLE_FILES = (
     "tbl-servo2-anchors.tex",
     "tbl-servo2-anchors-ko.tex",
     "servo2_generated_manifest.json",
+)
+ANALYSIS_DOCS = (
+    "holdout_protocol.md",
+    "predicate_contract.md",
+    "provenance_crosswalk.md",
 )
 PUBLIC_LOCATORS = {
     "boiko2023emergent": "https://doi.org/10.1038/s41586-023-06792-0",
@@ -78,6 +84,8 @@ def build(repository: Path, package: Path) -> None:
     for stem in TABLES:
         name = f"servo2_{stem}.csv"
         shutil.copy2(repository / "analysis" / name, analysis / name)
+    for name in ANALYSIS_DOCS:
+        shutil.copy2(repository / "analysis" / name, analysis / name)
     shutil.copy2(
         repository / "analysis" / "build_servo2_tables.py",
         analysis / "build_servo2_tables.py",
@@ -106,10 +114,11 @@ def build(repository: Path, package: Path) -> None:
         "analysis/servo2_evidence_ledger.json",
         "analysis/build_servo2_tables.py",
     ]
+    canonical_names.extend(f"analysis/{name}" for name in ANALYSIS_DOCS)
     canonical_names.extend(f"analysis/servo2_{stem}.csv" for stem in TABLES)
     canonical = {name: sha256(package / name) for name in sorted(canonical_names)}
     manifest = {
-        "schema_version": "2.0.0",
+        "schema_version": "3.0.0",
         "canonical_input_sha256": canonical,
         "generated_artifact_sha256": generated_hashes,
     }
@@ -148,7 +157,7 @@ def _source_registry(tables: dict[str, Table]) -> bytes:
                 }
             )
     payload = {
-        "schema_version": "2.0.0",
+        "schema_version": "3.0.0",
         "sources": sorted(rows, key=lambda row: row["record_id"]),
     }
     return (json.dumps(payload, indent=2, sort_keys=True) + "\n").encode()

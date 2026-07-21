@@ -32,6 +32,12 @@ STATUS_LABELS = {
     "unknown": (r"\{unknown\}", r"\{불명\}"),
     "not_applicable": (r"\{not applicable\}", r"\{해당 없음\}"),
 }
+
+
+class TableBuildError(Exception):
+    pass
+
+
 CASE_LABELS = {
     "C01": {
         "system": ("Coscientist", "Coscientist"),
@@ -103,30 +109,30 @@ def table(columns: str, header: list[str], rows: list[list[str]]) -> str:
 def validate(cases: list[dict[str, str]], closure: list[dict[str, str]], anchors: list[dict[str, str]], witnesses: list[dict[str, str]], ledger: list[dict[str, str]]) -> None:
     case_ids = {row["case_id"] for row in cases}
     if len(cases) != 6 or case_ids != set(CASE_LABELS) or len({row["lineage_id"] for row in cases}) != 5:
-        raise ValueError("expected exactly six cases, five lineages, and IDs C01--C06")
+        raise TableBuildError("expected exactly six cases, five lineages, and IDs C01--C06")
     pairs = {(row["case_id"], row["predicate"]) for row in closure}
     expected_pairs = {(case_id, predicate) for case_id in case_ids for predicate in PREDICATES}
     if len(closure) != 30 or pairs != expected_pairs:
-        raise ValueError("closure matrix must contain every case-predicate pair exactly once")
+        raise TableBuildError("closure matrix must contain every case-predicate pair exactly once")
     if any(row["status"] not in STATUS_LABELS for row in closure):
-        raise ValueError("unknown closure status")
+        raise TableBuildError("unknown closure status")
     if len(anchors) != 7 or {row["anchor_id"] for row in anchors} != set(ANCHOR_LABELS):
-        raise ValueError("expected exactly seven individual domain anchors")
+        raise TableBuildError("expected exactly seven individual domain anchors")
     witness_index = {row["witness_id"]: row for row in witnesses}
     if len(witness_index) != len(witnesses):
-        raise ValueError("duplicate closure witness ID")
+        raise TableBuildError("duplicate closure witness ID")
     for row in closure:
         witness_ids = () if row["witness_ids"] == "not_applicable" else tuple(row["witness_ids"].split(";"))
         for witness_id in witness_ids:
             witness = witness_index.get(witness_id)
             if witness is None or witness["case_id"] != row["case_id"] or witness["predicate_status"] != row["status"]:
-                raise ValueError(f"closure witness reference mismatch: {row['case_id']}/{row['predicate']}/{witness_id}")
+                raise TableBuildError(f"closure witness reference mismatch: {row['case_id']}/{row['predicate']}/{witness_id}")
     selected = {(row["record_kind"], row["record_id"]) for row in ledger if row["selection_status"] == "included"}
     expected_selected = {("core_case", case_id) for case_id in case_ids} | {("domain_anchor", anchor_id) for anchor_id in ANCHOR_LABELS}
     if selected != expected_selected:
-        raise ValueError("selection ledger does not exactly reference generated cases and anchors")
-    if any(row["schema_version"] != "2.0.0" for row in cases + closure + anchors + witnesses + ledger):
-        raise ValueError("mixed schema versions")
+        raise TableBuildError("selection ledger does not exactly reference generated cases and anchors")
+    if any(row["schema_version"] != "3.0.0" for row in cases + closure + anchors + witnesses + ledger):
+        raise TableBuildError("mixed schema versions")
 
 
 def build_cases(cases: list[dict[str, str]], language: int) -> str:
@@ -151,7 +157,7 @@ def build_anchors(anchors: list[dict[str, str]], language: int) -> str:
     for source in sorted(anchors, key=lambda row: row["anchor_id"]):
         labels = ANCHOR_LABELS[source["anchor_id"]]
         if source["system"] != labels[0][0]:
-            raise ValueError(f"anchor label mismatch: {source['anchor_id']}")
+            raise TableBuildError(f"anchor label mismatch: {source['anchor_id']}")
         rows.append([source["anchor_id"], tex(labels[0][language] + " / " + labels[1][language]), tex(labels[2][language]), tex(labels[3][language]), tex(labels[4][language]), tex(labels[5][language])])
     return table("llp{.18\\linewidth}p{.18\\linewidth}p{.18\\linewidth}p{.16\\linewidth}", header, rows)
 
@@ -178,7 +184,7 @@ def main() -> None:
     for name, content in outputs.items():
         (ROOT / name).write_bytes(content.encode("utf-8"))
     manifest = {
-        "schema_version": "2.0.0",
+        "schema_version": "3.0.0",
         "generator_sha256": digest(Path(__file__)),
         "inputs": {path.name: digest(path) for path in (CASE_PATH, CLOSURE_PATH, WITNESS_PATH, ANCHOR_PATH, LEDGER_PATH)},
         "outputs": {name: digest(ROOT / name) for name in sorted(outputs)},

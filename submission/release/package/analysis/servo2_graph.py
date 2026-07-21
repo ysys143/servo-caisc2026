@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from .servo2_io import Servo2Error, Table, require, split_values
+from .servo2_predicates import validate_predicate_pattern
 
 
 def validate_graph(tables: dict[str, Table]) -> None:
@@ -20,6 +21,7 @@ def validate_graph(tables: dict[str, Table]) -> None:
         event_refs, event_rows, edge_rows, endpoint_refs = _validate_witness_path(
             witness, events, endpoints, edges
         )
+        validate_predicate_pattern(witness, event_rows, edge_rows, endpoint_refs)
         if (
             require(witness, "predicate", "closure_witnesses")
             == "discovery_cycle_feedback"

@@ -79,6 +79,50 @@ def test_human_mediated_edge_cannot_be_counted_as_automated_discovery(package) -
     assert_rejected(run_cli(package, "public-regeneration"), "HUMAN_EDGE_MISCLASSIFIED_AUTOMATED")
 
 
+def test_human_feedback_path_cannot_be_counted_as_execution_repair(package) -> None:
+    path = table(package, "closure_witnesses")
+    header, rows = csv_rows(path)
+    predicate = column(rows[0], "predicate")
+    human = next(item for item in rows if item[predicate] == "human_mediated_feedback")
+    human[predicate] = "execution_repair"
+    write_rows(path, header, rows)
+
+    assert_rejected(run_cli(package, "public-regeneration"), "EXECUTION_REPAIR_PATTERN_MISMATCH")
+
+
+def test_repair_path_cannot_be_counted_as_experimental_adaptation(package) -> None:
+    path = table(package, "closure_witnesses")
+    header, rows = csv_rows(path)
+    predicate = column(rows[0], "predicate")
+    repair = next(item for item in rows if item[predicate] == "execution_repair")
+    repair[predicate] = "experimental_adaptation"
+    write_rows(path, header, rows)
+
+    assert_rejected(run_cli(package, "public-regeneration"), "EXPERIMENTAL_ADAPTATION_PATTERN_MISMATCH")
+
+
+def test_adaptation_path_cannot_be_counted_as_artifact_revision(package) -> None:
+    path = table(package, "closure_witnesses")
+    header, rows = csv_rows(path)
+    predicate = column(rows[0], "predicate")
+    adaptation = next(item for item in rows if item[predicate] == "experimental_adaptation")
+    adaptation[predicate] = "artifact_revision"
+    write_rows(path, header, rows)
+
+    assert_rejected(run_cli(package, "public-regeneration"), "ARTIFACT_REVISION_PATTERN_MISMATCH")
+
+
+def test_artifact_revision_path_cannot_be_counted_as_human_feedback(package) -> None:
+    path = table(package, "closure_witnesses")
+    header, rows = csv_rows(path)
+    predicate = column(rows[0], "predicate")
+    revision = next(item for item in rows if item[predicate] == "artifact_revision")
+    revision[predicate] = "human_mediated_feedback"
+    write_rows(path, header, rows)
+
+    assert_rejected(run_cli(package, "public-regeneration"), "HUMAN_MEDIATED_FEEDBACK_PATTERN_MISMATCH")
+
+
 def test_terminal_event_has_no_internal_successor(package) -> None:
     events_path = table(package, "events")
     event_header, events = csv_rows(events_path)

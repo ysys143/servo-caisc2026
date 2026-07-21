@@ -2,19 +2,22 @@
 
 ## Status and unit of analysis
 
-This document records the current Servo schema 1.0 author coding protocol. Its
-normative machine-readable definition is `servo_schema.yaml`; the only current
-substantive inputs are `servo_core_systems.csv` and
-`servo_validator_channels.csv`. The validator derives closure and generates the
-English and Korean projections from those files. The frozen R24
-artifacts under `multicoder/r24_final/` preserve the instructions actually shown
-to the three vendors and are a development audit, not an independent recoding of
-the current event-channel schema. The current schema supersedes the historical
-layer, scalar-human-intervention, `V_present`, `V_gating`, and `V_completeness`
-rubrics for substantive analysis. Those columns remain in `systems.csv` only to
+This document preserves the Servo Schema 1 author coding protocol and the frozen
+multicoder audit performed against it. Schema 1's
+`servo_core_systems.csv` and `servo_validator_channels.csv` are historical,
+non-authoritative migration material; they are not current substantive inputs.
+The current normative contract is Servo Schema 2 in `servo_schema.yaml`, whose
+case, endpoint, artifact, event, edge, reliability, closure-witness,
+closure-status, domain-anchor, and selection-ledger records are validated and
+projected by `python -m analysis.validate_servo2`. The frozen artifacts under
+`multicoder/r24_final/` preserve the instructions actually shown to the three
+vendors and are a development audit, not an independent recoding of the current
+event--evidence contract. Schema 2 supersedes the historical layer,
+scalar-human-intervention, `V_present`, `V_gating`, and `V_completeness` rubrics
+for substantive analysis. Those columns remain in `systems.csv` only to
 reconstruct earlier revisions and must not be used to rank systems.
 
-The final unit is a source-defined system version plus a validator channel. The
+The Schema 1 unit was a source-defined system version plus a validator channel. The
 14 records comprise 13 lineages because AI Scientist-v2 and the Nature 2026 AI
 Scientist describe the same agentic-tree method family at different publication
 stages. AI Scientist 2024 and Nature 2026 remain separate system versions. The
@@ -43,10 +46,10 @@ and statistical plan are hashed before the first run. A substantive change after
 coding begins creates a new protocol version and requires a complete rerun; cells
 are never selectively rerun.
 
-## Current post-R27 author schema
+## Historical Schema 1 channel synthesis
 
 For each implemented, proposed, external, unreported, or unclear validator
-channel, the current author synthesis records:
+channel, the development-era author synthesis recorded:
 
 - `trigger_phase`: pre-action, in-execution, post-observation, terminal, or
   external; this locates the validation event rather than assuming one
@@ -98,7 +101,7 @@ reviewer. The reviewer error study does not establish bias in the ideation filte
 In the Nature 2026 paper, the common idea-generation phase connects to Semantic
 Scholar and can discard ideas that closely resemble existing work. The
 template-free prompts also use literature-grounded reflection and refinement.
-The current record therefore codes one pre-action prior-art gate and keeps it
+The Schema 1 record therefore coded one pre-action prior-art gate and kept it
 separate from the later metrics, training dynamics, plot checks, and stage evaluators that
 control tree expansion and stage transitions. Its paper reviewer is terminal.
 Workshop review is external to the computational loop after manual submission
@@ -124,11 +127,13 @@ all raw outputs are frozen and is excluded from inter-coder agreement.
 The frozen model run supplies record-level facet proposals, a supplementary
 scope audit, and explicit disagreement diagnostics. Because a record-level
 union does not preserve which facet values belong to the same validator
-channel, it is not the final substantive table. After all responses are frozen,
-the six core cases are author-interpreted and editorially reconciled against the source packets in
+channel, it is not the current substantive representation. After all responses were frozen,
+the six core cases were author-interpreted and editorially reconciled against the source packets in
 `servo_validator_channels.csv`, with complete evidence provenance in
 `core_servo_evidence_ledger.json` and resolutions in
-`core_servo_disagreement_adjudication.md`. This author adjudication is disclosed
+`core_servo_disagreement_adjudication.md`. These Schema 1 artifacts are now
+historical and non-authoritative; the current Schema 2 records are named in
+`servo_schema.yaml`. This author adjudication is disclosed
 as source-grounded case analysis rather than treated as a coder or reference
 standard. A channel is split when the source reports a distinct trigger phase,
 evaluator, target, decision role, or downstream destination. Channels are merged only

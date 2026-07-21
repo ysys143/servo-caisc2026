@@ -1,42 +1,9 @@
-\begin{thebibliography}{62}
+\begin{thebibliography}{45}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
-
-\bibitem[Aher et~al.(2023)Aher, Arriaga, and Kalai]{aher2023turing}
-G.~V. Aher, R.~I. Arriaga, and A.~T. Kalai.
-\newblock Using large language models to simulate multiple humans and replicate
-  human subject studies.
-\newblock In \emph{International Conference on Machine Learning}, 2023.
-\newblock arXiv:2208.10264.
-
-\bibitem[Alper et~al.(2026)Alper, Barany, {Chavarri Villarello}, Dahmen, Dean,
-  Ganapathy, Harris, Holmes, Jamnik, Kelk, Kra, Martin, Naskr{\k{e}}cki,
-  Ochigame, Portegies, and Schmitt]{leiden2026}
-J.~Alper, M.~Barany, A.~{Chavarri Villarello}, S.~Dahmen, W.~Dean,
-  K.~Ganapathy, M.~Harris, D.~Holmes, M.~Jamnik, S.~Kelk, B.~Kra, U.~Martin,
-  B.~Naskr{\k{e}}cki, R.~Ochigame, J.~Portegies, and J.~Schmitt.
-\newblock Leiden declaration on artificial intelligence and mathematics.
-\newblock \url{https://leidendeclaration.ai}, June 2026.
-
-\bibitem[Ayg{\"u}n et~al.(2026)Ayg{\"u}n, Belyaeva, Comanici, Coram, Cui,
-  Garrison, Johnston, Kast, McLean, Norgaard, et~al.]{aygun2026era}
-E.~Ayg{\"u}n, A.~Belyaeva, G.~Comanici, M.~Coram, H.~Cui, J.~Garrison,
-  R.~Johnston, A.~Kast, C.~Y. McLean, P.~Norgaard, et~al.
-\newblock An {AI} system to help scientists write expert-level empirical
-  software.
-\newblock \emph{Nature}, 2026.
-\newblock \doi{10.1038/s41586-026-10658-6}.
-\newblock arXiv:2509.06503.
-
-\bibitem[Baek et~al.(2024)Baek, Jauhar, Cucerzan, and
-  Hwang]{baek2024researchagent}
-J.~Baek, S.~K. Jauhar, S.~Cucerzan, and S.~J. Hwang.
-\newblock {ResearchAgent}: {Iterative} research idea generation over scientific
-  literature with large language models.
-\newblock \emph{arXiv preprint arXiv:2404.07738}, 2024.
 
 \bibitem[Berk(1966)]{berk1966}
 R.~H. Berk.
@@ -89,14 +56,6 @@ D.~Choudhury, S.~Williamson, A.~Goli{\'n}ski, N.~Miao, F.~B. Smith,
 \newblock In \emph{International Conference on Learning Representations}, 2026.
 \newblock arXiv:2508.21184.
 
-\bibitem[Cranmer et~al.(2020)Cranmer, Sanchez~Gonzalez, Battaglia, Xu, Cranmer,
-  Spergel, and Ho]{cranmer2020symbolic}
-M.~Cranmer, A.~Sanchez~Gonzalez, P.~Battaglia, R.~Xu, K.~Cranmer, D.~Spergel,
-  and S.~Ho.
-\newblock Discovering symbolic models from deep learning with inductive biases.
-\newblock In \emph{Advances in Neural Information Processing Systems}, 2020.
-\newblock arXiv:2006.11287.
-
 \bibitem[Darvish et~al.(2024)Darvish, Skreta, Zhao, Yoshikawa, Som, Bogdanovic,
   Cao, Hao, Xu, Aspuru-Guzik, Garg, and Shkurti]{darvish2024organa}
 K.~Darvish, M.~Skreta, Y.~Zhao, N.~Yoshikawa, S.~Som, M.~Bogdanovic, Y.~Cao,
@@ -129,13 +88,6 @@ A.~Foster, D.~R. Ivanova, I.~Malik, and T.~Rainforth.
 \newblock In \emph{International Conference on Machine Learning}, 2021.
 \newblock arXiv:2103.02438.
 
-\bibitem[Geng et~al.(2025)Geng, Chen, Arumugam, and
-  Griffiths]{geng2025reliable}
-J.~Geng, H.~Chen, D.~Arumugam, and T.~L. Griffiths.
-\newblock Are large language models reliable {AI} scientists? assessing
-  reverse-engineering of black-box systems, 2025.
-\newblock arXiv:2505.17968.
-
 \bibitem[Ghosal and van~der Vaart(2017)]{ghosal2017fundamentals}
 S.~Ghosal and A.~van~der Vaart.
 \newblock \emph{Fundamentals of Nonparametric Bayesian Inference}.
@@ -158,20 +110,6 @@ P.~S. Gromski, A.~B. Henson, J.~M. Granda, and L.~Cronin.
 \newblock \emph{Nature Reviews Chemistry}, 3:\penalty0 119--128, 2019.
 \newblock \doi{10.1038/s41570-018-0066-y}.
 
-\bibitem[Gu and Krenn(2024)]{gu2024scimuse}
-X.~Gu and M.~Krenn.
-\newblock Interesting scientific idea generation using knowledge graphs and
-  {LLMs}: Evaluations with 100 research group leaders.
-\newblock \emph{arXiv preprint arXiv:2405.17044}, 2024.
-\newblock arXiv:2405.17044.
-
-\bibitem[Huang et~al.(2025)Huang, Jin, Li, Li, Cand{\`e}s, and
-  Leskovec]{huang2025popper}
-K.~Huang, Y.~Jin, R.~Li, M.~Y. Li, E.~Cand{\`e}s, and J.~Leskovec.
-\newblock Automated hypothesis validation with agentic sequential
-  falsifications, 2025.
-\newblock arXiv:2502.09858; ICML 2025.
-
 \bibitem[{InternAgent Team, Shanghai Artificial Intelligence
   Laboratory}(2025)]{zhang2025novelseek}
 {InternAgent Team, Shanghai Artificial Intelligence Laboratory}.
@@ -181,26 +119,6 @@ K.~Huang, Y.~Jin, R.~Li, M.~Y. Li, E.~Cand{\`e}s, and J.~Leskovec.
 \newblock arXiv:2505.16938v3. Circulated as {NovelSeek} in earlier versions;
   the key is retained for continuity with prior citations of this work.
 
-\bibitem[Jaber and Jaber(2026)]{jaber2026autokernel}
-J.~Jaber and O.~Jaber.
-\newblock {AutoKernel}: {Autonomous} {GPU} kernel optimization via iterative
-  agent-driven search.
-\newblock \emph{arXiv preprint arXiv:2603.21331}, 2026.
-
-\bibitem[Jagadish et~al.(2026)Jagadish, Rmus, Witte, Mathony, Binz, and
-  Schulz]{jagadish2026automatize}
-A.~K. Jagadish, M.~Rmus, K.~Witte, M.~Mathony, M.~Binz, and E.~Schulz.
-\newblock Can we automatize scientific discovery in the cognitive sciences?
-\newblock \emph{arXiv preprint arXiv:2603.20988}, 2026.
-
-\bibitem[Jumper et~al.(2021)Jumper, Evans, Pritzel, Green, Figurnov,
-  Ronneberger, Tunyasuvunakool, Bates, {\v{Z}}{\'\i}dek, Potapenko,
-  et~al.]{jumper2021alphafold}
-J.~Jumper, R.~Evans, A.~Pritzel, T.~Green, M.~Figurnov, O.~Ronneberger,
-  K.~Tunyasuvunakool, R.~Bates, A.~{\v{Z}}{\'\i}dek, A.~Potapenko, et~al.
-\newblock Highly accurate protein structure prediction with {AlphaFold}.
-\newblock \emph{Nature}, 596:\penalty0 583--589, 2021.
-
 \bibitem[Kaelbling et~al.(1998)Kaelbling, Littman, and
   Cassandra]{kaelbling1998pomdp}
 L.~P. Kaelbling, M.~L. Littman, and A.~R. Cassandra.
@@ -208,13 +126,14 @@ L.~P. Kaelbling, M.~L. Littman, and A.~R. Cassandra.
 \newblock \emph{Artificial Intelligence}, 101\penalty0 (1--2):\penalty0
   99--134, 1998.
 
-\bibitem[Kamber(2026)]{kamber2026chemist}
-D.~Kamber.
-\newblock Making {Claude} a chemist.
-\newblock Technical report, Anthropic, 2026.
-\newblock URL
-  \url{https://www-cdn.anthropic.com/07441e654ad3dfeb0cd090e9361511562825d012.pdf}.
-\newblock Anthropic Technical Report.
+\bibitem[Kandasamy et~al.(2017)Kandasamy, Dasarathy, Oliva, Schneider, and
+  P{\'o}czos]{kandasamy2017multifidelity}
+K.~Kandasamy, G.~Dasarathy, J.~B. Oliva, J.~Schneider, and B.~P{\'o}czos.
+\newblock Multi-fidelity {Bayesian} optimisation with continuous
+  approximations.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine
+  Learning}, volume~70 of \emph{Proceedings of Machine Learning Research},
+  pages 1799--1808, 2017.
 
 \bibitem[Kim et~al.(2026)Kim, Yoon, Gashteovski, Suk, Baek, Aggarwal, Wu,
   et~al.]{kim2026aireviewers}
@@ -232,14 +151,6 @@ R.~D. King, K.~E. Whelan, F.~M. Jones, P.~G.~K. Reiser, C.~H. Bryant, S.~H.
 \newblock \emph{Nature}, 427\penalty0 (6971):\penalty0 247--252, 2004.
 \newblock \doi{10.1038/nature02236}.
 
-\bibitem[Lee et~al.(2025)Lee, Hwang, Moon, Nah, Koh, Cho, Park, Yoo, Park,
-  Choi, Moon, Hwang, Kim, Kim, Kim, and Jung]{lee2025spacer}
-M.~Lee, S.~Hwang, S.~Moon, G.~Nah, D.~Koh, Y.~Cho, J.~Park, H.~Yoo, J.~Park,
-  H.~Choi, S.~Moon, T.~Hwang, S.~Kim, J.~Kim, S.~Kim, and J.~Jung.
-\newblock Spacer: Towards engineered scientific inspiration.
-\newblock \emph{arXiv preprint arXiv:2508.17661}, 2025.
-\newblock arXiv:2508.17661.
-
 \bibitem[Liu et~al.(2026)]{liu2026lasthuman}
 J.~Liu et~al.
 \newblock The last human-written paper: {Agent-Native} research artifacts.
@@ -253,13 +164,6 @@ Y.~Liu, Z.~Yang, T.~Xie, J.~Ni, B.~Gao, Y.~Li, S.~Tang, W.~Ouyang, E.~Cambria,
 \newblock {ResearchBench}: Benchmarking {LLMs} in scientific discovery via
   inspiration-based task decomposition, 2025.
 \newblock arXiv:2503.21248; Findings of ACL 2026.
-
-\bibitem[Liu et~al.(2024)Liu, Liu, Zhu, Lei, Yang, Zhang, Li, and
-  Liu]{liu2024aigs}
-Z.~Liu, K.~Liu, Y.~Zhu, X.~Lei, Z.~Yang, Z.~Zhang, P.~Li, and Y.~Liu.
-\newblock {AIGS}: Generating science from {AI}-powered automated falsification,
-  2024.
-\newblock arXiv:2411.11910.
 
 \bibitem[Lu et~al.(2024)Lu, Lu, Lange, Foerster, Clune, and
   Ha]{lu2024aiscientist}
@@ -288,6 +192,12 @@ A.~Merchant, S.~Batzner, S.~S. Schoenholz, M.~Aykol, G.~Cheon, and E.~D. Cubuk.
 \newblock Scaling deep learning for materials discovery.
 \newblock \emph{Nature}, 624:\penalty0 80--85, 2023.
 
+\bibitem[Moreau and Missier(2013)]{w3cprov2013}
+L.~Moreau and P.~Missier.
+\newblock {PROV-DM}: The {PROV} data model.
+\newblock W3c recommendation, World Wide Web Consortium, 2013.
+\newblock URL \url{https://www.w3.org/TR/prov-dm/}.
+
 \bibitem[O'Donoghue et~al.(2023)O'Donoghue, Shtedritski, Ginger, Abboud,
   Ghareeb, Booth, and Rodriques]{odonoghue2023bioplanner}
 O.~O'Donoghue, A.~Shtedritski, J.~Ginger, R.~Abboud, A.~E. Ghareeb, J.~Booth,
@@ -304,21 +214,13 @@ G.~Panapitiya, E.~Saldanha, H.~Job, and O.~Hess.
   autonomous chemical experimentation, 2025.
 \newblock arXiv:2509.25651.
 
-\bibitem[Park et~al.(2023{\natexlab{a}})Park, O'Brien, Cai, Morris, Liang, and
-  Bernstein]{park2023generative}
-J.~S. Park, J.~C. O'Brien, C.~J. Cai, M.~R. Morris, P.~Liang, and M.~S.
-  Bernstein.
-\newblock Generative agents: {Interactive} simulacra of human behavior.
-\newblock In \emph{Proceedings of the ACM Symposium on User Interface Software
-  and Technology}, 2023{\natexlab{a}}.
-\newblock arXiv:2304.03442.
-
-\bibitem[Park et~al.(2023{\natexlab{b}})Park, Leahey, and
-  Funk]{park2023disruptive}
-M.~Park, E.~Leahey, and R.~J. Funk.
-\newblock Papers and patents are becoming less disruptive over time.
-\newblock \emph{Nature}, 613:\penalty0 138--144, 2023{\natexlab{b}}.
-\newblock \doi{10.1038/s41586-022-05543-x}.
+\bibitem[Parasuraman et~al.(2000)Parasuraman, Sheridan, and
+  Wickens]{parasuraman2000automation}
+R.~Parasuraman, T.~B. Sheridan, and C.~D. Wickens.
+\newblock A model for types and levels of human interaction with automation.
+\newblock \emph{IEEE Transactions on Systems, Man, and Cybernetics---Part A:
+  Systems and Humans}, 30\penalty0 (3):\penalty0 286--297, 2000.
+\newblock \doi{10.1109/3468.844354}.
 
 \bibitem[Rainforth et~al.(2024)Rainforth, Foster, Ivanova, and
   Smith]{rainforth2024modern}
@@ -348,11 +250,13 @@ S.~Schmidgall, Y.~Su, Z.~Wang, X.~Sun, J.~Wu, X.~Yu, J.~Liu, M.~Moor, Z.~Liu,
 \newblock Agent {Laboratory}: {Using} {LLM} agents as research assistants.
 \newblock \emph{arXiv preprint arXiv:2501.04227}, 2025.
 
-\bibitem[Si et~al.(2024)Si, Yang, and Hashimoto]{si2024novelideas}
-C.~Si, D.~Yang, and T.~Hashimoto.
-\newblock Can {LLMs} generate novel research ideas? {A} large-scale human study
-  with 100+ {NLP} researchers.
-\newblock \emph{arXiv preprint arXiv:2409.04109}, 2024.
+\bibitem[Song et~al.(2019)Song, Chen, and Yue]{song2019multifidelity}
+J.~Song, Y.~Chen, and Y.~Yue.
+\newblock A general framework for multi-fidelity {Bayesian} optimization with
+  {Gaussian} processes.
+\newblock In \emph{Proceedings of the 22nd International Conference on
+  Artificial Intelligence and Statistics}, volume~89 of \emph{Proceedings of
+  Machine Learning Research}, pages 3158--3167, 2019.
 
 \bibitem[Sparkes et~al.(2010)Sparkes, Aubrey, Byrne, Clare, Khan, Liakata,
   Markham, Rowland, Soldatova, Whelan, Young, and King]{sparkes2010robot}
@@ -361,23 +265,6 @@ A.~Sparkes, W.~Aubrey, E.~Byrne, A.~Clare, M.~N. Khan, M.~Liakata, M.~Markham,
 \newblock Towards robot scientists for autonomous scientific discovery.
 \newblock \emph{Automated Experimentation}, 2\penalty0 (1):\penalty0 1, 2010.
 \newblock \doi{10.1186/1759-4499-2-1}.
-
-\bibitem[Sprueill et~al.(2024)Sprueill, Edwards, Agarwal, Olarte, Sanyal,
-  Johnston, Liu, Ji, and Choudhury]{sprueill2024chemreasoner}
-H.~W. Sprueill, C.~Edwards, K.~Agarwal, M.~V. Olarte, U.~Sanyal, C.~Johnston,
-  H.~Liu, H.~Ji, and S.~Choudhury.
-\newblock {ChemReasoner}: {Heuristic} search over a large language model's
-  knowledge space using quantum-chemical feedback.
-\newblock In \emph{International Conference on Machine Learning}, 2024.
-\newblock arXiv:2402.10980.
-
-\bibitem[Surina et~al.(2025)Surina, Mansouri, Quaedvlieg, Seddas, Viazovska,
-  Abbe, and Gulcehre]{surina2025algodiscovery}
-A.~Surina, A.~Mansouri, L.~Quaedvlieg, A.~Seddas, M.~Viazovska, E.~Abbe, and
-  C.~Gulcehre.
-\newblock Algorithm discovery with {LLMs}: {Evolutionary} search meets
-  reinforcement learning.
-\newblock \emph{arXiv preprint arXiv:2504.05108}, 2025.
 
 \bibitem[Szymanski et~al.(2023)Szymanski, Rendy, Fei, Kumar, He, Milsted,
   McDermott, Gallant, Cubuk, Merchant, Kim, Jain, Bartel, Persson, Zeng, and
@@ -390,17 +277,6 @@ N.~J. Szymanski, B.~Rendy, Y.~Fei, R.~E. Kumar, T.~He, D.~Milsted, M.~J.
 \newblock \emph{Nature}, 624:\penalty0 86--91, 2023.
 \newblock \doi{10.1038/s41586-023-06734-w}.
 
-\bibitem[Szymanski et~al.(2026)Szymanski, Rendy, Fei, Kumar, He, Milsted,
-  McDermott, Gallant, Cubuk, Merchant, Kim, Jain, Bartel, Persson, Zeng, and
-  Ceder]{szymanski2026correction}
-N.~J. Szymanski, B.~Rendy, Y.~Fei, R.~E. Kumar, T.~He, D.~Milsted, M.~J.
-  McDermott, M.~Gallant, E.~D. Cubuk, A.~Merchant, H.~Kim, A.~Jain, C.~J.
-  Bartel, K.~Persson, Y.~Zeng, and G.~Ceder.
-\newblock Author correction: An autonomous laboratory for the accelerated
-  synthesis of inorganic materials.
-\newblock \emph{Nature}, 650\penalty0 (8100), 2026.
-\newblock \doi{10.1038/s41586-025-09992-y}.
-
 \bibitem[Taniguchi et~al.(2025)Taniguchi, Takagi, Otsuka, Hayashi, and
   Hamada]{taniguchi2024cpc}
 T.~Taniguchi, S.~Takagi, J.~Otsuka, Y.~Hayashi, and H.~T. Hamada.
@@ -411,25 +287,16 @@ T.~Taniguchi, S.~Takagi, J.~Otsuka, Y.~Hayashi, and H.~T. Hamada.
 \newblock \doi{10.1098/rsos.241678}.
 \newblock arXiv:2409.00102.
 
-\bibitem[Tobias and Wahab(2025)]{tobias2025selfdriving}
-A.~V. Tobias and A.~Wahab.
-\newblock Autonomous `self-driving' laboratories: a review of technology and
-  policy implications.
-\newblock \emph{Royal Society Open Science}, 12\penalty0 (7):\penalty0 250646,
-  2025.
-\newblock \doi{10.1098/rsos.250646}.
+\bibitem[Tie et~al.(2025)Tie, Zhou, and Sun]{tie2025survey}
+G.~Tie, P.~Zhou, and L.~Sun.
+\newblock A survey of {AI} scientists: Surveying the automatic scientists and
+  research.
+\newblock \emph{arXiv preprint arXiv:2510.23045}, 2025.
 
 \bibitem[Udrescu and Tegmark(2020)]{udrescu2020afeynman}
 S.-M. Udrescu and M.~Tegmark.
 \newblock {AI} {Feynman}: {A} physics-inspired method for symbolic regression.
 \newblock \emph{Science Advances}, 6\penalty0 (16):\penalty0 eaay2631, 2020.
-
-\bibitem[Uzzi et~al.(2013)Uzzi, Mukherjee, Stringer, and
-  Jones]{uzzi2013atypical}
-B.~Uzzi, S.~Mukherjee, M.~Stringer, and B.~Jones.
-\newblock Atypical combinations and scientific impact.
-\newblock \emph{Science}, 342\penalty0 (6157):\penalty0 468--472, 2013.
-\newblock \doi{10.1126/science.1240474}.
 
 \bibitem[Vafa et~al.(2025)Vafa, Chang, Rambachan, and
   Mullainathan]{vafa2025foundationmodel}
@@ -440,20 +307,21 @@ K.~Vafa, P.~G. Chang, A.~Rambachan, and S.~Mullainathan.
   2025.
 \newblock arXiv:2507.06952.
 
-\bibitem[Xin et~al.(2024)Xin, Ren, Song, Shao, Zhao, Wang, Liu, Zhang,
-  et~al.]{xin2024deepseek}
-H.~Xin, Z.~Z. Ren, J.~Song, Z.~Shao, W.~Zhao, H.~Wang, B.~Liu, L.~Zhang, et~al.
-\newblock {DeepSeek-Prover-V1.5}: {Harnessing} proof assistant feedback for
-  reinforcement learning and {Monte-Carlo} tree search.
-\newblock \emph{arXiv preprint arXiv:2408.08152}, 2024.
-\newblock arXiv:2408.08152.
+\bibitem[Wei et~al.(2025)Wei, Yang, Zhang, Chen, Zhuang, Gao, Zhou, Wang,
+  et~al.]{wei2025agenticscience}
+J.~Wei, Y.~Yang, X.~Zhang, Y.~Chen, X.~Zhuang, Z.~Gao, D.~Zhou, G.~Wang, et~al.
+\newblock From {AI} for science to agentic science: A survey on autonomous
+  scientific discovery.
+\newblock \emph{arXiv preprint arXiv:2508.14111}, 2025.
+\newblock arXiv:2508.14111v2.
 
-\bibitem[Yamada et~al.(2025)]{yamada2025aiscientistv2}
-Y.~Yamada et~al.
-\newblock The {AI} {Scientist-v2}: Workshop-level automated scientific
-  discovery via agentic tree search.
-\newblock \emph{arXiv preprint arXiv:2504.08066}, 2025.
-\newblock arXiv:2504.08066.
+\bibitem[{Workflow Run RO-Crate Community}(2023)]{workflowruncrate2023}
+{Workflow Run RO-Crate Community}.
+\newblock Workflow run {RO-Crate} profile.
+\newblock
+  \url{https://www.researchobject.org/workflow-run-crate/profiles/workflow_run_crate/},
+  2023.
+\newblock Specification, version 0.5.
 
 \bibitem[Yanai and Lercher(2019)]{yanai2019night}
 I.~Yanai and M.~Lercher.
