@@ -197,7 +197,14 @@ def _validate_discovery_sequence(
     )
     if not eligible_execution:
         raise Servo2Error("DISCOVERY_WITNESS_EVENT_SEQUENCE_INVALID", witness_id)
-    execution = event_rows[eligible_execution[-1]]
+    execution_index = eligible_execution[-1]
+    execution = event_rows[execution_index]
+    action_events = tuple(
+        event
+        for index, event in enumerate(event_rows)
+        if first_evidence < index < execution_index
+        and event["event_kind"] == "epistemic_action"
+    )
     if len(endpoint_refs) != len(edge_rows) + 1:
         raise Servo2Error("DISCOVERY_WITNESS_PATH_TRUNCATED", witness_id)
     for index, edge in enumerate(edge_rows):
@@ -221,8 +228,12 @@ def _validate_discovery_sequence(
         if edge["edge_type"] == "feedback_control"
         and edge["feedback_dependent"] == "true"
     )
+    action_endpoints = {event["actor_endpoint_id"] for event in action_events}
+    routed_action_endpoints = set(endpoint_refs[update_index + 1 : -2])
     if (
-        not action_edges
+        not action_events
+        or not (action_endpoints & routed_action_endpoints)
+        or not action_edges
         or execution["actor_endpoint_id"] != endpoint_refs[-2]
         or event_rows[first_evidence]["actor_endpoint_id"] not in endpoint_refs
         or event_rows[final_evidence]["actor_endpoint_id"] != endpoint_refs[-1]

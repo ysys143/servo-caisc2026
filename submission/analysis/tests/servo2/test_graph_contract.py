@@ -73,6 +73,30 @@ def test_append_only_memory_cannot_supply_epistemic_update(package) -> None:
     assert_rejected(run_cli(package, "public-regeneration"), "APPEND_ONLY_MEMORY_NOT_EPISTEMIC_UPDATE")
 
 
+def test_discovery_requires_explicit_epistemic_action_event(package) -> None:
+    tables = read_tables(package)
+    witness = next(
+        row
+        for row in tables["closure_witnesses"].rows
+        if row["predicate"] == "discovery_cycle_feedback"
+    )
+    action_ids = {
+        event["event_id"]
+        for event in tables["events"].rows
+        if event["event_kind"] == "epistemic_action"
+    }
+    witness["ordered_event_ids"] = ";".join(
+        occurrence
+        for occurrence in witness["ordered_event_ids"].split(";")
+        if occurrence.split("@")[0] not in action_ids
+    )
+
+    with pytest.raises(
+        Servo2Error, match="DISCOVERY_WITNESS_ACTION_EXECUTION_MISSING"
+    ):
+        validate_graph(tables)
+
+
 def test_human_actor_facet_cannot_replace_a_structural_edge_type(package) -> None:
     path = table(package, "edges")
     header, rows = csv_rows(path)

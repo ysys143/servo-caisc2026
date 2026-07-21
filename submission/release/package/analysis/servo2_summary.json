@@ -6,9 +6,9 @@
     "closure_witnesses": 11,
     "domain_anchor_channels": 3,
     "domain_anchors": 7,
-    "edges": 39,
+    "edges": 41,
     "endpoints": 54,
-    "events": 44,
+    "events": 45,
     "reliability": 3,
     "selection_ledger": 13
   },

@@ -19,7 +19,7 @@ predicate by itself.
 | `execution_repair` | Runtime-validation evidence followed by an `artifact_revision` edge and a `feedback_control` edge through `W_A` | A later execution occurrence in the same bounded context | A retry without a changed executable/protocol artifact; terminal review |
 | `experimental_adaptation` | Evaluation evidence followed by feedback-dependent control of a changed experimental action | A later execution and resulting evidence in the same bounded context; the path contains `E` and returns to `V` | Code repair alone; fixed schedules; selection without successor execution |
 | `artifact_revision` | An evaluation occurrence followed by an `artifact_revision` edge | A successor versioned artifact through `W_A` | Formatting, copying, or an unlinked terminal assessment |
-| `discovery_cycle_feedback` | Evidence event, epistemic update, feedback-dependent epistemic action, new execution, and new evidence event | At least two distinct evidence occurrences with an intervening execution | Retry-only, append-only memory, or a terminal-only path |
+| `discovery_cycle_feedback` | Evidence event, epistemic update, an explicit `epistemic_action` event on the feedback-controlled route, new execution, and new evidence event | At least two distinct evidence occurrences with the action and execution between them | Retry-only, append-only memory, endpoint-only action inference, or a terminal-only path |
 
 Human mediation is recorded separately as an actor facet (`mediation_actor`) on
 the routed edge and by the component-level authority vector. It can qualify any
