@@ -172,7 +172,11 @@ closure_contract:
     or edge. It does not define a fifth closure topology.
   component_graph_constraints:
     event_actors: [runtime_validation:V, artifact_assessment:V, human_feedback:external, external_assessment:external, artifact_production:W_A, execution:E, generation:G, state_update:M]
-    edge_transitions: [observation:E-to-V, epistemic_update:V-to-M, artifact_revision:V-or-pi-to-W_A, feedback_control:typed-action-route, external_only:external-to-external]
+    observation: [E-to-V]
+    epistemic_update: [V-to-M]
+    artifact_revision: [V-to-W_A, pi-to-W_A]
+    feedback_control: [V-to-G, V-to-pi, M-to-G, M-to-pi, pi-to-G, pi-to-E, G-to-E, W_A-to-E, external-to-W_A]
+    external_only: [external-to-external]
   discovery_cycle_required_sequence:
     - evidence_event
     - epistemic_update_edge

@@ -2,7 +2,7 @@
   "canonical_input_sha256": {
     "analysis/adversarial_validation.md": "ae0b76c5b1089af3e3406638d5e66b37637115000b24b1ca977be0c418e414ed",
     "analysis/build_servo2_tables.py": "fffcbc07a3fa6f6ed17ee6e233a4ccca5e2b7bf57a20fd4de87e20b4bdfda87a",
-    "analysis/current_claim_registry.json": "7a9973a5e8ee54ab32506297a2a595218b744676cd74fc25473311d351049f7d",
+    "analysis/current_claim_registry.json": "5d53e62c2de12816c378fe3d225dea0c2a287b3cb72485299623c77be800204f",
     "analysis/holdout_protocol.md": "29ed604d6086b623ffca878a0cebd970fa55ecc5a0b386ae06775bd57bd8dd5a",
     "analysis/predicate_contract.md": "f34c4a9c2c9df5134db80f17f251b8ff642bfec59db3dca8b6411876e30fa067",
     "analysis/provenance_crosswalk.md": "6ac8a85b7bb0a65ee5037e9c8ea68882011cc8df146addcf59767f4a790c9c1f",
@@ -18,7 +18,7 @@
     "analysis/servo2_evidence_ledger.json": "0e8a6f6e445e07f6a6752c702a26e2a90ed51246c8f9ad41d70b9d48875fee23",
     "analysis/servo2_reliability.csv": "0fef230c022487904692343e6e4b61a772fd5287b3e16764f4ff9672a73c4e4c",
     "analysis/servo2_selection_ledger.csv": "3a80bf220079e825ad347aae03478eb82b90a629f58ae7ae6b418ac96640bf2d",
-    "analysis/servo_schema.yaml": "9412e0e648ff21179717657f12c7d86777556b8594f6be260a5a105be21bd0cf",
+    "analysis/servo_schema.yaml": "b91b1d392f369f8b9c87737cdc081452983abf9dca97a2ab6c2b69cfb33c6cae",
     "analysis/source_registry.json": "b151646baf4d999837395260df96fb7d730f9819cf1d7733323fac2602cc7af1"
   },
   "generated_artifact_sha256": {
@@ -42,7 +42,7 @@
     "analysis/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "analysis/adversarial_validation.md": "ae0b76c5b1089af3e3406638d5e66b37637115000b24b1ca977be0c418e414ed",
     "analysis/build_servo2_tables.py": "fffcbc07a3fa6f6ed17ee6e233a4ccca5e2b7bf57a20fd4de87e20b4bdfda87a",
-    "analysis/current_claim_registry.json": "7a9973a5e8ee54ab32506297a2a595218b744676cd74fc25473311d351049f7d",
+    "analysis/current_claim_registry.json": "5d53e62c2de12816c378fe3d225dea0c2a287b3cb72485299623c77be800204f",
     "analysis/holdout_protocol.md": "29ed604d6086b623ffca878a0cebd970fa55ecc5a0b386ae06775bd57bd8dd5a",
     "analysis/predicate_contract.md": "f34c4a9c2c9df5134db80f17f251b8ff642bfec59db3dca8b6411876e30fa067",
     "analysis/provenance_crosswalk.md": "6ac8a85b7bb0a65ee5037e9c8ea68882011cc8df146addcf59767f4a790c9c1f",
@@ -75,7 +75,7 @@
     "analysis/servo2_selection_ledger.csv": "3a80bf220079e825ad347aae03478eb82b90a629f58ae7ae6b418ac96640bf2d",
     "analysis/servo2_summary.json": "bd84499a01204aabc36076c889b164176561f8884eaeb786d996dbfea294df33",
     "analysis/servo2_validate.py": "0620296f366f8e199dc0d546972a30f2644842d6af88fb46ab6df90862966523",
-    "analysis/servo_schema.yaml": "9412e0e648ff21179717657f12c7d86777556b8594f6be260a5a105be21bd0cf",
+    "analysis/servo_schema.yaml": "b91b1d392f369f8b9c87737cdc081452983abf9dca97a2ab6c2b69cfb33c6cae",
     "analysis/source_registry.json": "b151646baf4d999837395260df96fb7d730f9819cf1d7733323fac2602cc7af1",
     "analysis/tbl-servo2-anchors-ko.tex": "01f4bbc982720670e77f8ed0f1970db9be4e1c069b04755e04ca120d1a1ddbab",
     "analysis/tbl-servo2-anchors.tex": "bacc0331780464ab129aea10b9bb9e7912d902f08ceae84aeb3df7ba7abfccc7",
@@ -86,8 +86,8 @@
     "analysis/validate_servo2.py": "69862b4067948a2dc554a79eab2d7fbcc65951ff33baa96a72f3c224c7f3b557",
     "pyproject.toml": "8a2d6a2b1945bba4afda1075565dd2044edc8962fc0bf9da67946a1a91181f08",
     "release-role-manifest.json": "ed33129c8f31c34a4f0ddaf864dbc3dd5fa757290aec7b51d1ac8dc66f3253c0",
-    "release_attestation.json": "2ff2d314b419b00a642e17e501027da8a586dacf96759da07be72850a99d0265",
-    "servo_caiscfp2026_post-submit.pdf": "12a61e8a1cb981382c4e8baae25eee52dbf74e89340bb86dc441dfb606dbbb11",
+    "release_attestation.json": "c125129f25ccada3dc48c10bfbfa7c90f0456346d4e83bc10bc70e0f3b858f10",
+    "servo_caiscfp2026_post-submit.pdf": "9ec0dd19b632629b1e2bdd7e2b5ee49242fcbf271d1b65855fcd154f265a01d7",
     "uv.lock": "6674f8f66c696ad04453505effb92fa377a1d838164a6a839dcfa5498438145e"
   },
   "schema_version": "3.0.0"

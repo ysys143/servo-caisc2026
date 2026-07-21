@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "review_basis": "three-round adversarial audit plus strict witness and portability-claim completion audits completed 2026-07-22",
+  "review_basis": "three-round adversarial audit plus strict witness, portability, and tuple-graph completion audits completed 2026-07-22",
   "manuscripts": {
-    "main_post-submit.tex": "50e01caea8cfe1a8f0222611c50f877be5a9ba00d664c8c944560a5a8f9d55ea",
-    "main_ko.tex": "08c69e9c5c8981c5741d63a2d57e113afce040185e742fef0d8861da7fbcff2c"
+    "main_post-submit.tex": "9da91d79886e1b173201495219bfb050be683c5ce18bd94a8b539f4405289a29",
+    "main_ko.tex": "d9eb5e6994ee46ef4dd796d627aa1baeed7b155970ae58ce5e6ccd601ba5af51"
   },
   "citation_keys": [
     "berk1966",
