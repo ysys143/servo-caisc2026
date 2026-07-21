@@ -46,12 +46,25 @@ def test_established_closure_requires_same_predicate_witness(package) -> None:
 
 def test_not_established_rejects_insufficient_reporting_basis(package) -> None:
     header, rows = _add_decision_basis_contract(package)
-    target = next(row for row in rows if row["status"] == "not_established")
+    target = next(row for row in rows if row["status"] == "unknown")
+    target["status"] = "not_established"
     target["decision_basis"] = "insufficient_reporting"
     write_rows(table(package, "closure_statuses"), header, rows)
 
     assert_rejected(
         run_cli(package, "public-regeneration"), "CLOSURE_STATUS_BASIS_MISMATCH"
+    )
+
+
+def test_not_established_rejects_unverified_complete_trace_claim(package) -> None:
+    header, rows = _add_decision_basis_contract(package)
+    target = next(row for row in rows if row["status"] == "unknown")
+    target["status"] = "not_established"
+    target["decision_basis"] = "complete_trace_failure"
+    write_rows(table(package, "closure_statuses"), header, rows)
+
+    assert_rejected(
+        run_cli(package, "public-regeneration"), "SCHEMA_ENUM_INVALID"
     )
 
 

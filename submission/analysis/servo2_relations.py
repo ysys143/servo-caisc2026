@@ -160,7 +160,7 @@ def _closure_links(
     del cases
     allowed_bases = {
         "established": {"positive_witness"},
-        "not_established": {"explicit_negative", "complete_trace_failure"},
+        "not_established": {"explicit_negative"},
         "unknown": {"insufficient_reporting"},
         "not_applicable": {"out_of_scope"},
     }

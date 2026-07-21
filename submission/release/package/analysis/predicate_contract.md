@@ -43,7 +43,7 @@ not itself evidence of inclusion between predicates.
 | Status | Required `decision_basis` | Decision rule |
 |---|---|---|
 | `established` | `positive_witness` | At least one fully conforming, source-grounded witness exists. |
-| `not_established` | `explicit_negative` or `complete_trace_failure` | The bounded source explicitly places the route outside the case, or a fully reported eligible trace violates a required transition. |
+| `not_established` | `explicit_negative` | The bounded source explicitly states that the required route is absent, external-only, terminated, or otherwise fails the predicate. |
 | `unknown` | `insufficient_reporting` | A required event, edge, order, artifact identity, or source link is missing or ambiguous. Source silence is classified here. |
 | `not_applicable` | `out_of_scope` | The predicate is excluded by the predeclared case boundary, with a reason. |
 
@@ -56,7 +56,7 @@ not itself evidence of inclusion between predicates.
   for `established`; a nonconforming path does not cancel it.
 - Missing events, ambiguous ordering, ambiguous artifact identity, and source
   silence yield `unknown`.
-- An explicitly external-only route or a complete trace missing a required
-  transition may yield `not_established`.
+- Only explicit source-grounded contrary evidence may yield `not_established`;
+  an incomplete trace or an unverified claim of trace completeness yields `unknown`.
 - Any contract change after holdout coding makes that case formative and
   requires a new untouched holdout.

@@ -4,7 +4,7 @@ C01,discovery_cycle_feedback,unknown
 C01,execution_repair,established
 C01,experimental_adaptation,unknown
 C02,artifact_revision,unknown
-C02,discovery_cycle_feedback,not_established
+C02,discovery_cycle_feedback,unknown
 C02,execution_repair,unknown
 C02,experimental_adaptation,established
 C03,artifact_revision,unknown
@@ -12,7 +12,7 @@ C03,discovery_cycle_feedback,unknown
 C03,execution_repair,unknown
 C03,experimental_adaptation,established
 C04,artifact_revision,established
-C04,discovery_cycle_feedback,not_established
+C04,discovery_cycle_feedback,unknown
 C04,execution_repair,established
 C04,experimental_adaptation,unknown
 C05,artifact_revision,not_applicable
@@ -20,6 +20,6 @@ C05,discovery_cycle_feedback,established
 C05,execution_repair,unknown
 C05,experimental_adaptation,established
 C06,artifact_revision,established
-C06,discovery_cycle_feedback,not_established
+C06,discovery_cycle_feedback,unknown
 C06,execution_repair,established
 C06,experimental_adaptation,established

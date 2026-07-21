@@ -8,7 +8,7 @@
   "generator_sha256": "fffcbc07a3fa6f6ed17ee6e233a4ccca5e2b7bf57a20fd4de87e20b4bdfda87a",
   "inputs": {
     "servo2_cases.csv": "6c9bf08f366d19cf19735c9d931b2ad1553910b1b3ca40148ecd3652bae098ed",
-    "servo2_closure_statuses.csv": "7d90a95091e0987fb8efad39935374e89fa5454f72eef86c6797e97a87829eed",
+    "servo2_closure_statuses.csv": "7120a51e9fcfdd4f2735ebb5fd6ab246caf4bd1b87cc733b63db971c8aac31a0",
     "servo2_closure_witnesses.csv": "5d6b7b88311db2d84e5f3352d8cbe68c5673c23b5679c587e56f4f078c1f771d",
     "servo2_domain_anchors.csv": "0a8c015f5c60aec202f35c3e386a818303064c9cd49a2ba34cbe1c2692e20574",
     "servo2_selection_ledger.csv": "3a80bf220079e825ad347aae03478eb82b90a629f58ae7ae6b418ac96640bf2d"
@@ -18,8 +18,8 @@
     "tbl-servo2-anchors.tex": "bacc0331780464ab129aea10b9bb9e7912d902f08ceae84aeb3df7ba7abfccc7",
     "tbl-servo2-cases-ko.tex": "17c5be6187107791ebe386a7f46728c81dd533b6753e80afd0683f779d387cfe",
     "tbl-servo2-cases.tex": "c0b17d88d029886ee056199a98342762552bb5af338d92e1d74111db558899c8",
-    "tbl-servo2-closure-ko.tex": "a2f4e3f4c2c1615e3810798f21fef3f60a93b2b61fa092522f73421607d0902e",
-    "tbl-servo2-closure.tex": "11705892c577605511109f440971491ac4de013d22b17e62c574da215f37e7ba"
+    "tbl-servo2-closure-ko.tex": "abc6d83a09920da28416df04ec551aeb0d2bac9156c9337aca2ec38f62fdeb22",
+    "tbl-servo2-closure.tex": "a51be651bb1787c2ff39d39238d6fe272479c41bd8de4f0b8ff177d46c18ae8d"
   },
   "schema_version": "3.0.0"
 }

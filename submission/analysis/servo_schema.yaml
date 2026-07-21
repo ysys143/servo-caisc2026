@@ -100,7 +100,7 @@ enum_fields:
   closure_witnesses.execution_status: [implemented_reported, optional_configurable, structurally_inferred, trace_demonstrated]
   closure_statuses.predicate: [execution_repair, experimental_adaptation, artifact_revision, discovery_cycle_feedback]
   closure_statuses.status: [established, not_established, unknown, not_applicable]
-  closure_statuses.decision_basis: [positive_witness, explicit_negative, complete_trace_failure, insufficient_reporting, out_of_scope]
+  closure_statuses.decision_basis: [positive_witness, explicit_negative, insufficient_reporting, out_of_scope]
   domain_anchors.evidence_status: [directly_stated, structurally_inferred, mixed_direct_and_inferred, not_yet_source_adjudicated]
   domain_anchors.H_S: [human_controls, human_participates, system_controls, shared, not_reported]
   domain_anchors.H_G: [human_controls, human_participates, system_controls, shared, not_reported]
@@ -196,7 +196,7 @@ closure_contract:
     - terminal_assessment_only
   status_decision_rules:
     established: positive_witness
-    not_established: [explicit_negative, complete_trace_failure]
+    not_established: explicit_negative
     unknown: insufficient_reporting
     not_applicable: out_of_scope
   mismatch_rules:
@@ -205,7 +205,7 @@ closure_contract:
     ambiguous_artifact_identity: unknown
     source_silent_about_required_edge: unknown
     explicit_external_only_route: not_established
-    complete_trace_missing_required_transition: not_established
+    incomplete_or_unverified_trace: unknown
 
 artifact_contract:
   required_lifecycle_fields: [producer_endpoint_id, producer_event_id, producer_sequence, first_consumed_sequence]
