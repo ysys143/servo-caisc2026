@@ -10,6 +10,7 @@ from .servo2_io import Servo2Error, sha256
 
 PDF_NAME = "servo_caiscfp2026_post-submit.pdf"
 ATTESTATION_NAME = "release_attestation.json"
+SCHEMA_VERSION = "3.0.0"
 
 
 def _cff_fields(path: Path) -> dict[str, str]:
@@ -84,6 +85,14 @@ def verify_release_ready(root: Path, manifest: dict[str, str | dict[str, str]]) 
         raise Servo2Error("RELEASE_ATTESTATION_INVALID", ATTESTATION_NAME) from error
     state = attestation.get("state")
     release = attestation.get("github_release")
+    if (
+        manifest.get("schema_version") != SCHEMA_VERSION
+        or attestation.get("schema_version") != SCHEMA_VERSION
+    ):
+        raise Servo2Error(
+            "RELEASE_SCHEMA_IDENTITY_MISMATCH",
+            f"manifest and attestation must identify {SCHEMA_VERSION}",
+        )
     publication_valid = (state == "unpublished_local_candidate" and release in {None, "not_published"}) or (
         state == "published_github_release"
         and isinstance(release, str)

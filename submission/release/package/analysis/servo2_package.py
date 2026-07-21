@@ -20,6 +20,7 @@ MODULES = (
     "servo2_finalize.py",
     "servo2_graph.py",
     "servo2_io.py",
+    "servo2_occurrences.py",
     "servo2_package.py",
     "servo2_predicates.py",
     "servo2_relations.py",

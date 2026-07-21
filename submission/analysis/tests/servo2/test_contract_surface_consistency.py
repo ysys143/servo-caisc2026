@@ -91,3 +91,21 @@ def test_c03_discovery_rationale_matches_current_graph_boundary() -> None:
     # When/Then: it names the missing discovery conditions, not implemented ED15.
     assert "the executor link ED15 is unclear" not in statuses
     assert "explicit epistemic update and a distinct later evidence occurrence" in statuses
+
+
+def test_latest_revision_summary_names_schema_three_and_four_predicates() -> None:
+    manuscript = (ROOT / "main_post-submit.tex").read_text(encoding="utf-8")
+    current_summary = manuscript.split(
+        r"\noindent\textbf{Current-interpretation supersession index.}", 1
+    )[1]
+
+    assert "Schema~2 event--artifact graph" not in current_summary
+    assert "Schema~3 event--artifact graph" in current_summary
+    assert "four predicate-specific" in current_summary
+
+
+def test_source_byte_audit_documentation_does_not_claim_locator_validation() -> None:
+    readme = (ROOT / "release" / "README.md").read_text(encoding="utf-8")
+
+    assert "expected bytes and locators" not in readme
+    assert "expected source-file bytes" in readme

@@ -76,12 +76,43 @@ def test_release_ready_rejects_unreleased_citation_identity(package: Path) -> No
         manifest_binding(manifest),
     )
     citation = package / "CITATION.cff"
+    citation_text = citation.read_text(encoding="utf-8")
+    citation_version = next(
+        line for line in citation_text.splitlines() if line.startswith("version:")
+    )
     citation.write_text(
-        citation.read_text(encoding="utf-8").replace(
-            "version: 3.0.12", "version: 0.0.0-unreleased"
-        ),
+        citation_text.replace(citation_version, "version: 0.0.0-unreleased"),
         encoding="utf-8",
     )
     # When/Then: release readiness checks the public citation surface itself.
     with pytest.raises(Servo2Error, match="RELEASE_IDENTITY_MISMATCH"):
+        verify_release_ready(package, manifest)
+
+
+def test_release_ready_rejects_attestation_schema_drift(package: Path) -> None:
+    _, manifest = find_manifest(package)
+    attestation_path = package / "release_attestation.json"
+    attestation = json.loads(attestation_path.read_text(encoding="utf-8"))
+    attestation["schema_version"] = "2.0.0"
+    attestation["manifest_binding_sha256"] = manifest_binding(manifest)
+    attestation_path.write_text(
+        json.dumps(attestation, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+
+    with pytest.raises(Servo2Error, match="RELEASE_SCHEMA_IDENTITY_MISMATCH"):
+        verify_release_ready(package, manifest)
+
+
+def test_release_ready_rejects_manifest_schema_drift(package: Path) -> None:
+    _, manifest = find_manifest(package)
+    manifest["schema_version"] = "2.0.0"
+    attestation_path = package / "release_attestation.json"
+    attestation = json.loads(attestation_path.read_text(encoding="utf-8"))
+    attestation["schema_version"] = "2.0.0"
+    attestation["manifest_binding_sha256"] = manifest_binding(manifest)
+    attestation_path.write_text(
+        json.dumps(attestation, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+
+    with pytest.raises(Servo2Error, match="RELEASE_SCHEMA_IDENTITY_MISMATCH"):
         verify_release_ready(package, manifest)

@@ -1,6 +1,10 @@
 from __future__ import annotations
 
 from .servo2_io import Servo2Error, Table, require, split_values
+from .servo2_occurrences import (
+    validate_occurrence_tokens,
+    validate_ordered_event_edge_binding,
+)
 from .servo2_predicates import validate_predicate_pattern
 
 
@@ -32,6 +36,11 @@ def validate_graph(tables: dict[str, Table]) -> None:
             _validate_discovery_witness(
                 witness, event_refs, event_rows, edge_rows, endpoint_refs
             )
+        validate_ordered_event_edge_binding(
+            tuple(ref.split("@", 1)[0] for ref in event_refs),
+            edge_rows,
+            require(witness, "witness_id", "closure_witnesses"),
+        )
 
 
 def _validate_witness_path(
@@ -51,10 +60,9 @@ def _validate_witness_path(
         require(witness, "ordered_event_ids", "closure_witnesses")
     )
     edge_refs = split_values(require(witness, "ordered_edge_ids", "closure_witnesses"))
-    endpoint_refs = split_values(
-        require(witness, "ordered_endpoint_ids", "closure_witnesses")
-    )
-    event_rows = tuple(_event(events, ref.split("@")[0]) for ref in event_refs)
+    endpoint_refs = split_values(require(witness, "ordered_endpoint_ids", "closure_witnesses"))
+    event_ids = validate_occurrence_tokens(event_refs, witness_id)
+    event_rows = tuple(_event(events, identifier) for identifier in event_ids)
     edge_rows = tuple(_edge(edges, ref) for ref in edge_refs)
     _ = tuple(_endpoint(endpoints, ref) for ref in endpoint_refs)
     if not event_rows or not edge_rows or len(endpoint_refs) != len(edge_rows) + 1:
@@ -75,11 +83,6 @@ def _validate_witness_path(
                 else "CLOSURE_WITNESS_PATH_UNCONNECTED"
             )
             raise Servo2Error(code, witness_id)
-    event_ids = {ref.split("@")[0] for ref in event_refs}
-    if not discovery and any(
-        edge["source_event_id"] not in event_ids for edge in edge_rows
-    ):
-        raise Servo2Error("CLOSURE_WITNESS_EVENT_EDGE_MISMATCH", witness_id)
     expected = (
         require(witness, "case_id", "closure_witnesses"),
         require(witness, "configuration_id", "closure_witnesses"),
@@ -205,8 +208,6 @@ def _validate_discovery_sequence(
         if first_evidence < index < execution_index
         and event["event_kind"] == "epistemic_action"
     )
-    if len(endpoint_refs) != len(edge_rows) + 1:
-        raise Servo2Error("DISCOVERY_WITNESS_PATH_TRUNCATED", witness_id)
     for index, edge in enumerate(edge_rows):
         if (
             edge["source_endpoint_id"] != endpoint_refs[index]

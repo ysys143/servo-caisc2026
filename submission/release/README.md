@@ -1,6 +1,6 @@
 # Servo corrected package
 
-Package release 3.0.12 implements the normative Servo schema version 3.0.0.
+Package release 3.0.13 implements the normative Servo schema version 3.0.0.
 The package release number identifies this synchronized manuscript and audit
 snapshot; it does not change the schema contract version.
 
@@ -18,8 +18,9 @@ This package separates two assurances:
    derived tables using package files only. It does not authenticate primary
    sources or establish semantic entailment.
 2. `source-byte-audit --source-root PATH` is an optional local audit against
-   lawfully obtained user-supplied PDFs. It checks expected bytes and locators;
-   it never redistributes PDFs or serializes local paths.
+   lawfully obtained user-supplied PDFs. It checks expected source-file bytes,
+   uniqueness, and containment; it does not verify quoted passages or page
+   locators. It never redistributes PDFs or serializes local paths.
 
 The release allowlist forbids source PDFs, absolute personal paths, credentials,
 caches, local source maps, and raw model-provider logs. The only manuscript PDF
