@@ -1,0 +1,685 @@
+OpenAI Codex v0.144.6
+--------
+workdir: /private/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-625nemlz
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019f8184-90f3-7f70-b523-d231f31e5adb
+--------
+user
+# SERVO condition
+
+Apply the supplied frozen R24 coding manual to the anonymous source packet. Do not infer facts outside the packet and do not use knowledge of the named system.
+
+Return only one JSON object conforming to the supplied SERVO schema. The first response character must be `{` and the last must be `}`; Markdown fences, preambles, and trailing commentary are invalid. Separate distinct validator channels, populate every facet, and attach exact packet evidence to each channel. Then provide typed diagnostics with consequences and exact evidence, plus one to three non-redundant recommendations ranked consecutively by `priority_rank` from 1 and linked to those diagnostics with observable success checks. State each recommendation as a concise free-text `proposed_action`; do not recommend a change that the packet does not support. Do not treat non-reporting as absence, terminal assessment as feedback, general reviewer error as novelty-specific evidence, or agreement and bias studies as probabilistic calibration.
+
+For every channel quote, copy `pdf_id` from the packet's 64-character `source.pdf_sha256` value, not from its `record_id`, and copy `page` from the cited evidence item's `pdf_page` value.
+
+For every diagnostic and recommendation, `evidence_ids` and the `evidence_id` values in `exact_quotes` must be identical sets: include exactly one exact quotation for every listed evidence ID, and never list an evidence ID without its quotation. Each `exact_quote` must reproduce the complete frozen `quote` string associated with that `evidence_id` character for character; a shortened excerpt or substring is invalid even when it is verbatim.
+
+
+# Frozen R24 coding manual
+
+## Unit and boundary
+
+The unit is a source-defined system version, not a unique research lineage. The fourteen records represent thirteen lineages because the AI Scientist v2 preprint and the 2026 record belong to one lineage. Code only what the frozen packet reports. Absence of reporting is not evidence of absence.
+
+A validator channel is an identifiable evaluator with a stable target, substrate, decision role, or feedback path. Split channels when one named system uses distinct mechanisms for ideation filtering, search control, terminal assessment, or external acceptance.
+
+## Facets
+
+- `operational_status`: distinguish implemented behavior, unexercised proposals, external processes, non-reporting, and genuinely unclear descriptions.
+- `target_property`: the property judged, such as executability, correctness, novelty, or aggregate quality.
+- `evidence_source`: the information used to judge the target.
+- `evaluator_substrate`: the mechanism or actor performing the judgment.
+- `decision_role`: the operational consequence of the output.
+- `feedback_path`: where the output is actually routed. A terminal assessment is not search control.
+- `external_independence`: organizational or informational independence of the evaluator.
+- `reliability_evidence_type`: the study design reported for the exact channel and target. Lack of documented bias is `none_reported`, not calibration.
+- `reliability_finding`: the conclusion supported by that evidence.
+- `experimental_fidelity`: the environment in which the evaluated evidence is produced.
+
+Every channel requires at least one exact packet quote. Never transfer evidence from a terminal paper reviewer to an ideation novelty filter merely because both use an LLM.
+
+## Closure and human authority
+
+Closure is derived rather than freely rated. Implemented policy control or stage transition is closed computational feedback; memory update or candidate revision alone is partial; terminal-only or external-only assessment is open. Unclear routing remains unclear.
+
+Human authority is recorded separately for generator, executor, validator, memory, and policy. Use only observable roles: `explicit_none`, `initiate`, `advise`, `select`, `approve`, `execute`, `final_authority`, `not_reported`, or `not_applicable`.
+
+## Missingness
+
+`not_reported` means the packet provides no claim. Explicit none means the source states absence. `unclear` means relevant text exists but supports multiple readings. `not_applicable` means the facet has no coherent value for that channel. These values are never interchangeable.
+
+
+Scheduled metadata: record_id=R09; vendor=codex. Use the CLI model identifier as model_id.
+
+Anonymous source packet:
+{
+  "schema_version": 1,
+  "record_id": "R09",
+  "source": {
+    "pdf_sha256": "76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8",
+    "page_count": 19
+  },
+  "instructions": "Use only the excerpts below. The full PDF was audited when the hidden probes were authored. Absence from these excerpts is not evidence that a feature is absent from the full source, and an explicit negative must be supported by quoted source text.",
+  "evidence": [
+    {
+      "evidence_id": "R09-E01",
+      "pdf_page": 4,
+      "quote": "The architecture of DeepScientist actualizes the Bayesian Optimization loop through a multi-agent system equipped with an open-knowledge system and a continuously accumulating Findings Memory. This memory is composed of both frontier human knowledge (e.g., papers and codes) and the system's own historical findings, and it intelligently guides subsequent explorations."
+    },
+    {
+      "evidence_id": "R09-E02",
+      "pdf_page": 5,
+      "quote": "Specifically, it uses the classic Upper Confidence Bound (UCB) algorithm to select the most promising record."
+    },
+    {
+      "evidence_id": "R09-E03",
+      "pdf_page": 5,
+      "quote": "This deeply validated record becomes a new record in the system's knowledge base, thus influencing the decision-making process in all subsequent cycles."
+    },
+    {
+      "evidence_id": "R09-E04",
+      "pdf_page": 7,
+      "quote": "First, to benchmark against existing work, we employ DeepReviewer (Zhu et al., 2025a), an AI agent that simulates the human peer-review process with an external search capability, comparing DeepScientist's output against 28 publicly available papers from other AI Scientist systems. Second, for a more rigorous assessment, we convene a dedicated program committee consisting of three active LLM researchers: two volunteers who have served as ICLR reviewers and one senior volunteer who has been invited to be an ICLR Area Chair."
+    },
+    {
+      "evidence_id": "R09-E05",
+      "pdf_page": 8,
+      "quote": "Across the three tasks, DeepScientist generate over 5,000 unique ideas, yet only about 1,100 are deemed worthy of experimental validation by the system's selection mechanism, and a mere 21 ultimately result in scientific progress."
+    },
+    {
+      "evidence_id": "R09-E06",
+      "pdf_page": 5,
+      "quote": "Three human experts supervise the process to verify outputs and filter out hallucinations."
+    },
+    {
+      "evidence_id": "R09-E07",
+      "pdf_page": 17,
+      "quote": "A critical step in our pipeline is a secondary verification process: after Claude Code reports completion, DeepScientist independently re-executes the main script via the command line. This measure was implemented to counteract a high rate of false positives-we observed that approximately 50% of initial implementation attempts failed to complete fully due to internal timeouts within the Claude Code agent. Throughout this project, all experimental results were manually inspected by human supervisors to guarantee their authenticity."
+    },
+    {
+      "evidence_id": "R09-E08",
+      "pdf_page": 10,
+      "quote": "To make the AI a more capable partner, future work should focus on key enhancements: developing simulated discovery environments to accelerate learning via reinforcement, creating frameworks for integrating feedback from the scientific community, and ultimately, bridging the gap to the physical sciences through robotics."
+    }
+  ]
+}
+
+
+Required JSON schema:
+{
+  "$defs": {
+    "CommonEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/Diagnostic"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Recommendation"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "diagnostics",
+        "recommendations"
+      ],
+      "title": "CommonEnvelope",
+      "type": "object"
+    },
+    "DecisionRole": {
+      "enum": [
+        "diagnostic",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "memory_admission",
+        "terminal_assessment",
+        "final_acceptance",
+        "external_assessment",
+        "not_reported"
+      ],
+      "title": "DecisionRole",
+      "type": "string"
+    },
+    "Diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "consequence": {
+          "minLength": 1,
+          "title": "Consequence",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/DiagnosticKind"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "kind",
+        "evidence_ids",
+        "exact_quotes",
+        "consequence"
+      ],
+      "title": "Diagnostic",
+      "type": "object"
+    },
+    "DiagnosticKind": {
+      "enum": [
+        "reported_failure",
+        "risk",
+        "ambiguity",
+        "missing_evidence"
+      ],
+      "title": "DiagnosticKind",
+      "type": "string"
+    },
+    "EvaluatorSubstrate": {
+      "enum": [
+        "deterministic_program",
+        "statistical_model",
+        "formal_kernel",
+        "llm",
+        "human",
+        "hybrid",
+        "not_reported"
+      ],
+      "title": "EvaluatorSubstrate",
+      "type": "string"
+    },
+    "EvidenceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "exact_quote": {
+          "minLength": 1,
+          "title": "Exact Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "exact_quote"
+      ],
+      "title": "EvidenceExcerpt",
+      "type": "object"
+    },
+    "EvidenceQuote": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "pdf_id": {
+          "minLength": 1,
+          "title": "Pdf Id",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "pdf_id",
+        "page",
+        "quote",
+        "rationale"
+      ],
+      "title": "EvidenceQuote",
+      "type": "object"
+    },
+    "EvidenceSource": {
+      "enum": [
+        "execution_trace",
+        "benchmark_metric",
+        "statistical_test",
+        "physical_measurement",
+        "replication",
+        "prior_art_corpus",
+        "artifact_review",
+        "human_judgment",
+        "not_reported"
+      ],
+      "title": "EvidenceSource",
+      "type": "string"
+    },
+    "ExternalIndependence": {
+      "enum": [
+        "internal_self_evaluation",
+        "internal_separate_component",
+        "external_nonindependent",
+        "external_independent",
+        "not_reported"
+      ],
+      "title": "ExternalIndependence",
+      "type": "string"
+    },
+    "FeedbackPath": {
+      "enum": [
+        "terminal_only",
+        "memory_update",
+        "candidate_revision",
+        "policy_control",
+        "stage_transition",
+        "external_only",
+        "unclear"
+      ],
+      "title": "FeedbackPath",
+      "type": "string"
+    },
+    "Fidelity": {
+      "enum": [
+        "simulation_or_proxy",
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "robotic_experiment",
+        "physical_assay",
+        "not_applicable",
+        "not_reported"
+      ],
+      "title": "Fidelity",
+      "type": "string"
+    },
+    "HumanAuthority": {
+      "additionalProperties": false,
+      "properties": {
+        "executor": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Executor",
+          "type": "array"
+        },
+        "generator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Generator",
+          "type": "array"
+        },
+        "memory": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Memory",
+          "type": "array"
+        },
+        "policy": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Policy",
+          "type": "array"
+        },
+        "validator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Validator",
+          "type": "array"
+        }
+      },
+      "required": [
+        "generator",
+        "executor",
+        "validator",
+        "memory",
+        "policy"
+      ],
+      "title": "HumanAuthority",
+      "type": "object"
+    },
+    "OperationalStatus": {
+      "enum": [
+        "implemented",
+        "proposed_not_exercised",
+        "external",
+        "not_reported",
+        "unclear"
+      ],
+      "title": "OperationalStatus",
+      "type": "string"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "linked_diagnostic_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Linked Diagnostic Ids",
+          "type": "array"
+        },
+        "priority_rank": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "proposed_action": {
+          "minLength": 1,
+          "title": "Proposed Action",
+          "type": "string"
+        },
+        "success_check": {
+          "$ref": "#/$defs/SuccessCheck"
+        }
+      },
+      "required": [
+        "id",
+        "priority_rank",
+        "proposed_action",
+        "linked_diagnostic_ids",
+        "evidence_ids",
+        "exact_quotes",
+        "success_check"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "ReliabilityEvidence": {
+      "enum": [
+        "none_reported",
+        "discrimination_study",
+        "agreement_study",
+        "systematic_error_or_bias_test",
+        "property_specific_external_validation",
+        "probabilistic_calibration_analysis"
+      ],
+      "title": "ReliabilityEvidence",
+      "type": "string"
+    },
+    "ReliabilityFinding": {
+      "enum": [
+        "not_evaluated",
+        "not_established",
+        "evidence_of_error_or_bias",
+        "positive_property_specific_evidence",
+        "mixed",
+        "unclear"
+      ],
+      "title": "ReliabilityFinding",
+      "type": "string"
+    },
+    "SuccessCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "comparator_or_threshold": {
+          "minLength": 1,
+          "title": "Comparator Or Threshold",
+          "type": "string"
+        },
+        "evidence_needed": {
+          "minLength": 1,
+          "title": "Evidence Needed",
+          "type": "string"
+        },
+        "observable": {
+          "minLength": 1,
+          "title": "Observable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observable",
+        "comparator_or_threshold",
+        "evidence_needed"
+      ],
+      "title": "SuccessCheck",
+      "type": "object"
+    },
+    "TargetProperty": {
+      "enum": [
+        "executability",
+        "specification_compliance",
+        "task_performance",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "reproducibility",
+        "novelty",
+        "significance",
+        "aggregate_quality",
+        "not_reported"
+      ],
+      "title": "TargetProperty",
+      "type": "string"
+    },
+    "ValidatorChannel": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_id": {
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "decision_role": {
+          "items": {
+            "$ref": "#/$defs/DecisionRole"
+          },
+          "title": "Decision Role",
+          "type": "array"
+        },
+        "evaluator_substrate": {
+          "items": {
+            "$ref": "#/$defs/EvaluatorSubstrate"
+          },
+          "title": "Evaluator Substrate",
+          "type": "array"
+        },
+        "evidence_source": {
+          "items": {
+            "$ref": "#/$defs/EvidenceSource"
+          },
+          "title": "Evidence Source",
+          "type": "array"
+        },
+        "experimental_fidelity": {
+          "items": {
+            "$ref": "#/$defs/Fidelity"
+          },
+          "title": "Experimental Fidelity",
+          "type": "array"
+        },
+        "external_independence": {
+          "$ref": "#/$defs/ExternalIndependence"
+        },
+        "feedback_path": {
+          "items": {
+            "$ref": "#/$defs/FeedbackPath"
+          },
+          "title": "Feedback Path",
+          "type": "array"
+        },
+        "operational_status": {
+          "$ref": "#/$defs/OperationalStatus"
+        },
+        "quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceQuote"
+          },
+          "minItems": 1,
+          "title": "Quotes",
+          "type": "array"
+        },
+        "reliability_evidence_type": {
+          "items": {
+            "$ref": "#/$defs/ReliabilityEvidence"
+          },
+          "title": "Reliability Evidence Type",
+          "type": "array"
+        },
+        "reliability_finding": {
+          "$ref": "#/$defs/ReliabilityFinding"
+        },
+        "target_property": {
+          "items": {
+            "$ref": "#/$defs/TargetProperty"
+          },
+          "title": "Target Property",
+          "type": "array"
+        }
+      },
+      "required": [
+        "channel_id",
+        "operational_status",
+        "target_property",
+        "evidence_source",
+        "evaluator_substrate",
+        "decision_role",
+        "feedback_path",
+        "external_independence",
+        "reliability_evidence_type",
+        "reliability_finding",
+        "experimental_fidelity",
+        "quotes"
+      ],
+      "title": "ValidatorChannel",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "channels": {
+      "items": {
+        "$ref": "#/$defs/ValidatorChannel"
+      },
+      "minItems": 1,
+      "title": "Channels",
+      "type": "array"
+    },
+    "envelope": {
+      "$ref": "#/$defs/CommonEnvelope"
+    },
+    "human_authority": {
+      "$ref": "#/$defs/HumanAuthority"
+    },
+    "memory_structure": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Memory Structure",
+      "type": "array"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "policy_type": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Policy Type",
+      "type": "array"
+    },
+    "record_id": {
+      "pattern": "^R\\d{2}$",
+      "title": "Record Id",
+      "type": "string"
+    },
+    "vendor": {
+      "minLength": 1,
+      "title": "Vendor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "vendor",
+    "model_id",
+    "channels",
+    "policy_type",
+    "memory_structure",
+    "human_authority",
+    "envelope"
+  ],
+  "title": "ServoCoding",
+  "type": "object"
+}
+warning: Skill descriptions were shortened to fit the 2% skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest.
+codex
+{"channels":[{"channel_id":"ucb_selection_mechanism","decision_role":["ranking","search_control","stage_transition"],"evaluator_substrate":["deterministic_program","statistical_model"],"evidence_source":["not_reported"],"experimental_fidelity":["not_reported"],"external_independence":"internal_self_evaluation","feedback_path":["stage_transition","policy_control"],"operational_status":"implemented","quotes":[{"evidence_id":"R09-E02","page":5,"pdf_id":"76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8","quote":"Specifically, it uses the classic Upper Confidence Bound (UCB) algorithm to select the most promising record.","rationale":"Identifies an implemented algorithmic selector with a ranking/search-control role."},{"evidence_id":"R09-E05","page":8,"pdf_id":"76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8","quote":"Across the three tasks, DeepScientist generate over 5,000 unique ideas, yet only about 1,100 are deemed worthy of experimental validation by the system's selection mechanism, and a mere 21 ultimately result in scientific progress.","rationale":"Shows the selection mechanism gates which ideas advance to experimental validation."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["aggregate_quality"]},{"channel_id":"findings_memory_admission_and_feedback","decision_role":["memory_admission","search_control"],"evaluator_substrate":["hybrid"],"evidence_source":["prior_art_corpus","artifact_review"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["memory_update","policy_control"],"operational_status":"implemented","quotes":[{"evidence_id":"R09-E01","page":4,"pdf_id":"76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8","quote":"The architecture of DeepScientist actualizes the Bayesian Optimization loop through a multi-agent system equipped with an open-knowledge system and a continuously accumulating Findings Memory. This memory is composed of both frontier human knowledge (e.g., papers and codes) and the system's own historical findings, and it intelligently guides subsequent explorations.","rationale":"Defines the accumulating memory contents and its feedback into subsequent exploration."},{"evidence_id":"R09-E03","page":5,"pdf_id":"76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8","quote":"This deeply validated record becomes a new record in the system's knowledge base, thus influencing the decision-making process in all subsequent cycles.","rationale":"Shows validated records are admitted to memory and affect later decisions."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["empirical_adequacy","aggregate_quality"]},{"channel_id":"human_supervision_hallucination_filter","decision_role":["diagnostic","stage_transition"],"evaluator_substrate":["human"],"evidence_source":["human_judgment","artifact_review"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["stage_transition"],"operational_status":"implemented","quotes":[{"evidence_id":"R09-E06","page":5,"pdf_id":"76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8","quote":"Three human experts supervise the process to verify outputs and filter out hallucinations.","rationale":"Identifies human expert validation used to verify outputs and filter hallucinations during the process."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["correctness_or_formal_validity","specification_compliance"]},{"channel_id":"command_line_reexecution_verification","decision_role":["diagnostic","stage_transition"],"evaluator_substrate":["deterministic_program"],"evidence_source":["execution_trace"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_separate_component","feedback_path":["stage_transition"],"operational_status":"implemented","quotes":[{"evidence_id":"R09-E07","page":17,"pdf_id":"76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8","quote":"A critical step in our pipeline is a secondary verification process: after Claude Code reports completion, DeepScientist independently re-executes the main script via the command line. This measure was implemented to counteract a high rate of false positives-we observed that approximately 50% of initial implementation attempts failed to complete fully due to internal timeouts within the Claude Code agent. Throughout this project, all experimental results were manually inspected by human supervisors to guarantee their authenticity.","rationale":"Reports an implemented independent re-execution check and the false-positive failure mode it was designed to counteract."}],"reliability_evidence_type":["systematic_error_or_bias_test"],"reliability_finding":"evidence_of_error_or_bias","target_property":["executability"]},{"channel_id":"manual_result_authenticity_inspection","decision_role":["final_acceptance","terminal_assessment"],"evaluator_substrate":["human"],"evidence_source":["human_judgment","artifact_review"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["terminal_only"],"operational_status":"implemented","quotes":[{"evidence_id":"R09-E07","page":17,"pdf_id":"76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8","quote":"A critical step in our pipeline is a secondary verification process: after Claude Code reports completion, DeepScientist independently re-executes the main script via the command line. This measure was implemented to counteract a high rate of false positives-we observed that approximately 50% of initial implementation attempts failed to complete fully due to internal timeouts within the Claude Code agent. Throughout this project, all experimental results were manually inspected by human supervisors to guarantee their authenticity.","rationale":"Reports human manual inspection of experimental results for authenticity as a terminal acceptance assessment."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["empirical_adequacy"]},{"channel_id":"deepreviewer_benchmark_assessment","decision_role":["external_assessment","terminal_assessment"],"evaluator_substrate":["llm"],"evidence_source":["prior_art_corpus","artifact_review"],"experimental_fidelity":["computational_oracle_or_benchmark"],"external_independence":"internal_separate_component","feedback_path":["terminal_only"],"operational_status":"implemented","quotes":[{"evidence_id":"R09-E04","page":7,"pdf_id":"76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8","quote":"First, to benchmark against existing work, we employ DeepReviewer (Zhu et al., 2025a), an AI agent that simulates the human peer-review process with an external search capability, comparing DeepScientist's output against 28 publicly available papers from other AI Scientist systems. Second, for a more rigorous assessment, we convene a dedicated program committee consisting of three active LLM researchers: two volunteers who have served as ICLR reviewers and one senior volunteer who has been invited to be an ICLR Area Chair.","rationale":"Identifies DeepReviewer as an AI benchmark evaluator comparing outputs against a prior-art corpus."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["aggregate_quality","novelty","significance"]},{"channel_id":"program_committee_assessment","decision_role":["external_assessment","terminal_assessment"],"evaluator_substrate":["human"],"evidence_source":["human_judgment","artifact_review"],"experimental_fidelity":["not_applicable"],"external_independence":"external_nonindependent","feedback_path":["external_only"],"operational_status":"external","quotes":[{"evidence_id":"R09-E04","page":7,"pdf_id":"76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8","quote":"First, to benchmark against existing work, we employ DeepReviewer (Zhu et al., 2025a), an AI agent that simulates the human peer-review process with an external search capability, comparing DeepScientist's output against 28 publicly available papers from other AI Scientist systems. Second, for a more rigorous assessment, we convene a dedicated program committee consisting of three active LLM researchers: two volunteers who have served as ICLR reviewers and one senior volunteer who has been invited to be an ICLR Area Chair.","rationale":"Identifies a human program committee used for a more rigorous external assessment."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["aggregate_quality","novelty","significance"]},{"channel_id":"future_community_feedback_and_physical_science_extensions","decision_role":["not_reported"],"evaluator_substrate":["not_reported"],"evidence_source":["not_reported"],"experimental_fidelity":["simulation_or_proxy","robotic_experiment"],"external_independence":"not_reported","feedback_path":["unclear"],"operational_status":"proposed_not_exercised","quotes":[{"evidence_id":"R09-E08","page":10,"pdf_id":"76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8","quote":"To make the AI a more capable partner, future work should focus on key enhancements: developing simulated discovery environments to accelerate learning via reinforcement, creating frameworks for integrating feedback from the scientific community, and ultimately, bridging the gap to the physical sciences through robotics.","rationale":"Reports proposed future feedback, simulated environments, and robotics rather than exercised validation behavior."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["not_reported"]}],"envelope":{"diagnostics":[{"consequence":"Initial implementation completion reports can be unreliable unless independently checked for executability.","evidence_ids":["R09-E07"],"exact_quotes":[{"evidence_id":"R09-E07","exact_quote":"A critical step in our pipeline is a secondary verification process: after Claude Code reports completion, DeepScientist independently re-executes the main script via the command line. This measure was implemented to counteract a high rate of false positives-we observed that approximately 50% of initial implementation attempts failed to complete fully due to internal timeouts within the Claude Code agent. Throughout this project, all experimental results were manually inspected by human supervisors to guarantee their authenticity."}],"id":"D1","kind":"reported_failure","statement":"The packet reports a high false-positive rate in initial implementation completion due to internal timeouts."},{"consequence":"The selectivity of idea gating is reported, but the packet does not establish that the selection mechanism reliably identifies ideas that will produce progress.","evidence_ids":["R09-E05"],"exact_quotes":[{"evidence_id":"R09-E05","exact_quote":"Across the three tasks, DeepScientist generate over 5,000 unique ideas, yet only about 1,100 are deemed worthy of experimental validation by the system's selection mechanism, and a mere 21 ultimately result in scientific progress."}],"id":"D2","kind":"risk","statement":"Only a small fraction of generated ideas ultimately result in scientific progress after selection and validation."},{"consequence":"The memory feedback loop can propagate both frontier knowledge and prior system findings into future decisions, but the packet does not report reliability evidence for admission quality.","evidence_ids":["R09-E01","R09-E03"],"exact_quotes":[{"evidence_id":"R09-E01","exact_quote":"The architecture of DeepScientist actualizes the Bayesian Optimization loop through a multi-agent system equipped with an open-knowledge system and a continuously accumulating Findings Memory. This memory is composed of both frontier human knowledge (e.g., papers and codes) and the system's own historical findings, and it intelligently guides subsequent explorations."},{"evidence_id":"R09-E03","exact_quote":"This deeply validated record becomes a new record in the system's knowledge base, thus influencing the decision-making process in all subsequent cycles."}],"id":"D3","kind":"missing_evidence","statement":"The packet reports memory admission and downstream influence, but no property-specific reliability evidence for the admitted records is provided in the excerpted evidence."}],"recommendations":[{"evidence_ids":["R09-E07"],"exact_quotes":[{"evidence_id":"R09-E07","exact_quote":"A critical step in our pipeline is a secondary verification process: after Claude Code reports completion, DeepScientist independently re-executes the main script via the command line. This measure was implemented to counteract a high rate of false positives-we observed that approximately 50% of initial implementation attempts failed to complete fully due to internal timeouts within the Claude Code agent. Throughout this project, all experimental results were manually inspected by human supervisors to guarantee their authenticity."}],"id":"REC1","linked_diagnostic_ids":["D1"],"priority_rank":1,"proposed_action":"Retain independent command-line re-execution as a mandatory gate before accepting implementation completion.","success_check":{"comparator_or_threshold":"Completion is accepted only when the independently re-executed main script finishes successfully.","evidence_needed":"Execution logs from the secondary command-line run for each accepted implementation.","observable":"Accepted implementation records include successful independent re-execution evidence."}},{"evidence_ids":["R09-E05"],"exact_quotes":[{"evidence_id":"R09-E05","exact_quote":"Across the three tasks, DeepScientist generate over 5,000 unique ideas, yet only about 1,100 are deemed worthy of experimental validation by the system's selection mechanism, and a mere 21 ultimately result in scientific progress."}],"id":"REC2","linked_diagnostic_ids":["D2"],"priority_rank":2,"proposed_action":"Report selection-stage yield from generated ideas to experimentally validated ideas and scientific-progress outcomes.","success_check":{"comparator_or_threshold":"Counts and rates are reported for each stage in the selection funnel.","evidence_needed":"Per-task counts of generated ideas, ideas selected for experimental validation, and ideas resulting in scientific progress.","observable":"A selection-funnel table or log quantifies attrition through the system's selection mechanism."}},{"evidence_ids":["R09-E01","R09-E03"],"exact_quotes":[{"evidence_id":"R09-E01","exact_quote":"The architecture of DeepScientist actualizes the Bayesian Optimization loop through a multi-agent system equipped with an open-knowledge system and a continuously accumulating Findings Memory. This memory is composed of both frontier human knowledge (e.g., papers and codes) and the system's own historical findings, and it intelligently guides subsequent explorations."},{"evidence_id":"R09-E03","exact_quote":"This deeply validated record becomes a new record in the system's knowledge base, thus influencing the decision-making process in all subsequent cycles."}],"id":"REC3","linked_diagnostic_ids":["D3"],"priority_rank":3,"proposed_action":"Document the validation evidence required before a record is admitted to Findings Memory.","success_check":{"comparator_or_threshold":"Every admitted record has an attached validation rationale before it influences subsequent cycles.","evidence_needed":"Knowledge-base entries with their validation evidence and admission decision metadata.","observable":"Findings Memory records expose validation provenance and admission status."}}]},"human_authority":{"executor":["not_reported"],"generator":["not_reported"],"memory":["not_reported"],"policy":["not_reported"],"validator":["execute"]},"memory_structure":["continuously accumulating Findings Memory","frontier human knowledge including papers and codes","system's own historical findings","validated records admitted to the system's knowledge base"],"model_id":"gpt-5-codex","policy_type":["Bayesian Optimization loop","Upper Confidence Bound selection"],"record_id":"R09","vendor":"codex"}
+tokens used
+24,633

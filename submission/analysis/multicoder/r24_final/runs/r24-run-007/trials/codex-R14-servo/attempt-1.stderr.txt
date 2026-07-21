@@ -1,0 +1,685 @@
+OpenAI Codex v0.144.6
+--------
+workdir: /private/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-5f_juf57
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019f81d7-7e0f-7973-ad9d-f49eabdbfe3b
+--------
+user
+# SERVO condition
+
+Apply the supplied frozen R24 coding manual to the anonymous source packet. Do not infer facts outside the packet and do not use knowledge of the named system.
+
+Return only one JSON object conforming to the supplied SERVO schema. The first response character must be `{` and the last must be `}`; Markdown fences, preambles, and trailing commentary are invalid. The only permitted top-level keys are `record_id`, `vendor`, `model_id`, `channels`, `policy_type`, `memory_structure`, `human_authority`, and `envelope`; do not add `schema_version` or any other metadata. Separate distinct validator channels, populate every facet, and attach exact packet evidence to each channel. Then provide typed diagnostics with consequences and exact evidence, plus one to three non-redundant recommendations ranked consecutively by `priority_rank` from 1 and linked to those diagnostics with observable success checks. State each recommendation as a concise free-text `proposed_action`; do not recommend a change that the packet does not support. Do not treat non-reporting as absence, terminal assessment as feedback, general reviewer error as novelty-specific evidence, or agreement and bias studies as probabilistic calibration.
+
+For every channel quote, copy `pdf_id` from the packet's 64-character `source.pdf_sha256` value, not from its `record_id`, and copy `page` from the cited evidence item's `pdf_page` value.
+
+For every diagnostic and recommendation, `evidence_ids` and the `evidence_id` values in `exact_quotes` must be identical sets: include exactly one exact quotation for every listed evidence ID, and never list an evidence ID without its quotation. Each `exact_quote` must reproduce the complete frozen `quote` string associated with that `evidence_id` character for character; a shortened excerpt or substring is invalid even when it is verbatim.
+
+
+# Frozen R24 coding manual
+
+## Unit and boundary
+
+The unit is a source-defined system version, not a unique research lineage. The fourteen records represent thirteen lineages because the AI Scientist v2 preprint and the 2026 record belong to one lineage. Code only what the frozen packet reports. Absence of reporting is not evidence of absence.
+
+A validator channel is an identifiable evaluator with a stable target, substrate, decision role, or feedback path. Split channels when one named system uses distinct mechanisms for ideation filtering, search control, terminal assessment, or external acceptance.
+
+## Facets
+
+- `operational_status`: distinguish implemented behavior, unexercised proposals, external processes, non-reporting, and genuinely unclear descriptions.
+- `target_property`: the property judged, such as executability, correctness, novelty, or aggregate quality.
+- `evidence_source`: the information used to judge the target.
+- `evaluator_substrate`: the mechanism or actor performing the judgment.
+- `decision_role`: the operational consequence of the output.
+- `feedback_path`: where the output is actually routed. A terminal assessment is not search control.
+- `external_independence`: organizational or informational independence of the evaluator.
+- `reliability_evidence_type`: the study design reported for the exact channel and target. Lack of documented bias is `none_reported`, not calibration.
+- `reliability_finding`: the conclusion supported by that evidence.
+- `experimental_fidelity`: the environment in which the evaluated evidence is produced.
+
+Every channel requires at least one exact packet quote. Never transfer evidence from a terminal paper reviewer to an ideation novelty filter merely because both use an LLM.
+
+## Closure and human authority
+
+Closure is derived rather than freely rated. Implemented policy control or stage transition is closed computational feedback; memory update or candidate revision alone is partial; terminal-only or external-only assessment is open. Unclear routing remains unclear.
+
+Human authority is recorded separately for generator, executor, validator, memory, and policy. Use only observable roles: `explicit_none`, `initiate`, `advise`, `select`, `approve`, `execute`, `final_authority`, `not_reported`, or `not_applicable`.
+
+## Missingness
+
+`not_reported` means the packet provides no claim. Explicit none means the source states absence. `unclear` means relevant text exists but supports multiple readings. `not_applicable` means the facet has no coherent value for that channel. These values are never interchangeable.
+
+
+Scheduled metadata: record_id=R14; vendor=codex. Use the CLI model identifier as model_id.
+
+Anonymous source packet:
+{
+  "schema_version": 1,
+  "record_id": "R14",
+  "source": {
+    "pdf_sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+    "page_count": 34
+  },
+  "instructions": "Use only the excerpts below. The packet was curated from the InternAgent method and results sections after a full-text audit. Absence from an excerpt is not by itself evidence of absence; a not_reported answer denotes that the audited source does not report the specified item.",
+  "evidence": [
+    {
+      "evidence_id": "R14-E01",
+      "pdf_page": 5,
+      "quote": "In the context of idea generation, the agent utilizes a general LLM configured with a higher temperature setting. This configuration encourages the generation of more diverse and creative outputs. This enables the agent to identify patterns and insights that might be overlooked in traditional research, generating novel hypotheses and strategies based on task definitions, baseline methods, and current scientific knowledge."
+    },
+    {
+      "evidence_id": "R14-E02",
+      "pdf_page": 6,
+      "quote": "The primary responsibility of the Assessment Agent is to critically evaluate ideas using multidimensional scoring. Each idea is analyzed across key dimensions: coherence, credibility, verifiability, novelty, and alignment. Coherence checks the logical consistency and structure of the idea, while credibility assesses its trustworthiness based on existing knowledge. Verifiability examines the idea’s testability through empirical methods. Novelty measures originality, and alignment ensures consistency with research goals. Moreover, for each dimension, the Assessment Agent provides a detailed evaluation narrative to explain its reasoning. It assigns scores from 0 to 10, which are combined using a weighted summation to produce an overall score for each idea, aiding in the ranking process."
+    },
+    {
+      "evidence_id": "R14-E03",
+      "pdf_page": 6,
+      "quote": "The human-interactive feedback mechanism of InternAgent is categorized into two primary types: 1) feedback directly provided by humans and 2) feedback automatically generated by agent. Human-provided feedback can address one or multiple ideas, offering insights and critiques that lead to further refinement and adjustment of these ideas based on the feedback received."
+    },
+    {
+      "evidence_id": "R14-E04",
+      "pdf_page": 9,
+      "quote": "The debugging process follows a systematic cycle: (1) execution attempt, (2) exception capture and traceback analysis, (3) contextual code structure understanding, (4) debugging strategy formulation, and (5) targeted implementation. This cycle continues iteratively until successful execution or reaching a predefined iteration threshold."
+    },
+    {
+      "evidence_id": "R14-E05",
+      "pdf_page": 9,
+      "quote": "Rather than employing a single-pass implementation strategy, we designed an adaptive evolution approach for our implementation process. This approach involves structured iterations where each implementation attempt is followed by performance assessment and potential refinement. We maintain records of implementation decisions across iterations, which helps track changes and their corresponding effects. This directed adaptation process enables the gradual refinement of complex implementations based on empirical results rather than theoretical assumptions alone."
+    },
+    {
+      "evidence_id": "R14-E06",
+      "pdf_page": 12,
+      "quote": "The survey agent searches and reviews 50 papers to provide domain knowledge for the subsequent idea generation agent, and then the idea generation agent generates 15 ideas. The self-evolving agent evolves each idea into 3 ideas and then selects the top 5 ideas for the next evolving process until the maximum number of evolutions (i.e., 4) is reached."
+    },
+    {
+      "evidence_id": "R14-E07",
+      "pdf_page": 13,
+      "quote": "Table 3: Experiments statistics across different tasks. Each cell shows the number of ideas that improved performance, the number of ideas that successfully ran, and the total number of ideas tested (format: improved / successful / tested). For all the tasks, we conduct experiments with 10 ideas."
+    },
+    {
+      "evidence_id": "R14-E08",
+      "pdf_page": 17,
+      "quote": "This is because our coder agent can automatically analyze the previous results and baseline results and further re-plan the following experiments. Besides, the successful execution rate and the percentage of performance gains will also improve (e.g., on AutoRYP, the percentage of performance gains is 40% compared to 20% without AE)."
+    }
+  ]
+}
+
+
+Required JSON schema:
+{
+  "$defs": {
+    "CommonEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/Diagnostic"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Recommendation"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "diagnostics",
+        "recommendations"
+      ],
+      "title": "CommonEnvelope",
+      "type": "object"
+    },
+    "DecisionRole": {
+      "enum": [
+        "diagnostic",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "memory_admission",
+        "terminal_assessment",
+        "final_acceptance",
+        "external_assessment",
+        "not_reported"
+      ],
+      "title": "DecisionRole",
+      "type": "string"
+    },
+    "Diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "consequence": {
+          "minLength": 1,
+          "title": "Consequence",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/DiagnosticKind"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "kind",
+        "evidence_ids",
+        "exact_quotes",
+        "consequence"
+      ],
+      "title": "Diagnostic",
+      "type": "object"
+    },
+    "DiagnosticKind": {
+      "enum": [
+        "reported_failure",
+        "risk",
+        "ambiguity",
+        "missing_evidence"
+      ],
+      "title": "DiagnosticKind",
+      "type": "string"
+    },
+    "EvaluatorSubstrate": {
+      "enum": [
+        "deterministic_program",
+        "statistical_model",
+        "formal_kernel",
+        "llm",
+        "human",
+        "hybrid",
+        "not_reported"
+      ],
+      "title": "EvaluatorSubstrate",
+      "type": "string"
+    },
+    "EvidenceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "exact_quote": {
+          "minLength": 1,
+          "title": "Exact Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "exact_quote"
+      ],
+      "title": "EvidenceExcerpt",
+      "type": "object"
+    },
+    "EvidenceQuote": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "pdf_id": {
+          "minLength": 1,
+          "title": "Pdf Id",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "pdf_id",
+        "page",
+        "quote",
+        "rationale"
+      ],
+      "title": "EvidenceQuote",
+      "type": "object"
+    },
+    "EvidenceSource": {
+      "enum": [
+        "execution_trace",
+        "benchmark_metric",
+        "statistical_test",
+        "physical_measurement",
+        "replication",
+        "prior_art_corpus",
+        "artifact_review",
+        "human_judgment",
+        "not_reported"
+      ],
+      "title": "EvidenceSource",
+      "type": "string"
+    },
+    "ExternalIndependence": {
+      "enum": [
+        "internal_self_evaluation",
+        "internal_separate_component",
+        "external_nonindependent",
+        "external_independent",
+        "not_reported"
+      ],
+      "title": "ExternalIndependence",
+      "type": "string"
+    },
+    "FeedbackPath": {
+      "enum": [
+        "terminal_only",
+        "memory_update",
+        "candidate_revision",
+        "policy_control",
+        "stage_transition",
+        "external_only",
+        "unclear"
+      ],
+      "title": "FeedbackPath",
+      "type": "string"
+    },
+    "Fidelity": {
+      "enum": [
+        "simulation_or_proxy",
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "robotic_experiment",
+        "physical_assay",
+        "not_applicable",
+        "not_reported"
+      ],
+      "title": "Fidelity",
+      "type": "string"
+    },
+    "HumanAuthority": {
+      "additionalProperties": false,
+      "properties": {
+        "executor": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Executor",
+          "type": "array"
+        },
+        "generator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Generator",
+          "type": "array"
+        },
+        "memory": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Memory",
+          "type": "array"
+        },
+        "policy": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Policy",
+          "type": "array"
+        },
+        "validator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Validator",
+          "type": "array"
+        }
+      },
+      "required": [
+        "generator",
+        "executor",
+        "validator",
+        "memory",
+        "policy"
+      ],
+      "title": "HumanAuthority",
+      "type": "object"
+    },
+    "OperationalStatus": {
+      "enum": [
+        "implemented",
+        "proposed_not_exercised",
+        "external",
+        "not_reported",
+        "unclear"
+      ],
+      "title": "OperationalStatus",
+      "type": "string"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "linked_diagnostic_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Linked Diagnostic Ids",
+          "type": "array"
+        },
+        "priority_rank": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "proposed_action": {
+          "minLength": 1,
+          "title": "Proposed Action",
+          "type": "string"
+        },
+        "success_check": {
+          "$ref": "#/$defs/SuccessCheck"
+        }
+      },
+      "required": [
+        "id",
+        "priority_rank",
+        "proposed_action",
+        "linked_diagnostic_ids",
+        "evidence_ids",
+        "exact_quotes",
+        "success_check"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "ReliabilityEvidence": {
+      "enum": [
+        "none_reported",
+        "discrimination_study",
+        "agreement_study",
+        "systematic_error_or_bias_test",
+        "property_specific_external_validation",
+        "probabilistic_calibration_analysis"
+      ],
+      "title": "ReliabilityEvidence",
+      "type": "string"
+    },
+    "ReliabilityFinding": {
+      "enum": [
+        "not_evaluated",
+        "not_established",
+        "evidence_of_error_or_bias",
+        "positive_property_specific_evidence",
+        "mixed",
+        "unclear"
+      ],
+      "title": "ReliabilityFinding",
+      "type": "string"
+    },
+    "SuccessCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "comparator_or_threshold": {
+          "minLength": 1,
+          "title": "Comparator Or Threshold",
+          "type": "string"
+        },
+        "evidence_needed": {
+          "minLength": 1,
+          "title": "Evidence Needed",
+          "type": "string"
+        },
+        "observable": {
+          "minLength": 1,
+          "title": "Observable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observable",
+        "comparator_or_threshold",
+        "evidence_needed"
+      ],
+      "title": "SuccessCheck",
+      "type": "object"
+    },
+    "TargetProperty": {
+      "enum": [
+        "executability",
+        "specification_compliance",
+        "task_performance",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "reproducibility",
+        "novelty",
+        "significance",
+        "aggregate_quality",
+        "not_reported"
+      ],
+      "title": "TargetProperty",
+      "type": "string"
+    },
+    "ValidatorChannel": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_id": {
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "decision_role": {
+          "items": {
+            "$ref": "#/$defs/DecisionRole"
+          },
+          "title": "Decision Role",
+          "type": "array"
+        },
+        "evaluator_substrate": {
+          "items": {
+            "$ref": "#/$defs/EvaluatorSubstrate"
+          },
+          "title": "Evaluator Substrate",
+          "type": "array"
+        },
+        "evidence_source": {
+          "items": {
+            "$ref": "#/$defs/EvidenceSource"
+          },
+          "title": "Evidence Source",
+          "type": "array"
+        },
+        "experimental_fidelity": {
+          "items": {
+            "$ref": "#/$defs/Fidelity"
+          },
+          "title": "Experimental Fidelity",
+          "type": "array"
+        },
+        "external_independence": {
+          "$ref": "#/$defs/ExternalIndependence"
+        },
+        "feedback_path": {
+          "items": {
+            "$ref": "#/$defs/FeedbackPath"
+          },
+          "title": "Feedback Path",
+          "type": "array"
+        },
+        "operational_status": {
+          "$ref": "#/$defs/OperationalStatus"
+        },
+        "quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceQuote"
+          },
+          "minItems": 1,
+          "title": "Quotes",
+          "type": "array"
+        },
+        "reliability_evidence_type": {
+          "items": {
+            "$ref": "#/$defs/ReliabilityEvidence"
+          },
+          "title": "Reliability Evidence Type",
+          "type": "array"
+        },
+        "reliability_finding": {
+          "$ref": "#/$defs/ReliabilityFinding"
+        },
+        "target_property": {
+          "items": {
+            "$ref": "#/$defs/TargetProperty"
+          },
+          "title": "Target Property",
+          "type": "array"
+        }
+      },
+      "required": [
+        "channel_id",
+        "operational_status",
+        "target_property",
+        "evidence_source",
+        "evaluator_substrate",
+        "decision_role",
+        "feedback_path",
+        "external_independence",
+        "reliability_evidence_type",
+        "reliability_finding",
+        "experimental_fidelity",
+        "quotes"
+      ],
+      "title": "ValidatorChannel",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "channels": {
+      "items": {
+        "$ref": "#/$defs/ValidatorChannel"
+      },
+      "minItems": 1,
+      "title": "Channels",
+      "type": "array"
+    },
+    "envelope": {
+      "$ref": "#/$defs/CommonEnvelope"
+    },
+    "human_authority": {
+      "$ref": "#/$defs/HumanAuthority"
+    },
+    "memory_structure": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Memory Structure",
+      "type": "array"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "policy_type": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Policy Type",
+      "type": "array"
+    },
+    "record_id": {
+      "pattern": "^R\\d{2}$",
+      "title": "Record Id",
+      "type": "string"
+    },
+    "vendor": {
+      "minLength": 1,
+      "title": "Vendor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "vendor",
+    "model_id",
+    "channels",
+    "policy_type",
+    "memory_structure",
+    "human_authority",
+    "envelope"
+  ],
+  "title": "ServoCoding",
+  "type": "object"
+}
+warning: Skill descriptions were shortened to fit the 2% skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest.
+codex
+{"channels":[{"channel_id":"idea_assessment_agent_multidimensional_scoring","decision_role":["ranking"],"evaluator_substrate":["llm"],"evidence_source":["artifact_review","prior_art_corpus"],"experimental_fidelity":["not_applicable"],"external_independence":"internal_separate_component","feedback_path":["stage_transition"],"operational_status":"implemented","quotes":[{"evidence_id":"R14-E02","page":6,"pdf_id":"71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843","quote":"The primary responsibility of the Assessment Agent is to critically evaluate ideas using multidimensional scoring. Each idea is analyzed across key dimensions: coherence, credibility, verifiability, novelty, and alignment. Coherence checks the logical consistency and structure of the idea, while credibility assesses its trustworthiness based on existing knowledge. Verifiability examines the idea’s testability through empirical methods. Novelty measures originality, and alignment ensures consistency with research goals. Moreover, for each dimension, the Assessment Agent provides a detailed evaluation narrative to explain its reasoning. It assigns scores from 0 to 10, which are combined using a weighted summation to produce an overall score for each idea, aiding in the ranking process.","rationale":"The assessment agent scores ideas across multiple dimensions and combines them for ranking."},{"evidence_id":"R14-E06","page":12,"pdf_id":"71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843","quote":"The survey agent searches and reviews 50 papers to provide domain knowledge for the subsequent idea generation agent, and then the idea generation agent generates 15 ideas. The self-evolving agent evolves each idea into 3 ideas and then selects the top 5 ideas for the next evolving process until the maximum number of evolutions (i.e., 4) is reached.","rationale":"The reported workflow uses ranked or selected ideas to control continuation into the next evolving process."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["aggregate_quality","novelty","empirical_adequacy"]},{"channel_id":"human_interactive_feedback_on_ideas","decision_role":["diagnostic"],"evaluator_substrate":["human"],"evidence_source":["human_judgment"],"experimental_fidelity":["not_applicable"],"external_independence":"external_nonindependent","feedback_path":["candidate_revision"],"operational_status":"implemented","quotes":[{"evidence_id":"R14-E03","page":6,"pdf_id":"71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843","quote":"The human-interactive feedback mechanism of InternAgent is categorized into two primary types: 1) feedback directly provided by humans and 2) feedback automatically generated by agent. Human-provided feedback can address one or multiple ideas, offering insights and critiques that lead to further refinement and adjustment of these ideas based on the feedback received.","rationale":"Humans provide critiques that route into idea refinement and adjustment."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["aggregate_quality"]},{"channel_id":"debugging_execution_trace_loop","decision_role":["diagnostic","stage_transition"],"evaluator_substrate":["hybrid"],"evidence_source":["execution_trace"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["candidate_revision","policy_control"],"operational_status":"implemented","quotes":[{"evidence_id":"R14-E04","page":9,"pdf_id":"71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843","quote":"The debugging process follows a systematic cycle: (1) execution attempt, (2) exception capture and traceback analysis, (3) contextual code structure understanding, (4) debugging strategy formulation, and (5) targeted implementation. This cycle continues iteratively until successful execution or reaching a predefined iteration threshold.","rationale":"Execution attempts and traceback analysis drive debugging decisions until success or an iteration threshold."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["executability"]},{"channel_id":"adaptive_evolution_performance_assessment","decision_role":["search_control","memory_admission"],"evaluator_substrate":["llm"],"evidence_source":["benchmark_metric","execution_trace"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["candidate_revision","memory_update","policy_control"],"operational_status":"implemented","quotes":[{"evidence_id":"R14-E05","page":9,"pdf_id":"71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843","quote":"Rather than employing a single-pass implementation strategy, we designed an adaptive evolution approach for our implementation process. This approach involves structured iterations where each implementation attempt is followed by performance assessment and potential refinement. We maintain records of implementation decisions across iterations, which helps track changes and their corresponding effects. This directed adaptation process enables the gradual refinement of complex implementations based on empirical results rather than theoretical assumptions alone.","rationale":"Performance assessment after implementation attempts controls refinement and maintains records across iterations."},{"evidence_id":"R14-E08","page":17,"pdf_id":"71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843","quote":"This is because our coder agent can automatically analyze the previous results and baseline results and further re-plan the following experiments. Besides, the successful execution rate and the percentage of performance gains will also improve (e.g., on AutoRYP, the percentage of performance gains is 40% compared to 20% without AE).","rationale":"The coder agent analyzes prior and baseline results to re-plan experiments, with reported execution and performance improvements."}],"reliability_evidence_type":["discrimination_study"],"reliability_finding":"positive_property_specific_evidence","target_property":["task_performance","executability"]},{"channel_id":"experiment_statistics_terminal_reporting","decision_role":["terminal_assessment"],"evaluator_substrate":["deterministic_program"],"evidence_source":["benchmark_metric","execution_trace"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["terminal_only"],"operational_status":"implemented","quotes":[{"evidence_id":"R14-E07","page":13,"pdf_id":"71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843","quote":"Table 3: Experiments statistics across different tasks. Each cell shows the number of ideas that improved performance, the number of ideas that successfully ran, and the total number of ideas tested (format: improved / successful / tested). For all the tasks, we conduct experiments with 10 ideas.","rationale":"The table reports terminal counts of improved, successful, and tested ideas across tasks."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["task_performance","executability"]}],"envelope":{"diagnostics":[{"consequence":"Idea ranking may be sensitive to unvalidated scoring behavior, especially for novelty and verifiability judgments that affect downstream selection.","evidence_ids":["R14-E02"],"exact_quotes":[{"evidence_id":"R14-E02","exact_quote":"The primary responsibility of the Assessment Agent is to critically evaluate ideas using multidimensional scoring. Each idea is analyzed across key dimensions: coherence, credibility, verifiability, novelty, and alignment. Coherence checks the logical consistency and structure of the idea, while credibility assesses its trustworthiness based on existing knowledge. Verifiability examines the idea’s testability through empirical methods. Novelty measures originality, and alignment ensures consistency with research goals. Moreover, for each dimension, the Assessment Agent provides a detailed evaluation narrative to explain its reasoning. It assigns scores from 0 to 10, which are combined using a weighted summation to produce an overall score for each idea, aiding in the ranking process."}],"id":"D1","kind":"missing_evidence","statement":"The packet reports multidimensional LLM-based idea scoring for ranking but does not report reliability evidence for that assessment channel."},{"consequence":"Human critiques can change generated ideas, but the packet does not specify who has final authority over accepting or rejecting those changes.","evidence_ids":["R14-E03"],"exact_quotes":[{"evidence_id":"R14-E03","exact_quote":"The human-interactive feedback mechanism of InternAgent is categorized into two primary types: 1) feedback directly provided by humans and 2) feedback automatically generated by agent. Human-provided feedback can address one or multiple ideas, offering insights and critiques that lead to further refinement and adjustment of these ideas based on the feedback received."}],"id":"D2","kind":"ambiguity","statement":"The role of human feedback in idea refinement is reported, but the packet does not resolve whether humans advise, select, approve, or hold final authority."},{"consequence":"Adaptive evolution is supported by internal performance evidence, but broad claims about improved performance may depend on the tested tasks and internal setup.","evidence_ids":["R14-E07","R14-E08"],"exact_quotes":[{"evidence_id":"R14-E07","exact_quote":"Table 3: Experiments statistics across different tasks. Each cell shows the number of ideas that improved performance, the number of ideas that successfully ran, and the total number of ideas tested (format: improved / successful / tested). For all the tasks, we conduct experiments with 10 ideas."},{"evidence_id":"R14-E08","exact_quote":"This is because our coder agent can automatically analyze the previous results and baseline results and further re-plan the following experiments. Besides, the successful execution rate and the percentage of performance gains will also improve (e.g., on AutoRYP, the percentage of performance gains is 40% compared to 20% without AE)."}],"id":"D3","kind":"risk","statement":"The packet reports performance and execution gains for adaptive evolution, but the evidence is internal experimental reporting over 10 ideas per task rather than independent validation."}],"recommendations":[{"evidence_ids":["R14-E02"],"exact_quotes":[{"evidence_id":"R14-E02","exact_quote":"The primary responsibility of the Assessment Agent is to critically evaluate ideas using multidimensional scoring. Each idea is analyzed across key dimensions: coherence, credibility, verifiability, novelty, and alignment. Coherence checks the logical consistency and structure of the idea, while credibility assesses its trustworthiness based on existing knowledge. Verifiability examines the idea’s testability through empirical methods. Novelty measures originality, and alignment ensures consistency with research goals. Moreover, for each dimension, the Assessment Agent provides a detailed evaluation narrative to explain its reasoning. It assigns scores from 0 to 10, which are combined using a weighted summation to produce an overall score for each idea, aiding in the ranking process."}],"id":"REC1","linked_diagnostic_ids":["D1"],"priority_rank":1,"proposed_action":"Report a property-specific reliability study for the assessment agent’s multidimensional scores before relying on them as the primary ranking mechanism.","success_check":{"comparator_or_threshold":"Documented agreement or discrimination results for each scored dimension, especially novelty and verifiability.","evidence_needed":"Assessment-agent scores compared against an independently defined evaluation set or human expert judgments.","observable":"A reliability table or analysis tied to the assessment agent scoring channel."}},{"evidence_ids":["R14-E03"],"exact_quotes":[{"evidence_id":"R14-E03","exact_quote":"The human-interactive feedback mechanism of InternAgent is categorized into two primary types: 1) feedback directly provided by humans and 2) feedback automatically generated by agent. Human-provided feedback can address one or multiple ideas, offering insights and critiques that lead to further refinement and adjustment of these ideas based on the feedback received."}],"id":"REC2","linked_diagnostic_ids":["D2"],"priority_rank":2,"proposed_action":"Specify the authority level of human-provided feedback in the idea refinement workflow.","success_check":{"comparator_or_threshold":"Each human role is labeled as advise, select, approve, execute, or final_authority.","evidence_needed":"Workflow documentation mapping human feedback to concrete control points.","observable":"A human-authority description that distinguishes critique from approval or final acceptance."}},{"evidence_ids":["R14-E07","R14-E08"],"exact_quotes":[{"evidence_id":"R14-E07","exact_quote":"Table 3: Experiments statistics across different tasks. Each cell shows the number of ideas that improved performance, the number of ideas that successfully ran, and the total number of ideas tested (format: improved / successful / tested). For all the tasks, we conduct experiments with 10 ideas."},{"evidence_id":"R14-E08","exact_quote":"This is because our coder agent can automatically analyze the previous results and baseline results and further re-plan the following experiments. Besides, the successful execution rate and the percentage of performance gains will also improve (e.g., on AutoRYP, the percentage of performance gains is 40% compared to 20% without AE)."}],"id":"REC3","linked_diagnostic_ids":["D3"],"priority_rank":3,"proposed_action":"Add an independent replication or externally separated validation of adaptive evolution’s execution and performance gains.","success_check":{"comparator_or_threshold":"Replicated successful-execution and performance-gain rates are directionally consistent with the reported AE improvement over the no-AE condition.","evidence_needed":"Independent task runs using the same improved/successful/tested reporting format.","observable":"A replication report comparing AE against no-AE on execution success and performance gains."}}]},"human_authority":{"executor":["not_reported"],"generator":["advise"],"memory":["not_reported"],"policy":["not_reported"],"validator":["advise"]},"memory_structure":["records of implementation decisions across iterations"],"model_id":"gpt-5","policy_type":["iterative adaptive evolution","human-interactive feedback","predefined iteration threshold"],"record_id":"R14","vendor":"codex"}
+tokens used
+9,564

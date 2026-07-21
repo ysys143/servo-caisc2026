@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "record_id": "R05",
+  "source": {
+    "pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+    "page_count": 11
+  },
+  "instructions": "Use only the primary-source excerpts below. The full cited PDF was reviewed and searched. For this packet, not_reported means that no explicit statement was found anywhere in that PDF; it does not imply absence outside this source.",
+  "evidence": [
+    {
+      "evidence_id": "R05-E01",
+      "pdf_page": 1,
+      "quote": "This is a system which uses techniques from artificial intelligence to automate all aspects of the scientific discovery process: it generates hypotheses from a computer model of the domain, designs experiments to test these hypotheses, runs the physical experiments using robotic systems, analyses and interprets the resulting data, and repeats the cycle."
+    },
+    {
+      "evidence_id": "R05-E02",
+      "pdf_page": 4,
+      "quote": "The growth curves are smoothed, after which biologically significant parameters are extracted and statistically analysed to determine whether the original hypotheses have been confirmed or refuted. Scientific knowledge gained from this process is used to update the model of yeast metabolism."
+    },
+    {
+      "evidence_id": "R05-E03",
+      "pdf_page": 5,
+      "quote": "Adam conceived 20 hypotheses concerning the identity of genes encoding 13 locally orphan enzymes in S. cerevisiae. Adam tested all these hypotheses on its robotic system and was able to confirm by experimentation, with a high degree of confidence, the correctness of 12 of them [24]."
+    },
+    {
+      "evidence_id": "R05-E04",
+      "pdf_page": 5,
+      "quote": "Finally, there is a comprehensive custom-made relational database that stores all the data and meta-data generated throughout the various stages (MySQL)."
+    },
+    {
+      "evidence_id": "R05-E05",
+      "pdf_page": 3,
+      "quote": "Adam has already proven itself by discovering new knowledge [24], whilst Eve is still under development."
+    },
+    {
+      "evidence_id": "R05-E06",
+      "pdf_page": 4,
+      "quote": "Adam is intended to be fully automated, with human intervention required only to supply library strain stocks and consumables."
+    },
+    {
+      "evidence_id": "R05-E07",
+      "pdf_page": 9,
+      "quote": "There is a substantial cost for these systems, not only in initial capital outlay and user training, but also in ongoing servicing and maintenance costs, and we would not currently consider them to be 'cost-effective' in comparison to human scientists."
+    }
+  ]
+}

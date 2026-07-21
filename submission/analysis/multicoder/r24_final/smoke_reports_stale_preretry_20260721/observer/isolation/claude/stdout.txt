@@ -1,0 +1,4 @@
+antml:invoke name="Read">
+<parameter name="file_path">/Users/jaesolshin/Documents/GitHub/CAISc_2026/submission/analysis/multicoder/r24_final/smoke_reports/observer/isolation/claude/outside-canary.txt</parameter>
+</invoke>
+</invoke>

@@ -1,0 +1,19 @@
+{
+  "trial": {
+    "trial_id": "claude-R10-2",
+    "vendor": "claude",
+    "record_id": "R10",
+    "condition": "servo",
+    "period": 2,
+    "order": 14
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T16:23:09.865355+00:00",
+  "elapsed_seconds": 53.041561624995666,
+  "requested_model": "claude-opus-4-8",
+  "prompt_sha256": "465d514e3bd408a73fa7033d5152838262c9f5c99daed85a4bfa62718482169b",
+  "returncode": 0,
+  "stdout_sha256": "559533e5b2bc292c1e9d0af49dacca795fc4c17994790a1e5dfb07f4864b77e2",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "validation_error": null
+}

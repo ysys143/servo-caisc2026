@@ -1,0 +1,23 @@
+{
+  "trial": {
+    "trial_id": "codex-R14-servo",
+    "vendor": "codex",
+    "record_id": "R14",
+    "condition": "servo",
+    "period": 1,
+    "order": 1
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T21:55:24.054605+00:00",
+  "elapsed_seconds": 68.79437991599843,
+  "requested_model": "gpt-5.5",
+  "prompt_sha256": "03238f22e17dea235c0e5bbbc44ddeec973cd739b0a4174ba71eda6fb7536fed",
+  "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+  "packet_sha256": "74c4b6a247b992710356dfd3addced83ba193fe9e2b5e4eee99c0e6311279413",
+  "argv_sha256": "e8f178169c5284c41b1c646d35ceb6def955b777959ac178709f1f524ce4b2ae",
+  "returncode": 0,
+  "stdout_sha256": "c50ea853ee8afcd70650cb57ff2e0dbc100e45cee53ba6ab76a1b0b88cbe485b",
+  "stderr_sha256": "3e57db0a3228e7ed7c39c932f729b64f83508627201cf41108d788224e986212",
+  "validation_error": null,
+  "sandbox_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-jst5jab0"
+}

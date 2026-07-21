@@ -1,0 +1,23 @@
+{
+  "trial": {
+    "trial_id": "gemini-R03-servo",
+    "vendor": "gemini",
+    "record_id": "R03",
+    "condition": "servo",
+    "period": 1,
+    "order": 1
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T22:11:08.274844+00:00",
+  "elapsed_seconds": 86.87242479200359,
+  "requested_model": "Gemini 3.1 Pro (High)",
+  "prompt_sha256": "afdf75ca1adef0033ded95d34c46bf6782f67438b28a2317f996ea6c17cb2581",
+  "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+  "packet_sha256": "bc266568ffe66f134652ca6f0adfa5a7b74f2ba56e07e035aa6114d1d5627a32",
+  "argv_sha256": "051b0e2f79574fca985021950ef515222b95bea51a2d91e2b3835198d2c3a293",
+  "returncode": 0,
+  "stdout_sha256": "fcf6bc183a15bc8294c1b6876ba80439cb75366e4df72ccf3604e7ef221b9215",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "validation_error": "1 validation error for ServoCoding\nschema_version\n  Extra inputs are not permitted [type=extra_forbidden, input_value=1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden",
+  "sandbox_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-baao4_k5"
+}

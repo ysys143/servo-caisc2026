@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "record_id": "R07",
+  "completeness_boundary": "The full cited PDF was reviewed and searched. not_reported means that no explicit statement was found in that source.",
+  "answer_options": [
+    "yes",
+    "no",
+    "not_reported"
+  ],
+  "probes": [
+    {
+      "probe_id": "R07-P01",
+      "question": "Does the co-scientist use persistent context memory to store and retrieve agent and system states?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R07-E01"
+      ]
+    },
+    {
+      "probe_id": "R07-P02",
+      "question": "Does the Reflection agent consult prior work and assess the novelty of generated outputs?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R07-E02"
+      ]
+    },
+    {
+      "probe_id": "R07-P03",
+      "question": "Does an Evolution agent refine hypotheses that emerge as top-ranked from the tournament?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R07-E03"
+      ]
+    },
+    {
+      "probe_id": "R07-P04",
+      "question": "Were co-scientist hypotheses externally and independently validated through in vitro laboratory experiments in the reported applications?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R07-E04"
+      ]
+    },
+    {
+      "probe_id": "R07-P05",
+      "question": "Does the work aim to completely automate the scientific process with AI?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R07-E05"
+      ]
+    },
+    {
+      "probe_id": "R07-P06",
+      "question": "Does the Reflection agent's initial review use external tools such as web search?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R07-E06"
+      ]
+    },
+    {
+      "probe_id": "R07-P07",
+      "question": "Is the reported Elo metric based on independent ground truth?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R07-E07"
+      ]
+    },
+    {
+      "probe_id": "R07-P08",
+      "question": "Does the illustrative ALS example aim to suggest potential therapeutic avenues?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R07-E08"
+      ]
+    },
+    {
+      "probe_id": "R07-P09",
+      "question": "Does the source report a probabilistic calibration curve or expected calibration error for the Elo rating?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R07-P10",
+      "question": "Does the source report that wet-lab observations are written back to context memory and alter a later autonomous hypothesis-generation round?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R07-P11",
+      "question": "Does the source specify an autonomous decision rule for escalating a proposal from computational analysis to wet-lab validation?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R07-P12",
+      "question": "Does the source report that the co-scientist itself controls laboratory robots or instruments during the wet-lab experiments?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    }
+  ]
+}

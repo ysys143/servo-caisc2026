@@ -1,0 +1,1 @@
+{"content":"I couldn’t read it. The sandbox rejected the terminal access with `Operation not permitted`, and the current filesystem profile only allows reading the workspace root."}

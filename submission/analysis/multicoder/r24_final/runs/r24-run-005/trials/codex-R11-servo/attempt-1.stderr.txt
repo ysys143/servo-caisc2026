@@ -1,0 +1,670 @@
+OpenAI Codex v0.144.6
+--------
+workdir: /private/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-phjyy0u4
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019f818d-78b3-7a22-9c9f-de9ed4713998
+--------
+user
+# SERVO condition
+
+Apply the supplied frozen R24 coding manual to the anonymous source packet. Do not infer facts outside the packet and do not use knowledge of the named system.
+
+Return only one JSON object conforming to the supplied SERVO schema. The first response character must be `{` and the last must be `}`; Markdown fences, preambles, and trailing commentary are invalid. Separate distinct validator channels, populate every facet, and attach exact packet evidence to each channel. Then provide typed diagnostics with consequences and exact evidence, plus one to three non-redundant recommendations ranked consecutively by `priority_rank` from 1 and linked to those diagnostics with observable success checks. State each recommendation as a concise free-text `proposed_action`; do not recommend a change that the packet does not support. Do not treat non-reporting as absence, terminal assessment as feedback, general reviewer error as novelty-specific evidence, or agreement and bias studies as probabilistic calibration.
+
+For every channel quote, copy `pdf_id` from the packet's 64-character `source.pdf_sha256` value, not from its `record_id`, and copy `page` from the cited evidence item's `pdf_page` value.
+
+For every diagnostic and recommendation, `evidence_ids` and the `evidence_id` values in `exact_quotes` must be identical sets: include exactly one exact quotation for every listed evidence ID, and never list an evidence ID without its quotation. Each `exact_quote` must reproduce the complete frozen `quote` string associated with that `evidence_id` character for character; a shortened excerpt or substring is invalid even when it is verbatim.
+
+
+# Frozen R24 coding manual
+
+## Unit and boundary
+
+The unit is a source-defined system version, not a unique research lineage. The fourteen records represent thirteen lineages because the AI Scientist v2 preprint and the 2026 record belong to one lineage. Code only what the frozen packet reports. Absence of reporting is not evidence of absence.
+
+A validator channel is an identifiable evaluator with a stable target, substrate, decision role, or feedback path. Split channels when one named system uses distinct mechanisms for ideation filtering, search control, terminal assessment, or external acceptance.
+
+## Facets
+
+- `operational_status`: distinguish implemented behavior, unexercised proposals, external processes, non-reporting, and genuinely unclear descriptions.
+- `target_property`: the property judged, such as executability, correctness, novelty, or aggregate quality.
+- `evidence_source`: the information used to judge the target.
+- `evaluator_substrate`: the mechanism or actor performing the judgment.
+- `decision_role`: the operational consequence of the output.
+- `feedback_path`: where the output is actually routed. A terminal assessment is not search control.
+- `external_independence`: organizational or informational independence of the evaluator.
+- `reliability_evidence_type`: the study design reported for the exact channel and target. Lack of documented bias is `none_reported`, not calibration.
+- `reliability_finding`: the conclusion supported by that evidence.
+- `experimental_fidelity`: the environment in which the evaluated evidence is produced.
+
+Every channel requires at least one exact packet quote. Never transfer evidence from a terminal paper reviewer to an ideation novelty filter merely because both use an LLM.
+
+## Closure and human authority
+
+Closure is derived rather than freely rated. Implemented policy control or stage transition is closed computational feedback; memory update or candidate revision alone is partial; terminal-only or external-only assessment is open. Unclear routing remains unclear.
+
+Human authority is recorded separately for generator, executor, validator, memory, and policy. Use only observable roles: `explicit_none`, `initiate`, `advise`, `select`, `approve`, `execute`, `final_authority`, `not_reported`, or `not_applicable`.
+
+## Missingness
+
+`not_reported` means the packet provides no claim. Explicit none means the source states absence. `unclear` means relevant text exists but supports multiple readings. `not_applicable` means the facet has no coherent value for that channel. These values are never interchangeable.
+
+
+Scheduled metadata: record_id=R11; vendor=codex. Use the CLI model identifier as model_id.
+
+Anonymous source packet:
+{
+  "schema_version": 1,
+  "record_id": "R11",
+  "source": {
+    "pdf_sha256": "6a974d0c446c54653ffdf2765e75ab252e97aca3a201d930abacf91ec4d6a165",
+    "page_count": 78
+  },
+  "instructions": "Use only the primary-source excerpts below. The full cited PDF was reviewed and searched. For this packet, not_reported means that no explicit statement was found anywhere in that PDF; it does not imply absence outside this source.",
+  "evidence": [
+    {
+      "evidence_id": "R11-E01",
+      "pdf_page": 3,
+      "quote": "A scorable task, together with research ideas proposing methods to solve the task, are fed to an LLM, which produces code to evaluate the scorable task in a sandbox. This is then embedded within a tree search algorithm, whereby new nodes are chosen balancing exploitation and exploration, sampling from the LLM (Methods)."
+    },
+    {
+      "evidence_id": "R11-E02",
+      "pdf_page": 13,
+      "quote": "The LLM produces Python code, which is then executed and scored on a sandbox. Searching over strategies dramatically increases performance: The system uses the score together with output logs and other information to hill climb towards a better score."
+    },
+    {
+      "evidence_id": "R11-E03",
+      "pdf_page": 13,
+      "quote": "The node with the globally maximum PUCT𝑖 score is selected. The language model then generates a single novel child solution conditioned on this parent’s code and score. The new code is executed, assigned an empirical score, and appended to the search tree, followed by a backpropagation of the visit count to its ancestors. This global, flat-tree structure allows the system to seamlessly backtrack and branch from any historical node if the current optimization path plateaus."
+    },
+    {
+      "evidence_id": "R11-E04",
+      "pdf_page": 5,
+      "quote": "Importantly, expert manual inspection of the code solutions proposed by ERA confirmed that nearly all implementations adhered to the requested algorithms (Extended Data Table 1), with performance largely consistent across replicate runs of methods (Extended Data Fig. 1)."
+    },
+    {
+      "evidence_id": "R11-E05",
+      "pdf_page": 14,
+      "quote": "approach does not rely on beam search (which aggressively prunes unselected candidates at each depth layer) nor a (1 + 𝜆 ) evolution strategy (which maintains only the most recent generation and discards historical states)."
+    }
+  ]
+}
+
+
+Required JSON schema:
+{
+  "$defs": {
+    "CommonEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/Diagnostic"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Recommendation"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "diagnostics",
+        "recommendations"
+      ],
+      "title": "CommonEnvelope",
+      "type": "object"
+    },
+    "DecisionRole": {
+      "enum": [
+        "diagnostic",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "memory_admission",
+        "terminal_assessment",
+        "final_acceptance",
+        "external_assessment",
+        "not_reported"
+      ],
+      "title": "DecisionRole",
+      "type": "string"
+    },
+    "Diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "consequence": {
+          "minLength": 1,
+          "title": "Consequence",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/DiagnosticKind"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "kind",
+        "evidence_ids",
+        "exact_quotes",
+        "consequence"
+      ],
+      "title": "Diagnostic",
+      "type": "object"
+    },
+    "DiagnosticKind": {
+      "enum": [
+        "reported_failure",
+        "risk",
+        "ambiguity",
+        "missing_evidence"
+      ],
+      "title": "DiagnosticKind",
+      "type": "string"
+    },
+    "EvaluatorSubstrate": {
+      "enum": [
+        "deterministic_program",
+        "statistical_model",
+        "formal_kernel",
+        "llm",
+        "human",
+        "hybrid",
+        "not_reported"
+      ],
+      "title": "EvaluatorSubstrate",
+      "type": "string"
+    },
+    "EvidenceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "exact_quote": {
+          "minLength": 1,
+          "title": "Exact Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "exact_quote"
+      ],
+      "title": "EvidenceExcerpt",
+      "type": "object"
+    },
+    "EvidenceQuote": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "pdf_id": {
+          "minLength": 1,
+          "title": "Pdf Id",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "pdf_id",
+        "page",
+        "quote",
+        "rationale"
+      ],
+      "title": "EvidenceQuote",
+      "type": "object"
+    },
+    "EvidenceSource": {
+      "enum": [
+        "execution_trace",
+        "benchmark_metric",
+        "statistical_test",
+        "physical_measurement",
+        "replication",
+        "prior_art_corpus",
+        "artifact_review",
+        "human_judgment",
+        "not_reported"
+      ],
+      "title": "EvidenceSource",
+      "type": "string"
+    },
+    "ExternalIndependence": {
+      "enum": [
+        "internal_self_evaluation",
+        "internal_separate_component",
+        "external_nonindependent",
+        "external_independent",
+        "not_reported"
+      ],
+      "title": "ExternalIndependence",
+      "type": "string"
+    },
+    "FeedbackPath": {
+      "enum": [
+        "terminal_only",
+        "memory_update",
+        "candidate_revision",
+        "policy_control",
+        "stage_transition",
+        "external_only",
+        "unclear"
+      ],
+      "title": "FeedbackPath",
+      "type": "string"
+    },
+    "Fidelity": {
+      "enum": [
+        "simulation_or_proxy",
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "robotic_experiment",
+        "physical_assay",
+        "not_applicable",
+        "not_reported"
+      ],
+      "title": "Fidelity",
+      "type": "string"
+    },
+    "HumanAuthority": {
+      "additionalProperties": false,
+      "properties": {
+        "executor": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Executor",
+          "type": "array"
+        },
+        "generator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Generator",
+          "type": "array"
+        },
+        "memory": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Memory",
+          "type": "array"
+        },
+        "policy": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Policy",
+          "type": "array"
+        },
+        "validator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Validator",
+          "type": "array"
+        }
+      },
+      "required": [
+        "generator",
+        "executor",
+        "validator",
+        "memory",
+        "policy"
+      ],
+      "title": "HumanAuthority",
+      "type": "object"
+    },
+    "OperationalStatus": {
+      "enum": [
+        "implemented",
+        "proposed_not_exercised",
+        "external",
+        "not_reported",
+        "unclear"
+      ],
+      "title": "OperationalStatus",
+      "type": "string"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "linked_diagnostic_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Linked Diagnostic Ids",
+          "type": "array"
+        },
+        "priority_rank": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "proposed_action": {
+          "minLength": 1,
+          "title": "Proposed Action",
+          "type": "string"
+        },
+        "success_check": {
+          "$ref": "#/$defs/SuccessCheck"
+        }
+      },
+      "required": [
+        "id",
+        "priority_rank",
+        "proposed_action",
+        "linked_diagnostic_ids",
+        "evidence_ids",
+        "exact_quotes",
+        "success_check"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "ReliabilityEvidence": {
+      "enum": [
+        "none_reported",
+        "discrimination_study",
+        "agreement_study",
+        "systematic_error_or_bias_test",
+        "property_specific_external_validation",
+        "probabilistic_calibration_analysis"
+      ],
+      "title": "ReliabilityEvidence",
+      "type": "string"
+    },
+    "ReliabilityFinding": {
+      "enum": [
+        "not_evaluated",
+        "not_established",
+        "evidence_of_error_or_bias",
+        "positive_property_specific_evidence",
+        "mixed",
+        "unclear"
+      ],
+      "title": "ReliabilityFinding",
+      "type": "string"
+    },
+    "SuccessCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "comparator_or_threshold": {
+          "minLength": 1,
+          "title": "Comparator Or Threshold",
+          "type": "string"
+        },
+        "evidence_needed": {
+          "minLength": 1,
+          "title": "Evidence Needed",
+          "type": "string"
+        },
+        "observable": {
+          "minLength": 1,
+          "title": "Observable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observable",
+        "comparator_or_threshold",
+        "evidence_needed"
+      ],
+      "title": "SuccessCheck",
+      "type": "object"
+    },
+    "TargetProperty": {
+      "enum": [
+        "executability",
+        "specification_compliance",
+        "task_performance",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "reproducibility",
+        "novelty",
+        "significance",
+        "aggregate_quality",
+        "not_reported"
+      ],
+      "title": "TargetProperty",
+      "type": "string"
+    },
+    "ValidatorChannel": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_id": {
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "decision_role": {
+          "items": {
+            "$ref": "#/$defs/DecisionRole"
+          },
+          "title": "Decision Role",
+          "type": "array"
+        },
+        "evaluator_substrate": {
+          "items": {
+            "$ref": "#/$defs/EvaluatorSubstrate"
+          },
+          "title": "Evaluator Substrate",
+          "type": "array"
+        },
+        "evidence_source": {
+          "items": {
+            "$ref": "#/$defs/EvidenceSource"
+          },
+          "title": "Evidence Source",
+          "type": "array"
+        },
+        "experimental_fidelity": {
+          "items": {
+            "$ref": "#/$defs/Fidelity"
+          },
+          "title": "Experimental Fidelity",
+          "type": "array"
+        },
+        "external_independence": {
+          "$ref": "#/$defs/ExternalIndependence"
+        },
+        "feedback_path": {
+          "items": {
+            "$ref": "#/$defs/FeedbackPath"
+          },
+          "title": "Feedback Path",
+          "type": "array"
+        },
+        "operational_status": {
+          "$ref": "#/$defs/OperationalStatus"
+        },
+        "quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceQuote"
+          },
+          "minItems": 1,
+          "title": "Quotes",
+          "type": "array"
+        },
+        "reliability_evidence_type": {
+          "items": {
+            "$ref": "#/$defs/ReliabilityEvidence"
+          },
+          "title": "Reliability Evidence Type",
+          "type": "array"
+        },
+        "reliability_finding": {
+          "$ref": "#/$defs/ReliabilityFinding"
+        },
+        "target_property": {
+          "items": {
+            "$ref": "#/$defs/TargetProperty"
+          },
+          "title": "Target Property",
+          "type": "array"
+        }
+      },
+      "required": [
+        "channel_id",
+        "operational_status",
+        "target_property",
+        "evidence_source",
+        "evaluator_substrate",
+        "decision_role",
+        "feedback_path",
+        "external_independence",
+        "reliability_evidence_type",
+        "reliability_finding",
+        "experimental_fidelity",
+        "quotes"
+      ],
+      "title": "ValidatorChannel",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "channels": {
+      "items": {
+        "$ref": "#/$defs/ValidatorChannel"
+      },
+      "minItems": 1,
+      "title": "Channels",
+      "type": "array"
+    },
+    "envelope": {
+      "$ref": "#/$defs/CommonEnvelope"
+    },
+    "human_authority": {
+      "$ref": "#/$defs/HumanAuthority"
+    },
+    "memory_structure": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Memory Structure",
+      "type": "array"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "policy_type": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Policy Type",
+      "type": "array"
+    },
+    "record_id": {
+      "pattern": "^R\\d{2}$",
+      "title": "Record Id",
+      "type": "string"
+    },
+    "vendor": {
+      "minLength": 1,
+      "title": "Vendor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "vendor",
+    "model_id",
+    "channels",
+    "policy_type",
+    "memory_structure",
+    "human_authority",
+    "envelope"
+  ],
+  "title": "ServoCoding",
+  "type": "object"
+}
+warning: Skill descriptions were shortened to fit the 2% skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest.
+codex
+{"channels":[{"channel_id":"sandbox_llm_generated_evaluator_scoring","decision_role":["ranking","search_control"],"evaluator_substrate":["llm","deterministic_program"],"evidence_source":["execution_trace","benchmark_metric"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["policy_control","candidate_revision"],"operational_status":"implemented","quotes":[{"evidence_id":"R11-E01","page":3,"pdf_id":"6a974d0c446c54653ffdf2765e75ab252e97aca3a201d930abacf91ec4d6a165","quote":"A scorable task, together with research ideas proposing methods to solve the task, are fed to an LLM, which produces code to evaluate the scorable task in a sandbox. This is then embedded within a tree search algorithm, whereby new nodes are chosen balancing exploitation and exploration, sampling from the LLM (Methods).","rationale":"Identifies the LLM-produced evaluator code, sandbox execution, and use of resulting evaluations inside tree-search node choice."},{"evidence_id":"R11-E02","page":13,"pdf_id":"6a974d0c446c54653ffdf2765e75ab252e97aca3a201d930abacf91ec4d6a165","quote":"The LLM produces Python code, which is then executed and scored on a sandbox. Searching over strategies dramatically increases performance: The system uses the score together with output logs and other information to hill climb towards a better score.","rationale":"Shows sandbox execution and score/log feedback routed into candidate improvement and search control."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["executability","task_performance"]},{"channel_id":"puct_tree_node_selection_and_backpropagation","decision_role":["search_control","memory_admission"],"evaluator_substrate":["deterministic_program"],"evidence_source":["benchmark_metric","execution_trace"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["policy_control","memory_update"],"operational_status":"implemented","quotes":[{"evidence_id":"R11-E03","page":13,"pdf_id":"6a974d0c446c54653ffdf2765e75ab252e97aca3a201d930abacf91ec4d6a165","quote":"The node with the globally maximum PUCT𝑖 score is selected. The language model then generates a single novel child solution conditioned on this parent’s code and score. The new code is executed, assigned an empirical score, and appended to the search tree, followed by a backpropagation of the visit count to its ancestors. This global, flat-tree structure allows the system to seamlessly backtrack and branch from any historical node if the current optimization path plateaus.","rationale":"Reports deterministic PUCT node choice, empirical scoring, search-tree admission, and backpropagation used to control future search."},{"evidence_id":"R11-E05","page":14,"pdf_id":"6a974d0c446c54653ffdf2765e75ab252e97aca3a201d930abacf91ec4d6a165","quote":"approach does not rely on beam search (which aggressively prunes unselected candidates at each depth layer) nor a (1 + 𝜆 ) evolution strategy (which maintains only the most recent generation and discards historical states).","rationale":"Clarifies that historical states are retained rather than pruned, supporting the memory-structure coding for search control."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["task_performance","aggregate_quality"]},{"channel_id":"expert_manual_code_solution_inspection","decision_role":["terminal_assessment"],"evaluator_substrate":["human"],"evidence_source":["artifact_review","human_judgment"],"experimental_fidelity":["not_applicable"],"external_independence":"not_reported","feedback_path":["terminal_only"],"operational_status":"implemented","quotes":[{"evidence_id":"R11-E04","page":5,"pdf_id":"6a974d0c446c54653ffdf2765e75ab252e97aca3a201d930abacf91ec4d6a165","quote":"Importantly, expert manual inspection of the code solutions proposed by ERA confirmed that nearly all implementations adhered to the requested algorithms (Extended Data Table 1), with performance largely consistent across replicate runs of methods (Extended Data Fig. 1).","rationale":"Reports human expert artifact review of generated code for adherence to requested algorithms."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_established","target_property":["specification_compliance"]},{"channel_id":"replicate_run_performance_consistency_check","decision_role":["terminal_assessment"],"evaluator_substrate":["not_reported"],"evidence_source":["replication","benchmark_metric"],"experimental_fidelity":["computational_experiment"],"external_independence":"not_reported","feedback_path":["terminal_only"],"operational_status":"implemented","quotes":[{"evidence_id":"R11-E04","page":5,"pdf_id":"6a974d0c446c54653ffdf2765e75ab252e97aca3a201d930abacf91ec4d6a165","quote":"Importantly, expert manual inspection of the code solutions proposed by ERA confirmed that nearly all implementations adhered to the requested algorithms (Extended Data Table 1), with performance largely consistent across replicate runs of methods (Extended Data Fig. 1).","rationale":"Reports consistency of performance across replicate runs, supporting a terminal reproducibility assessment."}],"reliability_evidence_type":["property_specific_external_validation"],"reliability_finding":"positive_property_specific_evidence","target_property":["reproducibility","task_performance"]}],"envelope":{"diagnostics":[{"consequence":"The main search loop may optimize against evaluator-code or sandbox-scoring artifacts without packet evidence that the evaluator itself was independently validated.","evidence_ids":["R11-E01"],"exact_quotes":[{"evidence_id":"R11-E01","exact_quote":"A scorable task, together with research ideas proposing methods to solve the task, are fed to an LLM, which produces code to evaluate the scorable task in a sandbox. This is then embedded within a tree search algorithm, whereby new nodes are chosen balancing exploitation and exploration, sampling from the LLM (Methods)."}],"id":"D1","kind":"risk","statement":"The packet reports that an LLM produces the evaluator code used inside the search loop, but provides no reliability evidence for that evaluator channel."},{"consequence":"Because the terminal manual inspection is not reported as feeding back into generation, search, or acceptance, it should not be coded as closed-loop control over candidate generation.","evidence_ids":["R11-E04"],"exact_quotes":[{"evidence_id":"R11-E04","exact_quote":"Importantly, expert manual inspection of the code solutions proposed by ERA confirmed that nearly all implementations adhered to the requested algorithms (Extended Data Table 1), with performance largely consistent across replicate runs of methods (Extended Data Fig. 1)."}],"id":"D2","kind":"missing_evidence","statement":"The packet reports expert manual inspection as a terminal assessment but does not report routing that inspection into the search loop."},{"consequence":"The reproducibility claim is supported at a high level, but the packet excerpt does not specify the replicate protocol, evaluator substrate, or acceptance threshold.","evidence_ids":["R11-E04"],"exact_quotes":[{"evidence_id":"R11-E04","exact_quote":"Importantly, expert manual inspection of the code solutions proposed by ERA confirmed that nearly all implementations adhered to the requested algorithms (Extended Data Table 1), with performance largely consistent across replicate runs of methods (Extended Data Fig. 1)."}],"id":"D3","kind":"ambiguity","statement":"The packet reports performance consistency across replicate runs without enough detail to characterize the replicate-run evaluator mechanism beyond the reported outcome."}],"recommendations":[{"evidence_ids":["R11-E01"],"exact_quotes":[{"evidence_id":"R11-E01","exact_quote":"A scorable task, together with research ideas proposing methods to solve the task, are fed to an LLM, which produces code to evaluate the scorable task in a sandbox. This is then embedded within a tree search algorithm, whereby new nodes are chosen balancing exploitation and exploration, sampling from the LLM (Methods)."}],"id":"REC1","linked_diagnostic_ids":["D1"],"priority_rank":1,"proposed_action":"Report a property-specific validation of the LLM-generated evaluator code before using its sandbox scores for search control.","success_check":{"comparator_or_threshold":"Validation result reported for the evaluator channel rather than inferred from downstream task performance.","evidence_needed":"A documented evaluator-validation study tied to the sandbox scoring code.","observable":"Evaluator-code scores are compared against an independently specified task oracle or expert-scored cases."}},{"evidence_ids":["R11-E04"],"exact_quotes":[{"evidence_id":"R11-E04","exact_quote":"Importantly, expert manual inspection of the code solutions proposed by ERA confirmed that nearly all implementations adhered to the requested algorithms (Extended Data Table 1), with performance largely consistent across replicate runs of methods (Extended Data Fig. 1)."}],"id":"REC2","linked_diagnostic_ids":["D2","D3"],"priority_rank":2,"proposed_action":"Specify the replicate-run and manual-inspection protocols separately, including evaluator substrate, sample size, and decision thresholds.","success_check":{"comparator_or_threshold":"Each terminal channel has its own reported protocol and threshold.","evidence_needed":"Protocol text or tables for manual inspection and replicate performance checks.","observable":"The packet can distinguish code-adherence inspection from replicate-run performance consistency without sharing unspecified facets."}}]},"human_authority":{"executor":["not_reported"],"generator":["not_reported"],"memory":["not_reported"],"policy":["not_reported"],"validator":["execute"]},"memory_structure":["global_flat_tree","historical_nodes_retained","visit_count_backpropagation"],"model_id":"gpt-5","policy_type":["tree_search","PUCT","hill_climbing"],"record_id":"R11","vendor":"codex"}
+tokens used
+8,242

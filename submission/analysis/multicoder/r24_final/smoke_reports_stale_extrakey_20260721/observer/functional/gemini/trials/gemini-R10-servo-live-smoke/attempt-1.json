@@ -1,0 +1,23 @@
+{
+  "trial": {
+    "trial_id": "gemini-R10-servo-live-smoke",
+    "vendor": "gemini",
+    "record_id": "R10",
+    "condition": "servo",
+    "period": 1,
+    "order": 0
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T21:25:47.189861+00:00",
+  "elapsed_seconds": 98.44857641699491,
+  "requested_model": "Gemini 3.1 Pro (High)",
+  "prompt_sha256": "6cbe8321ee08472c2b0119ea5ba413e930d9f0b132c697543ae2be8ef1b218d1",
+  "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+  "packet_sha256": "19182411a864ae796a39320847e50211e603c4330e0347a1ea719694b38979a2",
+  "argv_sha256": "051b0e2f79574fca985021950ef515222b95bea51a2d91e2b3835198d2c3a293",
+  "returncode": 0,
+  "stdout_sha256": "0bef79fbb245ebefdef036265b61c291d3f76db2f63e95b11ab3e997a257c89a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "validation_error": null,
+  "sandbox_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-3h123kd_"
+}

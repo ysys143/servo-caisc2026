@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "record_id": "R02",
+  "completeness_boundary": "The full cited PDF was reviewed and searched. not_reported means that no explicit statement was found in that source.",
+  "answer_options": [
+    "yes",
+    "no",
+    "not_reported"
+  ],
+  "probes": [
+    {
+      "probe_id": "R02-P01",
+      "question": "Does the implemented idea-generation stage compare proposed ideas with prior literature and discard ideas judged too similar?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R02-E01"
+      ]
+    },
+    {
+      "probe_id": "R02-P02",
+      "question": "Do results from a completed experiment condition replanning and implementation of the next experiment?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R02-E02"
+      ]
+    },
+    {
+      "probe_id": "R02-P03",
+      "question": "Does the source evaluate its automated paper reviewer against decisions for a corpus of real conference papers?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R02-E03"
+      ]
+    },
+    {
+      "probe_id": "R02-P04",
+      "question": "Does the workflow retain completed ideas and reviewer feedback in an archive used across repetitions?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R02-E04"
+      ]
+    },
+    {
+      "probe_id": "R02-P05",
+      "question": "Can the implemented automated reviewer ask authors questions during a rebuttal phase?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R02-E05"
+      ]
+    },
+    {
+      "probe_id": "R02-P06",
+      "question": "Does the implemented system use vision capabilities to inspect manuscript figures directly?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R02-E06"
+      ]
+    },
+    {
+      "probe_id": "R02-P07",
+      "question": "Did five-review ensembling with meta-aggregation improve the automated reviewer’s measured performance?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R02-E07"
+      ]
+    },
+    {
+      "probe_id": "R02-P08",
+      "question": "Do the authors recommend accepting the generated papers’ scientific content at face value?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R02-E08"
+      ]
+    },
+    {
+      "probe_id": "R02-P09",
+      "question": "Does the source specify a Bayesian posterior or expected-information-gain objective for selecting experiments?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R02-P10",
+      "question": "Does the source report independent replication of a generated paper’s experiments by a separate laboratory?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R02-P11",
+      "question": "Does the implemented workflow include a formal proof checker or proof-assistant kernel?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R02-P12",
+      "question": "Does the source report a pre-registered statistical-power or sample-size criterion controlling experiment selection?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    }
+  ]
+}

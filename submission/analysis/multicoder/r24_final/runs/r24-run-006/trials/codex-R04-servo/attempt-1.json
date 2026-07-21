@@ -1,0 +1,23 @@
+{
+  "trial": {
+    "trial_id": "codex-R04-servo",
+    "vendor": "codex",
+    "record_id": "R04",
+    "condition": "servo",
+    "period": 1,
+    "order": 4
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T22:48:29.642159+00:00",
+  "elapsed_seconds": 58.4624328330101,
+  "requested_model": "gpt-5.5",
+  "prompt_sha256": "e900afe886c312464b5dcfa7e8395df107f6b942f3134defba52a485b2fc6488",
+  "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+  "packet_sha256": "6a7303b10aef8436d2986e60d5a189f1454155ec81ceec35ef7a7f634b2eeeba",
+  "argv_sha256": "e8f178169c5284c41b1c646d35ceb6def955b777959ac178709f1f524ce4b2ae",
+  "returncode": 0,
+  "stdout_sha256": "b678e25726c146625f2c78928f3c459c2ff03c220dfd7c110fba7f53d423dd96",
+  "stderr_sha256": "1ed52029ebc9159a4061e1ec5143f09bb5daed4a3d10ae69182eacd7605d9dec",
+  "validation_error": null,
+  "sandbox_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-rxh2i3o3"
+}

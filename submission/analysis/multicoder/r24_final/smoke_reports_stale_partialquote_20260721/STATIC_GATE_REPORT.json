@@ -1,0 +1,60 @@
+{
+  "binding": {
+    "environment_policy_sha256": "448fd926beaadf118c0de650b9595877041fda6bb7f315a522480c123bbcf229",
+    "protocol_sha256": "91a26e615fc3a3c34796e8ce8cb6d8b6f314fb10f52744e118c2927c888988cc",
+    "runtime_sha256": "6a868c035109d86ff86ddead0499763d612b5b13a2644618f7ea7e09e5006bb0",
+    "sandbox_profile_sha256": "f92037ef8956480d505b54ed780970067e448dc0e399e4bff122d5725ade4843"
+  },
+  "checks": [
+    {
+      "evidence_ids": [
+        "static_gate_report-evidence"
+      ],
+      "id": "command_allowlist",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "static_gate_report-evidence"
+      ],
+      "id": "packet_pdf_binding",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "static_gate_report-evidence"
+      ],
+      "id": "prompt_nonleakage",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "static_gate_report-evidence"
+      ],
+      "id": "retired_asset_nonleakage",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "static_gate_report-evidence"
+      ],
+      "id": "schedule_contract",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "static_gate_report-evidence"
+      ],
+      "id": "schema_resolution",
+      "result": "pass"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "static_gate_report-evidence",
+      "path": "raw/STATIC_GATE_REPORT.json",
+      "sha256": "730d0c654b2dcd855265765d20e36a1e45faf74bc12e831f7caeb80c438acbb9"
+    }
+  ],
+  "report_type": "STATIC_GATE_REPORT"
+}

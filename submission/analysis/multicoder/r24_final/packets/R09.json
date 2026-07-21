@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "record_id": "R09",
+  "source": {
+    "pdf_sha256": "76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8",
+    "page_count": 19
+  },
+  "instructions": "Use only the excerpts below. The full PDF was audited when the hidden probes were authored. Absence from these excerpts is not evidence that a feature is absent from the full source, and an explicit negative must be supported by quoted source text.",
+  "evidence": [
+    {
+      "evidence_id": "R09-E01",
+      "pdf_page": 4,
+      "quote": "The architecture of DeepScientist actualizes the Bayesian Optimization loop through a multi-agent system equipped with an open-knowledge system and a continuously accumulating Findings Memory. This memory is composed of both frontier human knowledge (e.g., papers and codes) and the system's own historical findings, and it intelligently guides subsequent explorations."
+    },
+    {
+      "evidence_id": "R09-E02",
+      "pdf_page": 5,
+      "quote": "Specifically, it uses the classic Upper Confidence Bound (UCB) algorithm to select the most promising record."
+    },
+    {
+      "evidence_id": "R09-E03",
+      "pdf_page": 5,
+      "quote": "This deeply validated record becomes a new record in the system's knowledge base, thus influencing the decision-making process in all subsequent cycles."
+    },
+    {
+      "evidence_id": "R09-E04",
+      "pdf_page": 7,
+      "quote": "First, to benchmark against existing work, we employ DeepReviewer (Zhu et al., 2025a), an AI agent that simulates the human peer-review process with an external search capability, comparing DeepScientist's output against 28 publicly available papers from other AI Scientist systems. Second, for a more rigorous assessment, we convene a dedicated program committee consisting of three active LLM researchers: two volunteers who have served as ICLR reviewers and one senior volunteer who has been invited to be an ICLR Area Chair."
+    },
+    {
+      "evidence_id": "R09-E05",
+      "pdf_page": 8,
+      "quote": "Across the three tasks, DeepScientist generate over 5,000 unique ideas, yet only about 1,100 are deemed worthy of experimental validation by the system's selection mechanism, and a mere 21 ultimately result in scientific progress."
+    },
+    {
+      "evidence_id": "R09-E06",
+      "pdf_page": 5,
+      "quote": "Three human experts supervise the process to verify outputs and filter out hallucinations."
+    },
+    {
+      "evidence_id": "R09-E07",
+      "pdf_page": 17,
+      "quote": "A critical step in our pipeline is a secondary verification process: after Claude Code reports completion, DeepScientist independently re-executes the main script via the command line. This measure was implemented to counteract a high rate of false positives-we observed that approximately 50% of initial implementation attempts failed to complete fully due to internal timeouts within the Claude Code agent. Throughout this project, all experimental results were manually inspected by human supervisors to guarantee their authenticity."
+    },
+    {
+      "evidence_id": "R09-E08",
+      "pdf_page": 10,
+      "quote": "To make the AI a more capable partner, future work should focus on key enhancements: developing simulated discovery environments to accelerate learning via reinforcement, creating frameworks for integrating feedback from the scientific community, and ultimately, bridging the gap to the physical sciences through robotics."
+    }
+  ]
+}

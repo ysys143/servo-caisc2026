@@ -1,0 +1,19 @@
+{
+  "trial": {
+    "trial_id": "gemini-R10-baseline-smoke-v2",
+    "vendor": "gemini",
+    "record_id": "R10",
+    "condition": "baseline",
+    "period": 1,
+    "order": 0
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T15:30:40.478206+00:00",
+  "elapsed_seconds": 51.154024500006926,
+  "requested_model": "Gemini 3.1 Pro (High)",
+  "prompt_sha256": "303e5f128b8fe0a49ca63d0ad916b2b4af4af6922c71979dba0edbfcd4a7b99e",
+  "returncode": 0,
+  "stdout_sha256": "698a678645e2e10a73ec67415813d012e33fe61e7295cea26405ab04f5070adf",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "validation_error": null
+}

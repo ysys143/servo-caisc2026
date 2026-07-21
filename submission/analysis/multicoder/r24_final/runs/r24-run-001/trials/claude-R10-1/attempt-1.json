@@ -1,0 +1,19 @@
+{
+  "trial": {
+    "trial_id": "claude-R10-1",
+    "vendor": "claude",
+    "record_id": "R10",
+    "condition": "baseline",
+    "period": 1,
+    "order": 0
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T15:27:17.045246+00:00",
+  "elapsed_seconds": 47.69331666600192,
+  "requested_model": "claude-opus-4-8",
+  "prompt_sha256": "15085507fdafc90c6ae767bd43804afc5f8629eb70307564e1f5bbf54796b7eb",
+  "returncode": 0,
+  "stdout_sha256": "1d5766b5b19894ce64fd1bd4c8ac51e3ec91f0b563ce2e6604caf1a33e396a17",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "validation_error": "1 validation error for BaselineCoding\nenvelope.recommendations.3\n  Value error, recommendation evidence ids and exact quotes must match [type=value_error, input_value={'id': 'REC4', 'action_co...ow cytometry analysis'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error"
+}

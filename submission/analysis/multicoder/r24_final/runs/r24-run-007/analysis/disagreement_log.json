@@ -1,0 +1,2332 @@
+[
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "target_property",
+    "provisional_classification": "source_absence",
+    "record_id": "R01",
+    "values": {
+      "claude": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "executability",
+        "specification_compliance",
+        "task_performance"
+      ],
+      "codex": [
+        "aggregate_quality",
+        "empirical_adequacy",
+        "executability",
+        "specification_compliance",
+        "task_performance"
+      ],
+      "gemini": [
+        "executability",
+        "not_reported",
+        "task_performance"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "evidence_source",
+    "provisional_classification": "source_absence",
+    "record_id": "R01",
+    "values": {
+      "claude": [
+        "artifact_review",
+        "execution_trace",
+        "human_judgment",
+        "physical_measurement"
+      ],
+      "codex": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment"
+      ],
+      "gemini": [
+        "execution_trace",
+        "human_judgment",
+        "not_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "evaluator_substrate",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R01",
+    "values": {
+      "claude": [
+        "deterministic_program",
+        "human",
+        "llm"
+      ],
+      "codex": [
+        "human",
+        "hybrid",
+        "llm",
+        "statistical_model"
+      ],
+      "gemini": [
+        "human",
+        "llm"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "decision_role",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R01",
+    "values": {
+      "claude": [
+        "diagnostic",
+        "search_control",
+        "terminal_assessment"
+      ],
+      "codex": [
+        "diagnostic",
+        "ranking",
+        "search_control",
+        "terminal_assessment"
+      ],
+      "gemini": [
+        "external_assessment",
+        "memory_admission",
+        "search_control"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "feedback_path",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R01",
+    "values": {
+      "claude": [
+        "candidate_revision",
+        "policy_control",
+        "terminal_only"
+      ],
+      "codex": [
+        "candidate_revision",
+        "memory_update",
+        "policy_control",
+        "terminal_only"
+      ],
+      "gemini": [
+        "candidate_revision",
+        "external_only",
+        "memory_update"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "reliability_evidence_type",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R01",
+    "values": {
+      "claude": [
+        "none_reported"
+      ],
+      "codex": [
+        "none_reported",
+        "property_specific_external_validation"
+      ],
+      "gemini": [
+        "agreement_study",
+        "none_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "experimental_fidelity",
+    "provisional_classification": "source_absence",
+    "record_id": "R01",
+    "values": {
+      "claude": [
+        "computational_experiment",
+        "not_applicable",
+        "physical_assay",
+        "robotic_experiment"
+      ],
+      "codex": [
+        "not_applicable",
+        "not_reported",
+        "physical_assay",
+        "robotic_experiment"
+      ],
+      "gemini": [
+        "not_reported",
+        "robotic_experiment"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "target_property",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R02",
+    "values": {
+      "claude": [
+        "aggregate_quality",
+        "empirical_adequacy",
+        "novelty",
+        "task_performance"
+      ],
+      "codex": [
+        "aggregate_quality",
+        "empirical_adequacy",
+        "novelty",
+        "significance",
+        "task_performance"
+      ],
+      "gemini": [
+        "aggregate_quality",
+        "novelty",
+        "task_performance"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "evidence_source",
+    "provisional_classification": "source_absence",
+    "record_id": "R02",
+    "values": {
+      "claude": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "not_reported",
+        "prior_art_corpus"
+      ],
+      "codex": [
+        "artifact_review",
+        "execution_trace",
+        "human_judgment",
+        "prior_art_corpus"
+      ],
+      "gemini": [
+        "artifact_review",
+        "execution_trace",
+        "prior_art_corpus"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "evaluator_substrate",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R02",
+    "values": {
+      "claude": [
+        "llm"
+      ],
+      "codex": [
+        "human",
+        "hybrid",
+        "llm"
+      ],
+      "gemini": [
+        "llm"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "decision_role",
+    "provisional_classification": "source_absence",
+    "record_id": "R02",
+    "values": {
+      "claude": [
+        "diagnostic",
+        "memory_admission",
+        "not_reported",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ],
+      "codex": [
+        "external_assessment",
+        "memory_admission",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ],
+      "gemini": [
+        "memory_admission",
+        "search_control",
+        "terminal_assessment"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "feedback_path",
+    "provisional_classification": "source_ambiguity",
+    "record_id": "R02",
+    "values": {
+      "claude": [
+        "candidate_revision",
+        "memory_update",
+        "policy_control",
+        "stage_transition",
+        "terminal_only",
+        "unclear"
+      ],
+      "codex": [
+        "candidate_revision",
+        "external_only",
+        "memory_update",
+        "policy_control",
+        "stage_transition"
+      ],
+      "gemini": [
+        "candidate_revision",
+        "memory_update"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "reliability_evidence_type",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R02",
+    "values": {
+      "claude": [
+        "discrimination_study",
+        "none_reported"
+      ],
+      "codex": [
+        "discrimination_study",
+        "none_reported"
+      ],
+      "gemini": [
+        "agreement_study",
+        "none_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "experimental_fidelity",
+    "provisional_classification": "source_absence",
+    "record_id": "R02",
+    "values": {
+      "claude": [
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "not_applicable",
+        "not_reported"
+      ],
+      "codex": [
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "not_applicable"
+      ],
+      "gemini": [
+        "computational_experiment"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "target_property",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R03",
+    "values": {
+      "claude": [
+        "aggregate_quality",
+        "empirical_adequacy",
+        "executability",
+        "novelty",
+        "significance",
+        "specification_compliance",
+        "task_performance"
+      ],
+      "codex": [
+        "aggregate_quality",
+        "empirical_adequacy",
+        "novelty",
+        "significance",
+        "task_performance"
+      ],
+      "gemini": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "novelty",
+        "significance",
+        "task_performance"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "evidence_source",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R03",
+    "values": {
+      "claude": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment",
+        "prior_art_corpus"
+      ],
+      "codex": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment",
+        "prior_art_corpus"
+      ],
+      "gemini": [
+        "artifact_review",
+        "benchmark_metric",
+        "prior_art_corpus"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "decision_role",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R03",
+    "values": {
+      "claude": [
+        "diagnostic",
+        "external_assessment",
+        "final_acceptance",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ],
+      "codex": [
+        "diagnostic",
+        "external_assessment",
+        "final_acceptance",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ],
+      "gemini": [
+        "diagnostic",
+        "external_assessment",
+        "final_acceptance",
+        "ranking",
+        "search_control",
+        "terminal_assessment"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "reliability_evidence_type",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R03",
+    "values": {
+      "claude": [
+        "agreement_study",
+        "discrimination_study",
+        "none_reported"
+      ],
+      "codex": [
+        "agreement_study",
+        "discrimination_study",
+        "none_reported"
+      ],
+      "gemini": [
+        "agreement_study",
+        "none_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "experimental_fidelity",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R03",
+    "values": {
+      "claude": [
+        "computational_experiment",
+        "not_applicable"
+      ],
+      "codex": [
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "not_applicable"
+      ],
+      "gemini": [
+        "computational_experiment",
+        "not_applicable"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "evidence_source",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R04",
+    "values": {
+      "claude": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment"
+      ],
+      "codex": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace"
+      ],
+      "gemini": [
+        "benchmark_metric",
+        "execution_trace"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "evaluator_substrate",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R04",
+    "values": {
+      "claude": [
+        "deterministic_program",
+        "human",
+        "llm"
+      ],
+      "codex": [
+        "deterministic_program",
+        "llm"
+      ],
+      "gemini": [
+        "deterministic_program",
+        "llm"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "decision_role",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R04",
+    "values": {
+      "claude": [
+        "diagnostic",
+        "final_acceptance",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ],
+      "codex": [
+        "diagnostic",
+        "final_acceptance",
+        "ranking",
+        "search_control",
+        "stage_transition"
+      ],
+      "gemini": [
+        "search_control",
+        "stage_transition"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "feedback_path",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R04",
+    "values": {
+      "claude": [
+        "candidate_revision",
+        "policy_control",
+        "stage_transition",
+        "terminal_only"
+      ],
+      "codex": [
+        "candidate_revision",
+        "policy_control",
+        "stage_transition"
+      ],
+      "gemini": [
+        "candidate_revision",
+        "stage_transition"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "experimental_fidelity",
+    "provisional_classification": "source_absence",
+    "record_id": "R04",
+    "values": {
+      "claude": [
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "not_reported",
+        "simulation_or_proxy"
+      ],
+      "codex": [
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "not_applicable"
+      ],
+      "gemini": [
+        "computational_experiment"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "target_property",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R05",
+    "values": {
+      "claude": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "significance",
+        "task_performance"
+      ],
+      "codex": [
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "novelty",
+        "reproducibility",
+        "significance"
+      ],
+      "gemini": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "empirical_adequacy"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "evidence_source",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R05",
+    "values": {
+      "claude": [
+        "human_judgment",
+        "physical_measurement",
+        "replication",
+        "statistical_test"
+      ],
+      "codex": [
+        "artifact_review",
+        "execution_trace",
+        "physical_measurement",
+        "statistical_test"
+      ],
+      "gemini": [
+        "human_judgment",
+        "physical_measurement"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "evaluator_substrate",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R05",
+    "values": {
+      "claude": [
+        "deterministic_program",
+        "human",
+        "hybrid",
+        "statistical_model"
+      ],
+      "codex": [
+        "deterministic_program",
+        "human",
+        "statistical_model"
+      ],
+      "gemini": [
+        "human",
+        "statistical_model"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "decision_role",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R05",
+    "values": {
+      "claude": [
+        "diagnostic",
+        "external_assessment",
+        "memory_admission",
+        "terminal_assessment"
+      ],
+      "codex": [
+        "diagnostic",
+        "memory_admission",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ],
+      "gemini": [
+        "external_assessment",
+        "memory_admission"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "feedback_path",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R05",
+    "values": {
+      "claude": [
+        "external_only",
+        "memory_update",
+        "terminal_only"
+      ],
+      "codex": [
+        "memory_update",
+        "policy_control",
+        "stage_transition",
+        "terminal_only"
+      ],
+      "gemini": [
+        "external_only",
+        "memory_update"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "reliability_evidence_type",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R05",
+    "values": {
+      "claude": [
+        "none_reported"
+      ],
+      "codex": [
+        "none_reported",
+        "property_specific_external_validation"
+      ],
+      "gemini": [
+        "none_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "experimental_fidelity",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R05",
+    "values": {
+      "claude": [
+        "not_applicable",
+        "physical_assay",
+        "robotic_experiment"
+      ],
+      "codex": [
+        "computational_experiment",
+        "not_applicable",
+        "physical_assay",
+        "robotic_experiment"
+      ],
+      "gemini": [
+        "not_applicable",
+        "robotic_experiment"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "target_property",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R06",
+    "values": {
+      "claude": [
+        "aggregate_quality",
+        "executability",
+        "novelty",
+        "significance",
+        "specification_compliance",
+        "task_performance"
+      ],
+      "codex": [
+        "aggregate_quality",
+        "novelty",
+        "significance",
+        "specification_compliance",
+        "task_performance"
+      ],
+      "gemini": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "novelty",
+        "significance"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evidence_source",
+    "provisional_classification": "source_absence",
+    "record_id": "R06",
+    "values": {
+      "claude": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment",
+        "prior_art_corpus"
+      ],
+      "codex": [
+        "artifact_review",
+        "benchmark_metric",
+        "human_judgment",
+        "prior_art_corpus"
+      ],
+      "gemini": [
+        "artifact_review",
+        "benchmark_metric",
+        "human_judgment",
+        "not_reported",
+        "prior_art_corpus"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evaluator_substrate",
+    "provisional_classification": "source_absence",
+    "record_id": "R06",
+    "values": {
+      "claude": [
+        "human",
+        "llm"
+      ],
+      "codex": [
+        "human",
+        "hybrid",
+        "llm"
+      ],
+      "gemini": [
+        "human",
+        "llm",
+        "not_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "decision_role",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R06",
+    "values": {
+      "claude": [
+        "diagnostic",
+        "external_assessment",
+        "final_acceptance",
+        "memory_admission",
+        "ranking",
+        "search_control",
+        "stage_transition"
+      ],
+      "codex": [
+        "diagnostic",
+        "external_assessment",
+        "final_acceptance",
+        "memory_admission",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ],
+      "gemini": [
+        "diagnostic",
+        "external_assessment",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "feedback_path",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R06",
+    "values": {
+      "claude": [
+        "candidate_revision",
+        "external_only",
+        "memory_update",
+        "policy_control",
+        "stage_transition",
+        "terminal_only"
+      ],
+      "codex": [
+        "candidate_revision",
+        "external_only",
+        "memory_update",
+        "policy_control",
+        "stage_transition",
+        "terminal_only"
+      ],
+      "gemini": [
+        "candidate_revision",
+        "external_only",
+        "memory_update",
+        "policy_control",
+        "stage_transition"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "reliability_evidence_type",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R06",
+    "values": {
+      "claude": [
+        "none_reported"
+      ],
+      "codex": [
+        "none_reported",
+        "property_specific_external_validation"
+      ],
+      "gemini": [
+        "none_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "experimental_fidelity",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R06",
+    "values": {
+      "claude": [
+        "computational_experiment",
+        "not_applicable"
+      ],
+      "codex": [
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "not_applicable"
+      ],
+      "gemini": [
+        "computational_experiment",
+        "not_applicable"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "target_property",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R07",
+    "values": {
+      "claude": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "novelty",
+        "significance"
+      ],
+      "codex": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "novelty"
+      ],
+      "gemini": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "novelty"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evidence_source",
+    "provisional_classification": "source_absence",
+    "record_id": "R07",
+    "values": {
+      "claude": [
+        "artifact_review",
+        "human_judgment",
+        "physical_measurement",
+        "prior_art_corpus"
+      ],
+      "codex": [
+        "artifact_review",
+        "benchmark_metric",
+        "physical_measurement",
+        "prior_art_corpus"
+      ],
+      "gemini": [
+        "artifact_review",
+        "not_reported",
+        "physical_measurement",
+        "prior_art_corpus"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evaluator_substrate",
+    "provisional_classification": "source_absence",
+    "record_id": "R07",
+    "values": {
+      "claude": [
+        "human",
+        "llm"
+      ],
+      "codex": [
+        "hybrid",
+        "llm",
+        "statistical_model"
+      ],
+      "gemini": [
+        "not_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "decision_role",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R07",
+    "values": {
+      "claude": [
+        "diagnostic",
+        "external_assessment",
+        "ranking",
+        "search_control",
+        "stage_transition"
+      ],
+      "codex": [
+        "diagnostic",
+        "external_assessment",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ],
+      "gemini": [
+        "diagnostic",
+        "external_assessment",
+        "ranking",
+        "search_control"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "feedback_path",
+    "provisional_classification": "source_ambiguity",
+    "record_id": "R07",
+    "values": {
+      "claude": [
+        "candidate_revision",
+        "external_only",
+        "memory_update",
+        "policy_control",
+        "stage_transition"
+      ],
+      "codex": [
+        "candidate_revision",
+        "external_only",
+        "stage_transition",
+        "unclear"
+      ],
+      "gemini": [
+        "external_only",
+        "stage_transition",
+        "unclear"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "experimental_fidelity",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R07",
+    "values": {
+      "claude": [
+        "not_applicable",
+        "physical_assay"
+      ],
+      "codex": [
+        "computational_experiment",
+        "physical_assay",
+        "simulation_or_proxy"
+      ],
+      "gemini": [
+        "not_applicable",
+        "physical_assay"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "target_property",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R08",
+    "values": {
+      "claude": [
+        "aggregate_quality",
+        "empirical_adequacy",
+        "executability",
+        "novelty",
+        "significance",
+        "task_performance"
+      ],
+      "codex": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "executability",
+        "novelty",
+        "significance"
+      ],
+      "gemini": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "executability",
+        "novelty",
+        "significance"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evidence_source",
+    "provisional_classification": "source_absence",
+    "record_id": "R08",
+    "values": {
+      "claude": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment",
+        "not_reported"
+      ],
+      "codex": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment",
+        "not_reported"
+      ],
+      "gemini": [
+        "artifact_review",
+        "execution_trace"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evaluator_substrate",
+    "provisional_classification": "source_absence",
+    "record_id": "R08",
+    "values": {
+      "claude": [
+        "hybrid",
+        "llm",
+        "not_reported"
+      ],
+      "codex": [
+        "deterministic_program",
+        "llm",
+        "not_reported"
+      ],
+      "gemini": [
+        "llm",
+        "not_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "decision_role",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R08",
+    "values": {
+      "claude": [
+        "diagnostic",
+        "external_assessment",
+        "ranking",
+        "stage_transition",
+        "terminal_assessment"
+      ],
+      "codex": [
+        "diagnostic",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ],
+      "gemini": [
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "feedback_path",
+    "provisional_classification": "source_ambiguity",
+    "record_id": "R08",
+    "values": {
+      "claude": [
+        "candidate_revision",
+        "policy_control",
+        "stage_transition",
+        "terminal_only"
+      ],
+      "codex": [
+        "candidate_revision",
+        "policy_control",
+        "stage_transition",
+        "terminal_only"
+      ],
+      "gemini": [
+        "candidate_revision",
+        "stage_transition",
+        "unclear"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "reliability_evidence_type",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R08",
+    "values": {
+      "claude": [
+        "agreement_study",
+        "discrimination_study",
+        "none_reported",
+        "systematic_error_or_bias_test"
+      ],
+      "codex": [
+        "agreement_study",
+        "discrimination_study",
+        "none_reported",
+        "systematic_error_or_bias_test"
+      ],
+      "gemini": [
+        "agreement_study",
+        "none_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "experimental_fidelity",
+    "provisional_classification": "source_absence",
+    "record_id": "R08",
+    "values": {
+      "claude": [
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "not_applicable"
+      ],
+      "codex": [
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "not_reported"
+      ],
+      "gemini": [
+        "computational_experiment",
+        "not_applicable"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "target_property",
+    "provisional_classification": "source_absence",
+    "record_id": "R09",
+    "values": {
+      "claude": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "executability",
+        "not_reported",
+        "reproducibility",
+        "significance",
+        "task_performance"
+      ],
+      "codex": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "executability",
+        "not_reported",
+        "novelty",
+        "significance"
+      ],
+      "gemini": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "executability"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evidence_source",
+    "provisional_classification": "source_absence",
+    "record_id": "R09",
+    "values": {
+      "claude": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment",
+        "not_reported",
+        "prior_art_corpus"
+      ],
+      "codex": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment",
+        "not_reported",
+        "prior_art_corpus"
+      ],
+      "gemini": [
+        "artifact_review",
+        "execution_trace",
+        "human_judgment",
+        "not_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evaluator_substrate",
+    "provisional_classification": "source_absence",
+    "record_id": "R09",
+    "values": {
+      "claude": [
+        "deterministic_program",
+        "human",
+        "hybrid",
+        "llm",
+        "not_reported"
+      ],
+      "codex": [
+        "deterministic_program",
+        "human",
+        "hybrid",
+        "llm",
+        "not_reported",
+        "statistical_model"
+      ],
+      "gemini": [
+        "deterministic_program",
+        "human",
+        "llm",
+        "not_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "decision_role",
+    "provisional_classification": "source_absence",
+    "record_id": "R09",
+    "values": {
+      "claude": [
+        "diagnostic",
+        "external_assessment",
+        "final_acceptance",
+        "memory_admission",
+        "not_reported",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ],
+      "codex": [
+        "diagnostic",
+        "external_assessment",
+        "final_acceptance",
+        "memory_admission",
+        "not_reported",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ],
+      "gemini": [
+        "external_assessment",
+        "final_acceptance",
+        "memory_admission",
+        "search_control",
+        "stage_transition"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "feedback_path",
+    "provisional_classification": "source_ambiguity",
+    "record_id": "R09",
+    "values": {
+      "claude": [
+        "memory_update",
+        "policy_control",
+        "stage_transition",
+        "terminal_only",
+        "unclear"
+      ],
+      "codex": [
+        "memory_update",
+        "policy_control",
+        "stage_transition",
+        "terminal_only",
+        "unclear"
+      ],
+      "gemini": [
+        "external_only",
+        "memory_update",
+        "stage_transition"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "reliability_evidence_type",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R09",
+    "values": {
+      "claude": [
+        "none_reported",
+        "systematic_error_or_bias_test"
+      ],
+      "codex": [
+        "none_reported",
+        "systematic_error_or_bias_test"
+      ],
+      "gemini": [
+        "none_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "experimental_fidelity",
+    "provisional_classification": "source_absence",
+    "record_id": "R09",
+    "values": {
+      "claude": [
+        "computational_experiment",
+        "not_applicable",
+        "not_reported",
+        "robotic_experiment",
+        "simulation_or_proxy"
+      ],
+      "codex": [
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "robotic_experiment",
+        "simulation_or_proxy"
+      ],
+      "gemini": [
+        "computational_experiment",
+        "not_applicable",
+        "not_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "target_property",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R10",
+    "values": {
+      "claude": [
+        "aggregate_quality",
+        "empirical_adequacy",
+        "executability",
+        "significance"
+      ],
+      "codex": [
+        "aggregate_quality",
+        "empirical_adequacy"
+      ],
+      "gemini": [
+        "aggregate_quality",
+        "empirical_adequacy"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evidence_source",
+    "provisional_classification": "source_absence",
+    "record_id": "R10",
+    "values": {
+      "claude": [
+        "artifact_review",
+        "human_judgment",
+        "not_reported",
+        "physical_measurement",
+        "prior_art_corpus"
+      ],
+      "codex": [
+        "artifact_review",
+        "human_judgment",
+        "physical_measurement",
+        "prior_art_corpus",
+        "statistical_test"
+      ],
+      "gemini": [
+        "physical_measurement",
+        "prior_art_corpus"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evaluator_substrate",
+    "provisional_classification": "source_absence",
+    "record_id": "R10",
+    "values": {
+      "claude": [
+        "human",
+        "hybrid",
+        "llm",
+        "not_reported"
+      ],
+      "codex": [
+        "human",
+        "hybrid",
+        "llm",
+        "statistical_model"
+      ],
+      "gemini": [
+        "deterministic_program",
+        "human",
+        "llm"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "decision_role",
+    "provisional_classification": "source_absence",
+    "record_id": "R10",
+    "values": {
+      "claude": [
+        "diagnostic",
+        "not_reported",
+        "ranking",
+        "search_control"
+      ],
+      "codex": [
+        "diagnostic",
+        "external_assessment",
+        "ranking",
+        "search_control"
+      ],
+      "gemini": [
+        "not_reported",
+        "ranking"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "feedback_path",
+    "provisional_classification": "source_ambiguity",
+    "record_id": "R10",
+    "values": {
+      "claude": [
+        "candidate_revision",
+        "policy_control",
+        "stage_transition",
+        "unclear"
+      ],
+      "codex": [
+        "candidate_revision",
+        "memory_update",
+        "policy_control"
+      ],
+      "gemini": [
+        "candidate_revision",
+        "unclear"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "experimental_fidelity",
+    "provisional_classification": "source_absence",
+    "record_id": "R10",
+    "values": {
+      "claude": [
+        "not_applicable",
+        "not_reported",
+        "physical_assay"
+      ],
+      "codex": [
+        "computational_experiment",
+        "physical_assay"
+      ],
+      "gemini": [
+        "not_applicable",
+        "physical_assay"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "target_property",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R11",
+    "values": {
+      "claude": [
+        "executability",
+        "reproducibility",
+        "specification_compliance",
+        "task_performance"
+      ],
+      "codex": [
+        "executability",
+        "reproducibility",
+        "specification_compliance",
+        "task_performance"
+      ],
+      "gemini": [
+        "specification_compliance",
+        "task_performance"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evidence_source",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R11",
+    "values": {
+      "claude": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment",
+        "replication"
+      ],
+      "codex": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment",
+        "replication"
+      ],
+      "gemini": [
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evaluator_substrate",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R11",
+    "values": {
+      "claude": [
+        "deterministic_program",
+        "human"
+      ],
+      "codex": [
+        "deterministic_program",
+        "human",
+        "hybrid",
+        "llm"
+      ],
+      "gemini": [
+        "deterministic_program",
+        "human"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "decision_role",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R11",
+    "values": {
+      "claude": [
+        "diagnostic",
+        "ranking",
+        "search_control",
+        "terminal_assessment"
+      ],
+      "codex": [
+        "memory_admission",
+        "ranking",
+        "search_control",
+        "terminal_assessment"
+      ],
+      "gemini": [
+        "external_assessment",
+        "search_control"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "feedback_path",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R11",
+    "values": {
+      "claude": [
+        "candidate_revision",
+        "policy_control",
+        "terminal_only"
+      ],
+      "codex": [
+        "memory_update",
+        "policy_control",
+        "terminal_only"
+      ],
+      "gemini": [
+        "external_only",
+        "memory_update",
+        "policy_control"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "reliability_evidence_type",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R11",
+    "values": {
+      "claude": [
+        "none_reported",
+        "property_specific_external_validation"
+      ],
+      "codex": [
+        "agreement_study",
+        "none_reported"
+      ],
+      "gemini": [
+        "none_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "experimental_fidelity",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R11",
+    "values": {
+      "claude": [
+        "computational_experiment"
+      ],
+      "codex": [
+        "computational_experiment"
+      ],
+      "gemini": [
+        "computational_oracle_or_benchmark",
+        "not_applicable"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "target_property",
+    "provisional_classification": "source_absence",
+    "record_id": "R12",
+    "values": {
+      "claude": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "executability",
+        "reproducibility",
+        "specification_compliance"
+      ],
+      "codex": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "executability",
+        "reproducibility",
+        "specification_compliance"
+      ],
+      "gemini": [
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "executability",
+        "not_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evaluator_substrate",
+    "provisional_classification": "source_absence",
+    "record_id": "R12",
+    "values": {
+      "claude": [
+        "deterministic_program",
+        "human",
+        "hybrid",
+        "llm"
+      ],
+      "codex": [
+        "deterministic_program",
+        "hybrid",
+        "llm"
+      ],
+      "gemini": [
+        "human",
+        "not_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "decision_role",
+    "provisional_classification": "source_absence",
+    "record_id": "R12",
+    "values": {
+      "claude": [
+        "diagnostic",
+        "final_acceptance",
+        "memory_admission",
+        "ranking",
+        "search_control",
+        "stage_transition"
+      ],
+      "codex": [
+        "diagnostic",
+        "final_acceptance",
+        "memory_admission",
+        "ranking",
+        "search_control",
+        "stage_transition"
+      ],
+      "gemini": [
+        "not_reported",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "feedback_path",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R12",
+    "values": {
+      "claude": [
+        "candidate_revision",
+        "memory_update",
+        "policy_control",
+        "stage_transition"
+      ],
+      "codex": [
+        "candidate_revision",
+        "memory_update",
+        "policy_control",
+        "stage_transition"
+      ],
+      "gemini": [
+        "candidate_revision",
+        "memory_update",
+        "stage_transition",
+        "terminal_only"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "reliability_evidence_type",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R12",
+    "values": {
+      "claude": [
+        "none_reported",
+        "systematic_error_or_bias_test"
+      ],
+      "codex": [
+        "none_reported"
+      ],
+      "gemini": [
+        "none_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "experimental_fidelity",
+    "provisional_classification": "source_absence",
+    "record_id": "R12",
+    "values": {
+      "claude": [
+        "computational_experiment",
+        "not_applicable",
+        "not_reported"
+      ],
+      "codex": [
+        "computational_experiment",
+        "not_applicable"
+      ],
+      "gemini": [
+        "computational_experiment",
+        "not_applicable"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "target_property",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R13",
+    "values": {
+      "claude": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "executability",
+        "novelty",
+        "specification_compliance",
+        "task_performance"
+      ],
+      "codex": [
+        "aggregate_quality",
+        "correctness_or_formal_validity",
+        "executability",
+        "novelty",
+        "reproducibility",
+        "specification_compliance",
+        "task_performance"
+      ],
+      "gemini": [
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "executability",
+        "novelty",
+        "specification_compliance",
+        "task_performance"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evidence_source",
+    "provisional_classification": "source_absence",
+    "record_id": "R13",
+    "values": {
+      "claude": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment",
+        "not_reported"
+      ],
+      "codex": [
+        "artifact_review",
+        "execution_trace",
+        "human_judgment",
+        "not_reported"
+      ],
+      "gemini": [
+        "artifact_review",
+        "execution_trace",
+        "human_judgment",
+        "not_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "evaluator_substrate",
+    "provisional_classification": "source_absence",
+    "record_id": "R13",
+    "values": {
+      "claude": [
+        "deterministic_program",
+        "human",
+        "llm",
+        "not_reported"
+      ],
+      "codex": [
+        "human",
+        "llm",
+        "not_reported"
+      ],
+      "gemini": [
+        "human",
+        "llm",
+        "not_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "decision_role",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R13",
+    "values": {
+      "claude": [
+        "diagnostic",
+        "external_assessment",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ],
+      "codex": [
+        "diagnostic",
+        "final_acceptance",
+        "ranking",
+        "search_control",
+        "stage_transition"
+      ],
+      "gemini": [
+        "diagnostic",
+        "external_assessment",
+        "ranking",
+        "search_control",
+        "stage_transition"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "feedback_path",
+    "provisional_classification": "source_ambiguity",
+    "record_id": "R13",
+    "values": {
+      "claude": [
+        "candidate_revision",
+        "external_only",
+        "policy_control",
+        "stage_transition",
+        "terminal_only"
+      ],
+      "codex": [
+        "candidate_revision",
+        "policy_control",
+        "stage_transition"
+      ],
+      "gemini": [
+        "candidate_revision",
+        "external_only",
+        "policy_control",
+        "stage_transition",
+        "unclear"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "reliability_evidence_type",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R13",
+    "values": {
+      "claude": [
+        "none_reported"
+      ],
+      "codex": [
+        "none_reported",
+        "property_specific_external_validation"
+      ],
+      "gemini": [
+        "none_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "supplementary",
+    "facet": "experimental_fidelity",
+    "provisional_classification": "source_absence",
+    "record_id": "R13",
+    "values": {
+      "claude": [
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "not_applicable"
+      ],
+      "codex": [
+        "computational_experiment",
+        "not_applicable",
+        "not_reported"
+      ],
+      "gemini": [
+        "computational_experiment",
+        "not_applicable"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "target_property",
+    "provisional_classification": "source_absence",
+    "record_id": "R14",
+    "values": {
+      "claude": [
+        "aggregate_quality",
+        "executability",
+        "novelty",
+        "specification_compliance",
+        "task_performance"
+      ],
+      "codex": [
+        "aggregate_quality",
+        "empirical_adequacy",
+        "executability",
+        "novelty",
+        "task_performance"
+      ],
+      "gemini": [
+        "aggregate_quality",
+        "executability",
+        "not_reported",
+        "novelty",
+        "task_performance"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "evidence_source",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R14",
+    "values": {
+      "claude": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment"
+      ],
+      "codex": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment",
+        "prior_art_corpus"
+      ],
+      "gemini": [
+        "artifact_review",
+        "benchmark_metric",
+        "execution_trace",
+        "human_judgment"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "evaluator_substrate",
+    "provisional_classification": "source_absence",
+    "record_id": "R14",
+    "values": {
+      "claude": [
+        "deterministic_program",
+        "human",
+        "hybrid",
+        "llm"
+      ],
+      "codex": [
+        "deterministic_program",
+        "human",
+        "hybrid",
+        "llm"
+      ],
+      "gemini": [
+        "deterministic_program",
+        "human",
+        "not_reported"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "decision_role",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R14",
+    "values": {
+      "claude": [
+        "diagnostic",
+        "memory_admission",
+        "ranking",
+        "search_control",
+        "terminal_assessment"
+      ],
+      "codex": [
+        "diagnostic",
+        "memory_admission",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "terminal_assessment"
+      ],
+      "gemini": [
+        "diagnostic",
+        "ranking",
+        "search_control"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "feedback_path",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R14",
+    "values": {
+      "claude": [
+        "candidate_revision",
+        "memory_update",
+        "policy_control",
+        "terminal_only"
+      ],
+      "codex": [
+        "candidate_revision",
+        "memory_update",
+        "policy_control",
+        "stage_transition",
+        "terminal_only"
+      ],
+      "gemini": [
+        "candidate_revision",
+        "memory_update"
+      ]
+    }
+  },
+  {
+    "adjudication_status": "not_adjudicated",
+    "analysis_role": "core",
+    "facet": "reliability_evidence_type",
+    "provisional_classification": "rubric_or_system_boundary_ambiguity",
+    "record_id": "R14",
+    "values": {
+      "claude": [
+        "discrimination_study",
+        "none_reported"
+      ],
+      "codex": [
+        "discrimination_study",
+        "none_reported"
+      ],
+      "gemini": [
+        "none_reported"
+      ]
+    }
+  }
+]

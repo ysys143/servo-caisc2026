@@ -1,0 +1,434 @@
+OpenAI Codex v0.144.6
+--------
+workdir: /private/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-js_qpt05
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019f807c-b631-78c2-81b1-98ddb6b9f1d3
+--------
+user
+# Baseline condition
+
+Analyze the anonymous source packet as a system-architecture reviewer. Do not infer facts outside the packet. Identify implemented evaluation mechanisms, what they assess, how their outputs affect later decisions, important failure risks, and source-supported improvements.
+
+Return only JSON conforming to the supplied baseline schema. The memo is free-form. Each diagnostic must identify a reported failure, risk, ambiguity, or missing evidence; cite evidence IDs and exact packet quotations; and state its consequence. Return one to three non-redundant recommendations, ranked consecutively by `priority_rank` from 1. Each recommendation must select one neutral action code, link to one or more diagnostic IDs, repeat its supporting evidence and exact quotations, and define an observable success check with a comparator or threshold and the evidence needed to evaluate it. Prefer `abstain_or_unclear` to an unsupported recommendation. Answer all twelve probes with `true`, `false`, or `null` for not reported.
+
+For every diagnostic and recommendation, `evidence_ids` and the `evidence_id` values in `exact_quotes` must be identical sets: include exactly one exact quotation for every listed evidence ID, and never list an evidence ID without its quotation.
+
+
+
+
+Scheduled metadata: record_id=R03; vendor=codex. Use the CLI model identifier as model_id.
+
+Allowed neutral action codes:
+[
+  "obtain_independent_evidence",
+  "evaluate_evaluator_error_or_bias",
+  "add_feedback_to_later_decision",
+  "add_prior_art_check",
+  "add_replication",
+  "retain_human_approval_or_escalation",
+  "separate_diagnostic_from_gate",
+  "clarify_system_boundary",
+  "no_supported_change",
+  "abstain_or_unclear"
+]
+
+
+Probe questions without reference answers:
+[
+  {
+    "probe_id": "R03-P01",
+    "question": "Does the template-free system use results from an external-literature review to refine research proposals?"
+  },
+  {
+    "probe_id": "R03-P02",
+    "question": "Does an LLM-based evaluator select a leaf node as the root for the next experimental stage?"
+  },
+  {
+    "probe_id": "R03-P03",
+    "question": "Does the Automated Reviewer evaluate a completed manuscript PDF and produce scores plus a preliminary accept-or-reject decision?"
+  },
+  {
+    "probe_id": "R03-P04",
+    "question": "Were template-free outputs manually selected for submission and then assessed through an external blind workshop review process?"
+  },
+  {
+    "probe_id": "R03-P05",
+    "question": "Does the template-free agentic-tree search rely on Aider?"
+  },
+  {
+    "probe_id": "R03-P06",
+    "question": "Do aggregation nodes conduct new experiments?"
+  },
+  {
+    "probe_id": "R03-P07",
+    "question": "Does the reported system currently conduct physical or wet-lab experiments?"
+  },
+  {
+    "probe_id": "R03-P08",
+    "question": "Did humans modify the contents or execution of each selected paper's workflow from ideation through manuscript writing?"
+  },
+  {
+    "probe_id": "R03-P09",
+    "question": "Does the source report a probabilistic calibration analysis of the template-free literature-grounded novelty assessment?"
+  },
+  {
+    "probe_id": "R03-P10",
+    "question": "Does the source report that the terminal Automated Reviewer score changes a later node selection, experimental stage, or tree-search action?"
+  },
+  {
+    "probe_id": "R03-P11",
+    "question": "Does the source report that external workshop reviews are fed back into the system's internal search or memory?"
+  },
+  {
+    "probe_id": "R03-P12",
+    "question": "Does the source report an independent property-specific reliability study of the LLM evaluator that selects roots between experimental stages?"
+  }
+]
+
+Anonymous source packet:
+{
+  "schema_version": 1,
+  "record_id": "R03",
+  "source": {
+    "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+    "page_count": 9
+  },
+  "scope": "Template-free AI Scientist and its agentic-tree workflow only. Template-based mechanisms are excluded unless a passage explicitly contrasts them with the template-free system.",
+  "instructions": "Use only the excerpts below. Absence from these excerpts is not evidence of absence from the full source. A not_reported probe reflects a full-text audit of this source, not an explicit negative statement.",
+  "evidence": [
+    {
+      "evidence_id": "R03-E01",
+      "pdf_page": 7,
+      "quote": "To ensure the proposals are both grounded and new, this process is tightly integrated with a literature review module that queries external academic databases to identify knowledge gaps and avoid rediscovering existing work. The system uses structured prompts to guide idea generation and reflection rounds to refine proposals based on the literature search results (see Supplementary Information section A.2.6 for prompts)."
+    },
+    {
+      "evidence_id": "R03-E02",
+      "pdf_page": 7,
+      "quote": "At the end of each stage, an LLM-based evaluator assesses all leaf nodes and selects the most promising one to serve as the root for the next stage of exploration, thus effectively pruning less promising research avenues."
+    },
+    {
+      "evidence_id": "R03-E03",
+      "pdf_page": 8,
+      "quote": "During experimentation, the plots generated are fed to a VLM, which is prompted to act as a scientist and critique them. For example, it might flag nonsensical axes or issues in the quality of generated examples or suggest clearer ways to present the data. This feedback is used to generate new experimental nodes in the tree search aimed at addressing the identified issues."
+    },
+    {
+      "evidence_id": "R03-E04",
+      "pdf_page": 8,
+      "quote": "When choosing between non-buggy nodes, the system uses a best-first search strategy guided by GPT-4o, which evaluates candidates based on factors like performance metrics, training dynamics and the quality of the plots generated. The selected nodes are expanded by creating a new child node."
+    },
+    {
+      "evidence_id": "R03-E05",
+      "pdf_page": 8,
+      "quote": "The agent processes the PDF of a manuscript to produce a structured review, including numerical scores for soundness, presentation and contribution, along with a list of strengths and weaknesses and a preliminary accept or reject decision (Supplementary Information section A.3)."
+    },
+    {
+      "evidence_id": "R03-E06",
+      "pdf_page": 9,
+      "quote": "We benchmarked The Automated Reviewer against human decisions using ICLR data from the publicly available OpenReview dataset33. The Automated Reviewer achieved a comparable balanced accuracy with humans (69% versus 66%; see Supplementary Information section A.3.2 for details) and a higher F1 score compared with inter-human group agreement (0.62 versus 0.49) in the NeurIPS 2021 consistency experiment34, for which roughly 10% of submissions were randomly selected and sent to two independent review committees, thus providing a real-world benchmark of inter-reviewer consistency (Table 1)."
+    },
+    {
+      "evidence_id": "R03-E07",
+      "pdf_page": 3,
+      "quote": "The overall process was then run to generate ideas, experiments and papers. We manually filtered the most promising outputs at each stage (Supplementary Information section A.4). Had this filtering not occurred, the papers under analysis would still have been produced in their final form, just along with other papers and, thus, at a greater total cost. This process resulted in three complete manuscripts being selected for submission."
+    },
+    {
+      "evidence_id": "R03-E08",
+      "pdf_page": 3,
+      "quote": "The entire scientific workflow for each paper, from ideation and coding to manuscript writing, was performed without any human modification."
+    },
+    {
+      "evidence_id": "R03-E09",
+      "pdf_page": 7,
+      "quote": "To go further and effectively use more test-time compute, the template-free system uses LLMs to power a tree search without relying on Aider."
+    },
+    {
+      "evidence_id": "R03-E10",
+      "pdf_page": 8,
+      "quote": "Aggregation nodes are special nodes created to consolidate and visualize the combined results of replication nodes. Unlike other node types, aggregation nodes do not conduct new experiments but simply generate a Python script to aggregate and summarize previous results."
+    },
+    {
+      "evidence_id": "R03-E11",
+      "pdf_page": 4,
+      "quote": "At present, The AI Scientist conducts computational experiments only. In future work, this same playbook could be applied to other scientific domains where one can automatically conduct experiments (or have humans conduct them) and collect data from them (for example, automated chemistry laboratories, on which swift progress is being made46)."
+    },
+    {
+      "evidence_id": "R03-E12",
+      "pdf_page": 3,
+      "quote": "These three submissions were included among the 43 papers reviewed for the workshop. Reviewers were informed that some of the submissions were AI-generated but not which ones, ensuring a blind process."
+    }
+  ]
+}
+
+
+Required JSON schema:
+{
+  "$defs": {
+    "ActionCode": {
+      "enum": [
+        "obtain_independent_evidence",
+        "evaluate_evaluator_error_or_bias",
+        "add_feedback_to_later_decision",
+        "add_prior_art_check",
+        "add_replication",
+        "retain_human_approval_or_escalation",
+        "separate_diagnostic_from_gate",
+        "clarify_system_boundary",
+        "no_supported_change",
+        "abstain_or_unclear"
+      ],
+      "title": "ActionCode",
+      "type": "string"
+    },
+    "CommonEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/Diagnostic"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "probes": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Probes",
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Recommendation"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "diagnostics",
+        "recommendations",
+        "probes"
+      ],
+      "title": "CommonEnvelope",
+      "type": "object"
+    },
+    "Diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "consequence": {
+          "minLength": 1,
+          "title": "Consequence",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/DiagnosticKind"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "kind",
+        "evidence_ids",
+        "exact_quotes",
+        "consequence"
+      ],
+      "title": "Diagnostic",
+      "type": "object"
+    },
+    "DiagnosticKind": {
+      "enum": [
+        "reported_failure",
+        "risk",
+        "ambiguity",
+        "missing_evidence"
+      ],
+      "title": "DiagnosticKind",
+      "type": "string"
+    },
+    "EvidenceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "exact_quote": {
+          "minLength": 1,
+          "title": "Exact Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "exact_quote"
+      ],
+      "title": "EvidenceExcerpt",
+      "type": "object"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "action_code": {
+          "$ref": "#/$defs/ActionCode"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "linked_diagnostic_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Linked Diagnostic Ids",
+          "type": "array"
+        },
+        "priority_rank": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "success_check": {
+          "$ref": "#/$defs/SuccessCheck"
+        }
+      },
+      "required": [
+        "id",
+        "priority_rank",
+        "action_code",
+        "linked_diagnostic_ids",
+        "evidence_ids",
+        "exact_quotes",
+        "success_check"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "SuccessCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "comparator_or_threshold": {
+          "minLength": 1,
+          "title": "Comparator Or Threshold",
+          "type": "string"
+        },
+        "evidence_needed": {
+          "minLength": 1,
+          "title": "Evidence Needed",
+          "type": "string"
+        },
+        "observable": {
+          "minLength": 1,
+          "title": "Observable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observable",
+        "comparator_or_threshold",
+        "evidence_needed"
+      ],
+      "title": "SuccessCheck",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "envelope": {
+      "$ref": "#/$defs/CommonEnvelope"
+    },
+    "memo": {
+      "minLength": 1,
+      "title": "Memo",
+      "type": "string"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "record_id": {
+      "pattern": "^R\\d{2}$",
+      "title": "Record Id",
+      "type": "string"
+    },
+    "vendor": {
+      "minLength": 1,
+      "title": "Vendor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "vendor",
+    "model_id",
+    "memo",
+    "envelope"
+  ],
+  "title": "BaselineCoding",
+  "type": "object"
+}
+
+codex
+{"envelope":{"diagnostics":[{"consequence":"Because these evaluators prune and expand the search tree, evaluator error or bias can prematurely discard promising research avenues or amplify low-quality branches.","evidence_ids":["R03-E02","R03-E03","R03-E04"],"exact_quotes":[{"evidence_id":"R03-E02","exact_quote":"At the end of each stage, an LLM-based evaluator assesses all leaf nodes and selects the most promising one to serve as the root for the next stage of exploration, thus effectively pruning less promising research avenues."},{"evidence_id":"R03-E03","exact_quote":"During experimentation, the plots generated are fed to a VLM, which is prompted to act as a scientist and critique them. For example, it might flag nonsensical axes or issues in the quality of generated examples or suggest clearer ways to present the data. This feedback is used to generate new experimental nodes in the tree search aimed at addressing the identified issues."},{"evidence_id":"R03-E04","exact_quote":"When choosing between non-buggy nodes, the system uses a best-first search strategy guided by GPT-4o, which evaluates candidates based on factors like performance metrics, training dynamics and the quality of the plots generated. The selected nodes are expanded by creating a new child node."}],"id":"D1","kind":"risk","statement":"The template-free workflow uses LLM/VLM evaluation as an active search-control mechanism: selecting the next-stage root, critiquing plots to create new experimental nodes, and choosing non-buggy nodes for expansion."},{"consequence":"If the Automated Reviewer is only terminal or diagnostic, its scores and accept/reject decision may not improve subsequent proposals, experiments, or tree-search choices despite being an implemented evaluation mechanism.","evidence_ids":["R03-E05","R03-E06"],"exact_quotes":[{"evidence_id":"R03-E05","exact_quote":"The agent processes the PDF of a manuscript to produce a structured review, including numerical scores for soundness, presentation and contribution, along with a list of strengths and weaknesses and a preliminary accept or reject decision (Supplementary Information section A.3)."},{"evidence_id":"R03-E06","exact_quote":"We benchmarked The Automated Reviewer against human decisions using ICLR data from the publicly available OpenReview dataset33. The Automated Reviewer achieved a comparable balanced accuracy with humans (69% versus 66%; see Supplementary Information section A.3.2 for details) and a higher F1 score compared with inter-human group agreement (0.62 versus 0.49) in the NeurIPS 2021 consistency experiment34, for which roughly 10% of submissions were randomly selected and sent to two independent review committees, thus providing a real-world benchmark of inter-reviewer consistency (Table 1)."}],"id":"D2","kind":"missing_evidence","statement":"The packet reports that the Automated Reviewer evaluates completed manuscript PDFs and has benchmark results against human decisions, but does not report that its terminal scores or preliminary decision feed back into later tree-search or experimental decisions."},{"consequence":"Claims about fully automated production are qualified by manual selection for submission, and blind external review appears to validate outputs without being reported as an internal learning or search signal.","evidence_ids":["R03-E07","R03-E08","R03-E12"],"exact_quotes":[{"evidence_id":"R03-E07","exact_quote":"The overall process was then run to generate ideas, experiments and papers. We manually filtered the most promising outputs at each stage (Supplementary Information section A.4). Had this filtering not occurred, the papers under analysis would still have been produced in their final form, just along with other papers and, thus, at a greater total cost. This process resulted in three complete manuscripts being selected for submission."},{"evidence_id":"R03-E08","exact_quote":"The entire scientific workflow for each paper, from ideation and coding to manuscript writing, was performed without any human modification."},{"evidence_id":"R03-E12","exact_quote":"These three submissions were included among the 43 papers reviewed for the workshop. Reviewers were informed that some of the submissions were AI-generated but not which ones, ensuring a blind process."}],"id":"D3","kind":"ambiguity","statement":"The packet distinguishes no human modification of each selected paper's workflow from manual filtering of promising outputs at each stage before three manuscripts entered a blind workshop review process."}],"probes":[true,true,true,true,false,false,false,false,null,null,null,null],"recommendations":[{"action_code":"evaluate_evaluator_error_or_bias","evidence_ids":["R03-E02","R03-E03","R03-E04"],"exact_quotes":[{"evidence_id":"R03-E02","exact_quote":"At the end of each stage, an LLM-based evaluator assesses all leaf nodes and selects the most promising one to serve as the root for the next stage of exploration, thus effectively pruning less promising research avenues."},{"evidence_id":"R03-E03","exact_quote":"During experimentation, the plots generated are fed to a VLM, which is prompted to act as a scientist and critique them. For example, it might flag nonsensical axes or issues in the quality of generated examples or suggest clearer ways to present the data. This feedback is used to generate new experimental nodes in the tree search aimed at addressing the identified issues."},{"evidence_id":"R03-E04","exact_quote":"When choosing between non-buggy nodes, the system uses a best-first search strategy guided by GPT-4o, which evaluates candidates based on factors like performance metrics, training dynamics and the quality of the plots generated. The selected nodes are expanded by creating a new child node."}],"id":"REC1","linked_diagnostic_ids":["D1"],"priority_rank":1,"success_check":{"comparator_or_threshold":"Report reliability for each search-controlling evaluator, with agreement or rank-correlation against an independent expert or outcome-based reference exceeding a pre-registered threshold.","evidence_needed":"A property-specific validation study covering root selection, plot critique, and best-first expansion decisions, including sampled decisions, reference labels or outcomes, metrics, and error analysis.","observable":"Independent reliability and bias/error rates of the LLM/VLM evaluators that alter tree-search state."}},{"action_code":"add_feedback_to_later_decision","evidence_ids":["R03-E05","R03-E12"],"exact_quotes":[{"evidence_id":"R03-E05","exact_quote":"The agent processes the PDF of a manuscript to produce a structured review, including numerical scores for soundness, presentation and contribution, along with a list of strengths and weaknesses and a preliminary accept or reject decision (Supplementary Information section A.3)."},{"evidence_id":"R03-E12","exact_quote":"These three submissions were included among the 43 papers reviewed for the workshop. Reviewers were informed that some of the submissions were AI-generated but not which ones, ensuring a blind process."}],"id":"REC2","linked_diagnostic_ids":["D2","D3"],"priority_rank":2,"success_check":{"comparator_or_threshold":"At least one later proposal, node-selection, experimental-stage, manuscript-revision, or memory update must be traceably changed by Automated Reviewer outputs or external review outcomes.","evidence_needed":"Execution traces or design documentation showing reviewer scores, weaknesses, accept/reject decisions, or blind-review results being consumed by later workflow decisions.","observable":"Reviewer feedback affects a subsequent system decision rather than remaining terminal evaluation."}},{"action_code":"retain_human_approval_or_escalation","evidence_ids":["R03-E07","R03-E08","R03-E12"],"exact_quotes":[{"evidence_id":"R03-E07","exact_quote":"The overall process was then run to generate ideas, experiments and papers. We manually filtered the most promising outputs at each stage (Supplementary Information section A.4). Had this filtering not occurred, the papers under analysis would still have been produced in their final form, just along with other papers and, thus, at a greater total cost. This process resulted in three complete manuscripts being selected for submission."},{"evidence_id":"R03-E08","exact_quote":"The entire scientific workflow for each paper, from ideation and coding to manuscript writing, was performed without any human modification."},{"evidence_id":"R03-E12","exact_quote":"These three submissions were included among the 43 papers reviewed for the workshop. Reviewers were informed that some of the submissions were AI-generated but not which ones, ensuring a blind process."}],"id":"REC3","linked_diagnostic_ids":["D3"],"priority_rank":3,"success_check":{"comparator_or_threshold":"All submission-bound manuscripts pass a documented human approval or escalation gate, while records distinguish selection/filtering from content modification.","evidence_needed":"Audit logs or protocol records for each selected manuscript showing manual filtering decisions, absence or presence of content modification, and the final approval before external submission.","observable":"Human gatekeeping is explicit and auditable for outputs selected for external review or submission."}}]},"memo":"Implemented evaluation mechanisms include literature-grounded proposal refinement, LLM/VLM tree-search evaluators, best-first node selection, an Automated Reviewer for completed PDFs, manual filtering, and blind external workshop review. The packet supports active feedback for literature review, plot critique, root selection, and node expansion, but not for terminal Automated Reviewer scores or external workshop reviews feeding back into later system decisions.","model_id":"gpt-5-codex","record_id":"R03","vendor":"codex"}
+tokens used
+20,707

@@ -1,0 +1,19 @@
+{
+  "trial": {
+    "trial_id": "gemini-R10-servo-smoke",
+    "vendor": "gemini",
+    "record_id": "R10",
+    "condition": "servo",
+    "period": 1,
+    "order": 0
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T15:26:13.614797+00:00",
+  "elapsed_seconds": 91.83744412500528,
+  "requested_model": "Gemini 3.1 Pro (High)",
+  "prompt_sha256": "481071f6db941383a43cc37daab97524f69e7f6a7b2c81e4801d9af73f112e10",
+  "returncode": 0,
+  "stdout_sha256": "4dc81a3fa82943f8a0f50739bbe07b9aa5b5c0e859c5f9eb1a5237d7f6538b36",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "validation_error": null
+}

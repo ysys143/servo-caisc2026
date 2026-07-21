@@ -1,0 +1,685 @@
+OpenAI Codex v0.144.6
+--------
+workdir: /private/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-kagnw698
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019f818e-44aa-7ec2-93fc-6d0153bdbda9
+--------
+user
+# SERVO condition
+
+Apply the supplied frozen R24 coding manual to the anonymous source packet. Do not infer facts outside the packet and do not use knowledge of the named system.
+
+Return only one JSON object conforming to the supplied SERVO schema. The first response character must be `{` and the last must be `}`; Markdown fences, preambles, and trailing commentary are invalid. Separate distinct validator channels, populate every facet, and attach exact packet evidence to each channel. Then provide typed diagnostics with consequences and exact evidence, plus one to three non-redundant recommendations ranked consecutively by `priority_rank` from 1 and linked to those diagnostics with observable success checks. State each recommendation as a concise free-text `proposed_action`; do not recommend a change that the packet does not support. Do not treat non-reporting as absence, terminal assessment as feedback, general reviewer error as novelty-specific evidence, or agreement and bias studies as probabilistic calibration.
+
+For every channel quote, copy `pdf_id` from the packet's 64-character `source.pdf_sha256` value, not from its `record_id`, and copy `page` from the cited evidence item's `pdf_page` value.
+
+For every diagnostic and recommendation, `evidence_ids` and the `evidence_id` values in `exact_quotes` must be identical sets: include exactly one exact quotation for every listed evidence ID, and never list an evidence ID without its quotation. Each `exact_quote` must reproduce the complete frozen `quote` string associated with that `evidence_id` character for character; a shortened excerpt or substring is invalid even when it is verbatim.
+
+
+# Frozen R24 coding manual
+
+## Unit and boundary
+
+The unit is a source-defined system version, not a unique research lineage. The fourteen records represent thirteen lineages because the AI Scientist v2 preprint and the 2026 record belong to one lineage. Code only what the frozen packet reports. Absence of reporting is not evidence of absence.
+
+A validator channel is an identifiable evaluator with a stable target, substrate, decision role, or feedback path. Split channels when one named system uses distinct mechanisms for ideation filtering, search control, terminal assessment, or external acceptance.
+
+## Facets
+
+- `operational_status`: distinguish implemented behavior, unexercised proposals, external processes, non-reporting, and genuinely unclear descriptions.
+- `target_property`: the property judged, such as executability, correctness, novelty, or aggregate quality.
+- `evidence_source`: the information used to judge the target.
+- `evaluator_substrate`: the mechanism or actor performing the judgment.
+- `decision_role`: the operational consequence of the output.
+- `feedback_path`: where the output is actually routed. A terminal assessment is not search control.
+- `external_independence`: organizational or informational independence of the evaluator.
+- `reliability_evidence_type`: the study design reported for the exact channel and target. Lack of documented bias is `none_reported`, not calibration.
+- `reliability_finding`: the conclusion supported by that evidence.
+- `experimental_fidelity`: the environment in which the evaluated evidence is produced.
+
+Every channel requires at least one exact packet quote. Never transfer evidence from a terminal paper reviewer to an ideation novelty filter merely because both use an LLM.
+
+## Closure and human authority
+
+Closure is derived rather than freely rated. Implemented policy control or stage transition is closed computational feedback; memory update or candidate revision alone is partial; terminal-only or external-only assessment is open. Unclear routing remains unclear.
+
+Human authority is recorded separately for generator, executor, validator, memory, and policy. Use only observable roles: `explicit_none`, `initiate`, `advise`, `select`, `approve`, `execute`, `final_authority`, `not_reported`, or `not_applicable`.
+
+## Missingness
+
+`not_reported` means the packet provides no claim. Explicit none means the source states absence. `unclear` means relevant text exists but supports multiple readings. `not_applicable` means the facet has no coherent value for that channel. These values are never interchangeable.
+
+
+Scheduled metadata: record_id=R12; vendor=codex. Use the CLI model identifier as model_id.
+
+Anonymous source packet:
+{
+  "schema_version": 1,
+  "record_id": "R12",
+  "source": {
+    "pdf_sha256": "be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491",
+    "page_count": 23
+  },
+  "instructions": "Use only the excerpts below when citing positive or explicit negative evidence. The complete 23-page source was searched when assigning not_reported probes; not_reported means that the specified property was not found in that full-text audit, not that the property is known to be absent from the system.",
+  "evidence": [
+    {
+      "evidence_id": "R12-E01",
+      "pdf_page": 4,
+      "quote": "During hypothesis formulation, an Innovator proposes high-risk hypotheses that challenge conventional assumptions, a Pragmatist evaluates feasibility given hardware and time budgets, and a Contrarian actively seeks weaknesses and confounds. The synthesizer distills these perspectives into 2–4 falsifiable hypotheses, each annotated with testability criteria and required baselines."
+    },
+    {
+      "evidence_id": "R12-E02",
+      "pdf_page": 4,
+      "quote": "When an experiment fails or produces degenerate results, an automated repair loop captures the failure signature and generates targeted fixes. The system then makes one of three decisions: Proceed when evidence supports the hypothesis, Refine when results are weak but the experimental direction is sound, or Pivot when the approach is fundamentally flawed"
+    },
+    {
+      "evidence_id": "R12-E03",
+      "pdf_page": 5,
+      "quote": "After generation, a post-hoc verifier re-extracts every numeric claim and checks it against the registry, scoped per condition to prevent cross-condition false positives. Claims in strict sections (Abstract, Results, Experiments) that cannot be matched to a registry entry trigger document rejection. Claims in other sections are replaced with visible placeholders."
+    },
+    {
+      "evidence_id": "R12-E04",
+      "pdf_page": 5,
+      "quote": "At the end of each run, the system extracts structured lessons from repair attempts, Pivot/Refine decisions, HITL gate feedback, and verification results. Each lesson records a category, a severity score s(l) ∈ (0, 1], and a recommended mitigation. When a new run begins, relevant lessons are retrieved by category and ranked by a time-decayed weight:"
+    },
+    {
+      "evidence_id": "R12-E05",
+      "pdf_page": 5,
+      "quote": "The writing agent can read the registry but cannot modify it."
+    },
+    {
+      "evidence_id": "R12-E06",
+      "pdf_page": 5,
+      "quote": "Full-Auto runs the entire pipeline without human input."
+    },
+    {
+      "evidence_id": "R12-E07",
+      "pdf_page": 10,
+      "quote": "Full-Auto passes the numeric gate because the zero values are real logged measurements, not fabricated numbers. However, the gate cannot tell whether those measurements answer the research question."
+    },
+    {
+      "evidence_id": "R12-E08",
+      "pdf_page": 17,
+      "quote": "Phase 0 (Dependency Installation) and Phase 1 (Data Acquisition) enable network access; Phase 2 (Experiment Execution) disables network via iptables rules applied inside the container before the experiment script starts."
+    }
+  ]
+}
+
+
+Required JSON schema:
+{
+  "$defs": {
+    "CommonEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/Diagnostic"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Recommendation"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "diagnostics",
+        "recommendations"
+      ],
+      "title": "CommonEnvelope",
+      "type": "object"
+    },
+    "DecisionRole": {
+      "enum": [
+        "diagnostic",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "memory_admission",
+        "terminal_assessment",
+        "final_acceptance",
+        "external_assessment",
+        "not_reported"
+      ],
+      "title": "DecisionRole",
+      "type": "string"
+    },
+    "Diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "consequence": {
+          "minLength": 1,
+          "title": "Consequence",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/DiagnosticKind"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "kind",
+        "evidence_ids",
+        "exact_quotes",
+        "consequence"
+      ],
+      "title": "Diagnostic",
+      "type": "object"
+    },
+    "DiagnosticKind": {
+      "enum": [
+        "reported_failure",
+        "risk",
+        "ambiguity",
+        "missing_evidence"
+      ],
+      "title": "DiagnosticKind",
+      "type": "string"
+    },
+    "EvaluatorSubstrate": {
+      "enum": [
+        "deterministic_program",
+        "statistical_model",
+        "formal_kernel",
+        "llm",
+        "human",
+        "hybrid",
+        "not_reported"
+      ],
+      "title": "EvaluatorSubstrate",
+      "type": "string"
+    },
+    "EvidenceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "exact_quote": {
+          "minLength": 1,
+          "title": "Exact Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "exact_quote"
+      ],
+      "title": "EvidenceExcerpt",
+      "type": "object"
+    },
+    "EvidenceQuote": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "pdf_id": {
+          "minLength": 1,
+          "title": "Pdf Id",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "pdf_id",
+        "page",
+        "quote",
+        "rationale"
+      ],
+      "title": "EvidenceQuote",
+      "type": "object"
+    },
+    "EvidenceSource": {
+      "enum": [
+        "execution_trace",
+        "benchmark_metric",
+        "statistical_test",
+        "physical_measurement",
+        "replication",
+        "prior_art_corpus",
+        "artifact_review",
+        "human_judgment",
+        "not_reported"
+      ],
+      "title": "EvidenceSource",
+      "type": "string"
+    },
+    "ExternalIndependence": {
+      "enum": [
+        "internal_self_evaluation",
+        "internal_separate_component",
+        "external_nonindependent",
+        "external_independent",
+        "not_reported"
+      ],
+      "title": "ExternalIndependence",
+      "type": "string"
+    },
+    "FeedbackPath": {
+      "enum": [
+        "terminal_only",
+        "memory_update",
+        "candidate_revision",
+        "policy_control",
+        "stage_transition",
+        "external_only",
+        "unclear"
+      ],
+      "title": "FeedbackPath",
+      "type": "string"
+    },
+    "Fidelity": {
+      "enum": [
+        "simulation_or_proxy",
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "robotic_experiment",
+        "physical_assay",
+        "not_applicable",
+        "not_reported"
+      ],
+      "title": "Fidelity",
+      "type": "string"
+    },
+    "HumanAuthority": {
+      "additionalProperties": false,
+      "properties": {
+        "executor": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Executor",
+          "type": "array"
+        },
+        "generator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Generator",
+          "type": "array"
+        },
+        "memory": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Memory",
+          "type": "array"
+        },
+        "policy": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Policy",
+          "type": "array"
+        },
+        "validator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Validator",
+          "type": "array"
+        }
+      },
+      "required": [
+        "generator",
+        "executor",
+        "validator",
+        "memory",
+        "policy"
+      ],
+      "title": "HumanAuthority",
+      "type": "object"
+    },
+    "OperationalStatus": {
+      "enum": [
+        "implemented",
+        "proposed_not_exercised",
+        "external",
+        "not_reported",
+        "unclear"
+      ],
+      "title": "OperationalStatus",
+      "type": "string"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "linked_diagnostic_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Linked Diagnostic Ids",
+          "type": "array"
+        },
+        "priority_rank": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "proposed_action": {
+          "minLength": 1,
+          "title": "Proposed Action",
+          "type": "string"
+        },
+        "success_check": {
+          "$ref": "#/$defs/SuccessCheck"
+        }
+      },
+      "required": [
+        "id",
+        "priority_rank",
+        "proposed_action",
+        "linked_diagnostic_ids",
+        "evidence_ids",
+        "exact_quotes",
+        "success_check"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "ReliabilityEvidence": {
+      "enum": [
+        "none_reported",
+        "discrimination_study",
+        "agreement_study",
+        "systematic_error_or_bias_test",
+        "property_specific_external_validation",
+        "probabilistic_calibration_analysis"
+      ],
+      "title": "ReliabilityEvidence",
+      "type": "string"
+    },
+    "ReliabilityFinding": {
+      "enum": [
+        "not_evaluated",
+        "not_established",
+        "evidence_of_error_or_bias",
+        "positive_property_specific_evidence",
+        "mixed",
+        "unclear"
+      ],
+      "title": "ReliabilityFinding",
+      "type": "string"
+    },
+    "SuccessCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "comparator_or_threshold": {
+          "minLength": 1,
+          "title": "Comparator Or Threshold",
+          "type": "string"
+        },
+        "evidence_needed": {
+          "minLength": 1,
+          "title": "Evidence Needed",
+          "type": "string"
+        },
+        "observable": {
+          "minLength": 1,
+          "title": "Observable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observable",
+        "comparator_or_threshold",
+        "evidence_needed"
+      ],
+      "title": "SuccessCheck",
+      "type": "object"
+    },
+    "TargetProperty": {
+      "enum": [
+        "executability",
+        "specification_compliance",
+        "task_performance",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "reproducibility",
+        "novelty",
+        "significance",
+        "aggregate_quality",
+        "not_reported"
+      ],
+      "title": "TargetProperty",
+      "type": "string"
+    },
+    "ValidatorChannel": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_id": {
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "decision_role": {
+          "items": {
+            "$ref": "#/$defs/DecisionRole"
+          },
+          "title": "Decision Role",
+          "type": "array"
+        },
+        "evaluator_substrate": {
+          "items": {
+            "$ref": "#/$defs/EvaluatorSubstrate"
+          },
+          "title": "Evaluator Substrate",
+          "type": "array"
+        },
+        "evidence_source": {
+          "items": {
+            "$ref": "#/$defs/EvidenceSource"
+          },
+          "title": "Evidence Source",
+          "type": "array"
+        },
+        "experimental_fidelity": {
+          "items": {
+            "$ref": "#/$defs/Fidelity"
+          },
+          "title": "Experimental Fidelity",
+          "type": "array"
+        },
+        "external_independence": {
+          "$ref": "#/$defs/ExternalIndependence"
+        },
+        "feedback_path": {
+          "items": {
+            "$ref": "#/$defs/FeedbackPath"
+          },
+          "title": "Feedback Path",
+          "type": "array"
+        },
+        "operational_status": {
+          "$ref": "#/$defs/OperationalStatus"
+        },
+        "quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceQuote"
+          },
+          "minItems": 1,
+          "title": "Quotes",
+          "type": "array"
+        },
+        "reliability_evidence_type": {
+          "items": {
+            "$ref": "#/$defs/ReliabilityEvidence"
+          },
+          "title": "Reliability Evidence Type",
+          "type": "array"
+        },
+        "reliability_finding": {
+          "$ref": "#/$defs/ReliabilityFinding"
+        },
+        "target_property": {
+          "items": {
+            "$ref": "#/$defs/TargetProperty"
+          },
+          "title": "Target Property",
+          "type": "array"
+        }
+      },
+      "required": [
+        "channel_id",
+        "operational_status",
+        "target_property",
+        "evidence_source",
+        "evaluator_substrate",
+        "decision_role",
+        "feedback_path",
+        "external_independence",
+        "reliability_evidence_type",
+        "reliability_finding",
+        "experimental_fidelity",
+        "quotes"
+      ],
+      "title": "ValidatorChannel",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "channels": {
+      "items": {
+        "$ref": "#/$defs/ValidatorChannel"
+      },
+      "minItems": 1,
+      "title": "Channels",
+      "type": "array"
+    },
+    "envelope": {
+      "$ref": "#/$defs/CommonEnvelope"
+    },
+    "human_authority": {
+      "$ref": "#/$defs/HumanAuthority"
+    },
+    "memory_structure": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Memory Structure",
+      "type": "array"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "policy_type": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Policy Type",
+      "type": "array"
+    },
+    "record_id": {
+      "pattern": "^R\\d{2}$",
+      "title": "Record Id",
+      "type": "string"
+    },
+    "vendor": {
+      "minLength": 1,
+      "title": "Vendor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "vendor",
+    "model_id",
+    "channels",
+    "policy_type",
+    "memory_structure",
+    "human_authority",
+    "envelope"
+  ],
+  "title": "ServoCoding",
+  "type": "object"
+}
+warning: Skill descriptions were shortened to fit the 2% skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest.
+codex
+{"channels":[{"channel_id":"hypothesis_feasibility_and_confounds_panel","decision_role":["ranking"],"evaluator_substrate":["llm"],"evidence_source":["artifact_review"],"experimental_fidelity":["not_applicable"],"external_independence":"internal_self_evaluation","feedback_path":["candidate_revision"],"operational_status":"implemented","quotes":[{"evidence_id":"R12-E01","page":4,"pdf_id":"be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491","quote":"During hypothesis formulation, an Innovator proposes high-risk hypotheses that challenge conventional assumptions, a Pragmatist evaluates feasibility given hardware and time budgets, and a Contrarian actively seeks weaknesses and confounds. The synthesizer distills these perspectives into 2–4 falsifiable hypotheses, each annotated with testability criteria and required baselines.","rationale":"Identifies an internal multi-role evaluator during hypothesis formulation with feasibility, weakness/confound, and testability/baseline judgments routed into a smaller set of candidate hypotheses."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["executability","empirical_adequacy"]},{"channel_id":"experiment_failure_repair_and_proceed_refine_pivot_controller","decision_role":["diagnostic","search_control","stage_transition"],"evaluator_substrate":["hybrid"],"evidence_source":["execution_trace"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["candidate_revision","policy_control","stage_transition"],"operational_status":"implemented","quotes":[{"evidence_id":"R12-E02","page":4,"pdf_id":"be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491","quote":"When an experiment fails or produces degenerate results, an automated repair loop captures the failure signature and generates targeted fixes. The system then makes one of three decisions: Proceed when evidence supports the hypothesis, Refine when results are weak but the experimental direction is sound, or Pivot when the approach is fundamentally flawed","rationale":"Identifies an automated repair evaluator using experiment failure signatures to generate fixes and make Proceed/Refine/Pivot decisions with search and stage consequences."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["executability","empirical_adequacy"]},{"channel_id":"numeric_claim_registry_verifier","decision_role":["final_acceptance"],"evaluator_substrate":["deterministic_program"],"evidence_source":["execution_trace","artifact_review"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_separate_component","feedback_path":["stage_transition","candidate_revision"],"operational_status":"implemented","quotes":[{"evidence_id":"R12-E03","page":5,"pdf_id":"be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491","quote":"After generation, a post-hoc verifier re-extracts every numeric claim and checks it against the registry, scoped per condition to prevent cross-condition false positives. Claims in strict sections (Abstract, Results, Experiments) that cannot be matched to a registry entry trigger document rejection. Claims in other sections are replaced with visible placeholders.","rationale":"Identifies a post-generation verifier that checks numeric claims against a registry and rejects or revises the document depending on section strictness."},{"evidence_id":"R12-E05","page":5,"pdf_id":"be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491","quote":"The writing agent can read the registry but cannot modify it.","rationale":"Supports internal separation between the writing agent and the registry used by the verifier."},{"evidence_id":"R12-E07","page":10,"pdf_id":"be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491","quote":"Full-Auto passes the numeric gate because the zero values are real logged measurements, not fabricated numbers. However, the gate cannot tell whether those measurements answer the research question.","rationale":"Reports the numeric gate's target limitation: it can validate logged numeric provenance but not whether the measurements answer the research question."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"evidence_of_error_or_bias","target_property":["correctness_or_formal_validity"]},{"channel_id":"lesson_extraction_and_retrieval_memory","decision_role":["memory_admission","ranking"],"evaluator_substrate":["not_reported"],"evidence_source":["execution_trace","artifact_review","human_judgment"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["memory_update"],"operational_status":"implemented","quotes":[{"evidence_id":"R12-E04","page":5,"pdf_id":"be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491","quote":"At the end of each run, the system extracts structured lessons from repair attempts, Pivot/Refine decisions, HITL gate feedback, and verification results. Each lesson records a category, a severity score s(l) ∈ (0, 1], and a recommended mitigation. When a new run begins, relevant lessons are retrieved by category and ranked by a time-decayed weight:","rationale":"Identifies a memory channel that admits structured lessons from prior run signals and ranks retrieved lessons by time-decayed weight for later runs."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["aggregate_quality"]},{"channel_id":"experiment_network_isolation_control","decision_role":["stage_transition"],"evaluator_substrate":["deterministic_program"],"evidence_source":["execution_trace"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["policy_control","stage_transition"],"operational_status":"implemented","quotes":[{"evidence_id":"R12-E08","page":17,"pdf_id":"be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491","quote":"Phase 0 (Dependency Installation) and Phase 1 (Data Acquisition) enable network access; Phase 2 (Experiment Execution) disables network via iptables rules applied inside the container before the experiment script starts.","rationale":"Identifies an execution-phase control that changes network access policy before experiment execution."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["reproducibility"]}],"envelope":{"diagnostics":[{"consequence":"A document can pass the numeric gate while still failing to establish that the reported measurements address the hypothesis or research question.","evidence_ids":["R12-E07"],"exact_quotes":[{"evidence_id":"R12-E07","exact_quote":"Full-Auto passes the numeric gate because the zero values are real logged measurements, not fabricated numbers. However, the gate cannot tell whether those measurements answer the research question."}],"id":"D1","kind":"reported_failure","statement":"The numeric gate validates logged numeric provenance but is reported not to judge empirical adequacy."},{"consequence":"The system reports automated operation, but the packet does not provide reliability studies for the internal evaluator channels, limiting support for trusting their judgments across runs.","evidence_ids":["R12-E06"],"exact_quotes":[{"evidence_id":"R12-E06","exact_quote":"Full-Auto runs the entire pipeline without human input."}],"id":"D2","kind":"missing_evidence","statement":"Reliability evidence for the automated validator channels is not reported in the packet."},{"consequence":"Future behavior can be influenced by prior run lessons, but the packet does not establish that lesson severity scores or time-decayed rankings improve later decisions.","evidence_ids":["R12-E04"],"exact_quotes":[{"evidence_id":"R12-E04","exact_quote":"At the end of each run, the system extracts structured lessons from repair attempts, Pivot/Refine decisions, HITL gate feedback, and verification results. Each lesson records a category, a severity score s(l) ∈ (0, 1], and a recommended mitigation. When a new run begins, relevant lessons are retrieved by category and ranked by a time-decayed weight:"}],"id":"D3","kind":"risk","statement":"The memory channel admits and ranks lessons, but its quality or downstream effect is not validated in the supplied packet."}],"recommendations":[{"evidence_ids":["R12-E07"],"exact_quotes":[{"evidence_id":"R12-E07","exact_quote":"Full-Auto passes the numeric gate because the zero values are real logged measurements, not fabricated numbers. However, the gate cannot tell whether those measurements answer the research question."}],"id":"REC1","linked_diagnostic_ids":["D1"],"priority_rank":1,"proposed_action":"Add an empirical-adequacy check that tests whether logged measurements answer the stated research question before final acceptance.","success_check":{"comparator_or_threshold":"All strict-section numeric claims must both match registry entries and be mapped to the hypothesis or research question they support.","evidence_needed":"Verifier logs showing claim-to-registry matches plus claim-to-question relevance judgments for accepted documents.","observable":"Accepted documents include no numeric result that lacks a documented relevance link to the research question."}},{"evidence_ids":["R12-E06"],"exact_quotes":[{"evidence_id":"R12-E06","exact_quote":"Full-Auto runs the entire pipeline without human input."}],"id":"REC2","linked_diagnostic_ids":["D2"],"priority_rank":2,"proposed_action":"Report property-specific reliability evidence for the automated gates used in Full-Auto runs.","success_check":{"comparator_or_threshold":"At least one property-specific reliability study is reported for each implemented automated gate that controls acceptance, repair, or stage transition.","evidence_needed":"A reliability table or audit results tied to the exact gate targets and decision roles.","observable":"Each automated validator channel has documented reliability evidence beyond none_reported."}},{"evidence_ids":["R12-E04"],"exact_quotes":[{"evidence_id":"R12-E04","exact_quote":"At the end of each run, the system extracts structured lessons from repair attempts, Pivot/Refine decisions, HITL gate feedback, and verification results. Each lesson records a category, a severity score s(l) ∈ (0, 1], and a recommended mitigation. When a new run begins, relevant lessons are retrieved by category and ranked by a time-decayed weight:"}],"id":"REC3","linked_diagnostic_ids":["D3"],"priority_rank":3,"proposed_action":"Evaluate whether retrieved lessons and severity rankings improve subsequent run decisions.","success_check":{"comparator_or_threshold":"Runs using lesson retrieval outperform otherwise matched runs without lesson retrieval on predeclared repair, Pivot/Refine, or verification outcomes.","evidence_needed":"A controlled comparison or ablation over runs with and without lesson retrieval enabled.","observable":"Measured downstream decision quality improves when ranked lessons are used."}}]},"human_authority":{"executor":["explicit_none"],"generator":["explicit_none"],"memory":["advise"],"policy":["explicit_none"],"validator":["advise"]},"memory_structure":["structured lessons","category","severity score s(l) ∈ (0, 1]","recommended mitigation","retrieval by category","time-decayed ranking"],"model_id":"gpt-5","policy_type":["Full-Auto pipeline","Proceed/Refine/Pivot control policy","numeric claim registry gate","network isolation by execution phase","lesson retrieval with time-decayed ranking"],"record_id":"R12","vendor":"codex"}
+tokens used
+23,620

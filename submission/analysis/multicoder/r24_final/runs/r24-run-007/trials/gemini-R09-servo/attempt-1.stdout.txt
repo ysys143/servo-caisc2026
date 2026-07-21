@@ -1,0 +1,381 @@
+{
+  "record_id": "R09",
+  "vendor": "gemini",
+  "model_id": "gemini-3.1-pro",
+  "channels": [
+    {
+      "channel_id": "selection_mechanism",
+      "operational_status": "implemented",
+      "target_property": [
+        "aggregate_quality"
+      ],
+      "evidence_source": [
+        "not_reported"
+      ],
+      "evaluator_substrate": [
+        "deterministic_program"
+      ],
+      "decision_role": [
+        "search_control",
+        "stage_transition"
+      ],
+      "feedback_path": [
+        "stage_transition"
+      ],
+      "external_independence": "internal_self_evaluation",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "not_reported"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R09-E02",
+          "pdf_id": "76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8",
+          "page": 5,
+          "quote": "Specifically, it uses the classic Upper Confidence Bound (UCB) algorithm to select the most promising record.",
+          "rationale": "Shows a deterministic UCB algorithm is used for the selection of ideas."
+        },
+        {
+          "evidence_id": "R09-E05",
+          "pdf_id": "76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8",
+          "page": 8,
+          "quote": "Across the three tasks, DeepScientist generate over 5,000 unique ideas, yet only about 1,100 are deemed worthy of experimental validation by the system's selection mechanism, and a mere 21 ultimately result in scientific progress.",
+          "rationale": "Shows the selection mechanism filters ideas to transition them to experimental validation."
+        }
+      ]
+    },
+    {
+      "channel_id": "secondary_verification",
+      "operational_status": "implemented",
+      "target_property": [
+        "executability"
+      ],
+      "evidence_source": [
+        "execution_trace"
+      ],
+      "evaluator_substrate": [
+        "deterministic_program"
+      ],
+      "decision_role": [
+        "stage_transition"
+      ],
+      "feedback_path": [
+        "stage_transition"
+      ],
+      "external_independence": "internal_separate_component",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "computational_experiment"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R09-E07",
+          "pdf_id": "76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8",
+          "page": 17,
+          "quote": "A critical step in our pipeline is a secondary verification process: after Claude Code reports completion, DeepScientist independently re-executes the main script via the command line. This measure was implemented to counteract a high rate of false positives-we observed that approximately 50% of initial implementation attempts failed to complete fully due to internal timeouts within the Claude Code agent. Throughout this project, all experimental results were manually inspected by human supervisors to guarantee their authenticity.",
+          "rationale": "Details a programmatic re-execution step by a separate internal component to verify script completion."
+        }
+      ]
+    },
+    {
+      "channel_id": "deepreviewer_benchmark",
+      "operational_status": "implemented",
+      "target_property": [
+        "aggregate_quality"
+      ],
+      "evidence_source": [
+        "artifact_review"
+      ],
+      "evaluator_substrate": [
+        "llm"
+      ],
+      "decision_role": [
+        "external_assessment"
+      ],
+      "feedback_path": [
+        "external_only"
+      ],
+      "external_independence": "external_nonindependent",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R09-E04",
+          "pdf_id": "76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8",
+          "page": 7,
+          "quote": "First, to benchmark against existing work, we employ DeepReviewer (Zhu et al., 2025a), an AI agent that simulates the human peer-review process with an external search capability, comparing DeepScientist's output against 28 publicly available papers from other AI Scientist systems. Second, for a more rigorous assessment, we convene a dedicated program committee consisting of three active LLM researchers: two volunteers who have served as ICLR reviewers and one senior volunteer who has been invited to be an ICLR Area Chair.",
+          "rationale": "Describes external benchmarking performed by the DeepReviewer AI agent."
+        }
+      ]
+    },
+    {
+      "channel_id": "program_committee",
+      "operational_status": "implemented",
+      "target_property": [
+        "aggregate_quality"
+      ],
+      "evidence_source": [
+        "artifact_review"
+      ],
+      "evaluator_substrate": [
+        "human"
+      ],
+      "decision_role": [
+        "external_assessment"
+      ],
+      "feedback_path": [
+        "external_only"
+      ],
+      "external_independence": "external_independent",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R09-E04",
+          "pdf_id": "76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8",
+          "page": 7,
+          "quote": "First, to benchmark against existing work, we employ DeepReviewer (Zhu et al., 2025a), an AI agent that simulates the human peer-review process with an external search capability, comparing DeepScientist's output against 28 publicly available papers from other AI Scientist systems. Second, for a more rigorous assessment, we convene a dedicated program committee consisting of three active LLM researchers: two volunteers who have served as ICLR reviewers and one senior volunteer who has been invited to be an ICLR Area Chair.",
+          "rationale": "Describes an external assessment conducted by an independent human program committee."
+        }
+      ]
+    },
+    {
+      "channel_id": "human_supervision",
+      "operational_status": "implemented",
+      "target_property": [
+        "correctness_or_formal_validity"
+      ],
+      "evidence_source": [
+        "human_judgment"
+      ],
+      "evaluator_substrate": [
+        "human"
+      ],
+      "decision_role": [
+        "final_acceptance"
+      ],
+      "feedback_path": [
+        "stage_transition"
+      ],
+      "external_independence": "external_nonindependent",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R09-E06",
+          "pdf_id": "76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8",
+          "page": 5,
+          "quote": "Three human experts supervise the process to verify outputs and filter out hallucinations.",
+          "rationale": "Humans act to verify outputs and actively filter hallucinations."
+        },
+        {
+          "evidence_id": "R09-E07",
+          "pdf_id": "76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8",
+          "page": 17,
+          "quote": "A critical step in our pipeline is a secondary verification process: after Claude Code reports completion, DeepScientist independently re-executes the main script via the command line. This measure was implemented to counteract a high rate of false positives-we observed that approximately 50% of initial implementation attempts failed to complete fully due to internal timeouts within the Claude Code agent. Throughout this project, all experimental results were manually inspected by human supervisors to guarantee their authenticity.",
+          "rationale": "Confirms human supervisors manually inspected all experimental results to guarantee authenticity."
+        }
+      ]
+    },
+    {
+      "channel_id": "memory_admission",
+      "operational_status": "implemented",
+      "target_property": [
+        "aggregate_quality"
+      ],
+      "evidence_source": [
+        "not_reported"
+      ],
+      "evaluator_substrate": [
+        "not_reported"
+      ],
+      "decision_role": [
+        "memory_admission"
+      ],
+      "feedback_path": [
+        "memory_update"
+      ],
+      "external_independence": "internal_self_evaluation",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "not_reported"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R09-E03",
+          "pdf_id": "76c3805b2344c32f3245f0500bcfd8ae129cd221f821da509817121c1485cae8",
+          "page": 5,
+          "quote": "This deeply validated record becomes a new record in the system's knowledge base, thus influencing the decision-making process in all subsequent cycles.",
+          "rationale": "Deeply validated records are admitted into the system's knowledge base to influence future decisions."
+        }
+      ]
+    }
+  ],
+  "policy_type": [
+    "Bayesian Optimization",
+    "multi-agent system"
+  ],
+  "memory_structure": [
+    "open-knowledge system",
+    "Findings Memory"
+  ],
+  "human_authority": {
+    "generator": [
+      "explicit_none"
+    ],
+    "executor": [
+      "explicit_none"
+    ],
+    "validator": [
+      "approve",
+      "select"
+    ],
+    "memory": [
+      "explicit_none"
+    ],
+    "policy": [
+      "not_reported"
+    ]
+  },
+  "envelope": {
+    "diagnostics": [
+      {
+        "id": "D01",
+        "statement": "The initial implementation attempts suffer a 50% failure rate due to internal timeouts within the Claude Code agent, resulting in a high rate of false positives.",
+        "kind": "reported_failure",
+        "evidence_ids": [
+          "R09-E07"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R09-E07",
+            "exact_quote": "A critical step in our pipeline is a secondary verification process: after Claude Code reports completion, DeepScientist independently re-executes the main script via the command line. This measure was implemented to counteract a high rate of false positives-we observed that approximately 50% of initial implementation attempts failed to complete fully due to internal timeouts within the Claude Code agent. Throughout this project, all experimental results were manually inspected by human supervisors to guarantee their authenticity."
+          }
+        ],
+        "consequence": "Creates high false positive rates and necessitates an independent secondary verification process to ensure script completion."
+      },
+      {
+        "id": "D02",
+        "statement": "The system generates over 5,000 unique ideas, but only 21 ultimately result in scientific progress, indicating a low overall conversion yield despite the selection mechanism.",
+        "kind": "reported_failure",
+        "evidence_ids": [
+          "R09-E05"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R09-E05",
+            "exact_quote": "Across the three tasks, DeepScientist generate over 5,000 unique ideas, yet only about 1,100 are deemed worthy of experimental validation by the system's selection mechanism, and a mere 21 ultimately result in scientific progress."
+          }
+        ],
+        "consequence": "Substantial computational resources may be consumed evaluating ideas that do not lead to scientific progress."
+      },
+      {
+        "id": "D03",
+        "statement": "The system relies on future work to introduce simulated discovery environments, frameworks for community feedback, and physical science integration.",
+        "kind": "missing_evidence",
+        "evidence_ids": [
+          "R09-E08"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R09-E08",
+            "exact_quote": "To make the AI a more capable partner, future work should focus on key enhancements: developing simulated discovery environments to accelerate learning via reinforcement, creating frameworks for integrating feedback from the scientific community, and ultimately, bridging the gap to the physical sciences through robotics."
+          }
+        ],
+        "consequence": "The current system lacks accelerated learning via reinforcement and is isolated from community feedback and physical sciences."
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "R1",
+        "priority_rank": 1,
+        "proposed_action": "Optimize the internal timeout limits of the Claude Code agent to reduce the implementation failure rate and limit false positives.",
+        "linked_diagnostic_ids": [
+          "D01"
+        ],
+        "evidence_ids": [
+          "R09-E07"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R09-E07",
+            "exact_quote": "A critical step in our pipeline is a secondary verification process: after Claude Code reports completion, DeepScientist independently re-executes the main script via the command line. This measure was implemented to counteract a high rate of false positives-we observed that approximately 50% of initial implementation attempts failed to complete fully due to internal timeouts within the Claude Code agent. Throughout this project, all experimental results were manually inspected by human supervisors to guarantee their authenticity."
+          }
+        ],
+        "success_check": {
+          "observable": "Implementation completion rate without internal timeouts",
+          "comparator_or_threshold": "Greater than 95% successful completion rate",
+          "evidence_needed": "Execution logs tracking timeout frequencies during implementation"
+        }
+      },
+      {
+        "id": "R2",
+        "priority_rank": 2,
+        "proposed_action": "Improve the selection mechanism to more accurately filter unpromising ideas before experimental validation.",
+        "linked_diagnostic_ids": [
+          "D02"
+        ],
+        "evidence_ids": [
+          "R09-E05"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R09-E05",
+            "exact_quote": "Across the three tasks, DeepScientist generate over 5,000 unique ideas, yet only about 1,100 are deemed worthy of experimental validation by the system's selection mechanism, and a mere 21 ultimately result in scientific progress."
+          }
+        ],
+        "success_check": {
+          "observable": "Ratio of ideas resulting in scientific progress after validation",
+          "comparator_or_threshold": "Higher yield than the baseline 21 out of 1100 validated ideas",
+          "evidence_needed": "Summary metrics of idea outcomes and conversion rates"
+        }
+      },
+      {
+        "id": "R3",
+        "priority_rank": 3,
+        "proposed_action": "Develop simulated discovery environments to accelerate learning via reinforcement as identified in future enhancements.",
+        "linked_diagnostic_ids": [
+          "D03"
+        ],
+        "evidence_ids": [
+          "R09-E08"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R09-E08",
+            "exact_quote": "To make the AI a more capable partner, future work should focus on key enhancements: developing simulated discovery environments to accelerate learning via reinforcement, creating frameworks for integrating feedback from the scientific community, and ultimately, bridging the gap to the physical sciences through robotics."
+          }
+        ],
+        "success_check": {
+          "observable": "Availability of simulated discovery environments",
+          "comparator_or_threshold": "Deployment of at least one simulated environment",
+          "evidence_needed": "Documentation demonstrating the integration of a new simulated environment"
+        }
+      }
+    ]
+  }
+}

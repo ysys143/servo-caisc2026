@@ -1,0 +1,19 @@
+{
+  "trial": {
+    "trial_id": "codex-R10-baseline-smoke-v2",
+    "vendor": "codex",
+    "record_id": "R10",
+    "condition": "baseline",
+    "period": 1,
+    "order": 0
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T15:29:49.316268+00:00",
+  "elapsed_seconds": 48.308082959003514,
+  "requested_model": "gpt-5.5",
+  "prompt_sha256": "e914e5594a25f25cfeab4a3f3538462c79124304d30213bc54d874c4ad5a05e5",
+  "returncode": 0,
+  "stdout_sha256": "9e435532f9780f96a8f7f6f7ccb1f6696d4de4f52e2338015ccc7bb77a878b72",
+  "stderr_sha256": "d4c1f76d24fedd586049df95f1748cfa2e78e517c2f505024d39e8747d39ef8e",
+  "validation_error": null
+}

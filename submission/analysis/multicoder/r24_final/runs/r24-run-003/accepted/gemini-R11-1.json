@@ -1,0 +1,100 @@
+{
+  "record_id": "R11",
+  "vendor": "gemini",
+  "model_id": "gemini-3.1-pro",
+  "memo": "Review of the ERA system architecture indicates a robust search mechanism that utilizes a global, flat-tree structure to balance exploration and exploitation, relying on sandbox scores and logs to hill climb. However, reliance on automated scoring introduces a risk of reward hacking, and the current confirmation of algorithmic adherence depends on expert manual inspection.",
+  "envelope": {
+    "diagnostics": [
+      {
+        "id": "D1",
+        "statement": "The system relies on automated sandbox scores and output logs to guide its tree search and hill climb toward better solutions, which introduces a risk of reward hacking if the evaluation environment is imperfect.",
+        "kind": "risk",
+        "evidence_ids": [
+          "R11-E02"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R11-E02",
+            "exact_quote": "The LLM produces Python code, which is then executed and scored on a sandbox. Searching over strategies dramatically increases performance: The system uses the score together with output logs and other information to hill climb towards a better score."
+          }
+        ],
+        "consequence": "The search process may over-optimize for sandbox scores by finding exploitable flaws in the evaluation, producing high-scoring but functionally incorrect or nonsensical code."
+      },
+      {
+        "id": "D2",
+        "statement": "The validation of the generated code's adherence to requested algorithms currently depends on expert manual inspection, missing automated evidence of algorithm adherence.",
+        "kind": "missing_evidence",
+        "evidence_ids": [
+          "R11-E04"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R11-E04",
+            "exact_quote": "Importantly, expert manual inspection of the code solutions proposed by ERA confirmed that nearly all implementations adhered to the requested algorithms (Extended Data Table 1), with performance largely consistent across replicate runs of methods (Extended Data Fig. 1)."
+          }
+        ],
+        "consequence": "Deploying the system without an automated check or retaining the manual review process could result in non-adherent implementations being accepted and utilized without detection."
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "R1",
+        "priority_rank": 1,
+        "action_code": "evaluate_evaluator_error_or_bias",
+        "linked_diagnostic_ids": [
+          "D1"
+        ],
+        "evidence_ids": [
+          "R11-E02"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R11-E02",
+            "exact_quote": "The LLM produces Python code, which is then executed and scored on a sandbox. Searching over strategies dramatically increases performance: The system uses the score together with output logs and other information to hill climb towards a better score."
+          }
+        ],
+        "success_check": {
+          "observable": "Robustness of the sandbox scoring mechanism against incorrect solutions",
+          "comparator_or_threshold": "Measured false positive rate of the sandbox evaluator must be below a defined acceptable threshold (e.g., < 1%)",
+          "evidence_needed": "A dedicated evaluation or red-teaming report demonstrating the sandbox evaluator's resistance to reward hacking."
+        }
+      },
+      {
+        "id": "R2",
+        "priority_rank": 2,
+        "action_code": "retain_human_approval_or_escalation",
+        "linked_diagnostic_ids": [
+          "D2"
+        ],
+        "evidence_ids": [
+          "R11-E04"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R11-E04",
+            "exact_quote": "Importantly, expert manual inspection of the code solutions proposed by ERA confirmed that nearly all implementations adhered to the requested algorithms (Extended Data Table 1), with performance largely consistent across replicate runs of methods (Extended Data Fig. 1)."
+          }
+        ],
+        "success_check": {
+          "observable": "Expert manual inspection step in the final acceptance pipeline",
+          "comparator_or_threshold": "Present for 100% of final, generated algorithm solutions before deployment",
+          "evidence_needed": "Process documentation confirming the retention of human expert review for algorithm adherence."
+        }
+      }
+    ],
+    "probes": [
+      true,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      null,
+      null,
+      null,
+      null
+    ]
+  }
+}

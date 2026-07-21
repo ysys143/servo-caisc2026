@@ -1,0 +1,19 @@
+{
+  "trial": {
+    "trial_id": "claude-R14-1",
+    "vendor": "claude",
+    "record_id": "R14",
+    "condition": "baseline",
+    "period": 1,
+    "order": 1
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T16:10:38.588883+00:00",
+  "elapsed_seconds": 41.568832207995,
+  "requested_model": "claude-opus-4-8",
+  "prompt_sha256": "4608bb4b67ad3aeedde9fd54b37b5fea2f95c384a40613fc44aa362ce543b2b9",
+  "returncode": 0,
+  "stdout_sha256": "ded7cb1f8777d9e17790fc2c71848927a0d0199a68341d44664e9b931c80b0b3",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "validation_error": null
+}

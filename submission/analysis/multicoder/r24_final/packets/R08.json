@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "record_id": "R08",
+  "source": {
+    "pdf_sha256": "a3f3334cc67685b925c9523dc19149806ee996e331623f84912e0354b18c9bce",
+    "page_count": 38
+  },
+  "instructions": "Use only the excerpts below. The full 38-page primary source was audited; related-work descriptions of other systems were excluded. Absence from these excerpts is not evidence of absence from the full source.",
+  "evidence": [
+    {
+      "evidence_id": "R08-E01",
+      "pdf_page": 7,
+      "quote": "Divergent-Convergent Discovery Framework: Our discovery process employs a multi-phase approach for scientific originality. Inspired by [16], the divergent phase generates five conceptually distinct research directions, exploring orthogonal perspectives and cross-disciplinary connections. These undergo rigorous convergent evaluation against criteria including Scientific Novelty, Technical Soundness, and Transformative Potential. The most promising concept receives comprehensive development, resulting in a proposal that charts new scientific territory with clear implementation pathways."
+    },
+    {
+      "evidence_id": "R08-E02",
+      "pdf_page": 8,
+      "quote": "Following this preliminary validation, successful implementations that incorporate review feedback advance to full-scale experiments, while persistently unsuccessful implementations receive \"unfeasible\" classification after multiple refinement attempts. Throughout this cyclical process, the Advisor Agent provides analytical support by evaluating results and recommending supplementary investigations."
+    },
+    {
+      "evidence_id": "R08-E03",
+      "pdf_page": 8,
+      "quote": "The Code Agent begins by developing prototype implementations that undergo initial testing on minimal data (typically 1-2 epochs or small dataset subsets) to establish baseline feasibility."
+    },
+    {
+      "evidence_id": "R08-E04",
+      "pdf_page": 14,
+      "quote": "Most significantly, the system demonstrates strong decision alignment with expert conference reviewers, correctly identifying the superior paper in 65.62% to 90.62% of cases, with five of six evaluators exceeding 81% accuracy across the 32 paper pairs."
+    },
+    {
+      "evidence_id": "R08-E05",
+      "pdf_page": 3,
+      "quote": "Level-1 tasks provide explicit research instructions directly extracted from paper y, testing agents’ ability to execute given ideas; Level-2 tasks deliberately omit these instructions, challenging agents to independently formulate novel research directions using only the provided references and datasets."
+    },
+    {
+      "evidence_id": "R08-E06",
+      "pdf_page": 19,
+      "quote": "Our present AI-Researcher implementation operates without a dedicated external memory management system, instead relying primarily on the LLM’s native context window as its primary information repository."
+    },
+    {
+      "evidence_id": "R08-E07",
+      "pdf_page": 5,
+      "quote": "To ensure methodological rigor, we incorporate two critical debiasing mechanisms: (1) randomly swapping the presentation order of papers to eliminate position bias, and (2) conducting multiple independent evaluations using diverse state-of-the-art LLMs (including multiple GPT, Claude, and Gemini models) with temperature set to 1, creating a comprehensive panel-like review process that effectively mitigates individual model biases and enhances evaluation reliability."
+    },
+    {
+      "evidence_id": "R08-E08",
+      "pdf_page": 8,
+      "quote": "Following this preliminary validation, successful implementations that incorporate review feedback advance to full-scale experiments, while persistently unsuccessful implementations receive \"unfeasible\" classification after multiple refinement attempts."
+    }
+  ]
+}

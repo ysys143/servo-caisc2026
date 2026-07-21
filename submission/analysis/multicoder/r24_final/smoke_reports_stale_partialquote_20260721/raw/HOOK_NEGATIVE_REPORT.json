@@ -1,0 +1,138 @@
+{
+  "cases": [
+    {
+      "case_id": "wrong_pdf_sha256",
+      "error": "E01: source identity or page mismatch",
+      "normalized_sha256": "c5213ec1e4eb7dd35bde77939aac12ac4f47dd358202d73eae558687be698c97",
+      "raw_sha256": "0dc50e45f431164cd5bebc85f72daec3493122efa71c53b30468f15271314952",
+      "rejected": true
+    },
+    {
+      "case_id": "wrong_page",
+      "error": "E01: source identity or page mismatch",
+      "normalized_sha256": "75dafecb8cffc711d77ee7ccdacc48be513c776485885ec9566ed5c984f2f178",
+      "raw_sha256": "300c4978c2cfd515159a3abe6b4a2c023fdba5fd1ad1470191921104a054ebeb",
+      "rejected": true
+    },
+    {
+      "case_id": "partial_or_wrong_full_quote",
+      "error": "E01: quote does not equal the frozen packet quotation",
+      "normalized_sha256": "16c88f465d52029634d75e2b7f5d6a8c64af7382d335440a83442c37dc419061",
+      "raw_sha256": "fb2d4f6be0432a262b34c5ac414ac4a810929dbaef3b2332324c6d9d31172bf9",
+      "rejected": true
+    },
+    {
+      "case_id": "wrong_channel_evidence_id",
+      "error": "E99: unknown evidence id",
+      "normalized_sha256": "457fbd7154d3d014c6ea96a4b3aec6020744ecf07f92f1e5eb11826d4a952b04",
+      "raw_sha256": "27e45384462084d4cb397a3f49c02dbb5f178c7c601046fbee8b68464193e128",
+      "rejected": true
+    },
+    {
+      "case_id": "wrong_envelope_evidence_id",
+      "error": "1 validation error for ServoCoding\nenvelope.diagnostics.0\n  Value error, diagnostic evidence ids and exact quotes must match [type=value_error, input_value={'consequence': 'A concre...urce-bound diagnostic.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error",
+      "normalized_sha256": "f40f9eb26009f0b8a80f695b47624003ebb5d561c6f6b2cf3e11cc4febcd89ea",
+      "raw_sha256": "e060983ed5bed67b4dd68faad6208bcbb2e441e20689dc8d69f1184da7641a36",
+      "rejected": true
+    },
+    {
+      "case_id": "wrong_record_id",
+      "error": "record_id or vendor does not match the scheduled trial",
+      "normalized_sha256": "808dec8eea17395719c0d0c746f7cfb58f8f15df9b086d2e30904a7ce5cd3157",
+      "raw_sha256": "45d0ff9655327f6e532e4accb7a8a0af3824a12011b977879920481a913811ff",
+      "rejected": true
+    },
+    {
+      "case_id": "wrong_vendor",
+      "error": "record_id or vendor does not match the scheduled trial",
+      "normalized_sha256": "e6de587e3a564a3a49cabb126c75f5effcb72a60cb8aa2f3f90ddf9a7e29d41f",
+      "raw_sha256": "d94bbe78459aa79a081a9db430d5fed1bee76d59ba25dfc02fb9d466842ab1e6",
+      "rejected": true
+    },
+    {
+      "case_id": "broken_diagnostic_link",
+      "error": "1 validation error for ServoCoding\nenvelope\n  Value error, recommendation references an unknown diagnostic [type=value_error, input_value={'diagnostics': [{'conseq...he check is logged.'}}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error",
+      "normalized_sha256": "5c171ee9520c2e27eb077d501602fb774a01204f458f3791ca773b0d3de53db3",
+      "raw_sha256": "c2600a474cc432e5a326beae8bcae24060bf11bafc56e8f8336f016b3774f76c",
+      "rejected": true
+    },
+    {
+      "case_id": "duplicate_channel_ids",
+      "error": "1 validation error for ServoCoding\n  Value error, validator channel ids must be unique [type=value_error, input_value={'channels': [{'channel_i...R01', 'vendor': 'codex'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error",
+      "normalized_sha256": "7d20d32e0827da2ff54ff863e692e73cbb761e4990ca35cf9ad0818787dddadf",
+      "raw_sha256": "9cd2d83d50bdff1602b03e9f90c332b0d92ccb6f59cdbb9a913bb441493b4d94",
+      "rejected": true
+    },
+    {
+      "case_id": "duplicate_diagnostic_ids",
+      "error": "1 validation error for ServoCoding\nenvelope\n  Value error, diagnostic ids must be unique [type=value_error, input_value={'diagnostics': [{'conseq...he check is logged.'}}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error",
+      "normalized_sha256": "095ee46a707af5fbd9363b6f91cea0b863be3153b7c4587e480d3e3dcd8185b7",
+      "raw_sha256": "bc3e9401bfe5a5e0d98cf0cec07b8bebe391eef2d591ef2d5044039a2c0c590f",
+      "rejected": true
+    },
+    {
+      "case_id": "duplicate_priority_ranks",
+      "error": "1 validation error for ServoCoding\nenvelope\n  Value error, recommendation priority ranks must be unique and contiguous from one [type=value_error, input_value={'diagnostics': [{'conseq...he check is logged.'}}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error",
+      "normalized_sha256": "86d5b00a64797690c48ed9c20267da3cab3467efede1335694d08255c26e3b5d",
+      "raw_sha256": "20b771c87a3807867b41ec72e9e7e6831ae7103ae0c23bb7d2c4e059293d8541",
+      "rejected": true
+    },
+    {
+      "case_id": "duplicate_json_keys",
+      "error": "duplicate JSON key: record_id",
+      "normalized_sha256": "6c794190dfea9ce12aefbc032d0d6443f3ccfb41e3903cf8f5513abee55128a6",
+      "raw_sha256": "6c794190dfea9ce12aefbc032d0d6443f3ccfb41e3903cf8f5513abee55128a6",
+      "rejected": true
+    },
+    {
+      "case_id": "nan_number",
+      "error": "non-finite JSON number: NaN",
+      "normalized_sha256": "a105197d70fb02fcba408151b756f941729b1b535656bcc9733361c4864a654c",
+      "raw_sha256": "a105197d70fb02fcba408151b756f941729b1b535656bcc9733361c4864a654c",
+      "rejected": true
+    },
+    {
+      "case_id": "fenced_json",
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "normalized_sha256": "0d20eb9ab3ecaba56306c796e8eeb4a1251b55ec869dbcf2fa6ee68b05f6062c",
+      "raw_sha256": "0d20eb9ab3ecaba56306c796e8eeb4a1251b55ec869dbcf2fa6ee68b05f6062c",
+      "rejected": true
+    },
+    {
+      "case_id": "multiple_json_documents",
+      "error": "Extra data: line 2 column 1 (char 1578)",
+      "normalized_sha256": "c33cb4653ca7e1b0bf5a289fd406bb8c9c4433fbbb8d52da5d1e565d78ebabff",
+      "raw_sha256": "c33cb4653ca7e1b0bf5a289fd406bb8c9c4433fbbb8d52da5d1e565d78ebabff",
+      "rejected": true
+    },
+    {
+      "case_id": "extra_top_level_field",
+      "error": "1 validation error for ServoCoding\nunexpected\n  Extra inputs are not permitted [type=extra_forbidden, input_value='value', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden",
+      "normalized_sha256": "67f23b610ba9429ca38874eda2fff4dc9cec546ab1ffe42db4ca2813ccd6d4d5",
+      "raw_sha256": "77be8595170a7e4456d2299d2c76dee1c5f936023a4a76349324c9aca1a7bf77",
+      "rejected": true
+    },
+    {
+      "case_id": "prompt_injection_preamble",
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "normalized_sha256": "3b152075df2a9b9b5f6d0bb5c9f4a10ccac1150cbb42e2d857a36b889dcc2230",
+      "raw_sha256": "3b152075df2a9b9b5f6d0bb5c9f4a10ccac1150cbb42e2d857a36b889dcc2230",
+      "rejected": true
+    },
+    {
+      "case_id": "prompt_injection_in_quote",
+      "error": "E01: quote does not equal the frozen packet quotation",
+      "normalized_sha256": "18a3719c28225183c9284b8423febbace8c4fd17115c8941d8f2ab69554b0337",
+      "raw_sha256": "14cb12fc5515a1f5dc7a88d1f8c28ba98b7acb9f84a1678b546acea77197991d",
+      "rejected": true
+    }
+  ],
+  "hook": "r24_final.runner._validate_output",
+  "passed": true,
+  "positive_control": {
+    "accepted": true,
+    "normalized_sha256": "f9bf06e4c91fe2a4e7c35d9e2ccee42883aa2203c62d47a873874224d9015017"
+  },
+  "report_schema_version": 1,
+  "report_sha256": "14f09ff2d09966f166963927c6318f4eed68e4142180ab1ffe9820c8199a9ca7"
+}

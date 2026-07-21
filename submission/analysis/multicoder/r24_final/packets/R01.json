@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "record_id": "R01",
+  "source": {
+    "pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+    "page_count": 13
+  },
+  "instructions": "Use only the primary-source excerpts below. The full cited PDF was reviewed and searched. For this packet, not_reported means that no explicit statement was found anywhere in that PDF; it does not imply absence outside this source.",
+  "evidence": [
+    {
+      "evidence_id": "R01-E01",
+      "pdf_page": 1,
+      "quote": "The initial user input along with command outputs are treated as user messages to the Planner."
+    },
+    {
+      "evidence_id": "R01-E02",
+      "pdf_page": 4,
+      "quote": "Access to documentation enables us to provide sufficient information for Coscientist to conduct experiments in the physical world."
+    },
+    {
+      "evidence_id": "R01-E03",
+      "pdf_page": 5,
+      "quote": "However, an incorrect heater-shaker module method name was used. Upon making this mistake, Coscientist uses the Docs searcher module to consult the OT-2 documentation. Next, Coscientist modifies the protocol to a corrected version, which ran successfully."
+    },
+    {
+      "evidence_id": "R01-E04",
+      "pdf_page": 8,
+      "quote": "The normalized advantage values increase over time, suggesting that the model can effectively reuse the information obtained to provide more specific guidance on reactivity."
+    },
+    {
+      "evidence_id": "R01-E05",
+      "pdf_page": 2,
+      "quote": "Despite our attempts to better formalize the scale, labelling is inherently subjective and so, may be different between the labelers."
+    },
+    {
+      "evidence_id": "R01-E06",
+      "pdf_page": 4,
+      "quote": "For this investigation, we did not grant access to the internet."
+    },
+    {
+      "evidence_id": "R01-E07",
+      "pdf_page": 5,
+      "quote": "Although our setup is not yet fully automated (plates were moved manually), no human decision-making was involved."
+    },
+    {
+      "evidence_id": "R01-E08",
+      "pdf_page": 10,
+      "quote": "Because of safety concerns, data, code and prompts will be only fully released after the development of US regulations in the field of artificial intelligence and its scientific applications."
+    }
+  ]
+}

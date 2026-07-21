@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "record_id": "R04",
+  "completeness_boundary": "The full cited PDF was reviewed and searched. not_reported means that no explicit statement was found in that source.",
+  "audit_boundary": "Expected answers were assigned after a full-text audit of all 84 PDF pages. Positive and negative answers require a method, results, or limitations passage; not_reported means that the proposition was not stated anywhere in the primary PDF, not that it is false of implementations outside the paper.",
+  "answer_options": [
+    "yes",
+    "no",
+    "not_reported"
+  ],
+  "probes": [
+    {
+      "probe_id": "R04-P01",
+      "question": "Does Agent Laboratory itself originate the initial research idea without human input?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R04-E01"
+      ]
+    },
+    {
+      "probe_id": "R04-P02",
+      "question": "Does the implemented workflow autonomously generate, execute, and refine machine-learning experiment code?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R04-E02"
+      ]
+    },
+    {
+      "probe_id": "R04-P03",
+      "question": "Can an observed experimental result or error change a later mle-solver iteration?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R04-E03"
+      ]
+    },
+    {
+      "probe_id": "R04-P04",
+      "question": "Can paper-review scores cause the implemented workflow to revisit planning, experimentation, or result interpretation?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R04-E04"
+      ]
+    },
+    {
+      "probe_id": "R04-P05",
+      "question": "In autonomous mode, does a human intervene after supplying the initial research idea?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R04-E05"
+      ]
+    },
+    {
+      "probe_id": "R04-P06",
+      "question": "Is paper-solver intended to replace the human academic paper-writing process entirely?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R04-E06"
+      ]
+    },
+    {
+      "probe_id": "R04-P07",
+      "question": "In the reported MLE-Bench evaluation, is the mle-solver program score produced by an LLM scoring function?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R04-E07"
+      ]
+    },
+    {
+      "probe_id": "R04-P08",
+      "question": "Does the source explicitly identify autonomous repository-level code management as an unsupported capability of the reported implementation?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R04-E08"
+      ]
+    },
+    {
+      "probe_id": "R04-P09",
+      "question": "Does the source report a novelty-discrimination or prior-art validation test for the human-provided input research idea?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R04-P10",
+      "question": "Does the reported workflow conduct physical, robotic, or wet-laboratory experiments?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R04-P11",
+      "question": "Does the source describe persistent memory shared across separate Agent Laboratory research projects?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R04-P12",
+      "question": "Does the source report a probabilistic calibration analysis of the internal mle-solver program reward model?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    }
+  ]
+}

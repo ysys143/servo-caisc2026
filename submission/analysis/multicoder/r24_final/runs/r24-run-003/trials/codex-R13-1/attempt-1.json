@@ -1,0 +1,19 @@
+{
+  "trial": {
+    "trial_id": "codex-R13-1",
+    "vendor": "codex",
+    "record_id": "R13",
+    "condition": "baseline",
+    "period": 1,
+    "order": 2
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T16:38:32.709869+00:00",
+  "elapsed_seconds": 28.793641625001328,
+  "requested_model": "gpt-5.5",
+  "prompt_sha256": "e127095f4f9b4a41efe7d7cf6002bcf4d5b58942173804cb081cbd57b8a6f093",
+  "returncode": 0,
+  "stdout_sha256": "d3c4fd564c07ba63e5d01447adffb5fd3d71d7e30d56f714323db974bfa78028",
+  "stderr_sha256": "81c6916eb02ed893533d1ceda3bc49cc9dae34ee8cd0f662db63d4127dd583e3",
+  "validation_error": null
+}

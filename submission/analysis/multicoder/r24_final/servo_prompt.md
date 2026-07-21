@@ -1,0 +1,9 @@
+# SERVO condition
+
+Apply the supplied frozen R24 coding manual to the anonymous source packet. Do not infer facts outside the packet and do not use knowledge of the named system.
+
+Return only one JSON object conforming to the supplied SERVO schema. The first response character must be `{` and the last must be `}`; Markdown fences, preambles, and trailing commentary are invalid. The only permitted top-level keys are `record_id`, `vendor`, `model_id`, `channels`, `policy_type`, `memory_structure`, `human_authority`, and `envelope`; do not add `schema_version` or any other metadata. Separate distinct validator channels, populate every facet, and attach exact packet evidence to each channel. Then provide typed diagnostics with consequences and exact evidence, plus one to three non-redundant recommendations ranked consecutively by `priority_rank` from 1 and linked to those diagnostics with observable success checks. State each recommendation as a concise free-text `proposed_action`; do not recommend a change that the packet does not support. Do not treat non-reporting as absence, terminal assessment as feedback, general reviewer error as novelty-specific evidence, or agreement and bias studies as probabilistic calibration.
+
+For every channel quote, copy `pdf_id` from the packet's 64-character `source.pdf_sha256` value, not from its `record_id`, and copy `page` from the cited evidence item's `pdf_page` value.
+
+For every diagnostic and recommendation, `evidence_ids` and the `evidence_id` values in `exact_quotes` must be identical sets: include exactly one exact quotation for every listed evidence ID, and never list an evidence ID without its quotation. Each `exact_quote` must reproduce the complete frozen `quote` string associated with that `evidence_id` character for character; a shortened excerpt or substring is invalid even when it is verbatim.

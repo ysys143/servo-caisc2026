@@ -1,0 +1,23 @@
+{
+  "trial": {
+    "trial_id": "claude-R09-servo",
+    "vendor": "claude",
+    "record_id": "R09",
+    "condition": "servo",
+    "period": 1,
+    "order": 3
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T22:25:28.473998+00:00",
+  "elapsed_seconds": 120.92486487500719,
+  "requested_model": "claude-opus-4-8",
+  "prompt_sha256": "4611aed9ed75eab1a4742f633dba8f92213e5fc0c2e59cbe5eb22e031b3509e6",
+  "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+  "packet_sha256": "4e036d3f0385d216740a94a66d5da00f14b0dfe7b164886d04e9f6b5522131bb",
+  "argv_sha256": "2bd1085825ec96080e1b9f12681509337d0744a3dd952cccf99d0b77e4a02dc6",
+  "returncode": 0,
+  "stdout_sha256": "a4b782a1a1b5cfa51987e8f4034712db8b276abcb909dbfc4ebf4c53ca304f3c",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "validation_error": null,
+  "sandbox_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-l51z65lz"
+}

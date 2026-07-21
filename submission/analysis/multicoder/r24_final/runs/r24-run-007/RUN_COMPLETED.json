@@ -1,0 +1,302 @@
+{
+  "accepted_outputs": {
+    "claude-R01-servo": {
+      "condition": "servo",
+      "path": "accepted/claude-R01-servo.json",
+      "record_id": "R01",
+      "sha256": "d376ad1e2c23c0473f8c5d7b66d28feb61c6043d805857ccbe3cb3686bf23783",
+      "vendor": "claude"
+    },
+    "claude-R02-servo": {
+      "condition": "servo",
+      "path": "accepted/claude-R02-servo.json",
+      "record_id": "R02",
+      "sha256": "d65917658fc33012693c8768d1930a01ddebf30bbd6130e610b6cae151995506",
+      "vendor": "claude"
+    },
+    "claude-R03-servo": {
+      "condition": "servo",
+      "path": "accepted/claude-R03-servo.json",
+      "record_id": "R03",
+      "sha256": "d26b2d57cab482219beda048d68703c74f074b583ffbcb02739b4bdcbd8cb895",
+      "vendor": "claude"
+    },
+    "claude-R04-servo": {
+      "condition": "servo",
+      "path": "accepted/claude-R04-servo.json",
+      "record_id": "R04",
+      "sha256": "69ed7fe8d8061f8c13be8b18b19b6bbbbfc16f6d7c41a0951e4aa776a99bb229",
+      "vendor": "claude"
+    },
+    "claude-R05-servo": {
+      "condition": "servo",
+      "path": "accepted/claude-R05-servo.json",
+      "record_id": "R05",
+      "sha256": "05e9c357e93de266f5d3a588e59d3f8cef2f7cf5e22acd78c6b391a37c900619",
+      "vendor": "claude"
+    },
+    "claude-R06-servo": {
+      "condition": "servo",
+      "path": "accepted/claude-R06-servo.json",
+      "record_id": "R06",
+      "sha256": "3b3e0fbd379f7b71e4a3818fab3cd36bc3831d3cac690ef7a92af09b68906861",
+      "vendor": "claude"
+    },
+    "claude-R07-servo": {
+      "condition": "servo",
+      "path": "accepted/claude-R07-servo.json",
+      "record_id": "R07",
+      "sha256": "4d9b1cb40e3f73c700bc5604781cacd25f405ed9e73182ee81a9365b4f6e3448",
+      "vendor": "claude"
+    },
+    "claude-R08-servo": {
+      "condition": "servo",
+      "path": "accepted/claude-R08-servo.json",
+      "record_id": "R08",
+      "sha256": "b2065798b5f331c2dc1d9304d1828c37c80bee47abc9daf9b3a807fe05867e26",
+      "vendor": "claude"
+    },
+    "claude-R09-servo": {
+      "condition": "servo",
+      "path": "accepted/claude-R09-servo.json",
+      "record_id": "R09",
+      "sha256": "ef70726bab022cf35746944dc9771de48e5d99d9313b8b6746a39bac014d0909",
+      "vendor": "claude"
+    },
+    "claude-R10-servo": {
+      "condition": "servo",
+      "path": "accepted/claude-R10-servo.json",
+      "record_id": "R10",
+      "sha256": "d15950c0675cdc6e127e3df271c1f1b2ce95d0b591d58614e3c9783054f828c2",
+      "vendor": "claude"
+    },
+    "claude-R11-servo": {
+      "condition": "servo",
+      "path": "accepted/claude-R11-servo.json",
+      "record_id": "R11",
+      "sha256": "602ca24401e6254c2ea4da2989083c0da70b5c2343251186d7650c8ed7791d1e",
+      "vendor": "claude"
+    },
+    "claude-R12-servo": {
+      "condition": "servo",
+      "path": "accepted/claude-R12-servo.json",
+      "record_id": "R12",
+      "sha256": "ef9671e5d4c6dddbd31d9c7fb12d88448d18c572961b8c7d2bd84e7d92ebaf74",
+      "vendor": "claude"
+    },
+    "claude-R13-servo": {
+      "condition": "servo",
+      "path": "accepted/claude-R13-servo.json",
+      "record_id": "R13",
+      "sha256": "6025a4ea63cbd3e0f7947b92735948cf2dfd2847b56e0acb6e656d3e5a5aaf73",
+      "vendor": "claude"
+    },
+    "claude-R14-servo": {
+      "condition": "servo",
+      "path": "accepted/claude-R14-servo.json",
+      "record_id": "R14",
+      "sha256": "e4113172910da06adc068610a7d778daa67c835ea62c559219867e4ea6e4a95e",
+      "vendor": "claude"
+    },
+    "codex-R01-servo": {
+      "condition": "servo",
+      "path": "accepted/codex-R01-servo.json",
+      "record_id": "R01",
+      "sha256": "54ba467acab06d5801ea8d4577e3cf72a1641adc6a8ccc87f25e7adb7d7c26f6",
+      "vendor": "codex"
+    },
+    "codex-R02-servo": {
+      "condition": "servo",
+      "path": "accepted/codex-R02-servo.json",
+      "record_id": "R02",
+      "sha256": "b516528ddb6014f34460c94c6d5e78a11fbc214cba70c2da3864f9363e97e792",
+      "vendor": "codex"
+    },
+    "codex-R03-servo": {
+      "condition": "servo",
+      "path": "accepted/codex-R03-servo.json",
+      "record_id": "R03",
+      "sha256": "5f60542d44b1e4fa584c6b869737c23aaa299228dc3b31b5b89ad7f9fab2f95a",
+      "vendor": "codex"
+    },
+    "codex-R04-servo": {
+      "condition": "servo",
+      "path": "accepted/codex-R04-servo.json",
+      "record_id": "R04",
+      "sha256": "7ca4dd31743f4dce7e25b6b3ebd4149817916f9acd2551b892b7bba27d020be6",
+      "vendor": "codex"
+    },
+    "codex-R05-servo": {
+      "condition": "servo",
+      "path": "accepted/codex-R05-servo.json",
+      "record_id": "R05",
+      "sha256": "aafab68b85a7d95cbcd7f275be3643943b7d4384ff03a5c95ecb57fd08acaa16",
+      "vendor": "codex"
+    },
+    "codex-R06-servo": {
+      "condition": "servo",
+      "path": "accepted/codex-R06-servo.json",
+      "record_id": "R06",
+      "sha256": "4ef0f7f36434edd96568f7030c8dbed82d6ea11b1447ba9dd95f6afb55eae715",
+      "vendor": "codex"
+    },
+    "codex-R07-servo": {
+      "condition": "servo",
+      "path": "accepted/codex-R07-servo.json",
+      "record_id": "R07",
+      "sha256": "3c2745666abeec8ec06f14e5532e76c75f1909cb8fb34e9afa6a38e33bd45faa",
+      "vendor": "codex"
+    },
+    "codex-R08-servo": {
+      "condition": "servo",
+      "path": "accepted/codex-R08-servo.json",
+      "record_id": "R08",
+      "sha256": "92b454e327f8743ddaf70ece7e3e1bfc5730417e3651f97173580dd8644495e7",
+      "vendor": "codex"
+    },
+    "codex-R09-servo": {
+      "condition": "servo",
+      "path": "accepted/codex-R09-servo.json",
+      "record_id": "R09",
+      "sha256": "9f36fde9e6f626f75f2b55a545ab530098226e2db9a584dbde69ccfeecc23727",
+      "vendor": "codex"
+    },
+    "codex-R10-servo": {
+      "condition": "servo",
+      "path": "accepted/codex-R10-servo.json",
+      "record_id": "R10",
+      "sha256": "512efcceaab744a7bfbb4a89e481bb6a890dfe17e5c7bec82fef2542760a89c4",
+      "vendor": "codex"
+    },
+    "codex-R11-servo": {
+      "condition": "servo",
+      "path": "accepted/codex-R11-servo.json",
+      "record_id": "R11",
+      "sha256": "4db67969eef4b378a9b2e93193c6a0b32007c4443778c1e74ee096ff54dfb5b0",
+      "vendor": "codex"
+    },
+    "codex-R12-servo": {
+      "condition": "servo",
+      "path": "accepted/codex-R12-servo.json",
+      "record_id": "R12",
+      "sha256": "118c4b0f23088eb76742d138a63c6388b941227ef95be2ae8c54fb4b392327ad",
+      "vendor": "codex"
+    },
+    "codex-R13-servo": {
+      "condition": "servo",
+      "path": "accepted/codex-R13-servo.json",
+      "record_id": "R13",
+      "sha256": "41036ae5da489ecf8861798975a9ee215002d333346286ae526294becc0b37ba",
+      "vendor": "codex"
+    },
+    "codex-R14-servo": {
+      "condition": "servo",
+      "path": "accepted/codex-R14-servo.json",
+      "record_id": "R14",
+      "sha256": "a70c86553e690da519e09af220f1c4e102582ef18899f5aaf72853f82b3b8924",
+      "vendor": "codex"
+    },
+    "gemini-R01-servo": {
+      "condition": "servo",
+      "path": "accepted/gemini-R01-servo.json",
+      "record_id": "R01",
+      "sha256": "8c4ede8d1ffbe5ca6612688a89fe579146d20d80d8572a047d547bc6d5ae2d44",
+      "vendor": "gemini"
+    },
+    "gemini-R02-servo": {
+      "condition": "servo",
+      "path": "accepted/gemini-R02-servo.json",
+      "record_id": "R02",
+      "sha256": "dd11486183508ea0ac10d601968f9c49287ff939e7ba3174b26703f5c4714c01",
+      "vendor": "gemini"
+    },
+    "gemini-R03-servo": {
+      "condition": "servo",
+      "path": "accepted/gemini-R03-servo.json",
+      "record_id": "R03",
+      "sha256": "77b818af9fa974f1bf6769ea362c1c085b0d2f31fbbc2cfc39973be0aa2bcc7f",
+      "vendor": "gemini"
+    },
+    "gemini-R04-servo": {
+      "condition": "servo",
+      "path": "accepted/gemini-R04-servo.json",
+      "record_id": "R04",
+      "sha256": "15bd8a733ae7f7e932ec46341eedb433c599520e933d1dfab45ca9fb93916069",
+      "vendor": "gemini"
+    },
+    "gemini-R05-servo": {
+      "condition": "servo",
+      "path": "accepted/gemini-R05-servo.json",
+      "record_id": "R05",
+      "sha256": "6167838f0c30b79f7bb9192a0877710e79f6276163d162ce9fc0bc8090ca82d6",
+      "vendor": "gemini"
+    },
+    "gemini-R06-servo": {
+      "condition": "servo",
+      "path": "accepted/gemini-R06-servo.json",
+      "record_id": "R06",
+      "sha256": "77786c27ce5dff0401cc875494b7058e6c69d8f4bbd6b0b815b5b052104cb7ec",
+      "vendor": "gemini"
+    },
+    "gemini-R07-servo": {
+      "condition": "servo",
+      "path": "accepted/gemini-R07-servo.json",
+      "record_id": "R07",
+      "sha256": "1ad5424be0211f3827ad82350e4c51165fa4c788feff4c0e121558150ce6f51b",
+      "vendor": "gemini"
+    },
+    "gemini-R08-servo": {
+      "condition": "servo",
+      "path": "accepted/gemini-R08-servo.json",
+      "record_id": "R08",
+      "sha256": "795c4f621a9e19bd8b85891b82ce2fc6e26b2aef408f7b32e63e80f8fd0553f0",
+      "vendor": "gemini"
+    },
+    "gemini-R09-servo": {
+      "condition": "servo",
+      "path": "accepted/gemini-R09-servo.json",
+      "record_id": "R09",
+      "sha256": "9bc49c24a4d53bf94ec4f0ffa1a1d561281d846d84784d98592843aeb6c56eac",
+      "vendor": "gemini"
+    },
+    "gemini-R10-servo": {
+      "condition": "servo",
+      "path": "accepted/gemini-R10-servo.json",
+      "record_id": "R10",
+      "sha256": "3eb771316824901eb682a488e744f5cecf2e47c3d224ee5d2435737e6d972388",
+      "vendor": "gemini"
+    },
+    "gemini-R11-servo": {
+      "condition": "servo",
+      "path": "accepted/gemini-R11-servo.json",
+      "record_id": "R11",
+      "sha256": "84519523ac8b3856b0255a36a13d4ed90ba277c470068e55aca5ad4d405abbc8",
+      "vendor": "gemini"
+    },
+    "gemini-R12-servo": {
+      "condition": "servo",
+      "path": "accepted/gemini-R12-servo.json",
+      "record_id": "R12",
+      "sha256": "5edb48fe3aaf6a8e712db87bbe64e12273e632b6782d3ee3f42b23097b598f85",
+      "vendor": "gemini"
+    },
+    "gemini-R13-servo": {
+      "condition": "servo",
+      "path": "accepted/gemini-R13-servo.json",
+      "record_id": "R13",
+      "sha256": "c37f2435377531beb7de6a1a769b1d28022719b86ce98210339dd74395e6a819",
+      "vendor": "gemini"
+    },
+    "gemini-R14-servo": {
+      "condition": "servo",
+      "path": "accepted/gemini-R14-servo.json",
+      "record_id": "R14",
+      "sha256": "9f697566111094463031b7ed6d51833b61ffdfbff2576e9ceb3bf7ebfcca74bd",
+      "vendor": "gemini"
+    }
+  },
+  "completed_trials": 42,
+  "finished_utc": "2026-07-20T23:58:51.077131+00:00",
+  "schedule_sha256": "038a35e174bd9be7bdb8063305f73218b34aab8f9eced72d597963db19bddc80",
+  "status": "completed"
+}

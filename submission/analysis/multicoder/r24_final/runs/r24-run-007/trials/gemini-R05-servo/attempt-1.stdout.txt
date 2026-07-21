@@ -1,0 +1,161 @@
+{
+  "record_id": "R05",
+  "vendor": "gemini",
+  "model_id": "gemini-3.1-pro",
+  "channels": [
+    {
+      "channel_id": "C1_hypothesis_testing",
+      "operational_status": "implemented",
+      "target_property": [
+        "empirical_adequacy",
+        "correctness_or_formal_validity"
+      ],
+      "evidence_source": [
+        "physical_measurement"
+      ],
+      "evaluator_substrate": [
+        "statistical_model"
+      ],
+      "decision_role": [
+        "memory_admission"
+      ],
+      "feedback_path": [
+        "memory_update"
+      ],
+      "external_independence": "internal_separate_component",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "robotic_experiment"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R05-E01",
+          "pdf_id": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "page": 1,
+          "quote": "This is a system which uses techniques from artificial intelligence to automate all aspects of the scientific discovery process: it generates hypotheses from a computer model of the domain, designs experiments to test these hypotheses, runs the physical experiments using robotic systems, analyses and interprets the resulting data, and repeats the cycle.",
+          "rationale": "Establishes the cycle of hypotheses testing and interpretation of robotic experiment results."
+        },
+        {
+          "evidence_id": "R05-E02",
+          "pdf_id": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "page": 4,
+          "quote": "The growth curves are smoothed, after which biologically significant parameters are extracted and statistically analysed to determine whether the original hypotheses have been confirmed or refuted. Scientific knowledge gained from this process is used to update the model of yeast metabolism.",
+          "rationale": "Shows statistical analysis determines confirmation or refutation, acting as a memory admission filter for updating the domain model."
+        },
+        {
+          "evidence_id": "R05-E03",
+          "pdf_id": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "page": 5,
+          "quote": "Adam conceived 20 hypotheses concerning the identity of genes encoding 13 locally orphan enzymes in S. cerevisiae. Adam tested all these hypotheses on its robotic system and was able to confirm by experimentation, with a high degree of confidence, the correctness of 12 of them [24].",
+          "rationale": "Demonstrates the channel evaluates the correctness and empirical adequacy of hypotheses using robotic experiments."
+        }
+      ]
+    },
+    {
+      "channel_id": "C2_cost_assessment",
+      "operational_status": "external",
+      "target_property": [
+        "aggregate_quality"
+      ],
+      "evidence_source": [
+        "human_judgment"
+      ],
+      "evaluator_substrate": [
+        "human"
+      ],
+      "decision_role": [
+        "external_assessment"
+      ],
+      "feedback_path": [
+        "external_only"
+      ],
+      "external_independence": "external_nonindependent",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R05-E07",
+          "pdf_id": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+          "page": 9,
+          "quote": "There is a substantial cost for these systems, not only in initial capital outlay and user training, but also in ongoing servicing and maintenance costs, and we would not currently consider them to be 'cost-effective' in comparison to human scientists.",
+          "rationale": "Shows an external manual assessment of the overall cost-effectiveness of the system by human reviewers."
+        }
+      ]
+    }
+  ],
+  "policy_type": [
+    "computer_model_of_the_domain"
+  ],
+  "memory_structure": [
+    "relational_database",
+    "mysql"
+  ],
+  "human_authority": {
+    "generator": [
+      "explicit_none"
+    ],
+    "executor": [
+      "explicit_none"
+    ],
+    "validator": [
+      "explicit_none"
+    ],
+    "memory": [
+      "explicit_none"
+    ],
+    "policy": [
+      "explicit_none"
+    ]
+  },
+  "envelope": {
+    "diagnostics": [
+      {
+        "id": "D1",
+        "kind": "missing_evidence",
+        "statement": "The packet does not report on the reliability or calibration of the statistical models used to determine whether hypotheses are confirmed or refuted.",
+        "evidence_ids": [
+          "R05-E02"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R05-E02",
+            "exact_quote": "The growth curves are smoothed, after which biologically significant parameters are extracted and statistically analysed to determine whether the original hypotheses have been confirmed or refuted. Scientific knowledge gained from this process is used to update the model of yeast metabolism."
+          }
+        ],
+        "consequence": "Without reliability evidence, the correctness of the autonomous knowledge discovery cannot be independently verified, raising the risk of systematic bias or false positives in the system's memory updates."
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "R1",
+        "priority_rank": 1,
+        "proposed_action": "Conduct and report a probabilistic calibration analysis or a property-specific external validation of the statistical model used for extracting parameters and judging hypothesis correctness.",
+        "linked_diagnostic_ids": [
+          "D1"
+        ],
+        "evidence_ids": [
+          "R05-E02"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R05-E02",
+            "exact_quote": "The growth curves are smoothed, after which biologically significant parameters are extracted and statistically analysed to determine whether the original hypotheses have been confirmed or refuted. Scientific knowledge gained from this process is used to update the model of yeast metabolism."
+          }
+        ],
+        "success_check": {
+          "observable": "reliability_evidence_type",
+          "comparator_or_threshold": "changes from none_reported to probabilistic_calibration_analysis or property_specific_external_validation",
+          "evidence_needed": "A detailed report of the statistical model's error rates or calibration metrics against a known baseline."
+        }
+      }
+    ]
+  }
+}

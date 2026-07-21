@@ -1,0 +1,60 @@
+{
+  "binding": {
+    "environment_policy_sha256": "448fd926beaadf118c0de650b9595877041fda6bb7f315a522480c123bbcf229",
+    "protocol_sha256": "91a26e615fc3a3c34796e8ce8cb6d8b6f314fb10f52744e118c2927c888988cc",
+    "runtime_sha256": "6a868c035109d86ff86ddead0499763d612b5b13a2644618f7ea7e09e5006bb0",
+    "sandbox_profile_sha256": "f92037ef8956480d505b54ed780970067e448dc0e399e4bff122d5725ade4843"
+  },
+  "checks": [
+    {
+      "evidence_ids": [
+        "isolation_report-evidence"
+      ],
+      "id": "canary_scan",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "isolation_report-evidence"
+      ],
+      "id": "control_plane_exceptions",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "isolation_report-evidence"
+      ],
+      "id": "filesystem_denied",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "isolation_report-evidence"
+      ],
+      "id": "fresh_trial_roots",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "isolation_report-evidence"
+      ],
+      "id": "model_tools_disabled",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "isolation_report-evidence"
+      ],
+      "id": "network_policy",
+      "result": "pass"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "isolation_report-evidence",
+      "path": "raw/ISOLATION_REPORT.json",
+      "sha256": "c7cc6028a00ac828c6140b475212dd321f5f9906699199c0549c63187d9ce654"
+    }
+  ],
+  "report_type": "ISOLATION_REPORT"
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "record_id": "R06",
+  "completeness_boundary": "The full cited PDF was reviewed and searched. not_reported means that no explicit statement was found in that source.",
+  "answer_options": [
+    "yes",
+    "no",
+    "not_reported"
+  ],
+  "probes": [
+    {
+      "probe_id": "R06-P01",
+      "question": "Does the system query a literature database during idea formulation to assess novelty and identify prior work?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R06-E01"
+      ]
+    },
+    {
+      "probe_id": "R06-P02",
+      "question": "Does a dedicated LLM evaluator select a node that seeds the next experimentation stage?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R06-E02"
+      ]
+    },
+    {
+      "probe_id": "R06-P03",
+      "question": "Can VLM critique change a node's status and be retained for future debugging inside the experiment tree?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R06-E03"
+      ]
+    },
+    {
+      "probe_id": "R06-P04",
+      "question": "Were the completed AI-generated manuscripts assessed through the workshop's blind peer-review process?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R06-E04"
+      ]
+    },
+    {
+      "probe_id": "R06-P05",
+      "question": "Does The AI Scientist-v2 require fixed, human-authored template code as the starting point for experimentation?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R06-E05"
+      ]
+    },
+    {
+      "probe_id": "R06-P06",
+      "question": "Does The AI Scientist-v2 restrict experimentation to a strictly linear sequence in which every refinement builds only on the immediately preceding experiment?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R06-E06"
+      ]
+    },
+    {
+      "probe_id": "R06-P07",
+      "question": "Was the choice of which AI-generated initial ideas to fund and run through the full system made without human selection?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R06-E07"
+      ]
+    },
+    {
+      "probe_id": "R06-P08",
+      "question": "Were all three AI-generated workshop submissions accepted?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R06-E09"
+      ]
+    },
+    {
+      "probe_id": "R06-P09",
+      "question": "Does the source report a probabilistic calibration analysis of the internal LLM evaluator used to select tree nodes?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R06-P10",
+      "question": "Does the source report that official workshop peer-review feedback was routed back into the experiment tree during any autonomous run?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R06-P11",
+      "question": "Does the source report execution of robotic, wet-lab, or other physical experiments by The AI Scientist-v2?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R06-P12",
+      "question": "Does the source report that learned memory is preserved and reused across independent full-pipeline runs?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    }
+  ]
+}

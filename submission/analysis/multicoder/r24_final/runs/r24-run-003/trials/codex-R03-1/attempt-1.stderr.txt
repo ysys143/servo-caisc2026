@@ -1,0 +1,800 @@
+OpenAI Codex v0.144.6
+--------
+workdir: /private/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-xwinux5c
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019f806b-7df5-7862-8566-8e8d562b10e0
+--------
+user
+# SERVO condition
+
+Apply the supplied frozen R24 coding manual to the anonymous source packet. Do not infer facts outside the packet and do not use knowledge of the named system.
+
+Return only JSON conforming to the supplied SERVO schema. Separate distinct validator channels, populate every facet, and attach exact packet evidence to each channel. Then provide typed diagnostics with consequences and exact evidence; one to three non-redundant recommendations ranked consecutively by `priority_rank` from 1 and linked to those diagnostics with observable success checks; and all twelve probes. Prefer `abstain_or_unclear` to an unsupported recommendation. Do not treat non-reporting as absence, terminal assessment as feedback, general reviewer error as novelty-specific evidence, or agreement and bias studies as probabilistic calibration.
+
+For every diagnostic and recommendation, `evidence_ids` and the `evidence_id` values in `exact_quotes` must be identical sets: include exactly one exact quotation for every listed evidence ID, and never list an evidence ID without its quotation.
+
+
+# Frozen R24 coding manual
+
+## Unit and boundary
+
+The unit is a source-defined system version, not a unique research lineage. The fourteen records represent thirteen lineages because the AI Scientist v2 preprint and the 2026 record belong to one lineage. Code only what the frozen packet reports. Absence of reporting is not evidence of absence.
+
+A validator channel is an identifiable evaluator with a stable target, substrate, decision role, or feedback path. Split channels when one named system uses distinct mechanisms for ideation filtering, search control, terminal assessment, or external acceptance.
+
+## Facets
+
+- `operational_status`: distinguish implemented behavior, unexercised proposals, external processes, non-reporting, and genuinely unclear descriptions.
+- `target_property`: the property judged, such as executability, correctness, novelty, or aggregate quality.
+- `evidence_source`: the information used to judge the target.
+- `evaluator_substrate`: the mechanism or actor performing the judgment.
+- `decision_role`: the operational consequence of the output.
+- `feedback_path`: where the output is actually routed. A terminal assessment is not search control.
+- `external_independence`: organizational or informational independence of the evaluator.
+- `reliability_evidence_type`: the study design reported for the exact channel and target. Lack of documented bias is `none_reported`, not calibration.
+- `reliability_finding`: the conclusion supported by that evidence.
+- `experimental_fidelity`: the environment in which the evaluated evidence is produced.
+
+Every channel requires at least one exact packet quote. Never transfer evidence from a terminal paper reviewer to an ideation novelty filter merely because both use an LLM.
+
+## Closure and human authority
+
+Closure is derived rather than freely rated. Implemented policy control or stage transition is closed computational feedback; memory update or candidate revision alone is partial; terminal-only or external-only assessment is open. Unclear routing remains unclear.
+
+Human authority is recorded separately for generator, executor, validator, memory, and policy. Use only observable roles: `explicit_none`, `initiate`, `advise`, `select`, `approve`, `execute`, `final_authority`, `not_reported`, or `not_applicable`.
+
+## Missingness
+
+`not_reported` means the packet provides no claim. Explicit none means the source states absence. `unclear` means relevant text exists but supports multiple readings. `not_applicable` means the facet has no coherent value for that channel. These values are never interchangeable.
+
+
+Scheduled metadata: record_id=R03; vendor=codex. Use the CLI model identifier as model_id.
+
+Allowed neutral action codes:
+[
+  "obtain_independent_evidence",
+  "evaluate_evaluator_error_or_bias",
+  "add_feedback_to_later_decision",
+  "add_prior_art_check",
+  "add_replication",
+  "retain_human_approval_or_escalation",
+  "separate_diagnostic_from_gate",
+  "clarify_system_boundary",
+  "no_supported_change",
+  "abstain_or_unclear"
+]
+
+
+Probe questions without reference answers:
+[
+  {
+    "probe_id": "R03-P01",
+    "question": "Does the template-free system use results from an external-literature review to refine research proposals?"
+  },
+  {
+    "probe_id": "R03-P02",
+    "question": "Does an LLM-based evaluator select a leaf node as the root for the next experimental stage?"
+  },
+  {
+    "probe_id": "R03-P03",
+    "question": "Does the Automated Reviewer evaluate a completed manuscript PDF and produce scores plus a preliminary accept-or-reject decision?"
+  },
+  {
+    "probe_id": "R03-P04",
+    "question": "Were template-free outputs manually selected for submission and then assessed through an external blind workshop review process?"
+  },
+  {
+    "probe_id": "R03-P05",
+    "question": "Does the template-free agentic-tree search rely on Aider?"
+  },
+  {
+    "probe_id": "R03-P06",
+    "question": "Do aggregation nodes conduct new experiments?"
+  },
+  {
+    "probe_id": "R03-P07",
+    "question": "Does the reported system currently conduct physical or wet-lab experiments?"
+  },
+  {
+    "probe_id": "R03-P08",
+    "question": "Did humans modify the contents or execution of each selected paper's workflow from ideation through manuscript writing?"
+  },
+  {
+    "probe_id": "R03-P09",
+    "question": "Does the source report a probabilistic calibration analysis of the template-free literature-grounded novelty assessment?"
+  },
+  {
+    "probe_id": "R03-P10",
+    "question": "Does the source report that the terminal Automated Reviewer score changes a later node selection, experimental stage, or tree-search action?"
+  },
+  {
+    "probe_id": "R03-P11",
+    "question": "Does the source report that external workshop reviews are fed back into the system's internal search or memory?"
+  },
+  {
+    "probe_id": "R03-P12",
+    "question": "Does the source report an independent property-specific reliability study of the LLM evaluator that selects roots between experimental stages?"
+  }
+]
+
+Anonymous source packet:
+{
+  "schema_version": 1,
+  "record_id": "R03",
+  "source": {
+    "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+    "page_count": 9
+  },
+  "scope": "Template-free AI Scientist and its agentic-tree workflow only. Template-based mechanisms are excluded unless a passage explicitly contrasts them with the template-free system.",
+  "instructions": "Use only the excerpts below. Absence from these excerpts is not evidence of absence from the full source. A not_reported probe reflects a full-text audit of this source, not an explicit negative statement.",
+  "evidence": [
+    {
+      "evidence_id": "R03-E01",
+      "pdf_page": 7,
+      "quote": "To ensure the proposals are both grounded and new, this process is tightly integrated with a literature review module that queries external academic databases to identify knowledge gaps and avoid rediscovering existing work. The system uses structured prompts to guide idea generation and reflection rounds to refine proposals based on the literature search results (see Supplementary Information section A.2.6 for prompts)."
+    },
+    {
+      "evidence_id": "R03-E02",
+      "pdf_page": 7,
+      "quote": "At the end of each stage, an LLM-based evaluator assesses all leaf nodes and selects the most promising one to serve as the root for the next stage of exploration, thus effectively pruning less promising research avenues."
+    },
+    {
+      "evidence_id": "R03-E03",
+      "pdf_page": 8,
+      "quote": "During experimentation, the plots generated are fed to a VLM, which is prompted to act as a scientist and critique them. For example, it might flag nonsensical axes or issues in the quality of generated examples or suggest clearer ways to present the data. This feedback is used to generate new experimental nodes in the tree search aimed at addressing the identified issues."
+    },
+    {
+      "evidence_id": "R03-E04",
+      "pdf_page": 8,
+      "quote": "When choosing between non-buggy nodes, the system uses a best-first search strategy guided by GPT-4o, which evaluates candidates based on factors like performance metrics, training dynamics and the quality of the plots generated. The selected nodes are expanded by creating a new child node."
+    },
+    {
+      "evidence_id": "R03-E05",
+      "pdf_page": 8,
+      "quote": "The agent processes the PDF of a manuscript to produce a structured review, including numerical scores for soundness, presentation and contribution, along with a list of strengths and weaknesses and a preliminary accept or reject decision (Supplementary Information section A.3)."
+    },
+    {
+      "evidence_id": "R03-E06",
+      "pdf_page": 9,
+      "quote": "We benchmarked The Automated Reviewer against human decisions using ICLR data from the publicly available OpenReview dataset33. The Automated Reviewer achieved a comparable balanced accuracy with humans (69% versus 66%; see Supplementary Information section A.3.2 for details) and a higher F1 score compared with inter-human group agreement (0.62 versus 0.49) in the NeurIPS 2021 consistency experiment34, for which roughly 10% of submissions were randomly selected and sent to two independent review committees, thus providing a real-world benchmark of inter-reviewer consistency (Table 1)."
+    },
+    {
+      "evidence_id": "R03-E07",
+      "pdf_page": 3,
+      "quote": "The overall process was then run to generate ideas, experiments and papers. We manually filtered the most promising outputs at each stage (Supplementary Information section A.4). Had this filtering not occurred, the papers under analysis would still have been produced in their final form, just along with other papers and, thus, at a greater total cost. This process resulted in three complete manuscripts being selected for submission."
+    },
+    {
+      "evidence_id": "R03-E08",
+      "pdf_page": 3,
+      "quote": "The entire scientific workflow for each paper, from ideation and coding to manuscript writing, was performed without any human modification."
+    },
+    {
+      "evidence_id": "R03-E09",
+      "pdf_page": 7,
+      "quote": "To go further and effectively use more test-time compute, the template-free system uses LLMs to power a tree search without relying on Aider."
+    },
+    {
+      "evidence_id": "R03-E10",
+      "pdf_page": 8,
+      "quote": "Aggregation nodes are special nodes created to consolidate and visualize the combined results of replication nodes. Unlike other node types, aggregation nodes do not conduct new experiments but simply generate a Python script to aggregate and summarize previous results."
+    },
+    {
+      "evidence_id": "R03-E11",
+      "pdf_page": 4,
+      "quote": "At present, The AI Scientist conducts computational experiments only. In future work, this same playbook could be applied to other scientific domains where one can automatically conduct experiments (or have humans conduct them) and collect data from them (for example, automated chemistry laboratories, on which swift progress is being made46)."
+    },
+    {
+      "evidence_id": "R03-E12",
+      "pdf_page": 3,
+      "quote": "These three submissions were included among the 43 papers reviewed for the workshop. Reviewers were informed that some of the submissions were AI-generated but not which ones, ensuring a blind process."
+    }
+  ]
+}
+
+
+Required JSON schema:
+{
+  "$defs": {
+    "ActionCode": {
+      "enum": [
+        "obtain_independent_evidence",
+        "evaluate_evaluator_error_or_bias",
+        "add_feedback_to_later_decision",
+        "add_prior_art_check",
+        "add_replication",
+        "retain_human_approval_or_escalation",
+        "separate_diagnostic_from_gate",
+        "clarify_system_boundary",
+        "no_supported_change",
+        "abstain_or_unclear"
+      ],
+      "title": "ActionCode",
+      "type": "string"
+    },
+    "CommonEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/Diagnostic"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "probes": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Probes",
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Recommendation"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "diagnostics",
+        "recommendations",
+        "probes"
+      ],
+      "title": "CommonEnvelope",
+      "type": "object"
+    },
+    "DecisionRole": {
+      "enum": [
+        "diagnostic",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "memory_admission",
+        "terminal_assessment",
+        "final_acceptance",
+        "external_assessment",
+        "not_reported"
+      ],
+      "title": "DecisionRole",
+      "type": "string"
+    },
+    "Diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "consequence": {
+          "minLength": 1,
+          "title": "Consequence",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/DiagnosticKind"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "kind",
+        "evidence_ids",
+        "exact_quotes",
+        "consequence"
+      ],
+      "title": "Diagnostic",
+      "type": "object"
+    },
+    "DiagnosticKind": {
+      "enum": [
+        "reported_failure",
+        "risk",
+        "ambiguity",
+        "missing_evidence"
+      ],
+      "title": "DiagnosticKind",
+      "type": "string"
+    },
+    "EvaluatorSubstrate": {
+      "enum": [
+        "deterministic_program",
+        "statistical_model",
+        "formal_kernel",
+        "llm",
+        "human",
+        "hybrid",
+        "not_reported"
+      ],
+      "title": "EvaluatorSubstrate",
+      "type": "string"
+    },
+    "EvidenceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "exact_quote": {
+          "minLength": 1,
+          "title": "Exact Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "exact_quote"
+      ],
+      "title": "EvidenceExcerpt",
+      "type": "object"
+    },
+    "EvidenceQuote": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "pdf_id": {
+          "minLength": 1,
+          "title": "Pdf Id",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "pdf_id",
+        "page",
+        "quote",
+        "rationale"
+      ],
+      "title": "EvidenceQuote",
+      "type": "object"
+    },
+    "EvidenceSource": {
+      "enum": [
+        "execution_trace",
+        "benchmark_metric",
+        "statistical_test",
+        "physical_measurement",
+        "replication",
+        "prior_art_corpus",
+        "artifact_review",
+        "human_judgment",
+        "not_reported"
+      ],
+      "title": "EvidenceSource",
+      "type": "string"
+    },
+    "ExternalIndependence": {
+      "enum": [
+        "internal_self_evaluation",
+        "internal_separate_component",
+        "external_nonindependent",
+        "external_independent",
+        "not_reported"
+      ],
+      "title": "ExternalIndependence",
+      "type": "string"
+    },
+    "FeedbackPath": {
+      "enum": [
+        "terminal_only",
+        "memory_update",
+        "candidate_revision",
+        "policy_control",
+        "stage_transition",
+        "external_only",
+        "unclear"
+      ],
+      "title": "FeedbackPath",
+      "type": "string"
+    },
+    "Fidelity": {
+      "enum": [
+        "simulation_or_proxy",
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "robotic_experiment",
+        "physical_assay",
+        "not_applicable",
+        "not_reported"
+      ],
+      "title": "Fidelity",
+      "type": "string"
+    },
+    "HumanAuthority": {
+      "additionalProperties": false,
+      "properties": {
+        "executor": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Executor",
+          "type": "array"
+        },
+        "generator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Generator",
+          "type": "array"
+        },
+        "memory": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Memory",
+          "type": "array"
+        },
+        "policy": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Policy",
+          "type": "array"
+        },
+        "validator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Validator",
+          "type": "array"
+        }
+      },
+      "required": [
+        "generator",
+        "executor",
+        "validator",
+        "memory",
+        "policy"
+      ],
+      "title": "HumanAuthority",
+      "type": "object"
+    },
+    "OperationalStatus": {
+      "enum": [
+        "implemented",
+        "proposed_not_exercised",
+        "external",
+        "not_reported",
+        "unclear"
+      ],
+      "title": "OperationalStatus",
+      "type": "string"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "action_code": {
+          "$ref": "#/$defs/ActionCode"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "linked_diagnostic_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Linked Diagnostic Ids",
+          "type": "array"
+        },
+        "priority_rank": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "success_check": {
+          "$ref": "#/$defs/SuccessCheck"
+        }
+      },
+      "required": [
+        "id",
+        "priority_rank",
+        "action_code",
+        "linked_diagnostic_ids",
+        "evidence_ids",
+        "exact_quotes",
+        "success_check"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "ReliabilityEvidence": {
+      "enum": [
+        "none_reported",
+        "discrimination_study",
+        "agreement_study",
+        "systematic_error_or_bias_test",
+        "property_specific_external_validation",
+        "probabilistic_calibration_analysis"
+      ],
+      "title": "ReliabilityEvidence",
+      "type": "string"
+    },
+    "ReliabilityFinding": {
+      "enum": [
+        "not_evaluated",
+        "not_established",
+        "evidence_of_error_or_bias",
+        "positive_property_specific_evidence",
+        "mixed",
+        "unclear"
+      ],
+      "title": "ReliabilityFinding",
+      "type": "string"
+    },
+    "SuccessCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "comparator_or_threshold": {
+          "minLength": 1,
+          "title": "Comparator Or Threshold",
+          "type": "string"
+        },
+        "evidence_needed": {
+          "minLength": 1,
+          "title": "Evidence Needed",
+          "type": "string"
+        },
+        "observable": {
+          "minLength": 1,
+          "title": "Observable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observable",
+        "comparator_or_threshold",
+        "evidence_needed"
+      ],
+      "title": "SuccessCheck",
+      "type": "object"
+    },
+    "TargetProperty": {
+      "enum": [
+        "executability",
+        "specification_compliance",
+        "task_performance",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "reproducibility",
+        "novelty",
+        "significance",
+        "aggregate_quality",
+        "not_reported"
+      ],
+      "title": "TargetProperty",
+      "type": "string"
+    },
+    "ValidatorChannel": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_id": {
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "decision_role": {
+          "items": {
+            "$ref": "#/$defs/DecisionRole"
+          },
+          "title": "Decision Role",
+          "type": "array"
+        },
+        "evaluator_substrate": {
+          "items": {
+            "$ref": "#/$defs/EvaluatorSubstrate"
+          },
+          "title": "Evaluator Substrate",
+          "type": "array"
+        },
+        "evidence_source": {
+          "items": {
+            "$ref": "#/$defs/EvidenceSource"
+          },
+          "title": "Evidence Source",
+          "type": "array"
+        },
+        "experimental_fidelity": {
+          "items": {
+            "$ref": "#/$defs/Fidelity"
+          },
+          "title": "Experimental Fidelity",
+          "type": "array"
+        },
+        "external_independence": {
+          "$ref": "#/$defs/ExternalIndependence"
+        },
+        "feedback_path": {
+          "items": {
+            "$ref": "#/$defs/FeedbackPath"
+          },
+          "title": "Feedback Path",
+          "type": "array"
+        },
+        "operational_status": {
+          "$ref": "#/$defs/OperationalStatus"
+        },
+        "quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceQuote"
+          },
+          "minItems": 1,
+          "title": "Quotes",
+          "type": "array"
+        },
+        "reliability_evidence_type": {
+          "items": {
+            "$ref": "#/$defs/ReliabilityEvidence"
+          },
+          "title": "Reliability Evidence Type",
+          "type": "array"
+        },
+        "reliability_finding": {
+          "$ref": "#/$defs/ReliabilityFinding"
+        },
+        "target_property": {
+          "items": {
+            "$ref": "#/$defs/TargetProperty"
+          },
+          "title": "Target Property",
+          "type": "array"
+        }
+      },
+      "required": [
+        "channel_id",
+        "operational_status",
+        "target_property",
+        "evidence_source",
+        "evaluator_substrate",
+        "decision_role",
+        "feedback_path",
+        "external_independence",
+        "reliability_evidence_type",
+        "reliability_finding",
+        "experimental_fidelity",
+        "quotes"
+      ],
+      "title": "ValidatorChannel",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "channels": {
+      "items": {
+        "$ref": "#/$defs/ValidatorChannel"
+      },
+      "minItems": 1,
+      "title": "Channels",
+      "type": "array"
+    },
+    "envelope": {
+      "$ref": "#/$defs/CommonEnvelope"
+    },
+    "human_authority": {
+      "$ref": "#/$defs/HumanAuthority"
+    },
+    "memory_structure": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Memory Structure",
+      "type": "array"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "policy_type": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Policy Type",
+      "type": "array"
+    },
+    "record_id": {
+      "pattern": "^R\\d{2}$",
+      "title": "Record Id",
+      "type": "string"
+    },
+    "vendor": {
+      "minLength": 1,
+      "title": "Vendor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "vendor",
+    "model_id",
+    "channels",
+    "policy_type",
+    "memory_structure",
+    "human_authority",
+    "envelope"
+  ],
+  "title": "ServoCoding",
+  "type": "object"
+}
+
+codex
+{"channels":[{"channel_id":"template_free_literature_grounded_proposal_refinement","decision_role":["diagnostic"],"evaluator_substrate":["hybrid"],"evidence_source":["prior_art_corpus"],"experimental_fidelity":["computational_oracle_or_benchmark"],"external_independence":"internal_self_evaluation","feedback_path":["candidate_revision"],"operational_status":"implemented","quotes":[{"evidence_id":"R03-E01","page":7,"pdf_id":"a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d","quote":"To ensure the proposals are both grounded and new, this process is tightly integrated with a literature review module that queries external academic databases to identify knowledge gaps and avoid rediscovering existing work. The system uses structured prompts to guide idea generation and reflection rounds to refine proposals based on the literature search results (see Supplementary Information section A.2.6 for prompts).","rationale":"Identifies the literature-review novelty channel and its proposal-refinement feedback path."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["novelty"]},{"channel_id":"template_free_stage_end_leaf_evaluator","decision_role":["ranking","stage_transition","search_control"],"evaluator_substrate":["llm"],"evidence_source":["artifact_review"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["stage_transition"],"operational_status":"implemented","quotes":[{"evidence_id":"R03-E02","page":7,"pdf_id":"a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d","quote":"At the end of each stage, an LLM-based evaluator assesses all leaf nodes and selects the most promising one to serve as the root for the next stage of exploration, thus effectively pruning less promising research avenues.","rationale":"Defines an LLM evaluator whose output selects the root for the next stage."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["aggregate_quality"]},{"channel_id":"template_free_vlm_plot_critique_node_generation","decision_role":["diagnostic","search_control"],"evaluator_substrate":["llm"],"evidence_source":["artifact_review"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["candidate_revision","policy_control"],"operational_status":"implemented","quotes":[{"evidence_id":"R03-E03","page":8,"pdf_id":"a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d","quote":"During experimentation, the plots generated are fed to a VLM, which is prompted to act as a scientist and critique them. For example, it might flag nonsensical axes or issues in the quality of generated examples or suggest clearer ways to present the data. This feedback is used to generate new experimental nodes in the tree search aimed at addressing the identified issues.","rationale":"Describes a VLM diagnostic channel whose critique is routed into new experimental nodes."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["empirical_adequacy","aggregate_quality"]},{"channel_id":"template_free_best_first_gpt4o_node_selection","decision_role":["ranking","search_control"],"evaluator_substrate":["llm"],"evidence_source":["benchmark_metric","artifact_review"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["policy_control"],"operational_status":"implemented","quotes":[{"evidence_id":"R03-E04","page":8,"pdf_id":"a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d","quote":"When choosing between non-buggy nodes, the system uses a best-first search strategy guided by GPT-4o, which evaluates candidates based on factors like performance metrics, training dynamics and the quality of the plots generated. The selected nodes are expanded by creating a new child node.","rationale":"Defines a GPT-4o-guided best-first search channel used to select and expand nodes."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["task_performance","empirical_adequacy","aggregate_quality"]},{"channel_id":"automated_reviewer_terminal_manuscript_assessment","decision_role":["terminal_assessment"],"evaluator_substrate":["llm"],"evidence_source":["artifact_review","benchmark_metric"],"experimental_fidelity":["computational_oracle_or_benchmark"],"external_independence":"internal_separate_component","feedback_path":["terminal_only"],"operational_status":"implemented","quotes":[{"evidence_id":"R03-E05","page":8,"pdf_id":"a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d","quote":"The agent processes the PDF of a manuscript to produce a structured review, including numerical scores for soundness, presentation and contribution, along with a list of strengths and weaknesses and a preliminary accept or reject decision (Supplementary Information section A.3).","rationale":"Identifies the Automated Reviewer terminal assessment channel."},{"evidence_id":"R03-E06","page":9,"pdf_id":"a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d","quote":"We benchmarked The Automated Reviewer against human decisions using ICLR data from the publicly available OpenReview dataset33. The Automated Reviewer achieved a comparable balanced accuracy with humans (69% versus 66%; see Supplementary Information section A.3.2 for details) and a higher F1 score compared with inter-human group agreement (0.62 versus 0.49) in the NeurIPS 2021 consistency experiment34, for which roughly 10% of submissions were randomly selected and sent to two independent review committees, thus providing a real-world benchmark of inter-reviewer consistency (Table 1).","rationale":"Reports benchmark and agreement evidence for the Automated Reviewer, not for internal search evaluators."}],"reliability_evidence_type":["discrimination_study","agreement_study"],"reliability_finding":"positive_property_specific_evidence","target_property":["aggregate_quality","significance"]},{"channel_id":"human_manual_stage_filtering_and_submission_selection","decision_role":["ranking","stage_transition","final_acceptance"],"evaluator_substrate":["human"],"evidence_source":["human_judgment"],"experimental_fidelity":["computational_experiment"],"external_independence":"external_nonindependent","feedback_path":["stage_transition"],"operational_status":"implemented","quotes":[{"evidence_id":"R03-E07","page":3,"pdf_id":"a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d","quote":"The overall process was then run to generate ideas, experiments and papers. We manually filtered the most promising outputs at each stage (Supplementary Information section A.4). Had this filtering not occurred, the papers under analysis would still have been produced in their final form, just along with other papers and, thus, at a greater total cost. This process resulted in three complete manuscripts being selected for submission.","rationale":"Shows human filtering and selection across stages and final submission selection."},{"evidence_id":"R03-E08","page":3,"pdf_id":"a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d","quote":"The entire scientific workflow for each paper, from ideation and coding to manuscript writing, was performed without any human modification.","rationale":"Constrains human authority to filtering/selection rather than modifying workflow content or execution."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["aggregate_quality"]},{"channel_id":"external_blind_workshop_review","decision_role":["external_assessment"],"evaluator_substrate":["human"],"evidence_source":["human_judgment","artifact_review"],"experimental_fidelity":["not_applicable"],"external_independence":"external_independent","feedback_path":["external_only"],"operational_status":"external","quotes":[{"evidence_id":"R03-E12","page":3,"pdf_id":"a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d","quote":"These three submissions were included among the 43 papers reviewed for the workshop. Reviewers were informed that some of the submissions were AI-generated but not which ones, ensuring a blind process.","rationale":"Identifies the external blind workshop review channel."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["aggregate_quality","significance"]}],"envelope":{"diagnostics":[{"consequence":"Internal proposal refinement may depend on unvalidated novelty judgments even though it queries external academic databases.","evidence_ids":["R03-E01"],"exact_quotes":[{"evidence_id":"R03-E01","exact_quote":"To ensure the proposals are both grounded and new, this process is tightly integrated with a literature review module that queries external academic databases to identify knowledge gaps and avoid rediscovering existing work. The system uses structured prompts to guide idea generation and reflection rounds to refine proposals based on the literature search results (see Supplementary Information section A.2.6 for prompts)."}],"id":"D1","kind":"missing_evidence","statement":"The packet reports literature-grounded novelty refinement but reports no probabilistic calibration, bias test, or other reliability study for that novelty channel."},{"consequence":"Search direction and stage transitions can be controlled by LLM judgments whose property-specific reliability is not established in the packet.","evidence_ids":["R03-E02","R03-E04"],"exact_quotes":[{"evidence_id":"R03-E02","exact_quote":"At the end of each stage, an LLM-based evaluator assesses all leaf nodes and selects the most promising one to serve as the root for the next stage of exploration, thus effectively pruning less promising research avenues."},{"evidence_id":"R03-E04","exact_quote":"When choosing between non-buggy nodes, the system uses a best-first search strategy guided by GPT-4o, which evaluates candidates based on factors like performance metrics, training dynamics and the quality of the plots generated. The selected nodes are expanded by creating a new child node."}],"id":"D2","kind":"risk","statement":"The template-free tree search includes LLM-controlled root selection and best-first node expansion, but the packet does not report independent property-specific reliability evidence for those internal evaluators."},{"consequence":"Terminal review scores should not be coded as closed-loop search feedback without additional routing evidence.","evidence_ids":["R03-E05"],"exact_quotes":[{"evidence_id":"R03-E05","exact_quote":"The agent processes the PDF of a manuscript to produce a structured review, including numerical scores for soundness, presentation and contribution, along with a list of strengths and weaknesses and a preliminary accept or reject decision (Supplementary Information section A.3)."}],"id":"D3","kind":"missing_evidence","statement":"The Automated Reviewer is reported as producing a terminal manuscript review, but the packet does not report that its scores change later node selection, experimental stages, or tree-search actions."}],"probes":[true,true,true,true,false,false,false,false,false,false,false,null],"recommendations":[{"action_code":"evaluate_evaluator_error_or_bias","evidence_ids":["R03-E02","R03-E04"],"exact_quotes":[{"evidence_id":"R03-E02","exact_quote":"At the end of each stage, an LLM-based evaluator assesses all leaf nodes and selects the most promising one to serve as the root for the next stage of exploration, thus effectively pruning less promising research avenues."},{"evidence_id":"R03-E04","exact_quote":"When choosing between non-buggy nodes, the system uses a best-first search strategy guided by GPT-4o, which evaluates candidates based on factors like performance metrics, training dynamics and the quality of the plots generated. The selected nodes are expanded by creating a new child node."}],"id":"R1","linked_diagnostic_ids":["D2"],"priority_rank":1,"success_check":{"comparator_or_threshold":"Report property-specific evaluator error rates or bias patterns on held-out node-selection cases, with comparison to expert or independently adjudicated selections.","evidence_needed":"A study of the stage-end and best-first LLM evaluators on representative leaf-node and candidate-node decisions.","observable":"Measured agreement, discrimination, and systematic error patterns for root selection and node expansion decisions."}},{"action_code":"add_prior_art_check","evidence_ids":["R03-E01"],"exact_quotes":[{"evidence_id":"R03-E01","exact_quote":"To ensure the proposals are both grounded and new, this process is tightly integrated with a literature review module that queries external academic databases to identify knowledge gaps and avoid rediscovering existing work. The system uses structured prompts to guide idea generation and reflection rounds to refine proposals based on the literature search results (see Supplementary Information section A.2.6 for prompts)."}],"id":"R2","linked_diagnostic_ids":["D1"],"priority_rank":2,"success_check":{"comparator_or_threshold":"Independent prior-art adjudication confirms no rediscovery for a prespecified proportion of generated proposals.","evidence_needed":"External or separately adjudicated prior-art review of generated proposals and the literature module's novelty decisions.","observable":"Proposal-level novelty labels with documented false-positive rediscovery rate."}},{"action_code":"separate_diagnostic_from_gate","evidence_ids":["R03-E05"],"exact_quotes":[{"evidence_id":"R03-E05","exact_quote":"The agent processes the PDF of a manuscript to produce a structured review, including numerical scores for soundness, presentation and contribution, along with a list of strengths and weaknesses and a preliminary accept or reject decision (Supplementary Information section A.3)."}],"id":"R3","linked_diagnostic_ids":["D3"],"priority_rank":3,"success_check":{"comparator_or_threshold":"System documentation explicitly states whether Automated Reviewer outputs are terminal-only or routed into later search decisions.","evidence_needed":"A routing trace or design specification for Automated Reviewer outputs.","observable":"Documented feedback path for reviewer scores and accept/reject decisions."}}]},"human_authority":{"executor":["explicit_none"],"generator":["explicit_none"],"memory":["not_reported"],"policy":["select"],"validator":["select"]},"memory_structure":["tree_search","leaf_nodes","root_for_next_stage","experimental_nodes","replication_nodes","aggregation_nodes"],"model_id":"gpt-5-codex","policy_type":["literature_grounded_proposal_refinement","llm_tree_search","best_first_search","manual_stage_filtering","external_blind_review"],"record_id":"R03","vendor":"codex"}
+tokens used
+25,389

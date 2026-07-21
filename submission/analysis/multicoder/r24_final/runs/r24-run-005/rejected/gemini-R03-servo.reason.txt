@@ -1,0 +1,4 @@
+1 validation error for ServoCoding
+schema_version
+  Extra inputs are not permitted [type=extra_forbidden, input_value=1, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden

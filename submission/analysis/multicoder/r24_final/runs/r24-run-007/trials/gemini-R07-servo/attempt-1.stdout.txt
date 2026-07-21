@@ -1,0 +1,274 @@
+{
+  "record_id": "R07",
+  "vendor": "gemini",
+  "model_id": "gemini-3.1-pro",
+  "channels": [
+    {
+      "channel_id": "C01-InitialReview",
+      "decision_role": [
+        "search_control"
+      ],
+      "evaluator_substrate": [
+        "not_reported"
+      ],
+      "evidence_source": [
+        "artifact_review"
+      ],
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "external_independence": "internal_separate_component",
+      "feedback_path": [
+        "unclear"
+      ],
+      "operational_status": "implemented",
+      "quotes": [
+        {
+          "evidence_id": "R07-E06",
+          "page": 10,
+          "pdf_id": "80730ea110ad450411aa8352a785e996cfcda06afd6e1c60277cb64a65cb676a",
+          "quote": "This initial review, which doesn’t use external tools like web search, aims to quickly discard flawed, non-novel, or otherwise unsuitable hypotheses.",
+          "rationale": "Shows a distinct early filtering step that rejects candidates without external tools."
+        }
+      ],
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "target_property": [
+        "correctness_or_formal_validity",
+        "novelty"
+      ]
+    },
+    {
+      "channel_id": "C02-ReflectionAgent",
+      "decision_role": [
+        "diagnostic"
+      ],
+      "evaluator_substrate": [
+        "not_reported"
+      ],
+      "evidence_source": [
+        "prior_art_corpus"
+      ],
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "external_independence": "internal_separate_component",
+      "feedback_path": [
+        "unclear"
+      ],
+      "operational_status": "implemented",
+      "quotes": [
+        {
+          "evidence_id": "R07-E02",
+          "page": 10,
+          "pdf_id": "80730ea110ad450411aa8352a785e996cfcda06afd6e1c60277cb64a65cb676a",
+          "quote": "The Reflection agent searches relevant prior work (via web search or a dedicated scientist-provided repository), assesses existing experimental evidence for or against a given hypothesis, and rigorously verifies the novelty, correctness, and quality of generated outputs.",
+          "rationale": "Describes the dedicated agent performing verification against prior art."
+        }
+      ],
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "target_property": [
+        "novelty",
+        "correctness_or_formal_validity",
+        "aggregate_quality"
+      ]
+    },
+    {
+      "channel_id": "C03-EloTournament",
+      "decision_role": [
+        "ranking"
+      ],
+      "evaluator_substrate": [
+        "not_reported"
+      ],
+      "evidence_source": [
+        "not_reported"
+      ],
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "external_independence": "internal_self_evaluation",
+      "feedback_path": [
+        "stage_transition"
+      ],
+      "operational_status": "implemented",
+      "quotes": [
+        {
+          "evidence_id": "R07-E07",
+          "page": 15,
+          "pdf_id": "80730ea110ad450411aa8352a785e996cfcda06afd6e1c60277cb64a65cb676a",
+          "quote": "Note that the Elo metric is auto-evaluated and not based on independent ground truth.",
+          "rationale": "Shows an auto-evaluated ranking metric."
+        },
+        {
+          "evidence_id": "R07-E03",
+          "page": 9,
+          "pdf_id": "80730ea110ad450411aa8352a785e996cfcda06afd6e1c60277cb64a65cb676a",
+          "quote": "Evolution agent. The co-scientist’s iterative improvement capability relies heavily on this agent, which continuously refines the top-ranked hypotheses emerging from the tournament.",
+          "rationale": "Shows the tournament ranking feeds into the Evolution agent's refinement process."
+        }
+      ],
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "target_property": [
+        "aggregate_quality"
+      ]
+    },
+    {
+      "channel_id": "C04-InVitroValidation",
+      "decision_role": [
+        "external_assessment"
+      ],
+      "evaluator_substrate": [
+        "not_reported"
+      ],
+      "evidence_source": [
+        "physical_measurement"
+      ],
+      "experimental_fidelity": [
+        "physical_assay"
+      ],
+      "external_independence": "external_independent",
+      "feedback_path": [
+        "external_only"
+      ],
+      "operational_status": "external",
+      "quotes": [
+        {
+          "evidence_id": "R07-E04",
+          "page": 2,
+          "pdf_id": "80730ea110ad450411aa8352a785e996cfcda06afd6e1c60277cb64a65cb676a",
+          "quote": "The co-scientist’s hypotheses for these three settings are externally, independently validated by in vitro laboratory experiments and detailed in separate preprints co-timed with this work.",
+          "rationale": "Shows external physical validation of hypotheses."
+        }
+      ],
+      "reliability_evidence_type": [
+        "property_specific_external_validation"
+      ],
+      "reliability_finding": "unclear",
+      "target_property": [
+        "empirical_adequacy"
+      ]
+    }
+  ],
+  "envelope": {
+    "diagnostics": [
+      {
+        "consequence": "The Evolution agent may continuously refine hypotheses based on flawed ranking criteria, potentially amplifying errors without external correction.",
+        "evidence_ids": [
+          "R07-E07",
+          "R07-E03"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R07-E07",
+            "exact_quote": "Note that the Elo metric is auto-evaluated and not based on independent ground truth."
+          },
+          {
+            "evidence_id": "R07-E03",
+            "exact_quote": "Evolution agent. The co-scientist’s iterative improvement capability relies heavily on this agent, which continuously refines the top-ranked hypotheses emerging from the tournament."
+          }
+        ],
+        "id": "D01",
+        "kind": "ambiguity",
+        "statement": "The packet relies on 'auto-evaluated' Elo metrics without independent ground truth, creating an ambiguity regarding the reliability of the tournament ranking."
+      },
+      {
+        "consequence": "Users might misinterpret untested hypotheses as valid medical advice, leading to potential harm or misdirected clinical research.",
+        "evidence_ids": [
+          "R07-E08"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R07-E08",
+            "exact_quote": "Importantly, this example does not aim to suggest potential therapeutic avenues for ALS and should be interpreted with utmost caution."
+          }
+        ],
+        "id": "D02",
+        "kind": "risk",
+        "statement": "The system's outputs regarding therapeutic avenues for ALS carry significant risk and must be interpreted with caution."
+      }
+    ],
+    "recommendations": [
+      {
+        "evidence_ids": [
+          "R07-E07",
+          "R07-E03"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R07-E07",
+            "exact_quote": "Note that the Elo metric is auto-evaluated and not based on independent ground truth."
+          },
+          {
+            "evidence_id": "R07-E03",
+            "exact_quote": "Evolution agent. The co-scientist’s iterative improvement capability relies heavily on this agent, which continuously refines the top-ranked hypotheses emerging from the tournament."
+          }
+        ],
+        "id": "REC01",
+        "linked_diagnostic_ids": [
+          "D01"
+        ],
+        "priority_rank": 1,
+        "proposed_action": "Clarify the specific criteria and mechanisms used for the auto-evaluated Elo metric to ensure the tournament's ranking aligns with valid scientific principles rather than internal model biases.",
+        "success_check": {
+          "comparator_or_threshold": "Must specify properties verified (e.g., novelty, logical consistency) and the scoring function used.",
+          "evidence_needed": "A published supplement or methodology section detailing the Elo evaluation mechanism.",
+          "observable": "Documentation of Elo metric evaluation criteria."
+        }
+      },
+      {
+        "evidence_ids": [
+          "R07-E08"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R07-E08",
+            "exact_quote": "Importantly, this example does not aim to suggest potential therapeutic avenues for ALS and should be interpreted with utmost caution."
+          }
+        ],
+        "id": "REC02",
+        "linked_diagnostic_ids": [
+          "D02"
+        ],
+        "priority_rank": 2,
+        "proposed_action": "Implement mandatory disclaimers and human-in-the-loop review for any hypotheses generated in clinical or therapeutic domains.",
+        "success_check": {
+          "comparator_or_threshold": "100% of therapeutic hypotheses must include the specified disclaimer.",
+          "evidence_needed": "System logs showing disclaimer attachment and domain expert review confirmation.",
+          "observable": "Presence of warning labels and required expert sign-off on outputs."
+        }
+      }
+    ]
+  },
+  "human_authority": {
+    "executor": [
+      "not_reported"
+    ],
+    "generator": [
+      "advise"
+    ],
+    "memory": [
+      "advise"
+    ],
+    "policy": [
+      "advise"
+    ],
+    "validator": [
+      "not_reported"
+    ]
+  },
+  "memory_structure": [
+    "persistent context memory"
+  ],
+  "policy_type": [
+    "tournament"
+  ]
+}

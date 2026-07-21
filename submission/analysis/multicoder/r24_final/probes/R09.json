@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "record_id": "R09",
+  "completeness_boundary": "The full cited PDF was reviewed and searched. not_reported means that no explicit statement was found in that source.",
+  "answer_options": [
+    "yes",
+    "no",
+    "not_reported"
+  ],
+  "probes": [
+    {
+      "probe_id": "R09-P01",
+      "question": "Does the reported system maintain a cumulative Findings Memory containing both prior human knowledge and its own historical findings to guide later exploration?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R09-E01"
+      ]
+    },
+    {
+      "probe_id": "R09-P02",
+      "question": "Does the reported system use an Upper Confidence Bound acquisition function to select which Idea Finding is promoted for experimental validation?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R09-E02"
+      ]
+    },
+    {
+      "probe_id": "R09-P03",
+      "question": "Does a deeply validated record enter the system's knowledge base and influence decision-making in subsequent cycles?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R09-E03"
+      ]
+    },
+    {
+      "probe_id": "R09-P04",
+      "question": "Does the paper assess final generated papers through both an automated reviewer with external search and a separate human program committee?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R09-E04"
+      ]
+    },
+    {
+      "probe_id": "R09-P05",
+      "question": "Were all research ideas generated in the reported runs implemented and experimentally validated?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R09-E05"
+      ]
+    },
+    {
+      "probe_id": "R09-P06",
+      "question": "Was the reported experimental process conducted without human supervision or human verification?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R09-E06"
+      ]
+    },
+    {
+      "probe_id": "R09-P07",
+      "question": "Did the initial implementation attempts reliably complete without false positives or agent timeouts?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R09-E07"
+      ]
+    },
+    {
+      "probe_id": "R09-P08",
+      "question": "Did the reported deployed system already conduct physical-science experiments through robotics?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R09-E08"
+      ]
+    },
+    {
+      "probe_id": "R09-P09",
+      "question": "Does the paper report a probabilistic calibration analysis of the surrogate reviewer's 0-to-100 valuation scores?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R09-P10",
+      "question": "Does the paper state that the month-long discovery study and its analysis plan were prospectively preregistered?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R09-P11",
+      "question": "Does the paper report an independent external laboratory replication of a DeepScientist-generated method?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R09-P12",
+      "question": "Does the paper report a randomized, blinded head-to-head trial comparing DeepScientist's discovery performance with human researchers on the same tasks and resource budget?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    }
+  ]
+}

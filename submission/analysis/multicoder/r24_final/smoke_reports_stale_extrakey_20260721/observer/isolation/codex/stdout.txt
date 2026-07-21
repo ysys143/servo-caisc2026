@@ -1,0 +1,1 @@
+{"content":"I can’t read that file from this session. The filesystem sandbox is read-only and restricted to the workspace root, and the direct read attempt was rejected with `Operation not permitted`. I won’t guess its contents."}

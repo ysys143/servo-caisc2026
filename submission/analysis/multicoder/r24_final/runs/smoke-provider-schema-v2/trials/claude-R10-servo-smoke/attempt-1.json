@@ -1,0 +1,19 @@
+{
+  "trial": {
+    "trial_id": "claude-R10-servo-smoke",
+    "vendor": "claude",
+    "record_id": "R10",
+    "condition": "servo",
+    "period": 1,
+    "order": 0
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T15:23:31.252899+00:00",
+  "elapsed_seconds": 117.75421416699828,
+  "requested_model": "claude-opus-4-8",
+  "prompt_sha256": "8334c82cacef6a80a0cbb5d42ec291c9bffd66ec34f6c6edd43188ff7cc85d8d",
+  "returncode": 0,
+  "stdout_sha256": "e15b2940d7530f0c13eb2a641f1306cb930dd0aa7aae40cc613e9619862d1285",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "validation_error": null
+}

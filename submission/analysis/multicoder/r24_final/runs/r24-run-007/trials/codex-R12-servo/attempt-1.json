@@ -1,0 +1,23 @@
+{
+  "trial": {
+    "trial_id": "codex-R12-servo",
+    "vendor": "codex",
+    "record_id": "R12",
+    "condition": "servo",
+    "period": 1,
+    "order": 10
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T23:33:49.085781+00:00",
+  "elapsed_seconds": 64.2687292079936,
+  "requested_model": "gpt-5.5",
+  "prompt_sha256": "05c6b087c81955cd5c62fae3029e5513ebec09cfd7660812eea9a994fe1e4bff",
+  "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+  "packet_sha256": "a7a4d34262407ecf5294cada9b1d6a91bee33dd28c605859674ba30aaf033289",
+  "argv_sha256": "e8f178169c5284c41b1c646d35ceb6def955b777959ac178709f1f524ce4b2ae",
+  "returncode": 0,
+  "stdout_sha256": "8611071d20da01edd925b24fe0f1d6bff049372da3968bcf08b7ccb399527d2d",
+  "stderr_sha256": "1727ea4e043e1f1b850d5d61d5003e153456202cdb94ae1921a25610be1f18f6",
+  "validation_error": null,
+  "sandbox_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-c5w7iw0v"
+}

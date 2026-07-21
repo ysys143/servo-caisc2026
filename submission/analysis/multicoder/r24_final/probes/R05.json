@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "record_id": "R05",
+  "completeness_boundary": "The full cited PDF was reviewed and searched. not_reported means that no explicit statement was found in that source.",
+  "answer_options": [
+    "yes",
+    "no",
+    "not_reported"
+  ],
+  "probes": [
+    {
+      "probe_id": "R05-P01",
+      "question": "Does the source describe a Robot Scientist generating hypotheses, designing tests, executing physical robotic experiments, interpreting results, and repeating the cycle?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R05-E01"
+      ]
+    },
+    {
+      "probe_id": "R05-P02",
+      "question": "Does Adam use statistically analysed experimental results to update its yeast-metabolism model?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R05-E02"
+      ]
+    },
+    {
+      "probe_id": "R05-P03",
+      "question": "Does the source report Adam testing its hypotheses on its robotic system and confirming 12 by experimentation?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R05-E03"
+      ]
+    },
+    {
+      "probe_id": "R05-P04",
+      "question": "Does Adam retain data and metadata from the stages of its process in a relational database?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R05-E04"
+      ]
+    },
+    {
+      "probe_id": "R05-P05",
+      "question": "Does the source report that Adam confirmed all 20 of its hypotheses as correct?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R05-E03"
+      ]
+    },
+    {
+      "probe_id": "R05-P06",
+      "question": "Was Eve reported as fully developed at the time of this source?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R05-E05"
+      ]
+    },
+    {
+      "probe_id": "R05-P07",
+      "question": "Does the source state that human intervention is required to choose Adam's hypotheses or experimental plans?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R05-E06"
+      ]
+    },
+    {
+      "probe_id": "R05-P08",
+      "question": "Did the authors consider the Robot Scientist prototypes cost-effective compared with human scientists at the time?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R05-E07"
+      ]
+    },
+    {
+      "probe_id": "R05-P09",
+      "question": "Does the source report a novelty or prior-art assessment that gates Adam's generated hypotheses?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R05-P10",
+      "question": "Does the source report probabilistic calibration of an evaluator's confidence against observed correctness frequencies?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R05-P11",
+      "question": "Does the source report an internal peer-review or final-acceptance decision controlling Adam's next experimental cycle?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R05-P12",
+      "question": "Does the source report use of a formal proof checker, theorem prover, or proof assistant as a validator?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    }
+  ]
+}

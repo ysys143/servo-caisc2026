@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "record_id": "R14",
+  "completeness_boundary": "The full cited PDF was reviewed and searched. not_reported means that no explicit statement was found in that source.",
+  "answer_options": [
+    "yes",
+    "no",
+    "not_reported"
+  ],
+  "probes": [
+    {
+      "probe_id": "R14-P01",
+      "question": "Does InternAgent use an LLM to generate research ideas or hypotheses from task and scientific context?",
+      "expected_answer": "yes",
+      "evidence_ids": ["R14-E01"]
+    },
+    {
+      "probe_id": "R14-P02",
+      "question": "Does InternAgent score generated ideas on novelty and other dimensions to support ranking?",
+      "expected_answer": "yes",
+      "evidence_ids": ["R14-E02"]
+    },
+    {
+      "probe_id": "R14-P03",
+      "question": "Can human-provided critiques cause InternAgent to refine or adjust one or more ideas?",
+      "expected_answer": "yes",
+      "evidence_ids": ["R14-E03"]
+    },
+    {
+      "probe_id": "R14-P04",
+      "question": "Can results from earlier experiments cause InternAgent to re-plan later experiments?",
+      "expected_answer": "yes",
+      "evidence_ids": ["R14-E08"]
+    },
+    {
+      "probe_id": "R14-P05",
+      "question": "Does InternAgent use only a single-pass implementation strategy without performance-based refinement?",
+      "expected_answer": "no",
+      "evidence_ids": ["R14-E05"]
+    },
+    {
+      "probe_id": "R14-P06",
+      "question": "Does every evolved idea advance into the next idea-evolution round?",
+      "expected_answer": "no",
+      "evidence_ids": ["R14-E06"]
+    },
+    {
+      "probe_id": "R14-P07",
+      "question": "Does InternAgent's debugging cycle continue indefinitely even after successful execution or reaching its iteration threshold?",
+      "expected_answer": "no",
+      "evidence_ids": ["R14-E04"]
+    },
+    {
+      "probe_id": "R14-P08",
+      "question": "Does InternAgent's adaptive implementation refinement rely on theoretical assumptions alone rather than empirical results?",
+      "expected_answer": "no",
+      "evidence_ids": ["R14-E05"]
+    },
+    {
+      "probe_id": "R14-P09",
+      "question": "Does the source report probabilistic calibration of the Assessment Agent's scores against observed correctness frequencies?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R14-P10",
+      "question": "Does the source report an independent replication of InternAgent's experimental results by a separate laboratory?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R14-P11",
+      "question": "Does the source report an external acceptance or rejection decision that controls InternAgent's next internal search action?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R14-P12",
+      "question": "Does the source report InternAgent executing a wet-lab experiment or other physical assay?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    }
+  ]
+}

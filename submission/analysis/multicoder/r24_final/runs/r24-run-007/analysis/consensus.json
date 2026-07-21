@@ -1,0 +1,570 @@
+{
+  "R01": {
+    "decision_role": [
+      "diagnostic",
+      "search_control",
+      "terminal_assessment"
+    ],
+    "evaluator_substrate": [
+      "human",
+      "llm"
+    ],
+    "evidence_source": [
+      "artifact_review",
+      "execution_trace",
+      "human_judgment"
+    ],
+    "experimental_fidelity": [
+      "not_applicable",
+      "not_reported",
+      "physical_assay",
+      "robotic_experiment"
+    ],
+    "feedback_path": [
+      "candidate_revision",
+      "memory_update",
+      "policy_control",
+      "terminal_only"
+    ],
+    "reliability_evidence_type": [
+      "none_reported"
+    ],
+    "target_property": [
+      "aggregate_quality",
+      "empirical_adequacy",
+      "executability",
+      "specification_compliance",
+      "task_performance"
+    ]
+  },
+  "R02": {
+    "decision_role": [
+      "memory_admission",
+      "search_control",
+      "stage_transition",
+      "terminal_assessment"
+    ],
+    "evaluator_substrate": [
+      "llm"
+    ],
+    "evidence_source": [
+      "artifact_review",
+      "execution_trace",
+      "prior_art_corpus"
+    ],
+    "experimental_fidelity": [
+      "computational_experiment",
+      "computational_oracle_or_benchmark",
+      "not_applicable"
+    ],
+    "feedback_path": [
+      "candidate_revision",
+      "memory_update",
+      "policy_control",
+      "stage_transition"
+    ],
+    "reliability_evidence_type": [
+      "discrimination_study",
+      "none_reported"
+    ],
+    "target_property": [
+      "aggregate_quality",
+      "empirical_adequacy",
+      "novelty",
+      "task_performance"
+    ]
+  },
+  "R03": {
+    "decision_role": [
+      "diagnostic",
+      "external_assessment",
+      "final_acceptance",
+      "ranking",
+      "search_control",
+      "stage_transition",
+      "terminal_assessment"
+    ],
+    "evaluator_substrate": [
+      "human",
+      "llm"
+    ],
+    "evidence_source": [
+      "artifact_review",
+      "benchmark_metric",
+      "execution_trace",
+      "human_judgment",
+      "prior_art_corpus"
+    ],
+    "experimental_fidelity": [
+      "computational_experiment",
+      "not_applicable"
+    ],
+    "feedback_path": [
+      "candidate_revision",
+      "external_only",
+      "policy_control",
+      "stage_transition",
+      "terminal_only"
+    ],
+    "reliability_evidence_type": [
+      "agreement_study",
+      "discrimination_study",
+      "none_reported"
+    ],
+    "target_property": [
+      "aggregate_quality",
+      "empirical_adequacy",
+      "novelty",
+      "significance",
+      "task_performance"
+    ]
+  },
+  "R04": {
+    "decision_role": [
+      "diagnostic",
+      "final_acceptance",
+      "ranking",
+      "search_control",
+      "stage_transition"
+    ],
+    "evaluator_substrate": [
+      "deterministic_program",
+      "llm"
+    ],
+    "evidence_source": [
+      "artifact_review",
+      "benchmark_metric",
+      "execution_trace"
+    ],
+    "experimental_fidelity": [
+      "computational_experiment",
+      "computational_oracle_or_benchmark"
+    ],
+    "feedback_path": [
+      "candidate_revision",
+      "policy_control",
+      "stage_transition"
+    ],
+    "reliability_evidence_type": [
+      "none_reported"
+    ],
+    "target_property": [
+      "aggregate_quality",
+      "executability",
+      "task_performance"
+    ]
+  },
+  "R05": {
+    "decision_role": [
+      "diagnostic",
+      "external_assessment",
+      "memory_admission",
+      "terminal_assessment"
+    ],
+    "evaluator_substrate": [
+      "deterministic_program",
+      "human",
+      "statistical_model"
+    ],
+    "evidence_source": [
+      "human_judgment",
+      "physical_measurement",
+      "statistical_test"
+    ],
+    "experimental_fidelity": [
+      "not_applicable",
+      "physical_assay",
+      "robotic_experiment"
+    ],
+    "feedback_path": [
+      "external_only",
+      "memory_update",
+      "terminal_only"
+    ],
+    "reliability_evidence_type": [
+      "none_reported"
+    ],
+    "target_property": [
+      "aggregate_quality",
+      "correctness_or_formal_validity",
+      "empirical_adequacy",
+      "significance"
+    ]
+  },
+  "R06": {
+    "decision_role": [
+      "diagnostic",
+      "external_assessment",
+      "final_acceptance",
+      "memory_admission",
+      "ranking",
+      "search_control",
+      "stage_transition",
+      "terminal_assessment"
+    ],
+    "evaluator_substrate": [
+      "human",
+      "llm"
+    ],
+    "evidence_source": [
+      "artifact_review",
+      "benchmark_metric",
+      "human_judgment",
+      "prior_art_corpus"
+    ],
+    "experimental_fidelity": [
+      "computational_experiment",
+      "not_applicable"
+    ],
+    "feedback_path": [
+      "candidate_revision",
+      "external_only",
+      "memory_update",
+      "policy_control",
+      "stage_transition",
+      "terminal_only"
+    ],
+    "reliability_evidence_type": [
+      "none_reported"
+    ],
+    "target_property": [
+      "aggregate_quality",
+      "novelty",
+      "significance",
+      "specification_compliance",
+      "task_performance"
+    ]
+  },
+  "R07": {
+    "decision_role": [
+      "diagnostic",
+      "external_assessment",
+      "ranking",
+      "search_control",
+      "stage_transition"
+    ],
+    "evaluator_substrate": [
+      "llm"
+    ],
+    "evidence_source": [
+      "artifact_review",
+      "physical_measurement",
+      "prior_art_corpus"
+    ],
+    "experimental_fidelity": [
+      "not_applicable",
+      "physical_assay"
+    ],
+    "feedback_path": [
+      "candidate_revision",
+      "external_only",
+      "stage_transition",
+      "unclear"
+    ],
+    "reliability_evidence_type": [
+      "none_reported",
+      "property_specific_external_validation"
+    ],
+    "target_property": [
+      "aggregate_quality",
+      "correctness_or_formal_validity",
+      "empirical_adequacy",
+      "novelty"
+    ]
+  },
+  "R08": {
+    "decision_role": [
+      "diagnostic",
+      "ranking",
+      "search_control",
+      "stage_transition",
+      "terminal_assessment"
+    ],
+    "evaluator_substrate": [
+      "llm",
+      "not_reported"
+    ],
+    "evidence_source": [
+      "artifact_review",
+      "benchmark_metric",
+      "execution_trace",
+      "human_judgment",
+      "not_reported"
+    ],
+    "experimental_fidelity": [
+      "computational_experiment",
+      "computational_oracle_or_benchmark",
+      "not_applicable"
+    ],
+    "feedback_path": [
+      "candidate_revision",
+      "policy_control",
+      "stage_transition",
+      "terminal_only"
+    ],
+    "reliability_evidence_type": [
+      "agreement_study",
+      "discrimination_study",
+      "none_reported",
+      "systematic_error_or_bias_test"
+    ],
+    "target_property": [
+      "aggregate_quality",
+      "correctness_or_formal_validity",
+      "empirical_adequacy",
+      "executability",
+      "novelty",
+      "significance"
+    ]
+  },
+  "R09": {
+    "decision_role": [
+      "diagnostic",
+      "external_assessment",
+      "final_acceptance",
+      "memory_admission",
+      "not_reported",
+      "ranking",
+      "search_control",
+      "stage_transition",
+      "terminal_assessment"
+    ],
+    "evaluator_substrate": [
+      "deterministic_program",
+      "human",
+      "hybrid",
+      "llm",
+      "not_reported"
+    ],
+    "evidence_source": [
+      "artifact_review",
+      "benchmark_metric",
+      "execution_trace",
+      "human_judgment",
+      "not_reported",
+      "prior_art_corpus"
+    ],
+    "experimental_fidelity": [
+      "computational_experiment",
+      "not_applicable",
+      "not_reported",
+      "robotic_experiment",
+      "simulation_or_proxy"
+    ],
+    "feedback_path": [
+      "memory_update",
+      "policy_control",
+      "stage_transition",
+      "terminal_only",
+      "unclear"
+    ],
+    "reliability_evidence_type": [
+      "none_reported",
+      "systematic_error_or_bias_test"
+    ],
+    "target_property": [
+      "aggregate_quality",
+      "correctness_or_formal_validity",
+      "empirical_adequacy",
+      "executability",
+      "not_reported",
+      "significance"
+    ]
+  },
+  "R10": {
+    "decision_role": [
+      "diagnostic",
+      "not_reported",
+      "ranking",
+      "search_control"
+    ],
+    "evaluator_substrate": [
+      "human",
+      "hybrid",
+      "llm"
+    ],
+    "evidence_source": [
+      "artifact_review",
+      "human_judgment",
+      "physical_measurement",
+      "prior_art_corpus"
+    ],
+    "experimental_fidelity": [
+      "not_applicable",
+      "physical_assay"
+    ],
+    "feedback_path": [
+      "candidate_revision",
+      "policy_control",
+      "unclear"
+    ],
+    "reliability_evidence_type": [
+      "agreement_study",
+      "none_reported"
+    ],
+    "target_property": [
+      "aggregate_quality",
+      "empirical_adequacy"
+    ]
+  },
+  "R11": {
+    "decision_role": [
+      "ranking",
+      "search_control",
+      "terminal_assessment"
+    ],
+    "evaluator_substrate": [
+      "deterministic_program",
+      "human"
+    ],
+    "evidence_source": [
+      "artifact_review",
+      "benchmark_metric",
+      "execution_trace",
+      "human_judgment",
+      "replication"
+    ],
+    "experimental_fidelity": [
+      "computational_experiment"
+    ],
+    "feedback_path": [
+      "memory_update",
+      "policy_control",
+      "terminal_only"
+    ],
+    "reliability_evidence_type": [
+      "none_reported"
+    ],
+    "target_property": [
+      "executability",
+      "reproducibility",
+      "specification_compliance",
+      "task_performance"
+    ]
+  },
+  "R12": {
+    "decision_role": [
+      "diagnostic",
+      "final_acceptance",
+      "memory_admission",
+      "ranking",
+      "search_control",
+      "stage_transition"
+    ],
+    "evaluator_substrate": [
+      "deterministic_program",
+      "human",
+      "hybrid",
+      "llm"
+    ],
+    "evidence_source": [
+      "artifact_review",
+      "execution_trace",
+      "human_judgment"
+    ],
+    "experimental_fidelity": [
+      "computational_experiment",
+      "not_applicable"
+    ],
+    "feedback_path": [
+      "candidate_revision",
+      "memory_update",
+      "policy_control",
+      "stage_transition"
+    ],
+    "reliability_evidence_type": [
+      "none_reported"
+    ],
+    "target_property": [
+      "aggregate_quality",
+      "correctness_or_formal_validity",
+      "empirical_adequacy",
+      "executability",
+      "reproducibility",
+      "specification_compliance"
+    ]
+  },
+  "R13": {
+    "decision_role": [
+      "diagnostic",
+      "external_assessment",
+      "ranking",
+      "search_control",
+      "stage_transition"
+    ],
+    "evaluator_substrate": [
+      "human",
+      "llm",
+      "not_reported"
+    ],
+    "evidence_source": [
+      "artifact_review",
+      "execution_trace",
+      "human_judgment",
+      "not_reported"
+    ],
+    "experimental_fidelity": [
+      "computational_experiment",
+      "not_applicable"
+    ],
+    "feedback_path": [
+      "candidate_revision",
+      "external_only",
+      "policy_control",
+      "stage_transition"
+    ],
+    "reliability_evidence_type": [
+      "none_reported"
+    ],
+    "target_property": [
+      "aggregate_quality",
+      "correctness_or_formal_validity",
+      "empirical_adequacy",
+      "executability",
+      "novelty",
+      "specification_compliance",
+      "task_performance"
+    ]
+  },
+  "R14": {
+    "decision_role": [
+      "diagnostic",
+      "memory_admission",
+      "ranking",
+      "search_control",
+      "terminal_assessment"
+    ],
+    "evaluator_substrate": [
+      "deterministic_program",
+      "human",
+      "hybrid",
+      "llm"
+    ],
+    "evidence_source": [
+      "artifact_review",
+      "benchmark_metric",
+      "execution_trace",
+      "human_judgment"
+    ],
+    "experimental_fidelity": [
+      "computational_experiment",
+      "not_applicable"
+    ],
+    "feedback_path": [
+      "candidate_revision",
+      "memory_update",
+      "policy_control",
+      "terminal_only"
+    ],
+    "reliability_evidence_type": [
+      "discrimination_study",
+      "none_reported"
+    ],
+    "target_property": [
+      "aggregate_quality",
+      "executability",
+      "novelty",
+      "task_performance"
+    ]
+  }
+}

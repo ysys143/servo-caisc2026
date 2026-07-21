@@ -1,0 +1,39 @@
+{
+  "binding": {
+    "environment_policy_sha256": "448fd926beaadf118c0de650b9595877041fda6bb7f315a522480c123bbcf229",
+    "protocol_sha256": "8581a196d7dad9ff1ffe90cb85dd4ceada2f8e0cdf34dfe18700280d8f09e524",
+    "runtime_sha256": "6a868c035109d86ff86ddead0499763d612b5b13a2644618f7ea7e09e5006bb0",
+    "sandbox_profile_sha256": "f92037ef8956480d505b54ed780970067e448dc0e399e4bff122d5725ade4843"
+  },
+  "checks": [
+    {
+      "evidence_ids": [
+        "functional_report-evidence"
+      ],
+      "id": "latency_boundary",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "functional_report-evidence"
+      ],
+      "id": "runtime_provenance",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "functional_report-evidence"
+      ],
+      "id": "servo_generation_matrix",
+      "result": "pass"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "functional_report-evidence",
+      "path": "raw/FUNCTIONAL_REPORT.json",
+      "sha256": "99034d1e213fe7646367807c633ae7cb2d026b51de00bb226b0d9fe5801b662d"
+    }
+  ],
+  "report_type": "FUNCTIONAL_REPORT"
+}

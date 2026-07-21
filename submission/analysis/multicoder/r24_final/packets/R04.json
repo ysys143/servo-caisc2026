@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "record_id": "R04",
+  "source": {
+    "pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+    "page_count": 84
+  },
+  "instructions": "Use only the method, results, and limitations excerpts below. Absence judgments in the paired probe file are bounded to a full-text audit of this 84-page primary PDF; absence from this packet alone is not evidence of absence.",
+  "evidence": [
+    {
+      "evidence_id": "R04-E01",
+      "pdf_page": 2,
+      "quote": "Unlike previous approaches, where agents participate in their own research ideation independent of human input (Baek et al. (2024); Lu et al. (2024b)), Agent Laboratory is designed to assist human scientists in executing their own research ideas using language agents. Agent Laboratory takes as input a human research idea and outputs a research report and code repository produced by autonomous language agents"
+    },
+    {
+      "evidence_id": "R04-E02",
+      "pdf_page": 6,
+      "quote": "This is facilitated by mle-solver, a specialized module designed to generate, test, and refine machine learning code autonomously. mle-solver begins by producing initial code based on the research plan and insights from the literature review."
+    },
+    {
+      "evidence_id": "R04-E03",
+      "pdf_page": 7,
+      "quote": "Whether the code succeeds or fails, a self-reflection is produced based on the experimental results or the encountered error signal (Renze & Guven (2024); Shinn et al. (2024)). Here, the mle-solver is prompted to reflect on the outcome of its actions. If the program failed to compile, the solver reflects on how to fix this issue in next iterations. If it successfuly compiles and returns a score, the solver will reflect on how to increase this score."
+    },
+    {
+      "evidence_id": "R04-E04",
+      "pdf_page": 10,
+      "quote": "Based on these scores, the PhD agent then decides whether to finalize the project or revisit earlier subtasks—such as planning, experimentation, or results interpretation—to address the feedback. This allows the agents to refine the research report until it meets sufficiently high standards, effectively simulating the real-world academic revision process."
+    },
+    {
+      "evidence_id": "R04-E05",
+      "pdf_page": 10,
+      "quote": "In autonomous mode, there is no human involvement other than providing the initial research idea for agents to produce research for. Each subtask moves on to the next subtask sequentially upon completion."
+    },
+    {
+      "evidence_id": "R04-E06",
+      "pdf_page": 8,
+      "quote": "The paper-solver aims to act as a report generator, positioning the work that has been produced by previous stages of Agent Laboratory. paper-solver does not aim to entirely replace the academic paper-writing process, but rather to summarize the research that has been produced in a human-readable format so that the researcher using Agent Laboratory understands what has been accomplished."
+    },
+    {
+      "evidence_id": "R04-E07",
+      "pdf_page": 18,
+      "quote": "Instead of using an LLM scoring function, the mle-solver score is evaluated on the dev set, which is a 20% random sample taken from the original training set, and the training set is represented by the other 80% split."
+    },
+    {
+      "evidence_id": "R04-E08",
+      "pdf_page": 20,
+      "quote": "Agent Laboratory is also not able to manage repository-level code on its own, but rather the appropriate files are provided to it at each necessary step and files are saved based on which phase produced the file. Enabling flexible repository-level file modification and execution is a clear next step for future work."
+    }
+  ]
+}

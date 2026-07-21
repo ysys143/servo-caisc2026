@@ -1,0 +1,1 @@
+{"content":"I can’t read that file from this session. The sandbox is restricted to the workspace root, and the terminal attempt was rejected with `Operation not permitted`, so I can’t return exact contents without guessing."}

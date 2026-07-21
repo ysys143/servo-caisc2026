@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "record_id": "R07",
+  "source": {
+    "pdf_sha256": "80730ea110ad450411aa8352a785e996cfcda06afd6e1c60277cb64a65cb676a",
+    "page_count": 81
+  },
+  "instructions": "Use only the primary-source excerpts below. The full cited PDF was reviewed and searched. For this packet, not_reported means that no explicit statement was found anywhere in that PDF; it does not imply absence outside this source.",
+  "evidence": [
+    {
+      "evidence_id": "R07-E01",
+      "pdf_page": 8,
+      "quote": "Context memory. In order to enable iterative computation and scientific reasoning over long time horizons, the co-scientist uses a persistent context memory to store and retrieve states of the agents and the system during the course of the computation."
+    },
+    {
+      "evidence_id": "R07-E02",
+      "pdf_page": 10,
+      "quote": "The Reflection agent searches relevant prior work (via web search or a dedicated scientist-provided repository), assesses existing experimental evidence for or against a given hypothesis, and rigorously verifies the novelty, correctness, and quality of generated outputs."
+    },
+    {
+      "evidence_id": "R07-E03",
+      "pdf_page": 9,
+      "quote": "Evolution agent. The co-scientist’s iterative improvement capability relies heavily on this agent, which continuously refines the top-ranked hypotheses emerging from the tournament."
+    },
+    {
+      "evidence_id": "R07-E04",
+      "pdf_page": 2,
+      "quote": "The co-scientist’s hypotheses for these three settings are externally, independently validated by in vitro laboratory experiments and detailed in separate preprints co-timed with this work."
+    },
+    {
+      "evidence_id": "R07-E05",
+      "pdf_page": 3,
+      "quote": "This work does not aim to completely automate the scientific process with AI. Instead, the co-scientist is purpose-built for a “scientist-in-the-loop” collaborative paradigm, to help domain experts augment their hypothesis generation process and guide the exploration that follows."
+    },
+    {
+      "evidence_id": "R07-E06",
+      "pdf_page": 10,
+      "quote": "This initial review, which doesn’t use external tools like web search, aims to quickly discard flawed, non-novel, or otherwise unsuitable hypotheses."
+    },
+    {
+      "evidence_id": "R07-E07",
+      "pdf_page": 15,
+      "quote": "Note that the Elo metric is auto-evaluated and not based on independent ground truth."
+    },
+    {
+      "evidence_id": "R07-E08",
+      "pdf_page": 7,
+      "quote": "Importantly, this example does not aim to suggest potential therapeutic avenues for ALS and should be interpreted with utmost caution."
+    }
+  ]
+}

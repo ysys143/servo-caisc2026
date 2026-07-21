@@ -1,0 +1,23 @@
+{
+  "trial": {
+    "trial_id": "gemini-R07-servo",
+    "vendor": "gemini",
+    "record_id": "R07",
+    "condition": "servo",
+    "period": 1,
+    "order": 11
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T23:55:43.316791+00:00",
+  "elapsed_seconds": 76.46631704199535,
+  "requested_model": "Gemini 3.1 Pro (High)",
+  "prompt_sha256": "66e6f62b4e3d05bcdb6b5b61542c4c05cfeb28e2b7234b5b2ff933ee3ca2b1eb",
+  "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+  "packet_sha256": "f5f79b3a86eea10d8885104082356aa9f93024e53b951c4ac911a37e75ad6c4a",
+  "argv_sha256": "051b0e2f79574fca985021950ef515222b95bea51a2d91e2b3835198d2c3a293",
+  "returncode": 0,
+  "stdout_sha256": "ef4a4b44ec845785d407d002880a33671a75166f6f568a486216ff96fff5131a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "validation_error": null,
+  "sandbox_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-q_jj2cd3"
+}

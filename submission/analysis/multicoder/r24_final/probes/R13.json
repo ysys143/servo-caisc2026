@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "record_id": "R13",
+  "completeness_boundary": "The full cited PDF was reviewed and searched. not_reported means that no explicit statement was found in that source.",
+  "answer_options": [
+    "yes",
+    "no",
+    "not_reported"
+  ],
+  "probes": [
+    {
+      "probe_id": "R13-P01",
+      "question": "Does ScientistOne's Ideator score candidate approaches for novelty and feasibility before distributing top-ranked proposals?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R13-E01"
+      ]
+    },
+    {
+      "probe_id": "R13-P02",
+      "question": "Does evaluator feedback determine which discovery branches are retained and used for fresh ideation?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R13-E02"
+      ]
+    },
+    {
+      "probe_id": "R13-P03",
+      "question": "Can the Claim Verifier's findings cause unsupported claims to be rewritten or removed before a draft is promoted?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R13-E03"
+      ]
+    },
+    {
+      "probe_id": "R13-P04",
+      "question": "Were flagged I1-I3 audit results manually verified by human reviewers?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R13-E04"
+      ]
+    },
+    {
+      "probe_id": "R13-P05",
+      "question": "Were runs re-attempted for the purpose of improving solver scores?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R13-E05"
+      ]
+    },
+    {
+      "probe_id": "R13-P06",
+      "question": "Does the CoE Integrity Audit evaluate scientific novelty or significance?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R13-E06"
+      ]
+    },
+    {
+      "probe_id": "R13-P07",
+      "question": "Were the four third-party comparison systems originally designed for ADRS?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R13-E07"
+      ]
+    },
+    {
+      "probe_id": "R13-P08",
+      "question": "Does the reported ScientistOne pipeline attempt workload characterization, multi-dataset analysis, and deployment tradeoff analysis?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R13-E08"
+      ]
+    },
+    {
+      "probe_id": "R13-P09",
+      "question": "Does the source report probabilistic calibration of an evaluator's confidence against observed correctness frequencies?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R13-P10",
+      "question": "Does the source report an independent replication of ScientistOne's experiments by a separate laboratory?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R13-P11",
+      "question": "Does the source report that ScientistOne reuses persistent memory accumulated across separate research runs?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R13-P12",
+      "question": "Does the source report using a formal proof checker, theorem prover, or proof assistant as a validator?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    }
+  ]
+}

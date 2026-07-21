@@ -1,0 +1,19 @@
+{
+  "trial": {
+    "trial_id": "codex-R01-2",
+    "vendor": "codex",
+    "record_id": "R01",
+    "condition": "servo",
+    "period": 2,
+    "order": 20
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T17:01:26.420167+00:00",
+  "elapsed_seconds": 52.66606216599757,
+  "requested_model": "gpt-5.5",
+  "prompt_sha256": "1428b1850b5de2ea95b58ed7b7ad04026e4fe4bddfca0cb0868053861203ac47",
+  "returncode": 0,
+  "stdout_sha256": "538a71dc6831fb54bca8f2e68e47692aefed3d8ed9b6f80a84939d646b988d62",
+  "stderr_sha256": "2e1e34e29ce5057f0e6adcc1ee1723c14136f687a7fa22a80dadef18896a4146",
+  "validation_error": null
+}

@@ -1,0 +1,705 @@
+OpenAI Codex v0.144.6
+--------
+workdir: /private/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-bn35ihve
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019f8187-b1b9-7781-8106-faccf125cfa1
+--------
+user
+# SERVO condition
+
+Apply the supplied frozen R24 coding manual to the anonymous source packet. Do not infer facts outside the packet and do not use knowledge of the named system.
+
+Return only one JSON object conforming to the supplied SERVO schema. The first response character must be `{` and the last must be `}`; Markdown fences, preambles, and trailing commentary are invalid. Separate distinct validator channels, populate every facet, and attach exact packet evidence to each channel. Then provide typed diagnostics with consequences and exact evidence, plus one to three non-redundant recommendations ranked consecutively by `priority_rank` from 1 and linked to those diagnostics with observable success checks. State each recommendation as a concise free-text `proposed_action`; do not recommend a change that the packet does not support. Do not treat non-reporting as absence, terminal assessment as feedback, general reviewer error as novelty-specific evidence, or agreement and bias studies as probabilistic calibration.
+
+For every channel quote, copy `pdf_id` from the packet's 64-character `source.pdf_sha256` value, not from its `record_id`, and copy `page` from the cited evidence item's `pdf_page` value.
+
+For every diagnostic and recommendation, `evidence_ids` and the `evidence_id` values in `exact_quotes` must be identical sets: include exactly one exact quotation for every listed evidence ID, and never list an evidence ID without its quotation. Each `exact_quote` must reproduce the complete frozen `quote` string associated with that `evidence_id` character for character; a shortened excerpt or substring is invalid even when it is verbatim.
+
+
+# Frozen R24 coding manual
+
+## Unit and boundary
+
+The unit is a source-defined system version, not a unique research lineage. The fourteen records represent thirteen lineages because the AI Scientist v2 preprint and the 2026 record belong to one lineage. Code only what the frozen packet reports. Absence of reporting is not evidence of absence.
+
+A validator channel is an identifiable evaluator with a stable target, substrate, decision role, or feedback path. Split channels when one named system uses distinct mechanisms for ideation filtering, search control, terminal assessment, or external acceptance.
+
+## Facets
+
+- `operational_status`: distinguish implemented behavior, unexercised proposals, external processes, non-reporting, and genuinely unclear descriptions.
+- `target_property`: the property judged, such as executability, correctness, novelty, or aggregate quality.
+- `evidence_source`: the information used to judge the target.
+- `evaluator_substrate`: the mechanism or actor performing the judgment.
+- `decision_role`: the operational consequence of the output.
+- `feedback_path`: where the output is actually routed. A terminal assessment is not search control.
+- `external_independence`: organizational or informational independence of the evaluator.
+- `reliability_evidence_type`: the study design reported for the exact channel and target. Lack of documented bias is `none_reported`, not calibration.
+- `reliability_finding`: the conclusion supported by that evidence.
+- `experimental_fidelity`: the environment in which the evaluated evidence is produced.
+
+Every channel requires at least one exact packet quote. Never transfer evidence from a terminal paper reviewer to an ideation novelty filter merely because both use an LLM.
+
+## Closure and human authority
+
+Closure is derived rather than freely rated. Implemented policy control or stage transition is closed computational feedback; memory update or candidate revision alone is partial; terminal-only or external-only assessment is open. Unclear routing remains unclear.
+
+Human authority is recorded separately for generator, executor, validator, memory, and policy. Use only observable roles: `explicit_none`, `initiate`, `advise`, `select`, `approve`, `execute`, `final_authority`, `not_reported`, or `not_applicable`.
+
+## Missingness
+
+`not_reported` means the packet provides no claim. Explicit none means the source states absence. `unclear` means relevant text exists but supports multiple readings. `not_applicable` means the facet has no coherent value for that channel. These values are never interchangeable.
+
+
+Scheduled metadata: record_id=R06; vendor=codex. Use the CLI model identifier as model_id.
+
+Anonymous source packet:
+{
+  "schema_version": 1,
+  "record_id": "R06",
+  "source": {
+    "pdf_sha256": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+    "page_count": 69
+  },
+  "instructions": "Use only the excerpts below when producing evidence-grounded claims. The probes were curated after a full-text audit of the 69-page source. A not_reported answer means that the audit did not locate an explicit statement resolving that probe; it is not evidence that the feature is absent.",
+  "evidence": [
+    {
+      "evidence_id": "R06-E01",
+      "pdf_page": 4,
+      "quote": "Crucially, this generalized idea generation phase integrates literature review tools, such as Semantic Scholar, in the loop. The system can query the literature database during the idea formulation process to assess the novelty of a proposed concept and identify relevant prior work. This allows for more informed decisions about pursuing a particular research avenue, ensuring ideas are grounded in the existing scientific landscape from the outset, rather than relying solely on post-hoc checks."
+    },
+    {
+      "evidence_id": "R06-E02",
+      "pdf_page": 5,
+      "quote": "After each stage, the experiment manager selects the best-performing node using a dedicated LLM evaluator (see next section) based on clearly articulated criteria. This selected node is then carried forward to seed the subsequent experimentation stage. The manager also records checkpoints at each stage’s completion."
+    },
+    {
+      "evidence_id": "R06-E03",
+      "pdf_page": 5,
+      "quote": "These visualizations are subsequently passed to a Vision-Language Model (VLM) for critique. Any issues flagged by the VLM (such as unclear labels, missing legends, or misleading visualizations) result in the node being marked as buggy, and this feedback is recorded for future debugging. Nodes that successfully execute and pass the VLM review without issue are designated as non-buggy."
+    },
+    {
+      "evidence_id": "R06-E04",
+      "pdf_page": 9,
+      "quote": "Blind Peer Review: The three AI-generated submissions were included among the 43 total submissions received by the ICBINB workshop. Reviewers were informed in advance that some submissions might be AI-generated, but were not told which submissions were produced by The AI Scientist-v2. Reviewers could also opt out of reviewing potentially AI-generated manuscripts."
+    },
+    {
+      "evidence_id": "R06-E05",
+      "pdf_page": 4,
+      "quote": "The most significant improvement is the move towards greater autonomy and generalization, starting a more general idea generation phase (§3.1) and eliminating the reliance on fixed, human-authored template code for experimentation."
+    },
+    {
+      "evidence_id": "R06-E06",
+      "pdf_page": 5,
+      "quote": "In contrast, The AI Scientist-v2 adopts a significantly more flexible and exploratory approach inspired by recent successes in integrating tree search with LLM-driven workflows (Chan et al., 2025; Jiang et al., 2025; Wijk et al., 2024) and research on open-endedness (Clune, 2019; Mouret and Clune, 2015). We incorporate this agentic tree search approach across all four experimentation stages outlined in §3.2.1, enabling deeper and more systematic exploration of scientific hypotheses."
+    },
+    {
+      "evidence_id": "R06-E07",
+      "pdf_page": 10,
+      "quote": "From this combined AI-generated pool, we selected the three most promising initial ideas–two from the first batch, and one from the second batch–based on alignment with the workshop theme and potential interest, focusing on topics representing distinct research directions. This initial idea selection step allowed us to manage computational resources by choosing which distinct, AI-generated starting points to explore further with the full system. It did not involve modifying the ideas themselves."
+    },
+    {
+      "evidence_id": "R06-E08",
+      "pdf_page": 10,
+      "quote": "From the multiple complete manuscripts generated for each initial idea (i.e., one manuscript per seed), we selected the single best-resulting manuscript for submission based on a careful inspection of its overall coherence and scientific quality. This process mimics a professor reviewing the work of many students or teams and deciding which work is ready to be submitted for peer review."
+    },
+    {
+      "evidence_id": "R06-E09",
+      "pdf_page": 9,
+      "quote": "Among the three manuscripts produced by The AI Scientist-v2, one manuscript achieved a sufficiently high average reviewer score (6.33 out of 10, with individual scores of 6, 6, and 7) to surpass the workshop’s acceptance threshold. The remaining two submissions received lower scores and were not accepted."
+    },
+    {
+      "evidence_id": "R06-E10",
+      "pdf_page": 6,
+      "quote": "New child nodes are created differently depending on their parent node’s status: For non-buggy nodes, refinement is applied to improve the experiment code for better performance. For buggy nodes, the system attempts to debug them using stored error information. A best-performing node, selected by LLM-based evaluation, is passed down as the root node of Stage 2."
+    },
+    {
+      "evidence_id": "R06-E11",
+      "pdf_page": 7,
+      "quote": "At each iteration, the system selects several nodes from the existing tree to expand in parallel. With a predefined probability, a buggy node is chosen (thus prioritizing error resolution and debugging); otherwise, a non-buggy node is selected for further refinement and improvement. When choosing between non-buggy nodes, the system uses a best-first search strategy, guided by an LLM that evaluates candidates based on factors like performance metrics, training dynamics, and the quality of generated plots."
+    },
+    {
+      "evidence_id": "R06-E12",
+      "pdf_page": 10,
+      "quote": "Crucially, while humans initiated the process by providing the high-level workshop theme and selected which initial AI-generated ideas to run multiple times through the full pipeline (akin to deciding which experiments to fund or prioritize), and subsequently selected the most promising complete output from those multiple runs, the entire process within any single run—hypothesis refinement, code generation, execution, analysis, visualization, and writing—was performed autonomously"
+    }
+  ]
+}
+
+
+Required JSON schema:
+{
+  "$defs": {
+    "CommonEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/Diagnostic"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Recommendation"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "diagnostics",
+        "recommendations"
+      ],
+      "title": "CommonEnvelope",
+      "type": "object"
+    },
+    "DecisionRole": {
+      "enum": [
+        "diagnostic",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "memory_admission",
+        "terminal_assessment",
+        "final_acceptance",
+        "external_assessment",
+        "not_reported"
+      ],
+      "title": "DecisionRole",
+      "type": "string"
+    },
+    "Diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "consequence": {
+          "minLength": 1,
+          "title": "Consequence",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/DiagnosticKind"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "kind",
+        "evidence_ids",
+        "exact_quotes",
+        "consequence"
+      ],
+      "title": "Diagnostic",
+      "type": "object"
+    },
+    "DiagnosticKind": {
+      "enum": [
+        "reported_failure",
+        "risk",
+        "ambiguity",
+        "missing_evidence"
+      ],
+      "title": "DiagnosticKind",
+      "type": "string"
+    },
+    "EvaluatorSubstrate": {
+      "enum": [
+        "deterministic_program",
+        "statistical_model",
+        "formal_kernel",
+        "llm",
+        "human",
+        "hybrid",
+        "not_reported"
+      ],
+      "title": "EvaluatorSubstrate",
+      "type": "string"
+    },
+    "EvidenceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "exact_quote": {
+          "minLength": 1,
+          "title": "Exact Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "exact_quote"
+      ],
+      "title": "EvidenceExcerpt",
+      "type": "object"
+    },
+    "EvidenceQuote": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "pdf_id": {
+          "minLength": 1,
+          "title": "Pdf Id",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "pdf_id",
+        "page",
+        "quote",
+        "rationale"
+      ],
+      "title": "EvidenceQuote",
+      "type": "object"
+    },
+    "EvidenceSource": {
+      "enum": [
+        "execution_trace",
+        "benchmark_metric",
+        "statistical_test",
+        "physical_measurement",
+        "replication",
+        "prior_art_corpus",
+        "artifact_review",
+        "human_judgment",
+        "not_reported"
+      ],
+      "title": "EvidenceSource",
+      "type": "string"
+    },
+    "ExternalIndependence": {
+      "enum": [
+        "internal_self_evaluation",
+        "internal_separate_component",
+        "external_nonindependent",
+        "external_independent",
+        "not_reported"
+      ],
+      "title": "ExternalIndependence",
+      "type": "string"
+    },
+    "FeedbackPath": {
+      "enum": [
+        "terminal_only",
+        "memory_update",
+        "candidate_revision",
+        "policy_control",
+        "stage_transition",
+        "external_only",
+        "unclear"
+      ],
+      "title": "FeedbackPath",
+      "type": "string"
+    },
+    "Fidelity": {
+      "enum": [
+        "simulation_or_proxy",
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "robotic_experiment",
+        "physical_assay",
+        "not_applicable",
+        "not_reported"
+      ],
+      "title": "Fidelity",
+      "type": "string"
+    },
+    "HumanAuthority": {
+      "additionalProperties": false,
+      "properties": {
+        "executor": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Executor",
+          "type": "array"
+        },
+        "generator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Generator",
+          "type": "array"
+        },
+        "memory": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Memory",
+          "type": "array"
+        },
+        "policy": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Policy",
+          "type": "array"
+        },
+        "validator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Validator",
+          "type": "array"
+        }
+      },
+      "required": [
+        "generator",
+        "executor",
+        "validator",
+        "memory",
+        "policy"
+      ],
+      "title": "HumanAuthority",
+      "type": "object"
+    },
+    "OperationalStatus": {
+      "enum": [
+        "implemented",
+        "proposed_not_exercised",
+        "external",
+        "not_reported",
+        "unclear"
+      ],
+      "title": "OperationalStatus",
+      "type": "string"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "linked_diagnostic_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Linked Diagnostic Ids",
+          "type": "array"
+        },
+        "priority_rank": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "proposed_action": {
+          "minLength": 1,
+          "title": "Proposed Action",
+          "type": "string"
+        },
+        "success_check": {
+          "$ref": "#/$defs/SuccessCheck"
+        }
+      },
+      "required": [
+        "id",
+        "priority_rank",
+        "proposed_action",
+        "linked_diagnostic_ids",
+        "evidence_ids",
+        "exact_quotes",
+        "success_check"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "ReliabilityEvidence": {
+      "enum": [
+        "none_reported",
+        "discrimination_study",
+        "agreement_study",
+        "systematic_error_or_bias_test",
+        "property_specific_external_validation",
+        "probabilistic_calibration_analysis"
+      ],
+      "title": "ReliabilityEvidence",
+      "type": "string"
+    },
+    "ReliabilityFinding": {
+      "enum": [
+        "not_evaluated",
+        "not_established",
+        "evidence_of_error_or_bias",
+        "positive_property_specific_evidence",
+        "mixed",
+        "unclear"
+      ],
+      "title": "ReliabilityFinding",
+      "type": "string"
+    },
+    "SuccessCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "comparator_or_threshold": {
+          "minLength": 1,
+          "title": "Comparator Or Threshold",
+          "type": "string"
+        },
+        "evidence_needed": {
+          "minLength": 1,
+          "title": "Evidence Needed",
+          "type": "string"
+        },
+        "observable": {
+          "minLength": 1,
+          "title": "Observable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observable",
+        "comparator_or_threshold",
+        "evidence_needed"
+      ],
+      "title": "SuccessCheck",
+      "type": "object"
+    },
+    "TargetProperty": {
+      "enum": [
+        "executability",
+        "specification_compliance",
+        "task_performance",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "reproducibility",
+        "novelty",
+        "significance",
+        "aggregate_quality",
+        "not_reported"
+      ],
+      "title": "TargetProperty",
+      "type": "string"
+    },
+    "ValidatorChannel": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_id": {
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "decision_role": {
+          "items": {
+            "$ref": "#/$defs/DecisionRole"
+          },
+          "title": "Decision Role",
+          "type": "array"
+        },
+        "evaluator_substrate": {
+          "items": {
+            "$ref": "#/$defs/EvaluatorSubstrate"
+          },
+          "title": "Evaluator Substrate",
+          "type": "array"
+        },
+        "evidence_source": {
+          "items": {
+            "$ref": "#/$defs/EvidenceSource"
+          },
+          "title": "Evidence Source",
+          "type": "array"
+        },
+        "experimental_fidelity": {
+          "items": {
+            "$ref": "#/$defs/Fidelity"
+          },
+          "title": "Experimental Fidelity",
+          "type": "array"
+        },
+        "external_independence": {
+          "$ref": "#/$defs/ExternalIndependence"
+        },
+        "feedback_path": {
+          "items": {
+            "$ref": "#/$defs/FeedbackPath"
+          },
+          "title": "Feedback Path",
+          "type": "array"
+        },
+        "operational_status": {
+          "$ref": "#/$defs/OperationalStatus"
+        },
+        "quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceQuote"
+          },
+          "minItems": 1,
+          "title": "Quotes",
+          "type": "array"
+        },
+        "reliability_evidence_type": {
+          "items": {
+            "$ref": "#/$defs/ReliabilityEvidence"
+          },
+          "title": "Reliability Evidence Type",
+          "type": "array"
+        },
+        "reliability_finding": {
+          "$ref": "#/$defs/ReliabilityFinding"
+        },
+        "target_property": {
+          "items": {
+            "$ref": "#/$defs/TargetProperty"
+          },
+          "title": "Target Property",
+          "type": "array"
+        }
+      },
+      "required": [
+        "channel_id",
+        "operational_status",
+        "target_property",
+        "evidence_source",
+        "evaluator_substrate",
+        "decision_role",
+        "feedback_path",
+        "external_independence",
+        "reliability_evidence_type",
+        "reliability_finding",
+        "experimental_fidelity",
+        "quotes"
+      ],
+      "title": "ValidatorChannel",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "channels": {
+      "items": {
+        "$ref": "#/$defs/ValidatorChannel"
+      },
+      "minItems": 1,
+      "title": "Channels",
+      "type": "array"
+    },
+    "envelope": {
+      "$ref": "#/$defs/CommonEnvelope"
+    },
+    "human_authority": {
+      "$ref": "#/$defs/HumanAuthority"
+    },
+    "memory_structure": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Memory Structure",
+      "type": "array"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "policy_type": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Policy Type",
+      "type": "array"
+    },
+    "record_id": {
+      "pattern": "^R\\d{2}$",
+      "title": "Record Id",
+      "type": "string"
+    },
+    "vendor": {
+      "minLength": 1,
+      "title": "Vendor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "vendor",
+    "model_id",
+    "channels",
+    "policy_type",
+    "memory_structure",
+    "human_authority",
+    "envelope"
+  ],
+  "title": "ServoCoding",
+  "type": "object"
+}
+warning: Skill descriptions were shortened to fit the 2% skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest.
+codex
+{"channels":[{"channel_id":"idea_literature_novelty_filter","decision_role":["search_control"],"evaluator_substrate":["hybrid"],"evidence_source":["prior_art_corpus"],"experimental_fidelity":["not_applicable"],"external_independence":"internal_separate_component","feedback_path":["policy_control"],"operational_status":"implemented","quotes":[{"evidence_id":"R06-E01","page":4,"pdf_id":"53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2","quote":"Crucially, this generalized idea generation phase integrates literature review tools, such as Semantic Scholar, in the loop. The system can query the literature database during the idea formulation process to assess the novelty of a proposed concept and identify relevant prior work. This allows for more informed decisions about pursuing a particular research avenue, ensuring ideas are grounded in the existing scientific landscape from the outset, rather than relying solely on post-hoc checks.","rationale":"Reports an in-loop literature-review evaluator used during idea formulation to assess novelty and inform whether to pursue a research avenue."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["novelty"]},{"channel_id":"stage_llm_best_node_evaluator","decision_role":["ranking","stage_transition"],"evaluator_substrate":["llm"],"evidence_source":["benchmark_metric","artifact_review"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_separate_component","feedback_path":["stage_transition"],"operational_status":"implemented","quotes":[{"evidence_id":"R06-E02","page":5,"pdf_id":"53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2","quote":"After each stage, the experiment manager selects the best-performing node using a dedicated LLM evaluator (see next section) based on clearly articulated criteria. This selected node is then carried forward to seed the subsequent experimentation stage. The manager also records checkpoints at each stage’s completion.","rationale":"Identifies a dedicated LLM evaluator that ranks nodes and causes the selected node to seed the next stage."},{"evidence_id":"R06-E10","page":6,"pdf_id":"53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2","quote":"New child nodes are created differently depending on their parent node’s status: For non-buggy nodes, refinement is applied to improve the experiment code for better performance. For buggy nodes, the system attempts to debug them using stored error information. A best-performing node, selected by LLM-based evaluation, is passed down as the root node of Stage 2.","rationale":"Confirms LLM-based best-node selection and stage transition into the next stage root."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["task_performance","aggregate_quality"]},{"channel_id":"vlm_visualization_bug_critique","decision_role":["diagnostic","memory_admission"],"evaluator_substrate":["llm"],"evidence_source":["artifact_review"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_separate_component","feedback_path":["memory_update"],"operational_status":"implemented","quotes":[{"evidence_id":"R06-E03","page":5,"pdf_id":"53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2","quote":"These visualizations are subsequently passed to a Vision-Language Model (VLM) for critique. Any issues flagged by the VLM (such as unclear labels, missing legends, or misleading visualizations) result in the node being marked as buggy, and this feedback is recorded for future debugging. Nodes that successfully execute and pass the VLM review without issue are designated as non-buggy.","rationale":"Reports a VLM critique channel that judges visualization artifacts, marks nodes buggy or non-buggy, and records feedback for debugging memory."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["specification_compliance"]},{"channel_id":"tree_search_llm_expansion_control","decision_role":["search_control"],"evaluator_substrate":["llm"],"evidence_source":["execution_trace","benchmark_metric","artifact_review"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_separate_component","feedback_path":["policy_control","candidate_revision"],"operational_status":"implemented","quotes":[{"evidence_id":"R06-E11","page":7,"pdf_id":"53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2","quote":"At each iteration, the system selects several nodes from the existing tree to expand in parallel. With a predefined probability, a buggy node is chosen (thus prioritizing error resolution and debugging); otherwise, a non-buggy node is selected for further refinement and improvement. When choosing between non-buggy nodes, the system uses a best-first search strategy, guided by an LLM that evaluates candidates based on factors like performance metrics, training dynamics, and the quality of generated plots.","rationale":"Reports iterative tree expansion control using predefined buggy-node probability and LLM-guided best-first selection over metrics, training dynamics, and plots."},{"evidence_id":"R06-E10","page":6,"pdf_id":"53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2","quote":"New child nodes are created differently depending on their parent node’s status: For non-buggy nodes, refinement is applied to improve the experiment code for better performance. For buggy nodes, the system attempts to debug them using stored error information. A best-performing node, selected by LLM-based evaluation, is passed down as the root node of Stage 2.","rationale":"Shows the selected node status controls whether child-node generation performs refinement or debugging."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["task_performance","executability","aggregate_quality"]},{"channel_id":"human_initial_idea_selection","decision_role":["search_control"],"evaluator_substrate":["human"],"evidence_source":["human_judgment"],"experimental_fidelity":["not_applicable"],"external_independence":"internal_self_evaluation","feedback_path":["policy_control"],"operational_status":"implemented","quotes":[{"evidence_id":"R06-E07","page":10,"pdf_id":"53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2","quote":"From this combined AI-generated pool, we selected the three most promising initial ideas–two from the first batch, and one from the second batch–based on alignment with the workshop theme and potential interest, focusing on topics representing distinct research directions. This initial idea selection step allowed us to manage computational resources by choosing which distinct, AI-generated starting points to explore further with the full system. It did not involve modifying the ideas themselves.","rationale":"Reports human selection of which AI-generated starting ideas receive full-system exploration based on workshop alignment and potential interest."},{"evidence_id":"R06-E12","page":10,"pdf_id":"53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2","quote":"Crucially, while humans initiated the process by providing the high-level workshop theme and selected which initial AI-generated ideas to run multiple times through the full pipeline (akin to deciding which experiments to fund or prioritize), and subsequently selected the most promising complete output from those multiple runs, the entire process within any single run—hypothesis refinement, code generation, execution, analysis, visualization, and writing—was performed autonomously","rationale":"Confirms human initiation and selection of initial AI-generated ideas for multiple full-pipeline runs."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["significance","aggregate_quality"]},{"channel_id":"human_complete_manuscript_selection","decision_role":["ranking","terminal_assessment"],"evaluator_substrate":["human"],"evidence_source":["human_judgment","artifact_review"],"experimental_fidelity":["not_applicable"],"external_independence":"internal_self_evaluation","feedback_path":["terminal_only"],"operational_status":"implemented","quotes":[{"evidence_id":"R06-E08","page":10,"pdf_id":"53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2","quote":"From the multiple complete manuscripts generated for each initial idea (i.e., one manuscript per seed), we selected the single best-resulting manuscript for submission based on a careful inspection of its overall coherence and scientific quality. This process mimics a professor reviewing the work of many students or teams and deciding which work is ready to be submitted for peer review.","rationale":"Reports human inspection and selection of the best complete manuscript for submission based on coherence and scientific quality."},{"evidence_id":"R06-E12","page":10,"pdf_id":"53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2","quote":"Crucially, while humans initiated the process by providing the high-level workshop theme and selected which initial AI-generated ideas to run multiple times through the full pipeline (akin to deciding which experiments to fund or prioritize), and subsequently selected the most promising complete output from those multiple runs, the entire process within any single run—hypothesis refinement, code generation, execution, analysis, visualization, and writing—was performed autonomously","rationale":"Confirms humans subsequently selected the most promising complete output from multiple runs."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["aggregate_quality"]},{"channel_id":"blind_workshop_peer_review","decision_role":["external_assessment","final_acceptance"],"evaluator_substrate":["human"],"evidence_source":["human_judgment","artifact_review"],"experimental_fidelity":["not_applicable"],"external_independence":"external_independent","feedback_path":["external_only"],"operational_status":"external","quotes":[{"evidence_id":"R06-E04","page":9,"pdf_id":"53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2","quote":"Blind Peer Review: The three AI-generated submissions were included among the 43 total submissions received by the ICBINB workshop. Reviewers were informed in advance that some submissions might be AI-generated, but were not told which submissions were produced by The AI Scientist-v2. Reviewers could also opt out of reviewing potentially AI-generated manuscripts.","rationale":"Reports an external blind peer-review process in which workshop reviewers evaluated submissions without knowing which were produced by the system."},{"evidence_id":"R06-E09","page":9,"pdf_id":"53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2","quote":"Among the three manuscripts produced by The AI Scientist-v2, one manuscript achieved a sufficiently high average reviewer score (6.33 out of 10, with individual scores of 6, 6, and 7) to surpass the workshop’s acceptance threshold. The remaining two submissions received lower scores and were not accepted.","rationale":"Reports the external reviewer scores and acceptance outcome for the three submitted manuscripts."}],"reliability_evidence_type":["property_specific_external_validation"],"reliability_finding":"mixed","target_property":["aggregate_quality","significance"]}],"envelope":{"diagnostics":[{"consequence":"Claims about autonomous search quality depend on several internal LLM/VLM judgments whose reliability for the specific targets is not established in the packet.","evidence_ids":["R06-E02","R06-E03","R06-E11"],"exact_quotes":[{"evidence_id":"R06-E02","exact_quote":"After each stage, the experiment manager selects the best-performing node using a dedicated LLM evaluator (see next section) based on clearly articulated criteria. This selected node is then carried forward to seed the subsequent experimentation stage. The manager also records checkpoints at each stage’s completion."},{"evidence_id":"R06-E03","exact_quote":"These visualizations are subsequently passed to a Vision-Language Model (VLM) for critique. Any issues flagged by the VLM (such as unclear labels, missing legends, or misleading visualizations) result in the node being marked as buggy, and this feedback is recorded for future debugging. Nodes that successfully execute and pass the VLM review without issue are designated as non-buggy."},{"evidence_id":"R06-E11","exact_quote":"At each iteration, the system selects several nodes from the existing tree to expand in parallel. With a predefined probability, a buggy node is chosen (thus prioritizing error resolution and debugging); otherwise, a non-buggy node is selected for further refinement and improvement. When choosing between non-buggy nodes, the system uses a best-first search strategy, guided by an LLM that evaluates candidates based on factors like performance metrics, training dynamics, and the quality of generated plots."}],"id":"D1","kind":"missing_evidence","statement":"The packet reports internal LLM and VLM evaluator channels that control stage transition, search expansion, and bug labeling, but reports no reliability study for those exact evaluator-target pairs."},{"consequence":"The system-level acceptance evidence is positive for one selected submission but cannot be read as uniformly successful performance across submitted outputs.","evidence_ids":["R06-E09"],"exact_quotes":[{"evidence_id":"R06-E09","exact_quote":"Among the three manuscripts produced by The AI Scientist-v2, one manuscript achieved a sufficiently high average reviewer score (6.33 out of 10, with individual scores of 6, 6, and 7) to surpass the workshop’s acceptance threshold. The remaining two submissions received lower scores and were not accepted."}],"id":"D2","kind":"reported_failure","statement":"Two of the three externally reviewed submissions were not accepted."},{"consequence":"End-to-end autonomy is bounded by human selection decisions outside single runs, so coding the whole reported workflow as fully closed computational control would overstate the packet.","evidence_ids":["R06-E07","R06-E08","R06-E12"],"exact_quotes":[{"evidence_id":"R06-E07","exact_quote":"From this combined AI-generated pool, we selected the three most promising initial ideas–two from the first batch, and one from the second batch–based on alignment with the workshop theme and potential interest, focusing on topics representing distinct research directions. This initial idea selection step allowed us to manage computational resources by choosing which distinct, AI-generated starting points to explore further with the full system. It did not involve modifying the ideas themselves."},{"evidence_id":"R06-E08","exact_quote":"From the multiple complete manuscripts generated for each initial idea (i.e., one manuscript per seed), we selected the single best-resulting manuscript for submission based on a careful inspection of its overall coherence and scientific quality. This process mimics a professor reviewing the work of many students or teams and deciding which work is ready to be submitted for peer review."},{"evidence_id":"R06-E12","exact_quote":"Crucially, while humans initiated the process by providing the high-level workshop theme and selected which initial AI-generated ideas to run multiple times through the full pipeline (akin to deciding which experiments to fund or prioritize), and subsequently selected the most promising complete output from those multiple runs, the entire process within any single run—hypothesis refinement, code generation, execution, analysis, visualization, and writing—was performed autonomously"}],"id":"D3","kind":"risk","statement":"The packet reports autonomous operation within single runs, but humans initiated the process and selected both initial ideas and complete outputs across runs."}],"recommendations":[{"evidence_ids":["R06-E02","R06-E03","R06-E11"],"exact_quotes":[{"evidence_id":"R06-E02","exact_quote":"After each stage, the experiment manager selects the best-performing node using a dedicated LLM evaluator (see next section) based on clearly articulated criteria. This selected node is then carried forward to seed the subsequent experimentation stage. The manager also records checkpoints at each stage’s completion."},{"evidence_id":"R06-E03","exact_quote":"These visualizations are subsequently passed to a Vision-Language Model (VLM) for critique. Any issues flagged by the VLM (such as unclear labels, missing legends, or misleading visualizations) result in the node being marked as buggy, and this feedback is recorded for future debugging. Nodes that successfully execute and pass the VLM review without issue are designated as non-buggy."},{"evidence_id":"R06-E11","exact_quote":"At each iteration, the system selects several nodes from the existing tree to expand in parallel. With a predefined probability, a buggy node is chosen (thus prioritizing error resolution and debugging); otherwise, a non-buggy node is selected for further refinement and improvement. When choosing between non-buggy nodes, the system uses a best-first search strategy, guided by an LLM that evaluates candidates based on factors like performance metrics, training dynamics, and the quality of generated plots."}],"id":"REC1","linked_diagnostic_ids":["D1"],"priority_rank":1,"proposed_action":"Report property-specific validation for the LLM/VLM evaluator channels that drive node selection, stage transition, search expansion, and bug labeling.","success_check":{"comparator_or_threshold":"At least one reported study per evaluator channel and target property, or an explicit statement that no such study was performed.","evidence_needed":"Validation results comparing evaluator outputs with an independently defined reference judgment for the same target property.","observable":"The source separately reports reliability evidence for stage LLM selection, VLM visualization critique, and LLM-guided tree expansion."}},{"evidence_ids":["R06-E09"],"exact_quotes":[{"evidence_id":"R06-E09","exact_quote":"Among the three manuscripts produced by The AI Scientist-v2, one manuscript achieved a sufficiently high average reviewer score (6.33 out of 10, with individual scores of 6, 6, and 7) to surpass the workshop’s acceptance threshold. The remaining two submissions received lower scores and were not accepted."}],"id":"REC2","linked_diagnostic_ids":["D2"],"priority_rank":2,"proposed_action":"Report external-review outcomes as a distribution across all submitted manuscripts, not only as the accepted case.","success_check":{"comparator_or_threshold":"All submitted manuscripts are included with reviewer scores and acceptance status.","evidence_needed":"Per-submission external reviewer scores and accept/reject outcomes.","observable":"A table or equivalent record lists the three manuscripts, their individual reviewer scores, average scores, and acceptance decisions."}},{"evidence_ids":["R06-E07","R06-E08","R06-E12"],"exact_quotes":[{"evidence_id":"R06-E07","exact_quote":"From this combined AI-generated pool, we selected the three most promising initial ideas–two from the first batch, and one from the second batch–based on alignment with the workshop theme and potential interest, focusing on topics representing distinct research directions. This initial idea selection step allowed us to manage computational resources by choosing which distinct, AI-generated starting points to explore further with the full system. It did not involve modifying the ideas themselves."},{"evidence_id":"R06-E08","exact_quote":"From the multiple complete manuscripts generated for each initial idea (i.e., one manuscript per seed), we selected the single best-resulting manuscript for submission based on a careful inspection of its overall coherence and scientific quality. This process mimics a professor reviewing the work of many students or teams and deciding which work is ready to be submitted for peer review."},{"evidence_id":"R06-E12","exact_quote":"Crucially, while humans initiated the process by providing the high-level workshop theme and selected which initial AI-generated ideas to run multiple times through the full pipeline (akin to deciding which experiments to fund or prioritize), and subsequently selected the most promising complete output from those multiple runs, the entire process within any single run—hypothesis refinement, code generation, execution, analysis, visualization, and writing—was performed autonomously"}],"id":"REC3","linked_diagnostic_ids":["D3"],"priority_rank":3,"proposed_action":"Separately report single-run autonomous behavior and cross-run human selection authority in evaluations of autonomy.","success_check":{"comparator_or_threshold":"Both levels are explicitly separated wherever autonomy is summarized.","evidence_needed":"A workflow description or evaluation table that distinguishes within-run automated steps from human initiation, initial-idea selection, and final-output selection.","observable":"Autonomy claims identify human roles for theme provision, idea selection, and complete-output selection alongside autonomous within-run steps."}}]},"human_authority":{"executor":["not_applicable"],"generator":["initiate"],"memory":["not_reported"],"policy":["select"],"validator":["select","final_authority"]},"memory_structure":["checkpoints recorded at each stage completion","VLM feedback recorded for future debugging","stored error information used to debug buggy nodes"],"model_id":"gpt-5-codex","policy_type":["agentic tree search","best-first search","predefined probability for choosing buggy nodes","stage-wise best-node carry-forward"],"record_id":"R06","vendor":"codex"}
+tokens used
+11,566

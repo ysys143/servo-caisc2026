@@ -1,0 +1,257 @@
+{
+  "record_id": "R12",
+  "vendor": "gemini",
+  "model_id": "gemini-3.1-pro",
+  "channels": [
+    {
+      "channel_id": "hypothesis_evaluation",
+      "operational_status": "implemented",
+      "target_property": [
+        "executability",
+        "correctness_or_formal_validity"
+      ],
+      "evidence_source": [
+        "artifact_review"
+      ],
+      "evaluator_substrate": [
+        "not_reported"
+      ],
+      "decision_role": [
+        "search_control"
+      ],
+      "feedback_path": [
+        "candidate_revision"
+      ],
+      "external_independence": "internal_separate_component",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R12-E01",
+          "pdf_id": "be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491",
+          "page": 4,
+          "quote": "During hypothesis formulation, an Innovator proposes high-risk hypotheses that challenge conventional assumptions, a Pragmatist evaluates feasibility given hardware and time budgets, and a Contrarian actively seeks weaknesses and confounds. The synthesizer distills these perspectives into 2–4 falsifiable hypotheses, each annotated with testability criteria and required baselines.",
+          "rationale": "Shows internal evaluation of hypotheses by distinct roles before synthesis to prune the search space."
+        }
+      ]
+    },
+    {
+      "channel_id": "automated_repair_loop",
+      "operational_status": "implemented",
+      "target_property": [
+        "empirical_adequacy"
+      ],
+      "evidence_source": [
+        "execution_trace"
+      ],
+      "evaluator_substrate": [
+        "not_reported"
+      ],
+      "decision_role": [
+        "search_control",
+        "stage_transition"
+      ],
+      "feedback_path": [
+        "candidate_revision",
+        "stage_transition",
+        "memory_update"
+      ],
+      "external_independence": "not_reported",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "computational_experiment"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R12-E02",
+          "pdf_id": "be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491",
+          "page": 4,
+          "quote": "When an experiment fails or produces degenerate results, an automated repair loop captures the failure signature and generates targeted fixes. The system then makes one of three decisions: Proceed when evidence supports the hypothesis, Refine when results are weak but the experimental direction is sound, or Pivot when the approach is fundamentally flawed",
+          "rationale": "Evaluates experiment failures to decide whether to proceed, refine, or pivot."
+        },
+        {
+          "evidence_id": "R12-E04",
+          "pdf_id": "be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491",
+          "page": 5,
+          "quote": "At the end of each run, the system extracts structured lessons from repair attempts, Pivot/Refine decisions, HITL gate feedback, and verification results. Each lesson records a category, a severity score s(l) ∈ (0, 1], and a recommended mitigation. When a new run begins, relevant lessons are retrieved by category and ranked by a time-decayed weight:",
+          "rationale": "Demonstrates that repair loop outcomes provide structured lessons for memory updates."
+        },
+        {
+          "evidence_id": "R12-E08",
+          "pdf_id": "be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491",
+          "page": 17,
+          "quote": "Phase 0 (Dependency Installation) and Phase 1 (Data Acquisition) enable network access; Phase 2 (Experiment Execution) disables network via iptables rules applied inside the container before the experiment script starts.",
+          "rationale": "Clarifies that experiments are executed as computational experiments within an isolated container."
+        }
+      ]
+    },
+    {
+      "channel_id": "post_hoc_verifier",
+      "operational_status": "implemented",
+      "target_property": [
+        "correctness_or_formal_validity"
+      ],
+      "evidence_source": [
+        "artifact_review"
+      ],
+      "evaluator_substrate": [
+        "not_reported"
+      ],
+      "decision_role": [
+        "terminal_assessment",
+        "search_control"
+      ],
+      "feedback_path": [
+        "candidate_revision",
+        "terminal_only",
+        "memory_update"
+      ],
+      "external_independence": "internal_separate_component",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R12-E03",
+          "pdf_id": "be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491",
+          "page": 5,
+          "quote": "After generation, a post-hoc verifier re-extracts every numeric claim and checks it against the registry, scoped per condition to prevent cross-condition false positives. Claims in strict sections (Abstract, Results, Experiments) that cannot be matched to a registry entry trigger document rejection. Claims in other sections are replaced with visible placeholders.",
+          "rationale": "Explains how the verifier checks numeric claims and either rejects the document or forces revision."
+        },
+        {
+          "evidence_id": "R12-E04",
+          "pdf_id": "be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491",
+          "page": 5,
+          "quote": "At the end of each run, the system extracts structured lessons from repair attempts, Pivot/Refine decisions, HITL gate feedback, and verification results. Each lesson records a category, a severity score s(l) ∈ (0, 1], and a recommended mitigation. When a new run begins, relevant lessons are retrieved by category and ranked by a time-decayed weight:",
+          "rationale": "Indicates that verification results inform memory updates."
+        },
+        {
+          "evidence_id": "R12-E07",
+          "pdf_id": "be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491",
+          "page": 10,
+          "quote": "Full-Auto passes the numeric gate because the zero values are real logged measurements, not fabricated numbers. However, the gate cannot tell whether those measurements answer the research question.",
+          "rationale": "Shows a qualitative limitation of the post-hoc verifier."
+        }
+      ]
+    },
+    {
+      "channel_id": "hitl_gate",
+      "operational_status": "implemented",
+      "target_property": [
+        "not_reported"
+      ],
+      "evidence_source": [
+        "human_judgment"
+      ],
+      "evaluator_substrate": [
+        "human"
+      ],
+      "decision_role": [
+        "not_reported"
+      ],
+      "feedback_path": [
+        "memory_update"
+      ],
+      "external_independence": "not_reported",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R12-E04",
+          "pdf_id": "be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491",
+          "page": 5,
+          "quote": "At the end of each run, the system extracts structured lessons from repair attempts, Pivot/Refine decisions, HITL gate feedback, and verification results. Each lesson records a category, a severity score s(l) ∈ (0, 1], and a recommended mitigation. When a new run begins, relevant lessons are retrieved by category and ranked by a time-decayed weight:",
+          "rationale": "Shows that human-in-the-loop gate feedback generates structured lessons for the system memory."
+        }
+      ]
+    }
+  ],
+  "policy_type": [
+    "not_reported"
+  ],
+  "memory_structure": [
+    "structured_lessons",
+    "category",
+    "severity_score",
+    "recommended_mitigation",
+    "time_decayed_weight"
+  ],
+  "human_authority": {
+    "generator": [
+      "explicit_none"
+    ],
+    "executor": [
+      "explicit_none"
+    ],
+    "validator": [
+      "explicit_none",
+      "advise"
+    ],
+    "memory": [
+      "explicit_none"
+    ],
+    "policy": [
+      "explicit_none"
+    ]
+  },
+  "envelope": {
+    "diagnostics": [
+      {
+        "id": "D1",
+        "statement": "The post-hoc numeric gate is vulnerable to semantic circumvention, accepting degenerate zero values because it only validates numerical existence rather than semantic relevance.",
+        "kind": "reported_failure",
+        "evidence_ids": [
+          "R12-E07"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R12-E07",
+            "exact_quote": "Full-Auto passes the numeric gate because the zero values are real logged measurements, not fabricated numbers. However, the gate cannot tell whether those measurements answer the research question."
+          }
+        ],
+        "consequence": "The system may accept fundamentally flawed experiments and generate false positives because degenerate measurements satisfy the numeric gate's existence check."
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "R1",
+        "priority_rank": 1,
+        "proposed_action": "Enhance the post-hoc verifier with a semantic evaluation capability to ensure logged measurements actually correspond to the formulated research question.",
+        "linked_diagnostic_ids": [
+          "D1"
+        ],
+        "evidence_ids": [
+          "R12-E07"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R12-E07",
+            "exact_quote": "Full-Auto passes the numeric gate because the zero values are real logged measurements, not fabricated numbers. However, the gate cannot tell whether those measurements answer the research question."
+          }
+        ],
+        "success_check": {
+          "observable": "Numeric gate rejection rate for semantically irrelevant measurements",
+          "comparator_or_threshold": "greater than zero",
+          "evidence_needed": "Verification logs demonstrating the gate correctly identifying and rejecting real logged numbers that fail to address the research question."
+        }
+      }
+    ]
+  }
+}

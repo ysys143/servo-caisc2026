@@ -1,0 +1,9 @@
+{
+  "attempted_trials": 62,
+  "completed_trials": 61,
+  "finished_utc": "2026-07-20T17:14:08.680006+00:00",
+  "reason": "Acceptance gate omitted packet-level evidence and requested-model provenance validation; baseline comparator was probe/action-code primed.",
+  "replacement_run": "r24-run-004",
+  "status": "invalidated",
+  "use": "audit_only"
+}

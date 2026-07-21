@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "record_id": "R01",
+  "completeness_boundary": "The full cited PDF was reviewed and searched. not_reported means that no explicit statement was found in that source.",
+  "answer_options": [
+    "yes",
+    "no",
+    "not_reported"
+  ],
+  "probes": [
+    {
+      "probe_id": "R01-P01",
+      "question": "Does the Planner receive command outputs as input messages?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R01-E01"
+      ]
+    },
+    {
+      "probe_id": "R01-P02",
+      "question": "Does the source report that Coscientist conducts experiments in the physical world?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R01-E02"
+      ]
+    },
+    {
+      "probe_id": "R01-P03",
+      "question": "Does Coscientist consult documentation and correct a protocol after using an incorrect method name?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R01-E03"
+      ]
+    },
+    {
+      "probe_id": "R01-P04",
+      "question": "Does the source report reuse of information obtained during iterative optimization?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R01-E04"
+      ]
+    },
+    {
+      "probe_id": "R01-P05",
+      "question": "Does the source state that its synthesis-planning labels are objective and invariant across labelers?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R01-E05"
+      ]
+    },
+    {
+      "probe_id": "R01-P06",
+      "question": "Was Coscientist granted internet access during the reported liquid-handler investigation?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R01-E06"
+      ]
+    },
+    {
+      "probe_id": "R01-P07",
+      "question": "Was the reported cross-coupling experimental setup fully automated, including plate movement?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R01-E07"
+      ]
+    },
+    {
+      "probe_id": "R01-P08",
+      "question": "Does the source state that the full data, code, and prompts were already released without delay?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R01-E08"
+      ]
+    },
+    {
+      "probe_id": "R01-P09",
+      "question": "Does the source report a novelty or prior-art assessment of Coscientist's proposed experiments?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R01-P10",
+      "question": "Does the source report probabilistic calibration of evaluator confidence against observed correctness frequencies?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R01-P11",
+      "question": "Does the source report an independent replication of Coscientist's experiments by a separate laboratory?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R01-P12",
+      "question": "Does the source report use of a formal proof checker, theorem prover, or proof assistant as a validator?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    }
+  ]
+}

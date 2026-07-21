@@ -1,0 +1,19 @@
+{
+  "trial": {
+    "trial_id": "codex-R10-servo-smoke",
+    "vendor": "codex",
+    "record_id": "R10",
+    "condition": "servo",
+    "period": 1,
+    "order": 0
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T15:24:41.771980+00:00",
+  "elapsed_seconds": 70.51268029100902,
+  "requested_model": "gpt-5.5",
+  "prompt_sha256": "24c9c28490d21b0a237dd14495d74dda0e6959780f5a5b04e9ade4dbab66ac86",
+  "returncode": 0,
+  "stdout_sha256": "13682fe763bce064e2a19a455cc0028e43c4d5546da56955dea68b3851480b3a",
+  "stderr_sha256": "8142149b7d3fc47a9485ec8a079057d5b749d0673904530a53525834b924c618",
+  "validation_error": null
+}

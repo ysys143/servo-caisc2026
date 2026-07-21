@@ -1,0 +1,19 @@
+{
+  "trial": {
+    "trial_id": "claude-R01-2",
+    "vendor": "claude",
+    "record_id": "R01",
+    "condition": "servo",
+    "period": 2,
+    "order": 20
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T16:29:59.846393+00:00",
+  "elapsed_seconds": 57.7754461250006,
+  "requested_model": "claude-opus-4-8",
+  "prompt_sha256": "357c3beca4f5d7e1df8821f1da323563a58a3bc843241528de16b9bd58effbe9",
+  "returncode": 0,
+  "stdout_sha256": "76e8528a8fdaaee40b321690004d5ce630f93010687e10c19170fa7399c5f6f1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "validation_error": null
+}

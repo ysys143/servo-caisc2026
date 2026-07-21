@@ -1,0 +1,27 @@
+{
+  "binding": {
+    "environment_policy_sha256": "448fd926beaadf118c0de650b9595877041fda6bb7f315a522480c123bbcf229",
+    "protocol_sha256": "2b947e132a29344d5a30017d4575ff863dc489e0c69e723e40321b43c1458523",
+    "runtime_sha256": "6a868c035109d86ff86ddead0499763d612b5b13a2644618f7ea7e09e5006bb0",
+    "sandbox_profile_sha256": "f92037ef8956480d505b54ed780970067e448dc0e399e4bff122d5725ade4843"
+  },
+  "format": "r24-four-report-smoke-v1",
+  "reports": {
+    "FUNCTIONAL_REPORT": {
+      "path": "smoke_reports/FUNCTIONAL_REPORT.json",
+      "sha256": "70a3435451bea157eb98e67d6dd1cd3f87c6aa4acc0386d47304d56cdeed849d"
+    },
+    "HOOK_NEGATIVE_REPORT": {
+      "path": "smoke_reports/HOOK_NEGATIVE_REPORT.json",
+      "sha256": "20da8c38576f7acb4443c9d635e8b8e92c4c91f44f6af3d31ab469382c046d6c"
+    },
+    "ISOLATION_REPORT": {
+      "path": "smoke_reports/ISOLATION_REPORT.json",
+      "sha256": "83c0df76a7f9c9b636141b9dfe794689eec4b0cbcdf3bf37a987cc214e44e85b"
+    },
+    "STATIC_GATE_REPORT": {
+      "path": "smoke_reports/STATIC_GATE_REPORT.json",
+      "sha256": "1346bd847f65802bdb12598c5d414d976de620f68ad69f4d8e8ec8dff11b7ba3"
+    }
+  }
+}

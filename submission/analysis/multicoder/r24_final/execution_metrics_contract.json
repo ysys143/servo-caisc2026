@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "unit": "one scheduled fresh-session generation or judge call",
+  "latency_start": "immediately before provider subprocess invocation",
+  "latency_stop": "provider subprocess return, timeout, or transport exception",
+  "latency_clock": "monotonic wall clock",
+  "latency_includes": ["provider queueing", "generation", "structured-output handling inside provider CLI"],
+  "latency_excludes": ["packet staging", "post-response validation", "scoring", "author adjudication"],
+  "retry_policy": "report first-attempt latency, retry latency, total latency, and retry count separately; do not replace failed first attempts with successful retry latency",
+  "cache_policy": "fresh provider session for every call; no application-level response cache; provider-side caching is recorded when reported and otherwise unknown",
+  "rate_limit_policy": "retain rate-limit failures and waiting time in transport metadata; report chronological/vendor sensitivity and do not impute counterfactual latency",
+  "tokens": "use provider-returned input/output token counts only; unavailable counts are NA and are not estimated from text",
+  "monetary_cost": "derive only from provider-returned billable usage and a frozen price table dated before the run; otherwise report NA",
+  "aggregation": "paired within record and originating vendor; failures, retries, and missing usage remain separately visible"
+}

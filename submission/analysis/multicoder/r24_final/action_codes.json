@@ -1,0 +1,12 @@
+[
+  "obtain_independent_evidence",
+  "evaluate_evaluator_error_or_bias",
+  "add_feedback_to_later_decision",
+  "add_prior_art_check",
+  "add_replication",
+  "retain_human_approval_or_escalation",
+  "separate_diagnostic_from_gate",
+  "clarify_system_boundary",
+  "no_supported_change",
+  "abstain_or_unclear"
+]

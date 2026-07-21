@@ -1,0 +1,8 @@
+{
+  "accepted_outputs_retained": 17,
+  "invalidated_date": "2026-07-21",
+  "reason": "The frozen protocol omitted the requested independent design-recommendation-quality comparison.",
+  "replacement_run": "r24-run-003",
+  "status": "invalidated_stopped",
+  "use": "audit_only"
+}

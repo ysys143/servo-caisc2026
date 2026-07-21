@@ -1,0 +1,19 @@
+{
+  "trial": {
+    "trial_id": "codex-R14-2",
+    "vendor": "codex",
+    "record_id": "R14",
+    "condition": "servo",
+    "period": 2,
+    "order": 15
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T16:50:43.543187+00:00",
+  "elapsed_seconds": 78.26422791600635,
+  "requested_model": "gpt-5.5",
+  "prompt_sha256": "e75afd4498abd5dbd575628fbdd3d2cdc08639b795713c202f4776e33aeec27f",
+  "returncode": 0,
+  "stdout_sha256": "6c43e6bc37ac98152ad7a6a5bed30a2c4e7dca2992d79d8b54127ea7196cbfd6",
+  "stderr_sha256": "1907320118e24c87192bb783f2274d15b6cb8fe1679726f35dc322466747a428",
+  "validation_error": null
+}

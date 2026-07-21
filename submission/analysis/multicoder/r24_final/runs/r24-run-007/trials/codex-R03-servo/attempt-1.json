@@ -1,0 +1,23 @@
+{
+  "trial": {
+    "trial_id": "codex-R03-servo",
+    "vendor": "codex",
+    "record_id": "R03",
+    "condition": "servo",
+    "period": 1,
+    "order": 12
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T23:36:08.332772+00:00",
+  "elapsed_seconds": 86.99888608300535,
+  "requested_model": "gpt-5.5",
+  "prompt_sha256": "bc30945a8cf885dc0c4cf6e6549d6b20080bd0c66314a48f84930bf0a2db7969",
+  "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+  "packet_sha256": "bc266568ffe66f134652ca6f0adfa5a7b74f2ba56e07e035aa6114d1d5627a32",
+  "argv_sha256": "e8f178169c5284c41b1c646d35ceb6def955b777959ac178709f1f524ce4b2ae",
+  "returncode": 0,
+  "stdout_sha256": "3c769171748bb6397caafa555f1bc10aeec9e18ab89384da35a1f29600f47c3c",
+  "stderr_sha256": "0438a5612e9ee8e030122b4f8934533a4709f022138ac1e17c67c86f2515bdf1",
+  "validation_error": null,
+  "sandbox_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-j4lr58pr"
+}

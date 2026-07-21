@@ -1,0 +1,685 @@
+OpenAI Codex v0.144.6
+--------
+workdir: /private/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-em6ppnxe
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019f8191-3cd4-7021-8289-3beac19b0417
+--------
+user
+# SERVO condition
+
+Apply the supplied frozen R24 coding manual to the anonymous source packet. Do not infer facts outside the packet and do not use knowledge of the named system.
+
+Return only one JSON object conforming to the supplied SERVO schema. The first response character must be `{` and the last must be `}`; Markdown fences, preambles, and trailing commentary are invalid. Separate distinct validator channels, populate every facet, and attach exact packet evidence to each channel. Then provide typed diagnostics with consequences and exact evidence, plus one to three non-redundant recommendations ranked consecutively by `priority_rank` from 1 and linked to those diagnostics with observable success checks. State each recommendation as a concise free-text `proposed_action`; do not recommend a change that the packet does not support. Do not treat non-reporting as absence, terminal assessment as feedback, general reviewer error as novelty-specific evidence, or agreement and bias studies as probabilistic calibration.
+
+For every channel quote, copy `pdf_id` from the packet's 64-character `source.pdf_sha256` value, not from its `record_id`, and copy `page` from the cited evidence item's `pdf_page` value.
+
+For every diagnostic and recommendation, `evidence_ids` and the `evidence_id` values in `exact_quotes` must be identical sets: include exactly one exact quotation for every listed evidence ID, and never list an evidence ID without its quotation. Each `exact_quote` must reproduce the complete frozen `quote` string associated with that `evidence_id` character for character; a shortened excerpt or substring is invalid even when it is verbatim.
+
+
+# Frozen R24 coding manual
+
+## Unit and boundary
+
+The unit is a source-defined system version, not a unique research lineage. The fourteen records represent thirteen lineages because the AI Scientist v2 preprint and the 2026 record belong to one lineage. Code only what the frozen packet reports. Absence of reporting is not evidence of absence.
+
+A validator channel is an identifiable evaluator with a stable target, substrate, decision role, or feedback path. Split channels when one named system uses distinct mechanisms for ideation filtering, search control, terminal assessment, or external acceptance.
+
+## Facets
+
+- `operational_status`: distinguish implemented behavior, unexercised proposals, external processes, non-reporting, and genuinely unclear descriptions.
+- `target_property`: the property judged, such as executability, correctness, novelty, or aggregate quality.
+- `evidence_source`: the information used to judge the target.
+- `evaluator_substrate`: the mechanism or actor performing the judgment.
+- `decision_role`: the operational consequence of the output.
+- `feedback_path`: where the output is actually routed. A terminal assessment is not search control.
+- `external_independence`: organizational or informational independence of the evaluator.
+- `reliability_evidence_type`: the study design reported for the exact channel and target. Lack of documented bias is `none_reported`, not calibration.
+- `reliability_finding`: the conclusion supported by that evidence.
+- `experimental_fidelity`: the environment in which the evaluated evidence is produced.
+
+Every channel requires at least one exact packet quote. Never transfer evidence from a terminal paper reviewer to an ideation novelty filter merely because both use an LLM.
+
+## Closure and human authority
+
+Closure is derived rather than freely rated. Implemented policy control or stage transition is closed computational feedback; memory update or candidate revision alone is partial; terminal-only or external-only assessment is open. Unclear routing remains unclear.
+
+Human authority is recorded separately for generator, executor, validator, memory, and policy. Use only observable roles: `explicit_none`, `initiate`, `advise`, `select`, `approve`, `execute`, `final_authority`, `not_reported`, or `not_applicable`.
+
+## Missingness
+
+`not_reported` means the packet provides no claim. Explicit none means the source states absence. `unclear` means relevant text exists but supports multiple readings. `not_applicable` means the facet has no coherent value for that channel. These values are never interchangeable.
+
+
+Scheduled metadata: record_id=R10; vendor=codex. Use the CLI model identifier as model_id.
+
+Anonymous source packet:
+{
+  "schema_version": 1,
+  "record_id": "R10",
+  "source": {
+    "pdf_sha256": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+    "page_count": 30
+  },
+  "instructions": "Use only the primary-source excerpts below. The full cited PDF was reviewed and searched. For this packet, not_reported means that no explicit statement was found anywhere in that PDF; it does not imply absence outside this source.",
+  "evidence": [
+    {
+      "evidence_id": "R10-E01",
+      "pdf_page": 2,
+      "quote": "Given a disease, Robin automatically identifies relevant in vitro assays that model key disease mechanisms and proposes specific drug candidates to evaluate in these experimental models."
+    },
+    {
+      "evidence_id": "R10-E02",
+      "pdf_page": 2,
+      "quote": "Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis. Robin then interprets the results of this analysis to generate a new round of therapeutic candidates."
+    },
+    {
+      "evidence_id": "R10-E03",
+      "pdf_page": 4,
+      "quote": "The drug candidates are ranked by an LLM-judged tournament according to the strength of the scientific rationale, pharmacological profile, and methodology of the supporting literature."
+    },
+    {
+      "evidence_id": "R10-E04",
+      "pdf_page": 8,
+      "quote": "When comparing the LLM judge’s preferences with experts’, the LLM judge demonstrated high concordance with expert preferences, with an average of 7.25 of its top 10 hypotheses matching those in the experts’ top 10 (Supplementary Figure S11A). This concordance is more than double that expected from random selection. Furthermore, the LLM judge exhibited higher intra-rater consistency than human experts (Supplementary Figure S11B). When presented with identical pairwise comparisons, the LLM judge selected the same hypothesis in 88% of comparisons, as compared with human experts who selected the same hypothesis 61% of the time."
+    },
+    {
+      "evidence_id": "R10-E05",
+      "pdf_page": 2,
+      "quote": "Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis."
+    },
+    {
+      "evidence_id": "R10-E06",
+      "pdf_page": 7,
+      "quote": "For example, while Robin generates experimental outlines, it does not yet produce precise, executable protocols—future iterations aim to provide detailed methodologies that require minimal human translation for laboratory execution."
+    },
+    {
+      "evidence_id": "R10-E07",
+      "pdf_page": 10,
+      "quote": "Read demultiplexing and alignment was performed by a human and subsequent differential gene expression analysis was performed by Finch."
+    },
+    {
+      "evidence_id": "R10-E08",
+      "pdf_page": 10,
+      "quote": "Flow cytometry data was also analyzed by a human scientist."
+    }
+  ]
+}
+
+
+Required JSON schema:
+{
+  "$defs": {
+    "CommonEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/Diagnostic"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Recommendation"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "diagnostics",
+        "recommendations"
+      ],
+      "title": "CommonEnvelope",
+      "type": "object"
+    },
+    "DecisionRole": {
+      "enum": [
+        "diagnostic",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "memory_admission",
+        "terminal_assessment",
+        "final_acceptance",
+        "external_assessment",
+        "not_reported"
+      ],
+      "title": "DecisionRole",
+      "type": "string"
+    },
+    "Diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "consequence": {
+          "minLength": 1,
+          "title": "Consequence",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/DiagnosticKind"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "kind",
+        "evidence_ids",
+        "exact_quotes",
+        "consequence"
+      ],
+      "title": "Diagnostic",
+      "type": "object"
+    },
+    "DiagnosticKind": {
+      "enum": [
+        "reported_failure",
+        "risk",
+        "ambiguity",
+        "missing_evidence"
+      ],
+      "title": "DiagnosticKind",
+      "type": "string"
+    },
+    "EvaluatorSubstrate": {
+      "enum": [
+        "deterministic_program",
+        "statistical_model",
+        "formal_kernel",
+        "llm",
+        "human",
+        "hybrid",
+        "not_reported"
+      ],
+      "title": "EvaluatorSubstrate",
+      "type": "string"
+    },
+    "EvidenceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "exact_quote": {
+          "minLength": 1,
+          "title": "Exact Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "exact_quote"
+      ],
+      "title": "EvidenceExcerpt",
+      "type": "object"
+    },
+    "EvidenceQuote": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "pdf_id": {
+          "minLength": 1,
+          "title": "Pdf Id",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "pdf_id",
+        "page",
+        "quote",
+        "rationale"
+      ],
+      "title": "EvidenceQuote",
+      "type": "object"
+    },
+    "EvidenceSource": {
+      "enum": [
+        "execution_trace",
+        "benchmark_metric",
+        "statistical_test",
+        "physical_measurement",
+        "replication",
+        "prior_art_corpus",
+        "artifact_review",
+        "human_judgment",
+        "not_reported"
+      ],
+      "title": "EvidenceSource",
+      "type": "string"
+    },
+    "ExternalIndependence": {
+      "enum": [
+        "internal_self_evaluation",
+        "internal_separate_component",
+        "external_nonindependent",
+        "external_independent",
+        "not_reported"
+      ],
+      "title": "ExternalIndependence",
+      "type": "string"
+    },
+    "FeedbackPath": {
+      "enum": [
+        "terminal_only",
+        "memory_update",
+        "candidate_revision",
+        "policy_control",
+        "stage_transition",
+        "external_only",
+        "unclear"
+      ],
+      "title": "FeedbackPath",
+      "type": "string"
+    },
+    "Fidelity": {
+      "enum": [
+        "simulation_or_proxy",
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "robotic_experiment",
+        "physical_assay",
+        "not_applicable",
+        "not_reported"
+      ],
+      "title": "Fidelity",
+      "type": "string"
+    },
+    "HumanAuthority": {
+      "additionalProperties": false,
+      "properties": {
+        "executor": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Executor",
+          "type": "array"
+        },
+        "generator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Generator",
+          "type": "array"
+        },
+        "memory": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Memory",
+          "type": "array"
+        },
+        "policy": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Policy",
+          "type": "array"
+        },
+        "validator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Validator",
+          "type": "array"
+        }
+      },
+      "required": [
+        "generator",
+        "executor",
+        "validator",
+        "memory",
+        "policy"
+      ],
+      "title": "HumanAuthority",
+      "type": "object"
+    },
+    "OperationalStatus": {
+      "enum": [
+        "implemented",
+        "proposed_not_exercised",
+        "external",
+        "not_reported",
+        "unclear"
+      ],
+      "title": "OperationalStatus",
+      "type": "string"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "linked_diagnostic_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Linked Diagnostic Ids",
+          "type": "array"
+        },
+        "priority_rank": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "proposed_action": {
+          "minLength": 1,
+          "title": "Proposed Action",
+          "type": "string"
+        },
+        "success_check": {
+          "$ref": "#/$defs/SuccessCheck"
+        }
+      },
+      "required": [
+        "id",
+        "priority_rank",
+        "proposed_action",
+        "linked_diagnostic_ids",
+        "evidence_ids",
+        "exact_quotes",
+        "success_check"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "ReliabilityEvidence": {
+      "enum": [
+        "none_reported",
+        "discrimination_study",
+        "agreement_study",
+        "systematic_error_or_bias_test",
+        "property_specific_external_validation",
+        "probabilistic_calibration_analysis"
+      ],
+      "title": "ReliabilityEvidence",
+      "type": "string"
+    },
+    "ReliabilityFinding": {
+      "enum": [
+        "not_evaluated",
+        "not_established",
+        "evidence_of_error_or_bias",
+        "positive_property_specific_evidence",
+        "mixed",
+        "unclear"
+      ],
+      "title": "ReliabilityFinding",
+      "type": "string"
+    },
+    "SuccessCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "comparator_or_threshold": {
+          "minLength": 1,
+          "title": "Comparator Or Threshold",
+          "type": "string"
+        },
+        "evidence_needed": {
+          "minLength": 1,
+          "title": "Evidence Needed",
+          "type": "string"
+        },
+        "observable": {
+          "minLength": 1,
+          "title": "Observable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observable",
+        "comparator_or_threshold",
+        "evidence_needed"
+      ],
+      "title": "SuccessCheck",
+      "type": "object"
+    },
+    "TargetProperty": {
+      "enum": [
+        "executability",
+        "specification_compliance",
+        "task_performance",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "reproducibility",
+        "novelty",
+        "significance",
+        "aggregate_quality",
+        "not_reported"
+      ],
+      "title": "TargetProperty",
+      "type": "string"
+    },
+    "ValidatorChannel": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_id": {
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "decision_role": {
+          "items": {
+            "$ref": "#/$defs/DecisionRole"
+          },
+          "title": "Decision Role",
+          "type": "array"
+        },
+        "evaluator_substrate": {
+          "items": {
+            "$ref": "#/$defs/EvaluatorSubstrate"
+          },
+          "title": "Evaluator Substrate",
+          "type": "array"
+        },
+        "evidence_source": {
+          "items": {
+            "$ref": "#/$defs/EvidenceSource"
+          },
+          "title": "Evidence Source",
+          "type": "array"
+        },
+        "experimental_fidelity": {
+          "items": {
+            "$ref": "#/$defs/Fidelity"
+          },
+          "title": "Experimental Fidelity",
+          "type": "array"
+        },
+        "external_independence": {
+          "$ref": "#/$defs/ExternalIndependence"
+        },
+        "feedback_path": {
+          "items": {
+            "$ref": "#/$defs/FeedbackPath"
+          },
+          "title": "Feedback Path",
+          "type": "array"
+        },
+        "operational_status": {
+          "$ref": "#/$defs/OperationalStatus"
+        },
+        "quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceQuote"
+          },
+          "minItems": 1,
+          "title": "Quotes",
+          "type": "array"
+        },
+        "reliability_evidence_type": {
+          "items": {
+            "$ref": "#/$defs/ReliabilityEvidence"
+          },
+          "title": "Reliability Evidence Type",
+          "type": "array"
+        },
+        "reliability_finding": {
+          "$ref": "#/$defs/ReliabilityFinding"
+        },
+        "target_property": {
+          "items": {
+            "$ref": "#/$defs/TargetProperty"
+          },
+          "title": "Target Property",
+          "type": "array"
+        }
+      },
+      "required": [
+        "channel_id",
+        "operational_status",
+        "target_property",
+        "evidence_source",
+        "evaluator_substrate",
+        "decision_role",
+        "feedback_path",
+        "external_independence",
+        "reliability_evidence_type",
+        "reliability_finding",
+        "experimental_fidelity",
+        "quotes"
+      ],
+      "title": "ValidatorChannel",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "channels": {
+      "items": {
+        "$ref": "#/$defs/ValidatorChannel"
+      },
+      "minItems": 1,
+      "title": "Channels",
+      "type": "array"
+    },
+    "envelope": {
+      "$ref": "#/$defs/CommonEnvelope"
+    },
+    "human_authority": {
+      "$ref": "#/$defs/HumanAuthority"
+    },
+    "memory_structure": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Memory Structure",
+      "type": "array"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "policy_type": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Policy Type",
+      "type": "array"
+    },
+    "record_id": {
+      "pattern": "^R\\d{2}$",
+      "title": "Record Id",
+      "type": "string"
+    },
+    "vendor": {
+      "minLength": 1,
+      "title": "Vendor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "vendor",
+    "model_id",
+    "channels",
+    "policy_type",
+    "memory_structure",
+    "human_authority",
+    "envelope"
+  ],
+  "title": "ServoCoding",
+  "type": "object"
+}
+warning: Skill descriptions were shortened to fit the 2% skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest.
+codex
+{"channels":[{"channel_id":"llm_judged_candidate_tournament","decision_role":["ranking","search_control"],"evaluator_substrate":["llm"],"evidence_source":["prior_art_corpus","artifact_review","human_judgment"],"experimental_fidelity":["not_applicable"],"external_independence":"internal_self_evaluation","feedback_path":["policy_control"],"operational_status":"implemented","quotes":[{"evidence_id":"R10-E03","page":4,"pdf_id":"336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794","quote":"The drug candidates are ranked by an LLM-judged tournament according to the strength of the scientific rationale, pharmacological profile, and methodology of the supporting literature.","rationale":"Identifies the LLM tournament as a ranking evaluator over drug candidates using supporting literature."},{"evidence_id":"R10-E04","page":8,"pdf_id":"336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794","quote":"When comparing the LLM judge’s preferences with experts’, the LLM judge demonstrated high concordance with expert preferences, with an average of 7.25 of its top 10 hypotheses matching those in the experts’ top 10 (Supplementary Figure S11A). This concordance is more than double that expected from random selection. Furthermore, the LLM judge exhibited higher intra-rater consistency than human experts (Supplementary Figure S11B). When presented with identical pairwise comparisons, the LLM judge selected the same hypothesis in 88% of comparisons, as compared with human experts who selected the same hypothesis 61% of the time.","rationale":"Reports agreement and consistency evidence for the LLM judge's preferences against expert preferences."}],"reliability_evidence_type":["agreement_study"],"reliability_finding":"positive_property_specific_evidence","target_property":["aggregate_quality","significance"]},{"channel_id":"robin_experimental_result_analysis_loop","decision_role":["diagnostic","search_control"],"evaluator_substrate":["not_reported"],"evidence_source":["physical_measurement"],"experimental_fidelity":["physical_assay"],"external_independence":"internal_self_evaluation","feedback_path":["candidate_revision"],"operational_status":"implemented","quotes":[{"evidence_id":"R10-E02","page":2,"pdf_id":"336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794","quote":"Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis. Robin then interprets the results of this analysis to generate a new round of therapeutic candidates.","rationale":"Shows Robin uses experimental data analysis to drive a new round of candidate generation."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["empirical_adequacy"]},{"channel_id":"human_laboratory_execution_and_assay_analysis","decision_role":["diagnostic"],"evaluator_substrate":["human"],"evidence_source":["physical_measurement"],"experimental_fidelity":["physical_assay"],"external_independence":"external_nonindependent","feedback_path":["external_only"],"operational_status":"external","quotes":[{"evidence_id":"R10-E05","page":2,"pdf_id":"336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794","quote":"Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis.","rationale":"Identifies researchers as the source of experimental execution and data provision."},{"evidence_id":"R10-E07","page":10,"pdf_id":"336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794","quote":"Read demultiplexing and alignment was performed by a human and subsequent differential gene expression analysis was performed by Finch.","rationale":"Shows a human performed part of sequencing data processing before Finch analysis."},{"evidence_id":"R10-E08","page":10,"pdf_id":"336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794","quote":"Flow cytometry data was also analyzed by a human scientist.","rationale":"Identifies human analysis of flow cytometry data as an assay-analysis channel."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["empirical_adequacy"]},{"channel_id":"experimental_outline_executability_limit","decision_role":["not_reported"],"evaluator_substrate":["not_reported"],"evidence_source":["artifact_review"],"experimental_fidelity":["not_applicable"],"external_independence":"not_reported","feedback_path":["unclear"],"operational_status":"implemented","quotes":[{"evidence_id":"R10-E06","page":7,"pdf_id":"336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794","quote":"For example, while Robin generates experimental outlines, it does not yet produce precise, executable protocols—future iterations aim to provide detailed methodologies that require minimal human translation for laboratory execution.","rationale":"Reports that Robin's generated experimental outlines are not yet precise executable laboratory protocols."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["executability"]}],"envelope":{"diagnostics":[{"consequence":"Candidate ranking has reported agreement with experts, but the packet does not report a systematic error, bias, or probabilistic calibration study for the LLM judge.","evidence_ids":["R10-E04"],"exact_quotes":[{"evidence_id":"R10-E04","exact_quote":"When comparing the LLM judge’s preferences with experts’, the LLM judge demonstrated high concordance with expert preferences, with an average of 7.25 of its top 10 hypotheses matching those in the experts’ top 10 (Supplementary Figure S11A). This concordance is more than double that expected from random selection. Furthermore, the LLM judge exhibited higher intra-rater consistency than human experts (Supplementary Figure S11B). When presented with identical pairwise comparisons, the LLM judge selected the same hypothesis in 88% of comparisons, as compared with human experts who selected the same hypothesis 61% of the time."}],"id":"D1","kind":"missing_evidence","statement":"The LLM ranking channel reports agreement and intra-rater consistency evidence, but not bias testing or probabilistic calibration."},{"consequence":"Human translation remains necessary before laboratory execution, limiting autonomous executability of proposed experiments.","evidence_ids":["R10-E06"],"exact_quotes":[{"evidence_id":"R10-E06","exact_quote":"For example, while Robin generates experimental outlines, it does not yet produce precise, executable protocols—future iterations aim to provide detailed methodologies that require minimal human translation for laboratory execution."}],"id":"D2","kind":"reported_failure","statement":"Robin does not yet produce precise, executable experimental protocols."},{"consequence":"Claims about autonomous experimental-data interpretation are harder to separate from human preprocessing or human assay interpretation in the reported implementation.","evidence_ids":["R10-E02","R10-E07","R10-E08"],"exact_quotes":[{"evidence_id":"R10-E02","exact_quote":"Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis. Robin then interprets the results of this analysis to generate a new round of therapeutic candidates."},{"evidence_id":"R10-E07","exact_quote":"Read demultiplexing and alignment was performed by a human and subsequent differential gene expression analysis was performed by Finch."},{"evidence_id":"R10-E08","exact_quote":"Flow cytometry data was also analyzed by a human scientist."}],"id":"D3","kind":"ambiguity","statement":"The packet reports Robin autonomous analysis, while also reporting human preprocessing and human flow-cytometry analysis."}],"recommendations":[{"evidence_ids":["R10-E06"],"exact_quotes":[{"evidence_id":"R10-E06","exact_quote":"For example, while Robin generates experimental outlines, it does not yet produce precise, executable protocols—future iterations aim to provide detailed methodologies that require minimal human translation for laboratory execution."}],"id":"REC1","linked_diagnostic_ids":["D2"],"priority_rank":1,"proposed_action":"Add validation of whether generated experimental protocols are directly executable with minimal human translation.","success_check":{"comparator_or_threshold":"Protocols require minimal human translation for laboratory execution.","evidence_needed":"A documented assessment of Robin-generated protocol outputs by laboratory executors.","observable":"Fraction of generated protocols judged precise and executable."}},{"evidence_ids":["R10-E02","R10-E07","R10-E08"],"exact_quotes":[{"evidence_id":"R10-E02","exact_quote":"Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis. Robin then interprets the results of this analysis to generate a new round of therapeutic candidates."},{"evidence_id":"R10-E07","exact_quote":"Read demultiplexing and alignment was performed by a human and subsequent differential gene expression analysis was performed by Finch."},{"evidence_id":"R10-E08","exact_quote":"Flow cytometry data was also analyzed by a human scientist."}],"id":"REC2","linked_diagnostic_ids":["D3"],"priority_rank":2,"proposed_action":"Report the boundary between human preprocessing, human assay analysis, Finch analysis, and Robin interpretation in each experimental-data workflow.","success_check":{"comparator_or_threshold":"Every reported assay-analysis step is assigned to human, Finch, Robin, or another actor.","evidence_needed":"A workflow trace or methods table mapping each data-processing step to its executor and downstream use.","observable":"Step-level attribution coverage for experimental data processing."}},{"evidence_ids":["R10-E04"],"exact_quotes":[{"evidence_id":"R10-E04","exact_quote":"When comparing the LLM judge’s preferences with experts’, the LLM judge demonstrated high concordance with expert preferences, with an average of 7.25 of its top 10 hypotheses matching those in the experts’ top 10 (Supplementary Figure S11A). This concordance is more than double that expected from random selection. Furthermore, the LLM judge exhibited higher intra-rater consistency than human experts (Supplementary Figure S11B). When presented with identical pairwise comparisons, the LLM judge selected the same hypothesis in 88% of comparisons, as compared with human experts who selected the same hypothesis 61% of the time."}],"id":"REC3","linked_diagnostic_ids":["D1"],"priority_rank":3,"proposed_action":"Extend LLM-judge evaluation beyond expert-preference agreement to include systematic error or bias testing for candidate ranking.","success_check":{"comparator_or_threshold":"Bias or systematic-error results are reported separately from agreement and intra-rater consistency.","evidence_needed":"A property-specific error or bias study over the LLM-judged tournament outputs.","observable":"Documented systematic error or bias metrics for candidate-ranking decisions."}}]},"human_authority":{"executor":["execute"],"generator":["not_reported"],"memory":["not_reported"],"policy":["not_reported"],"validator":["execute"]},"memory_structure":["experimental results provided to Robin for autonomous analysis","new round of therapeutic candidates generated from interpreted analysis results"],"model_id":"GPT-5","policy_type":["LLM-judged tournament ranking of drug candidates","experimental-result-driven candidate revision"],"record_id":"R10","vendor":"codex"}
+tokens used
+23,526

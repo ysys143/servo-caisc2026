@@ -1,0 +1,23 @@
+{
+  "trial": {
+    "trial_id": "codex-R10-servo-live-smoke",
+    "vendor": "codex",
+    "record_id": "R10",
+    "condition": "servo",
+    "period": 1,
+    "order": 0
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T21:24:08.735048+00:00",
+  "elapsed_seconds": 57.06648349999159,
+  "requested_model": "gpt-5.5",
+  "prompt_sha256": "195e231dd895262d4c5bb935d0ab858a15916c6cc20e1b16d1d315f565b639d2",
+  "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+  "packet_sha256": "19182411a864ae796a39320847e50211e603c4330e0347a1ea719694b38979a2",
+  "argv_sha256": "e8f178169c5284c41b1c646d35ceb6def955b777959ac178709f1f524ce4b2ae",
+  "returncode": 0,
+  "stdout_sha256": "01fc120fed433f7d74783815660334088a794adbc24a3b6e20f4e381a3f974e2",
+  "stderr_sha256": "3be8a903e0dd180707f926889aa4f1d02c3e370a145a64072f1aa22278648da1",
+  "validation_error": null,
+  "sandbox_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-6syd899s"
+}

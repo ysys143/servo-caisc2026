@@ -1,0 +1,247 @@
+{
+  "record_id": "R10",
+  "vendor": "gemini",
+  "model_id": "gemini",
+  "channels": [
+    {
+      "channel_id": "llm_tournament_ranker",
+      "decision_role": [
+        "ranking"
+      ],
+      "evaluator_substrate": [
+        "llm"
+      ],
+      "evidence_source": [
+        "prior_art_corpus"
+      ],
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "external_independence": "not_reported",
+      "feedback_path": [
+        "unclear"
+      ],
+      "operational_status": "implemented",
+      "reliability_evidence_type": [
+        "agreement_study"
+      ],
+      "reliability_finding": "positive_property_specific_evidence",
+      "target_property": [
+        "aggregate_quality"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R10-E03",
+          "pdf_id": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+          "page": 4,
+          "quote": "The drug candidates are ranked by an LLM-judged tournament according to the strength of the scientific rationale, pharmacological profile, and methodology of the supporting literature.",
+          "rationale": "Specifies that candidates are ranked by an LLM judge based on supporting literature."
+        },
+        {
+          "evidence_id": "R10-E04",
+          "pdf_id": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+          "page": 8,
+          "quote": "When comparing the LLM judge’s preferences with experts’, the LLM judge demonstrated high concordance with expert preferences, with an average of 7.25 of its top 10 hypotheses matching those in the experts’ top 10 (Supplementary Figure S11A). This concordance is more than double that expected from random selection. Furthermore, the LLM judge exhibited higher intra-rater consistency than human experts (Supplementary Figure S11B). When presented with identical pairwise comparisons, the LLM judge selected the same hypothesis in 88% of comparisons, as compared with human experts who selected the same hypothesis 61% of the time.",
+          "rationale": "Provides reliability evidence through an agreement study with human experts, showing positive property-specific evidence."
+        }
+      ]
+    },
+    {
+      "channel_id": "experimental_validation_loop",
+      "decision_role": [
+        "search_control"
+      ],
+      "evaluator_substrate": [
+        "hybrid"
+      ],
+      "evidence_source": [
+        "physical_measurement"
+      ],
+      "experimental_fidelity": [
+        "physical_assay"
+      ],
+      "external_independence": "not_reported",
+      "feedback_path": [
+        "candidate_revision"
+      ],
+      "operational_status": "implemented",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "target_property": [
+        "empirical_adequacy"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R10-E01",
+          "pdf_id": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+          "page": 2,
+          "quote": "Given a disease, Robin automatically identifies relevant in vitro assays that model key disease mechanisms and proposes specific drug candidates to evaluate in these experimental models.",
+          "rationale": "Establishes the evaluation of drug candidates using in vitro physical assays."
+        },
+        {
+          "evidence_id": "R10-E02",
+          "pdf_id": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+          "page": 2,
+          "quote": "Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis. Robin then interprets the results of this analysis to generate a new round of therapeutic candidates.",
+          "rationale": "Identifies the feedback path as candidate revision resulting from experimental data."
+        },
+        {
+          "evidence_id": "R10-E05",
+          "pdf_id": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+          "page": 2,
+          "quote": "Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis.",
+          "rationale": "Reiterates the provision of physical measurement data to Robin."
+        },
+        {
+          "evidence_id": "R10-E07",
+          "pdf_id": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+          "page": 10,
+          "quote": "Read demultiplexing and alignment was performed by a human and subsequent differential gene expression analysis was performed by Finch.",
+          "rationale": "Details the involvement of human and Finch components in analyzing the experimental data."
+        },
+        {
+          "evidence_id": "R10-E08",
+          "pdf_id": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+          "page": 10,
+          "quote": "Flow cytometry data was also analyzed by a human scientist.",
+          "rationale": "Confirms human involvement in the analysis pipeline."
+        }
+      ]
+    }
+  ],
+  "policy_type": [
+    "not_reported"
+  ],
+  "memory_structure": [
+    "not_reported"
+  ],
+  "human_authority": {
+    "generator": [
+      "not_reported"
+    ],
+    "executor": [
+      "execute"
+    ],
+    "validator": [
+      "execute"
+    ],
+    "memory": [
+      "not_reported"
+    ],
+    "policy": [
+      "not_reported"
+    ]
+  },
+  "envelope": {
+    "diagnostics": [
+      {
+        "id": "D1",
+        "statement": "The text states that the system generates experimental outlines but does not yet output precise, executable protocols.",
+        "kind": "reported_failure",
+        "evidence_ids": [
+          "R10-E06"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R10-E06",
+            "exact_quote": "For example, while Robin generates experimental outlines, it does not yet produce precise, executable protocols—future iterations aim to provide detailed methodologies that require minimal human translation for laboratory execution."
+          }
+        ],
+        "consequence": "Human scientists are required to translate the system's generated outlines into complete protocols before physical execution can occur."
+      },
+      {
+        "id": "D2",
+        "statement": "There is ambiguity regarding how data flows from the multiple analysis components to Robin's autonomous interpretation.",
+        "kind": "ambiguity",
+        "evidence_ids": [
+          "R10-E02",
+          "R10-E05",
+          "R10-E07",
+          "R10-E08"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R10-E02",
+            "exact_quote": "Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis. Robin then interprets the results of this analysis to generate a new round of therapeutic candidates."
+          },
+          {
+            "evidence_id": "R10-E05",
+            "exact_quote": "Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis."
+          },
+          {
+            "evidence_id": "R10-E07",
+            "exact_quote": "Read demultiplexing and alignment was performed by a human and subsequent differential gene expression analysis was performed by Finch."
+          },
+          {
+            "evidence_id": "R10-E08",
+            "exact_quote": "Flow cytometry data was also analyzed by a human scientist."
+          }
+        ],
+        "consequence": "It cannot be determined whether Robin directly ingests the primary data from the instruments, or if it solely relies on the processed analysis generated by the humans and Finch."
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "R1",
+        "priority_rank": 1,
+        "proposed_action": "Enable the system to generate fully executable methodologies to eliminate the human translation step for laboratory protocols.",
+        "linked_diagnostic_ids": [
+          "D1"
+        ],
+        "evidence_ids": [
+          "R10-E06"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R10-E06",
+            "exact_quote": "For example, while Robin generates experimental outlines, it does not yet produce precise, executable protocols—future iterations aim to provide detailed methodologies that require minimal human translation for laboratory execution."
+          }
+        ],
+        "success_check": {
+          "observable": "Publication of complete lab protocols directly output by the system.",
+          "comparator_or_threshold": "Protocols that require minimal to no human translation.",
+          "evidence_needed": "Examples of executable methodologies output by Robin."
+        }
+      },
+      {
+        "id": "R2",
+        "priority_rank": 2,
+        "proposed_action": "Explicitly document the data inputs provided to Robin's autonomous analysis, specifying the origin of the data sets.",
+        "linked_diagnostic_ids": [
+          "D2"
+        ],
+        "evidence_ids": [
+          "R10-E02",
+          "R10-E05",
+          "R10-E07",
+          "R10-E08"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R10-E02",
+            "exact_quote": "Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis. Robin then interprets the results of this analysis to generate a new round of therapeutic candidates."
+          },
+          {
+            "evidence_id": "R10-E05",
+            "exact_quote": "Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis."
+          },
+          {
+            "evidence_id": "R10-E07",
+            "exact_quote": "Read demultiplexing and alignment was performed by a human and subsequent differential gene expression analysis was performed by Finch."
+          },
+          {
+            "evidence_id": "R10-E08",
+            "exact_quote": "Flow cytometry data was also analyzed by a human scientist."
+          }
+        ],
+        "success_check": {
+          "observable": "Diagrams or textual descriptions of the data pipeline.",
+          "comparator_or_threshold": "Clear distinction between raw experimental data and processed analyses fed into Robin.",
+          "evidence_needed": "A detailed architecture of the data flow and feedback loop."
+        }
+      }
+    ]
+  }
+}

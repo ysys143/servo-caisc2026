@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "record_id": "R03",
+  "completeness_boundary": "The full cited PDF was reviewed and searched. not_reported means that no explicit statement was found in that source.",
+  "answer_options": [
+    "yes",
+    "no",
+    "not_reported"
+  ],
+  "probes": [
+    {
+      "probe_id": "R03-P01",
+      "question": "Does the template-free system use results from an external-literature review to refine research proposals?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R03-E01"
+      ]
+    },
+    {
+      "probe_id": "R03-P02",
+      "question": "Does an LLM-based evaluator select a leaf node as the root for the next experimental stage?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R03-E02"
+      ]
+    },
+    {
+      "probe_id": "R03-P03",
+      "question": "Does the Automated Reviewer evaluate a completed manuscript PDF and produce scores plus a preliminary accept-or-reject decision?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R03-E05"
+      ]
+    },
+    {
+      "probe_id": "R03-P04",
+      "question": "Were template-free outputs manually selected for submission and then assessed through an external blind workshop review process?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R03-E07",
+        "R03-E12"
+      ]
+    },
+    {
+      "probe_id": "R03-P05",
+      "question": "Does the template-free agentic-tree search rely on Aider?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R03-E09"
+      ]
+    },
+    {
+      "probe_id": "R03-P06",
+      "question": "Do aggregation nodes conduct new experiments?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R03-E10"
+      ]
+    },
+    {
+      "probe_id": "R03-P07",
+      "question": "Does the reported system currently conduct physical or wet-lab experiments?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R03-E11"
+      ]
+    },
+    {
+      "probe_id": "R03-P08",
+      "question": "Did humans modify the contents or execution of each selected paper's workflow from ideation through manuscript writing?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R03-E08"
+      ]
+    },
+    {
+      "probe_id": "R03-P09",
+      "question": "Does the source report a probabilistic calibration analysis of the template-free literature-grounded novelty assessment?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R03-P10",
+      "question": "Does the source report that the terminal Automated Reviewer score changes a later node selection, experimental stage, or tree-search action?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R03-P11",
+      "question": "Does the source report that external workshop reviews are fed back into the system's internal search or memory?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R03-P12",
+      "question": "Does the source report an independent property-specific reliability study of the LLM evaluator that selects roots between experimental stages?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    }
+  ]
+}

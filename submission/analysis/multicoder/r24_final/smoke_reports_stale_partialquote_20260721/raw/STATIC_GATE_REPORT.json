@@ -1,0 +1,22 @@
+{
+  "command_contract_failures": [],
+  "core_record_ids": [
+    "R05",
+    "R03",
+    "R04",
+    "R01",
+    "R02",
+    "R14"
+  ],
+  "evidence_type": "static-gate-v1",
+  "generation_trial_count": 42,
+  "packet_binding_failures": [],
+  "prompt_leakage_findings": [],
+  "protocol_sha256": "91a26e615fc3a3c34796e8ce8cb6d8b6f314fb10f52744e118c2927c888988cc",
+  "schedule_sha256": "038a35e174bd9be7bdb8063305f73218b34aab8f9eced72d597963db19bddc80",
+  "schema_failures": [],
+  "scoring_key_failures": [],
+  "source_packet_count": 14,
+  "supplementary_record_count": 8,
+  "unique_generation_cells": 42
+}

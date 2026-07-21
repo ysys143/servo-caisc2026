@@ -1,0 +1,780 @@
+OpenAI Codex v0.144.6
+--------
+workdir: /private/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-gbaeuua3
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019f806a-c97c-7ec1-87df-425719d359c4
+--------
+user
+# SERVO condition
+
+Apply the supplied frozen R24 coding manual to the anonymous source packet. Do not infer facts outside the packet and do not use knowledge of the named system.
+
+Return only JSON conforming to the supplied SERVO schema. Separate distinct validator channels, populate every facet, and attach exact packet evidence to each channel. Then provide typed diagnostics with consequences and exact evidence; one to three non-redundant recommendations ranked consecutively by `priority_rank` from 1 and linked to those diagnostics with observable success checks; and all twelve probes. Prefer `abstain_or_unclear` to an unsupported recommendation. Do not treat non-reporting as absence, terminal assessment as feedback, general reviewer error as novelty-specific evidence, or agreement and bias studies as probabilistic calibration.
+
+For every diagnostic and recommendation, `evidence_ids` and the `evidence_id` values in `exact_quotes` must be identical sets: include exactly one exact quotation for every listed evidence ID, and never list an evidence ID without its quotation.
+
+
+# Frozen R24 coding manual
+
+## Unit and boundary
+
+The unit is a source-defined system version, not a unique research lineage. The fourteen records represent thirteen lineages because the AI Scientist v2 preprint and the 2026 record belong to one lineage. Code only what the frozen packet reports. Absence of reporting is not evidence of absence.
+
+A validator channel is an identifiable evaluator with a stable target, substrate, decision role, or feedback path. Split channels when one named system uses distinct mechanisms for ideation filtering, search control, terminal assessment, or external acceptance.
+
+## Facets
+
+- `operational_status`: distinguish implemented behavior, unexercised proposals, external processes, non-reporting, and genuinely unclear descriptions.
+- `target_property`: the property judged, such as executability, correctness, novelty, or aggregate quality.
+- `evidence_source`: the information used to judge the target.
+- `evaluator_substrate`: the mechanism or actor performing the judgment.
+- `decision_role`: the operational consequence of the output.
+- `feedback_path`: where the output is actually routed. A terminal assessment is not search control.
+- `external_independence`: organizational or informational independence of the evaluator.
+- `reliability_evidence_type`: the study design reported for the exact channel and target. Lack of documented bias is `none_reported`, not calibration.
+- `reliability_finding`: the conclusion supported by that evidence.
+- `experimental_fidelity`: the environment in which the evaluated evidence is produced.
+
+Every channel requires at least one exact packet quote. Never transfer evidence from a terminal paper reviewer to an ideation novelty filter merely because both use an LLM.
+
+## Closure and human authority
+
+Closure is derived rather than freely rated. Implemented policy control or stage transition is closed computational feedback; memory update or candidate revision alone is partial; terminal-only or external-only assessment is open. Unclear routing remains unclear.
+
+Human authority is recorded separately for generator, executor, validator, memory, and policy. Use only observable roles: `explicit_none`, `initiate`, `advise`, `select`, `approve`, `execute`, `final_authority`, `not_reported`, or `not_applicable`.
+
+## Missingness
+
+`not_reported` means the packet provides no claim. Explicit none means the source states absence. `unclear` means relevant text exists but supports multiple readings. `not_applicable` means the facet has no coherent value for that channel. These values are never interchangeable.
+
+
+Scheduled metadata: record_id=R07; vendor=codex. Use the CLI model identifier as model_id.
+
+Allowed neutral action codes:
+[
+  "obtain_independent_evidence",
+  "evaluate_evaluator_error_or_bias",
+  "add_feedback_to_later_decision",
+  "add_prior_art_check",
+  "add_replication",
+  "retain_human_approval_or_escalation",
+  "separate_diagnostic_from_gate",
+  "clarify_system_boundary",
+  "no_supported_change",
+  "abstain_or_unclear"
+]
+
+
+Probe questions without reference answers:
+[
+  {
+    "probe_id": "R07-P01",
+    "question": "Does the co-scientist use persistent context memory to store and retrieve agent and system states?"
+  },
+  {
+    "probe_id": "R07-P02",
+    "question": "Does the Reflection agent consult prior work and assess the novelty of generated outputs?"
+  },
+  {
+    "probe_id": "R07-P03",
+    "question": "Does an Evolution agent refine hypotheses that emerge as top-ranked from the tournament?"
+  },
+  {
+    "probe_id": "R07-P04",
+    "question": "Were co-scientist hypotheses externally and independently validated through in vitro laboratory experiments in the reported applications?"
+  },
+  {
+    "probe_id": "R07-P05",
+    "question": "Does the work aim to completely automate the scientific process with AI?"
+  },
+  {
+    "probe_id": "R07-P06",
+    "question": "Does the Reflection agent's initial review use external tools such as web search?"
+  },
+  {
+    "probe_id": "R07-P07",
+    "question": "Is the reported Elo metric based on independent ground truth?"
+  },
+  {
+    "probe_id": "R07-P08",
+    "question": "Does the illustrative ALS example aim to suggest potential therapeutic avenues?"
+  },
+  {
+    "probe_id": "R07-P09",
+    "question": "Does the source report a probabilistic calibration curve or expected calibration error for the Elo rating?"
+  },
+  {
+    "probe_id": "R07-P10",
+    "question": "Does the source report that wet-lab observations are written back to context memory and alter a later autonomous hypothesis-generation round?"
+  },
+  {
+    "probe_id": "R07-P11",
+    "question": "Does the source specify an autonomous decision rule for escalating a proposal from computational analysis to wet-lab validation?"
+  },
+  {
+    "probe_id": "R07-P12",
+    "question": "Does the source report that the co-scientist itself controls laboratory robots or instruments during the wet-lab experiments?"
+  }
+]
+
+Anonymous source packet:
+{
+  "schema_version": 1,
+  "record_id": "R07",
+  "source": {
+    "pdf_sha256": "80730ea110ad450411aa8352a785e996cfcda06afd6e1c60277cb64a65cb676a",
+    "page_count": 81
+  },
+  "instructions": "Use only the primary-source excerpts below. The full cited PDF was reviewed and searched. For this packet, not_reported means that no explicit statement was found anywhere in that PDF; it does not imply absence outside this source.",
+  "evidence": [
+    {
+      "evidence_id": "R07-E01",
+      "pdf_page": 8,
+      "quote": "Context memory. In order to enable iterative computation and scientific reasoning over long time horizons, the co-scientist uses a persistent context memory to store and retrieve states of the agents and the system during the course of the computation."
+    },
+    {
+      "evidence_id": "R07-E02",
+      "pdf_page": 10,
+      "quote": "The Reflection agent searches relevant prior work (via web search or a dedicated scientist-provided repository), assesses existing experimental evidence for or against a given hypothesis, and rigorously verifies the novelty, correctness, and quality of generated outputs."
+    },
+    {
+      "evidence_id": "R07-E03",
+      "pdf_page": 9,
+      "quote": "Evolution agent. The co-scientist’s iterative improvement capability relies heavily on this agent, which continuously refines the top-ranked hypotheses emerging from the tournament."
+    },
+    {
+      "evidence_id": "R07-E04",
+      "pdf_page": 2,
+      "quote": "The co-scientist’s hypotheses for these three settings are externally, independently validated by in vitro laboratory experiments and detailed in separate preprints co-timed with this work."
+    },
+    {
+      "evidence_id": "R07-E05",
+      "pdf_page": 3,
+      "quote": "This work does not aim to completely automate the scientific process with AI. Instead, the co-scientist is purpose-built for a “scientist-in-the-loop” collaborative paradigm, to help domain experts augment their hypothesis generation process and guide the exploration that follows."
+    },
+    {
+      "evidence_id": "R07-E06",
+      "pdf_page": 10,
+      "quote": "This initial review, which doesn’t use external tools like web search, aims to quickly discard flawed, non-novel, or otherwise unsuitable hypotheses."
+    },
+    {
+      "evidence_id": "R07-E07",
+      "pdf_page": 15,
+      "quote": "Note that the Elo metric is auto-evaluated and not based on independent ground truth."
+    },
+    {
+      "evidence_id": "R07-E08",
+      "pdf_page": 7,
+      "quote": "Importantly, this example does not aim to suggest potential therapeutic avenues for ALS and should be interpreted with utmost caution."
+    }
+  ]
+}
+
+
+Required JSON schema:
+{
+  "$defs": {
+    "ActionCode": {
+      "enum": [
+        "obtain_independent_evidence",
+        "evaluate_evaluator_error_or_bias",
+        "add_feedback_to_later_decision",
+        "add_prior_art_check",
+        "add_replication",
+        "retain_human_approval_or_escalation",
+        "separate_diagnostic_from_gate",
+        "clarify_system_boundary",
+        "no_supported_change",
+        "abstain_or_unclear"
+      ],
+      "title": "ActionCode",
+      "type": "string"
+    },
+    "CommonEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/Diagnostic"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "probes": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Probes",
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Recommendation"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "diagnostics",
+        "recommendations",
+        "probes"
+      ],
+      "title": "CommonEnvelope",
+      "type": "object"
+    },
+    "DecisionRole": {
+      "enum": [
+        "diagnostic",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "memory_admission",
+        "terminal_assessment",
+        "final_acceptance",
+        "external_assessment",
+        "not_reported"
+      ],
+      "title": "DecisionRole",
+      "type": "string"
+    },
+    "Diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "consequence": {
+          "minLength": 1,
+          "title": "Consequence",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/DiagnosticKind"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "kind",
+        "evidence_ids",
+        "exact_quotes",
+        "consequence"
+      ],
+      "title": "Diagnostic",
+      "type": "object"
+    },
+    "DiagnosticKind": {
+      "enum": [
+        "reported_failure",
+        "risk",
+        "ambiguity",
+        "missing_evidence"
+      ],
+      "title": "DiagnosticKind",
+      "type": "string"
+    },
+    "EvaluatorSubstrate": {
+      "enum": [
+        "deterministic_program",
+        "statistical_model",
+        "formal_kernel",
+        "llm",
+        "human",
+        "hybrid",
+        "not_reported"
+      ],
+      "title": "EvaluatorSubstrate",
+      "type": "string"
+    },
+    "EvidenceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "exact_quote": {
+          "minLength": 1,
+          "title": "Exact Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "exact_quote"
+      ],
+      "title": "EvidenceExcerpt",
+      "type": "object"
+    },
+    "EvidenceQuote": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "pdf_id": {
+          "minLength": 1,
+          "title": "Pdf Id",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "pdf_id",
+        "page",
+        "quote",
+        "rationale"
+      ],
+      "title": "EvidenceQuote",
+      "type": "object"
+    },
+    "EvidenceSource": {
+      "enum": [
+        "execution_trace",
+        "benchmark_metric",
+        "statistical_test",
+        "physical_measurement",
+        "replication",
+        "prior_art_corpus",
+        "artifact_review",
+        "human_judgment",
+        "not_reported"
+      ],
+      "title": "EvidenceSource",
+      "type": "string"
+    },
+    "ExternalIndependence": {
+      "enum": [
+        "internal_self_evaluation",
+        "internal_separate_component",
+        "external_nonindependent",
+        "external_independent",
+        "not_reported"
+      ],
+      "title": "ExternalIndependence",
+      "type": "string"
+    },
+    "FeedbackPath": {
+      "enum": [
+        "terminal_only",
+        "memory_update",
+        "candidate_revision",
+        "policy_control",
+        "stage_transition",
+        "external_only",
+        "unclear"
+      ],
+      "title": "FeedbackPath",
+      "type": "string"
+    },
+    "Fidelity": {
+      "enum": [
+        "simulation_or_proxy",
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "robotic_experiment",
+        "physical_assay",
+        "not_applicable",
+        "not_reported"
+      ],
+      "title": "Fidelity",
+      "type": "string"
+    },
+    "HumanAuthority": {
+      "additionalProperties": false,
+      "properties": {
+        "executor": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Executor",
+          "type": "array"
+        },
+        "generator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Generator",
+          "type": "array"
+        },
+        "memory": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Memory",
+          "type": "array"
+        },
+        "policy": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Policy",
+          "type": "array"
+        },
+        "validator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Validator",
+          "type": "array"
+        }
+      },
+      "required": [
+        "generator",
+        "executor",
+        "validator",
+        "memory",
+        "policy"
+      ],
+      "title": "HumanAuthority",
+      "type": "object"
+    },
+    "OperationalStatus": {
+      "enum": [
+        "implemented",
+        "proposed_not_exercised",
+        "external",
+        "not_reported",
+        "unclear"
+      ],
+      "title": "OperationalStatus",
+      "type": "string"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "action_code": {
+          "$ref": "#/$defs/ActionCode"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "linked_diagnostic_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Linked Diagnostic Ids",
+          "type": "array"
+        },
+        "priority_rank": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "success_check": {
+          "$ref": "#/$defs/SuccessCheck"
+        }
+      },
+      "required": [
+        "id",
+        "priority_rank",
+        "action_code",
+        "linked_diagnostic_ids",
+        "evidence_ids",
+        "exact_quotes",
+        "success_check"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "ReliabilityEvidence": {
+      "enum": [
+        "none_reported",
+        "discrimination_study",
+        "agreement_study",
+        "systematic_error_or_bias_test",
+        "property_specific_external_validation",
+        "probabilistic_calibration_analysis"
+      ],
+      "title": "ReliabilityEvidence",
+      "type": "string"
+    },
+    "ReliabilityFinding": {
+      "enum": [
+        "not_evaluated",
+        "not_established",
+        "evidence_of_error_or_bias",
+        "positive_property_specific_evidence",
+        "mixed",
+        "unclear"
+      ],
+      "title": "ReliabilityFinding",
+      "type": "string"
+    },
+    "SuccessCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "comparator_or_threshold": {
+          "minLength": 1,
+          "title": "Comparator Or Threshold",
+          "type": "string"
+        },
+        "evidence_needed": {
+          "minLength": 1,
+          "title": "Evidence Needed",
+          "type": "string"
+        },
+        "observable": {
+          "minLength": 1,
+          "title": "Observable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observable",
+        "comparator_or_threshold",
+        "evidence_needed"
+      ],
+      "title": "SuccessCheck",
+      "type": "object"
+    },
+    "TargetProperty": {
+      "enum": [
+        "executability",
+        "specification_compliance",
+        "task_performance",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "reproducibility",
+        "novelty",
+        "significance",
+        "aggregate_quality",
+        "not_reported"
+      ],
+      "title": "TargetProperty",
+      "type": "string"
+    },
+    "ValidatorChannel": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_id": {
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "decision_role": {
+          "items": {
+            "$ref": "#/$defs/DecisionRole"
+          },
+          "title": "Decision Role",
+          "type": "array"
+        },
+        "evaluator_substrate": {
+          "items": {
+            "$ref": "#/$defs/EvaluatorSubstrate"
+          },
+          "title": "Evaluator Substrate",
+          "type": "array"
+        },
+        "evidence_source": {
+          "items": {
+            "$ref": "#/$defs/EvidenceSource"
+          },
+          "title": "Evidence Source",
+          "type": "array"
+        },
+        "experimental_fidelity": {
+          "items": {
+            "$ref": "#/$defs/Fidelity"
+          },
+          "title": "Experimental Fidelity",
+          "type": "array"
+        },
+        "external_independence": {
+          "$ref": "#/$defs/ExternalIndependence"
+        },
+        "feedback_path": {
+          "items": {
+            "$ref": "#/$defs/FeedbackPath"
+          },
+          "title": "Feedback Path",
+          "type": "array"
+        },
+        "operational_status": {
+          "$ref": "#/$defs/OperationalStatus"
+        },
+        "quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceQuote"
+          },
+          "minItems": 1,
+          "title": "Quotes",
+          "type": "array"
+        },
+        "reliability_evidence_type": {
+          "items": {
+            "$ref": "#/$defs/ReliabilityEvidence"
+          },
+          "title": "Reliability Evidence Type",
+          "type": "array"
+        },
+        "reliability_finding": {
+          "$ref": "#/$defs/ReliabilityFinding"
+        },
+        "target_property": {
+          "items": {
+            "$ref": "#/$defs/TargetProperty"
+          },
+          "title": "Target Property",
+          "type": "array"
+        }
+      },
+      "required": [
+        "channel_id",
+        "operational_status",
+        "target_property",
+        "evidence_source",
+        "evaluator_substrate",
+        "decision_role",
+        "feedback_path",
+        "external_independence",
+        "reliability_evidence_type",
+        "reliability_finding",
+        "experimental_fidelity",
+        "quotes"
+      ],
+      "title": "ValidatorChannel",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "channels": {
+      "items": {
+        "$ref": "#/$defs/ValidatorChannel"
+      },
+      "minItems": 1,
+      "title": "Channels",
+      "type": "array"
+    },
+    "envelope": {
+      "$ref": "#/$defs/CommonEnvelope"
+    },
+    "human_authority": {
+      "$ref": "#/$defs/HumanAuthority"
+    },
+    "memory_structure": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Memory Structure",
+      "type": "array"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "policy_type": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Policy Type",
+      "type": "array"
+    },
+    "record_id": {
+      "pattern": "^R\\d{2}$",
+      "title": "Record Id",
+      "type": "string"
+    },
+    "vendor": {
+      "minLength": 1,
+      "title": "Vendor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "vendor",
+    "model_id",
+    "channels",
+    "policy_type",
+    "memory_structure",
+    "human_authority",
+    "envelope"
+  ],
+  "title": "ServoCoding",
+  "type": "object"
+}
+
+warning: Skill descriptions were shortened to fit the 2% skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest.
+codex
+{"channels":[{"channel_id":"reflection_initial_review_filter","decision_role":["stage_transition"],"evaluator_substrate":["not_reported"],"evidence_source":["artifact_review"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_separate_component","feedback_path":["stage_transition"],"operational_status":"implemented","quotes":[{"evidence_id":"R07-E06","page":10,"pdf_id":"80730ea110ad450411aa8352a785e996cfcda06afd6e1c60277cb64a65cb676a","quote":"This initial review, which doesn’t use external tools like web search, aims to quickly discard flawed, non-novel, or otherwise unsuitable hypotheses.","rationale":"Identifies an implemented Reflection-agent review channel that filters hypotheses without external tools."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["correctness_or_formal_validity","novelty","aggregate_quality"]},{"channel_id":"reflection_prior_work_verification","decision_role":["diagnostic"],"evaluator_substrate":["not_reported"],"evidence_source":["prior_art_corpus","artifact_review"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_separate_component","feedback_path":["unclear"],"operational_status":"implemented","quotes":[{"evidence_id":"R07-E02","page":10,"pdf_id":"80730ea110ad450411aa8352a785e996cfcda06afd6e1c60277cb64a65cb676a","quote":"The Reflection agent searches relevant prior work (via web search or a dedicated scientist-provided repository), assesses existing experimental evidence for or against a given hypothesis, and rigorously verifies the novelty, correctness, and quality of generated outputs.","rationale":"Identifies a distinct Reflection-agent verification channel using prior work and existing evidence."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["novelty","correctness_or_formal_validity","aggregate_quality","empirical_adequacy"]},{"channel_id":"tournament_elo_auto_evaluation","decision_role":["ranking"],"evaluator_substrate":["statistical_model"],"evidence_source":["benchmark_metric"],"experimental_fidelity":["computational_oracle_or_benchmark"],"external_independence":"internal_self_evaluation","feedback_path":["policy_control"],"operational_status":"implemented","quotes":[{"evidence_id":"R07-E07","page":15,"pdf_id":"80730ea110ad450411aa8352a785e996cfcda06afd6e1c60277cb64a65cb676a","quote":"Note that the Elo metric is auto-evaluated and not based on independent ground truth.","rationale":"Identifies an auto-evaluated ranking metric and its lack of independent ground truth."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_established","target_property":["aggregate_quality"]},{"channel_id":"external_independent_in_vitro_validation","decision_role":["external_assessment"],"evaluator_substrate":["hybrid"],"evidence_source":["physical_measurement","replication"],"experimental_fidelity":["physical_assay"],"external_independence":"external_independent","feedback_path":["external_only"],"operational_status":"external","quotes":[{"evidence_id":"R07-E04","page":2,"pdf_id":"80730ea110ad450411aa8352a785e996cfcda06afd6e1c60277cb64a65cb676a","quote":"The co-scientist’s hypotheses for these three settings are externally, independently validated by in vitro laboratory experiments and detailed in separate preprints co-timed with this work.","rationale":"Identifies an external independent wet-lab validation channel for reported applications."}],"reliability_evidence_type":["property_specific_external_validation"],"reliability_finding":"positive_property_specific_evidence","target_property":["empirical_adequacy"]}],"envelope":{"diagnostics":[{"consequence":"The ranking output should not be interpreted as independently grounded validation of hypothesis quality.","evidence_ids":["R07-E07"],"exact_quotes":[{"evidence_id":"R07-E07","exact_quote":"Note that the Elo metric is auto-evaluated and not based on independent ground truth."}],"id":"D1","kind":"risk","statement":"The reported Elo metric is auto-evaluated and lacks independent ground truth."},{"consequence":"The initial discard step may remove hypotheses on novelty or suitability grounds before consulting external prior-art tools.","evidence_ids":["R07-E06"],"exact_quotes":[{"evidence_id":"R07-E06","exact_quote":"This initial review, which doesn’t use external tools like web search, aims to quickly discard flawed, non-novel, or otherwise unsuitable hypotheses."}],"id":"D2","kind":"risk","statement":"The initial Reflection review filters non-novel or unsuitable hypotheses without external tools such as web search."},{"consequence":"The packet supports external validation of selected hypotheses but not a closed loop in which wet-lab results alter later autonomous generation.","evidence_ids":["R07-E04"],"exact_quotes":[{"evidence_id":"R07-E04","exact_quote":"The co-scientist’s hypotheses for these three settings are externally, independently validated by in vitro laboratory experiments and detailed in separate preprints co-timed with this work."}],"id":"D3","kind":"missing_evidence","statement":"The external in vitro validation is reported as an external assessment, with no reported feedback route back into later autonomous hypothesis generation."}],"probes":[true,true,true,true,false,false,false,false,null,null,null,null],"recommendations":[{"action_code":"obtain_independent_evidence","evidence_ids":["R07-E07"],"exact_quotes":[{"evidence_id":"R07-E07","exact_quote":"Note that the Elo metric is auto-evaluated and not based on independent ground truth."}],"id":"REC1","linked_diagnostic_ids":["D1"],"priority_rank":1,"success_check":{"comparator_or_threshold":"Elo-ranking claims are accompanied by independent ground-truth comparison or clearly labeled as internal auto-evaluation only.","evidence_needed":"A reported independent benchmark, expert adjudication set, or external validation set mapped to Elo-ranked hypotheses.","observable":"Independent ground-truth evidence for the Elo ranking channel"}},{"action_code":"add_prior_art_check","evidence_ids":["R07-E06"],"exact_quotes":[{"evidence_id":"R07-E06","exact_quote":"This initial review, which doesn’t use external tools like web search, aims to quickly discard flawed, non-novel, or otherwise unsuitable hypotheses."}],"id":"REC2","linked_diagnostic_ids":["D2"],"priority_rank":2,"success_check":{"comparator_or_threshold":"Initial novelty-based discard decisions include documented prior-art search evidence or are restricted to non-novelty criteria.","evidence_needed":"Logs or reports showing prior-art sources consulted before novelty-based discard decisions.","observable":"Prior-art support for initial Reflection novelty filtering"}},{"action_code":"add_feedback_to_later_decision","evidence_ids":["R07-E04"],"exact_quotes":[{"evidence_id":"R07-E04","exact_quote":"The co-scientist’s hypotheses for these three settings are externally, independently validated by in vitro laboratory experiments and detailed in separate preprints co-timed with this work."}],"id":"REC3","linked_diagnostic_ids":["D3"],"priority_rank":3,"success_check":{"comparator_or_threshold":"Wet-lab observations are stored in context memory and demonstrably affect at least one later autonomous hypothesis-generation or ranking round.","evidence_needed":"Execution traces linking external assay results to context memory updates and subsequent changed hypotheses or rankings.","observable":"Closed feedback from in vitro validation into later co-scientist decisions"}}]},"human_authority":{"executor":["not_reported"],"generator":["advise"],"memory":["not_reported"],"policy":["advise"],"validator":["not_reported"]},"memory_structure":["persistent context memory stores and retrieves states of agents and the system"],"model_id":"gpt-5","policy_type":["scientist-in-the-loop collaborative paradigm","tournament ranking","initial Reflection filtering","Evolution refinement of top-ranked hypotheses"],"record_id":"R07","vendor":"codex"}
+tokens used
+23,412

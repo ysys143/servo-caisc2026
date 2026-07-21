@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "record_id": "R06",
+  "source": {
+    "pdf_sha256": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+    "page_count": 69
+  },
+  "instructions": "Use only the excerpts below when producing evidence-grounded claims. The probes were curated after a full-text audit of the 69-page source. A not_reported answer means that the audit did not locate an explicit statement resolving that probe; it is not evidence that the feature is absent.",
+  "evidence": [
+    {
+      "evidence_id": "R06-E01",
+      "pdf_page": 4,
+      "quote": "Crucially, this generalized idea generation phase integrates literature review tools, such as Semantic Scholar, in the loop. The system can query the literature database during the idea formulation process to assess the novelty of a proposed concept and identify relevant prior work. This allows for more informed decisions about pursuing a particular research avenue, ensuring ideas are grounded in the existing scientific landscape from the outset, rather than relying solely on post-hoc checks."
+    },
+    {
+      "evidence_id": "R06-E02",
+      "pdf_page": 5,
+      "quote": "After each stage, the experiment manager selects the best-performing node using a dedicated LLM evaluator (see next section) based on clearly articulated criteria. This selected node is then carried forward to seed the subsequent experimentation stage. The manager also records checkpoints at each stage’s completion."
+    },
+    {
+      "evidence_id": "R06-E03",
+      "pdf_page": 5,
+      "quote": "These visualizations are subsequently passed to a Vision-Language Model (VLM) for critique. Any issues flagged by the VLM (such as unclear labels, missing legends, or misleading visualizations) result in the node being marked as buggy, and this feedback is recorded for future debugging. Nodes that successfully execute and pass the VLM review without issue are designated as non-buggy."
+    },
+    {
+      "evidence_id": "R06-E04",
+      "pdf_page": 9,
+      "quote": "Blind Peer Review: The three AI-generated submissions were included among the 43 total submissions received by the ICBINB workshop. Reviewers were informed in advance that some submissions might be AI-generated, but were not told which submissions were produced by The AI Scientist-v2. Reviewers could also opt out of reviewing potentially AI-generated manuscripts."
+    },
+    {
+      "evidence_id": "R06-E05",
+      "pdf_page": 4,
+      "quote": "The most significant improvement is the move towards greater autonomy and generalization, starting a more general idea generation phase (§3.1) and eliminating the reliance on fixed, human-authored template code for experimentation."
+    },
+    {
+      "evidence_id": "R06-E06",
+      "pdf_page": 5,
+      "quote": "In contrast, The AI Scientist-v2 adopts a significantly more flexible and exploratory approach inspired by recent successes in integrating tree search with LLM-driven workflows (Chan et al., 2025; Jiang et al., 2025; Wijk et al., 2024) and research on open-endedness (Clune, 2019; Mouret and Clune, 2015). We incorporate this agentic tree search approach across all four experimentation stages outlined in §3.2.1, enabling deeper and more systematic exploration of scientific hypotheses."
+    },
+    {
+      "evidence_id": "R06-E07",
+      "pdf_page": 10,
+      "quote": "From this combined AI-generated pool, we selected the three most promising initial ideas–two from the first batch, and one from the second batch–based on alignment with the workshop theme and potential interest, focusing on topics representing distinct research directions. This initial idea selection step allowed us to manage computational resources by choosing which distinct, AI-generated starting points to explore further with the full system. It did not involve modifying the ideas themselves."
+    },
+    {
+      "evidence_id": "R06-E08",
+      "pdf_page": 10,
+      "quote": "From the multiple complete manuscripts generated for each initial idea (i.e., one manuscript per seed), we selected the single best-resulting manuscript for submission based on a careful inspection of its overall coherence and scientific quality. This process mimics a professor reviewing the work of many students or teams and deciding which work is ready to be submitted for peer review."
+    },
+    {
+      "evidence_id": "R06-E09",
+      "pdf_page": 9,
+      "quote": "Among the three manuscripts produced by The AI Scientist-v2, one manuscript achieved a sufficiently high average reviewer score (6.33 out of 10, with individual scores of 6, 6, and 7) to surpass the workshop’s acceptance threshold. The remaining two submissions received lower scores and were not accepted."
+    },
+    {
+      "evidence_id": "R06-E10",
+      "pdf_page": 6,
+      "quote": "New child nodes are created differently depending on their parent node’s status: For non-buggy nodes, refinement is applied to improve the experiment code for better performance. For buggy nodes, the system attempts to debug them using stored error information. A best-performing node, selected by LLM-based evaluation, is passed down as the root node of Stage 2."
+    },
+    {
+      "evidence_id": "R06-E11",
+      "pdf_page": 7,
+      "quote": "At each iteration, the system selects several nodes from the existing tree to expand in parallel. With a predefined probability, a buggy node is chosen (thus prioritizing error resolution and debugging); otherwise, a non-buggy node is selected for further refinement and improvement. When choosing between non-buggy nodes, the system uses a best-first search strategy, guided by an LLM that evaluates candidates based on factors like performance metrics, training dynamics, and the quality of generated plots."
+    },
+    {
+      "evidence_id": "R06-E12",
+      "pdf_page": 10,
+      "quote": "Crucially, while humans initiated the process by providing the high-level workshop theme and selected which initial AI-generated ideas to run multiple times through the full pipeline (akin to deciding which experiments to fund or prioritize), and subsequently selected the most promising complete output from those multiple runs, the entire process within any single run—hypothesis refinement, code generation, execution, analysis, visualization, and writing—was performed autonomously"
+    }
+  ]
+}

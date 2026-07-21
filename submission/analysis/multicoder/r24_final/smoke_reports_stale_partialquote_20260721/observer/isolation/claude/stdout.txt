@@ -1,0 +1,3 @@
+I don't have any file or terminal tools available in this session — no Read, Bash, or equivalent tool has been provided to me, so I have no way to open that path.
+
+I won't guess at the contents. If you re-run this with file/shell tools enabled, I'll read the file and return it verbatim.

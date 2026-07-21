@@ -1,0 +1,434 @@
+OpenAI Codex v0.144.6
+--------
+workdir: /private/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-grsd3l6t
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019f8064-bb32-7922-8fb8-299632cd4ee8
+--------
+user
+# Baseline condition
+
+Analyze the anonymous source packet as a system-architecture reviewer. Do not infer facts outside the packet. Identify implemented evaluation mechanisms, what they assess, how their outputs affect later decisions, important failure risks, and source-supported improvements.
+
+Return only JSON conforming to the supplied baseline schema. The memo is free-form. Each diagnostic must identify a reported failure, risk, ambiguity, or missing evidence; cite evidence IDs and exact packet quotations; and state its consequence. Return one to three non-redundant recommendations, ranked consecutively by `priority_rank` from 1. Each recommendation must select one neutral action code, link to one or more diagnostic IDs, repeat its supporting evidence and exact quotations, and define an observable success check with a comparator or threshold and the evidence needed to evaluate it. Prefer `abstain_or_unclear` to an unsupported recommendation. Answer all twelve probes with `true`, `false`, or `null` for not reported.
+
+For every diagnostic and recommendation, `evidence_ids` and the `evidence_id` values in `exact_quotes` must be identical sets: include exactly one exact quotation for every listed evidence ID, and never list an evidence ID without its quotation.
+
+
+
+
+Scheduled metadata: record_id=R06; vendor=codex. Use the CLI model identifier as model_id.
+
+Allowed neutral action codes:
+[
+  "obtain_independent_evidence",
+  "evaluate_evaluator_error_or_bias",
+  "add_feedback_to_later_decision",
+  "add_prior_art_check",
+  "add_replication",
+  "retain_human_approval_or_escalation",
+  "separate_diagnostic_from_gate",
+  "clarify_system_boundary",
+  "no_supported_change",
+  "abstain_or_unclear"
+]
+
+
+Probe questions without reference answers:
+[
+  {
+    "probe_id": "R06-P01",
+    "question": "Does the system query a literature database during idea formulation to assess novelty and identify prior work?"
+  },
+  {
+    "probe_id": "R06-P02",
+    "question": "Does a dedicated LLM evaluator select a node that seeds the next experimentation stage?"
+  },
+  {
+    "probe_id": "R06-P03",
+    "question": "Can VLM critique change a node's status and be retained for future debugging inside the experiment tree?"
+  },
+  {
+    "probe_id": "R06-P04",
+    "question": "Were the completed AI-generated manuscripts assessed through the workshop's blind peer-review process?"
+  },
+  {
+    "probe_id": "R06-P05",
+    "question": "Does The AI Scientist-v2 require fixed, human-authored template code as the starting point for experimentation?"
+  },
+  {
+    "probe_id": "R06-P06",
+    "question": "Does The AI Scientist-v2 restrict experimentation to a strictly linear sequence in which every refinement builds only on the immediately preceding experiment?"
+  },
+  {
+    "probe_id": "R06-P07",
+    "question": "Was the choice of which AI-generated initial ideas to fund and run through the full system made without human selection?"
+  },
+  {
+    "probe_id": "R06-P08",
+    "question": "Were all three AI-generated workshop submissions accepted?"
+  },
+  {
+    "probe_id": "R06-P09",
+    "question": "Does the source report a probabilistic calibration analysis of the internal LLM evaluator used to select tree nodes?"
+  },
+  {
+    "probe_id": "R06-P10",
+    "question": "Does the source report that official workshop peer-review feedback was routed back into the experiment tree during any autonomous run?"
+  },
+  {
+    "probe_id": "R06-P11",
+    "question": "Does the source report execution of robotic, wet-lab, or other physical experiments by The AI Scientist-v2?"
+  },
+  {
+    "probe_id": "R06-P12",
+    "question": "Does the source report that learned memory is preserved and reused across independent full-pipeline runs?"
+  }
+]
+
+Anonymous source packet:
+{
+  "schema_version": 1,
+  "record_id": "R06",
+  "source": {
+    "pdf_sha256": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+    "page_count": 69
+  },
+  "instructions": "Use only the excerpts below when producing evidence-grounded claims. The probes were curated after a full-text audit of the 69-page source. A not_reported answer means that the audit did not locate an explicit statement resolving that probe; it is not evidence that the feature is absent.",
+  "evidence": [
+    {
+      "evidence_id": "R06-E01",
+      "pdf_page": 4,
+      "quote": "Crucially, this generalized idea generation phase integrates literature review tools, such as Semantic Scholar, in the loop. The system can query the literature database during the idea formulation process to assess the novelty of a proposed concept and identify relevant prior work. This allows for more informed decisions about pursuing a particular research avenue, ensuring ideas are grounded in the existing scientific landscape from the outset, rather than relying solely on post-hoc checks."
+    },
+    {
+      "evidence_id": "R06-E02",
+      "pdf_page": 5,
+      "quote": "After each stage, the experiment manager selects the best-performing node using a dedicated LLM evaluator (see next section) based on clearly articulated criteria. This selected node is then carried forward to seed the subsequent experimentation stage. The manager also records checkpoints at each stage’s completion."
+    },
+    {
+      "evidence_id": "R06-E03",
+      "pdf_page": 5,
+      "quote": "These visualizations are subsequently passed to a Vision-Language Model (VLM) for critique. Any issues flagged by the VLM (such as unclear labels, missing legends, or misleading visualizations) result in the node being marked as buggy, and this feedback is recorded for future debugging. Nodes that successfully execute and pass the VLM review without issue are designated as non-buggy."
+    },
+    {
+      "evidence_id": "R06-E04",
+      "pdf_page": 9,
+      "quote": "Blind Peer Review: The three AI-generated submissions were included among the 43 total submissions received by the ICBINB workshop. Reviewers were informed in advance that some submissions might be AI-generated, but were not told which submissions were produced by The AI Scientist-v2. Reviewers could also opt out of reviewing potentially AI-generated manuscripts."
+    },
+    {
+      "evidence_id": "R06-E05",
+      "pdf_page": 4,
+      "quote": "The most significant improvement is the move towards greater autonomy and generalization, starting a more general idea generation phase (§3.1) and eliminating the reliance on fixed, human-authored template code for experimentation."
+    },
+    {
+      "evidence_id": "R06-E06",
+      "pdf_page": 5,
+      "quote": "In contrast, The AI Scientist-v2 adopts a significantly more flexible and exploratory approach inspired by recent successes in integrating tree search with LLM-driven workflows (Chan et al., 2025; Jiang et al., 2025; Wijk et al., 2024) and research on open-endedness (Clune, 2019; Mouret and Clune, 2015). We incorporate this agentic tree search approach across all four experimentation stages outlined in §3.2.1, enabling deeper and more systematic exploration of scientific hypotheses."
+    },
+    {
+      "evidence_id": "R06-E07",
+      "pdf_page": 10,
+      "quote": "From this combined AI-generated pool, we selected the three most promising initial ideas–two from the first batch, and one from the second batch–based on alignment with the workshop theme and potential interest, focusing on topics representing distinct research directions. This initial idea selection step allowed us to manage computational resources by choosing which distinct, AI-generated starting points to explore further with the full system. It did not involve modifying the ideas themselves."
+    },
+    {
+      "evidence_id": "R06-E08",
+      "pdf_page": 10,
+      "quote": "From the multiple complete manuscripts generated for each initial idea (i.e., one manuscript per seed), we selected the single best-resulting manuscript for submission based on a careful inspection of its overall coherence and scientific quality. This process mimics a professor reviewing the work of many students or teams and deciding which work is ready to be submitted for peer review."
+    },
+    {
+      "evidence_id": "R06-E09",
+      "pdf_page": 9,
+      "quote": "Among the three manuscripts produced by The AI Scientist-v2, one manuscript achieved a sufficiently high average reviewer score (6.33 out of 10, with individual scores of 6, 6, and 7) to surpass the workshop’s acceptance threshold. The remaining two submissions received lower scores and were not accepted."
+    },
+    {
+      "evidence_id": "R06-E10",
+      "pdf_page": 6,
+      "quote": "New child nodes are created differently depending on their parent node’s status: For non-buggy nodes, refinement is applied to improve the experiment code for better performance. For buggy nodes, the system attempts to debug them using stored error information. A best-performing node, selected by LLM-based evaluation, is passed down as the root node of Stage 2."
+    },
+    {
+      "evidence_id": "R06-E11",
+      "pdf_page": 7,
+      "quote": "At each iteration, the system selects several nodes from the existing tree to expand in parallel. With a predefined probability, a buggy node is chosen (thus prioritizing error resolution and debugging); otherwise, a non-buggy node is selected for further refinement and improvement. When choosing between non-buggy nodes, the system uses a best-first search strategy, guided by an LLM that evaluates candidates based on factors like performance metrics, training dynamics, and the quality of generated plots."
+    },
+    {
+      "evidence_id": "R06-E12",
+      "pdf_page": 10,
+      "quote": "Crucially, while humans initiated the process by providing the high-level workshop theme and selected which initial AI-generated ideas to run multiple times through the full pipeline (akin to deciding which experiments to fund or prioritize), and subsequently selected the most promising complete output from those multiple runs, the entire process within any single run—hypothesis refinement, code generation, execution, analysis, visualization, and writing—was performed autonomously"
+    }
+  ]
+}
+
+
+Required JSON schema:
+{
+  "$defs": {
+    "ActionCode": {
+      "enum": [
+        "obtain_independent_evidence",
+        "evaluate_evaluator_error_or_bias",
+        "add_feedback_to_later_decision",
+        "add_prior_art_check",
+        "add_replication",
+        "retain_human_approval_or_escalation",
+        "separate_diagnostic_from_gate",
+        "clarify_system_boundary",
+        "no_supported_change",
+        "abstain_or_unclear"
+      ],
+      "title": "ActionCode",
+      "type": "string"
+    },
+    "CommonEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/Diagnostic"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "probes": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Probes",
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Recommendation"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "diagnostics",
+        "recommendations",
+        "probes"
+      ],
+      "title": "CommonEnvelope",
+      "type": "object"
+    },
+    "Diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "consequence": {
+          "minLength": 1,
+          "title": "Consequence",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/DiagnosticKind"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "kind",
+        "evidence_ids",
+        "exact_quotes",
+        "consequence"
+      ],
+      "title": "Diagnostic",
+      "type": "object"
+    },
+    "DiagnosticKind": {
+      "enum": [
+        "reported_failure",
+        "risk",
+        "ambiguity",
+        "missing_evidence"
+      ],
+      "title": "DiagnosticKind",
+      "type": "string"
+    },
+    "EvidenceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "exact_quote": {
+          "minLength": 1,
+          "title": "Exact Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "exact_quote"
+      ],
+      "title": "EvidenceExcerpt",
+      "type": "object"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "action_code": {
+          "$ref": "#/$defs/ActionCode"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "linked_diagnostic_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Linked Diagnostic Ids",
+          "type": "array"
+        },
+        "priority_rank": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "success_check": {
+          "$ref": "#/$defs/SuccessCheck"
+        }
+      },
+      "required": [
+        "id",
+        "priority_rank",
+        "action_code",
+        "linked_diagnostic_ids",
+        "evidence_ids",
+        "exact_quotes",
+        "success_check"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "SuccessCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "comparator_or_threshold": {
+          "minLength": 1,
+          "title": "Comparator Or Threshold",
+          "type": "string"
+        },
+        "evidence_needed": {
+          "minLength": 1,
+          "title": "Evidence Needed",
+          "type": "string"
+        },
+        "observable": {
+          "minLength": 1,
+          "title": "Observable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observable",
+        "comparator_or_threshold",
+        "evidence_needed"
+      ],
+      "title": "SuccessCheck",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "envelope": {
+      "$ref": "#/$defs/CommonEnvelope"
+    },
+    "memo": {
+      "minLength": 1,
+      "title": "Memo",
+      "type": "string"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "record_id": {
+      "pattern": "^R\\d{2}$",
+      "title": "Record Id",
+      "type": "string"
+    },
+    "vendor": {
+      "minLength": 1,
+      "title": "Vendor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "vendor",
+    "model_id",
+    "memo",
+    "envelope"
+  ],
+  "title": "BaselineCoding",
+  "type": "object"
+}
+
+warning: Skill descriptions were shortened to fit the 2% skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest.
+codex
+{"envelope":{"diagnostics":[{"consequence":"Because the LLM evaluator chooses which node is carried into later stages, evaluator error or bias can directly shape the experiment trajectory; the packet does not report a calibration or error analysis for that evaluator.","evidence_ids":["R06-E02","R06-E10","R06-E11"],"exact_quotes":[{"evidence_id":"R06-E02","exact_quote":"After each stage, the experiment manager selects the best-performing node using a dedicated LLM evaluator (see next section) based on clearly articulated criteria. This selected node is then carried forward to seed the subsequent experimentation stage. The manager also records checkpoints at each stage’s completion."},{"evidence_id":"R06-E10","exact_quote":"New child nodes are created differently depending on their parent node’s status: For non-buggy nodes, refinement is applied to improve the experiment code for better performance. For buggy nodes, the system attempts to debug them using stored error information. A best-performing node, selected by LLM-based evaluation, is passed down as the root node of Stage 2."},{"evidence_id":"R06-E11","exact_quote":"At each iteration, the system selects several nodes from the existing tree to expand in parallel. With a predefined probability, a buggy node is chosen (thus prioritizing error resolution and debugging); otherwise, a non-buggy node is selected for further refinement and improvement. When choosing between non-buggy nodes, the system uses a best-first search strategy, guided by an LLM that evaluates candidates based on factors like performance metrics, training dynamics, and the quality of generated plots."}],"id":"D1","kind":"risk","statement":"LLM-based evaluation is an implemented decision mechanism that selects nodes for expansion and stage transition, but its reliability is not evidenced in the packet."},{"consequence":"Claims about autonomy can be overstated if human selection of starting ideas and final manuscripts is not separated from autonomous work inside a single run.","evidence_ids":["R06-E07","R06-E08","R06-E12"],"exact_quotes":[{"evidence_id":"R06-E07","exact_quote":"From this combined AI-generated pool, we selected the three most promising initial ideas–two from the first batch, and one from the second batch–based on alignment with the workshop theme and potential interest, focusing on topics representing distinct research directions. This initial idea selection step allowed us to manage computational resources by choosing which distinct, AI-generated starting points to explore further with the full system. It did not involve modifying the ideas themselves."},{"evidence_id":"R06-E08","exact_quote":"From the multiple complete manuscripts generated for each initial idea (i.e., one manuscript per seed), we selected the single best-resulting manuscript for submission based on a careful inspection of its overall coherence and scientific quality. This process mimics a professor reviewing the work of many students or teams and deciding which work is ready to be submitted for peer review."},{"evidence_id":"R06-E12","exact_quote":"Crucially, while humans initiated the process by providing the high-level workshop theme and selected which initial AI-generated ideas to run multiple times through the full pipeline (akin to deciding which experiments to fund or prioritize), and subsequently selected the most promising complete output from those multiple runs, the entire process within any single run—hypothesis refinement, code generation, execution, analysis, visualization, and writing—was performed autonomously"}],"id":"D2","kind":"ambiguity","statement":"The packet distinguishes autonomous single-run execution from human-controlled selection of initial ideas and final outputs, creating a boundary ambiguity for system-level autonomy."},{"consequence":"The workshop outcome provides limited evidence of consistent end-to-end manuscript quality across generated submissions.","evidence_ids":["R06-E04","R06-E09"],"exact_quotes":[{"evidence_id":"R06-E04","exact_quote":"Blind Peer Review: The three AI-generated submissions were included among the 43 total submissions received by the ICBINB workshop. Reviewers were informed in advance that some submissions might be AI-generated, but were not told which submissions were produced by The AI Scientist-v2. Reviewers could also opt out of reviewing potentially AI-generated manuscripts."},{"evidence_id":"R06-E09","exact_quote":"Among the three manuscripts produced by The AI Scientist-v2, one manuscript achieved a sufficiently high average reviewer score (6.33 out of 10, with individual scores of 6, 6, and 7) to surpass the workshop’s acceptance threshold. The remaining two submissions received lower scores and were not accepted."}],"id":"D3","kind":"reported_failure","statement":"Two of three AI-generated workshop submissions were not accepted after blind peer review."}],"probes":[true,true,true,true,false,false,false,false,null,null,null,null],"recommendations":[{"action_code":"evaluate_evaluator_error_or_bias","evidence_ids":["R06-E02","R06-E10","R06-E11"],"exact_quotes":[{"evidence_id":"R06-E02","exact_quote":"After each stage, the experiment manager selects the best-performing node using a dedicated LLM evaluator (see next section) based on clearly articulated criteria. This selected node is then carried forward to seed the subsequent experimentation stage. The manager also records checkpoints at each stage’s completion."},{"evidence_id":"R06-E10","exact_quote":"New child nodes are created differently depending on their parent node’s status: For non-buggy nodes, refinement is applied to improve the experiment code for better performance. For buggy nodes, the system attempts to debug them using stored error information. A best-performing node, selected by LLM-based evaluation, is passed down as the root node of Stage 2."},{"evidence_id":"R06-E11","exact_quote":"At each iteration, the system selects several nodes from the existing tree to expand in parallel. With a predefined probability, a buggy node is chosen (thus prioritizing error resolution and debugging); otherwise, a non-buggy node is selected for further refinement and improvement. When choosing between non-buggy nodes, the system uses a best-first search strategy, guided by an LLM that evaluates candidates based on factors like performance metrics, training dynamics, and the quality of generated plots."}],"id":"R1","linked_diagnostic_ids":["D1"],"priority_rank":1,"success_check":{"comparator_or_threshold":"Report evaluator agreement, error rate, or calibration against an independently scored node set; threshold should be predefined before evaluation.","evidence_needed":"A held-out set of candidate tree nodes, independent human or external-review labels, evaluator scores, selected nodes, and the computed agreement/calibration/error metrics.","observable":"Measured reliability of the internal LLM evaluator when selecting nodes for expansion or stage transition."}},{"action_code":"clarify_system_boundary","evidence_ids":["R06-E07","R06-E08","R06-E12"],"exact_quotes":[{"evidence_id":"R06-E07","exact_quote":"From this combined AI-generated pool, we selected the three most promising initial ideas–two from the first batch, and one from the second batch–based on alignment with the workshop theme and potential interest, focusing on topics representing distinct research directions. This initial idea selection step allowed us to manage computational resources by choosing which distinct, AI-generated starting points to explore further with the full system. It did not involve modifying the ideas themselves."},{"evidence_id":"R06-E08","exact_quote":"From the multiple complete manuscripts generated for each initial idea (i.e., one manuscript per seed), we selected the single best-resulting manuscript for submission based on a careful inspection of its overall coherence and scientific quality. This process mimics a professor reviewing the work of many students or teams and deciding which work is ready to be submitted for peer review."},{"evidence_id":"R06-E12","exact_quote":"Crucially, while humans initiated the process by providing the high-level workshop theme and selected which initial AI-generated ideas to run multiple times through the full pipeline (akin to deciding which experiments to fund or prioritize), and subsequently selected the most promising complete output from those multiple runs, the entire process within any single run—hypothesis refinement, code generation, execution, analysis, visualization, and writing—was performed autonomously"}],"id":"R2","linked_diagnostic_ids":["D2"],"priority_rank":2,"success_check":{"comparator_or_threshold":"Every reported result separates at least two categories: human-mediated pre/post-run selection and autonomous within-run execution.","evidence_needed":"A run log or methods table identifying each decision point, decision maker, available alternatives, and whether the decision occurred inside or outside a single autonomous run.","observable":"Boundary clarity for which decisions are autonomous versus human-selected."}},{"action_code":"add_replication","evidence_ids":["R06-E04","R06-E09"],"exact_quotes":[{"evidence_id":"R06-E04","exact_quote":"Blind Peer Review: The three AI-generated submissions were included among the 43 total submissions received by the ICBINB workshop. Reviewers were informed in advance that some submissions might be AI-generated, but were not told which submissions were produced by The AI Scientist-v2. Reviewers could also opt out of reviewing potentially AI-generated manuscripts."},{"evidence_id":"R06-E09","exact_quote":"Among the three manuscripts produced by The AI Scientist-v2, one manuscript achieved a sufficiently high average reviewer score (6.33 out of 10, with individual scores of 6, 6, and 7) to surpass the workshop’s acceptance threshold. The remaining two submissions received lower scores and were not accepted."}],"id":"R3","linked_diagnostic_ids":["D3"],"priority_rank":3,"success_check":{"comparator_or_threshold":"Acceptance-rate and reviewer-score confidence intervals are reported over more than three independently generated submissions.","evidence_needed":"Additional independently generated manuscripts, blind-review scores, acceptance decisions, and the same acceptance threshold used for comparison.","observable":"Replicated external-review performance across a larger set of AI-generated submissions."}}]},"memo":"Implemented evaluation mechanisms in the packet include literature-database novelty checking during idea formulation, LLM-based selection of best-performing experiment-tree nodes, VLM critique of generated visualizations that can mark nodes buggy or non-buggy and preserve feedback, human selection of initial ideas and final manuscripts, and blind workshop peer review of submitted manuscripts. Outputs affect later decisions by determining whether ideas are pursued, which node seeds later stages, whether nodes are debugged or refined, which starting ideas receive full runs, which manuscript is submitted, and whether submissions clear the workshop acceptance threshold. The main architecture risks are unevidenced reliability of internal LLM evaluators, unclear autonomy boundaries around human selection, and limited external-review success across only three submitted manuscripts.","model_id":"gpt-5","record_id":"R06","vendor":"codex"}
+tokens used
+21,307

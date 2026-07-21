@@ -1,0 +1,164 @@
+{
+  "record_id": "R10",
+  "vendor": "gemini",
+  "model_id": "gemini-3.1-pro",
+  "memo": "The source packet outlines an experimental loop centered around the Robin system, which identifies in vitro assays, proposes drug candidates, and relies on an LLM-judged tournament for candidate ranking. Diagnostics revealed three key concerns: (1) Robin fails to produce precise, executable laboratory protocols, leaving researchers to translate generated outlines manually; (2) the LLM judge is validated against expert preferences and intra-rater consistency rather than empirical ground truth, risking the reinforcement of existing biases without assuring scientific correctness; and (3) there is ambiguity surrounding the system's claim of 'autonomous analysis,' as humans explicitly perform critical data processing steps like demultiplexing and flow cytometry analysis. Corresponding recommendations focus on retaining human translation of protocols, establishing objective calibration of the LLM evaluator, and clarifying system boundaries to explicitly document handoffs.",
+  "envelope": {
+    "diagnostics": [
+      {
+        "id": "D1",
+        "statement": "Robin generates experimental outlines but does not yet produce precise, executable protocols, relying on human translation for laboratory execution.",
+        "kind": "reported_failure",
+        "evidence_ids": [
+          "R10-E06"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R10-E06",
+            "exact_quote": "For example, while Robin generates experimental outlines, it does not yet produce precise, executable protocols—future iterations aim to provide detailed methodologies that require minimal human translation for laboratory execution."
+          }
+        ],
+        "consequence": "Human researchers must manually translate outlines into actionable methodologies, which introduces potential for translation errors and creates a bottleneck in the experimental loop."
+      },
+      {
+        "id": "D2",
+        "statement": "The LLM-judged tournament is validated by its concordance with expert preferences and intra-rater consistency, rather than empirical ground truth of therapeutic success.",
+        "kind": "risk",
+        "evidence_ids": [
+          "R10-E03",
+          "R10-E04"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R10-E03",
+            "exact_quote": "The drug candidates are ranked by an LLM-judged tournament according to the strength of the scientific rationale, pharmacological profile, and methodology of the supporting literature."
+          },
+          {
+            "evidence_id": "R10-E04",
+            "exact_quote": "When comparing the LLM judge’s preferences with experts’, the LLM judge demonstrated high concordance with expert preferences, with an average of 7.25 of its top 10 hypotheses matching those in the experts’ top 10 (Supplementary Figure S11A). This concordance is more than double that expected from random selection. Furthermore, the LLM judge exhibited higher intra-rater consistency than human experts (Supplementary Figure S11B). When presented with identical pairwise comparisons, the LLM judge selected the same hypothesis in 88% of comparisons, as compared with human experts who selected the same hypothesis 61% of the time."
+          }
+        ],
+        "consequence": "The system may over-prioritize drug candidates that appear plausible to human experts but ultimately fail in vitro or in vivo, reinforcing existing scientific biases without necessarily improving empirical success rates."
+      },
+      {
+        "id": "D3",
+        "statement": "The source claims Robin performs 'autonomous analysis' on experimental data, but critical data processing steps are explicitly performed by humans.",
+        "kind": "ambiguity",
+        "evidence_ids": [
+          "R10-E02",
+          "R10-E07",
+          "R10-E08"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R10-E02",
+            "exact_quote": "Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis. Robin then interprets the results of this analysis to generate a new round of therapeutic candidates."
+          },
+          {
+            "evidence_id": "R10-E07",
+            "exact_quote": "Read demultiplexing and alignment was performed by a human and subsequent differential gene expression analysis was performed by Finch."
+          },
+          {
+            "evidence_id": "R10-E08",
+            "exact_quote": "Flow cytometry data was also analyzed by a human scientist."
+          }
+        ],
+        "consequence": "The degree of true system autonomy is overstated or unclear, making it difficult to properly scope the system's operational requirements and identify actual human-in-the-loop dependencies for deploying the system."
+      }
+    ],
+    "probes": [
+      true,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      null,
+      null,
+      null,
+      null
+    ],
+    "recommendations": [
+      {
+        "id": "R1",
+        "action_code": "retain_human_approval_or_escalation",
+        "linked_diagnostic_ids": [
+          "D1"
+        ],
+        "evidence_ids": [
+          "R10-E06"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R10-E06",
+            "exact_quote": "For example, while Robin generates experimental outlines, it does not yet produce precise, executable protocols—future iterations aim to provide detailed methodologies that require minimal human translation for laboratory execution."
+          }
+        ],
+        "success_check": {
+          "observable": "Human review and translation of Robin's experimental outlines into precise protocols.",
+          "comparator_or_threshold": "100% of generated experimental outlines are translated by qualified researchers before laboratory execution.",
+          "evidence_needed": "Logs of human-authored experimental protocols paired with the corresponding Robin-generated outlines."
+        }
+      },
+      {
+        "id": "R2",
+        "action_code": "evaluate_evaluator_error_or_bias",
+        "linked_diagnostic_ids": [
+          "D2"
+        ],
+        "evidence_ids": [
+          "R10-E03",
+          "R10-E04"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R10-E03",
+            "exact_quote": "The drug candidates are ranked by an LLM-judged tournament according to the strength of the scientific rationale, pharmacological profile, and methodology of the supporting literature."
+          },
+          {
+            "evidence_id": "R10-E04",
+            "exact_quote": "When comparing the LLM judge’s preferences with experts’, the LLM judge demonstrated high concordance with expert preferences, with an average of 7.25 of its top 10 hypotheses matching those in the experts’ top 10 (Supplementary Figure S11A). This concordance is more than double that expected from random selection. Furthermore, the LLM judge exhibited higher intra-rater consistency than human experts (Supplementary Figure S11B). When presented with identical pairwise comparisons, the LLM judge selected the same hypothesis in 88% of comparisons, as compared with human experts who selected the same hypothesis 61% of the time."
+          }
+        ],
+        "success_check": {
+          "observable": "Correlation between the LLM judge's ranking of drug candidates and the actual empirical success of those candidates in subsequent laboratory experiments.",
+          "comparator_or_threshold": "Statistical calibration of LLM scores against observed empirical success rates, rather than expert preferences.",
+          "evidence_needed": "A dataset comparing LLM tournament ranks for generated candidates with their corresponding empirical outcomes from laboratory assays."
+        }
+      },
+      {
+        "id": "R3",
+        "action_code": "clarify_system_boundary",
+        "linked_diagnostic_ids": [
+          "D3"
+        ],
+        "evidence_ids": [
+          "R10-E02",
+          "R10-E07",
+          "R10-E08"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R10-E02",
+            "exact_quote": "Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis. Robin then interprets the results of this analysis to generate a new round of therapeutic candidates."
+          },
+          {
+            "evidence_id": "R10-E07",
+            "exact_quote": "Read demultiplexing and alignment was performed by a human and subsequent differential gene expression analysis was performed by Finch."
+          },
+          {
+            "evidence_id": "R10-E08",
+            "exact_quote": "Flow cytometry data was also analyzed by a human scientist."
+          }
+        ],
+        "success_check": {
+          "observable": "Documentation of all data flows and handoffs between human operators and the automated Robin/Finch systems.",
+          "comparator_or_threshold": "Zero ambiguity regarding which data processing and analysis steps require human intervention versus which are fully automated.",
+          "evidence_needed": "A system architecture diagram or process mapping detailing the exact inputs and outputs handled by humans and models respectively."
+        }
+      }
+    ]
+  }
+}

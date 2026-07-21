@@ -1,0 +1,398 @@
+OpenAI Codex v0.144.6
+--------
+workdir: /private/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-_pthc7s8
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019f807a-fc0d-7bc0-a394-167b1397bbd1
+--------
+user
+# Baseline condition
+
+Analyze the anonymous source packet as a system-architecture reviewer. Do not infer facts outside the packet. Identify implemented evaluation mechanisms, what they assess, how their outputs affect later decisions, important failure risks, and source-supported improvements.
+
+Return only JSON conforming to the supplied baseline schema. The memo is free-form. Each diagnostic must identify a reported failure, risk, ambiguity, or missing evidence; cite evidence IDs and exact packet quotations; and state its consequence. Return one to three non-redundant recommendations, ranked consecutively by `priority_rank` from 1. Each recommendation must select one neutral action code, link to one or more diagnostic IDs, repeat its supporting evidence and exact quotations, and define an observable success check with a comparator or threshold and the evidence needed to evaluate it. Prefer `abstain_or_unclear` to an unsupported recommendation. Answer all twelve probes with `true`, `false`, or `null` for not reported.
+
+For every diagnostic and recommendation, `evidence_ids` and the `evidence_id` values in `exact_quotes` must be identical sets: include exactly one exact quotation for every listed evidence ID, and never list an evidence ID without its quotation.
+
+
+
+
+Scheduled metadata: record_id=R11; vendor=codex. Use the CLI model identifier as model_id.
+
+Allowed neutral action codes:
+[
+  "obtain_independent_evidence",
+  "evaluate_evaluator_error_or_bias",
+  "add_feedback_to_later_decision",
+  "add_prior_art_check",
+  "add_replication",
+  "retain_human_approval_or_escalation",
+  "separate_diagnostic_from_gate",
+  "clarify_system_boundary",
+  "no_supported_change",
+  "abstain_or_unclear"
+]
+
+
+Probe questions without reference answers:
+[
+  {
+    "probe_id": "R11-P01",
+    "question": "Does ERA place LLM-generated sandbox code within a tree search that balances exploitation and exploration?"
+  },
+  {
+    "probe_id": "R11-P02",
+    "question": "Does ERA use sandbox scores and output logs to guide later attempts toward a better score?"
+  },
+  {
+    "probe_id": "R11-P03",
+    "question": "Can ERA backtrack and branch from a historical search-tree node when an optimization path plateaus?"
+  },
+  {
+    "probe_id": "R11-P04",
+    "question": "Does the source report expert manual inspection of ERA code and consistency across replicate runs?"
+  },
+  {
+    "probe_id": "R11-P05",
+    "question": "Does ERA evaluate generated code without executing or scoring it in a sandbox?"
+  },
+  {
+    "probe_id": "R11-P06",
+    "question": "Does ERA select the node with the lowest PUCT score for expansion?"
+  },
+  {
+    "probe_id": "R11-P07",
+    "question": "Does ERA discard all historical nodes whenever it generates a new child solution?"
+  },
+  {
+    "probe_id": "R11-P08",
+    "question": "Does the reported ERA search rely on beam search or a (1 + lambda) evolution strategy?"
+  },
+  {
+    "probe_id": "R11-P09",
+    "question": "Does the source report a novelty or prior-art assessment that accepts or rejects ERA's generated solutions?"
+  },
+  {
+    "probe_id": "R11-P10",
+    "question": "Does the source report probabilistic calibration of an ERA evaluator's confidence against observed correctness frequencies?"
+  },
+  {
+    "probe_id": "R11-P11",
+    "question": "Does the source report an independent replication of ERA's results by a separate laboratory or research team?"
+  },
+  {
+    "probe_id": "R11-P12",
+    "question": "Does the source report ERA executing a robotic, physical, or wet-lab experiment?"
+  }
+]
+
+Anonymous source packet:
+{
+  "schema_version": 1,
+  "record_id": "R11",
+  "source": {
+    "pdf_sha256": "6a974d0c446c54653ffdf2765e75ab252e97aca3a201d930abacf91ec4d6a165",
+    "page_count": 78
+  },
+  "instructions": "Use only the primary-source excerpts below. The full cited PDF was reviewed and searched. For this packet, not_reported means that no explicit statement was found anywhere in that PDF; it does not imply absence outside this source.",
+  "evidence": [
+    {
+      "evidence_id": "R11-E01",
+      "pdf_page": 3,
+      "quote": "A scorable task, together with research ideas proposing methods to solve the task, are fed to an LLM, which produces code to evaluate the scorable task in a sandbox. This is then embedded within a tree search algorithm, whereby new nodes are chosen balancing exploitation and exploration, sampling from the LLM (Methods)."
+    },
+    {
+      "evidence_id": "R11-E02",
+      "pdf_page": 13,
+      "quote": "The LLM produces Python code, which is then executed and scored on a sandbox. Searching over strategies dramatically increases performance: The system uses the score together with output logs and other information to hill climb towards a better score."
+    },
+    {
+      "evidence_id": "R11-E03",
+      "pdf_page": 13,
+      "quote": "The node with the globally maximum PUCT𝑖 score is selected. The language model then generates a single novel child solution conditioned on this parent’s code and score. The new code is executed, assigned an empirical score, and appended to the search tree, followed by a backpropagation of the visit count to its ancestors. This global, flat-tree structure allows the system to seamlessly backtrack and branch from any historical node if the current optimization path plateaus."
+    },
+    {
+      "evidence_id": "R11-E04",
+      "pdf_page": 5,
+      "quote": "Importantly, expert manual inspection of the code solutions proposed by ERA confirmed that nearly all implementations adhered to the requested algorithms (Extended Data Table 1), with performance largely consistent across replicate runs of methods (Extended Data Fig. 1)."
+    },
+    {
+      "evidence_id": "R11-E05",
+      "pdf_page": 14,
+      "quote": "approach does not rely on beam search (which aggressively prunes unselected candidates at each depth layer) nor a (1 + 𝜆 ) evolution strategy (which maintains only the most recent generation and discards historical states)."
+    }
+  ]
+}
+
+
+Required JSON schema:
+{
+  "$defs": {
+    "ActionCode": {
+      "enum": [
+        "obtain_independent_evidence",
+        "evaluate_evaluator_error_or_bias",
+        "add_feedback_to_later_decision",
+        "add_prior_art_check",
+        "add_replication",
+        "retain_human_approval_or_escalation",
+        "separate_diagnostic_from_gate",
+        "clarify_system_boundary",
+        "no_supported_change",
+        "abstain_or_unclear"
+      ],
+      "title": "ActionCode",
+      "type": "string"
+    },
+    "CommonEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/Diagnostic"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "probes": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Probes",
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Recommendation"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "diagnostics",
+        "recommendations",
+        "probes"
+      ],
+      "title": "CommonEnvelope",
+      "type": "object"
+    },
+    "Diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "consequence": {
+          "minLength": 1,
+          "title": "Consequence",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/DiagnosticKind"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "kind",
+        "evidence_ids",
+        "exact_quotes",
+        "consequence"
+      ],
+      "title": "Diagnostic",
+      "type": "object"
+    },
+    "DiagnosticKind": {
+      "enum": [
+        "reported_failure",
+        "risk",
+        "ambiguity",
+        "missing_evidence"
+      ],
+      "title": "DiagnosticKind",
+      "type": "string"
+    },
+    "EvidenceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "exact_quote": {
+          "minLength": 1,
+          "title": "Exact Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "exact_quote"
+      ],
+      "title": "EvidenceExcerpt",
+      "type": "object"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "action_code": {
+          "$ref": "#/$defs/ActionCode"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "linked_diagnostic_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Linked Diagnostic Ids",
+          "type": "array"
+        },
+        "priority_rank": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "success_check": {
+          "$ref": "#/$defs/SuccessCheck"
+        }
+      },
+      "required": [
+        "id",
+        "priority_rank",
+        "action_code",
+        "linked_diagnostic_ids",
+        "evidence_ids",
+        "exact_quotes",
+        "success_check"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "SuccessCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "comparator_or_threshold": {
+          "minLength": 1,
+          "title": "Comparator Or Threshold",
+          "type": "string"
+        },
+        "evidence_needed": {
+          "minLength": 1,
+          "title": "Evidence Needed",
+          "type": "string"
+        },
+        "observable": {
+          "minLength": 1,
+          "title": "Observable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observable",
+        "comparator_or_threshold",
+        "evidence_needed"
+      ],
+      "title": "SuccessCheck",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "envelope": {
+      "$ref": "#/$defs/CommonEnvelope"
+    },
+    "memo": {
+      "minLength": 1,
+      "title": "Memo",
+      "type": "string"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "record_id": {
+      "pattern": "^R\\d{2}$",
+      "title": "Record Id",
+      "type": "string"
+    },
+    "vendor": {
+      "minLength": 1,
+      "title": "Vendor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "vendor",
+    "model_id",
+    "memo",
+    "envelope"
+  ],
+  "title": "BaselineCoding",
+  "type": "object"
+}
+
+codex
+{"envelope":{"diagnostics":[{"consequence":"Performance gains may reflect optimization to the sandbox scoring surface rather than independently validated solution quality.","evidence_ids":["R11-E02"],"exact_quotes":[{"evidence_id":"R11-E02","exact_quote":"The LLM produces Python code, which is then executed and scored on a sandbox. Searching over strategies dramatically increases performance: The system uses the score together with output logs and other information to hill climb towards a better score."}],"id":"D1","kind":"risk","statement":"ERA uses sandbox execution scores and output logs as feedback for later search decisions, creating a risk of overfitting to the sandbox or evaluator."},{"consequence":"Claims about robustness and generality remain limited because consistency across replicate runs is not the same as independent external replication.","evidence_ids":["R11-E04"],"exact_quotes":[{"evidence_id":"R11-E04","exact_quote":"Importantly, expert manual inspection of the code solutions proposed by ERA confirmed that nearly all implementations adhered to the requested algorithms (Extended Data Table 1), with performance largely consistent across replicate runs of methods (Extended Data Fig. 1)."}],"id":"D2","kind":"missing_evidence","statement":"The packet reports expert manual inspection and replicate-run consistency, but does not report independent replication by a separate laboratory or team."},{"consequence":"Generated solutions may be treated as novel or acceptable without a source-supported check against existing methods or prior art.","evidence_ids":["R11-E03"],"exact_quotes":[{"evidence_id":"R11-E03","exact_quote":"The node with the globally maximum PUCT𝑖 score is selected. The language model then generates a single novel child solution conditioned on this parent’s code and score. The new code is executed, assigned an empirical score, and appended to the search tree, followed by a backpropagation of the visit count to its ancestors. This global, flat-tree structure allows the system to seamlessly backtrack and branch from any historical node if the current optimization path plateaus."}],"id":"D3","kind":"missing_evidence","statement":"The packet describes generation of a 'novel child solution' but does not report a prior-art or novelty assessment that accepts or rejects generated solutions."}],"probes":[true,true,true,true,false,false,false,false,null,null,null,null],"recommendations":[{"action_code":"obtain_independent_evidence","evidence_ids":["R11-E04"],"exact_quotes":[{"evidence_id":"R11-E04","exact_quote":"Importantly, expert manual inspection of the code solutions proposed by ERA confirmed that nearly all implementations adhered to the requested algorithms (Extended Data Table 1), with performance largely consistent across replicate runs of methods (Extended Data Fig. 1)."}],"id":"REC1","linked_diagnostic_ids":["D2"],"priority_rank":1,"success_check":{"comparator_or_threshold":"At least one separate laboratory or research team reproduces the main reported ERA result using documented materials.","evidence_needed":"Replication report identifying the independent team, task setup, code or protocol used, and reproduced metrics.","observable":"Independent replication status of ERA results."}},{"action_code":"evaluate_evaluator_error_or_bias","evidence_ids":["R11-E02"],"exact_quotes":[{"evidence_id":"R11-E02","exact_quote":"The LLM produces Python code, which is then executed and scored on a sandbox. Searching over strategies dramatically increases performance: The system uses the score together with output logs and other information to hill climb towards a better score."}],"id":"REC2","linked_diagnostic_ids":["D1"],"priority_rank":2,"success_check":{"comparator_or_threshold":"Sandbox-score improvements are confirmed on a held-out or independently specified evaluation with no material rank reversal among top solutions.","evidence_needed":"Held-out evaluation protocol, sandbox scores, independent scores, output logs, and comparison of top-ranked generated solutions.","observable":"Agreement between sandbox-guided scores and independent evaluation outcomes."}},{"action_code":"add_prior_art_check","evidence_ids":["R11-E03"],"exact_quotes":[{"evidence_id":"R11-E03","exact_quote":"The node with the globally maximum PUCT𝑖 score is selected. The language model then generates a single novel child solution conditioned on this parent’s code and score. The new code is executed, assigned an empirical score, and appended to the search tree, followed by a backpropagation of the visit count to its ancestors. This global, flat-tree structure allows the system to seamlessly backtrack and branch from any historical node if the current optimization path plateaus."}],"id":"REC3","linked_diagnostic_ids":["D3"],"priority_rank":3,"success_check":{"comparator_or_threshold":"100% of claimed novel generated solutions receive a documented prior-art disposition before being accepted as novel.","evidence_needed":"Prior-art search records, comparison criteria, reviewer disposition, and accept/reject decision for each claimed novel solution.","observable":"Coverage of prior-art assessment for generated solutions claimed as novel."}}]},"memo":"The packet supports that ERA evaluates LLM-generated Python code by sandbox execution and scoring, then feeds scores, logs, and related information into a PUCT tree search that can backtrack and branch from historical nodes. It also reports expert manual inspection and consistency across replicate runs. The packet does not report evaluator calibration, prior-art adjudication, independent external replication, or physical/wet-lab execution.","model_id":"gpt-5-codex","record_id":"R11","vendor":"codex"}
+tokens used
+19,190

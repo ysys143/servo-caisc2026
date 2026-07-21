@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "record_id": "R03",
+  "source": {
+    "pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+    "page_count": 9
+  },
+  "scope": "Template-free AI Scientist and its agentic-tree workflow only. Template-based mechanisms are excluded unless a passage explicitly contrasts them with the template-free system.",
+  "instructions": "Use only the excerpts below. Absence from these excerpts is not evidence of absence from the full source. A not_reported probe reflects a full-text audit of this source, not an explicit negative statement.",
+  "evidence": [
+    {
+      "evidence_id": "R03-E01",
+      "pdf_page": 7,
+      "quote": "To ensure the proposals are both grounded and new, this process is tightly integrated with a literature review module that queries external academic databases to identify knowledge gaps and avoid rediscovering existing work. The system uses structured prompts to guide idea generation and reflection rounds to refine proposals based on the literature search results (see Supplementary Information section A.2.6 for prompts)."
+    },
+    {
+      "evidence_id": "R03-E02",
+      "pdf_page": 7,
+      "quote": "At the end of each stage, an LLM-based evaluator assesses all leaf nodes and selects the most promising one to serve as the root for the next stage of exploration, thus effectively pruning less promising research avenues."
+    },
+    {
+      "evidence_id": "R03-E03",
+      "pdf_page": 8,
+      "quote": "During experimentation, the plots generated are fed to a VLM, which is prompted to act as a scientist and critique them. For example, it might flag nonsensical axes or issues in the quality of generated examples or suggest clearer ways to present the data. This feedback is used to generate new experimental nodes in the tree search aimed at addressing the identified issues."
+    },
+    {
+      "evidence_id": "R03-E04",
+      "pdf_page": 8,
+      "quote": "When choosing between non-buggy nodes, the system uses a best-first search strategy guided by GPT-4o, which evaluates candidates based on factors like performance metrics, training dynamics and the quality of the plots generated. The selected nodes are expanded by creating a new child node."
+    },
+    {
+      "evidence_id": "R03-E05",
+      "pdf_page": 8,
+      "quote": "The agent processes the PDF of a manuscript to produce a structured review, including numerical scores for soundness, presentation and contribution, along with a list of strengths and weaknesses and a preliminary accept or reject decision (Supplementary Information section A.3)."
+    },
+    {
+      "evidence_id": "R03-E06",
+      "pdf_page": 9,
+      "quote": "We benchmarked The Automated Reviewer against human decisions using ICLR data from the publicly available OpenReview dataset33. The Automated Reviewer achieved a comparable balanced accuracy with humans (69% versus 66%; see Supplementary Information section A.3.2 for details) and a higher F1 score compared with inter-human group agreement (0.62 versus 0.49) in the NeurIPS 2021 consistency experiment34, for which roughly 10% of submissions were randomly selected and sent to two independent review committees, thus providing a real-world benchmark of inter-reviewer consistency (Table 1)."
+    },
+    {
+      "evidence_id": "R03-E07",
+      "pdf_page": 3,
+      "quote": "The overall process was then run to generate ideas, experiments and papers. We manually filtered the most promising outputs at each stage (Supplementary Information section A.4). Had this filtering not occurred, the papers under analysis would still have been produced in their final form, just along with other papers and, thus, at a greater total cost. This process resulted in three complete manuscripts being selected for submission."
+    },
+    {
+      "evidence_id": "R03-E08",
+      "pdf_page": 3,
+      "quote": "The entire scientific workflow for each paper, from ideation and coding to manuscript writing, was performed without any human modification."
+    },
+    {
+      "evidence_id": "R03-E09",
+      "pdf_page": 7,
+      "quote": "To go further and effectively use more test-time compute, the template-free system uses LLMs to power a tree search without relying on Aider."
+    },
+    {
+      "evidence_id": "R03-E10",
+      "pdf_page": 8,
+      "quote": "Aggregation nodes are special nodes created to consolidate and visualize the combined results of replication nodes. Unlike other node types, aggregation nodes do not conduct new experiments but simply generate a Python script to aggregate and summarize previous results."
+    },
+    {
+      "evidence_id": "R03-E11",
+      "pdf_page": 4,
+      "quote": "At present, The AI Scientist conducts computational experiments only. In future work, this same playbook could be applied to other scientific domains where one can automatically conduct experiments (or have humans conduct them) and collect data from them (for example, automated chemistry laboratories, on which swift progress is being made46)."
+    },
+    {
+      "evidence_id": "R03-E12",
+      "pdf_page": 3,
+      "quote": "These three submissions were included among the 43 papers reviewed for the workshop. Reviewers were informed that some of the submissions were AI-generated but not which ones, ensuring a blind process."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "record_id": "R13",
+  "source": {
+    "pdf_sha256": "9d4fa9d1e9e6b1cdccfeff02fecbd28b5b961594952a1ac96e00ad135bed0a51",
+    "page_count": 35
+  },
+  "instructions": "Use only the excerpts below. The full cited PDF was reviewed and searched. Absence from these excerpts is not evidence of absence unless a probe is explicitly marked not_reported under the stated full-text audit boundary.",
+  "evidence": [
+    {
+      "evidence_id": "R13-E01",
+      "pdf_page": 5,
+      "quote": "The Ideator generates candidate approaches based on the PI brief, scores them on novelty and feasibility, and distributes the top-ranked proposals across parallel branches of the Parallel Explore-Exploit (PEE) orchestrator."
+    },
+    {
+      "evidence_id": "R13-E02",
+      "pdf_page": 5,
+      "quote": "Each branch runs an isolated cycle: a Solver agent iterates up to E evaluated versions per node, with a task-specific evaluator scoring each submission. At each iteration, the top-K branches are retained, and the remaining slots are filled with new branches derived from these top performers via fresh ideation."
+    },
+    {
+      "evidence_id": "R13-E03",
+      "pdf_page": 6,
+      "quote": "A refinement pass then consumes the verifier’s findings: an LLM rewrites flagged sentences to match their evidence sources, removes claims that cannot be supported, and strips all inline evidence annotations from the final LATEX. Only a draft with no remaining blocking violations is promoted to the final paper."
+    },
+    {
+      "evidence_id": "R13-E04",
+      "pdf_page": 9,
+      "quote": "All I1–I3 flagged results were manually verified by human reviewers. I4 judgments were validated on a sampled basis."
+    },
+    {
+      "evidence_id": "R13-E05",
+      "pdf_page": 8,
+      "quote": "Runs that crashed due to infrastructure issues (API timeouts, rate limits, LaTeX compilation errors) were re-attempted with fresh state, up to 3 attempts per run. No run was re-attempted to improve solver scores."
+    },
+    {
+      "evidence_id": "R13-E06",
+      "pdf_page": 15,
+      "quote": "CoE Integrity Audit addresses some of these blind spots but is itself limited to structural integrity, not scientific novelty or significance."
+    },
+    {
+      "evidence_id": "R13-E07",
+      "pdf_page": 15,
+      "quote": "No third-party system was designed for ADRS, and adaptation inevitably involves judgment calls."
+    },
+    {
+      "evidence_id": "R13-E08",
+      "pdf_page": 16,
+      "quote": "Real systems papers involve problem formulation, workload characterization, multi-dataset analysis, and deployment tradeoffs that our pipeline does not attempt."
+    }
+  ]
+}

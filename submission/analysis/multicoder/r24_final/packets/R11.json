@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "record_id": "R11",
+  "source": {
+    "pdf_sha256": "6a974d0c446c54653ffdf2765e75ab252e97aca3a201d930abacf91ec4d6a165",
+    "page_count": 78
+  },
+  "instructions": "Use only the primary-source excerpts below. The full cited PDF was reviewed and searched. For this packet, not_reported means that no explicit statement was found anywhere in that PDF; it does not imply absence outside this source.",
+  "evidence": [
+    {
+      "evidence_id": "R11-E01",
+      "pdf_page": 3,
+      "quote": "A scorable task, together with research ideas proposing methods to solve the task, are fed to an LLM, which produces code to evaluate the scorable task in a sandbox. This is then embedded within a tree search algorithm, whereby new nodes are chosen balancing exploitation and exploration, sampling from the LLM (Methods)."
+    },
+    {
+      "evidence_id": "R11-E02",
+      "pdf_page": 13,
+      "quote": "The LLM produces Python code, which is then executed and scored on a sandbox. Searching over strategies dramatically increases performance: The system uses the score together with output logs and other information to hill climb towards a better score."
+    },
+    {
+      "evidence_id": "R11-E03",
+      "pdf_page": 13,
+      "quote": "The node with the globally maximum PUCT𝑖 score is selected. The language model then generates a single novel child solution conditioned on this parent’s code and score. The new code is executed, assigned an empirical score, and appended to the search tree, followed by a backpropagation of the visit count to its ancestors. This global, flat-tree structure allows the system to seamlessly backtrack and branch from any historical node if the current optimization path plateaus."
+    },
+    {
+      "evidence_id": "R11-E04",
+      "pdf_page": 5,
+      "quote": "Importantly, expert manual inspection of the code solutions proposed by ERA confirmed that nearly all implementations adhered to the requested algorithms (Extended Data Table 1), with performance largely consistent across replicate runs of methods (Extended Data Fig. 1)."
+    },
+    {
+      "evidence_id": "R11-E05",
+      "pdf_page": 14,
+      "quote": "approach does not rely on beam search (which aggressively prunes unselected candidates at each depth layer) nor a (1 + 𝜆 ) evolution strategy (which maintains only the most recent generation and discards historical states)."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "asset_set": "probes/R01.json--probes/R14.json",
+  "unit": "one frozen generation output",
+  "algorithm": "unique_reference_evidence_id_recall",
+  "numerator": "unique evidence IDs cited by diagnostics or recommendations that occur in the record's preregistered non-not_reported probe key",
+  "denominator": "unique evidence IDs in the record's preregistered non-not_reported probe key",
+  "unsupported_claim_proxy": "cited evidence IDs outside the reference set are reported separately and are not automatically classified as false",
+  "interpretation": "limited evidence-checklist recovery proxy; not semantic answer accuracy, failure-mode completeness, or a gold standard",
+  "missing_or_invalid_output": "exclude from paired effect estimate and report as a structured-output failure; never score as zero",
+  "key_revision_policy": "no changes after production generation begins; any change requires a new protocol hash and run ID"
+}

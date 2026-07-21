@@ -1,0 +1,359 @@
+{
+  "record_id": "R06",
+  "vendor": "gemini",
+  "model_id": "Gemini 3.1 Pro (High)",
+  "channels": [
+    {
+      "channel_id": "novelty_check",
+      "operational_status": "implemented",
+      "target_property": [
+        "novelty"
+      ],
+      "evidence_source": [
+        "prior_art_corpus"
+      ],
+      "evaluator_substrate": [
+        "not_reported"
+      ],
+      "decision_role": [
+        "search_control"
+      ],
+      "feedback_path": [
+        "candidate_revision"
+      ],
+      "external_independence": "not_reported",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R06-E01",
+          "pdf_id": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+          "page": 4,
+          "quote": "Crucially, this generalized idea generation phase integrates literature review tools, such as Semantic Scholar, in the loop. The system can query the literature database during the idea formulation process to assess the novelty of a proposed concept and identify relevant prior work. This allows for more informed decisions about pursuing a particular research avenue, ensuring ideas are grounded in the existing scientific landscape from the outset, rather than relying solely on post-hoc checks.",
+          "rationale": "Demonstrates the assessment of novelty by querying a prior art corpus (Semantic Scholar) to inform idea formulation."
+        }
+      ]
+    },
+    {
+      "channel_id": "stage_manager_evaluator",
+      "operational_status": "implemented",
+      "target_property": [
+        "aggregate_quality"
+      ],
+      "evidence_source": [
+        "not_reported"
+      ],
+      "evaluator_substrate": [
+        "llm"
+      ],
+      "decision_role": [
+        "stage_transition"
+      ],
+      "feedback_path": [
+        "stage_transition"
+      ],
+      "external_independence": "internal_separate_component",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "computational_experiment"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R06-E02",
+          "pdf_id": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+          "page": 5,
+          "quote": "After each stage, the experiment manager selects the best-performing node using a dedicated LLM evaluator (see next section) based on clearly articulated criteria. This selected node is then carried forward to seed the subsequent experimentation stage. The manager also records checkpoints at each stage’s completion.",
+          "rationale": "Shows that a dedicated LLM evaluates nodes to determine stage transition."
+        },
+        {
+          "evidence_id": "R06-E10",
+          "pdf_id": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+          "page": 6,
+          "quote": "New child nodes are created differently depending on their parent node’s status: For non-buggy nodes, refinement is applied to improve the experiment code for better performance. For buggy nodes, the system attempts to debug them using stored error information. A best-performing node, selected by LLM-based evaluation, is passed down as the root node of Stage 2.",
+          "rationale": "Confirms the LLM's selection role in passing down the root node for the next stage."
+        }
+      ]
+    },
+    {
+      "channel_id": "vlm_critique",
+      "operational_status": "implemented",
+      "target_property": [
+        "correctness_or_formal_validity"
+      ],
+      "evidence_source": [
+        "artifact_review"
+      ],
+      "evaluator_substrate": [
+        "llm"
+      ],
+      "decision_role": [
+        "diagnostic"
+      ],
+      "feedback_path": [
+        "memory_update"
+      ],
+      "external_independence": "internal_separate_component",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "computational_experiment"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R06-E03",
+          "pdf_id": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+          "page": 5,
+          "quote": "These visualizations are subsequently passed to a Vision-Language Model (VLM) for critique. Any issues flagged by the VLM (such as unclear labels, missing legends, or misleading visualizations) result in the node being marked as buggy, and this feedback is recorded for future debugging. Nodes that successfully execute and pass the VLM review without issue are designated as non-buggy.",
+          "rationale": "A VLM acts as an internal but distinct component to review visual artifacts for formal correctness, providing feedback for debugging."
+        }
+      ]
+    },
+    {
+      "channel_id": "external_peer_review",
+      "operational_status": "implemented",
+      "target_property": [
+        "aggregate_quality"
+      ],
+      "evidence_source": [
+        "human_judgment"
+      ],
+      "evaluator_substrate": [
+        "human"
+      ],
+      "decision_role": [
+        "external_assessment"
+      ],
+      "feedback_path": [
+        "external_only"
+      ],
+      "external_independence": "external_independent",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R06-E04",
+          "pdf_id": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+          "page": 9,
+          "quote": "Blind Peer Review: The three AI-generated submissions were included among the 43 total submissions received by the ICBINB workshop. Reviewers were informed in advance that some submissions might be AI-generated, but were not told which submissions were produced by The AI Scientist-v2. Reviewers could also opt out of reviewing potentially AI-generated manuscripts.",
+          "rationale": "Establishes the use of fully independent external reviewers for the final manuscripts."
+        },
+        {
+          "evidence_id": "R06-E09",
+          "pdf_id": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+          "page": 9,
+          "quote": "Among the three manuscripts produced by The AI Scientist-v2, one manuscript achieved a sufficiently high average reviewer score (6.33 out of 10, with individual scores of 6, 6, and 7) to surpass the workshop’s acceptance threshold. The remaining two submissions received lower scores and were not accepted.",
+          "rationale": "Demonstrates the feedback and decision resulting from the external human assessment."
+        }
+      ]
+    },
+    {
+      "channel_id": "human_idea_selection",
+      "operational_status": "implemented",
+      "target_property": [
+        "significance"
+      ],
+      "evidence_source": [
+        "human_judgment"
+      ],
+      "evaluator_substrate": [
+        "human"
+      ],
+      "decision_role": [
+        "ranking"
+      ],
+      "feedback_path": [
+        "stage_transition"
+      ],
+      "external_independence": "external_nonindependent",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R06-E07",
+          "pdf_id": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+          "page": 10,
+          "quote": "From this combined AI-generated pool, we selected the three most promising initial ideas–two from the first batch, and one from the second batch–based on alignment with the workshop theme and potential interest, focusing on topics representing distinct research directions. This initial idea selection step allowed us to manage computational resources by choosing which distinct, AI-generated starting points to explore further with the full system. It did not involve modifying the ideas themselves.",
+          "rationale": "Humans act as non-independent operators selecting the most promising ideas to transition to full pipeline execution."
+        }
+      ]
+    },
+    {
+      "channel_id": "human_manuscript_selection",
+      "operational_status": "implemented",
+      "target_property": [
+        "aggregate_quality"
+      ],
+      "evidence_source": [
+        "human_judgment"
+      ],
+      "evaluator_substrate": [
+        "human"
+      ],
+      "decision_role": [
+        "terminal_assessment"
+      ],
+      "feedback_path": [
+        "external_only"
+      ],
+      "external_independence": "external_nonindependent",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R06-E08",
+          "pdf_id": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+          "page": 10,
+          "quote": "From the multiple complete manuscripts generated for each initial idea (i.e., one manuscript per seed), we selected the single best-resulting manuscript for submission based on a careful inspection of its overall coherence and scientific quality. This process mimics a professor reviewing the work of many students or teams and deciding which work is ready to be submitted for peer review.",
+          "rationale": "Human operators selected the single best final manuscript to submit."
+        },
+        {
+          "evidence_id": "R06-E12",
+          "pdf_id": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+          "page": 10,
+          "quote": "Crucially, while humans initiated the process by providing the high-level workshop theme and selected which initial AI-generated ideas to run multiple times through the full pipeline (akin to deciding which experiments to fund or prioritize), and subsequently selected the most promising complete output from those multiple runs, the entire process within any single run—hypothesis refinement, code generation, execution, analysis, visualization, and writing—was performed autonomously",
+          "rationale": "Confirms the human validator roles bounding the fully autonomous runs."
+        }
+      ]
+    },
+    {
+      "channel_id": "best_first_search_evaluator",
+      "operational_status": "implemented",
+      "target_property": [
+        "aggregate_quality"
+      ],
+      "evidence_source": [
+        "benchmark_metric",
+        "artifact_review"
+      ],
+      "evaluator_substrate": [
+        "llm"
+      ],
+      "decision_role": [
+        "search_control"
+      ],
+      "feedback_path": [
+        "policy_control"
+      ],
+      "external_independence": "internal_separate_component",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "computational_experiment"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R06-E11",
+          "pdf_id": "53bafd3028e3f8829a3d85220e84dcf0d18934f9b75c092a60de303ff3644bd2",
+          "page": 7,
+          "quote": "At each iteration, the system selects several nodes from the existing tree to expand in parallel. With a predefined probability, a buggy node is chosen (thus prioritizing error resolution and debugging); otherwise, a non-buggy node is selected for further refinement and improvement. When choosing between non-buggy nodes, the system uses a best-first search strategy, guided by an LLM that evaluates candidates based on factors like performance metrics, training dynamics, and the quality of generated plots.",
+          "rationale": "LLM guides the tree search by evaluating nodes continuously during the expansion policy."
+        }
+      ]
+    }
+  ],
+  "policy_type": [
+    "best_first_search",
+    "agentic_tree_search"
+  ],
+  "memory_structure": [
+    "stored_error_information",
+    "checkpoints"
+  ],
+  "human_authority": {
+    "generator": [
+      "initiate"
+    ],
+    "executor": [
+      "explicit_none"
+    ],
+    "validator": [
+      "select"
+    ],
+    "memory": [
+      "not_reported"
+    ],
+    "policy": [
+      "not_reported"
+    ]
+  },
+  "envelope": {
+    "diagnostics": [
+      {
+        "id": "D1",
+        "statement": "The source asserts that reliance on fixed, human-authored template code has been eliminated and an agentic tree search is used instead, but lacks complete evidentiary details regarding how base node code dynamically bootstraps without structural constraints.",
+        "kind": "missing_evidence",
+        "evidence_ids": [
+          "R06-E05",
+          "R06-E06"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R06-E05",
+            "exact_quote": "The most significant improvement is the move towards greater autonomy and generalization, starting a more general idea generation phase (§3.1) and eliminating the reliance on fixed, human-authored template code for experimentation."
+          },
+          {
+            "evidence_id": "R06-E06",
+            "exact_quote": "In contrast, The AI Scientist-v2 adopts a significantly more flexible and exploratory approach inspired by recent successes in integrating tree search with LLM-driven workflows (Chan et al., 2025; Jiang et al., 2025; Wijk et al., 2024) and research on open-endedness (Clune, 2019; Mouret and Clune, 2015). We incorporate this agentic tree search approach across all four experimentation stages outlined in §3.2.1, enabling deeper and more systematic exploration of scientific hypotheses."
+          }
+        ],
+        "consequence": "Without full transparency of the underlying system prompts or dynamic code generation capabilities utilized at the root node, claims of full autonomy from human-authored priors cannot be independently assessed."
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "REC1",
+        "priority_rank": 1,
+        "proposed_action": "Publish the full initial system prompts and the root node scaffolding methods utilized throughout the agentic tree search experimentation phases to substantiate claims of complete template independence.",
+        "linked_diagnostic_ids": [
+          "D1"
+        ],
+        "evidence_ids": [
+          "R06-E05",
+          "R06-E06"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R06-E05",
+            "exact_quote": "The most significant improvement is the move towards greater autonomy and generalization, starting a more general idea generation phase (§3.1) and eliminating the reliance on fixed, human-authored template code for experimentation."
+          },
+          {
+            "evidence_id": "R06-E06",
+            "exact_quote": "In contrast, The AI Scientist-v2 adopts a significantly more flexible and exploratory approach inspired by recent successes in integrating tree search with LLM-driven workflows (Chan et al., 2025; Jiang et al., 2025; Wijk et al., 2024) and research on open-endedness (Clune, 2019; Mouret and Clune, 2015). We incorporate this agentic tree search approach across all four experimentation stages outlined in §3.2.1, enabling deeper and more systematic exploration of scientific hypotheses."
+          }
+        ],
+        "success_check": {
+          "observable": "System prompt and code repository",
+          "comparator_or_threshold": "Publicly accessible and completely documented",
+          "evidence_needed": "Complete source scripts detailing how the starting conditions and initial scripts are bootstrapped without fixed templates."
+        }
+      }
+    ]
+  }
+}

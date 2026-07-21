@@ -1,0 +1,275 @@
+```json
+{
+  "record_id": "R10",
+  "vendor": "gemini",
+  "model_id": "Gemini 3.1 Pro",
+  "policy_type": [
+    "not_reported"
+  ],
+  "memory_structure": [
+    "not_reported"
+  ],
+  "human_authority": {
+    "generator": [
+      "not_reported"
+    ],
+    "executor": [
+      "execute"
+    ],
+    "validator": [
+      "execute"
+    ],
+    "memory": [
+      "not_reported"
+    ],
+    "policy": [
+      "not_reported"
+    ]
+  },
+  "channels": [
+    {
+      "channel_id": "C01_LLM_Tournament",
+      "operational_status": "implemented",
+      "target_property": [
+        "aggregate_quality"
+      ],
+      "evidence_source": [
+        "prior_art_corpus"
+      ],
+      "evaluator_substrate": [
+        "llm"
+      ],
+      "decision_role": [
+        "ranking"
+      ],
+      "feedback_path": [
+        "unclear"
+      ],
+      "external_independence": "internal_separate_component",
+      "reliability_evidence_type": [
+        "agreement_study"
+      ],
+      "reliability_finding": "positive_property_specific_evidence",
+      "experimental_fidelity": [
+        "not_applicable"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R10-E03",
+          "pdf_id": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+          "page": 4,
+          "quote": "The drug candidates are ranked by an LLM-judged tournament according to the strength of the scientific rationale, pharmacological profile, and methodology of the supporting literature.",
+          "rationale": "Identifies the LLM tournament as an evaluator of candidate quality based on literature."
+        },
+        {
+          "evidence_id": "R10-E04",
+          "pdf_id": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+          "page": 8,
+          "quote": "When comparing the LLM judge’s preferences with experts’, the LLM judge demonstrated high concordance with expert preferences, with an average of 7.25 of its top 10 hypotheses matching those in the experts’ top 10",
+          "rationale": "Provides the agreement study results supporting the reliability of the LLM judge."
+        }
+      ]
+    },
+    {
+      "channel_id": "C02_Robin_Autonomous_Analysis",
+      "operational_status": "implemented",
+      "target_property": [
+        "empirical_adequacy"
+      ],
+      "evidence_source": [
+        "physical_measurement"
+      ],
+      "evaluator_substrate": [
+        "not_reported"
+      ],
+      "decision_role": [
+        "search_control"
+      ],
+      "feedback_path": [
+        "candidate_revision"
+      ],
+      "external_independence": "internal_self_evaluation",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "physical_assay"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R10-E02",
+          "pdf_id": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+          "page": 2,
+          "quote": "Researchers next conduct the experiments and provide the resulting data to Robin for autonomous analysis. Robin then interprets the results of this analysis to generate a new round of therapeutic candidates.",
+          "rationale": "Shows Robin evaluating physical measurement data to revise therapeutic candidates."
+        }
+      ]
+    },
+    {
+      "channel_id": "C03_Finch_Gene_Expression_Analysis",
+      "operational_status": "implemented",
+      "target_property": [
+        "not_reported"
+      ],
+      "evidence_source": [
+        "physical_measurement"
+      ],
+      "evaluator_substrate": [
+        "not_reported"
+      ],
+      "decision_role": [
+        "not_reported"
+      ],
+      "feedback_path": [
+        "unclear"
+      ],
+      "external_independence": "internal_separate_component",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "physical_assay"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R10-E07",
+          "pdf_id": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+          "page": 10,
+          "quote": "Read demultiplexing and alignment was performed by a human and subsequent differential gene expression analysis was performed by Finch.",
+          "rationale": "Identifies Finch as an analytical evaluator on the physical data."
+        }
+      ]
+    },
+    {
+      "channel_id": "C04_Human_Flow_Cytometry_Analysis",
+      "operational_status": "implemented",
+      "target_property": [
+        "not_reported"
+      ],
+      "evidence_source": [
+        "physical_measurement"
+      ],
+      "evaluator_substrate": [
+        "human"
+      ],
+      "decision_role": [
+        "not_reported"
+      ],
+      "feedback_path": [
+        "unclear"
+      ],
+      "external_independence": "external_independent",
+      "reliability_evidence_type": [
+        "none_reported"
+      ],
+      "reliability_finding": "not_evaluated",
+      "experimental_fidelity": [
+        "physical_assay"
+      ],
+      "quotes": [
+        {
+          "evidence_id": "R10-E08",
+          "pdf_id": "336d4e3f9065f42918cec8053e020d12c8d8c8031eb4c180764a349d1efa1794",
+          "page": 10,
+          "quote": "Flow cytometry data was also analyzed by a human scientist.",
+          "rationale": "Confirms human role in assessing physical experimental data."
+        }
+      ]
+    }
+  ],
+  "envelope": {
+    "diagnostics": [
+      {
+        "id": "D01",
+        "statement": "The LLM judge's performance is measured solely by agreement with human experts, lacking calibration against empirical correctness.",
+        "kind": "missing_evidence",
+        "evidence_ids": [
+          "R10-E04"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R10-E04",
+            "exact_quote": "When comparing the LLM judge’s preferences with experts’, the LLM judge demonstrated high concordance with expert preferences"
+          }
+        ],
+        "consequence": "The evaluation mechanism may reliably codify human expert biases instead of identifying objectively superior drug candidates."
+      },
+      {
+        "id": "D02",
+        "statement": "Robin's autonomous analysis of experimental results lacks evidence regarding its substrate, methodology, or reliability.",
+        "kind": "missing_evidence",
+        "evidence_ids": [
+          "R10-E02"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R10-E02",
+            "exact_quote": "Robin for autonomous analysis."
+          }
+        ],
+        "consequence": "The fidelity of candidate revision relies on an opaque and unevaluated analytical mechanism."
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "REC01",
+        "action_code": "evaluate_evaluator_error_or_bias",
+        "linked_diagnostic_ids": [
+          "D01"
+        ],
+        "evidence_ids": [
+          "R10-E04"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R10-E04",
+            "exact_quote": "the LLM judge demonstrated high concordance with expert preferences"
+          }
+        ],
+        "success_check": {
+          "observable": "A calibration analysis report is provided",
+          "comparator_or_threshold": "Correlation between the LLM judge's rankings and successful physical assay outcomes",
+          "evidence_needed": "Results validating the judge against ground-truth empirical data"
+        }
+      },
+      {
+        "id": "REC02",
+        "action_code": "clarify_system_boundary",
+        "linked_diagnostic_ids": [
+          "D02"
+        ],
+        "evidence_ids": [
+          "R10-E02"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R10-E02",
+            "exact_quote": "Robin for autonomous analysis."
+          }
+        ],
+        "success_check": {
+          "observable": "The substrate and specific evaluation mechanisms for Robin's data analysis are described",
+          "comparator_or_threshold": "Clear identification of the computational approach used",
+          "evidence_needed": "Documentation or transparent code details for the analytical component"
+        }
+      }
+    ],
+    "probes": [
+      true,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  }
+}
+```

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "record_id": "R11",
+  "completeness_boundary": "The full cited PDF was reviewed and searched. not_reported means that no explicit statement was found in that source.",
+  "answer_options": [
+    "yes",
+    "no",
+    "not_reported"
+  ],
+  "probes": [
+    {
+      "probe_id": "R11-P01",
+      "question": "Does ERA place LLM-generated sandbox code within a tree search that balances exploitation and exploration?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R11-E01"
+      ]
+    },
+    {
+      "probe_id": "R11-P02",
+      "question": "Does ERA use sandbox scores and output logs to guide later attempts toward a better score?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R11-E02"
+      ]
+    },
+    {
+      "probe_id": "R11-P03",
+      "question": "Can ERA backtrack and branch from a historical search-tree node when an optimization path plateaus?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R11-E03"
+      ]
+    },
+    {
+      "probe_id": "R11-P04",
+      "question": "Does the source report expert manual inspection of ERA code and consistency across replicate runs?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R11-E04"
+      ]
+    },
+    {
+      "probe_id": "R11-P05",
+      "question": "Does ERA evaluate generated code without executing or scoring it in a sandbox?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R11-E02"
+      ]
+    },
+    {
+      "probe_id": "R11-P06",
+      "question": "Does ERA select the node with the lowest PUCT score for expansion?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R11-E03"
+      ]
+    },
+    {
+      "probe_id": "R11-P07",
+      "question": "Does ERA discard all historical nodes whenever it generates a new child solution?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R11-E03"
+      ]
+    },
+    {
+      "probe_id": "R11-P08",
+      "question": "Does the reported ERA search rely on beam search or a (1 + lambda) evolution strategy?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R11-E05"
+      ]
+    },
+    {
+      "probe_id": "R11-P09",
+      "question": "Does the source report a novelty or prior-art assessment that accepts or rejects ERA's generated solutions?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R11-P10",
+      "question": "Does the source report probabilistic calibration of an ERA evaluator's confidence against observed correctness frequencies?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R11-P11",
+      "question": "Does the source report an independent replication of ERA's results by a separate laboratory or research team?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R11-P12",
+      "question": "Does the source report ERA executing a robotic, physical, or wet-lab experiment?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    }
+  ]
+}

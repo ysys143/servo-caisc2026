@@ -1,0 +1,49 @@
+{
+  "evidence_type": "functional-matrix-v1",
+  "protocol_sha256": "2b947e132a29344d5a30017d4575ff863dc489e0c69e723e40321b43c1458523",
+  "cells": [
+    {
+      "cell_id": "claude:servo",
+      "invocation_id": "claude-R10-servo-live-smoke",
+      "trial_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-gpdhhqc6",
+      "artifact_root": "smoke_reports/observer/functional/claude",
+      "artifact_tree_sha256": "358106bf72ecc465e13d70179e103b8b3a8611490df739e505e0daf20d5029e9",
+      "returncode": 0,
+      "accepted": true,
+      "prompt_sha256": "59baa86c459f499b39620e1c5e41c0cb31ab44478b5ad9325d5bfd74a41412ff",
+      "packet_sha256": "19182411a864ae796a39320847e50211e603c4330e0347a1ea719694b38979a2",
+      "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+      "stdout_sha256": "de456a1c2a3cd957b0451217c4d845b00d38b5191d05b848e3b59a3c633dc4d7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "cell_id": "codex:servo",
+      "invocation_id": "codex-R10-servo-live-smoke",
+      "trial_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-6syd899s",
+      "artifact_root": "smoke_reports/observer/functional/codex",
+      "artifact_tree_sha256": "04392fc22dfbe327386408ddc1e7bbcee9a943bd69d3a3ec1949ab827fa65f8d",
+      "returncode": 0,
+      "accepted": true,
+      "prompt_sha256": "195e231dd895262d4c5bb935d0ab858a15916c6cc20e1b16d1d315f565b639d2",
+      "packet_sha256": "19182411a864ae796a39320847e50211e603c4330e0347a1ea719694b38979a2",
+      "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+      "stdout_sha256": "01fc120fed433f7d74783815660334088a794adbc24a3b6e20f4e381a3f974e2",
+      "stderr_sha256": "3be8a903e0dd180707f926889aa4f1d02c3e370a145a64072f1aa22278648da1"
+    },
+    {
+      "cell_id": "gemini:servo",
+      "invocation_id": "gemini-R10-servo-live-smoke",
+      "trial_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-3h123kd_",
+      "artifact_root": "smoke_reports/observer/functional/gemini",
+      "artifact_tree_sha256": "c549b56f1d42182e90e4fd4f548d7fb0046df6f091205df93acbd451ce8e2145",
+      "returncode": 0,
+      "accepted": true,
+      "prompt_sha256": "6cbe8321ee08472c2b0119ea5ba413e930d9f0b132c697543ae2be8ef1b218d1",
+      "packet_sha256": "19182411a864ae796a39320847e50211e603c4330e0347a1ea719694b38979a2",
+      "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+      "stdout_sha256": "0bef79fbb245ebefdef036265b61c291d3f76db2f63e95b11ab3e997a257c89a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "latency_boundary_passed": true
+}

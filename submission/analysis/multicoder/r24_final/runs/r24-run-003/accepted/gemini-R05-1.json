@@ -1,0 +1,100 @@
+{
+  "record_id": "R05",
+  "vendor": "gemini",
+  "model_id": "gemini-3.1-pro",
+  "memo": "Review of the Adam robotic scientist system architecture based on provided excerpts. The system successfully automates hypothesis generation, testing, and model updating. The analysis identifies a missing prior-art check to prevent redundant experimentation and notes reported high costs limiting cost-effectiveness.",
+  "envelope": {
+    "diagnostics": [
+      {
+        "id": "D01",
+        "statement": "The source does not report a mechanism to assess the novelty or prior art of hypotheses before testing them.",
+        "kind": "missing_evidence",
+        "evidence_ids": [
+          "R05-E01"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R05-E01",
+            "exact_quote": "This is a system which uses techniques from artificial intelligence to automate all aspects of the scientific discovery process: it generates hypotheses from a computer model of the domain, designs experiments to test these hypotheses, runs the physical experiments using robotic systems, analyses and interprets the resulting data, and repeats the cycle."
+          }
+        ],
+        "consequence": "The system may waste expensive consumables running physical experiments for discoveries that have already been made and published by human scientists."
+      },
+      {
+        "id": "D02",
+        "statement": "The authors report that the robotic systems are not currently cost-effective compared to human scientists due to capital, training, and maintenance costs.",
+        "kind": "risk",
+        "evidence_ids": [
+          "R05-E07"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R05-E07",
+            "exact_quote": "There is a substantial cost for these systems, not only in initial capital outlay and user training, but also in ongoing servicing and maintenance costs, and we would not currently consider them to be 'cost-effective' in comparison to human scientists."
+          }
+        ],
+        "consequence": "High operational costs limit the scalability and broader adoption of the automated scientific discovery process."
+      }
+    ],
+    "probes": [
+      true,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      null,
+      null,
+      null,
+      null
+    ],
+    "recommendations": [
+      {
+        "id": "REC01",
+        "priority_rank": 1,
+        "action_code": "add_prior_art_check",
+        "linked_diagnostic_ids": [
+          "D01"
+        ],
+        "evidence_ids": [
+          "R05-E01"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R05-E01",
+            "exact_quote": "This is a system which uses techniques from artificial intelligence to automate all aspects of the scientific discovery process: it generates hypotheses from a computer model of the domain, designs experiments to test these hypotheses, runs the physical experiments using robotic systems, analyses and interprets the resulting data, and repeats the cycle."
+          }
+        ],
+        "success_check": {
+          "observable": "Rate of testing previously known hypotheses",
+          "comparator_or_threshold": "Decreases to near zero",
+          "evidence_needed": "A log of hypotheses gated out by the prior-art check and a review of executed tests."
+        }
+      },
+      {
+        "id": "REC02",
+        "priority_rank": 2,
+        "action_code": "abstain_or_unclear",
+        "linked_diagnostic_ids": [
+          "D02"
+        ],
+        "evidence_ids": [
+          "R05-E07"
+        ],
+        "exact_quotes": [
+          {
+            "evidence_id": "R05-E07",
+            "exact_quote": "There is a substantial cost for these systems, not only in initial capital outlay and user training, but also in ongoing servicing and maintenance costs, and we would not currently consider them to be 'cost-effective' in comparison to human scientists."
+          }
+        ],
+        "success_check": {
+          "observable": "System cost-effectiveness relative to human scientists",
+          "comparator_or_threshold": "Surpasses human scientist cost-effectiveness",
+          "evidence_needed": "Longitudinal financial analysis of operating costs versus scientific output value."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,779 @@
+OpenAI Codex v0.144.6
+--------
+workdir: /private/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-65pp3oey
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019f8078-e2f6-7561-bd6c-a9b077b34e67
+--------
+user
+# SERVO condition
+
+Apply the supplied frozen R24 coding manual to the anonymous source packet. Do not infer facts outside the packet and do not use knowledge of the named system.
+
+Return only JSON conforming to the supplied SERVO schema. Separate distinct validator channels, populate every facet, and attach exact packet evidence to each channel. Then provide typed diagnostics with consequences and exact evidence; one to three non-redundant recommendations ranked consecutively by `priority_rank` from 1 and linked to those diagnostics with observable success checks; and all twelve probes. Prefer `abstain_or_unclear` to an unsupported recommendation. Do not treat non-reporting as absence, terminal assessment as feedback, general reviewer error as novelty-specific evidence, or agreement and bias studies as probabilistic calibration.
+
+For every diagnostic and recommendation, `evidence_ids` and the `evidence_id` values in `exact_quotes` must be identical sets: include exactly one exact quotation for every listed evidence ID, and never list an evidence ID without its quotation.
+
+
+# Frozen R24 coding manual
+
+## Unit and boundary
+
+The unit is a source-defined system version, not a unique research lineage. The fourteen records represent thirteen lineages because the AI Scientist v2 preprint and the 2026 record belong to one lineage. Code only what the frozen packet reports. Absence of reporting is not evidence of absence.
+
+A validator channel is an identifiable evaluator with a stable target, substrate, decision role, or feedback path. Split channels when one named system uses distinct mechanisms for ideation filtering, search control, terminal assessment, or external acceptance.
+
+## Facets
+
+- `operational_status`: distinguish implemented behavior, unexercised proposals, external processes, non-reporting, and genuinely unclear descriptions.
+- `target_property`: the property judged, such as executability, correctness, novelty, or aggregate quality.
+- `evidence_source`: the information used to judge the target.
+- `evaluator_substrate`: the mechanism or actor performing the judgment.
+- `decision_role`: the operational consequence of the output.
+- `feedback_path`: where the output is actually routed. A terminal assessment is not search control.
+- `external_independence`: organizational or informational independence of the evaluator.
+- `reliability_evidence_type`: the study design reported for the exact channel and target. Lack of documented bias is `none_reported`, not calibration.
+- `reliability_finding`: the conclusion supported by that evidence.
+- `experimental_fidelity`: the environment in which the evaluated evidence is produced.
+
+Every channel requires at least one exact packet quote. Never transfer evidence from a terminal paper reviewer to an ideation novelty filter merely because both use an LLM.
+
+## Closure and human authority
+
+Closure is derived rather than freely rated. Implemented policy control or stage transition is closed computational feedback; memory update or candidate revision alone is partial; terminal-only or external-only assessment is open. Unclear routing remains unclear.
+
+Human authority is recorded separately for generator, executor, validator, memory, and policy. Use only observable roles: `explicit_none`, `initiate`, `advise`, `select`, `approve`, `execute`, `final_authority`, `not_reported`, or `not_applicable`.
+
+## Missingness
+
+`not_reported` means the packet provides no claim. Explicit none means the source states absence. `unclear` means relevant text exists but supports multiple readings. `not_applicable` means the facet has no coherent value for that channel. These values are never interchangeable.
+
+
+Scheduled metadata: record_id=R01; vendor=codex. Use the CLI model identifier as model_id.
+
+Allowed neutral action codes:
+[
+  "obtain_independent_evidence",
+  "evaluate_evaluator_error_or_bias",
+  "add_feedback_to_later_decision",
+  "add_prior_art_check",
+  "add_replication",
+  "retain_human_approval_or_escalation",
+  "separate_diagnostic_from_gate",
+  "clarify_system_boundary",
+  "no_supported_change",
+  "abstain_or_unclear"
+]
+
+
+Probe questions without reference answers:
+[
+  {
+    "probe_id": "R01-P01",
+    "question": "Does the Planner receive command outputs as input messages?"
+  },
+  {
+    "probe_id": "R01-P02",
+    "question": "Does the source report that Coscientist conducts experiments in the physical world?"
+  },
+  {
+    "probe_id": "R01-P03",
+    "question": "Does Coscientist consult documentation and correct a protocol after using an incorrect method name?"
+  },
+  {
+    "probe_id": "R01-P04",
+    "question": "Does the source report reuse of information obtained during iterative optimization?"
+  },
+  {
+    "probe_id": "R01-P05",
+    "question": "Does the source state that its synthesis-planning labels are objective and invariant across labelers?"
+  },
+  {
+    "probe_id": "R01-P06",
+    "question": "Was Coscientist granted internet access during the reported liquid-handler investigation?"
+  },
+  {
+    "probe_id": "R01-P07",
+    "question": "Was the reported cross-coupling experimental setup fully automated, including plate movement?"
+  },
+  {
+    "probe_id": "R01-P08",
+    "question": "Does the source state that the full data, code, and prompts were already released without delay?"
+  },
+  {
+    "probe_id": "R01-P09",
+    "question": "Does the source report a novelty or prior-art assessment of Coscientist's proposed experiments?"
+  },
+  {
+    "probe_id": "R01-P10",
+    "question": "Does the source report probabilistic calibration of evaluator confidence against observed correctness frequencies?"
+  },
+  {
+    "probe_id": "R01-P11",
+    "question": "Does the source report an independent replication of Coscientist's experiments by a separate laboratory?"
+  },
+  {
+    "probe_id": "R01-P12",
+    "question": "Does the source report use of a formal proof checker, theorem prover, or proof assistant as a validator?"
+  }
+]
+
+Anonymous source packet:
+{
+  "schema_version": 1,
+  "record_id": "R01",
+  "source": {
+    "pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+    "page_count": 13
+  },
+  "instructions": "Use only the primary-source excerpts below. The full cited PDF was reviewed and searched. For this packet, not_reported means that no explicit statement was found anywhere in that PDF; it does not imply absence outside this source.",
+  "evidence": [
+    {
+      "evidence_id": "R01-E01",
+      "pdf_page": 1,
+      "quote": "The initial user input along with command outputs are treated as user messages to the Planner."
+    },
+    {
+      "evidence_id": "R01-E02",
+      "pdf_page": 4,
+      "quote": "Access to documentation enables us to provide sufficient information for Coscientist to conduct experiments in the physical world."
+    },
+    {
+      "evidence_id": "R01-E03",
+      "pdf_page": 5,
+      "quote": "However, an incorrect heater-shaker module method name was used. Upon making this mistake, Coscientist uses the Docs searcher module to consult the OT-2 documentation. Next, Coscientist modifies the protocol to a corrected version, which ran successfully."
+    },
+    {
+      "evidence_id": "R01-E04",
+      "pdf_page": 8,
+      "quote": "The normalized advantage values increase over time, suggesting that the model can effectively reuse the information obtained to provide more specific guidance on reactivity."
+    },
+    {
+      "evidence_id": "R01-E05",
+      "pdf_page": 2,
+      "quote": "Despite our attempts to better formalize the scale, labelling is inherently subjective and so, may be different between the labelers."
+    },
+    {
+      "evidence_id": "R01-E06",
+      "pdf_page": 4,
+      "quote": "For this investigation, we did not grant access to the internet."
+    },
+    {
+      "evidence_id": "R01-E07",
+      "pdf_page": 5,
+      "quote": "Although our setup is not yet fully automated (plates were moved manually), no human decision-making was involved."
+    },
+    {
+      "evidence_id": "R01-E08",
+      "pdf_page": 10,
+      "quote": "Because of safety concerns, data, code and prompts will be only fully released after the development of US regulations in the field of artificial intelligence and its scientific applications."
+    }
+  ]
+}
+
+
+Required JSON schema:
+{
+  "$defs": {
+    "ActionCode": {
+      "enum": [
+        "obtain_independent_evidence",
+        "evaluate_evaluator_error_or_bias",
+        "add_feedback_to_later_decision",
+        "add_prior_art_check",
+        "add_replication",
+        "retain_human_approval_or_escalation",
+        "separate_diagnostic_from_gate",
+        "clarify_system_boundary",
+        "no_supported_change",
+        "abstain_or_unclear"
+      ],
+      "title": "ActionCode",
+      "type": "string"
+    },
+    "CommonEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/Diagnostic"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "probes": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Probes",
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Recommendation"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "diagnostics",
+        "recommendations",
+        "probes"
+      ],
+      "title": "CommonEnvelope",
+      "type": "object"
+    },
+    "DecisionRole": {
+      "enum": [
+        "diagnostic",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "memory_admission",
+        "terminal_assessment",
+        "final_acceptance",
+        "external_assessment",
+        "not_reported"
+      ],
+      "title": "DecisionRole",
+      "type": "string"
+    },
+    "Diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "consequence": {
+          "minLength": 1,
+          "title": "Consequence",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/DiagnosticKind"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "kind",
+        "evidence_ids",
+        "exact_quotes",
+        "consequence"
+      ],
+      "title": "Diagnostic",
+      "type": "object"
+    },
+    "DiagnosticKind": {
+      "enum": [
+        "reported_failure",
+        "risk",
+        "ambiguity",
+        "missing_evidence"
+      ],
+      "title": "DiagnosticKind",
+      "type": "string"
+    },
+    "EvaluatorSubstrate": {
+      "enum": [
+        "deterministic_program",
+        "statistical_model",
+        "formal_kernel",
+        "llm",
+        "human",
+        "hybrid",
+        "not_reported"
+      ],
+      "title": "EvaluatorSubstrate",
+      "type": "string"
+    },
+    "EvidenceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "exact_quote": {
+          "minLength": 1,
+          "title": "Exact Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "exact_quote"
+      ],
+      "title": "EvidenceExcerpt",
+      "type": "object"
+    },
+    "EvidenceQuote": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "pdf_id": {
+          "minLength": 1,
+          "title": "Pdf Id",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "pdf_id",
+        "page",
+        "quote",
+        "rationale"
+      ],
+      "title": "EvidenceQuote",
+      "type": "object"
+    },
+    "EvidenceSource": {
+      "enum": [
+        "execution_trace",
+        "benchmark_metric",
+        "statistical_test",
+        "physical_measurement",
+        "replication",
+        "prior_art_corpus",
+        "artifact_review",
+        "human_judgment",
+        "not_reported"
+      ],
+      "title": "EvidenceSource",
+      "type": "string"
+    },
+    "ExternalIndependence": {
+      "enum": [
+        "internal_self_evaluation",
+        "internal_separate_component",
+        "external_nonindependent",
+        "external_independent",
+        "not_reported"
+      ],
+      "title": "ExternalIndependence",
+      "type": "string"
+    },
+    "FeedbackPath": {
+      "enum": [
+        "terminal_only",
+        "memory_update",
+        "candidate_revision",
+        "policy_control",
+        "stage_transition",
+        "external_only",
+        "unclear"
+      ],
+      "title": "FeedbackPath",
+      "type": "string"
+    },
+    "Fidelity": {
+      "enum": [
+        "simulation_or_proxy",
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "robotic_experiment",
+        "physical_assay",
+        "not_applicable",
+        "not_reported"
+      ],
+      "title": "Fidelity",
+      "type": "string"
+    },
+    "HumanAuthority": {
+      "additionalProperties": false,
+      "properties": {
+        "executor": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Executor",
+          "type": "array"
+        },
+        "generator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Generator",
+          "type": "array"
+        },
+        "memory": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Memory",
+          "type": "array"
+        },
+        "policy": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Policy",
+          "type": "array"
+        },
+        "validator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Validator",
+          "type": "array"
+        }
+      },
+      "required": [
+        "generator",
+        "executor",
+        "validator",
+        "memory",
+        "policy"
+      ],
+      "title": "HumanAuthority",
+      "type": "object"
+    },
+    "OperationalStatus": {
+      "enum": [
+        "implemented",
+        "proposed_not_exercised",
+        "external",
+        "not_reported",
+        "unclear"
+      ],
+      "title": "OperationalStatus",
+      "type": "string"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "action_code": {
+          "$ref": "#/$defs/ActionCode"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "linked_diagnostic_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Linked Diagnostic Ids",
+          "type": "array"
+        },
+        "priority_rank": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "success_check": {
+          "$ref": "#/$defs/SuccessCheck"
+        }
+      },
+      "required": [
+        "id",
+        "priority_rank",
+        "action_code",
+        "linked_diagnostic_ids",
+        "evidence_ids",
+        "exact_quotes",
+        "success_check"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "ReliabilityEvidence": {
+      "enum": [
+        "none_reported",
+        "discrimination_study",
+        "agreement_study",
+        "systematic_error_or_bias_test",
+        "property_specific_external_validation",
+        "probabilistic_calibration_analysis"
+      ],
+      "title": "ReliabilityEvidence",
+      "type": "string"
+    },
+    "ReliabilityFinding": {
+      "enum": [
+        "not_evaluated",
+        "not_established",
+        "evidence_of_error_or_bias",
+        "positive_property_specific_evidence",
+        "mixed",
+        "unclear"
+      ],
+      "title": "ReliabilityFinding",
+      "type": "string"
+    },
+    "SuccessCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "comparator_or_threshold": {
+          "minLength": 1,
+          "title": "Comparator Or Threshold",
+          "type": "string"
+        },
+        "evidence_needed": {
+          "minLength": 1,
+          "title": "Evidence Needed",
+          "type": "string"
+        },
+        "observable": {
+          "minLength": 1,
+          "title": "Observable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observable",
+        "comparator_or_threshold",
+        "evidence_needed"
+      ],
+      "title": "SuccessCheck",
+      "type": "object"
+    },
+    "TargetProperty": {
+      "enum": [
+        "executability",
+        "specification_compliance",
+        "task_performance",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "reproducibility",
+        "novelty",
+        "significance",
+        "aggregate_quality",
+        "not_reported"
+      ],
+      "title": "TargetProperty",
+      "type": "string"
+    },
+    "ValidatorChannel": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_id": {
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "decision_role": {
+          "items": {
+            "$ref": "#/$defs/DecisionRole"
+          },
+          "title": "Decision Role",
+          "type": "array"
+        },
+        "evaluator_substrate": {
+          "items": {
+            "$ref": "#/$defs/EvaluatorSubstrate"
+          },
+          "title": "Evaluator Substrate",
+          "type": "array"
+        },
+        "evidence_source": {
+          "items": {
+            "$ref": "#/$defs/EvidenceSource"
+          },
+          "title": "Evidence Source",
+          "type": "array"
+        },
+        "experimental_fidelity": {
+          "items": {
+            "$ref": "#/$defs/Fidelity"
+          },
+          "title": "Experimental Fidelity",
+          "type": "array"
+        },
+        "external_independence": {
+          "$ref": "#/$defs/ExternalIndependence"
+        },
+        "feedback_path": {
+          "items": {
+            "$ref": "#/$defs/FeedbackPath"
+          },
+          "title": "Feedback Path",
+          "type": "array"
+        },
+        "operational_status": {
+          "$ref": "#/$defs/OperationalStatus"
+        },
+        "quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceQuote"
+          },
+          "minItems": 1,
+          "title": "Quotes",
+          "type": "array"
+        },
+        "reliability_evidence_type": {
+          "items": {
+            "$ref": "#/$defs/ReliabilityEvidence"
+          },
+          "title": "Reliability Evidence Type",
+          "type": "array"
+        },
+        "reliability_finding": {
+          "$ref": "#/$defs/ReliabilityFinding"
+        },
+        "target_property": {
+          "items": {
+            "$ref": "#/$defs/TargetProperty"
+          },
+          "title": "Target Property",
+          "type": "array"
+        }
+      },
+      "required": [
+        "channel_id",
+        "operational_status",
+        "target_property",
+        "evidence_source",
+        "evaluator_substrate",
+        "decision_role",
+        "feedback_path",
+        "external_independence",
+        "reliability_evidence_type",
+        "reliability_finding",
+        "experimental_fidelity",
+        "quotes"
+      ],
+      "title": "ValidatorChannel",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "channels": {
+      "items": {
+        "$ref": "#/$defs/ValidatorChannel"
+      },
+      "minItems": 1,
+      "title": "Channels",
+      "type": "array"
+    },
+    "envelope": {
+      "$ref": "#/$defs/CommonEnvelope"
+    },
+    "human_authority": {
+      "$ref": "#/$defs/HumanAuthority"
+    },
+    "memory_structure": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Memory Structure",
+      "type": "array"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "policy_type": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Policy Type",
+      "type": "array"
+    },
+    "record_id": {
+      "pattern": "^R\\d{2}$",
+      "title": "Record Id",
+      "type": "string"
+    },
+    "vendor": {
+      "minLength": 1,
+      "title": "Vendor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "vendor",
+    "model_id",
+    "channels",
+    "policy_type",
+    "memory_structure",
+    "human_authority",
+    "envelope"
+  ],
+  "title": "ServoCoding",
+  "type": "object"
+}
+
+codex
+{"channels":[{"channel_id":"planner_command_output_routing","decision_role":["search_control"],"evaluator_substrate":["llm"],"evidence_source":["execution_trace"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["policy_control"],"operational_status":"implemented","quotes":[{"evidence_id":"R01-E01","page":1,"pdf_id":"15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f","quote":"The initial user input along with command outputs are treated as user messages to the Planner.","rationale":"Identifies command outputs as inputs routed back to the Planner, supporting an implemented internal feedback channel for planning/search control."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["task_performance"]},{"channel_id":"documentation_based_protocol_correction","decision_role":["diagnostic"],"evaluator_substrate":["hybrid"],"evidence_source":["artifact_review","execution_trace"],"experimental_fidelity":["robotic_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["candidate_revision"],"operational_status":"implemented","quotes":[{"evidence_id":"R01-E03","page":5,"pdf_id":"15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f","quote":"However, an incorrect heater-shaker module method name was used. Upon making this mistake, Coscientist uses the Docs searcher module to consult the OT-2 documentation. Next, Coscientist modifies the protocol to a corrected version, which ran successfully.","rationale":"Reports an execution-related error, documentation consultation, candidate protocol revision, and successful run."}],"reliability_evidence_type":["property_specific_external_validation"],"reliability_finding":"positive_property_specific_evidence","target_property":["executability"]},{"channel_id":"iterative_reactivity_optimization_feedback","decision_role":["search_control"],"evaluator_substrate":["statistical_model","llm"],"evidence_source":["statistical_test"],"experimental_fidelity":["physical_assay"],"external_independence":"internal_self_evaluation","feedback_path":["memory_update","policy_control"],"operational_status":"implemented","quotes":[{"evidence_id":"R01-E04","page":8,"pdf_id":"15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f","quote":"The normalized advantage values increase over time, suggesting that the model can effectively reuse the information obtained to provide more specific guidance on reactivity.","rationale":"Reports reuse of information obtained during iterative optimization and an increasing quantitative metric used to guide reactivity."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_established","target_property":["task_performance","empirical_adequacy"]},{"channel_id":"synthesis_planning_human_labels","decision_role":["terminal_assessment"],"evaluator_substrate":["human"],"evidence_source":["human_judgment"],"experimental_fidelity":["not_applicable"],"external_independence":"not_reported","feedback_path":["terminal_only"],"operational_status":"implemented","quotes":[{"evidence_id":"R01-E05","page":2,"pdf_id":"15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f","quote":"Despite our attempts to better formalize the scale, labelling is inherently subjective and so, may be different between the labelers.","rationale":"Identifies human labeling as a subjective assessment channel and explicitly reports potential labeler variation."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"evidence_of_error_or_bias","target_property":["aggregate_quality"]},{"channel_id":"physical_world_experiment_execution","decision_role":["stage_transition"],"evaluator_substrate":["hybrid"],"evidence_source":["artifact_review"],"experimental_fidelity":["robotic_experiment","physical_assay"],"external_independence":"internal_self_evaluation","feedback_path":["stage_transition"],"operational_status":"implemented","quotes":[{"evidence_id":"R01-E02","page":4,"pdf_id":"15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f","quote":"Access to documentation enables us to provide sufficient information for Coscientist to conduct experiments in the physical world.","rationale":"Supports a channel connecting documentation-derived information to conduct of physical-world experiments."},{"evidence_id":"R01-E07","page":5,"pdf_id":"15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f","quote":"Although our setup is not yet fully automated (plates were moved manually), no human decision-making was involved.","rationale":"Clarifies the physical experimental setup, including manual plate movement and absence of human decision-making."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["executability","empirical_adequacy"]}],"envelope":{"diagnostics":[{"consequence":"Protocol executability can fail on tool-interface details and depends on post-error documentation consultation and revision before successful execution.","evidence_ids":["R01-E03"],"exact_quotes":[{"evidence_id":"R01-E03","exact_quote":"However, an incorrect heater-shaker module method name was used. Upon making this mistake, Coscientist uses the Docs searcher module to consult the OT-2 documentation. Next, Coscientist modifies the protocol to a corrected version, which ran successfully."}],"id":"R01-D01","kind":"reported_failure","statement":"The source reports an incorrect liquid-handler method name that required correction."},{"consequence":"Human label outputs may vary by labeler, so label-based assessments should not be treated as objective invariant ground truth.","evidence_ids":["R01-E05"],"exact_quotes":[{"evidence_id":"R01-E05","exact_quote":"Despite our attempts to better formalize the scale, labelling is inherently subjective and so, may be different between the labelers."}],"id":"R01-D02","kind":"risk","statement":"The source reports subjectivity and possible inter-labeler variation in synthesis-planning labels."},{"consequence":"Claims about reproducibility or independent confirmation remain unsupported by the packet, especially because full artifacts are delayed.","evidence_ids":["R01-E08"],"exact_quotes":[{"evidence_id":"R01-E08","exact_quote":"Because of safety concerns, data, code and prompts will be only fully released after the development of US regulations in the field of artificial intelligence and its scientific applications."}],"id":"R01-D03","kind":"missing_evidence","statement":"The packet reports delayed full release of data, code, and prompts."}],"probes":[true,true,true,true,false,false,false,false,null,null,null,false],"recommendations":[{"action_code":"add_replication","evidence_ids":["R01-E08"],"exact_quotes":[{"evidence_id":"R01-E08","exact_quote":"Because of safety concerns, data, code and prompts will be only fully released after the development of US regulations in the field of artificial intelligence and its scientific applications."}],"id":"R01-R01","linked_diagnostic_ids":["R01-D03"],"priority_rank":1,"success_check":{"comparator_or_threshold":"At least one replication by a separate laboratory using sufficient released or escrowed materials.","evidence_needed":"Replication report with methods, materials available to the replicating team, and outcome comparison to the original experiments.","observable":"Independent laboratory reproduces the reported experimental workflow and records matching outcome metrics."}},{"action_code":"evaluate_evaluator_error_or_bias","evidence_ids":["R01-E05"],"exact_quotes":[{"evidence_id":"R01-E05","exact_quote":"Despite our attempts to better formalize the scale, labelling is inherently subjective and so, may be different between the labelers."}],"id":"R01-R02","linked_diagnostic_ids":["R01-D02"],"priority_rank":2,"success_check":{"comparator_or_threshold":"Predefined agreement and disagreement thresholds reported for the same synthesis-planning labels.","evidence_needed":"Multi-labeler annotation set, label rubric, inter-labeler agreement analysis, and adjudicated disagreement examples.","observable":"Measured labeler agreement and systematic disagreement patterns for synthesis-planning assessments."}},{"action_code":"retain_human_approval_or_escalation","evidence_ids":["R01-E03"],"exact_quotes":[{"evidence_id":"R01-E03","exact_quote":"However, an incorrect heater-shaker module method name was used. Upon making this mistake, Coscientist uses the Docs searcher module to consult the OT-2 documentation. Next, Coscientist modifies the protocol to a corrected version, which ran successfully."}],"id":"R01-R03","linked_diagnostic_ids":["R01-D01"],"priority_rank":3,"success_check":{"comparator_or_threshold":"Human approval or documented escalation occurs before physical execution whenever protocol-interface errors are detected or corrected.","evidence_needed":"Execution logs showing detected protocol errors, correction steps, approval records, and subsequent run status.","observable":"Corrected liquid-handler protocols are gated by approval or escalation before execution."}}]},"human_authority":{"executor":["execute"],"generator":["initiate"],"memory":["not_reported"],"policy":["not_reported"],"validator":["execute"]},"memory_structure":["command outputs treated as user messages to the Planner","reuse of information obtained during iterative optimization"],"model_id":"gpt-5","policy_type":["planner receives command-output feedback","documentation search supports protocol correction","iterative optimization reuses obtained information"],"record_id":"R01","vendor":"codex"}
+tokens used
+8,775

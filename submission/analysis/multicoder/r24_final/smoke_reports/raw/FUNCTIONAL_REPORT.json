@@ -1,0 +1,49 @@
+{
+  "cells": [
+    {
+      "accepted": true,
+      "artifact_root": "smoke_reports/observer/functional/claude",
+      "artifact_tree_sha256": "a1beba085d2e46dcfecf65f987d792d1b572ad9d5ac1052c6845b1f732cb4e5f",
+      "cell_id": "claude:servo",
+      "invocation_id": "claude-R10-servo-live-smoke",
+      "packet_sha256": "19182411a864ae796a39320847e50211e603c4330e0347a1ea719694b38979a2",
+      "prompt_sha256": "c6e6bcc739af439d53b99c1bb946ff8f8ee781a92835424c26c92b527d3b1980",
+      "returncode": 0,
+      "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ac624f1b513ea8064760b7afbf2e22801aaf59839d5fff67db4bbce736227bd5",
+      "trial_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-yyib3qpu"
+    },
+    {
+      "accepted": true,
+      "artifact_root": "smoke_reports/observer/functional/codex",
+      "artifact_tree_sha256": "fa7c86c879a36d5c69bb0a7da590d7978fb13ad12765d67dbef329100ef0aaf4",
+      "cell_id": "codex:servo",
+      "invocation_id": "codex-R10-servo-live-smoke",
+      "packet_sha256": "19182411a864ae796a39320847e50211e603c4330e0347a1ea719694b38979a2",
+      "prompt_sha256": "46b3c27ab40e1c201bc28c6a954c4b0bb9ee2056fd42766359e7cc7c1f5b30f0",
+      "returncode": 0,
+      "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+      "stderr_sha256": "bfadf62d11e5caad6167fac502fb5e8471978521e2339871306fd4120de9d241",
+      "stdout_sha256": "94004a38eb274c104fe4beff6ab0297b446b7bd700eb7c0b13910f6ea81f288f",
+      "trial_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-u71zv26j"
+    },
+    {
+      "accepted": true,
+      "artifact_root": "smoke_reports/observer/functional/gemini",
+      "artifact_tree_sha256": "e672e8fee8fab8eaf966b4c4aa993f7bc26d0605fc8da80f312377f85d515bcc",
+      "cell_id": "gemini:servo",
+      "invocation_id": "gemini-R10-servo-live-smoke",
+      "packet_sha256": "19182411a864ae796a39320847e50211e603c4330e0347a1ea719694b38979a2",
+      "prompt_sha256": "bc06fd359f6f5a7a67cdeee42210507dfd13594800536356b5493c3adb6752a2",
+      "returncode": 0,
+      "schema_sha256": "936bd55f45272c02dbe8abab0ddc823eb8bbbaff12a239962195e8d6174eee62",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a72fb9b73ade2083d06822e8ad93ef4fc4e252e9a7b5ae722227cbea203756e5",
+      "trial_root": "/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-sxw7fx9d"
+    }
+  ],
+  "evidence_type": "functional-matrix-v1",
+  "latency_boundary_passed": true,
+  "protocol_sha256": "49f2ec49250d6eb8c8077be371eb465c14060f0d39bc1c3ca8cef9efea969d21"
+}

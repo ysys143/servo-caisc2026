@@ -1,0 +1,19 @@
+{
+  "trial": {
+    "trial_id": "gemini-R10-1",
+    "vendor": "gemini",
+    "record_id": "R10",
+    "condition": "baseline",
+    "period": 1,
+    "order": 5
+  },
+  "attempt": 1,
+  "timestamp_utc": "2026-07-20T17:13:42.188008+00:00",
+  "elapsed_seconds": 162.46266845799983,
+  "requested_model": "Gemini 3.1 Pro (High)",
+  "prompt_sha256": "c01a116662d05bd81822d8954ac045795656b4f991b139794f0fb2d518b7f0c2",
+  "returncode": 1,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "0274a2e919e78f3d2ab7a0c2fcca6004d275b06c6d82c15c9c797d28ba2f8b04",
+  "validation_error": null
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "record_id": "R10",
+  "completeness_boundary": "The full cited PDF was reviewed and searched. not_reported means that no explicit statement was found in that source.",
+  "answer_options": [
+    "yes",
+    "no",
+    "not_reported"
+  ],
+  "probes": [
+    {
+      "probe_id": "R10-P01",
+      "question": "Does Robin automatically identify relevant in vitro assays and propose drug candidates for them?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R10-E01"
+      ]
+    },
+    {
+      "probe_id": "R10-P02",
+      "question": "Does Robin use supplied experimental results to generate a new round of therapeutic candidates?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R10-E02"
+      ]
+    },
+    {
+      "probe_id": "R10-P03",
+      "question": "Does an LLM-judged tournament rank Robin's drug candidates using stated criteria?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R10-E03"
+      ]
+    },
+    {
+      "probe_id": "R10-P04",
+      "question": "Does the source compare the LLM judge with experts and report top-10 concordance and repeated-comparison consistency?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R10-E04"
+      ]
+    },
+    {
+      "probe_id": "R10-P05",
+      "question": "Does Robin itself physically execute the reported laboratory experiments?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R10-E05"
+      ]
+    },
+    {
+      "probe_id": "R10-P06",
+      "question": "Does the current Robin implementation produce precise, executable laboratory protocols?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R10-E06"
+      ]
+    },
+    {
+      "probe_id": "R10-P07",
+      "question": "Was read demultiplexing and alignment in the reported RNA-sequencing workflow performed by Finch?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R10-E07"
+      ]
+    },
+    {
+      "probe_id": "R10-P08",
+      "question": "Was the reported flow-cytometry dataset analyzed only by Finch, without a human analysis?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R10-E08"
+      ]
+    },
+    {
+      "probe_id": "R10-P09",
+      "question": "Does the source report probabilistic calibration of evaluator confidence against observed correctness frequencies?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R10-P10",
+      "question": "Does the source report an independent replication of Robin's experimental findings by a separate laboratory?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R10-P11",
+      "question": "Does the source describe a persistent memory or archive that carries accumulated findings across separate Robin runs?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R10-P12",
+      "question": "Does the source report use of a formal proof checker, theorem prover, or proof assistant as a validator?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    }
+  ]
+}

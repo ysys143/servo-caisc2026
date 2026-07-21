@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "record_id": "R12",
+  "source": {
+    "pdf_sha256": "be1d9a2c31d05052009ce1850b4573d9ae2010bc001bb2486c686647729ca491",
+    "page_count": 23
+  },
+  "instructions": "Use only the excerpts below when citing positive or explicit negative evidence. The complete 23-page source was searched when assigning not_reported probes; not_reported means that the specified property was not found in that full-text audit, not that the property is known to be absent from the system.",
+  "evidence": [
+    {
+      "evidence_id": "R12-E01",
+      "pdf_page": 4,
+      "quote": "During hypothesis formulation, an Innovator proposes high-risk hypotheses that challenge conventional assumptions, a Pragmatist evaluates feasibility given hardware and time budgets, and a Contrarian actively seeks weaknesses and confounds. The synthesizer distills these perspectives into 2–4 falsifiable hypotheses, each annotated with testability criteria and required baselines."
+    },
+    {
+      "evidence_id": "R12-E02",
+      "pdf_page": 4,
+      "quote": "When an experiment fails or produces degenerate results, an automated repair loop captures the failure signature and generates targeted fixes. The system then makes one of three decisions: Proceed when evidence supports the hypothesis, Refine when results are weak but the experimental direction is sound, or Pivot when the approach is fundamentally flawed"
+    },
+    {
+      "evidence_id": "R12-E03",
+      "pdf_page": 5,
+      "quote": "After generation, a post-hoc verifier re-extracts every numeric claim and checks it against the registry, scoped per condition to prevent cross-condition false positives. Claims in strict sections (Abstract, Results, Experiments) that cannot be matched to a registry entry trigger document rejection. Claims in other sections are replaced with visible placeholders."
+    },
+    {
+      "evidence_id": "R12-E04",
+      "pdf_page": 5,
+      "quote": "At the end of each run, the system extracts structured lessons from repair attempts, Pivot/Refine decisions, HITL gate feedback, and verification results. Each lesson records a category, a severity score s(l) ∈ (0, 1], and a recommended mitigation. When a new run begins, relevant lessons are retrieved by category and ranked by a time-decayed weight:"
+    },
+    {
+      "evidence_id": "R12-E05",
+      "pdf_page": 5,
+      "quote": "The writing agent can read the registry but cannot modify it."
+    },
+    {
+      "evidence_id": "R12-E06",
+      "pdf_page": 5,
+      "quote": "Full-Auto runs the entire pipeline without human input."
+    },
+    {
+      "evidence_id": "R12-E07",
+      "pdf_page": 10,
+      "quote": "Full-Auto passes the numeric gate because the zero values are real logged measurements, not fabricated numbers. However, the gate cannot tell whether those measurements answer the research question."
+    },
+    {
+      "evidence_id": "R12-E08",
+      "pdf_page": 17,
+      "quote": "Phase 0 (Dependency Installation) and Phase 1 (Data Acquisition) enable network access; Phase 2 (Experiment Execution) disables network via iptables rules applied inside the container before the experiment script starts."
+    }
+  ]
+}

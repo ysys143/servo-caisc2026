@@ -1,0 +1,338 @@
+[
+  {
+    "trial_id": "claude-R10-servo",
+    "vendor": "claude",
+    "record_id": "R10",
+    "condition": "servo",
+    "period": 1,
+    "order": 0
+  },
+  {
+    "trial_id": "claude-R14-servo",
+    "vendor": "claude",
+    "record_id": "R14",
+    "condition": "servo",
+    "period": 1,
+    "order": 1
+  },
+  {
+    "trial_id": "claude-R08-servo",
+    "vendor": "claude",
+    "record_id": "R08",
+    "condition": "servo",
+    "period": 1,
+    "order": 2
+  },
+  {
+    "trial_id": "claude-R09-servo",
+    "vendor": "claude",
+    "record_id": "R09",
+    "condition": "servo",
+    "period": 1,
+    "order": 3
+  },
+  {
+    "trial_id": "claude-R02-servo",
+    "vendor": "claude",
+    "record_id": "R02",
+    "condition": "servo",
+    "period": 1,
+    "order": 4
+  },
+  {
+    "trial_id": "claude-R04-servo",
+    "vendor": "claude",
+    "record_id": "R04",
+    "condition": "servo",
+    "period": 1,
+    "order": 5
+  },
+  {
+    "trial_id": "claude-R01-servo",
+    "vendor": "claude",
+    "record_id": "R01",
+    "condition": "servo",
+    "period": 1,
+    "order": 6
+  },
+  {
+    "trial_id": "claude-R12-servo",
+    "vendor": "claude",
+    "record_id": "R12",
+    "condition": "servo",
+    "period": 1,
+    "order": 7
+  },
+  {
+    "trial_id": "claude-R07-servo",
+    "vendor": "claude",
+    "record_id": "R07",
+    "condition": "servo",
+    "period": 1,
+    "order": 8
+  },
+  {
+    "trial_id": "claude-R11-servo",
+    "vendor": "claude",
+    "record_id": "R11",
+    "condition": "servo",
+    "period": 1,
+    "order": 9
+  },
+  {
+    "trial_id": "claude-R05-servo",
+    "vendor": "claude",
+    "record_id": "R05",
+    "condition": "servo",
+    "period": 1,
+    "order": 10
+  },
+  {
+    "trial_id": "claude-R13-servo",
+    "vendor": "claude",
+    "record_id": "R13",
+    "condition": "servo",
+    "period": 1,
+    "order": 11
+  },
+  {
+    "trial_id": "claude-R06-servo",
+    "vendor": "claude",
+    "record_id": "R06",
+    "condition": "servo",
+    "period": 1,
+    "order": 12
+  },
+  {
+    "trial_id": "claude-R03-servo",
+    "vendor": "claude",
+    "record_id": "R03",
+    "condition": "servo",
+    "period": 1,
+    "order": 13
+  },
+  {
+    "trial_id": "codex-R09-servo",
+    "vendor": "codex",
+    "record_id": "R09",
+    "condition": "servo",
+    "period": 1,
+    "order": 0
+  },
+  {
+    "trial_id": "codex-R14-servo",
+    "vendor": "codex",
+    "record_id": "R14",
+    "condition": "servo",
+    "period": 1,
+    "order": 1
+  },
+  {
+    "trial_id": "codex-R13-servo",
+    "vendor": "codex",
+    "record_id": "R13",
+    "condition": "servo",
+    "period": 1,
+    "order": 2
+  },
+  {
+    "trial_id": "codex-R06-servo",
+    "vendor": "codex",
+    "record_id": "R06",
+    "condition": "servo",
+    "period": 1,
+    "order": 3
+  },
+  {
+    "trial_id": "codex-R04-servo",
+    "vendor": "codex",
+    "record_id": "R04",
+    "condition": "servo",
+    "period": 1,
+    "order": 4
+  },
+  {
+    "trial_id": "codex-R02-servo",
+    "vendor": "codex",
+    "record_id": "R02",
+    "condition": "servo",
+    "period": 1,
+    "order": 5
+  },
+  {
+    "trial_id": "codex-R01-servo",
+    "vendor": "codex",
+    "record_id": "R01",
+    "condition": "servo",
+    "period": 1,
+    "order": 6
+  },
+  {
+    "trial_id": "codex-R08-servo",
+    "vendor": "codex",
+    "record_id": "R08",
+    "condition": "servo",
+    "period": 1,
+    "order": 7
+  },
+  {
+    "trial_id": "codex-R05-servo",
+    "vendor": "codex",
+    "record_id": "R05",
+    "condition": "servo",
+    "period": 1,
+    "order": 8
+  },
+  {
+    "trial_id": "codex-R11-servo",
+    "vendor": "codex",
+    "record_id": "R11",
+    "condition": "servo",
+    "period": 1,
+    "order": 9
+  },
+  {
+    "trial_id": "codex-R12-servo",
+    "vendor": "codex",
+    "record_id": "R12",
+    "condition": "servo",
+    "period": 1,
+    "order": 10
+  },
+  {
+    "trial_id": "codex-R07-servo",
+    "vendor": "codex",
+    "record_id": "R07",
+    "condition": "servo",
+    "period": 1,
+    "order": 11
+  },
+  {
+    "trial_id": "codex-R03-servo",
+    "vendor": "codex",
+    "record_id": "R03",
+    "condition": "servo",
+    "period": 1,
+    "order": 12
+  },
+  {
+    "trial_id": "codex-R10-servo",
+    "vendor": "codex",
+    "record_id": "R10",
+    "condition": "servo",
+    "period": 1,
+    "order": 13
+  },
+  {
+    "trial_id": "gemini-R06-servo",
+    "vendor": "gemini",
+    "record_id": "R06",
+    "condition": "servo",
+    "period": 1,
+    "order": 0
+  },
+  {
+    "trial_id": "gemini-R03-servo",
+    "vendor": "gemini",
+    "record_id": "R03",
+    "condition": "servo",
+    "period": 1,
+    "order": 1
+  },
+  {
+    "trial_id": "gemini-R05-servo",
+    "vendor": "gemini",
+    "record_id": "R05",
+    "condition": "servo",
+    "period": 1,
+    "order": 2
+  },
+  {
+    "trial_id": "gemini-R11-servo",
+    "vendor": "gemini",
+    "record_id": "R11",
+    "condition": "servo",
+    "period": 1,
+    "order": 3
+  },
+  {
+    "trial_id": "gemini-R08-servo",
+    "vendor": "gemini",
+    "record_id": "R08",
+    "condition": "servo",
+    "period": 1,
+    "order": 4
+  },
+  {
+    "trial_id": "gemini-R10-servo",
+    "vendor": "gemini",
+    "record_id": "R10",
+    "condition": "servo",
+    "period": 1,
+    "order": 5
+  },
+  {
+    "trial_id": "gemini-R14-servo",
+    "vendor": "gemini",
+    "record_id": "R14",
+    "condition": "servo",
+    "period": 1,
+    "order": 6
+  },
+  {
+    "trial_id": "gemini-R04-servo",
+    "vendor": "gemini",
+    "record_id": "R04",
+    "condition": "servo",
+    "period": 1,
+    "order": 7
+  },
+  {
+    "trial_id": "gemini-R01-servo",
+    "vendor": "gemini",
+    "record_id": "R01",
+    "condition": "servo",
+    "period": 1,
+    "order": 8
+  },
+  {
+    "trial_id": "gemini-R12-servo",
+    "vendor": "gemini",
+    "record_id": "R12",
+    "condition": "servo",
+    "period": 1,
+    "order": 9
+  },
+  {
+    "trial_id": "gemini-R02-servo",
+    "vendor": "gemini",
+    "record_id": "R02",
+    "condition": "servo",
+    "period": 1,
+    "order": 10
+  },
+  {
+    "trial_id": "gemini-R07-servo",
+    "vendor": "gemini",
+    "record_id": "R07",
+    "condition": "servo",
+    "period": 1,
+    "order": 11
+  },
+  {
+    "trial_id": "gemini-R13-servo",
+    "vendor": "gemini",
+    "record_id": "R13",
+    "condition": "servo",
+    "period": 1,
+    "order": 12
+  },
+  {
+    "trial_id": "gemini-R09-servo",
+    "vendor": "gemini",
+    "record_id": "R09",
+    "condition": "servo",
+    "period": 1,
+    "order": 13
+  }
+]

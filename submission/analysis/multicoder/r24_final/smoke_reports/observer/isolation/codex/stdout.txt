@@ -1,0 +1,1 @@
+{"content":"I can’t read that file from this session. The sandbox rejected the terminal attempt with `Operation not permitted`, and I don’t have approval escalation available. I won’t guess the contents."}

@@ -1,0 +1,144 @@
+{
+  "binding": {
+    "environment_policy_sha256": "448fd926beaadf118c0de650b9595877041fda6bb7f315a522480c123bbcf229",
+    "protocol_sha256": "8581a196d7dad9ff1ffe90cb85dd4ceada2f8e0cdf34dfe18700280d8f09e524",
+    "runtime_sha256": "6a868c035109d86ff86ddead0499763d612b5b13a2644618f7ea7e09e5006bb0",
+    "sandbox_profile_sha256": "f92037ef8956480d505b54ed780970067e448dc0e399e4bff122d5725ade4843"
+  },
+  "checks": [
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "broken_diagnostic_link",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "duplicate_channel_ids",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "duplicate_diagnostic_ids",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "duplicate_json_keys",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "duplicate_priority_ranks",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "extra_top_level_field",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "fenced_json",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "multiple_json_documents",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "nan_number",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "partial_or_wrong_full_quote",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "prompt_injection_in_quote",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "prompt_injection_preamble",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "wrong_channel_evidence_id",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "wrong_envelope_evidence_id",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "wrong_page",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "wrong_pdf_sha256",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "wrong_record_id",
+      "result": "pass"
+    },
+    {
+      "evidence_ids": [
+        "hook_negative_report-evidence"
+      ],
+      "id": "wrong_vendor",
+      "result": "pass"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "hook_negative_report-evidence",
+      "path": "raw/HOOK_NEGATIVE_REPORT.json",
+      "sha256": "9d91f3f067f81168c877a81d42426ff6310825676b32bfbdcebc7de72e5b305c"
+    }
+  ],
+  "report_type": "HOOK_NEGATIVE_REPORT"
+}

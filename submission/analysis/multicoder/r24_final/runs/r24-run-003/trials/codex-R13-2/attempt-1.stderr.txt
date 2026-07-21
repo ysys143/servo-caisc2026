@@ -1,0 +1,779 @@
+OpenAI Codex v0.144.6
+--------
+workdir: /private/var/folders/hw/9m3g7fvn4_l3rp2y473km9sm0000gn/T/servo-r24-5ik_ymix
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019f806f-e1b0-7d42-8674-7bd6c21e625d
+--------
+user
+# SERVO condition
+
+Apply the supplied frozen R24 coding manual to the anonymous source packet. Do not infer facts outside the packet and do not use knowledge of the named system.
+
+Return only JSON conforming to the supplied SERVO schema. Separate distinct validator channels, populate every facet, and attach exact packet evidence to each channel. Then provide typed diagnostics with consequences and exact evidence; one to three non-redundant recommendations ranked consecutively by `priority_rank` from 1 and linked to those diagnostics with observable success checks; and all twelve probes. Prefer `abstain_or_unclear` to an unsupported recommendation. Do not treat non-reporting as absence, terminal assessment as feedback, general reviewer error as novelty-specific evidence, or agreement and bias studies as probabilistic calibration.
+
+For every diagnostic and recommendation, `evidence_ids` and the `evidence_id` values in `exact_quotes` must be identical sets: include exactly one exact quotation for every listed evidence ID, and never list an evidence ID without its quotation.
+
+
+# Frozen R24 coding manual
+
+## Unit and boundary
+
+The unit is a source-defined system version, not a unique research lineage. The fourteen records represent thirteen lineages because the AI Scientist v2 preprint and the 2026 record belong to one lineage. Code only what the frozen packet reports. Absence of reporting is not evidence of absence.
+
+A validator channel is an identifiable evaluator with a stable target, substrate, decision role, or feedback path. Split channels when one named system uses distinct mechanisms for ideation filtering, search control, terminal assessment, or external acceptance.
+
+## Facets
+
+- `operational_status`: distinguish implemented behavior, unexercised proposals, external processes, non-reporting, and genuinely unclear descriptions.
+- `target_property`: the property judged, such as executability, correctness, novelty, or aggregate quality.
+- `evidence_source`: the information used to judge the target.
+- `evaluator_substrate`: the mechanism or actor performing the judgment.
+- `decision_role`: the operational consequence of the output.
+- `feedback_path`: where the output is actually routed. A terminal assessment is not search control.
+- `external_independence`: organizational or informational independence of the evaluator.
+- `reliability_evidence_type`: the study design reported for the exact channel and target. Lack of documented bias is `none_reported`, not calibration.
+- `reliability_finding`: the conclusion supported by that evidence.
+- `experimental_fidelity`: the environment in which the evaluated evidence is produced.
+
+Every channel requires at least one exact packet quote. Never transfer evidence from a terminal paper reviewer to an ideation novelty filter merely because both use an LLM.
+
+## Closure and human authority
+
+Closure is derived rather than freely rated. Implemented policy control or stage transition is closed computational feedback; memory update or candidate revision alone is partial; terminal-only or external-only assessment is open. Unclear routing remains unclear.
+
+Human authority is recorded separately for generator, executor, validator, memory, and policy. Use only observable roles: `explicit_none`, `initiate`, `advise`, `select`, `approve`, `execute`, `final_authority`, `not_reported`, or `not_applicable`.
+
+## Missingness
+
+`not_reported` means the packet provides no claim. Explicit none means the source states absence. `unclear` means relevant text exists but supports multiple readings. `not_applicable` means the facet has no coherent value for that channel. These values are never interchangeable.
+
+
+Scheduled metadata: record_id=R13; vendor=codex. Use the CLI model identifier as model_id.
+
+Allowed neutral action codes:
+[
+  "obtain_independent_evidence",
+  "evaluate_evaluator_error_or_bias",
+  "add_feedback_to_later_decision",
+  "add_prior_art_check",
+  "add_replication",
+  "retain_human_approval_or_escalation",
+  "separate_diagnostic_from_gate",
+  "clarify_system_boundary",
+  "no_supported_change",
+  "abstain_or_unclear"
+]
+
+
+Probe questions without reference answers:
+[
+  {
+    "probe_id": "R13-P01",
+    "question": "Does ScientistOne's Ideator score candidate approaches for novelty and feasibility before distributing top-ranked proposals?"
+  },
+  {
+    "probe_id": "R13-P02",
+    "question": "Does evaluator feedback determine which discovery branches are retained and used for fresh ideation?"
+  },
+  {
+    "probe_id": "R13-P03",
+    "question": "Can the Claim Verifier's findings cause unsupported claims to be rewritten or removed before a draft is promoted?"
+  },
+  {
+    "probe_id": "R13-P04",
+    "question": "Were flagged I1-I3 audit results manually verified by human reviewers?"
+  },
+  {
+    "probe_id": "R13-P05",
+    "question": "Were runs re-attempted for the purpose of improving solver scores?"
+  },
+  {
+    "probe_id": "R13-P06",
+    "question": "Does the CoE Integrity Audit evaluate scientific novelty or significance?"
+  },
+  {
+    "probe_id": "R13-P07",
+    "question": "Were the four third-party comparison systems originally designed for ADRS?"
+  },
+  {
+    "probe_id": "R13-P08",
+    "question": "Does the reported ScientistOne pipeline attempt workload characterization, multi-dataset analysis, and deployment tradeoff analysis?"
+  },
+  {
+    "probe_id": "R13-P09",
+    "question": "Does the source report probabilistic calibration of an evaluator's confidence against observed correctness frequencies?"
+  },
+  {
+    "probe_id": "R13-P10",
+    "question": "Does the source report an independent replication of ScientistOne's experiments by a separate laboratory?"
+  },
+  {
+    "probe_id": "R13-P11",
+    "question": "Does the source report that ScientistOne reuses persistent memory accumulated across separate research runs?"
+  },
+  {
+    "probe_id": "R13-P12",
+    "question": "Does the source report using a formal proof checker, theorem prover, or proof assistant as a validator?"
+  }
+]
+
+Anonymous source packet:
+{
+  "schema_version": 1,
+  "record_id": "R13",
+  "source": {
+    "pdf_sha256": "9d4fa9d1e9e6b1cdccfeff02fecbd28b5b961594952a1ac96e00ad135bed0a51",
+    "page_count": 35
+  },
+  "instructions": "Use only the excerpts below. The full cited PDF was reviewed and searched. Absence from these excerpts is not evidence of absence unless a probe is explicitly marked not_reported under the stated full-text audit boundary.",
+  "evidence": [
+    {
+      "evidence_id": "R13-E01",
+      "pdf_page": 5,
+      "quote": "The Ideator generates candidate approaches based on the PI brief, scores them on novelty and feasibility, and distributes the top-ranked proposals across parallel branches of the Parallel Explore-Exploit (PEE) orchestrator."
+    },
+    {
+      "evidence_id": "R13-E02",
+      "pdf_page": 5,
+      "quote": "Each branch runs an isolated cycle: a Solver agent iterates up to E evaluated versions per node, with a task-specific evaluator scoring each submission. At each iteration, the top-K branches are retained, and the remaining slots are filled with new branches derived from these top performers via fresh ideation."
+    },
+    {
+      "evidence_id": "R13-E03",
+      "pdf_page": 6,
+      "quote": "A refinement pass then consumes the verifier’s findings: an LLM rewrites flagged sentences to match their evidence sources, removes claims that cannot be supported, and strips all inline evidence annotations from the final LATEX. Only a draft with no remaining blocking violations is promoted to the final paper."
+    },
+    {
+      "evidence_id": "R13-E04",
+      "pdf_page": 9,
+      "quote": "All I1–I3 flagged results were manually verified by human reviewers. I4 judgments were validated on a sampled basis."
+    },
+    {
+      "evidence_id": "R13-E05",
+      "pdf_page": 8,
+      "quote": "Runs that crashed due to infrastructure issues (API timeouts, rate limits, LaTeX compilation errors) were re-attempted with fresh state, up to 3 attempts per run. No run was re-attempted to improve solver scores."
+    },
+    {
+      "evidence_id": "R13-E06",
+      "pdf_page": 15,
+      "quote": "CoE Integrity Audit addresses some of these blind spots but is itself limited to structural integrity, not scientific novelty or significance."
+    },
+    {
+      "evidence_id": "R13-E07",
+      "pdf_page": 15,
+      "quote": "No third-party system was designed for ADRS, and adaptation inevitably involves judgment calls."
+    },
+    {
+      "evidence_id": "R13-E08",
+      "pdf_page": 16,
+      "quote": "Real systems papers involve problem formulation, workload characterization, multi-dataset analysis, and deployment tradeoffs that our pipeline does not attempt."
+    }
+  ]
+}
+
+
+Required JSON schema:
+{
+  "$defs": {
+    "ActionCode": {
+      "enum": [
+        "obtain_independent_evidence",
+        "evaluate_evaluator_error_or_bias",
+        "add_feedback_to_later_decision",
+        "add_prior_art_check",
+        "add_replication",
+        "retain_human_approval_or_escalation",
+        "separate_diagnostic_from_gate",
+        "clarify_system_boundary",
+        "no_supported_change",
+        "abstain_or_unclear"
+      ],
+      "title": "ActionCode",
+      "type": "string"
+    },
+    "CommonEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/Diagnostic"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "probes": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Probes",
+          "type": "array"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Recommendation"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "diagnostics",
+        "recommendations",
+        "probes"
+      ],
+      "title": "CommonEnvelope",
+      "type": "object"
+    },
+    "DecisionRole": {
+      "enum": [
+        "diagnostic",
+        "ranking",
+        "search_control",
+        "stage_transition",
+        "memory_admission",
+        "terminal_assessment",
+        "final_acceptance",
+        "external_assessment",
+        "not_reported"
+      ],
+      "title": "DecisionRole",
+      "type": "string"
+    },
+    "Diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "consequence": {
+          "minLength": 1,
+          "title": "Consequence",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/DiagnosticKind"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "kind",
+        "evidence_ids",
+        "exact_quotes",
+        "consequence"
+      ],
+      "title": "Diagnostic",
+      "type": "object"
+    },
+    "DiagnosticKind": {
+      "enum": [
+        "reported_failure",
+        "risk",
+        "ambiguity",
+        "missing_evidence"
+      ],
+      "title": "DiagnosticKind",
+      "type": "string"
+    },
+    "EvaluatorSubstrate": {
+      "enum": [
+        "deterministic_program",
+        "statistical_model",
+        "formal_kernel",
+        "llm",
+        "human",
+        "hybrid",
+        "not_reported"
+      ],
+      "title": "EvaluatorSubstrate",
+      "type": "string"
+    },
+    "EvidenceExcerpt": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "exact_quote": {
+          "minLength": 1,
+          "title": "Exact Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "exact_quote"
+      ],
+      "title": "EvidenceExcerpt",
+      "type": "object"
+    },
+    "EvidenceQuote": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "pdf_id": {
+          "minLength": 1,
+          "title": "Pdf Id",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "pdf_id",
+        "page",
+        "quote",
+        "rationale"
+      ],
+      "title": "EvidenceQuote",
+      "type": "object"
+    },
+    "EvidenceSource": {
+      "enum": [
+        "execution_trace",
+        "benchmark_metric",
+        "statistical_test",
+        "physical_measurement",
+        "replication",
+        "prior_art_corpus",
+        "artifact_review",
+        "human_judgment",
+        "not_reported"
+      ],
+      "title": "EvidenceSource",
+      "type": "string"
+    },
+    "ExternalIndependence": {
+      "enum": [
+        "internal_self_evaluation",
+        "internal_separate_component",
+        "external_nonindependent",
+        "external_independent",
+        "not_reported"
+      ],
+      "title": "ExternalIndependence",
+      "type": "string"
+    },
+    "FeedbackPath": {
+      "enum": [
+        "terminal_only",
+        "memory_update",
+        "candidate_revision",
+        "policy_control",
+        "stage_transition",
+        "external_only",
+        "unclear"
+      ],
+      "title": "FeedbackPath",
+      "type": "string"
+    },
+    "Fidelity": {
+      "enum": [
+        "simulation_or_proxy",
+        "computational_experiment",
+        "computational_oracle_or_benchmark",
+        "robotic_experiment",
+        "physical_assay",
+        "not_applicable",
+        "not_reported"
+      ],
+      "title": "Fidelity",
+      "type": "string"
+    },
+    "HumanAuthority": {
+      "additionalProperties": false,
+      "properties": {
+        "executor": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Executor",
+          "type": "array"
+        },
+        "generator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Generator",
+          "type": "array"
+        },
+        "memory": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Memory",
+          "type": "array"
+        },
+        "policy": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Policy",
+          "type": "array"
+        },
+        "validator": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Validator",
+          "type": "array"
+        }
+      },
+      "required": [
+        "generator",
+        "executor",
+        "validator",
+        "memory",
+        "policy"
+      ],
+      "title": "HumanAuthority",
+      "type": "object"
+    },
+    "OperationalStatus": {
+      "enum": [
+        "implemented",
+        "proposed_not_exercised",
+        "external",
+        "not_reported",
+        "unclear"
+      ],
+      "title": "OperationalStatus",
+      "type": "string"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "action_code": {
+          "$ref": "#/$defs/ActionCode"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "exact_quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceExcerpt"
+          },
+          "minItems": 1,
+          "title": "Exact Quotes",
+          "type": "array"
+        },
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "linked_diagnostic_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Linked Diagnostic Ids",
+          "type": "array"
+        },
+        "priority_rank": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Priority Rank",
+          "type": "integer"
+        },
+        "success_check": {
+          "$ref": "#/$defs/SuccessCheck"
+        }
+      },
+      "required": [
+        "id",
+        "priority_rank",
+        "action_code",
+        "linked_diagnostic_ids",
+        "evidence_ids",
+        "exact_quotes",
+        "success_check"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "ReliabilityEvidence": {
+      "enum": [
+        "none_reported",
+        "discrimination_study",
+        "agreement_study",
+        "systematic_error_or_bias_test",
+        "property_specific_external_validation",
+        "probabilistic_calibration_analysis"
+      ],
+      "title": "ReliabilityEvidence",
+      "type": "string"
+    },
+    "ReliabilityFinding": {
+      "enum": [
+        "not_evaluated",
+        "not_established",
+        "evidence_of_error_or_bias",
+        "positive_property_specific_evidence",
+        "mixed",
+        "unclear"
+      ],
+      "title": "ReliabilityFinding",
+      "type": "string"
+    },
+    "SuccessCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "comparator_or_threshold": {
+          "minLength": 1,
+          "title": "Comparator Or Threshold",
+          "type": "string"
+        },
+        "evidence_needed": {
+          "minLength": 1,
+          "title": "Evidence Needed",
+          "type": "string"
+        },
+        "observable": {
+          "minLength": 1,
+          "title": "Observable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observable",
+        "comparator_or_threshold",
+        "evidence_needed"
+      ],
+      "title": "SuccessCheck",
+      "type": "object"
+    },
+    "TargetProperty": {
+      "enum": [
+        "executability",
+        "specification_compliance",
+        "task_performance",
+        "correctness_or_formal_validity",
+        "empirical_adequacy",
+        "reproducibility",
+        "novelty",
+        "significance",
+        "aggregate_quality",
+        "not_reported"
+      ],
+      "title": "TargetProperty",
+      "type": "string"
+    },
+    "ValidatorChannel": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_id": {
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "decision_role": {
+          "items": {
+            "$ref": "#/$defs/DecisionRole"
+          },
+          "title": "Decision Role",
+          "type": "array"
+        },
+        "evaluator_substrate": {
+          "items": {
+            "$ref": "#/$defs/EvaluatorSubstrate"
+          },
+          "title": "Evaluator Substrate",
+          "type": "array"
+        },
+        "evidence_source": {
+          "items": {
+            "$ref": "#/$defs/EvidenceSource"
+          },
+          "title": "Evidence Source",
+          "type": "array"
+        },
+        "experimental_fidelity": {
+          "items": {
+            "$ref": "#/$defs/Fidelity"
+          },
+          "title": "Experimental Fidelity",
+          "type": "array"
+        },
+        "external_independence": {
+          "$ref": "#/$defs/ExternalIndependence"
+        },
+        "feedback_path": {
+          "items": {
+            "$ref": "#/$defs/FeedbackPath"
+          },
+          "title": "Feedback Path",
+          "type": "array"
+        },
+        "operational_status": {
+          "$ref": "#/$defs/OperationalStatus"
+        },
+        "quotes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceQuote"
+          },
+          "minItems": 1,
+          "title": "Quotes",
+          "type": "array"
+        },
+        "reliability_evidence_type": {
+          "items": {
+            "$ref": "#/$defs/ReliabilityEvidence"
+          },
+          "title": "Reliability Evidence Type",
+          "type": "array"
+        },
+        "reliability_finding": {
+          "$ref": "#/$defs/ReliabilityFinding"
+        },
+        "target_property": {
+          "items": {
+            "$ref": "#/$defs/TargetProperty"
+          },
+          "title": "Target Property",
+          "type": "array"
+        }
+      },
+      "required": [
+        "channel_id",
+        "operational_status",
+        "target_property",
+        "evidence_source",
+        "evaluator_substrate",
+        "decision_role",
+        "feedback_path",
+        "external_independence",
+        "reliability_evidence_type",
+        "reliability_finding",
+        "experimental_fidelity",
+        "quotes"
+      ],
+      "title": "ValidatorChannel",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "channels": {
+      "items": {
+        "$ref": "#/$defs/ValidatorChannel"
+      },
+      "minItems": 1,
+      "title": "Channels",
+      "type": "array"
+    },
+    "envelope": {
+      "$ref": "#/$defs/CommonEnvelope"
+    },
+    "human_authority": {
+      "$ref": "#/$defs/HumanAuthority"
+    },
+    "memory_structure": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Memory Structure",
+      "type": "array"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "policy_type": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Policy Type",
+      "type": "array"
+    },
+    "record_id": {
+      "pattern": "^R\\d{2}$",
+      "title": "Record Id",
+      "type": "string"
+    },
+    "vendor": {
+      "minLength": 1,
+      "title": "Vendor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "vendor",
+    "model_id",
+    "channels",
+    "policy_type",
+    "memory_structure",
+    "human_authority",
+    "envelope"
+  ],
+  "title": "ServoCoding",
+  "type": "object"
+}
+
+codex
+{"channels":[{"channel_id":"ideator_candidate_scoring","decision_role":["ranking"],"evaluator_substrate":["llm"],"evidence_source":["not_reported"],"experimental_fidelity":["not_reported"],"external_independence":"internal_self_evaluation","feedback_path":["policy_control"],"operational_status":"implemented","quotes":[{"evidence_id":"R13-E01","page":5,"pdf_id":"9d4fa9d1e9e6b1cdccfeff02fecbd28b5b961594952a1ac96e00ad135bed0a51","quote":"The Ideator generates candidate approaches based on the PI brief, scores them on novelty and feasibility, and distributes the top-ranked proposals across parallel branches of the Parallel Explore-Exploit (PEE) orchestrator.","rationale":"Identifies the ideation evaluator, its novelty and feasibility targets, ranking role, and routing of top-ranked proposals into parallel branches."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["novelty","aggregate_quality"]},{"channel_id":"task_specific_branch_evaluator","decision_role":["ranking","search_control"],"evaluator_substrate":["not_reported"],"evidence_source":["not_reported"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["policy_control"],"operational_status":"implemented","quotes":[{"evidence_id":"R13-E02","page":5,"pdf_id":"9d4fa9d1e9e6b1cdccfeff02fecbd28b5b961594952a1ac96e00ad135bed0a51","quote":"Each branch runs an isolated cycle: a Solver agent iterates up to E evaluated versions per node, with a task-specific evaluator scoring each submission. At each iteration, the top-K branches are retained, and the remaining slots are filled with new branches derived from these top performers via fresh ideation.","rationale":"Identifies task-specific evaluators that score submissions and directly control branch retention and derivation of new branches."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["task_performance"]},{"channel_id":"claim_verifier_refinement_gate","decision_role":["diagnostic","stage_transition"],"evaluator_substrate":["llm"],"evidence_source":["artifact_review"],"experimental_fidelity":["not_applicable"],"external_independence":"internal_separate_component","feedback_path":["candidate_revision","stage_transition"],"operational_status":"implemented","quotes":[{"evidence_id":"R13-E03","page":6,"pdf_id":"9d4fa9d1e9e6b1cdccfeff02fecbd28b5b961594952a1ac96e00ad135bed0a51","quote":"A refinement pass then consumes the verifier’s findings: an LLM rewrites flagged sentences to match their evidence sources, removes claims that cannot be supported, and strips all inline evidence annotations from the final LATEX. Only a draft with no remaining blocking violations is promoted to the final paper.","rationale":"Identifies verifier findings consumed by an LLM refinement pass, with claim rewriting/removal and a blocking-violation promotion gate."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["correctness_or_formal_validity","specification_compliance"]},{"channel_id":"coe_integrity_audit","decision_role":["diagnostic"],"evaluator_substrate":["hybrid"],"evidence_source":["artifact_review","human_judgment"],"experimental_fidelity":["not_applicable"],"external_independence":"internal_self_evaluation","feedback_path":["terminal_only"],"operational_status":"implemented","quotes":[{"evidence_id":"R13-E04","page":9,"pdf_id":"9d4fa9d1e9e6b1cdccfeff02fecbd28b5b961594952a1ac96e00ad135bed0a51","quote":"All I1–I3 flagged results were manually verified by human reviewers. I4 judgments were validated on a sampled basis.","rationale":"Reports human verification of flagged audit results and sampled validation of I4 judgments."},{"evidence_id":"R13-E06","page":15,"pdf_id":"9d4fa9d1e9e6b1cdccfeff02fecbd28b5b961594952a1ac96e00ad135bed0a51","quote":"CoE Integrity Audit addresses some of these blind spots but is itself limited to structural integrity, not scientific novelty or significance.","rationale":"Defines the audit target as structural integrity and explicitly excludes novelty and significance."}],"reliability_evidence_type":["agreement_study"],"reliability_finding":"positive_property_specific_evidence","target_property":["specification_compliance"]},{"channel_id":"infrastructure_retry_filter","decision_role":["stage_transition"],"evaluator_substrate":["not_reported"],"evidence_source":["execution_trace"],"experimental_fidelity":["computational_experiment"],"external_independence":"internal_self_evaluation","feedback_path":["stage_transition"],"operational_status":"implemented","quotes":[{"evidence_id":"R13-E05","page":8,"pdf_id":"9d4fa9d1e9e6b1cdccfeff02fecbd28b5b961594952a1ac96e00ad135bed0a51","quote":"Runs that crashed due to infrastructure issues (API timeouts, rate limits, LaTeX compilation errors) were re-attempted with fresh state, up to 3 attempts per run. No run was re-attempted to improve solver scores.","rationale":"Identifies a retry decision rule based on infrastructure failures, while excluding score-improvement retries."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_evaluated","target_property":["executability","reproducibility"]},{"channel_id":"third_party_comparison_adaptation","decision_role":["external_assessment"],"evaluator_substrate":["human"],"evidence_source":["artifact_review"],"experimental_fidelity":["simulation_or_proxy"],"external_independence":"external_nonindependent","feedback_path":["external_only"],"operational_status":"external","quotes":[{"evidence_id":"R13-E07","page":15,"pdf_id":"9d4fa9d1e9e6b1cdccfeff02fecbd28b5b961594952a1ac96e00ad135bed0a51","quote":"No third-party system was designed for ADRS, and adaptation inevitably involves judgment calls.","rationale":"Identifies third-party comparison systems as not purpose-built for ADRS and notes adaptation judgment calls."}],"reliability_evidence_type":["none_reported"],"reliability_finding":"not_established","target_property":["task_performance"]}],"envelope":{"diagnostics":[{"consequence":"Claims about novelty-sensitive ideation quality may be over-relied on because the packet reports scoring and routing but no reliability study for that novelty and feasibility scoring channel.","evidence_ids":["R13-E01"],"exact_quotes":[{"evidence_id":"R13-E01","exact_quote":"The Ideator generates candidate approaches based on the PI brief, scores them on novelty and feasibility, and distributes the top-ranked proposals across parallel branches of the Parallel Explore-Exploit (PEE) orchestrator."}],"id":"D1","kind":"risk","statement":"The ideation novelty and feasibility scoring channel controls proposal distribution without reported channel-specific reliability evidence."},{"consequence":"Search outcomes can be shaped by evaluator errors because the scoring channel determines retained branches and fresh ideation inputs, but the packet does not report reliability evidence for the task-specific evaluators.","evidence_ids":["R13-E02"],"exact_quotes":[{"evidence_id":"R13-E02","exact_quote":"Each branch runs an isolated cycle: a Solver agent iterates up to E evaluated versions per node, with a task-specific evaluator scoring each submission. At each iteration, the top-K branches are retained, and the remaining slots are filled with new branches derived from these top performers via fresh ideation."}],"id":"D2","kind":"risk","statement":"Task-specific evaluator scores are closed-loop search-control signals for branch retention and new ideation."},{"consequence":"External performance comparisons may not cleanly measure ADRS suitability because systems required adaptation and the source reports judgment calls in that adaptation.","evidence_ids":["R13-E07"],"exact_quotes":[{"evidence_id":"R13-E07","exact_quote":"No third-party system was designed for ADRS, and adaptation inevitably involves judgment calls."}],"id":"D3","kind":"ambiguity","statement":"Third-party comparison systems were not designed for ADRS, making comparison adaptation a reported source of judgment."},{"consequence":"The integrity audit should not be interpreted as evidence of scientific novelty or significance, so acceptance of structurally sound outputs may still leave scientific contribution unvalidated.","evidence_ids":["R13-E06"],"exact_quotes":[{"evidence_id":"R13-E06","exact_quote":"CoE Integrity Audit addresses some of these blind spots but is itself limited to structural integrity, not scientific novelty or significance."}],"id":"D4","kind":"missing_evidence","statement":"The reported CoE Integrity Audit explicitly excludes scientific novelty and significance."}],"probes":[true,true,true,true,false,false,false,false,null,null,null,null],"recommendations":[{"action_code":"evaluate_evaluator_error_or_bias","evidence_ids":["R13-E01","R13-E02"],"exact_quotes":[{"evidence_id":"R13-E01","exact_quote":"The Ideator generates candidate approaches based on the PI brief, scores them on novelty and feasibility, and distributes the top-ranked proposals across parallel branches of the Parallel Explore-Exploit (PEE) orchestrator."},{"evidence_id":"R13-E02","exact_quote":"Each branch runs an isolated cycle: a Solver agent iterates up to E evaluated versions per node, with a task-specific evaluator scoring each submission. At each iteration, the top-K branches are retained, and the remaining slots are filled with new branches derived from these top performers via fresh ideation."}],"id":"REC1","linked_diagnostic_ids":["D1","D2"],"priority_rank":1,"success_check":{"comparator_or_threshold":"Report property-specific error rates or bias patterns for both channels, rather than only aggregate downstream success.","evidence_needed":"A held-out set of candidate approaches and solver submissions with independent reference judgments, plus measured evaluator disagreement/error by target property.","observable":"Channel-specific evaluator error or bias estimates for ideation novelty/feasibility scoring and task-specific branch scoring."}},{"action_code":"obtain_independent_evidence","evidence_ids":["R13-E07"],"exact_quotes":[{"evidence_id":"R13-E07","exact_quote":"No third-party system was designed for ADRS, and adaptation inevitably involves judgment calls."}],"id":"REC2","linked_diagnostic_ids":["D3"],"priority_rank":2,"success_check":{"comparator_or_threshold":"At least one comparison protocol reviewed or executed by an evaluator independent of the adaptation decisions.","evidence_needed":"Documented ADRS comparison protocol, adaptation rationale, and independent review or rerun of adapted baselines.","observable":"Independent evidence that adapted third-party comparisons preserve the intended task-performance comparison."}},{"action_code":"add_prior_art_check","evidence_ids":["R13-E06"],"exact_quotes":[{"evidence_id":"R13-E06","exact_quote":"CoE Integrity Audit addresses some of these blind spots but is itself limited to structural integrity, not scientific novelty or significance."}],"id":"REC3","linked_diagnostic_ids":["D4"],"priority_rank":3,"success_check":{"comparator_or_threshold":"Novelty/significance assessment is reported separately from structural integrity audit results.","evidence_needed":"A documented prior-art corpus, search procedure, and evaluator judgments for novelty and significance claims.","observable":"A distinct novelty and significance validation channel with exact evidence and decision role."}}]},"human_authority":{"executor":["not_reported"],"generator":["initiate"],"memory":["not_reported"],"policy":["not_reported"],"validator":["execute"]},"memory_structure":["isolated branch cycles","fresh state for infrastructure re-attempts","persistent cross-run memory not_reported"],"model_id":"gpt-5","policy_type":["Parallel Explore-Exploit top-K branch retention","blocking-violation final-paper promotion gate","infrastructure-only retry policy"],"record_id":"R13","vendor":"codex"}
+tokens used
+4,254

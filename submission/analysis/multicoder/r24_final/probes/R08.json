@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "record_id": "R08",
+  "completeness_boundary": "The full cited PDF was reviewed and searched. not_reported means that no explicit statement was found in that source.",
+  "answer_options": [
+    "yes",
+    "no",
+    "not_reported"
+  ],
+  "probes": [
+    {
+      "probe_id": "R08-P01",
+      "question": "Does AI-Researcher rank generated research directions using scientific-novelty and other criteria before comprehensively developing one concept?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R08-E01"
+      ]
+    },
+    {
+      "probe_id": "R08-P02",
+      "question": "Can Advisor Agent evaluation and review feedback affect whether an implementation advances and what investigation occurs next?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R08-E02"
+      ]
+    },
+    {
+      "probe_id": "R08-P03",
+      "question": "Does the implemented workflow execute computational experiments on data?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R08-E03"
+      ]
+    },
+    {
+      "probe_id": "R08-P04",
+      "question": "Does the source report a quantitative comparison of automated paper-review decisions with expert conference decisions?",
+      "expected_answer": "yes",
+      "evidence_ids": [
+        "R08-E04"
+      ]
+    },
+    {
+      "probe_id": "R08-P05",
+      "question": "Are explicit target-paper research instructions supplied to the agent in Level-2 tasks?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R08-E05"
+      ]
+    },
+    {
+      "probe_id": "R08-P06",
+      "question": "Does the present implementation use a dedicated external memory-management system?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R08-E06"
+      ]
+    },
+    {
+      "probe_id": "R08-P07",
+      "question": "Is the paper-review assessment based on only one LLM evaluation?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R08-E07"
+      ]
+    },
+    {
+      "probe_id": "R08-P08",
+      "question": "Do persistently unsuccessful prototype implementations advance to full-scale experiments?",
+      "expected_answer": "no",
+      "evidence_ids": [
+        "R08-E08"
+      ]
+    },
+    {
+      "probe_id": "R08-P09",
+      "question": "Does the source report that AI-Researcher executes robotic, physical, or wet-lab experiments?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R08-P10",
+      "question": "Does the source identify a human who approves or rejects each generated research direction inside the operational pipeline?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R08-P11",
+      "question": "Does the source report a probabilistic confidence-calibration analysis for the paper-review agent?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    },
+    {
+      "probe_id": "R08-P12",
+      "question": "Does the source report an independent external team reproducing AI-Researcher's generated experimental results?",
+      "expected_answer": "not_reported",
+      "evidence_ids": []
+    }
+  ]
+}
