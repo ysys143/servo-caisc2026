@@ -1,0 +1,13 @@
+{
+  "assets": {
+    "PUBLICATION.json": "7cad5a7ae520e0db95f7886ff8fed19e1bd01546fb277c3cceeed80bc3387001",
+    "servo2_public_manifest.json": "82ee95662f659d6b2b6bc12aff0834dd138565d7f685757752fb183df9f37304",
+    "servo_caiscfp2026_post-submit.pdf": "e4f09b83b1b78b79eb2bbf17fbe54af47bb3b4e32cdadc30ed1341347f69b2f7"
+  },
+  "github_commit": "ea7fab5",
+  "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v2.0.0",
+  "published_at": "2026-07-21T10:24:45Z",
+  "publication_doi": "not_published",
+  "schema_version": "2.0.0",
+  "tag": "servo-corrected-v2.0.0"
+}
