@@ -30,3 +30,18 @@ def test_witness_rejects_edge_spliced_to_later_event(package) -> None:
         Servo2Error, match="CLOSURE_WITNESS_EVENT_EDGE_ORDER_MISMATCH"
     ):
         validate_graph(tables)
+
+
+def test_witness_rejects_occurrence_offset_beyond_next_iteration(package) -> None:
+    tables = read_tables(package)
+    witness = next(
+        row
+        for row in tables["closure_witnesses"].rows
+        if row["predicate"] == "experimental_adaptation" and row["case_id"] == "C03"
+    )
+    witness["ordered_event_ids"] = witness["ordered_event_ids"].replace(
+        "EV43@t+1", "EV43@t+2"
+    )
+
+    with pytest.raises(Servo2Error, match="OCCURRENCE_TOKEN_INVALID"):
+        validate_graph(tables)

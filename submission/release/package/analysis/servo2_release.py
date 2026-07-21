@@ -5,12 +5,11 @@ import json
 from pathlib import Path
 import tomllib
 
-from .servo2_io import Servo2Error, sha256
+from .servo2_io import SCHEMA_VERSION, Servo2Error, sha256
 
 
 PDF_NAME = "servo_caiscfp2026_post-submit.pdf"
 ATTESTATION_NAME = "release_attestation.json"
-SCHEMA_VERSION = "3.0.0"
 
 
 def _cff_fields(path: Path) -> dict[str, str]:
@@ -72,6 +71,14 @@ def manifest_binding(manifest: dict[str, str | dict[str, str]]) -> str:
     return hashlib.sha256(canonical).hexdigest()
 
 
+def verify_manifest_schema(manifest: dict[str, str | dict[str, str]]) -> None:
+    if manifest.get("schema_version") != SCHEMA_VERSION:
+        raise Servo2Error(
+            "RELEASE_SCHEMA_IDENTITY_MISMATCH",
+            f"manifest must identify {SCHEMA_VERSION}",
+        )
+
+
 def verify_release_ready(root: Path, manifest: dict[str, str | dict[str, str]]) -> None:
     pdf = root / PDF_NAME
     attestation_path = root / ATTESTATION_NAME
@@ -85,10 +92,8 @@ def verify_release_ready(root: Path, manifest: dict[str, str | dict[str, str]]) 
         raise Servo2Error("RELEASE_ATTESTATION_INVALID", ATTESTATION_NAME) from error
     state = attestation.get("state")
     release = attestation.get("github_release")
-    if (
-        manifest.get("schema_version") != SCHEMA_VERSION
-        or attestation.get("schema_version") != SCHEMA_VERSION
-    ):
+    verify_manifest_schema(manifest)
+    if attestation.get("schema_version") != SCHEMA_VERSION:
         raise Servo2Error(
             "RELEASE_SCHEMA_IDENTITY_MISMATCH",
             f"manifest and attestation must identify {SCHEMA_VERSION}",

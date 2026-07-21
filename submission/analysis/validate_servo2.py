@@ -13,7 +13,11 @@ from .servo2_build import (
 )
 from .servo2_evidence import validate_evidence
 from .servo2_io import Servo2Error, read_tables
-from .servo2_release import verify_release_ready, verify_repository_pdf_sync
+from .servo2_release import (
+    verify_manifest_schema,
+    verify_release_ready,
+    verify_repository_pdf_sync,
+)
 from .servo2_schema import validate_schema_contract
 from .servo2_validate import (
     validate_legacy_headers,
@@ -56,6 +60,7 @@ def run(arguments: list[str]) -> int:
         validate_evidence(package_root, tables)
         if options.mode in {"public-regeneration", "release-ready"}:
             _, manifest = find_manifest(package_root)
+            verify_manifest_schema(manifest)
             validate_public_privacy(package_root, manifest)
             verify_canonical_inputs(package_root, manifest)
             regenerate(package_root, tables, manifest)

@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from .servo2_io import Servo2Error, Table, split_values
+from .servo2_io import SCHEMA_VERSION, Servo2Error, Table, split_values
 
 
 EVIDENCE_TABLES = (
@@ -54,6 +54,8 @@ def validate_evidence(root: Path, tables: dict[str, Table]) -> None:
         entries = value["evidence"]
     except (FileNotFoundError, json.JSONDecodeError, KeyError, TypeError) as error:
         raise Servo2Error("EVIDENCE_LEDGER_INVALID", str(path)) from error
+    if value.get("schema_version") != SCHEMA_VERSION:
+        raise Servo2Error("SCHEMA_VERSION_MISMATCH", "servo2_evidence_ledger.json")
     indexed: dict[str, dict[str, str | int]] = {}
     for entry in entries:
         identifier = entry.get("evidence_id")

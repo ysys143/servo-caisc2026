@@ -71,6 +71,43 @@ def test_stale_generated_artifact_is_rejected(valid_public: Path) -> None:
     assert_rejected(run_cli(valid_public, "public-regeneration"), "STALE_GENERATED_ARTIFACT")
 
 
+def test_public_regeneration_rejects_manifest_schema_drift(package: Path) -> None:
+    manifest_path = _manifest(package)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["schema_version"] = "2.0.0"
+    manifest_path.write_text(json.dumps(manifest, sort_keys=True) + "\n", encoding="utf-8")
+
+    assert_rejected(
+        run_cli(package, "public-regeneration"),
+        "RELEASE_SCHEMA_IDENTITY_MISMATCH",
+    )
+
+
+def test_public_regeneration_rejects_normative_schema_version_drift(package: Path) -> None:
+    schema = package / "analysis" / "servo_schema.yaml"
+    schema.write_text(
+        schema.read_text(encoding="utf-8").replace(
+            'schema_version: "3.0.0"', 'schema_version: "2.0.0"', 1
+        ),
+        encoding="utf-8",
+    )
+
+    assert_rejected(
+        run_cli(package, "public-regeneration"), "SCHEMA_VERSION_MISMATCH"
+    )
+
+
+def test_public_regeneration_rejects_evidence_ledger_schema_drift(package: Path) -> None:
+    ledger_path = package / "analysis" / "servo2_evidence_ledger.json"
+    ledger = json.loads(ledger_path.read_text(encoding="utf-8"))
+    ledger["schema_version"] = "2.0.0"
+    ledger_path.write_text(json.dumps(ledger, sort_keys=True) + "\n", encoding="utf-8")
+
+    assert_rejected(
+        run_cli(package, "public-regeneration"), "SCHEMA_VERSION_MISMATCH"
+    )
+
+
 def test_public_mode_does_not_read_external_source_root(package: Path, tmp_path: Path) -> None:
     canary = tmp_path / "outside-source" / "secret.txt"
     canary.parent.mkdir()

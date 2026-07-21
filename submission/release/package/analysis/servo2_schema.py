@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .servo2_io import Servo2Error, Table
+from .servo2_io import SCHEMA_VERSION, Servo2Error, Table
 
 
 def validate_schema_contract(root: Path, tables: dict[str, Table]) -> None:
@@ -11,6 +11,8 @@ def validate_schema_contract(root: Path, tables: dict[str, Table]) -> None:
         lines = schema.read_text(encoding="utf-8").splitlines()
     except FileNotFoundError as error:
         raise Servo2Error("SCHEMA_CONTRACT_MISSING", str(schema)) from error
+    if not lines or lines[0] != f'schema_version: "{SCHEMA_VERSION}"':
+        raise Servo2Error("SCHEMA_VERSION_MISMATCH", "servo_schema.yaml")
     headers = _mapping(lines, "table_headers")
     enums = _mapping(lines, "enum_fields")
     booleans = _mapping(lines, "boolean_fields")

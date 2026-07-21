@@ -822,7 +822,7 @@ Checklist
        synchronized package, validator, canonical records, generated tables, evidence ledger,
        audit record, and corrected manuscript are bound in the versioned, checksum-
        bound release at https://github.com/ysys143/servo-caisc2026/releases/tag/
-       servo-corrected-v3.0.13. Its manifest and attestation provide file-level checksums for
+       servo-corrected-v3.0.14. Its manifest and attestation provide file-level checksums for
        the revised status matrix and make later asset replacement detectable; the hosting platform
        does not make the release immutable.
     5. Open access to data and code
@@ -1563,16 +1563,23 @@ R46. Ordered-witness and release-schema integrity. Scope: Witness grammar and va
 
 
                                                   28
-         now use only @t or monotone @t+n labels, and each routed edge must remain bound to a
+         now use only @t or monotone @t+1 labels, and each routed edge must remain bound to a
          source event in witness order; malformed recurrence labels and later-event splicing fail
          closed. Release readiness now requires both the public manifest and attestation to identify
          normative Schema 3.0.0. The source-byte audit is described only as a byte, uniqueness,
          and containment check, not as passage- or page-locator verification. The supersession in-
          dex below now points to the four-predicate Schema 3 contract rather than leaving Schema 2
          as the apparent current state.
+R47. Cross-entry-point schema identity. Scope: Public regeneration; normative schema and evi-
+       dence ledger; occurrence grammar; regression suite. The public-regeneration path now re-
+       jects a manifest that does not identify Schema 3.0.0, matching release-ready behavior. The
+       normative YAML and evidence ledger must carry the same schema identity before hash
+       verification. The executable occurrence grammar now matches the normative contract ex-
+       actly: only @t and @t+1 are accepted, so arbitrary offsets cannot manufacture unreported
+       iterations.
 
 Scope of revision. The entries above are the complete set of changes made since the archival de-
-posit, R1–R46. Entries R3–R12 narrow or correct statements that the citation audit judged unsup-
+posit, R1–R47. Entries R3–R12 narrow or correct statements that the citation audit judged unsup-
 ported by, contradicted by, or less precise than their cited sources. Entries R13–R16 record the
 subsequent adversarial mathematical review: they replace the proposition/assumption/proof-sketch
 presentation with bounded analytical observations, correct the EIG statement, delimit the conditions
@@ -1615,17 +1622,17 @@ rects the residual Appendix-B restatement of the withdrawn closure hypothesis. R
 Schema 1 as the then-current interpretation: it introduced bounded versioned case identity, explicit
 artifact state and revision, typed event and edge records, and five predicate-specific closure judg-
 ments with ordered witnesses; it also replaces domain aggregation with seven selected frozen source
-anchors. R31 records the then-local package state; R32 records the later public 2.0.0 snapshot, clari-
+
+
+                                                 29
+anchors. R31 records the then-local package state; R32 records the later public 2.0.0 snapshot, clari-
 fies all predicate and evidential-status contracts, adds the provenance mapping, and marks the revised
 working tree as awaiting a synchronized successor release. The six component labels persist, as do
 the three prospective design questions, but their interfaces and operationalization have changed ma-
 terially: Schema 2 adds bounded identity, versioned artifacts, WA , typed event and edge records, and
 predicate-specific witnesses in place of Schema 1’s channel and single-closure interpretation. The
 application remains non-representative source annotation. In addition to the entry corrected in R11,
-
-
-                                                 29
-R21 adds Parasuraman et al. on function-specific human–automation authority and Kandasamy et
+R21 adds Parasuraman et al. on function-specific human–automation authority and Kandasamy et
 al. and Song et al. on multi-fidelity Bayesian optimization; R26 adds Wei et al. and Tie et al. as the
 closest direct AI-Scientist survey frameworks.
 Current-interpretation supersession index. R23’s stochastic executor formulation is read with
@@ -1635,7 +1642,7 @@ and schema” and “application of the final schema” are superseded and do no
 R25’s six-case synthesis is read through the canonical event records introduced in R29; and R27’s
 event-channel interface and R29’s Schema 1 closure derivation are superseded by the Schema 3
 event–artifact graph, bounded case identity, and four predicate-specific witness contracts finalized
-through R33–R46. References in earlier entries to “final” Schema 1 tables or current six-case closure
+through R33–R47. References in earlier entries to “final” Schema 1 tables or current six-case closure
 labels are historical statements, not present semantics. This index does not alter the historical text or
 chronology of those entries.
 

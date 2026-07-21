@@ -6,7 +6,7 @@ from .servo2_io import Servo2Error
 
 
 _OCCURRENCE = re.compile(
-    r"^(?P<event>[A-Za-z0-9_.-]+)@t(?:\+(?P<offset>[1-9][0-9]*))?$"
+    r"^(?P<event>[A-Za-z0-9_.-]+)@t(?P<offset>\+1)?$"
 )
 
 
@@ -20,7 +20,7 @@ def validate_occurrence_tokens(
         if match is None:
             raise Servo2Error("OCCURRENCE_TOKEN_INVALID", witness_id)
         event_ids.append(match.group("event"))
-        offsets.append(int(match.group("offset") or 0))
+        offsets.append(1 if match.group("offset") else 0)
     if offsets and (offsets[0] != 0 or offsets != sorted(offsets)):
         raise Servo2Error("OCCURRENCE_TOKEN_INVALID", witness_id)
     return tuple(event_ids)

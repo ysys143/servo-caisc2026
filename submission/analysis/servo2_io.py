@@ -20,6 +20,7 @@ TABLES = (
     "domain_anchor_channels",
     "selection_ledger",
 )
+SCHEMA_VERSION = "3.0.0"
 
 
 @dataclass(frozen=True, slots=True)
