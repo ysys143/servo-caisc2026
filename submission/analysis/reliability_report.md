@@ -2,7 +2,7 @@
 
 ## Current schema and two historical audits
 
-The current normative contract is Servo Schema 2, defined in
+The current normative contract is Servo Schema 3, defined in
 `servo_schema.yaml`. Its case, endpoint, artifact, event, edge, reliability,
 closure-witness, closure-status, domain-anchor, and selection-ledger records are
 author-interpreted source annotations, not a new independent coding study.
@@ -83,7 +83,7 @@ roles. `None identified` means that the bounded packet reports no separate
 terminal or external channel, not that one is known to be absent. That
 development-era result is preserved in `servo_validator_channels.csv`;
 `core_servo_channels.csv` is its generated compatibility projection. Neither is
-a current semantic input. The current representation is the set of Schema 2
+a current semantic input. The current representation is the set of Schema 3
 case, endpoint, artifact, event, edge, reliability, and predicate-witness
 records named in `servo_schema.yaml`. `core_servo_evidence_ledger.json` resolves
 every cited evidence ID to an exact quote, page, and PDF hash, and

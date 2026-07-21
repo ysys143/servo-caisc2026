@@ -1,6 +1,6 @@
 # Core-case channel adjudication
 
-This note records the author's development-era Schema 1 adjudication for the six core Servo cases. It does not convert the 90 token-level mismatches in the frozen 42-session multicoder audit into a semantic error rate. Those diagnostics cannot determine which facets belong to one event channel. The adjudicated Schema 1 representation is preserved in `servo_validator_channels.csv`, and `core_servo_channels.csv` is its generated compatibility projection; neither is a current semantic input. The current normative representation is the set of Schema 2 case, endpoint, artifact, event, edge, reliability, and predicate-witness records named in `servo_schema.yaml`. Quotes and source hashes resolve in `core_servo_evidence_ledger.json`.
+This note records the author's development-era Schema 1 adjudication for the six core Servo cases. It does not convert the 90 token-level mismatches in the frozen 42-session multicoder audit into a semantic error rate. Those diagnostics cannot determine which facets belong to one event channel. The adjudicated Schema 1 representation is preserved in `servo_validator_channels.csv`, and `core_servo_channels.csv` is its generated compatibility projection; neither is a current semantic input. The current normative representation is the set of Schema 3 case, endpoint, artifact, event, edge, reliability, and predicate-witness records named in `servo_schema.yaml`. Quotes and source hashes resolve in `core_servo_evidence_ledger.json`.
 
 ## R01 Coscientist
 

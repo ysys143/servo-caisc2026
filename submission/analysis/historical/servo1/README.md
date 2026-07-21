@@ -6,11 +6,11 @@ material**. Its record-level system and validator-channel tables are
 They document the intermediate representation that preceded the portable
 event-and-evidence contract.
 
-The current normative contract is Servo Schema 2 in
+The current normative contract is Servo Schema 3 in
 `analysis/servo_schema.yaml`. Current validation and regeneration use
 `python -m analysis.validate_servo2`; they do not read either Schema 1 table.
 The legacy `analysis/validate_servo_consistency.py` entry point deliberately
-fails closed when presented with the current Schema 2 schema, so an obsolete
+fails closed when presented with the current Schema 3 schema, so an obsolete
 record-level projection cannot be mistaken for current validation evidence.
 
 The Schema 1 CSVs and validator remain available to reconstruct the migration

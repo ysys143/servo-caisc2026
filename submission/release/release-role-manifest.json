@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "unpublished-local-candidate",
+  "status": "attestation-governed",
   "absolute_paths_allowed": false,
   "roles": {
     "public_regeneration": "deterministic derived-artifact validation and rebuild",

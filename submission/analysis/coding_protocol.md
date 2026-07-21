@@ -6,13 +6,13 @@ This document preserves the Servo Schema 1 author coding protocol and the frozen
 multicoder audit performed against it. Schema 1's
 `servo_core_systems.csv` and `servo_validator_channels.csv` are historical,
 non-authoritative migration material; they are not current substantive inputs.
-The current normative contract is Servo Schema 2 in `servo_schema.yaml`, whose
+The current normative contract is Servo Schema 3 in `servo_schema.yaml`, whose
 case, endpoint, artifact, event, edge, reliability, closure-witness,
 closure-status, domain-anchor, and selection-ledger records are validated and
 projected by `python -m analysis.validate_servo2`. The frozen artifacts under
 `multicoder/r24_final/` preserve the instructions actually shown to the three
 vendors and are a development audit, not an independent recoding of the current
-event--evidence contract. Schema 2 supersedes the historical layer,
+event--evidence contract. Schema 3 supersedes the historical layer,
 scalar-human-intervention, `V_present`, `V_gating`, and `V_completeness` rubrics
 for substantive analysis. Those columns remain in `systems.csv` only to
 reconstruct earlier revisions and must not be used to rank systems.
@@ -132,7 +132,7 @@ the six core cases were author-interpreted and editorially reconciled against th
 `servo_validator_channels.csv`, with complete evidence provenance in
 `core_servo_evidence_ledger.json` and resolutions in
 `core_servo_disagreement_adjudication.md`. These Schema 1 artifacts are now
-historical and non-authoritative; the current Schema 2 records are named in
+historical and non-authoritative; the current Schema 3 records are named in
 `servo_schema.yaml`. This author adjudication is disclosed
 as source-grounded case analysis rather than treated as a coder or reference
 standard. A channel is split when the source reports a distinct trigger phase,

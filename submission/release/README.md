@@ -1,7 +1,7 @@
-# Servo corrected package (local release candidate)
+# Servo corrected package
 
-Status: **unpublished local release candidate**. Do not cite a DOI or release tag
-until the release attestation records an actually published deposit.
+Package state is recorded in `release_attestation.json`, which is written during
+finalization. Cite a DOI or release tag only when that attestation names it.
 
 Licensing is split by artifact type: documentation and structured data use
 CC BY 4.0 (`LICENSE`), while executable source code uses the MIT License
@@ -10,7 +10,7 @@ notices.
 
 This package separates two assurances:
 
-1. `public-regeneration` validates redistributable Schema 2 records and rebuilds
+1. `public-regeneration` validates redistributable Schema 3 records and rebuilds
    derived tables using package files only. It does not authenticate primary
    sources or establish semantic entailment.
 2. `source-byte-audit --source-root PATH` is an optional local audit against
@@ -58,13 +58,14 @@ exactly one regular PDF for every sealed hash; it rejects symlinks and duplicate
 matching PDFs.  The deterministic curation helper copies one lexicographically
 first matching regular file per hash and writes `curated_source_manifest.json`.
 Finalization is a separate, explicit operation: it accepts only the corrected
-PDF's fixed filename, writes an `unpublished_local_candidate` attestation,
-rebinds the complete public-file allowlist, and enables `release-ready`.  It
-does not publish or claim a DOI or GitHub release.
+PDF's fixed filename, records either an unpublished candidate or the supplied
+GitHub release URL in the attestation, rebinds the complete public-file
+allowlist, and enables `release-ready`. It does not itself publish or claim a
+DOI.
 The attestation is an unsigned consistency record binding the PDF, code, data,
 documentation, and generated artifacts.  It is not a provenance signature or
-publisher authentication.  Publication remains blocked until the author makes
-an explicit code-license decision and completes the external deposit.
+publisher authentication. Publication status must be read from the attestation,
+not inferred from this static README.
 
 ## Evidential limits
 
