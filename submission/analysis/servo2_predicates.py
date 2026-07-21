@@ -124,9 +124,45 @@ def _require_experimental_adaptation(
         and "feedback_control" in edge_types
         and any(endpoint.endswith(".E") for endpoint in endpoint_refs)
         and evaluation_precedes_execution
+        and _adaptation_route_connects_evaluation_to_execution(
+            event_rows, edge_rows, endpoint_refs
+        )
     )
     if not valid:
         raise Servo2Error("EXPERIMENTAL_ADAPTATION_PATTERN_MISMATCH", witness_id)
+
+
+def _adaptation_route_connects_evaluation_to_execution(
+    event_rows: tuple[dict[str, str], ...],
+    edge_rows: tuple[dict[str, str], ...],
+    endpoint_refs: tuple[str, ...],
+) -> bool:
+    evaluation_endpoints = {
+        event["actor_endpoint_id"] for event in event_rows if _is_evaluation(event)
+    }
+    execution_endpoints = {
+        event["actor_endpoint_id"]
+        for event in event_rows
+        if event["event_class"] == "execution"
+    }
+    action_components = {"M", "pi", "G", "W_A"}
+    for evaluation_index, endpoint in enumerate(endpoint_refs):
+        if endpoint not in evaluation_endpoints:
+            continue
+        for execution_index in range(evaluation_index + 1, len(endpoint_refs)):
+            if endpoint_refs[execution_index] not in execution_endpoints:
+                continue
+            route_edges = edge_rows[evaluation_index:execution_index]
+            intermediate_components = {
+                item.rsplit(".", 1)[-1]
+                for item in endpoint_refs[evaluation_index + 1 : execution_index]
+            }
+            if (
+                action_components & intermediate_components
+                and any(edge["edge_type"] == "feedback_control" for edge in route_edges)
+            ):
+                return True
+    return False
 
 
 def _require_artifact_revision(

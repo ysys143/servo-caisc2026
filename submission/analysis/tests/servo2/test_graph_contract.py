@@ -146,6 +146,23 @@ def test_adaptation_path_cannot_be_counted_as_artifact_revision(package) -> None
     assert_rejected(run_cli(package, "public-regeneration"), "ARTIFACT_REVISION_PATTERN_MISMATCH")
 
 
+def test_adaptation_requires_evaluation_to_action_connectivity(package) -> None:
+    tables = read_tables(package)
+    witness = next(
+        row
+        for row in tables["closure_witnesses"].rows
+        if row["predicate"] == "experimental_adaptation" and row["case_id"] == "C03"
+    )
+    witness["ordered_event_ids"] = "EV11@t;EV42@t+1"
+    witness["ordered_edge_ids"] = "ED15"
+    witness["ordered_endpoint_ids"] = "C03.G;C03.E"
+
+    with pytest.raises(
+        Servo2Error, match="EXPERIMENTAL_ADAPTATION_PATTERN_MISMATCH"
+    ):
+        validate_graph(tables)
+
+
 @pytest.mark.parametrize(
     ("predicate", "diagnostic"),
     (
