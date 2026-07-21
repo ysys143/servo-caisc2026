@@ -1,6 +1,6 @@
 schema_version: "3.0.0"
 status: current_normative
-title: Servo portable event-and-evidence contract
+title: Servo operational event-and-evidence contract
 scope_statement: >-
   Servo is a non-exhaustive system-level diagnostic schema and vocabulary. It is
   not a causal theory, exhaustive ontology, or demonstrated superior taxonomy.

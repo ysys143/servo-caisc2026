@@ -3,7 +3,7 @@
   "status": "unpublished-local-candidate",
   "absolute_paths_allowed": false,
   "roles": {
-    "public_regeneration": "portable derived-artifact validation and rebuild",
+    "public_regeneration": "deterministic derived-artifact validation and rebuild",
     "source_byte_audit": "optional local primary-source byte verification"
   },
   "required_documentation": [

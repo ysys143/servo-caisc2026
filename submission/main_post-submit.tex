@@ -102,7 +102,7 @@ where $H(\theta)$ is prior entropy over parameters $\theta$ and $H(\theta \mid y
 
 \textbf{Autonomous-science frameworks.} Automated feedback architectures predate the LLM era: the Robot Scientist~\citep{sparkes2010robot} integrated hypothesis generation, robotic experimentation, statistical testing, model update, and active experiment selection~\citep{king2004robot}. More recent architectures include InternAgent (formerly NovelSeek)~\citep{zhang2025novelseek} and Co-Scientist~\citep{gottweis2026coscientist}. We therefore position \framework{} not as the first unified framework but as a vocabulary for separating observation generation, evaluation events, artifacts, routed edges, and acceptance. Its diagnostic value is illustrated, not independently tested against another framework.
 
-\textbf{Decision-theoretic foundations.} The POMDP framework~\citep{kaelbling1998pomdp} and BED~\citep{chaloner1995bayesian,rainforth2024modern} are classical, with a long history of Bayesian-optimal experiment selection in automated science---most directly the Robot Scientist's active-learning policy~\citep{king2004robot}. Servo borrows terminology rather than claiming a complete POMDP or priority for BED. Its portable contract records validation target, evidence, evaluator, decision role, artifact state, and routed edge without treating those fields as a reliability hierarchy.
+\textbf{Decision-theoretic foundations.} The POMDP framework~\citep{kaelbling1998pomdp} and BED~\citep{chaloner1995bayesian,rainforth2024modern} are classical, with a long history of Bayesian-optimal experiment selection in automated science---most directly the Robot Scientist's active-learning policy~\citep{king2004robot}. Servo borrows terminology rather than claiming a complete POMDP or priority for BED. Its machine-readable contract records validation target, evidence, evaluator, decision role, artifact state, and routed edge without treating those fields as a reliability hierarchy.
 
 \textbf{Formal models and artifact infrastructure.} \citet{taniguchi2024cpc} model collective scientific inference, whereas Servo records one system-level case and deliberately compresses social organization. \citet{liu2026lasthuman} foreground artifact format, provenance, and verification. The Servo event--artifact schema can record such artifacts as versioned $A$ states and, where the source reports it, an artifact synthesis or revision interface $W_A$; this is a boundary mapping rather than subsumption.
 
@@ -189,7 +189,7 @@ We define an AI Scientist system as a tuple \sgmvpi{} with the following compone
   \item[$\pi: b \times M \times \mathcal{C} \times B \times R_{\mathrm{pre}} \rightarrow a$: Search Policy] The decision rule that selects an action $a=(h,d,P,f)$, comprising a candidate $h\in\mathcal C$, an experimental design $d$, an executable protocol $P$, and a fidelity $f$. $B$ is the remaining resource budget and $R_{\mathrm{pre}}$ contains validation signals routed before action selection. The belief state $b$ is updated after each experiment. A myopic BED policy holds the candidate and feasible-action construction fixed and selects $a$ (or its design component $d$) to maximize conditional EIG; this is a one-step action rule, not a globally optimal sequential policy. In practice, systems use reactive, greedy, active-learning, or tree-search policies. Thus $G$ generates candidates while $\pi$ chooses what to do with them, consistent with the POMDP convention that a policy maps a belief state to an action~\citep{kaelbling1998pomdp}.
 \end{description}
 
-\noindent\textbf{Portable event--artifact graph.}
+\noindent\textbf{Operational event--artifact graph.}
 For a bounded case $c$, Servo records endpoints, versioned artifacts, evaluation events, and directed edges,
 \begin{equation}
   \mathcal G_c=(\mathcal N_c,\mathcal A_c,\mathcal E_c,\mathcal R_c),
@@ -411,7 +411,7 @@ The checklist has two parts: a \textbf{Research Stage Assessment} (items 1--4) r
 \item {\bf Experimental result reproducibility}
     \item[] Question: Does the paper fully disclose all information needed to reproduce the main experimental results?
     \item[] Answer: \answerYes{}
-    \item[] Justification: This paper contains no computational experiment, but its main case annotations and closure predicates depend on the Servo event--artifact package. The synchronized package, validator, canonical records, generated tables, evidence ledger, audit record, and corrected manuscript are bound in the immutable release at \url{https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v3.0.1}. Its manifest and attestation provide file-level checksums for the revised status matrix.
+    \item[] Justification: This paper contains no computational experiment, but its main case annotations and closure predicates depend on the Servo event--artifact package. The synchronized package, validator, canonical records, generated tables, evidence ledger, audit record, and corrected manuscript are bound in the immutable release at \url{https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v3.0.2}. Its manifest and attestation provide file-level checksums for the revised status matrix.
 
 \item {\bf Open access to data and code}
     \item[] Question: Does the paper provide open access to data and code?
@@ -1020,10 +1020,13 @@ why, and whether the version of record is thereby wrong or merely less precise.
   \item[R34. Explicit execution occurrences in adaptation witnesses.]
   \textbf{Scope:} Predicate contract and public analysis package.
   The experimental-adaptation validator now requires a later event whose class is explicitly \texttt{execution}; reaching endpoint $E$ or repeating an evaluation event is insufficient. The AI Scientist 2024 and InternAgent witnesses now name their already source-grounded execution events directly. This tightens conformance without changing their established statuses.
+  \item[R35. Portability-claim boundary.]
+  \textbf{Scope:} Related Work; \S\ref{sec:framework}; normative contract and provenance crosswalk.
+  The manuscript no longer labels the current contract or event--artifact graph portable. The evidence establishes an operational, machine-readable representation and a construct-level mapping to PROV-DM and Workflow Run RO-Crate. It does not establish executable serialization, standards conformance, or out-of-sample portability; those require a tested serializer and a prospectively frozen holdout application.
 \end{description}
 
 \noindent\textbf{Scope of revision.} The entries above are the complete set of changes
-made since the archival deposit, R1--R34. Entries R3--R12 narrow or correct statements
+made since the archival deposit, R1--R35. Entries R3--R12 narrow or correct statements
 that the citation audit judged unsupported by, contradicted by, or less precise than their
 cited sources. Entries R13--R16 record the subsequent adversarial mathematical review: they
 replace the proposition/assumption/proof-sketch presentation with bounded analytical

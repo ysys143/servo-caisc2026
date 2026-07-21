@@ -14,12 +14,13 @@ carry scientific semantics that generic provenance vocabularies do not require.
 | Workflow plan and run | Workflow Run RO-Crate workflow plan/run | Executable plan, run, code, inputs, outputs | Bounded case/version/configuration/task-regime identity |
 | Closure witness | No direct base-vocabulary equivalent | Can be serialized as a connected provenance subgraph | Predicate-specific minimum path and evidential status |
 
-The portable claim therefore has two parts: the base graph can be transformed
-to common provenance objects, and Servo's additional target, reliability,
-authority, epistemic-route, and closure fields remain explicit rather than being
-flattened into generic annotations. This document does not claim formal PROV or
-RO-Crate conformance; that would require an executable serializer and the
-relevant conformance tests.
+This table is a construct-level correspondence, not evidence that the current
+records can already be transformed losslessly into a conforming PROV or
+Workflow Run RO-Crate package. Servo's additional target, reliability,
+authority, epistemic-route, and closure fields identify what a future profile
+would need to preserve rather than flatten into generic annotations. Executable
+serialization, formal conformance, and portability remain unestablished until a
+serializer and the relevant conformance and round-trip tests are supplied.
 
 Primary specifications:
 
