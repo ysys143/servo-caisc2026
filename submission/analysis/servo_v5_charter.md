@@ -201,7 +201,8 @@ I_{t+1} = U(I_t, o_{t+1}, v_{t+1})
 - 분석 규칙이 사례보다 먼저 동결됐다.
 - 여섯 사례가 기존 matrix가 아니라 source proposition부터 재생성됐다.
 - 부족한 증거는 단조 하향됐고, inferred occurrence는 positive witness에서 배제됐다.
-- **POMDP/BED를 제거했을 때 최소 두 사례의 분류나 핵심 결론이 실제로 사라진다.**
+- **A.4 falsification gate:** POMDP/BED를 제거했을 때 최소 두 사례의 분류나 핵심 결론이 실제로 사라져야 한다. 구체적으로, observation/evaluation, iteration/adaptation, adaptive-selection/explicit-BED 중 **최소 두 구별**이 사례 비교에서 비자명한 차이를 만들어야 한다.
+  - **실패 처리(원인별):** gate 실패 시 A(상위 정박)로 **무언(無言) 후퇴 금지.** (i) 분석 설계가 약해서 실패면 policy classification·typed functional relation을 재설계한다; (ii) 이론 골격이 실제로 무용하면 decision-theoretic contribution을 **명시적으로 축소하고 그 실패를 문서화**한다. 어느 경우든 실패를 감춘 채 프레이밍만 약화하는 것은 금지한다. (ii)의 결과가 겸손한 프레이밍이 되는 것은 정직한 축소로서 허용되나, 반드시 실패가 본문/헌장에 기록되어야 한다.
 - AI-Researcher(또는 제2 모델)는 동결 후 rule-stability check로만 사용.
 - 최종 label을 보지 않은 인간 제2검토자가 경계 사례와 FunSearch trace를 독립 판정.
 - 세 차례 적대 검증을 모두 통과.
@@ -220,10 +221,11 @@ I_{t+1} = U(I_t, o_{t+1}, v_{t+1})
 
 - **E.1 산출물 정체성 [확정]:** (a) **저장소 방법론 먼저.** v5 분석 레이어를 저장소 내부에서 재구축하고, 논문(camera-ready/후속본) 반영 여부는 결과를 본 뒤 별도 결정. 가장 안전한 순서.
 - **E.2 closure predicate 처리 [확정]:** (a) **완전 퇴역.** 4-predicate를 주분석에서 내리고 부록/역사 또는 worked case의 파생 query로만 유지. Table 2 교체.
-- **E.3 연구질문 프레이밍 교체 범위 [진행중]:** 두 프레이밍을 서브에이전트로 각각 draft한 뒤 비교하여 결정.
-  - 옵션 A(상위 정박 추가): 현행 하위질문 유지 + decision-theoretic 상위 질문 정박. draft: `scratchpad/intro_draft_A_anchor.tex`.
-  - 옵션 B(전면 교체): Introduction을 A.1 질문으로 전면 재서술, graph 프레이밍 제거. draft: `scratchpad/intro_draft_B_replace.tex`.
-  - 결정 기준: 비주장 범위(A.3) 준수, decision-theoretic 골격의 자연스러움, 제출본 대비 침습도.
+- **E.3 연구질문 프레이밍 [확정: B-prime 계열, 재구축 가설]:** 교차검증(Claude 대조 + ChatGPT 비판, 2026-07-23) 결과, decision-first 전면 교체(B)를 채택하되 과잉 전제를 제거한 **B-prime**로 확정. A(상위 정박)는 **fallback이 아니다** — draft A는 참고 이력으로만 보존(`scratchpad/intro_draft_A_anchor.tex`).
+  - B는 프레이밍 후보가 아니라 **재구축 가설**이며, A.4 판정 기준(D.2)은 그 가설의 **falsification gate**다.
+  - B-prime 필수 수정(적용됨): (1) "at each step a search policy maps I_t to action" 등 모든 사례에 policy/step-mapping 존재를 선취하는 문장 제거; (2) "scientific progress depends on feedback relations" 등 과학 일반 인과 주장 제거; (3) I_t를 존재론적 state로 선취 금지("information exposed as available at decision time"); (4) POMDP/BED를 단순 용어차용이 아니라 diagnostic distinction 제공으로 명시; (5) 퇴역한 4-predicate 언급 삭제 -> typed functional relations + claim_scope 해상도로; (6) "instrumentation"은 문헌 6사례엔 부적절("evidential representation"), FunSearch replay에만 사용; (7) observation/evaluation, iteration/adaptation, adaptive-selection/BED 구별을 Intro에 예고.
+  - 목표 텍스트 초안: `scratchpad/intro_draft_B_prime.tex` (B, B-prime 원안은 `intro_draft_B_replace.tex`).
+  - **유보(Claude 조정):** B-prime 텍스트의 최종 **동결은 분석 레이어(D.1 3~6) 재구축 후**. B-prime가 선취하는 요소(worked-case 예고, occurrence-level resolution)가 실제 분석 결과와 일치하는지 확인한 뒤 동결. **방향은 지금 확정, 텍스트는 분석 후 동결.** 하류(Abstract/Background/Framework) 재작성도 D.1 순서(analysis -> manuscript)를 따른다.
 - **E.4 여섯 사례 [기본 유지]:** 현행 C01~C06(Coscientist, AI Scientist 2024/2026, Agent Laboratory, Robot Scientist, InternAgent) 유지. 변경 시 명시.
 - **E.5 worked case [확정]:** **FunSearch deterministic replay.** Part D.3 사양.
 - **E.6 제2검토자/적대검증 실행 주체 [미정]:** 인간 제2검토자와 3차 적대검증 수행 주체·방법은 실행 단계에서 확정.
