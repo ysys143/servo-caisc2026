@@ -5,7 +5,7 @@
     "closure_cells": 24,
     "lineages": 5
   },
-  "generator_sha256": "fffcbc07a3fa6f6ed17ee6e233a4ccca5e2b7bf57a20fd4de87e20b4bdfda87a",
+  "generator_sha256": "bad3a42c8af1367714ead0dc880b4667c5b1ed551eb0e3fa934a8b4548a2c992",
   "inputs": {
     "servo2_cases.csv": "6c9bf08f366d19cf19735c9d931b2ad1553910b1b3ca40148ecd3652bae098ed",
     "servo2_closure_statuses.csv": "628d2e5a54fe0f6b3f7ae17321f4076ae93305edddb1c229ead44d80bba1d623",
@@ -14,8 +14,8 @@
     "servo2_selection_ledger.csv": "3a80bf220079e825ad347aae03478eb82b90a629f58ae7ae6b418ac96640bf2d"
   },
   "outputs": {
-    "tbl-servo2-anchors-ko.tex": "01f4bbc982720670e77f8ed0f1970db9be4e1c069b04755e04ca120d1a1ddbab",
-    "tbl-servo2-anchors.tex": "bacc0331780464ab129aea10b9bb9e7912d902f08ceae84aeb3df7ba7abfccc7",
+    "tbl-servo2-anchors-ko.tex": "ad288d588245f9c1c14830c661f961873844c97899e379943d448c94b831863a",
+    "tbl-servo2-anchors.tex": "dc5436caa0f34197d2e13acd2323f2c5e90dab5ccfcb4bb60627909381a9f32a",
     "tbl-servo2-cases-ko.tex": "17c5be6187107791ebe386a7f46728c81dd533b6753e80afd0683f779d387cfe",
     "tbl-servo2-cases.tex": "c0b17d88d029886ee056199a98342762552bb5af338d92e1d74111db558899c8",
     "tbl-servo2-closure-ko.tex": "abc6d83a09920da28416df04ec551aeb0d2bac9156c9337aca2ec38f62fdeb22",
