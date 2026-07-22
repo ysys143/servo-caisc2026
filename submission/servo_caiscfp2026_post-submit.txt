@@ -970,10 +970,9 @@ use rather than serving as a proof.
 4. Experimental result reproducibility
 Question: Does the paper fully disclose all information needed to reproduce the main experimental results?
 Answer: [Yes]
-Justification: This paper contains no computational experiment, but its main case annotations and closure predicates depend on the Servo event–artifact package. The
-synchronized package, validator, canonical records, generated tables, evidence ledger,
-audit record, and corrected manuscript are bound in the versioned, checksumbound release at https://github.com/ysys143/servo-caisc2026/releases/tag/
-servo-corrected-v3.0.16. Its manifest and attestation provide file-level checksums for
+Justification: This paper contains no computational experiment, but its main case annotations and closure predicates depend on the Servo event–artifact package. The synchronized
+package, validator, canonical records, generated tables, evidence ledger, public regression tests, audit record, and corrected manuscript are bound in the versioned, checksumbound release at https://github.com/ysys143/servo-caisc2026/releases/tag/
+servo-corrected-v3.0.17. Its manifest and attestation provide file-level checksums for
 the revised status matrix and make later asset replacement detectable; the hosting platform
 does not make the release immutable.
 5. Open access to data and code
@@ -1606,7 +1605,10 @@ and validator. The tuple-level environment law is now identified as a conceptual
 result-artifact producer fields are delimited as execution-anchored documentary availability records, not causal representations of environment or measurement production. The
 manuscript also distinguishes event class from event kind, replaces the claim that closure
 predicates are independent with separate reporting plus declared implications, and the validator enforces that established execution repair entails established artifact revision.
-Scope of revision. The entries above are the complete set of changes made since the archival deposit, R1–R49. Entries R3–R12 narrow or correct statements that the citation audit judged unsupported by, contradicted by, or less precise than their cited sources. Entries R13–R16 record the
+R50. Public regression-suite completeness. Scope: Public package builder, manifest, regression tests, and reproducibility checklist. The public package now includes the packageapplicable mutation and conformance tests cited as regression evidence. Repository-only
+manuscript, external-publication, source-vault, and finalization tests remain repository
+gates rather than being represented as executable public-package tests.
+Scope of revision. The entries above are the complete set of changes made since the archival deposit, R1–R50. Entries R3–R12 narrow or correct statements that the citation audit judged unsupported by, contradicted by, or less precise than their cited sources. Entries R13–R16 record the
 subsequent adversarial mathematical review: they replace the proposition/assumption/proof-sketch
 presentation with bounded analytical observations, correct the EIG statement, delimit the conditions
 under which the Ghosal–van der Vaart and Berk references may be invoked, and distinguish mathematical non-identification from the surveyed use of human judgment. R17 reconciles two table
@@ -1621,14 +1623,14 @@ proxy-to-physical criteria around accepted surrogate BED and multi-fidelity inte
 R22 makes validation context-dependent, limits the POMDP relation to organizing concepts rather
 than a complete instantiation, separates the absence of reported novelty validation from adjacent assessment failures, removes residual cross-domain association language, and states the system-level
 abstraction of multi-agent cases. R23 places a stochastic, design-conditioned observation kernel
-inside E, replaces mixed validator layers with explicit facets, reserves calibration for measured
+29
+
+inside E, replaces mixed validator layers with explicit facets, reserves calibration for measured
 probability–outcome correspondence, and limits the old agreement statistics to their pre-revision
 rubric. R24 replaces the abandoned free-form baseline comparison with an evidence-bound audit of
 six core and eight supplementary records, freezes 42 independent three-vendor codings, and reports
 facet disagreements and agreement coefficients only as descriptive development-audit diagnostics.
-29
-
-R25 replaces the record-level majority projection as substantive evidence with a source-adjudicated
+R25 replaces the record-level majority projection as substantive evidence with a source-adjudicated
 channel ledger, restores the complete component and authority fields for the six cases, and adds a
 framework-native construct crosswalk with contrastive and negative cases. R26 adds the closest AIScientist survey frameworks to the direct comparison, propagates the final validator facets through
 the domain analysis, marks the six-case channel table as an author interpretation rather than an independently reproduced result, and separates the system executor from the auxiliary environment
@@ -1655,7 +1657,7 @@ and schema” and “application of the final schema” are superseded and do no
 R25’s six-case synthesis is read through the canonical event records introduced in R29; and R27’s
 event-channel interface and R29’s Schema 1 closure derivation are superseded by the Schema 3
 event–artifact graph, bounded case identity, and four predicate-specific witness contracts finalized
-through R33–R49. References in earlier entries to “final” Schema 1 tables or current six-case closure
+through R33–R50. References in earlier entries to “final” Schema 1 tables or current six-case closure
 labels are historical statements, not present semantics. This index does not alter the historical text or
 chronology of those entries.
 

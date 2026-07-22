@@ -1,8 +1,8 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.12"
 
 [[package]]
 name = "servo-schema3-reproducibility"
-version = "3.0.16"
+version = "3.0.17"
 source = { virtual = "." }

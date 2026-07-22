@@ -54,6 +54,12 @@ ANALYSIS_DOCS = (
     "predicate_contract.md",
     "provenance_crosswalk.md",
 )
+PUBLIC_TEST_EXCLUSIONS = {
+    "test_contract_surface_consistency.py",
+    "test_finalization_contract.py",
+    "test_public_package_contract.py",
+    "test_source_audit_contract.py",
+}
 PUBLIC_LOCATORS = {
     "boiko2023emergent": "https://doi.org/10.1038/s41586-023-06792-0",
     "lu2024aiscientist": "https://arxiv.org/abs/2408.06292",
@@ -91,6 +97,11 @@ def build(repository: Path, package: Path) -> None:
         shutil.copy2(repository / "analysis" / name, analysis / name)
     for name in ANALYSIS_DOCS:
         shutil.copy2(repository / "analysis" / name, analysis / name)
+    public_tests = analysis / "tests" / "servo2"
+    public_tests.mkdir(parents=True)
+    for path in sorted((repository / "analysis" / "tests" / "servo2").glob("*.py")):
+        if path.name not in PUBLIC_TEST_EXCLUSIONS:
+            shutil.copy2(path, public_tests / path.name)
     shutil.copy2(
         repository / "analysis" / "build_servo2_tables.py",
         analysis / "build_servo2_tables.py",
