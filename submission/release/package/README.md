@@ -1,6 +1,6 @@
 # Servo corrected package
 
-Package release 3.0.18 implements the normative Servo schema version 3.0.0.
+Package release 3.0.19 implements the normative Servo schema version 3.0.0.
 The package release number identifies this synchronized manuscript and audit
 snapshot; it does not change the schema contract version.
 
@@ -54,6 +54,14 @@ UV_CACHE_DIR="$(mktemp -d)" UV_PROJECT_ENVIRONMENT="$(mktemp -d)" \
 UV_CACHE_DIR="$(mktemp -d)" UV_PROJECT_ENVIRONMENT="$(mktemp -d)" \
   uv run --project "$PACKAGE/pyproject.toml" --directory "$PACKAGE" --no-sync \
   python -B -m analysis.validate_servo2 release-ready --package-root "$PACKAGE"
+
+UV_CACHE_DIR="$(mktemp -d)" UV_PROJECT_ENVIRONMENT="$(mktemp -d)" \
+  uv run --project "$PACKAGE/pyproject.toml" --directory "$PACKAGE" --extra test \
+  python -B -m pytest -q analysis/tests/servo2
+
+UV_CACHE_DIR="$(mktemp -d)" UV_PROJECT_ENVIRONMENT="$(mktemp -d)" \
+  uv run --project "$PACKAGE/pyproject.toml" --directory "$PACKAGE" --no-sync \
+  python -B -m analysis.validate_servo2 release-ready --package-root "$PACKAGE"
 ```
 
 The first command must work with an empty HOME, no credentials, no network, and
@@ -67,6 +75,9 @@ PDF's fixed filename, records either an unpublished candidate or the supplied
 GitHub release URL in the attestation, rebinds the complete public-file
 allowlist, and enables `release-ready`. It does not itself publish or claim a
 DOI.
+The regression command installs the lockfile-declared `test` extra when needed;
+the following `release-ready` command demonstrates that the test run left the
+package tree unchanged.
 The attestation is an unsigned consistency record binding the PDF, code, data,
 documentation, and generated artifacts.  It is not a provenance signature or
 publisher authentication. Publication status must be read from the attestation,

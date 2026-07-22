@@ -2,8 +2,8 @@
   "schema_version": "1.0",
   "review_basis": "three-round adversarial audit plus predicate conformance, conservative negative-status, and cross-surface release audits completed 2026-07-22",
   "manuscripts": {
-    "main_post-submit.tex": "76f4446b440c5b4f3449a988c0989e8f4a6dfe3d74e6d426404a2afa4c50663e",
-    "main_ko.tex": "c92663b1b2a65a3f36b6840db02e3978a27750e383b459819f3b1266d4f2f073"
+    "main_post-submit.tex": "553bb86e82646d1b764da804c88921bef73280b08461b442c03df1f21229985e",
+    "main_ko.tex": "03f645b961ae2f6f2ec41eaaae718ba384d647527156ce74a472582d618a7465"
   },
   "citation_keys": [
     "berk1966",
