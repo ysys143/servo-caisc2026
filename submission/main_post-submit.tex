@@ -294,7 +294,7 @@ The Robot Scientist is a negative case against an automatic claim of added diagn
 \subsection{Artifact Infrastructure: Agent-Native Research Artifacts}
 \label{sec:ara}
 
-\citet{liu2026lasthuman} address a complementary problem---what the \emph{output} of the loop should be and how to verify it. Agent-Native Research Artifacts (ARA) replace the narrative paper with a four-part ontology (\texttt{/logic}, \texttt{/src}, \texttt{/trace}, \texttt{/evidence}). In the final Servo facets, its Seal targets schema compliance, argumentative rigor, and reproducibility using deterministic checks, an automated Rigor Auditor (82.6\% detection), and sandboxed execution; significance and novelty remain assigned to human judgment~\citep{liu2026lasthuman}. Motivating figures: only 45.4\% of reproduction requirements are fully specified and 90.2\% of extension cost is failed exploration~\citep{liu2026lasthuman}. The \texttt{/trace} part externalizes $M_e$/$M_s$, but preserved traces both accelerated and anchored downstream agents---richer $M_e$ does not monotonically improve $\pi$.
+\citet{liu2026lasthuman} address a complementary problem---what the \emph{output} of the loop should be and how to verify it. Agent-Native Research Artifacts (ARA) replace the narrative paper with a four-part ontology (\texttt{/logic}, \texttt{/src}, \texttt{/trace}, \texttt{/evidence}). In the final Servo facets, its Seal targets schema compliance, argumentative rigor, and reproducibility using deterministic checks, an automated Rigor Auditor (82.6\% recall on a seeded rigor-defect benchmark), and sandboxed execution; significance and novelty remain assigned to human judgment~\citep{liu2026lasthuman}. Motivating figures: only 45.4\% of reproduction requirements are fully specified, and below-reference agent runs account for 90.2\% of total dollar cost---exploration that becomes waste only when later agents cannot reuse it~\citep{liu2026lasthuman}. The \texttt{/trace} part externalizes $M_e$, with distilled semantic content ($M_s$) held in \texttt{/logic}; preserved traces both accelerated and anchored downstream agents---richer $M_e$ does not monotonically improve $\pi$.
 
 \section{Domain Analysis}
 \label{sec:domains}
@@ -322,9 +322,9 @@ The selected case and anchor sources motivate three prospective design questions
 
 The bounded sources used here do not report an independently validated automated novelty gate. This is a source-limited evidence statement, not a finding that every automated novelty score is unreliable or that no other system supplies such evidence. The cited failures concern adjacent properties: paper-quality bias, hallucinated tables, proof correctness, structural violations, or review overlap. They motivate caution but do not measure novelty discrimination. Novelty, correctness, significance, and aggregate review quality remain separate endpoints.
 
-\textit{Prospective validation design requirements:} These are necessary design requirements, not a sufficient checklist for declaring a gate validated. A preregistration must define the target population, temporal cutoff, domain strata, novelty prevalence or sampling scheme, primary discrimination endpoint (for example sensitivity/specificity or AUC), minimally relevant performance, and confidence-interval width. A prospective power or precision calculation must then determine benchmark-item and rater counts per domain; ``three domains'' and ``five experts'' may serve as diversity floors but never substitute for that calculation. Experts label independently, human--human agreement is reported with uncertainty, and held-out adjudicated field-novelty labels use explicit prior-art search kept separate from significance and correctness. Follow-up duration, censoring, and the rule for later priority or prior-art outcomes must also be preregistered. The automated system is evaluated against held-out adjudicated labels rather than the majority vote from the same raters. High agreement with a small panel or separation of published from withheld findings remains only an initial benchmark result. A recent benchmark takes a step by restricting to post-2024 findings to control contamination~\citep{liu2025researchbench}, though it evaluates inspiration-based decomposition rather than satisfying this design.
+\textit{Prospective validation design requirements:} These are necessary design requirements, not a sufficient checklist for declaring a gate validated. A preregistration must define the target population, temporal cutoff, domain strata, novelty prevalence or sampling scheme, primary discrimination endpoint (for example sensitivity/specificity or AUC), minimally relevant performance, and confidence-interval width. A prospective power or precision calculation must then determine benchmark-item and rater counts per domain; ``three domains'' and ``five experts'' may serve as diversity floors but never substitute for that calculation. Experts label independently, human--human agreement is reported with uncertainty, and held-out adjudicated field-novelty labels use explicit prior-art search kept separate from significance and correctness. Follow-up duration, censoring, and the rule for later priority or prior-art outcomes must also be preregistered. The automated system is evaluated against held-out adjudicated labels rather than the majority vote from the same raters. High agreement with a small panel or separation of published from withheld findings remains only an initial benchmark result. A recent benchmark takes a step by restricting to findings from 2024 onward to control contamination~\citep{liu2025researchbench}, though it evaluates inspiration-based decomposition rather than satisfying this design.
 
-Novelty, significance, and correctness are distinct properties that the bounded sources may score separately and then combine at a decision point (The AI Scientist rates ideas on separate interestingness, feasibility and novelty scales, yet uses an aggregate \texttt{Overall} paper score~\citep{lu2024aiscientist}). Functional separation of generation from reviewing, reflection, or ranking does not imply statistical or organizational independence. The selected sources do not report independent, contamination-controlled evidence that such a channel discriminates field novelty.
+Novelty, significance, and correctness are distinct properties that the bounded sources may score separately and then combine at a decision point (The AI Scientist's paper reviewer scores separate originality, quality, clarity and significance axes, yet collapses them into an aggregate \texttt{Overall} score and accept/reject decision~\citep{lu2024aiscientist}). Functional separation of generation from reviewing, reflection, or ranking does not imply statistical or organizational independence. The selected sources do not report independent, contamination-controlled evidence that such a channel discriminates field novelty.
 
 \subsection{The BED--Practice Gap for $\pi$}
 
@@ -1188,10 +1188,92 @@ why, and whether the version of record is thereby wrong or merely less precise.
   benchmark (BioProt): protocols are LLM-generated and BioPlanner scores their planning against a
   reference, rather than being a protocol generator itself. The revision describes it as evaluating
   LLM-generated protocols.
+
+  \item[R60. Kandasamy author list (References).]
+  \emph{Status in the version of record: bibliographic error.} The entry for the 2017 ICML paper
+  ``Multi-fidelity Bayesian optimisation with continuous approximations'' listed five authors,
+  inserting Junier B.\ Oliva; the paper has four (Kandasamy, Dasarathy, Schneider, P\'oczos). Oliva
+  is an author of a separate 2016 multi-fidelity paper. The entry now lists the four correct authors.
+
+  \item[R61. Aletheia author order (References).]
+  \emph{Status in the version of record: bibliographic error.} The entry for arXiv:2602.10177 promoted
+  Quoc V.\ Le and Thang Luong to the 2nd and 3rd author positions; on the source they are the last two
+  authors, and the actual 2nd/3rd authors (Trinh, Bingham) were correspondingly demoted. The entry now
+  follows the source order and renders ``Feng et al.'' unchanged.
+
+  \item[R62. Workflow Run RO-Crate version and year (References).]
+  \emph{Status in the version of record: bibliographic error.} The entry dated version~0.5 of the
+  Workflow Run RO-Crate profile to 2023; version~0.5 was published 19~June 2024 (Zenodo record
+  12159311). The year is corrected and the deposit is noted, while the citation key is retained for
+  continuity.
+
+  \item[R63. What the ARA 90.2\% measures (Section~\ref{sec:core}).]
+  \emph{Status in the version of record: mislabels the population and inverts the source caveat.} The
+  version of record wrote ``90.2\% of extension cost is failed exploration.'' In the source, 90.2\% is
+  the share of \emph{total dollar cost}---across 24,008 agent runs over 228 tasks in the METR MALT
+  corpus---spent in runs that did not reach the task's reference score. The source explicitly states
+  ``this is not wasted research effort'': the cost becomes waste only when a later agent cannot reuse
+  the exploration and must rediscover the same dead ends. The revision restates the figure as
+  below-reference agent-run cost carrying that conditional.
+
+  \item[R64. ARA memory mapping, \texttt{/trace} versus \texttt{/logic} (Section~\ref{sec:core}).]
+  \emph{Status in the version of record: contradicted by the cited source.} The version of record wrote
+  that ``\texttt{/trace} externalizes $M_e/M_s$'' (episodic and semantic). In ARA the semantic content
+  (falsifiable claims, convergence-critical heuristics, design reasoning) is held in \texttt{/logic}
+  (the Cognitive Layer); \texttt{/trace} (the Exploration Graph) holds the branching trajectory and
+  session history (episodic). The revision maps \texttt{/trace} to $M_e$ and locates $M_s$ in
+  \texttt{/logic}.
+
+  \item[R65. ResearchBench temporal cutoff (Section~\ref{sec:openproblems}).]
+  \emph{Status in the version of record: off by one year.} The version of record wrote ``post-2024
+  findings,'' which in normal usage excludes 2024. The source restricts ``to publications from 2024
+  onward,'' with 2024 included. The revision uses ``from 2024 onward.''
+
+  \item[R66. AI Scientist scoring example (Section~\ref{sec:openproblems}).]
+  \emph{Status in the version of record: conflates two separate scoring stages.} An earlier
+  post-submission sentence illustrated score collapse with ``The AI Scientist rates ideas on separate
+  interestingness, feasibility and novelty scales, yet uses an aggregate \texttt{Overall} paper
+  score.'' Those three are the generator's self-ratings of its own \emph{ideas}; \texttt{Overall} is a
+  separate reviewer score on the finished \emph{paper}, and no documented mechanism aggregates the
+  former into the latter. The revision re-grounds the example on the reviewer's own separate axes
+  (originality, quality, clarity, significance) collapsing into \texttt{Overall} and the accept/reject
+  decision---the actual within-reviewer collapse. The open-problem claim is unchanged.
+
+  \item[R67. What the ARA 82.6\% measures (Section~\ref{sec:core}).]
+  \emph{Status in the version of record: the label understates the estimand.} The version of record
+  wrote ``Rigor Auditor (82.6\% detection).'' The figure is recall on a seeded-mutation benchmark: 23
+  already-valid ARAs each receive one of five predefined defect injections (115 mutations, 95 caught
+  $=82.6\%$), each injection serving as its own oracle with no expert gold standard; per-type detection
+  ranges $100/100/100/91/22\%$. The revision labels it recall on the seeded rigor-defect benchmark. The
+  number itself and the 22\% orphan-experiment figure were already correct.
+
+  \item[R68. Coscientist experimental-adaptation coding (released \texttt{servo2} closure sheet).]
+  \emph{Status in the version of record: coding more conservative than the source supports.} The
+  released \texttt{servo2} coding marks C01 (Coscientist) \texttt{experimental\_adaptation} ``unknown,''
+  on the rationale that reuse of prior-iteration outcomes for guidance is inferred while a downstream
+  evidence-generating execution is not separately witnessed. The source in fact states the mechanism:
+  each action selects reaction conditions ``listing the player's observations about the outcome of the
+  previous iteration,'' and the system ``reuse[s] the information obtained to provide more specific
+  guidance'' over up to 20 iterations, with normalized advantage rising across rounds. This is direct,
+  not inferred, evidence of experimental adaptation. The rationale is corrected to record the source
+  mechanism, and the cell is flagged for recoding to ``established'' with an explicit witness once the
+  witness chain is added; the conservative status is retained only pending that witness rather than on
+  the ground of missing source support.
+
+  \item[R69. BioPlanner anchor coding (Table~\ref{tab:domain-comparison}; released \texttt{servo2} anchor sheet).]
+  \emph{Status in the version of record: overstates the evaluator and decision role.} The released
+  anchor codes BioPlanner's analysis target as ``protocol planning and executability,'' its evaluator
+  as ``generator, evaluator, laboratory,'' and its decision role as ``diagnosis and external
+  execution.'' The source's systematic benchmark measures pseudocode reconstruction (effectively
+  multiple-choice selection over admissible pseudofunctions); its ``Feedback'' is a code-error loop,
+  not laboratory feedback; and the wet-lab component is a single one-off \emph{E.\ coli} run, not a
+  general executability validator. This revision records the overstatement and flags the anchor for
+  restriction to protocol-planning (pseudocode reconstruction), with the wet-lab run to be marked as a
+  single external validation rather than a recurring execution channel in the synchronized recoding.
 \end{description}
 
 \noindent\textbf{Scope of revision.} The entries above are the complete set of changes
-made since the archival deposit, R1--R59. Entries R3--R12 narrow or correct statements
+made since the archival deposit, R1--R69. Entries R3--R12 narrow or correct statements
 that the citation audit judged unsupported by, contradicted by, or less precise than their
 cited sources. Entries R13--R16 record the subsequent adversarial mathematical review: they
 replace the proposition/assumption/proof-sketch presentation with bounded analytical
@@ -1260,6 +1342,18 @@ not make it; R56 widens the Leiden signatory description beyond mathematicians; 
 interest from impact ranking in two knowledge-graph ideation systems; R58 corrects an
 understatement of the reverse-engineering study's querying result; and R59 recasts BioPlanner as
 an evaluation benchmark rather than a protocol generator. None of these entries changes the
+framework, the three open problems, or their proposed evaluations.
+
+Entries R60--R69 record a third citation audit against primary metadata and source text. R60--R62
+correct bibliographic identity errors (an inserted Kandasamy co-author, a reordered Aletheia author
+list, and a Workflow Run RO-Crate version/year mismatch). R63 and R67 correct the labelling of two
+ARA statistics---the 90.2\% below-reference cost, restated with the source's ``not wasted'' caveat,
+and the 82.6\% seeded-mutation recall. R64 restores ARA's \texttt{/trace}-versus-\texttt{/logic}
+memory separation, R65 fixes a one-year cutoff error for ResearchBench, and R66 re-grounds an AI
+Scientist scoring example on the reviewer's own axes. R68 records that the Coscientist
+experimental-adaptation cell is coded conservatively against direct source evidence and flags it for
+witnessed recoding; R69 restricts the BioPlanner anchor from an overstated laboratory/executability
+channel to its actual pseudocode-reconstruction benchmark. None of these entries changes the
 framework, the three open problems, or their proposed evaluations.
 
 \noindent\textbf{Current-interpretation supersession index.}

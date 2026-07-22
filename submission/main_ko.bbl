@@ -73,10 +73,9 @@ K.~Darvish, M.~Skreta, Y.~Zhao, N.~Yoshikawa, S.~Som, M.~Bogdanovic, Y.~Cao,
   and characterization, 2024.
 \newblock arXiv:2401.06949; also in Matter (Cell Press) 2025.
 
-\bibitem[Feng et~al.(2026)Feng, Le, Luong, Trinh, Bingham, Hwang, Chervonyi,
+\bibitem[Feng et~al.(2026)Feng, Trinh, Bingham, Hwang, Chervonyi,
   et~al.]{google2026aletheia}
-T.~Feng, Q.~V. Le, T.~Luong, T.~H. Trinh, G.~Bingham, D.~Hwang, Y.~Chervonyi,
-  et~al.
+T.~Feng, T.~H. Trinh, G.~Bingham, D.~Hwang, Y.~Chervonyi, et~al.
 \newblock Towards autonomous mathematics research.
 \newblock \emph{arXiv preprint arXiv:2602.10177}, 2026.
 \newblock arXiv:2602.10177.
@@ -142,9 +141,9 @@ L.~P. Kaelbling, M.~L. Littman, and A.~R. Cassandra.
 \newblock \emph{Artificial Intelligence}, 101\penalty0 (1--2):\penalty0
   99--134, 1998.
 
-\bibitem[Kandasamy et~al.(2017)Kandasamy, Dasarathy, Oliva, Schneider, and
+\bibitem[Kandasamy et~al.(2017)Kandasamy, Dasarathy, Schneider, and
   P{\'o}czos]{kandasamy2017multifidelity}
-K.~Kandasamy, G.~Dasarathy, J.~B. Oliva, J.~Schneider, and B.~P{\'o}czos.
+K.~Kandasamy, G.~Dasarathy, J.~Schneider, and B.~P{\'o}czos.
 \newblock Multi-fidelity {Bayesian} optimisation with continuous
   approximations.
 \newblock In \emph{Proceedings of the 34th International Conference on Machine
@@ -322,13 +321,14 @@ J.~Wei, Y.~Yang, X.~Zhang, Y.~Chen, X.~Zhuang, Z.~Gao, D.~Zhou, G.~Wang, et~al.
 \newblock \emph{arXiv preprint arXiv:2508.14111}, 2025.
 \newblock arXiv:2508.14111v2.
 
-\bibitem[{Workflow Run RO-Crate Community}(2023)]{workflowruncrate2023}
+\bibitem[{Workflow Run RO-Crate Community}(2024)]{workflowruncrate2023}
 {Workflow Run RO-Crate Community}.
 \newblock Workflow run {RO-Crate} profile.
 \newblock
   \url{https://www.researchobject.org/workflow-run-crate/profiles/workflow_run_crate/},
-  2023.
-\newblock Specification, version 0.5.
+  2024.
+\newblock Specification, version 0.5, published 19 June 2024 (Zenodo record
+  12159311).
 
 \bibitem[Yanai and Lercher(2019)]{yanai2019night}
 I.~Yanai and M.~Lercher.

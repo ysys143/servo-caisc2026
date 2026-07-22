@@ -303,7 +303,7 @@ Robot Scientist는 자동적인 진단 가치 주장에 대한 부정 사례다.
 \subsection{아티팩트 인프라: 에이전트 네이티브 연구 아티팩트}
 \label{sec:ara}
 
-\citet{liu2026lasthuman}은 AI 과학자 루프의 출력과 독립 검증이라는 상호 보완적 문제를 다룬다. ARA는 \texttt{/logic}, \texttt{/src}, \texttt{/trace}, \texttt{/evidence}의 네 부분을 사용한다. 최종 Servo facet으로 쓰면 Seal은 결정적 검사, 자동 Rigor Auditor(82.6\% 탐지율), sandbox 실행을 증거로 schema compliance, 논증 엄격성, 재현성을 평가하고, 유의성과 신규성은 인간 판단에 남긴다~\citep{liu2026lasthuman}. 출판 논문의 재현 요건 중 45.4\%만 완전히 명시되고 확장 비용의 90.2\%가 실패 탐색에 쓰인다는 결과가 이를 동기화한다. \texttt{/trace}는 $M_e$와 $M_s$를 외부화하지만 보존된 trace는 후속 agent를 가속하면서도 이전 경로에 고착시킬 수 있다.
+\citet{liu2026lasthuman}은 AI 과학자 루프의 출력과 독립 검증이라는 상호 보완적 문제를 다룬다. ARA는 \texttt{/logic}, \texttt{/src}, \texttt{/trace}, \texttt{/evidence}의 네 부분을 사용한다. 최종 Servo facet으로 쓰면 Seal은 결정적 검사, 자동 Rigor Auditor(주입 결함 벤치마크에서 82.6\% recall), sandbox 실행을 증거로 schema compliance, 논증 엄격성, 재현성을 평가하고, 유의성과 신규성은 인간 판단에 남긴다~\citep{liu2026lasthuman}. 출판 논문의 재현 요건 중 45.4\%만 완전히 명시되고, reference score에 못 미친 실행이 총 달러 비용의 90.2\%를 차지한다는(후속 agent가 재사용하지 못할 때만 낭비가 되는) 결과가 이를 동기화한다. \texttt{/trace}는 $M_e$를 외부화하고 정제된 의미 내용($M_s$)은 \texttt{/logic}에 두지만, 보존된 trace는 후속 agent를 가속하면서도 이전 경로에 고착시킬 수 있다.
 
 \section{도메인 분석}
 \label{sec:domains}
