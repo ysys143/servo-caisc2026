@@ -577,22 +577,20 @@ Fidelity boundary
 
 DA01
 
-FunSearch / Formal mathematics
+Program quality and
+task performance
+Symbolic fit to data
 
 Executable evaluator
 
-AI Feynman / Physics
-
-Ranking and search control
-Model search and fit
-
-Computational oracle
-
 DA02
 
-Program quality and task
-performance
-Symbolic fit to data
+FunSearch / Formal mathematics
+AI Feynman / Physics
+
+Ranking and search
+control
+Model search and fit
 
 DA03
 
@@ -606,56 +604,62 @@ DA05
 
 BioPlanner / Biology
 
-Protocol-planning pseudocode reconstruction
-
-Planning, execution, assessment
-Filtering and activelearning update
-Diagnostic benchmark;
-single validation
-
-Computational
-and
-physical
-Surrogate; separate experiment
-Protocol; single lab
-run
-
 DA06
 
-Manning automated social science / Social science
-
-Design and model update
-
-Simulated subjects
-
-DA07
-
-AutoML-Zero / Computer science
-
-Causal hypotheses and
-simulated effects
-Evolved-algorithm
-benchmark performance
-
-Selection and evolutionary update
-
-Computational benchmark
+Manning automated social
+science / Social science
+AutoML-Zero / Computer
+science
 
 Task performance and
 synthesis
 Phase stability and energy
+Protocol-planning
+pseudocode
+reconstruction
+Causal hypotheses and
+simulated effects
+Evolved-algorithm
+benchmark
+performance
+
+Computational oracle
+Computational
+data fit
+Computational
+and physical
+Surrogate; separate experiment
+Protocol; single
+lab run
+
+DA07
 
 Symbolic-regression
 algorithm
-Tools, execution, and assessment
+Tools, execution, and
+assessment
 Graph networks plus
 DFT
-Generator; pseudocode
-evaluator; one-off lab
-check
-Causal model and LLM
-agents
+Generator;
+pseudocode
+evaluator;
+one-off lab check
+Causal model and
+LLM agents
 Executable benchmark
+
+Planning, execution,
+assessment
+Filtering and activelearning update
+Diagnostic benchmark; single validation
+Design and model
+update
+Selection and evolutionary update
+
+Simulated
+subjects
+Computational
+benchmark
 
 Table 6: Seven selected, frozen source anchors. The rows demonstrate how the vocabulary can be
 instantiated at named boundaries; they are not representative domain samples or a common outcome
@@ -698,12 +702,10 @@ The BED–Practice Gap for π
 
 Equation 1 specifies a one-step, myopic information criterion. The bounded LLM-case sources used
 here do not state that their policies optimize EIG or a sequential information objective. Modern BED
-can use variational estimators, amortized policies, and explicit probabilistic surrogates [Foster et al.,
 9
 
-Computational data fit
-
-2019, 2021]; BED-LLM [Choudhury et al., 2026] provides a separate example for conversational
+can use variational estimators, amortized policies, and explicit probabilistic surrogates [Foster et al.,
+2019, 2021]; BED-LLM [Choudhury et al., 2026] provides a separate example for conversational
 queries. The open question is integration with a reported G–π action interface and scientific evidence
 path, not an asserted field-wide absence.
 Prospective success criterion: A deployed AI Scientist narrows the survey gap if it maintains
@@ -749,10 +751,10 @@ Discussion
 
 Validator design as a diagnostic vocabulary. Unreliable validation can distort what a system records as progress—an ecosystem-scale symptom is the documented surge in fabricated citations [Zhao et al., 2026], and strong task performance need not imply an internalized world
 model [Vafa et al., 2025]. The earlier gate-reliability/“trustworthy closure” association is withdrawn
-as conceptually circular, not merely left untested. The framework instead asks property-specific
 10
 
-questions: which channel fires when, where its output is routed, what property it assesses, what bias
+as conceptually circular, not merely left untested. The framework instead asks property-specific
+questions: which channel fires when, where its output is routed, what property it assesses, what bias
 or calibration evidence exists, at what experimental fidelity, and with what external independence?
 Any future outcome analysis must use gate-independent external endpoints Yq .
 Human oversight. The categorical authority vector localizes coarse human or system control by
@@ -795,11 +797,11 @@ from five lineages and seven frozen anchors illustrate how to record evaluation 
 References
 R. H. Berk. Limiting behavior of posterior distributions when the model is incorrect. The Annals of
 Mathematical Statistics, 37(1):51–58, 1966.
-T. Blau, E. V. Bonilla, I. Chades, and A. Dezfouli. Optimizing sequential experimental design
-with deep reinforcement learning. In International Conference on Machine Learning, 2022.
 11
 
-arXiv:2202.00821.
+T. Blau, E. V. Bonilla, I. Chades, and A. Dezfouli. Optimizing sequential experimental design
+with deep reinforcement learning. In International Conference on Machine Learning, 2022.
+arXiv:2202.00821.
 D. A. Boiko, R. MacKnight, B. Kline, and G. Gomes. Autonomous chemical research with large
 language models. Nature, 624:570–578, 2023. doi: 10.1038/s41586-023-06792-0.
 A. M. Bran, S. Cox, O. Schilter, C. Baldassari, A. D. White, and P. Schwaller. ChemCrow:

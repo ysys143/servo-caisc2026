@@ -161,7 +161,7 @@ def build_anchors(anchors: list[dict[str, str]], language: int) -> str:
         if source["system"] != labels[0][0]:
             raise TableBuildError(f"anchor label mismatch: {source['anchor_id']}")
         rows.append([source["anchor_id"], tex(labels[0][language] + " / " + labels[1][language]), tex(labels[2][language]), tex(labels[3][language]), tex(labels[4][language]), tex(labels[5][language])])
-    return table("llp{.18\\linewidth}p{.18\\linewidth}p{.18\\linewidth}p{.16\\linewidth}", header, rows)
+    return table("@{}p{.05\\linewidth}p{.20\\linewidth}p{.16\\linewidth}p{.16\\linewidth}p{.15\\linewidth}p{.13\\linewidth}@{}", header, rows)
 
 
 def digest(path: Path) -> str:
