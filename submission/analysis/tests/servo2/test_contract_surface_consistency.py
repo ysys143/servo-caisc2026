@@ -1,16 +1,66 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
+import tomllib
+from typing import cast
 
 
 ROOT = Path(__file__).resolve().parents[3]
 
 
+def _cff_fields(path: Path) -> dict[str, str]:
+    fields: dict[str, str] = {}
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        if raw_line.startswith(("version:", "url:")):
+            key, value = raw_line.split(":", 1)
+            fields[key] = value.strip().strip("\"'")
+    return fields
+
+
+def test_external_publication_pointer_matches_current_release() -> None:
+    external = cast(
+        dict[str, object],
+        json.loads(
+            (ROOT / "release" / "EXTERNAL_PUBLICATION.json").read_text(encoding="utf-8")
+        ),
+    )
+    attestation = cast(
+        dict[str, object],
+        json.loads(
+            (ROOT / "release" / "package" / "release_attestation.json").read_text(
+                encoding="utf-8"
+            )
+        ),
+    )
+    project = cast(
+        dict[str, object],
+        tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8")),
+    )
+    citation = _cff_fields(ROOT / "release" / "CITATION.cff")
+
+    project_table = cast(dict[str, object], project["project"])
+    version = project_table["version"]
+    assert isinstance(version, str)
+    expected_tag = f"servo-corrected-v{version}"
+    assets = cast(dict[str, str], external["assets"])
+    pdf_filename = attestation["pdf_filename"]
+    pdf_sha256 = attestation["pdf_sha256"]
+    assert isinstance(pdf_filename, str)
+    assert isinstance(pdf_sha256, str)
+
+    assert external["record_role"] == "current_external_publication"
+    assert external["package_version"] == version == citation["version"]
+    assert external["tag"] == expected_tag
+    assert external["github_release"] == citation["url"]
+    assert external["github_release"] == attestation["github_release"]
+    assert external["schema_version"] == attestation["schema_version"]
+    assert assets[pdf_filename] == pdf_sha256
+
+
 def test_experimental_adaptation_has_one_evidence_occurrence_contract() -> None:
     # Given: the reader-facing normative predicate table.
-    contract = (ROOT / "analysis" / "predicate_contract.md").read_text(
-        encoding="utf-8"
-    )
+    contract = (ROOT / "analysis" / "predicate_contract.md").read_text(encoding="utf-8")
     adaptation_row = next(
         line
         for line in contract.splitlines()
@@ -29,9 +79,7 @@ def test_experimental_adaptation_has_one_evidence_occurrence_contract() -> None:
 def test_public_release_documentation_defers_state_to_attestation() -> None:
     # Given: the documentation and role manifest copied into every public package.
     readme = (ROOT / "release" / "README.md").read_text(encoding="utf-8")
-    role = (ROOT / "release" / "release-role-manifest.json").read_text(
-        encoding="utf-8"
-    )
+    role = (ROOT / "release" / "release-role-manifest.json").read_text(encoding="utf-8")
 
     # When: their release-state claims are compared with the finalization contract.
     candidate_only_wording = "unpublished local release candidate" in readme
@@ -56,7 +104,9 @@ def test_reader_facing_audit_documents_name_current_schema_three() -> None:
 
     # Then: none presents Schema 2 as the current Schema 3 contract.
     assert all("current Schema 2" not in text for text in texts)
-    assert all("current normative contract is Servo Schema 2" not in text for text in texts)
+    assert all(
+        "current normative contract is Servo Schema 2" not in text for text in texts
+    )
 
 
 def test_public_normative_paths_and_event_semantics_are_current() -> None:
@@ -90,7 +140,9 @@ def test_c03_discovery_rationale_matches_current_graph_boundary() -> None:
 
     # When/Then: it names the missing discovery conditions, not implemented ED15.
     assert "the executor link ED15 is unclear" not in statuses
-    assert "explicit epistemic update and a distinct later evidence occurrence" in statuses
+    assert (
+        "explicit epistemic update and a distinct later evidence occurrence" in statuses
+    )
 
 
 def test_latest_revision_summary_names_schema_three_and_four_predicates() -> None:
