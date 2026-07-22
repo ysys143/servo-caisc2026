@@ -4,7 +4,7 @@
     "servo-corrected-v4.0.0.zip": "74b6f52ad2bb89a5ed9947b8f2cabae03985d4500c364cfe52fd1766888041bf",
     "servo_caiscfp2026_post-submit.pdf": "d5292d514cebf14b7fd0ca3f99f97f692abc3bd7cba35068915130576012a970"
   },
-  "github_commit": "set-after-tag-publication",
+  "github_commit": "304ccf5a41622b92bb483b421284e12760523848",
   "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v4.0.0",
   "package_version": "4.0.0",
   "published_at": "2026-07-22T06:10:34Z",
