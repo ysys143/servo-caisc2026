@@ -1,6 +1,6 @@
 # SERVO v5 재구축 헌장 (Reconstruction Charter)
 
-- 상태: **DRAFT — 미동결(NOT FROZEN)**
+- 상태: **FROZEN v5.0-rules (1차 동결, 2026-07-23)** — Part A/B/C/D 규칙 동결. 이후 규칙 변경은 새 버전 번호를 요구하며, holdout 코딩 이후의 변경은 해당 사례를 formative로 만들고 untouched holdout 재확보를 요구한다. 유예 항목: B-prime 텍스트 최종 동결(분석 레이어 재구축 후), E.6(적대검증 주체, 실행 단계).
 - 작성일: 2026-07-23
 - 목적: v4.1을 역사 버전으로 동결하고, source proposition -> decision-semantic claim -> evidence graph 순서의 v5 계열을 재구축하기 위한 단일 기준 문서.
 - 지위: 저자 승인 시 이 문서가 FROZEN 되고, 이후 모든 v5 재분석·재코딩·논문 개정은 이 문서를 규범으로 삼는다. 이 문서가 동결되기 전에는 어떤 v5 산출물(코드·스키마·표·본문)도 생성하지 않는다.

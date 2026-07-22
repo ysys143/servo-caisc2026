@@ -1,0 +1,137 @@
+{
+  "schema": "servo_v5_source_proposition",
+  "schema_doc": "analysis/servo_v5_source_proposition_schema.md",
+  "status": "pilot",
+  "case_id": "C01",
+  "system": "Coscientist",
+  "citation_key": "boiko2023emergent",
+  "source_pdf_name": "Boiko 2023 - Autonomous Chemical Research with LLMs.pdf",
+  "source_pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+  "coverage_note": "Pilot pass extracted only from PDF physical pages 5-8 (journal 574-577), verified against the source. Pages 1-4 (incl. setup and the p2 subjective-labeling statement carried in the historical ledger as R01-E05) are NOT yet re-verified and are pending a full pass. No judgment, alignment, or closure status is stored here (charter B.1).",
+  "propositions": [
+    {
+      "proposition_id": "C01-P01",
+      "locator": {"pdf_page": 5, "journal_page": 574, "section": "Integrated chemical experiment design"},
+      "exact_quote": "However, an incorrect heater–shaker module method name was used. Upon making this mistake, Coscientist uses the Docs searcher module to consult the OT-2 documentation. Next, Coscientist modifies the protocol to a corrected version, which ran successfully (Extended Data Fig. 2).",
+      "modality": "directly_reported",
+      "named_actors": ["Coscientist", "Docs searcher module"],
+      "named_inputs": ["OT-2 documentation", "incorrect heater–shaker module method name"],
+      "named_outputs": ["corrected protocol version"]
+    },
+    {
+      "proposition_id": "C01-P02",
+      "locator": {"pdf_page": 5, "journal_page": 574, "section": "Solving the colours problem (as summarized)"},
+      "exact_quote": "Coscientist subsequently generated Python code to identify the wavelengths with maximum absorbance and used these data to correctly solve the problem, although it required a guiding prompt asking it to think through how different colours absorb light.",
+      "modality": "directly_reported",
+      "named_actors": ["Coscientist"],
+      "named_inputs": ["spectra (NumPy array)", "guiding prompt"],
+      "named_outputs": ["Python code", "wavelengths with maximum absorbance"],
+      "notes_verbatim": "human-supplied guiding prompt is explicitly reported as required"
+    },
+    {
+      "proposition_id": "C01-P03",
+      "locator": {"pdf_page": 5, "journal_page": 574, "section": "Integrated chemical experiment design"},
+      "exact_quote": "Coscientist then calculates the required volumes of all reactants and writes a Python protocol for running the experiment on the OT-2 robot.",
+      "modality": "directly_reported",
+      "named_actors": ["Coscientist"],
+      "named_inputs": ["required volumes of all reactants"],
+      "named_outputs": ["Python protocol"]
+    },
+    {
+      "proposition_id": "C01-P04",
+      "locator": {"pdf_page": 5, "journal_page": 574, "section": "Integrated chemical experiment design"},
+      "exact_quote": "Subsequent gas chromatography–mass spectrometry analysis of the reaction mixtures revealed the formation of the target products for both reactions.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": ["reaction mixtures"],
+      "named_outputs": ["formation of the target products"],
+      "notes_verbatim": "analysis not attributed in this sentence to a named component"
+    },
+    {
+      "proposition_id": "C01-P05",
+      "locator": {"pdf_page": 5, "journal_page": 574, "section": "Integrated chemical experiment design"},
+      "exact_quote": "Although our setup is not yet fully automated (plates were moved manually), no human decision-making was involved.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "reports manual plate handling and reported absence of human decision-making"
+    },
+    {
+      "proposition_id": "C01-P06",
+      "locator": {"pdf_page": 5, "journal_page": 574, "section": "Integrated chemical experiment design"},
+      "exact_quote": "the base DBU (1,8-diazabicyclo[5.4.0]undec-7-ene) is selected more often with the PEPPSI–IPr [...] complex, with that preference switching in Sonogashira reaction experiments; likewise, bromobenzene is chosen more often for Suzuki than for Sonogashira couplings.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["reagent and base selections"]
+    },
+    {
+      "proposition_id": "C01-P07",
+      "locator": {"pdf_page": 5, "journal_page": 574, "section": "Integrated chemical experiment design"},
+      "exact_quote": "Additionally, the model can provide justifications on specific choices (Fig. 5g), demonstrating the ability to operate with concepts such as reactivity and selectivity [...]. This capability highlights a potential future use case to analyse the reasoning of the LLMs used by performing experiments multiple times.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["the model"],
+      "named_inputs": [],
+      "named_outputs": ["justifications on specific choices"],
+      "notes_verbatim": "'can provide', 'the ability to operate', 'This capability', 'potential future use case' — capability/possibility framing, not a recorded occurrence"
+    },
+    {
+      "proposition_id": "C01-P08",
+      "locator": {"pdf_page": 5, "journal_page": 574, "section": "Integrated chemical experiment design"},
+      "exact_quote": "Importantly, the system does not make chemistry mistakes (for instance, it never selects phenylboronic acid for the Sonogashira reaction). Interestingly, the [...] strategy of Coscientist changes among runs (Fig. 5f).",
+      "modality": "directly_reported",
+      "named_actors": ["Coscientist", "the system"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P09",
+      "locator": {"pdf_page": 8, "journal_page": 577, "section": "Optimization experiments (results text)"},
+      "exact_quote": "The normalized advantage values increase over time",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["normalized advantage values"]
+    },
+    {
+      "proposition_id": "C01-P10",
+      "locator": {"pdf_page": 8, "journal_page": 577, "section": "Optimization experiments (results text)"},
+      "exact_quote": "suggesting that the model can effectively reuse the information obtained to provide more specific guidance on reactivity.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["the model"],
+      "named_inputs": ["the information obtained"],
+      "named_outputs": ["guidance on reactivity"],
+      "notes_verbatim": "grammatically continues P09; separated because reuse is stated as a capability ('can effectively reuse') inferred from a trend, not a recorded per-step occurrence"
+    },
+    {
+      "proposition_id": "C01-P11",
+      "locator": {"pdf_page": 8, "journal_page": 577, "section": "Optimization experiments (results text)"},
+      "exact_quote": "The only hard rule was for the player to provide its actions written in JavaScript Object Notation (JSON) format. If the JSON file could not be parsed, the player is alerted of its failure to follow the specified data format.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["the player"],
+      "named_inputs": ["actions written in JSON format"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P12",
+      "locator": {"pdf_page": 8, "journal_page": 577, "section": "Discussion"},
+      "exact_quote": "In this paper, we presented a proof of concept for an artificial intelligent agent system capable of (semi-)autonomously designing, planning and multistep executing scientific experiments.",
+      "modality": "reported_only_as_capability",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "'proof of concept', 'capable of (semi-)autonomously' — capability framing"
+    },
+    {
+      "proposition_id": "C01-P13",
+      "locator": {"pdf_page": 5, "journal_page": 574, "section": "Integrated chemical experiment design"},
+      "exact_quote": "To increase complexity, we asked Coscientist to use the OT-2 heater–shaker module released after the GPT-4 training data collection cutoff.",
+      "modality": "directly_reported",
+      "named_actors": ["Coscientist"],
+      "named_inputs": ["OT-2 heater–shaker module"],
+      "named_outputs": [],
+      "notes_verbatim": "task-design statement by the authors"
+    }
+  ]
+}
