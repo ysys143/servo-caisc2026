@@ -15,7 +15,7 @@ case_boundary:
 core_model:
   components: [S, G, E, V, M, pi]
   outside_core:
-    O_env: environment observation law, distinct from the system executor E
+    O_env: conceptual environment observation-law boundary, distinct from E but not instantiated as a current graph endpoint
     A: versioned artifact state consumed or produced by events
     W_A: optional artifact synthesis or revision interface
   authority_fields: [H_S, H_G, H_E, H_V, H_M, H_pi]
@@ -175,7 +175,7 @@ closure_contract:
     or edge. It does not define a fifth closure topology.
   component_graph_constraints:
     event_actors: [runtime_validation:V, artifact_assessment:V, human_feedback:external, external_assessment:external, artifact_production:W_A, execution:E, generation:G, state_update:M]
-    observation: [E-to-V]
+    observation: [E-to-V documentary evidence-availability projection, not causal observation generation]
     epistemic_update: [V-to-M]
     artifact_revision: [V-to-W_A, pi-to-W_A]
     feedback_control: [V-to-G, V-to-pi, M-to-G, M-to-pi, pi-to-G, pi-to-E, G-to-E, W_A-to-E, external-to-W_A]
@@ -202,6 +202,8 @@ closure_contract:
     not_established: explicit_negative
     unknown: insufficient_reporting
     not_applicable: out_of_scope
+  status_implications:
+    execution_repair_established: artifact_revision_established
   mismatch_rules:
     missing_required_event: unknown
     ambiguous_order: unknown

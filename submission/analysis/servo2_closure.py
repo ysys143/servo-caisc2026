@@ -42,6 +42,18 @@ def validate_closure_statuses(
             "CLOSURE_STATUS_MATRIX_INCOMPLETE",
             f"missing={missing};extras={extras}",
         )
+    statuses = {
+        (row["case_id"], row["predicate"]): row["status"] for row in table.rows
+    }
+    for case_id in cases:
+        if (
+            statuses[(case_id, "execution_repair")] == "established"
+            and statuses[(case_id, "artifact_revision")] != "established"
+        ):
+            raise Servo2Error(
+                "CLOSURE_STATUS_IMPLICATION_VIOLATION",
+                f"{case_id}:execution_repair=>artifact_revision",
+            )
 
 
 def _validate_status_row(

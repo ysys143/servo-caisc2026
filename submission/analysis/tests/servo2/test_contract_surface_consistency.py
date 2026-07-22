@@ -156,6 +156,20 @@ def test_latest_revision_summary_names_schema_three_and_four_predicates() -> Non
     assert "four predicate-specific" in current_summary
 
 
+def test_manuscript_limits_observation_and_predicate_independence_claims() -> None:
+    manuscript = (ROOT / "main_post-submit.tex").read_text(encoding="utf-8")
+    contract = (ROOT / "analysis" / "predicate_contract.md").read_text(
+        encoding="utf-8"
+    )
+
+    assert "Columns are independent predicates" not in manuscript
+    assert r"\texttt{event\_class} determines actor admissibility" in manuscript
+    assert "documentary availability anchor" in manuscript
+    assert "does not denote causal observation generation" in manuscript
+    assert "not necessarily logically independent" in contract
+    assert "execution_repair` established implies `artifact_revision` established" in contract
+
+
 def test_source_byte_audit_documentation_does_not_claim_locator_validation() -> None:
     readme = (ROOT / "release" / "README.md").read_text(encoding="utf-8")
 

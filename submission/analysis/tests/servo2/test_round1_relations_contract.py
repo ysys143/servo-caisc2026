@@ -138,6 +138,28 @@ def test_negative_status_rejects_existing_positive_witness(package) -> None:
         validate_relations(tables)
 
 
+def test_execution_repair_requires_established_artifact_revision(package) -> None:
+    tables = read_tables(package)
+    rows = tables["closure_statuses"].rows
+    target = next(
+        row
+        for row in rows
+        if row["case_id"] == "C01" and row["predicate"] == "artifact_revision"
+    )
+    target["status"] = "unknown"
+    target["witness_ids"] = "not_applicable"
+    target["decision_basis"] = "insufficient_reporting"
+    witness_table = tables["closure_witnesses"]
+    tables["closure_witnesses"] = type(witness_table)(
+        witness_table.name,
+        witness_table.header,
+        [row for row in witness_table.rows if row["witness_id"] != "W15"],
+    )
+
+    with pytest.raises(Servo2Error, match="CLOSURE_STATUS_IMPLICATION_VIOLATION"):
+        validate_relations(tables)
+
+
 def test_unknown_rejects_explicit_negative_basis(package) -> None:
     header, rows = _add_decision_basis_contract(package)
     target = next(row for row in rows if row["status"] == "unknown")

@@ -25,14 +25,39 @@ Human mediation is recorded separately as an actor facet (`mediation_actor`) on
 the routed edge and by the component-level authority vector. It can qualify any
 of the four topological predicates and is not itself a fifth closure type.
 
+The predicates are separately reported and are not levels of one closure scale,
+but they are not necessarily logically independent. Under the current contracts,
+`execution_repair` established implies `artifact_revision` established because
+the repair witness subsumes the required evaluated, versioned successor route.
+No unconditional implication is declared between `discovery_cycle_feedback`
+and `experimental_adaptation`; an epistemic action need not satisfy the latter's
+changed-experimental-action semantics.
+
 ## Component--graph integrity
 
 Every event class has an allowed actor component, and every structural edge type
 has allowed source--destination component pairs. The validator rejects, for
 example, an execution event attributed to `V`, an observation routed from `E`
 to `G`, or external human feedback labelled as system mediation. These
-constraints make the six-component description and the event--artifact graph
-two checked views of one bounded case rather than independent vocabularies.
+constraints make instantiated system-component assignments and represented
+graph transitions jointly checkable within one bounded case. They do not make
+the uninstantiated environment or measurement process graph-identifiable.
+
+`event_class` determines actor admissibility, whereas `event_kind` records a
+predicate-relevant semantic role. Thus `epistemic_action` is an event kind, not
+an additional event class; its occurrence must still carry an admissible class
+such as `generation`, `runtime_validation`, or `state_update`.
+
+The current graph is an operational documentary projection, not a causal
+decomposition of observation generation. Its `observation` edge from `E` to `V`
+does not denote causal observation generation; it records that evidence
+associated with a documented execution became available to a validator.
+`producer_event_id` for a result or measurement artifact is likewise a
+documentary availability anchor within the bounded trace, not necessarily the
+ultimate physical, environmental, simulator, or measurement producer. The
+current contract does not instantiate `O_env`, simulator response, or
+measurement apparatus as graph endpoints and cannot localize failure among
+those omitted processes.
 
 A path may establish more than one predicate only when it independently
 satisfies every predicate-specific pattern. Sharing event or edge identifiers is
