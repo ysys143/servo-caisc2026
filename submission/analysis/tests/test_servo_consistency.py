@@ -41,12 +41,12 @@ def test_schema1_cli_fails_closed_on_current_schema2_inputs() -> None:
         check=False,
     )
     assert result.returncode == 1
-    assert "cannot consume current Schema 3.0.0 inputs" in result.stderr
+    assert "cannot consume current Schema 4.0.0 inputs" in result.stderr
     assert "validate_servo2" in result.stderr
 
 
 def test_schema_versions_are_separated_at_migration_boundary() -> None:
-    assert schema_version(ANALYSIS / "servo_schema.yaml") == "3.0.0"
+    assert schema_version(ANALYSIS / "servo_schema.yaml") == "4.0.0"
     assert csv_versions(ANALYSIS / "servo_core_systems.csv") == {"1.0.0"}
     assert csv_versions(ANALYSIS / "servo_validator_channels.csv") == {"1.0.0"}
 

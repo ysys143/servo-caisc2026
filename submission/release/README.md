@@ -1,6 +1,6 @@
 # Servo corrected package
 
-Package release 3.0.20 implements the normative Servo schema version 3.0.0.
+Package release 4.0.0 implements the normative Servo schema version 4.0.0.
 The package release number identifies this synchronized manuscript and audit
 snapshot; it does not change the schema contract version.
 
@@ -14,7 +14,7 @@ notices.
 
 This package separates two assurances:
 
-1. `public-regeneration` validates redistributable Schema 3 records and rebuilds
+1. `public-regeneration` validates redistributable Schema 4 records and rebuilds
    derived tables using package files only. It does not authenticate primary
    sources or establish semantic entailment.
 2. `source-byte-audit --source-root PATH` is an optional local audit against

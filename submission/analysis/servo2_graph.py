@@ -37,7 +37,7 @@ def validate_graph(tables: dict[str, Table]) -> None:
                 witness, event_refs, event_rows, edge_rows, endpoint_refs
             )
         validate_ordered_event_edge_binding(
-            tuple(ref.split("@", 1)[0] for ref in event_refs),
+            event_refs,
             edge_rows,
             require(witness, "witness_id", "closure_witnesses"),
         )
@@ -167,7 +167,7 @@ def _validate_discovery_witness(
     _validate_discovery_sequence(
         witness, event_refs, event_rows, edge_rows, endpoint_refs
     )
-    event_ids = {ref.split("@")[0] for ref in event_refs}
+    event_ids = set(event_refs)
     if any(edge["source_event_id"] not in event_ids for edge in edge_rows):
         raise Servo2Error(
             "CLOSURE_WITNESS_EVENT_EDGE_MISMATCH",

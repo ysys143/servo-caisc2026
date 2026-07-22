@@ -100,7 +100,7 @@ def _require_execution_repair(
             event["event_class"] == "runtime_validation"
             and event["event_kind"] == "retry_with_revision"
             and event["update_semantics"] in REPAIR_FAILURE_SEMANTICS
-            and _event_names_versioned_successor(event, artifacts)
+            and _witness_has_wa_bound_successor(event_rows, artifacts)
             for event in event_rows
         )
         and {"artifact_revision", "feedback_control"} <= edge_types
@@ -198,9 +198,9 @@ def _require_artifact_revision(
         bool(event_rows)
         and any(
             _is_evaluation(event)
-            and _event_names_versioned_successor(event, artifacts)
             for event in event_rows
         )
+        and _witness_has_wa_bound_successor(event_rows, artifacts)
         and any(edge["edge_type"] == "artifact_revision" for edge in edge_rows)
         and any(endpoint.endswith(".W_A") for endpoint in endpoint_refs)
     )
@@ -208,24 +208,39 @@ def _require_artifact_revision(
         raise Servo2Error("ARTIFACT_REVISION_PATTERN_MISMATCH", witness_id)
 
 
-def _event_names_versioned_successor(
-    event: dict[str, str], artifacts: dict[str, dict[str, str]]
+def _witness_has_wa_bound_successor(
+    event_rows: tuple[dict[str, str], ...], artifacts: dict[str, dict[str, str]]
 ) -> bool:
-    inputs = set(split_values(event["input_artifact_ids"])) - {"not_applicable"}
-    outputs = set(split_values(event["output_artifact_ids"])) - {"not_applicable"}
-    for output_id in outputs:
-        output = artifacts.get(output_id)
-        if output is None:
-            continue
-        predecessor_id = output["predecessor_artifact_id"]
-        predecessor = artifacts.get(predecessor_id)
+    evaluation_inputs = {
+        artifact_id
+        for event in event_rows
+        if _is_evaluation(event)
+        for artifact_id in split_values(event["input_artifact_ids"])
+        if artifact_id != "not_applicable"
+    }
+    for event in event_rows:
         if (
-            predecessor_id in inputs
-            and predecessor is not None
-            and output["artifact_type"] == predecessor["artifact_type"]
-            and int(output["version"]) == int(predecessor["version"]) + 1
+            event["event_class"] != "artifact_production"
+            or not event["actor_endpoint_id"].endswith(".W_A")
         ):
-            return True
+            continue
+        inputs = set(split_values(event["input_artifact_ids"])) - {"not_applicable"}
+        outputs = set(split_values(event["output_artifact_ids"])) - {"not_applicable"}
+        for output_id in outputs:
+            output = artifacts.get(output_id)
+            if output is None or output["producer_event_id"] != event["event_id"]:
+                continue
+            predecessor_id = output["predecessor_artifact_id"]
+            predecessor = artifacts.get(predecessor_id)
+            if (
+                predecessor_id in inputs
+                and predecessor_id in evaluation_inputs
+                and predecessor is not None
+                and output["artifact_lineage_id"] == predecessor["artifact_lineage_id"]
+                and output["artifact_type"] == predecessor["artifact_type"]
+                and int(output["version"]) == int(predecessor["version"]) + 1
+            ):
+                return True
     return False
 
 

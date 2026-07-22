@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .servo2_build import _derived_content
 from .servo2_evidence import sanitize_ledger
-from .servo2_io import TABLES, Table, read_tables, sha256
+from .servo2_io import SCHEMA_VERSION, TABLES, Table, read_tables, sha256
 
 
 MODULES = (
@@ -134,7 +134,7 @@ def build(repository: Path, package: Path) -> None:
     canonical_names.extend(f"analysis/servo2_{stem}.csv" for stem in TABLES)
     canonical = {name: sha256(package / name) for name in sorted(canonical_names)}
     manifest = {
-        "schema_version": "3.0.0",
+        "schema_version": SCHEMA_VERSION,
         "canonical_input_sha256": canonical,
         "generated_artifact_sha256": generated_hashes,
     }
@@ -173,7 +173,7 @@ def _source_registry(tables: dict[str, Table]) -> bytes:
                 }
             )
     payload = {
-        "schema_version": "3.0.0",
+        "schema_version": SCHEMA_VERSION,
         "sources": sorted(rows, key=lambda row: row["record_id"]),
     }
     return (json.dumps(payload, indent=2, sort_keys=True) + "\n").encode()

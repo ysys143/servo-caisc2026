@@ -58,7 +58,7 @@ def validate_legacy_headers(tables: dict[str, Table]) -> None:
 def _validate_versions(tables: dict[str, Table]) -> None:
     for table in tables.values():
         for row in table.rows:
-            if require(row, "schema_version", table.name) != "3.0.0":
+            if require(row, "schema_version", table.name) != "4.0.0":
                 raise Servo2Error("SCHEMA_VERSION_MISMATCH", table.name)
 
 

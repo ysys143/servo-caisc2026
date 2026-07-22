@@ -1,14 +1,14 @@
 schema_version,selection_id,record_kind,record_id,lineage_id,selection_status,selection_basis,comparison_role,exclusion_boundary,frozen
-3.0.0,SEL01,core_case,C01,coscientist,included,wet-lab tool-using LLM with task feedback,core structural case,not a population-representative sample,true
-3.0.0,SEL02,core_case,C02,ai_scientist,included,2024 bounded computational experiment loop,version contrast within lineage,distinct from 2026 template-free tree,true
-3.0.0,SEL03,core_case,C03,ai_scientist,included,2026 template-free agentic tree,version contrast within lineage,distinct configuration and task regime from 2024,true
-3.0.0,SEL04,core_case,C04,agent_laboratory,included,human-provided problem with internal execution and report revision,authority and artifact-revision contrast,not evidence of independent final acceptance,true
-3.0.0,SEL05,core_case,C05,robot_scientist,included,physical hypothesis-test and model-update cycle,wet-lab discovery-cycle anchor,review source bounds the represented version,true
-3.0.0,SEL06,core_case,C06,novelseek,included,multi-agent computational evolution and feedback,system-level multi-agent case,agent-level communication is intentionally compressed,true
-3.0.0,SEL07,domain_anchor,DA01,funsearch,included,formalized program evaluator and search,formal-mathematics mini-case,not merged with other mathematics systems,true
-3.0.0,SEL08,domain_anchor,DA02,ai_feynman,included,symbolic regression from numeric data,physics mini-case,not merged with other symbolic-discovery systems,true
-3.0.0,SEL09,domain_anchor,DA03,chemcrow,included,tool-augmented chemistry and physical synthesis,chemistry mini-case,not merged with ChemReasoner or Coscientist,true
-3.0.0,SEL10,domain_anchor,DA04,gnome,included,DFT data flywheel and active learning,materials mini-case,not merged with perspective articles,true
-3.0.0,SEL11,domain_anchor,DA05,bioplanner,included,protocol generation evaluation and lab execution,biology mini-case,not merged with other biology systems,true
-3.0.0,SEL12,domain_anchor,DA06,manning_automated_social_science,included,in-silico hypothesis generation and testing,social-science mini-case,not merged with other LLM simulation studies,true
-3.0.0,SEL13,domain_anchor,DA07,automl_zero,included,evolution of complete ML algorithms,computer-science mini-case,not merged with later algorithm-discovery systems,true
+4.0.0,SEL01,core_case,C01,coscientist,included,wet-lab tool-using LLM with task feedback,core structural case,not a population-representative sample,true
+4.0.0,SEL02,core_case,C02,ai_scientist,included,2024 bounded computational experiment loop,version contrast within lineage,distinct from 2026 template-free tree,true
+4.0.0,SEL03,core_case,C03,ai_scientist,included,2026 template-free agentic tree,version contrast within lineage,distinct configuration and task regime from 2024,true
+4.0.0,SEL04,core_case,C04,agent_laboratory,included,human-provided problem with internal execution and report revision,authority and artifact-revision contrast,not evidence of independent final acceptance,true
+4.0.0,SEL05,core_case,C05,robot_scientist,included,physical hypothesis-test and model-update cycle,wet-lab discovery-cycle anchor,review source bounds the represented version,true
+4.0.0,SEL06,core_case,C06,novelseek,included,multi-agent computational evolution and feedback,system-level multi-agent case,agent-level communication is intentionally compressed,true
+4.0.0,SEL07,domain_anchor,DA01,funsearch,included,formalized program evaluator and search,formal-mathematics mini-case,not merged with other mathematics systems,true
+4.0.0,SEL08,domain_anchor,DA02,ai_feynman,included,symbolic regression from numeric data,physics mini-case,not merged with other symbolic-discovery systems,true
+4.0.0,SEL09,domain_anchor,DA03,chemcrow,included,tool-augmented chemistry and physical synthesis,chemistry mini-case,not merged with ChemReasoner or Coscientist,true
+4.0.0,SEL10,domain_anchor,DA04,gnome,included,DFT data flywheel and active learning,materials mini-case,not merged with perspective articles,true
+4.0.0,SEL11,domain_anchor,DA05,bioplanner,included,protocol generation evaluation and lab execution,biology mini-case,not merged with other biology systems,true
+4.0.0,SEL12,domain_anchor,DA06,manning_automated_social_science,included,in-silico hypothesis generation and testing,social-science mini-case,not merged with other LLM simulation studies,true
+4.0.0,SEL13,domain_anchor,DA07,automl_zero,included,evolution of complete ML algorithms,computer-science mini-case,not merged with later algorithm-discovery systems,true

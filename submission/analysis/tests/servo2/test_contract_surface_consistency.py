@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import re
 import tomllib
 from typing import cast
 
@@ -88,7 +89,7 @@ def test_public_release_documentation_defers_state_to_attestation() -> None:
     # Then: static files cannot contradict the generated release attestation.
     assert not candidate_only_wording
     assert state_is_attestation_governed
-    assert "Schema 3" in readme
+    assert "schema version 4.0.0" in readme
 
 
 def test_reader_facing_audit_documents_name_current_schema_three() -> None:
@@ -102,7 +103,7 @@ def test_reader_facing_audit_documents_name_current_schema_three() -> None:
     # When: their current-schema statements are inspected.
     texts = [path.read_text(encoding="utf-8") for path in paths]
 
-    # Then: none presents Schema 2 as the current Schema 3 contract.
+    # Then: none presents Schema 2 as the current Schema 4 contract.
     assert all("current Schema 2" not in text for text in texts)
     assert all(
         "current normative contract is Servo Schema 2" not in text for text in texts
@@ -145,15 +146,12 @@ def test_c03_discovery_rationale_matches_current_graph_boundary() -> None:
     )
 
 
-def test_latest_revision_summary_names_schema_three_and_four_predicates() -> None:
+def test_reader_facing_manuscript_excludes_internal_revision_log() -> None:
     manuscript = (ROOT / "main_post-submit.tex").read_text(encoding="utf-8")
-    current_summary = manuscript.split(
-        r"\noindent\textbf{Current-interpretation supersession index.}", 1
-    )[1]
-
-    assert "Schema~2 event--artifact graph" not in current_summary
-    assert "Schema~3 event--artifact graph" in current_summary
-    assert "four predicate-specific" in current_summary
+    assert r"\section{Post-Submission Revisions}" not in manuscript
+    assert "Current-interpretation supersession index" not in manuscript
+    assert not re.search(r"\bR(?:[1-9]|[1-6][0-9])\b", manuscript)
+    assert "four conservative, set-valued predicates" in manuscript
 
 
 def test_manuscript_limits_observation_and_predicate_independence_claims() -> None:

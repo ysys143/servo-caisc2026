@@ -6,7 +6,7 @@ import json
 import runpy
 from pathlib import Path
 
-from .servo2_io import Servo2Error, Table, read_json, sha256
+from .servo2_io import SCHEMA_VERSION, Servo2Error, Table, read_json, sha256
 
 MANIFEST_NAME = "servo2_public_manifest.json"
 
@@ -109,7 +109,7 @@ def _derived_content(tables: dict[str, Table]) -> dict[str, bytes]:
     counts = {name: len(table.rows) for name, table in sorted(tables.items())}
     summary = (
         json.dumps(
-            {"schema_version": "3.0.0", "record_counts": counts},
+            {"schema_version": SCHEMA_VERSION, "record_counts": counts},
             ensure_ascii=True,
             indent=2,
             sort_keys=True,

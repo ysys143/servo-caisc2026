@@ -1,29 +1,18 @@
 from __future__ import annotations
 
-import re
-
 from .servo2_io import Servo2Error
-
-
-_OCCURRENCE = re.compile(
-    r"^(?P<event>[A-Za-z0-9_.-]+)@t(?P<offset>\+1)?$"
-)
-
 
 def validate_occurrence_tokens(
     event_refs: tuple[str, ...], witness_id: str
 ) -> tuple[str, ...]:
-    event_ids: list[str] = []
-    offsets: list[int] = []
-    for ref in event_refs:
-        match = _OCCURRENCE.fullmatch(ref)
-        if match is None:
-            raise Servo2Error("OCCURRENCE_TOKEN_INVALID", witness_id)
-        event_ids.append(match.group("event"))
-        offsets.append(1 if match.group("offset") else 0)
-    if offsets and (offsets[0] != 0 or offsets != sorted(offsets)):
+    if any("@" in ref or not ref for ref in event_refs):
         raise Servo2Error("OCCURRENCE_TOKEN_INVALID", witness_id)
-    return tuple(event_ids)
+    if len(set(event_refs)) != len(event_refs):
+        raise Servo2Error("OCCURRENCE_ID_REUSED", witness_id)
+    for ref in event_refs:
+        if not all(character.isalnum() or character in "_.-" for character in ref):
+            raise Servo2Error("OCCURRENCE_TOKEN_INVALID", witness_id)
+    return event_refs
 
 
 def validate_ordered_event_edge_binding(

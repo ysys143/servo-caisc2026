@@ -5,7 +5,7 @@ import json
 import shutil
 from pathlib import Path
 
-from .servo2_io import Servo2Error, sha256
+from .servo2_io import SCHEMA_VERSION, Servo2Error, sha256
 
 
 def curate(package_root: Path, source_root: Path, destination: Path) -> None:
@@ -47,7 +47,7 @@ def curate(package_root: Path, source_root: Path, destination: Path) -> None:
                 "pdf_sha256": digest,
             }
         )
-    manifest = {"schema_version": "3.0.0", "sources": copied}
+    manifest = {"schema_version": SCHEMA_VERSION, "sources": copied}
     (destination / "curated_source_manifest.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )

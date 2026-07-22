@@ -129,7 +129,7 @@ def validate(cases: list[dict[str, str]], closure: list[dict[str, str]], anchors
     expected_selected = {("core_case", case_id) for case_id in case_ids} | {("domain_anchor", anchor_id) for anchor_id in ANCHOR_LABELS}
     if selected != expected_selected:
         raise TableBuildError("selection ledger does not exactly reference generated cases and anchors")
-    if any(row["schema_version"] != "3.0.0" for row in cases + closure + anchors + witnesses + ledger):
+    if any(row["schema_version"] != "4.0.0" for row in cases + closure + anchors + witnesses + ledger):
         raise TableBuildError("mixed schema versions")
 
 
@@ -186,7 +186,7 @@ def main() -> None:
     for name, content in outputs.items():
         (ROOT / name).write_bytes(content.encode("utf-8"))
     manifest = {
-        "schema_version": "3.0.0",
+        "schema_version": "4.0.0",
         "generator_sha256": digest(Path(__file__)),
         "inputs": {path.name: digest(path) for path in (CASE_PATH, CLOSURE_PATH, WITNESS_PATH, ANCHOR_PATH, LEDGER_PATH)},
         "outputs": {name: digest(ROOT / name) for name in sorted(outputs)},

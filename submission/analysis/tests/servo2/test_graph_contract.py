@@ -58,7 +58,7 @@ def test_append_only_memory_cannot_supply_epistemic_update(package) -> None:
     forged[column(forged, "configuration_id")] = append_edge[column(append_edge, "configuration_id")]
     forged[column(forged, "task_regime_id")] = append_edge[column(append_edge, "task_regime_id")]
     forged[column(forged, "predicate")] = "discovery_cycle_feedback"
-    forged[column(forged, "ordered_event_ids", "ordered_event_occurrences")] = append_edge[column(append_edge, "source_event_id")] + "@t"
+    forged[column(forged, "ordered_event_ids", "ordered_event_occurrences")] = append_edge[column(append_edge, "source_event_id")]
     forged[column(forged, "ordered_edge_ids")] = append_edge[column(append_edge, "edge_id")]
     forged[column(forged, "ordered_endpoint_ids")] = ";".join(
         (
@@ -152,7 +152,7 @@ def test_execution_repair_requires_changed_versioned_artifact(package) -> None:
         for occurrence in witness["ordered_event_ids"].split(";")
     }
     for event in tables["events"].rows:
-        if event["event_id"] in event_ids and event["event_class"] == "runtime_validation":
+        if event["event_id"] in event_ids and event["event_class"] == "artifact_production":
             event["output_artifact_ids"] = "not_applicable"
 
     with pytest.raises(Servo2Error, match="EXECUTION_REPAIR_PATTERN_MISMATCH"):
@@ -177,7 +177,7 @@ def test_adaptation_requires_evaluation_to_action_connectivity(package) -> None:
         for row in tables["closure_witnesses"].rows
         if row["predicate"] == "experimental_adaptation" and row["case_id"] == "C03"
     )
-    witness["ordered_event_ids"] = "EV11@t;EV42@t+1"
+    witness["ordered_event_ids"] = "EV11;EV42"
     witness["ordered_edge_ids"] = "ED15"
     witness["ordered_endpoint_ids"] = "C03.G;C03.E"
 
@@ -235,7 +235,27 @@ def test_artifact_revision_witness_names_versioned_successor_pair(package) -> No
         if event["event_id"] in event_ids:
             event["output_artifact_ids"] = "not_applicable"
 
-    with pytest.raises(Servo2Error, match="ARTIFACT_REVISION_PATTERN_MISMATCH"):
+    with pytest.raises(
+        Servo2Error,
+        match="(EXECUTION_REPAIR|ARTIFACT_REVISION)_PATTERN_MISMATCH",
+    ):
+        validate_graph(tables)
+
+
+def test_artifact_revision_requires_distinct_wa_production_event(package) -> None:
+    tables = read_tables(package)
+    production = next(
+        event
+        for event in tables["events"].rows
+        if event["event_id"] == "EV48"
+    )
+    production["event_class"] = "generation"
+    production["actor_endpoint_id"] = "C01.G"
+
+    with pytest.raises(
+        Servo2Error,
+        match="(EXECUTION_REPAIR|ARTIFACT_REVISION)_PATTERN_MISMATCH",
+    ):
         validate_graph(tables)
 
 

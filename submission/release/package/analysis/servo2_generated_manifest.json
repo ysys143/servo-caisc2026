@@ -5,21 +5,21 @@
     "closure_cells": 24,
     "lineages": 5
   },
-  "generator_sha256": "bad3a42c8af1367714ead0dc880b4667c5b1ed551eb0e3fa934a8b4548a2c992",
+  "generator_sha256": "e38af778623628cafebbba327750ea7db247bd16b2b50463eef2ca7eac1c826e",
   "inputs": {
-    "servo2_cases.csv": "6c9bf08f366d19cf19735c9d931b2ad1553910b1b3ca40148ecd3652bae098ed",
-    "servo2_closure_statuses.csv": "e6bfe8418f59182b84b7211dfccd4b424cbb8c984276c922d2ac84d556c1d42e",
-    "servo2_closure_witnesses.csv": "56bdca847738bcbd51e7f9631cda340c91e2df462a06b6bcafbfff90f4e4966f",
-    "servo2_domain_anchors.csv": "e3e91069dcb879f0b363e5e8986111af5cac52a85e31ba5d2e26da1fa68cb19a",
-    "servo2_selection_ledger.csv": "3a80bf220079e825ad347aae03478eb82b90a629f58ae7ae6b418ac96640bf2d"
+    "servo2_cases.csv": "a5ed0fdf990f6d256c9ecba3e748ed158cdb046c4ffd04f8c268fd20d45d4be0",
+    "servo2_closure_statuses.csv": "e0af84a5ef7aabbe3f0c2b03f97466f7454d6d0fc7f7c57759b5e1b76fde6f80",
+    "servo2_closure_witnesses.csv": "c71396c78467f8c5767050104f099aa879fcfcd300b77ddfc131db4b0417dec9",
+    "servo2_domain_anchors.csv": "3af1feb1c8dce81876ffd5126d5c72e9318f89117cb419f8ebed484c553b6471",
+    "servo2_selection_ledger.csv": "b2266d2028e8023fa9a98ff33634a129762a459d973ec725d18d32c30647af21"
   },
   "outputs": {
     "tbl-servo2-anchors-ko.tex": "ad288d588245f9c1c14830c661f961873844c97899e379943d448c94b831863a",
     "tbl-servo2-anchors.tex": "dc5436caa0f34197d2e13acd2323f2c5e90dab5ccfcb4bb60627909381a9f32a",
     "tbl-servo2-cases-ko.tex": "17c5be6187107791ebe386a7f46728c81dd533b6753e80afd0683f779d387cfe",
     "tbl-servo2-cases.tex": "c0b17d88d029886ee056199a98342762552bb5af338d92e1d74111db558899c8",
-    "tbl-servo2-closure-ko.tex": "b14bb7666527552dc418951c85239022aa2b2b595940cbe45cfc2dcfb3da5175",
-    "tbl-servo2-closure.tex": "f62d834b90401fa2458a0646d935160255389991bccae9c1220458da81e8c1ef"
+    "tbl-servo2-closure-ko.tex": "abc6d83a09920da28416df04ec551aeb0d2bac9156c9337aca2ec38f62fdeb22",
+    "tbl-servo2-closure.tex": "a51be651bb1787c2ff39d39238d6fe272479c41bd8de4f0b8ff177d46c18ae8d"
   },
-  "schema_version": "3.0.0"
+  "schema_version": "4.0.0"
 }

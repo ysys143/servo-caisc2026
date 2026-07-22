@@ -103,7 +103,7 @@ def test_public_regeneration_rejects_normative_schema_version_drift(package: Pat
     schema = package / "analysis" / "servo_schema.yaml"
     schema.write_text(
         schema.read_text(encoding="utf-8").replace(
-            'schema_version: "3.0.0"', 'schema_version: "2.0.0"', 1
+            'schema_version: "4.0.0"', 'schema_version: "2.0.0"', 1
         ),
         encoding="utf-8",
     )

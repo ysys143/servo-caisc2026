@@ -102,6 +102,7 @@ def _artifact_links(
     for row in table.rows:
         case_id = row["case_id"]
         artifact_id = row["artifact_id"]
+        lineage_id = require(row, "artifact_lineage_id", table.name)
         _same_case(events, row["producer_event_id"], case_id, "ARTIFACT_PRODUCER")
         _same_case(endpoints, row["producer_endpoint_id"], case_id, "ARTIFACT_ENDPOINT")
         event = events[row["producer_event_id"]]
@@ -109,17 +110,20 @@ def _artifact_links(
             raise Servo2Error("ARTIFACT_PRODUCER_ENDPOINT_MISMATCH", artifact_id)
         if artifact_id not in split_values(event["output_artifact_ids"]):
             raise Servo2Error("ARTIFACT_NOT_IN_PRODUCER_OUTPUT", artifact_id)
-        key = (case_id, row["artifact_type"], row["version"])
+        key = (case_id, lineage_id, row["version"])
         if key in producers:
             raise Servo2Error("ARTIFACT_VERSION_MULTIPLE_PRODUCERS", artifact_id)
         producers.add(key)
         predecessor = row["predecessor_artifact_id"]
         if predecessor == "not_applicable":
+            if row["version"] != "1":
+                raise Servo2Error("ARTIFACT_LINEAGE_ROOT_VERSION_INVALID", artifact_id)
             continue
         _same_case(artifacts, predecessor, case_id, "ARTIFACT_PREDECESSOR")
         prior = artifacts[predecessor]
         if (
-            row["artifact_type"] != prior["artifact_type"]
+            lineage_id != prior["artifact_lineage_id"]
+            or row["artifact_type"] != prior["artifact_type"]
             or int(row["version"]) != int(prior["version"]) + 1
         ):
             raise Servo2Error("ARTIFACT_PREDECESSOR_VERSION_INVALID", artifact_id)
@@ -146,7 +150,7 @@ def _witness_links(
     for row in table.rows:
         case_id = row["case_id"]
         for occurrence in split_values(row["ordered_event_ids"]):
-            _same_case(events, occurrence.split("@")[0], case_id, "WITNESS_EVENT")
+            _same_case(events, occurrence, case_id, "WITNESS_EVENT")
         for edge_id in split_values(row["ordered_edge_ids"]):
             _same_case(edges, edge_id, case_id, "WITNESS_EDGE")
         for endpoint_id in split_values(row["ordered_endpoint_ids"]):

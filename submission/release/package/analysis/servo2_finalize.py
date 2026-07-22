@@ -13,7 +13,7 @@ from .servo2_build import (
     verify_public_allowlist,
 )
 from .servo2_evidence import validate_evidence
-from .servo2_io import Servo2Error, read_tables, sha256
+from .servo2_io import SCHEMA_VERSION, Servo2Error, read_tables, sha256
 from .servo2_release import (
     ATTESTATION_NAME,
     PDF_NAME,
@@ -62,7 +62,7 @@ def finalize(
     }
     manifest["public_file_sha256"] = public_hashes
     attestation = {
-        "schema_version": "3.0.0",
+        "schema_version": SCHEMA_VERSION,
         "state": "published_github_release" if github_release else "unpublished_local_candidate",
         "pdf_filename": PDF_NAME,
         "pdf_sha256": sha256(target),

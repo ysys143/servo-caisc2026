@@ -1,54 +1,50 @@
 # Three-round adversarial validation record
 
-Baseline commit: `76b2da16902f265b48de2c1a71428ed956080aac`.
+Date: 2026-07-22. Target: Servo Schema 4 and package release 4.0.0.
 
-This record is release evidence, not an automated proof of semantic truth. Each
-round used primary-source passages or deterministic repository evidence, stated
-the strongest rebuttal, and closed every finding before substantive edits.
+This is release evidence, not proof that every source interpretation is uniquely
+correct. The rounds attack different failure surfaces so one successful gate
+cannot mask another.
 
-## Round 1: source entailment
+## Round 1: formal-contract and mutation resistance
 
-- The Nature 2026 Methods section explicitly reports metric- and plot-guided
-  node selection, child creation, code generation, and execution of all new
-  nodes. The stored evidence window stopped one sentence too early. C03
-  experimental adaptation must therefore be established; discovery remains
-  unknown without a distinct epistemic update.
-- The previous 59-source verifier is not a gate for the current post-submit
-  manuscript: its status ledger is absent and its manifest freezes older source
-  files. A current claim registry is required.
-- InternAgent and the earlier NovelSeek name refer to the same project, but the
-  reader-facing manuscript must introduce the identity explicitly.
+- The Schema 4 regression suite passed 103 tests; the one temporarily excluded
+  test concerned the not-yet-updated external publication pointer.
+- Negative mutations reject reused event identity, a revision without a
+  distinct `W_A` production occurrence, cross-lineage successors, malformed
+  occurrence identifiers, and predicate/status implication violations.
+- A positive counterexample confirms that two distinct artifact lineages may
+  independently use version 1.
+- The canonical tables passed schema, graph, component, relation, evidence, and
+  closure validation after C01 was conservatively returned to `unknown` and C05
+  was represented by distinct later execution and evidence records.
 
-## Round 2: construct and formalism
+## Round 2: manuscript, citation, and cross-surface consistency
 
-- Four closure predicates describe path topology. Human mediation describes an
-  actor and is removed as a fifth predicate.
-- Human authority remains a component-level decision-rights vector. Edge
-  mediation is recorded separately and cannot itself establish closure.
-- Events and edges require component-preserving constraints; graph connectivity
-  alone does not establish consistency with the six-component tuple.
-- Experimental adaptation requires evidence-conditioned action and subsequent
-  execution. Discovery additionally requires an explicit epistemic update and
-  new evidence occurrence.
+- The whole-state citation and manuscript gate passed: 62 papers, 131 atomic
+  claims, 14 frozen core reports, seven audit tests, three XeLaTeX builds, public
+  release readiness, and repository/PDF synchronization.
+- The reader-facing English manuscript contains no R-number development log or
+  numbered internal schema label. The chronological record is repository-only.
+- The generated English and private Korean closure tables both encode C01
+  experimental adaptation as `unknown`; BioPlanner is consistently described as
+  an evaluation benchmark for LLM-generated protocol pseudocode.
+- PDF text scans found no internal R-number, obsolete schema, stale release URL,
+  or obsolete BioPlanner-generator claim. Visual inspection covered the title,
+  case/closure tables, and final appendix page.
 
-## Round 3: reproducibility and impact
+## Round 3: clean-package reproducibility
 
-- A clean detached worktree passed 68 tests and package-only release validation,
-  yet the source PDF and packaged PDF differed. Package self-consistency is
-  therefore distinct from repository release synchronization.
-- Package assembly removes finalized assets until finalization runs. Release
-  preparation must expose table generation, assembly, PDF binding, attestation,
-  and validation as one transaction.
-- Semantic dependencies and the normative contract fingerprint must be bound in
-  the public manifest and attestation.
+- The finalized package was zipped, unpacked into a fresh temporary directory,
+  and validated with isolated uv cache and environment directories.
+- Both `public-regeneration` and `release-ready` returned `SERVO2_OK` from the
+  unpacked copy.
+- The prepublication clean-copy ZIP SHA-256 was
+  `997a6bfdffa1add7ac60914a979b17af4e33662c58cd21c8853433fa2c2a508b`;
+  final publication hashes are recorded by the release manifest and external
+  publication pointer after the published attestation is generated.
 
-## Frozen correction decisions
-
-The final closure matrix has four columns. Existing values remain unchanged
-except that C03 experimental adaptation becomes established. The implementation
-removes the human predicate, records mediation on structural edges, enforces
-tuple--graph constraints, binds generated artifacts to the contract and source
-PDF, and publishes the synchronized package only after clean-room validation.
-
-No unresolved high- or critical-severity finding remained when this correction
-set was frozen.
+No unresolved high- or critical-severity finding remained at the end of these
+three rounds. Publication-pointer synchronization remains a final transaction:
+it must occur only after the release asset is uploaded and independently
+downloaded.

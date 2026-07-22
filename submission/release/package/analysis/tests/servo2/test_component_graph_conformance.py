@@ -41,7 +41,7 @@ def test_experimental_adaptation_requires_later_execution(package) -> None:
         for row in witnesses
         if row["case_id"] == "C03" and row["predicate"] == "experimental_adaptation"
     )
-    witness["ordered_event_ids"] = "EV11@t;EV41@t+1;EV42@t+1"
+    witness["ordered_event_ids"] = "EV11;EV41;EV42"
     write_rows(witness_path, witness_header, witnesses)
     event_path = table(package, "events")
     event_header, events = csv_rows(event_path)

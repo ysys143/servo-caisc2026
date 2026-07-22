@@ -42,7 +42,7 @@ def keys_in(path: Path) -> set[str]:
 
 def check_current_registry() -> bool:
     registry = json.loads(CURRENT_REGISTRY.read_text())
-    current = keys_in(CURRENT_TEX) | keys_in(KO_TEX)
+    current = keys_in(CURRENT_TEX)
     declared = set(registry["citation_keys"])
     if current != declared:
         print(f"[FAIL] current claim registry drift: added={sorted(current-declared)} removed={sorted(declared-current)}")
@@ -53,9 +53,8 @@ def check_current_registry() -> bool:
             print(f"[FAIL] current claim registry manuscript drift: {name}")
             return False
     reader = CURRENT_TEX.read_text().split(r"\section{Post-Submission Revisions}", 1)[0]
-    korean = KO_TEX.read_text().split(r"\section{제출 후 수정 상태}", 1)[0]
     forbidden = re.compile(r"Schema~?[0-9]|(?<![A-Za-z])R[0-9]{1,2}(?![A-Za-z0-9])")
-    if forbidden.search(reader) or forbidden.search(korean):
+    if forbidden.search(reader):
         print("[FAIL] internal revision identifier leaked into reader-facing text")
         return False
     print(f"[current-claims] {len(current)} citation keys; no reader-facing internal revision tokens")

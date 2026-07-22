@@ -1,9 +1,8 @@
 {
   "schema_version": "1.0",
-  "review_basis": "three-round adversarial audit plus predicate conformance, conservative negative-status, and cross-surface release audits completed 2026-07-22",
+  "review_basis": "Schema 4 three-round adversarial audit plus predicate conformance, conservative negative-status, and cross-surface release audits completed 2026-07-22; English post-submission manuscript is normative and Korean files are private author references",
   "manuscripts": {
-    "main_post-submit.tex": "227b47b907edbf20bdf35bd183e894ddcca95f3cb77ce7ce9905057dc0e34973",
-    "main_ko.tex": "ec2726a02b55e73df74e2a35b818c238898d776bf7a7a7656bbd1df5f7507a30"
+    "main_post-submit.tex": "39cab5f439460d0d3921d929a232e03864454b50e7d61258d9560d0d706ae9f9"
   },
   "citation_keys": [
     "berk1966",
@@ -16,7 +15,6 @@
     "darvish2024organa",
     "foster2019variational",
     "foster2021dad",
-    "geng2025reliable",
     "ghosal2017fundamentals",
     "google2026aletheia",
     "gottweis2026coscientist",
@@ -25,7 +23,6 @@
     "kandasamy2017multifidelity",
     "kim2026aireviewers",
     "king2004robot",
-    "leiden2026",
     "liu2025researchbench",
     "liu2026lasthuman",
     "lu2024aiscientist",

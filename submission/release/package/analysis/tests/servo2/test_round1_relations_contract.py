@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from analysis.servo2_io import Servo2Error, read_tables
+from analysis.servo2_io import Servo2Error, Table, read_tables
 from analysis.servo2_relations import validate_relations
 
 from conftest import assert_rejected, csv_rows, run_cli, table, write_rows
@@ -233,3 +233,40 @@ def test_artifact_predecessor_version_must_increment(package) -> None:
         run_cli(package, "public-regeneration"),
         "ARTIFACT_PREDECESSOR_VERSION_INVALID",
     )
+
+
+def test_distinct_artifact_lineages_may_share_version_number(package) -> None:
+    tables = read_tables(package)
+    source = next(
+        row
+        for row in tables["artifacts"].rows
+        if row["artifact_id"] == "C02.result.v1"
+    )
+    clone = dict(source)
+    clone["artifact_id"] = "C02.result.branch-b.v1"
+    clone["artifact_lineage_id"] = "C02.result.branch-b"
+    artifacts = tables["artifacts"]
+    tables["artifacts"] = Table(
+        artifacts.name,
+        artifacts.header,
+        artifacts.rows + (clone,),
+    )
+    producer = next(
+        row
+        for row in tables["events"].rows
+        if row["event_id"] == clone["producer_event_id"]
+    )
+    producer["output_artifact_ids"] += ";" + clone["artifact_id"]
+    validate_relations(tables)
+
+
+def test_successor_cannot_cross_artifact_lineage(package) -> None:
+    tables = read_tables(package)
+    target = next(
+        row
+        for row in tables["artifacts"].rows
+        if row["artifact_id"] == "C04.code.v2"
+    )
+    target["artifact_lineage_id"] = "C04.unrelated"
+    with pytest.raises(Servo2Error, match="ARTIFACT_PREDECESSOR_VERSION_INVALID"):
+        validate_relations(tables)

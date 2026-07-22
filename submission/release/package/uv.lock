@@ -65,7 +65,7 @@ wheels = [
 
 [[package]]
 name = "servo-schema3-reproducibility"
-version = "3.0.20"
+version = "4.0.0"
 source = { virtual = "." }
 
 [package.optional-dependencies]

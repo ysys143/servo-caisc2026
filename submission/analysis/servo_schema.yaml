@@ -1,4 +1,4 @@
-schema_version: "3.0.0"
+schema_version: "4.0.0"
 status: current_normative
 title: Servo operational event-and-evidence contract
 scope_statement: >-
@@ -68,7 +68,7 @@ evidence_statuses: [directly_stated, structurally_inferred, mixed_direct_and_inf
 table_headers:
   cases: [schema_version, case_id, lineage_id, version_id, configuration_id, task_regime_id, system, citation_key, source_pdf_sha256, S, G, E, V, M, pi, O_env_status, A_status, W_A_status, H_S, H_G, H_E, H_V, H_M, H_pi, evidence_status, evidence_ids, uncertainty]
   endpoints: [schema_version, endpoint_id, case_id, endpoint_kind, component, description, status]
-  artifacts: [schema_version, artifact_id, case_id, artifact_type, version, producer_endpoint_id, producer_event_id, producer_sequence, first_consumed_sequence, predecessor_artifact_id, evidence_ids, status, uncertainty]
+  artifacts: [schema_version, artifact_id, case_id, artifact_type, artifact_lineage_id, version, producer_endpoint_id, producer_event_id, producer_sequence, first_consumed_sequence, predecessor_artifact_id, evidence_ids, status, uncertainty]
   events: [schema_version, event_id, case_id, configuration_id, task_regime_id, phase, event_class, actor_endpoint_id, target_property, evidence_source, input_artifact_ids, output_artifact_ids, reliability_ids, evidence_status, evidence_ids, uncertainty, event_kind, update_semantics]
   edges: [schema_version, edge_id, case_id, configuration_id, task_regime_id, source_event_id, source_endpoint_id, destination_endpoint_id, edge_type, route_status, feedback_dependent, evidence_ids, closure_eligible, exclusion_reason, mediator_endpoint_id, mediation_actor, edge_scope]
   reliability: [schema_version, reliability_id, case_id, evaluated_event_id, evaluation_target, benchmark_population, metric_or_test, finding, independence_status, runtime_edge_eligible, evidence_status, evidence_ids, uncertainty]
@@ -195,7 +195,7 @@ closure_contract:
   witness_rule: >-
     Every witness remains within one case, version, configuration, and task regime;
     all referenced events, edges, endpoints, and artifacts must exist and preserve order.
-  occurrence_rule: An ordered event token EVENT_ID@t or EVENT_ID@t+1 instantiates a repeated source-supported event type; the base EVENT_ID must exist.
+  occurrence_rule: Each ordered event token is a unique event_id naming one source-bounded occurrence; a later occurrence requires a distinct event record and an event_id cannot be reused within a witness.
   prohibited_shortcuts:
     - retry_without_epistemic_update
     - append_only_memory
@@ -219,9 +219,11 @@ closure_contract:
     incomplete_or_unverified_trace: unknown
 
 artifact_contract:
-  required_lifecycle_fields: [producer_endpoint_id, producer_event_id, producer_sequence, first_consumed_sequence]
+  required_lifecycle_fields: [artifact_lineage_id, producer_endpoint_id, producer_event_id, producer_sequence, first_consumed_sequence]
+  lineage_rule: Version numbers are unique and increase monotonically only within one case-local artifact_lineage_id; distinct lineages may use the same version number.
   temporal_rule: A produced artifact cannot be consumed before its producer sequence.
   producer_rule: Every artifact references an existing same-case producer event; source-bounded inferred production events carry structurally_inferred evidence status rather than a sentinel event ID.
+  revision_rule: An established revision witness contains a distinct artifact_production event acted by W_A; that event consumes the evaluated predecessor and produces the successor in the same artifact lineage.
 
 domain_anchor_contract:
   frozen_ids: [DA01, DA02, DA03, DA04, DA05, DA06, DA07]
