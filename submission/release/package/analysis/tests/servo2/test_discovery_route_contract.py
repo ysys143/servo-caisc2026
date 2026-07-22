@@ -4,6 +4,7 @@ import pytest
 
 from analysis.servo2_io import Servo2Error, read_tables
 from analysis.servo2_predicates import validate_predicate_pattern
+from discovery_test_support import add_directly_stated_discovery_witness
 
 
 def test_discovery_witness_requires_every_edge_to_be_closure_eligible(
@@ -11,11 +12,7 @@ def test_discovery_witness_requires_every_edge_to_be_closure_eligible(
 ) -> None:
     # Given: the released discovery witness with one independently mutated route edge.
     tables = read_tables(package)
-    witness = next(
-        row
-        for row in tables["closure_witnesses"].rows
-        if row["predicate"] == "discovery_cycle_feedback"
-    )
+    witness = add_directly_stated_discovery_witness(tables)
     events = {row["event_id"]: row for row in tables["events"].rows}
     edges = {row["edge_id"]: row for row in tables["edges"].rows}
     artifacts = {row["artifact_id"]: row for row in tables["artifacts"].rows}

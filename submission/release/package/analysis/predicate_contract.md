@@ -29,12 +29,16 @@ predicate by itself.
 |---|---|---|---|
 | `execution_repair` | Runtime-validation evidence followed by an `artifact_revision` edge and a `feedback_control` edge through `W_A` | A later execution occurrence in the same bounded context | A retry without a changed executable/protocol artifact; terminal review |
 | `experimental_adaptation` | Evaluation evidence followed by feedback-dependent control of a changed experimental action | A later execution in the same bounded context; the path reaches `E` | Code repair alone; fixed schedules; selection without successor execution |
-| `artifact_revision` | An evaluation occurrence followed by an `artifact_revision` edge | A successor versioned artifact through `W_A` | Formatting, copying, or an unlinked terminal assessment |
+| `artifact_revision` | An evaluation occurrence followed by an `artifact_revision` edge | A successor versioned authored research artifact produced through `W_A` | Formatting, copying, an unlinked terminal assessment, or a model/memory-state update confined to `M` |
 | `discovery_cycle_feedback` | Evidence event, epistemic update, an explicit `epistemic_action` event on the feedback-controlled route, new execution, and new evidence event | At least two distinct evidence occurrences with the action and execution between them | Retry-only, append-only memory, endpoint-only action inference, or a terminal-only path |
 
-Human mediation is recorded separately as an actor facet (`mediation_actor`) on
-the routed edge and by the component-level authority vector. It can qualify any
-of the four topological predicates and is not itself a fifth closure type.
+Human mediation is recorded separately as a coarse actor facet
+(`mediation_actor`) on the routed edge and by the component-level authority
+vector. The vector does not distinguish initiation, advice, approval, veto,
+direct execution, and final authority within one component. A single mediator
+endpoint records one represented locus and does not enumerate every human and
+system participant in a `mixed` route. Human mediation can qualify any of the
+four topological predicates and is not itself a fifth closure type.
 
 The predicates are separately reported and are not levels of one closure scale,
 but they are not necessarily logically independent. Under the current contracts,
@@ -49,10 +53,18 @@ changed-experimental-action semantics.
 Every event class has an allowed actor component, and every structural edge type
 has allowed source--destination component pairs. The validator rejects, for
 example, an execution event attributed to `V`, an observation routed from `E`
-to `G`, or external human feedback labelled as system mediation. These
-constraints make instantiated system-component assignments and represented
-graph transitions jointly checkable within one bounded case. They do not make
-the uninstantiated environment or measurement process graph-identifiable.
+to `G`, or external human feedback labelled as system mediation. These are
+endpoint-level admissibility constraints. They do not type edge payloads, prove
+direct composition of the component function signatures, or make the
+uninstantiated environment or measurement process graph-identifiable.
+
+The graph edges record source-reported dependency or control, not a typed call
+graph. In particular, `V-to-G` and `pi-to-G` mean that evaluation or policy
+context conditions a later generation occurrence; they do not add formal
+arguments to the schematic signature of `G`. `G-to-E` records delivery of a
+generated candidate into a source-reported execution route after the bounded
+selection context; it does not grant `G` the action-selection authority assigned
+to `pi`. Servo does not currently validate payload-level function composition.
 
 `event_class` determines actor admissibility, whereas `event_kind` records a
 predicate-relevant semantic role. Thus `epistemic_action` is an event kind, not
@@ -87,7 +99,10 @@ not itself evidence of inclusion between predicates.
 
 - Explicit source ordering is used when available. Structurally inferred order
   must be marked in the evidence status and cannot repair a missing semantic
-  edge.
+  edge or manufacture a required successor occurrence. The later execution
+  required by experimental adaptation, and the successor execution and evidence
+  required by discovery-cycle feedback, must each have a directly stated event
+  anchor in the bounded source.
 - Alternative paths are evaluated independently. One conforming path is enough
   for `established`; a nonconforming path does not cancel it.
 - Missing events, ambiguous ordering, ambiguous artifact identity, and source

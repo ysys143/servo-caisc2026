@@ -87,6 +87,7 @@ def _require_execution_repair(
         index
         for index, event in enumerate(event_rows)
         if event["event_class"] == "execution"
+        and event["evidence_status"] == "directly_stated"
     )
     validation_precedes_execution = any(
         validation < execution
@@ -160,6 +161,7 @@ def _adaptation_route_connects_evaluation_to_execution(
         event["actor_endpoint_id"]
         for event in event_rows
         if event["event_class"] == "execution"
+        and event["evidence_status"] == "directly_stated"
     }
     action_components = {"M", "pi", "G", "W_A"}
     for evaluation_index, endpoint in enumerate(endpoint_refs):

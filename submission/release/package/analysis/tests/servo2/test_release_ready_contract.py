@@ -20,7 +20,7 @@ PDF_NAME = "servo_caiscfp2026_post-submit.pdf"
 
 def _write_attestation(package, pdf_hash: str, binding: str) -> None:
     payload = {
-        "schema_version": "4.0.0",
+        "schema_version": "4.1.0",
         "state": "unpublished_local_candidate",
         "pdf_filename": PDF_NAME,
         "pdf_sha256": pdf_hash,

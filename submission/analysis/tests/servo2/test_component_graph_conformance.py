@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+from analysis.servo2_conformance import validate_component_graph_conformance
+from analysis.servo2_io import read_tables
+
 from conftest import assert_rejected, csv_rows, run_cli, table, write_rows
 
 
@@ -93,3 +96,15 @@ def test_external_mediator_cannot_be_labelled_system(package) -> None:
     write_rows(path, header, rows)
 
     assert_rejected(run_cli(package, "public-regeneration"), "EDGE_MEDIATION_ACTOR_INVALID")
+
+
+def test_external_mediator_can_represent_mixed_route(package) -> None:
+    tables = read_tables(package)
+    edge = next(
+        row
+        for row in tables["edges"].rows
+        if row["mediator_endpoint_id"].endswith(".external")
+    )
+    edge["mediation_actor"] = "mixed"
+
+    validate_component_graph_conformance(tables)

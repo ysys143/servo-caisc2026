@@ -89,7 +89,7 @@ def test_public_release_documentation_defers_state_to_attestation() -> None:
     # Then: static files cannot contradict the generated release attestation.
     assert not candidate_only_wording
     assert state_is_attestation_governed
-    assert "schema version 4.0.0" in readme
+    assert "schema version 4.1.0" in readme
 
 
 def test_reader_facing_audit_documents_name_current_schema_three() -> None:

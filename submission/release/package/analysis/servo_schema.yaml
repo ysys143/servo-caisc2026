@@ -1,4 +1,4 @@
-schema_version: "4.0.0"
+schema_version: "4.1.0"
 status: current_normative
 title: Servo operational event-and-evidence contract
 scope_statement: >-
@@ -177,9 +177,12 @@ closure_contract:
       minimum_evidence_occurrences: 2
       minimum_intervening_executions: 1
   mediation_rule: >-
-    Human, system, mixed, or unreported mediation is an actor facet on an event
-    or edge. It does not define a fifth closure topology.
+    Human, system, mixed, or unreported mediation is a coarse actor facet on an
+    event or edge. A single mediator endpoint records one represented locus and
+    does not enumerate every participant in a mixed route. It does not define a
+    fifth closure topology.
   component_graph_constraints:
+    scope: Endpoint-level admissibility for source-reported dependency or control; edge payloads and direct composition of the schematic component function signatures are not typed or validated.
     event_actors: [runtime_validation:V, artifact_assessment:V, human_feedback:external, external_assessment:external, artifact_production:W_A, execution:E, generation:G, state_update:M]
     observation: [E-to-V documentary evidence-availability projection, not causal observation generation]
     epistemic_update: [V-to-M]
@@ -195,7 +198,7 @@ closure_contract:
   witness_rule: >-
     Every witness remains within one case, version, configuration, and task regime;
     all referenced events, edges, endpoints, and artifacts must exist and preserve order.
-  occurrence_rule: Each ordered event token is a unique event_id naming one source-bounded occurrence; a later occurrence requires a distinct event record and an event_id cannot be reused within a witness.
+  occurrence_rule: Each ordered event token is a unique event_id naming one source-bounded occurrence; a later occurrence requires a distinct event record and an event_id cannot be reused within a witness. A structurally inferred event cannot supply the later execution required by experimental adaptation or the successor execution or evidence required by discovery-cycle feedback.
   prohibited_shortcuts:
     - retry_without_epistemic_update
     - append_only_memory
@@ -224,6 +227,7 @@ artifact_contract:
   temporal_rule: A produced artifact cannot be consumed before its producer sequence.
   producer_rule: Every artifact references an existing same-case producer event; source-bounded inferred production events carry structurally_inferred evidence status rather than a sentinel event ID.
   revision_rule: An established revision witness contains a distinct artifact_production event acted by W_A; that event consumes the evaluated predecessor and produces the successor in the same artifact lineage.
+  revision_scope: The closure predicate is narrower than general PROV derivation or revision; M-state and model-state lineage updates that do not pass through W_A remain outside this predicate even when they create a versioned successor.
 
 domain_anchor_contract:
   frozen_ids: [DA01, DA02, DA03, DA04, DA05, DA06, DA07]

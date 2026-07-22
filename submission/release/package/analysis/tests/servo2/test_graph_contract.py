@@ -6,6 +6,7 @@ import pytest
 
 from analysis.servo2_graph import validate_graph
 from analysis.servo2_io import Servo2Error, read_tables
+from discovery_test_support import add_directly_stated_discovery_witness
 
 from conftest import assert_rejected, column, csv_rows, run_cli, table, write_rows
 
@@ -14,7 +15,9 @@ def _discovery_witness(package):
     path = table(package, "closure_witnesses")
     header, rows = csv_rows(path)
     kind = column(rows[0], "closure_kind", "predicate", "witness_kind")
-    row = next(item for item in rows if item[kind] == "discovery_cycle_feedback")
+    row = next(item for item in rows if item["witness_id"] == "W16")
+    row[kind] = "discovery_cycle_feedback"
+    write_rows(path, header, rows)
     return path, header, rows, row
 
 
@@ -30,7 +33,7 @@ def test_cross_configuration_or_task_edges_cannot_synthesize_discovery_cycle(pac
     edge[column(edge, "task_regime_id", "task_regime")] += "-cross-task"
     write_rows(edges_path, edge_header, edges)
 
-    assert_rejected(run_cli(package, "public-regeneration"), "CROSS_CONTEXT_CLOSURE_EDGE")
+    assert_rejected(run_cli(package, "public-regeneration"), "CROSS_CONTEXT_DISCOVERY_EDGE")
 
 
 def test_retry_cannot_be_promoted_to_discovery_feedback(package) -> None:
@@ -75,11 +78,7 @@ def test_append_only_memory_cannot_supply_epistemic_update(package) -> None:
 
 def test_discovery_requires_explicit_epistemic_action_event(package) -> None:
     tables = read_tables(package)
-    witness = next(
-        row
-        for row in tables["closure_witnesses"].rows
-        if row["predicate"] == "discovery_cycle_feedback"
-    )
+    witness = add_directly_stated_discovery_witness(tables)
     action_ids = {
         event["event_id"]
         for event in tables["events"].rows
@@ -109,11 +108,7 @@ def test_human_actor_facet_cannot_replace_a_structural_edge_type(package) -> Non
 
 def test_human_actor_facet_may_qualify_a_valid_discovery_path(package) -> None:
     tables = read_tables(package)
-    discovery = next(
-        row
-        for row in tables["closure_witnesses"].rows
-        if row["predicate"] == "discovery_cycle_feedback"
-    )
+    discovery = add_directly_stated_discovery_witness(tables)
     edge_ids = discovery["ordered_edge_ids"].split(";")
     edge = next(row for row in tables["edges"].rows if row["edge_id"] == edge_ids[0])
     edge["mediation_actor"] = "human"

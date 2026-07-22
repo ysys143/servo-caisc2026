@@ -1,6 +1,6 @@
 # Servo corrected package
 
-Package release 4.0.0 implements the normative Servo schema version 4.0.0.
+Package release 4.1.0 implements the normative Servo schema version 4.1.0.
 The package release number identifies this synchronized manuscript and audit
 snapshot; it does not change the schema contract version.
 

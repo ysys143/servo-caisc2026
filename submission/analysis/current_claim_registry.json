@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "review_basis": "Schema 4 three-round adversarial audit plus predicate conformance, conservative negative-status, and cross-surface release audits completed 2026-07-22; English post-submission manuscript is normative and Korean files are private author references",
+  "review_basis": "Schema 4.1 three-round adversarial audit plus predicate conformance, inferred-occurrence exclusion, conservative negative-status, and cross-surface release audits completed 2026-07-22; English post-submission manuscript is normative and Korean files are private author references",
   "manuscripts": {
-    "main_post-submit.tex": "39cab5f439460d0d3921d929a232e03864454b50e7d61258d9560d0d706ae9f9"
+    "main_post-submit.tex": "c72ce46564cbd7edec66dd781045984d75039abeba3969557ea88cc468c50f93"
   },
   "citation_keys": [
     "berk1966",

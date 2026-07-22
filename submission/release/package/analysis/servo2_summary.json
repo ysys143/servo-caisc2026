@@ -1,16 +1,16 @@
 {
   "record_counts": {
-    "artifacts": 31,
+    "artifacts": 30,
     "cases": 6,
     "closure_statuses": 24,
-    "closure_witnesses": 11,
+    "closure_witnesses": 9,
     "domain_anchor_channels": 3,
     "domain_anchors": 7,
-    "edges": 41,
+    "edges": 40,
     "endpoints": 54,
-    "events": 51,
+    "events": 49,
     "reliability": 3,
     "selection_ledger": 13
   },
-  "schema_version": "4.0.0"
+  "schema_version": "4.1.0"
 }

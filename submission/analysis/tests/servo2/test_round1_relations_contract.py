@@ -42,7 +42,7 @@ def test_established_closure_requires_same_predicate_witness(package) -> None:
     path = table(package, "closure_statuses")
     header, rows = csv_rows(path)
     target = next(row for row in rows if row["predicate"] == "artifact_revision")
-    target["witness_ids"] = "W09"
+    target["witness_ids"] = "W16"
     write_rows(path, header, rows)
     assert_rejected(
         run_cli(package, "public-regeneration"), "CLOSURE_WITNESS_STATUS_MISMATCH"
@@ -174,7 +174,8 @@ def test_unknown_rejects_explicit_negative_basis(package) -> None:
 def test_discovery_witness_rejects_truncated_event_sequence(package) -> None:
     path = table(package, "closure_witnesses")
     header, rows = csv_rows(path)
-    target = next(row for row in rows if row["predicate"] == "discovery_cycle_feedback")
+    target = next(row for row in rows if row["witness_id"] == "W16")
+    target["predicate"] = "discovery_cycle_feedback"
     target["ordered_event_ids"] = target["ordered_event_ids"].split(";")[0]
     write_rows(path, header, rows)
     assert_rejected(
@@ -186,7 +187,8 @@ def test_discovery_witness_rejects_truncated_event_sequence(package) -> None:
 def test_discovery_witness_rejects_reordered_edges(package) -> None:
     path = table(package, "closure_witnesses")
     header, rows = csv_rows(path)
-    target = next(row for row in rows if row["predicate"] == "discovery_cycle_feedback")
+    target = next(row for row in rows if row["witness_id"] == "W16")
+    target["predicate"] = "discovery_cycle_feedback"
     edges = target["ordered_edge_ids"].split(";")
     edges[1], edges[2] = edges[2], edges[1]
     target["ordered_edge_ids"] = ";".join(edges)

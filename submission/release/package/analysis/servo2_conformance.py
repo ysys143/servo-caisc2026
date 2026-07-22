@@ -53,9 +53,11 @@ def validate_component_graph_conformance(tables: dict[str, Table]) -> None:
         mediator = endpoints[mediator_id]
         if mediator["case_id"] != edge["case_id"]:
             raise Servo2Error("EDGE_MEDIATOR_CASE_MISMATCH", edge_id)
-        human_mediation = edge["mediation_actor"] == "human"
+        mediation_actor = edge["mediation_actor"]
         external_mediator = mediator["component"] == "external"
-        if human_mediation != external_mediator:
+        if (mediation_actor == "human" and not external_mediator) or (
+            mediation_actor == "system" and external_mediator
+        ):
             raise Servo2Error("EDGE_MEDIATION_ACTOR_INVALID", edge_id)
         source = endpoints[require(edge, "source_endpoint_id", "edges")]["component"]
         destination = endpoints[
@@ -68,7 +70,7 @@ def validate_component_graph_conformance(tables: dict[str, Table]) -> None:
                 edge_id,
             )
         if source == "external" and edge_type == "feedback_control":
-            if edge["mediation_actor"] != "human":
+            if mediation_actor not in {"human", "mixed"}:
                 raise Servo2Error(
                     "EXTERNAL_FEEDBACK_ACTOR_INVALID",
                     edge_id,

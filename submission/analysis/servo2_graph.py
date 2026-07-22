@@ -202,6 +202,11 @@ def _validate_discovery_sequence(
         raise Servo2Error("DISCOVERY_WITNESS_EVENT_SEQUENCE_INVALID", witness_id)
     execution_index = eligible_execution[-1]
     execution = event_rows[execution_index]
+    if any(
+        event_rows[index]["evidence_status"] != "directly_stated"
+        for index in (first_evidence, execution_index, final_evidence)
+    ):
+        raise Servo2Error("INFERRED_OCCURRENCE_PROMOTED_TO_CLOSURE", witness_id)
     action_events = tuple(
         event
         for index, event in enumerate(event_rows)

@@ -16,9 +16,9 @@ C04,discovery_cycle_feedback,unknown
 C04,execution_repair,established
 C04,experimental_adaptation,unknown
 C05,artifact_revision,not_applicable
-C05,discovery_cycle_feedback,established
+C05,discovery_cycle_feedback,unknown
 C05,execution_repair,unknown
-C05,experimental_adaptation,established
+C05,experimental_adaptation,unknown
 C06,artifact_revision,established
 C06,discovery_cycle_feedback,unknown
 C06,execution_repair,established
