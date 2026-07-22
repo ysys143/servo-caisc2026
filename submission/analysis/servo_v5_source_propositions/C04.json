@@ -1,0 +1,345 @@
+{
+  "schema": "servo_v5_source_proposition",
+  "schema_doc": "analysis/servo_v5_source_proposition_schema.md",
+  "status": "pilot",
+  "case_id": "C04",
+  "system": "Agent Laboratory",
+  "citation_key": "schmidgall2025agentlab",
+  "source_pdf_name": "Agent Laboratory - Using LLM Agents as Research Assistants.pdf",
+  "source_pdf_sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+  "coverage_note": "Extracted from PDF physical pages 1, 5-10, 18-22, 42-43 (Abstract; Section 3 Agent Laboratory workflow incl. mle-solver and paper-solver; Section 5 Limitations/failure modes/ethics; Section 6 Discussion/Conclusion; Appendix B prompts). Frozen boundary: version 2025-paper, configuration autonomous-mode, task regime human-provided-idea-computational-ml. Related Work (pp. 2-4), full Results tables (pp. 10-18 survey/cost detail), and remaining Appendix prompt/grading material are NOT covered by this pass. No judgment, alignment, or closure status is stored here (charter B.1).",
+  "propositions": [
+    {
+      "proposition_id": "C04-P01",
+      "locator": {"pdf_page": 1, "section": "Abstract"},
+      "exact_quote": "we introduce Agent Laboratory, an autonomous LLM-based framework capable of completing the entire research process.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["Agent Laboratory"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "'capable of completing' — capability framing"
+    },
+    {
+      "proposition_id": "C04-P02",
+      "locator": {"pdf_page": 1, "section": "Abstract"},
+      "exact_quote": "This framework accepts a human-provided research idea and progresses through three stages—literature review, experimentation, and report writing to produce comprehensive research outputs, including a code repository and a research report, while enabling users to provide feedback and guidance at each stage.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": ["human-provided research idea"],
+      "named_outputs": ["code repository", "research report"]
+    },
+    {
+      "proposition_id": "C04-P03",
+      "locator": {"pdf_page": 1, "section": "Abstract"},
+      "exact_quote": "(3) Human involvement, providing feedback at each stage, significantly improves the overall quality of research;",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P04",
+      "locator": {"pdf_page": 5, "section": "3.1 Literature Review"},
+      "exact_quote": "During this process, the PhD agent utilizes the arXiv API to retrieve related papers and performs three main actions: summary, full text, and add paper.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["PhD agent"],
+      "named_inputs": ["arXiv API"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P05",
+      "locator": {"pdf_page": 6, "section": "3.2 Experimentation / Plan Formulation"},
+      "exact_quote": "During this phase, the PhD and Postdoc agents collaborate through dialogue to specify how to achieve the research objective, detailing experimental components needed to complete the specified research idea such as which machine learning models to implement, which datasets to use, and the high-level steps of the experiment.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["PhD and Postdoc agents"],
+      "named_inputs": ["specified research idea"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P06",
+      "locator": {"pdf_page": 6, "section": "3.2 Experimentation / Plan Formulation"},
+      "exact_quote": "Once a consensus is reached, the Postdoc agent submits this plan using the plan command, which serves as a set of instructions for subsequent subtasks.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Postdoc agent"],
+      "named_inputs": [],
+      "named_outputs": ["plan"]
+    },
+    {
+      "proposition_id": "C04-P07",
+      "locator": {"pdf_page": 6, "section": "3.2 Experimentation / Data Preparation"},
+      "exact_quote": "The ML Engineer agent executes code using Python command command and observes any printed output.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["ML Engineer agent"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "duplicated 'command command' preserved verbatim as printed in source"
+    },
+    {
+      "proposition_id": "C04-P08",
+      "locator": {"pdf_page": 6, "section": "3.2 Experimentation / Data Preparation"},
+      "exact_quote": "After agreeing on the finalized data preparation code, the SW Engineer agent submits it using the submit code command. Before the final submission proceeds, the code is first passed through a Python compiler to ensure that there are no compilation issues. This process will be iteratively executed until the code is bug-free.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["SW Engineer agent"],
+      "named_inputs": [],
+      "named_outputs": ["data preparation code"]
+    },
+    {
+      "proposition_id": "C04-P09",
+      "locator": {"pdf_page": 6, "section": "3.2 Experimentation / Running Experiments"},
+      "exact_quote": "This is facilitated by mle-solver, a specialized module designed to generate, test, and refine machine learning code autonomously.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["mle-solver"],
+      "named_inputs": [],
+      "named_outputs": ["machine learning code"],
+      "notes_verbatim": "'designed to generate, test, and refine' — capability/design-purpose framing"
+    },
+    {
+      "proposition_id": "C04-P10",
+      "locator": {"pdf_page": 6, "section": "3.2 Running Experiments / mle-solver A. Command Execution"},
+      "exact_quote": "The mle-solver iteratively refines this program through two operations, REPLACE and EDIT, to better align the output with experimental objectives. The EDIT operation identifies a range of lines, substituting the code between the specified line numbers with newly generated code. In contrast, the REPLACE operation generates a completely new Python file.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["mle-solver"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P11",
+      "locator": {"pdf_page": 6, "section": "3.2 Running Experiments / mle-solver B. Code Execution"},
+      "exact_quote": "If it successfully compiles, a score is returned and the list of top programs is updated if the score is higher than the existing programs. If the code does not compile, the agent attempts to repair the code for 𝑁𝑟𝑒𝑝 tries ( 𝑁𝑟𝑒𝑝 =3 in our experiments) before returning an error and moving on to a new code replacement.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["the agent"],
+      "named_inputs": [],
+      "named_outputs": ["list of top programs"],
+      "notes_verbatim": "repair-attempt cap (N_rep=3) — memory/attempt-limit relevant"
+    },
+    {
+      "proposition_id": "C04-P12",
+      "locator": {"pdf_page": 6, "section": "3.2 Running Experiments / mle-solver C. Program Scoring"},
+      "exact_quote": "If a code succeeds in compilation, it is sent to a scoring function which determines if it is better than previously implemented experiment code.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P13",
+      "locator": {"pdf_page": 7, "section": "3.2 Running Experiments / mle-solver C. Program Scoring"},
+      "exact_quote": "A score of 1 is provided for results with high alignment and everything below on a spectrum of how closely the output and code matches the planning goals.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P14",
+      "locator": {"pdf_page": 7, "section": "3.2 Running Experiments / mle-solver D. Self Reflection"},
+      "exact_quote": "Here, the mle-solver is prompted to reflect on the outcome of its actions. If the program failed to compile, the solver reflects on how to fix this issue in next iterations. If it successfuly compiles and returns a score, the solver will reflect on how to increase this score.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["mle-solver", "the solver"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "'successfuly' typo preserved verbatim from source"
+    },
+    {
+      "proposition_id": "C04-P15",
+      "locator": {"pdf_page": 7, "section": "3.2 Running Experiments / mle-solver E. Performance Stabilization"},
+      "exact_quote": "In top program sampling, a collection of the highest-scoring programs is maintained, and one program is randomly sampled before executing a command, ensuring diversity while retaining quality. For batch-parallelization, each solver step involves making N modifications simultaneously, with the top modification selected to replace the lowest-scoring program in the top collection.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["collection of the highest-scoring programs", "top collection"]
+    },
+    {
+      "proposition_id": "C04-P16",
+      "locator": {"pdf_page": 8, "section": "3.2 Experimentation / Results Interpretation"},
+      "exact_quote": "The PhD and Postdoc agents discuss their understanding of the experimental results produced by mle-solver. Once they agree on a meaningful interpretation that could contribute to a compelling academic paper, the Postdoc agent submits it using the interpretation command, forming the basis for the report writing phase.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["PhD and Postdoc agents", "Postdoc agent", "mle-solver"],
+      "named_inputs": ["experimental results produced by mle-solver"],
+      "named_outputs": ["interpretation"]
+    },
+    {
+      "proposition_id": "C04-P17",
+      "locator": {"pdf_page": 8, "section": "3.3 Report Writing"},
+      "exact_quote": "In the report writing phase, the PhD and Professor agent synthesize the research findings into a comprehensive academic report. This process is facilitated by a specialized module called paper-solver, which iteratively generates and refines the report.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["PhD and Professor agent", "paper-solver"],
+      "named_inputs": ["research findings"],
+      "named_outputs": ["academic report"]
+    },
+    {
+      "proposition_id": "C04-P18",
+      "locator": {"pdf_page": 8, "section": "3.3 Report Writing / paper-solver A. Initial Report Scaffold"},
+      "exact_quote": "This scaffold outlines the document structure, dividing it into eight standardized sections: Abstract, Introduction, Background, Related Work, Methods, Experimental Setup, Results, and Discussion.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["scaffold"]
+    },
+    {
+      "proposition_id": "C04-P19",
+      "locator": {"pdf_page": 9, "section": "3.3 Report Writing / paper-solver C. Report Editing"},
+      "exact_quote": "Before integrating edits, the system compiles the LaTeX to verify error-free functionality, thereby maintaining document integrity.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["the system"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P20",
+      "locator": {"pdf_page": 9, "section": "3.3 Report Writing / paper-solver D. Paper Review"},
+      "exact_quote": "This system works by using an LLM-based agent to simulate the scientific paper review process following the NeurIPS conference guidelines. When evaluated on 500 ICLR 2022 papers from the OpenReview dataset, the automated reviewer achieved human-level accuracy (65% compared to 66% for human reviewers) and surpassed human performance in F1 score (0.57 vs. 0.49) after calibration.",
+      "modality": "directly_reported",
+      "named_actors": ["automated reviewer"],
+      "named_inputs": ["500 ICLR 2022 papers from the OpenReview dataset"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P21",
+      "locator": {"pdf_page": 10, "section": "3.3 Report Writing / Paper Refinement"},
+      "exact_quote": "In the paper refinement phase, the PhD agent makes a decision on whether to make paper revisions or to determine that the paper is complete.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["PhD agent"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P22",
+      "locator": {"pdf_page": 10, "section": "3.3 Report Writing / Paper Refinement"},
+      "exact_quote": "The process begins with a set of three reviewer agents generating reviews that mimic feedback from NeurIPS peer reviewers, evaluating the report based on criteria such as originality, quality, clarity, and significance. Based on these scores, the PhD agent then decides whether to finalize the project or revisit earlier subtasks—such as planning, experimentation, or results interpretation—to address the feedback.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["three reviewer agents", "PhD agent"],
+      "named_inputs": ["scores"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P23",
+      "locator": {"pdf_page": 10, "section": "3.3.1 Autonomous versus Co-Pilot Mode"},
+      "exact_quote": "In autonomous mode, there is no human involvement other than providing the initial research idea for agents to produce research for. Each subtask moves on to the next subtask sequentially upon completion.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": ["initial research idea"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P24",
+      "locator": {"pdf_page": 10, "section": "3.3.1 Autonomous versus Co-Pilot Mode"},
+      "exact_quote": "In co-pilot mode, in addition to providing the research idea, there is also a checkpoint at the end of each subtask, where a human is involved in reviewing the work produced by agents in that phase (e.g., the literature review summary or generated report). The human reviewer can either decide to proceed to the next subtask, or ask the agent to repeat the subtask while providing high level notes for the agent to improve its performance during the next attempt.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["human reviewer"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P25",
+      "locator": {"pdf_page": 18, "section": "4.4 Evaluating mle-solver on MLE-Bench"},
+      "exact_quote": "Instead of using an LLM scoring function, the mle-solver score is evaluated on the dev set, which is a 20% random sample taken from the original training set, and the training set is represented by the other 80% split.",
+      "modality": "directly_reported",
+      "named_actors": ["mle-solver"],
+      "named_inputs": ["dev set", "training set"],
+      "named_outputs": ["mle-solver score"]
+    },
+    {
+      "proposition_id": "C04-P26",
+      "locator": {"pdf_page": 19, "section": "4.4 Evaluating mle-solver on MLE-Bench"},
+      "exact_quote": "Once all mle-solver steps have concluded, the final code with the highest score is evaluated on the actual Kaggle test set and a benchmark score is recorded.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": ["final code with the highest score"],
+      "named_outputs": ["benchmark score"]
+    },
+    {
+      "proposition_id": "C04-P27",
+      "locator": {"pdf_page": 20, "section": "5.1 Workflow limitations / Challenges with automated structure"},
+      "exact_quote": "Agent Laboratory is also not able to manage repository-level code on its own, but rather the appropriate files are provided to it at each necessary step and files are saved based on which phase produced the file.",
+      "modality": "directly_reported",
+      "named_actors": ["Agent Laboratory"],
+      "named_inputs": [],
+      "named_outputs": ["files"]
+    },
+    {
+      "proposition_id": "C04-P28",
+      "locator": {"pdf_page": 20, "section": "5.2 Common failure modes"},
+      "exact_quote": "Retrieved papers during the literature review phase had been observed to reach the maximum token limit for some models.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": ["Retrieved papers"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P29",
+      "locator": {"pdf_page": 20, "section": "5.2 Common failure modes"},
+      "exact_quote": "mle-solver often generated the python exit () command, which terminated the entire process. This had to be detected and removed manually.",
+      "modality": "directly_reported",
+      "named_actors": ["mle-solver"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P30",
+      "locator": {"pdf_page": 20, "section": "5.2 Common failure modes"},
+      "exact_quote": "mle-solver has been observed to run system commands on the host computer using the subprocess.run() command. While nothing problematic has been observed, safeguards should be implemented around this.",
+      "modality": "directly_reported",
+      "named_actors": ["mle-solver"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P31",
+      "locator": {"pdf_page": 20, "section": "5.2 Common failure modes"},
+      "exact_quote": "paper-solver often struggles to search for relevant papers using the arXiv engine. Before a search time-limit was enforced, it could take up to 100 tries for a successful search query to return any papers. A limit of 5 was place thereafter to prevent this cycle.",
+      "modality": "directly_reported",
+      "named_actors": ["paper-solver"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "'was place' typo preserved verbatim from source"
+    },
+    {
+      "proposition_id": "C04-P32",
+      "locator": {"pdf_page": 21, "section": "6. Discussion"},
+      "exact_quote": "Unlike fully automated research pipelines that attempt to conceive their own research directions, Agent Laboratory is designed as a co-pilot, enabling a more human-centric mode of scientific exploration.",
+      "modality": "directly_reported",
+      "named_actors": ["Agent Laboratory"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P33",
+      "locator": {"pdf_page": 21, "section": "6. Discussion"},
+      "exact_quote": "Integrating human feedback in co-pilot mode overall produced higher-quality outputs than autonomous mode, with higher scores across most metrics.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C04-P34",
+      "locator": {"pdf_page": 22, "section": "6. Discussion / Conclusion"},
+      "exact_quote": "By integrating specialized autonomous agents guided by human oversight, our approach can help researchers spend less time on repetitive tasks and more time on the creative, conceptual aspects of their work.",
+      "modality": "reported_only_as_capability",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "'can help' — capability framing"
+    },
+    {
+      "proposition_id": "C04-P35",
+      "locator": {"pdf_page": 42, "section": "B. Prompts / Professor Agent Scoring System Prompt"},
+      "exact_quote": "You are a professor agent who is serving as an expert reward model that can read a research plan, research code, and code output and are able to determine how well a model followed the plan, built the code, and got the proper output scored from 0 to 1 as a float.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["professor agent"],
+      "named_inputs": ["research plan", "research code", "code output"],
+      "named_outputs": ["score"],
+      "notes_verbatim": "'can read', 'are able to determine' — capability framing; system-prompt role description for the reward-model validator"
+    },
+    {
+      "proposition_id": "C04-P36",
+      "locator": {"pdf_page": 43, "section": "B. Prompts / Initial Code Generation Error Prompt (err_hist)"},
+      "exact_quote": "Where the string errs is concatenation of the minimum between five previous errors and the length of all errors (i.e. all errors until the number reaches five, then only five).",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["errs"]
+    }
+  ]
+}

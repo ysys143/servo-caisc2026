@@ -1,0 +1,272 @@
+{
+  "schema": "servo_v5_source_proposition",
+  "schema_doc": "analysis/servo_v5_source_proposition_schema.md",
+  "status": "pilot",
+  "case_id": "C05",
+  "system": "Adam (Robot Scientist)",
+  "citation_key": "sparkes2010robot",
+  "source_pdf_name": "Sparkes 2010 - Towards Robot Scientists for Autonomous Scientific Discovery.pdf",
+  "source_pdf_sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+  "coverage_note": "Full pass over all 11 physical PDF pages. This is a 2010 REVIEW of Adam (published account of a system already run and reported in King et al. 2004/2009), read within the bounded configuration adam-yeast / yeast-functional-genomics. Propositions describing the shared 'Eve' system (pages 6-8) and reference-list/author-contributions matter (pages 9-11) are out of scope for C05 and are not extracted here. One sentence spanning the page 5/6 boundary ('...the correctness of 12 of them [24]. Conventional manual biological experiments were performed to verify 3 of these conclu-sions...') is mid-word hyphenated across a physical page break and could not be captured as a single-page exact_quote under the locator contract; it is omitted rather than truncated or reworded. No judgment, alignment, or closure status is stored here (charter B.1).",
+  "propositions": [
+    {
+      "proposition_id": "C05-P01",
+      "locator": {"pdf_page": 1, "journal_page": 1, "section": "Abstract"},
+      "exact_quote": "how they lead to the concept of a Robot Scientist. This is a system which uses techniques from artificial intelligence to automate all aspects of the scientific discovery process: it generates hypotheses from a computer model of the domain, designs experiments to test these hypotheses, runs the physical experiments using robotic systems, analyses and interprets the resulting data, and repeats the cycle.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Robot Scientist"],
+      "named_inputs": ["a computer model of the domain"],
+      "named_outputs": [],
+      "notes_verbatim": "generic architectural description of the Robot Scientist concept, immediately preceding the paper's introduction of Adam as its first instantiation; frames the closed cycle Adam is then reported to instantiate"
+    },
+    {
+      "proposition_id": "C05-P02",
+      "locator": {"pdf_page": 1, "journal_page": 1, "section": "Abstract"},
+      "exact_quote": "Adam has recently proven the potential of such systems by identifying twelve genes responsible for catalysing specific reactions in the metabolic pathways of the yeast Saccharomyces cerevisiae.",
+      "modality": "directly_reported",
+      "named_actors": ["Adam"],
+      "named_inputs": [],
+      "named_outputs": ["twelve genes responsible for catalysing specific reactions in the metabolic pathways of the yeast Saccharomyces cerevisiae"],
+      "notes_verbatim": "quote contains the word 'potential' (capability lint marker) but the clause grammar is past-tense achievement ('has ... proven ... by identifying'), reporting a completed occurrence rather than a modal capability"
+    },
+    {
+      "proposition_id": "C05-P03",
+      "locator": {"pdf_page": 3, "journal_page": 3, "section": "A Robot Scientist to study yeast metabolism - 'Adam'"},
+      "exact_quote": "Adam uses a comprehensive logical model of yeast metabolism (based on the Forster iFF708 model), coupled with a bioinformatic database (Kyoto Encyclopaedia of Genes and Genomes - KEGG) and standard bioinformatics homology search techniques (PSI-BLAST and FASTA) to hypothesise likely candidate genes that may encode the locally orphan enzymes.",
+      "modality": "directly_reported",
+      "named_actors": ["Adam"],
+      "named_inputs": ["logical model of yeast metabolism", "Forster iFF708 model", "Kyoto Encyclopaedia of Genes and Genomes - KEGG", "PSI-BLAST", "FASTA"],
+      "named_outputs": ["likely candidate genes"]
+    },
+    {
+      "proposition_id": "C05-P04",
+      "locator": {"pdf_page": 3, "journal_page": 3, "section": "A Robot Scientist to study yeast metabolism - 'Adam'"},
+      "exact_quote": "This hypothesis generation process is abductive.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C05-P05",
+      "locator": {"pdf_page": 3, "journal_page": 3, "section": "A Robot Scientist to study yeast metabolism - 'Adam'"},
+      "exact_quote": "There were two types of hypothesis generated. The first level links an orphan enzyme, represented by its enzyme class (E.C.) number, to a gene (ORF) that potentially encodes it.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": ["orphan enzyme (E.C. number)"],
+      "named_outputs": ["gene (ORF)"],
+      "notes_verbatim": "first-level gene-function hypothesis structure; quote contains 'potentially' (matches the 'potential' lint marker) but describes the hypothesis's own uncertain content ('a gene that potentially encodes it'), not a capability of Adam -- the reporting clause itself is past-tense ('There were ... generated')"
+    },
+    {
+      "proposition_id": "C05-P06",
+      "locator": {"pdf_page": 3, "journal_page": 3, "section": "A Robot Scientist to study yeast metabolism - 'Adam'"},
+      "exact_quote": "encodesORFtoEC('YBR166C', '1.1.1.25')",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["encodesORFtoEC('YBR166C', '1.1.1.25')"],
+      "notes_verbatim": "worked example of a first-level gene-function hypothesis, given immediately after 'An example hypothesis at this level is:'"
+    },
+    {
+      "proposition_id": "C05-P07",
+      "locator": {"pdf_page": 3, "journal_page": 3, "section": "A Robot Scientist to study yeast metabolism - 'Adam'"},
+      "exact_quote": "The second level of hypothesis involves the association between a deletant strain, referenced via the name of its missing ORF, and a chemical compound which should affect the growth of the strain, if added as a nutrient to its environment. This level of hypothesis is derived from the first by logical inference using our model of yeast metabolism.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": ["deletant strain", "chemical compound", "model of yeast metabolism"],
+      "named_outputs": [],
+      "notes_verbatim": "second-level hypothesis derived from the first-level hypothesis by logical inference over the domain model"
+    },
+    {
+      "proposition_id": "C05-P08",
+      "locator": {"pdf_page": 3, "journal_page": 3, "section": "A Robot Scientist to study yeast metabolism - 'Adam'"},
+      "exact_quote": "Adam then designs the experimental assays required to test these hypotheses for execution on the laboratory robotic system.",
+      "modality": "directly_reported",
+      "named_actors": ["Adam"],
+      "named_inputs": ["these hypotheses"],
+      "named_outputs": ["experimental assays"]
+    },
+    {
+      "proposition_id": "C05-P09",
+      "locator": {"pdf_page": 4, "journal_page": 4, "section": "Adam's software"},
+      "exact_quote": "Adam is intended to be fully automated, with human intervention required only to supply library strain stocks and consumables.",
+      "modality": "directly_reported",
+      "named_actors": ["Adam"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "human-authority boundary: human role scoped to physical resupply of library strain stocks and consumables, not decision-making"
+    },
+    {
+      "proposition_id": "C05-P10",
+      "locator": {"pdf_page": 4, "journal_page": 4, "section": "Adam's software"},
+      "exact_quote": "For Adam's most recent hypothesis generation work we have a detailed logical computer model of the metabolic reaction pathways in yeast (written in Prolog), from which locally orphaned enzymes are identified.",
+      "modality": "directly_reported",
+      "named_actors": ["Adam"],
+      "named_inputs": ["logical computer model of the metabolic reaction pathways in yeast"],
+      "named_outputs": ["locally orphaned enzymes"]
+    },
+    {
+      "proposition_id": "C05-P11",
+      "locator": {"pdf_page": 4, "journal_page": 4, "section": "Adam's software"},
+      "exact_quote": "The bioinformatics method of hypotheses generation attempts to use sequence similarity techniques to identify likely candidates for the ORFs that catalyse these reactions, thereby allowing the Robot Scientist to discover novel biology.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Robot Scientist"],
+      "named_inputs": ["sequence similarity techniques"],
+      "named_outputs": ["likely candidates for the ORFs"]
+    },
+    {
+      "proposition_id": "C05-P12",
+      "locator": {"pdf_page": 4, "journal_page": 4, "section": "A Robot Scientist to study yeast metabolism - 'Adam'"},
+      "exact_quote": "The growth curves are smoothed, after which biologically significant parameters are extracted and statistically analysed to determine whether the original hypotheses have been confirmed or refuted. Scientific knowledge gained from this process is used to update the model of yeast metabolism.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": ["growth curves"],
+      "named_outputs": ["biologically significant parameters", "updated model of yeast metabolism"],
+      "notes_verbatim": "explicit statistical-analysis -> confirm/refute -> knowledge-admission -> model-update chain"
+    },
+    {
+      "proposition_id": "C05-P13",
+      "locator": {"pdf_page": 5, "journal_page": 5, "section": "Adam's software (bioinformatics method steps)"},
+      "exact_quote": "1. Identify Enzyme Commission (E.C.) numbers corresponding to enzymes which participate in yeast metabolism but have no known ORF assigned to them.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["Enzyme Commission (E.C.) numbers"],
+      "notes_verbatim": "step 1 of the numbered bioinformatics hypothesis-generation method"
+    },
+    {
+      "proposition_id": "C05-P14",
+      "locator": {"pdf_page": 5, "journal_page": 5, "section": "Adam's software (bioinformatics method steps)"},
+      "exact_quote": "For each E.C. number find the ORFs in other organisms that code for that enzyme. Use all organisms from the KEGG genome database for this search. Collect all amino acid sequences for these ORFs. These are known as the 'query sequences'.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": ["KEGG genome database"],
+      "named_outputs": ["query sequences"],
+      "notes_verbatim": "step 2"
+    },
+    {
+      "proposition_id": "C05-P15",
+      "locator": {"pdf_page": 5, "journal_page": 5, "section": "Adam's software (bioinformatics method steps)"},
+      "exact_quote": "For each query sequence use sequence similarity search (PSI-BLAST or FASTA) to identify the most similar sequences/ORFs in S. cerevisiae.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": ["query sequence", "PSI-BLAST", "FASTA"],
+      "named_outputs": ["most similar sequences/ORFs in S. cerevisiae"],
+      "notes_verbatim": "step 3"
+    },
+    {
+      "proposition_id": "C05-P16",
+      "locator": {"pdf_page": 5, "journal_page": 5, "section": "Adam's software (bioinformatics method steps)"},
+      "exact_quote": "A single hypothesis is the mapping of one S. cerevisiae ORF to one E.C. class - e.g. YER152C → 2.6.1.39. There are typically many hypotheses for each enzyme class.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["YER152C → 2.6.1.39"],
+      "notes_verbatim": "step 4; worked example of the final hypothesis form"
+    },
+    {
+      "proposition_id": "C05-P17",
+      "locator": {"pdf_page": 5, "journal_page": 5, "section": "Adam's software"},
+      "exact_quote": "Experiment design code then uses the system model to generate biological experiment plans involving deletant strains and metabolite solutions to test the hypotheses, creating microplate layouts using Latin-square design to improve the detection of quantitatively small differences above the background noise.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Experiment design code"],
+      "named_inputs": ["system model", "deletant strains", "metabolite solutions"],
+      "named_outputs": ["biological experiment plans", "microplate layouts"]
+    },
+    {
+      "proposition_id": "C05-P18",
+      "locator": {"pdf_page": 5, "journal_page": 5, "section": "Adam's software"},
+      "exact_quote": "The microplate layouts and related liquid handler volume files are passed to the robotic system control software, that executes the experiment plans.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["robotic system control software"],
+      "named_inputs": ["microplate layouts", "liquid handler volume files"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C05-P19",
+      "locator": {"pdf_page": 5, "journal_page": 5, "section": "Adam's software"},
+      "exact_quote": "The parameters from multiple experiment replicates are analysed using machine learning (random forests [30]) to obtain statistically significant results that can be used to either confirm or refute hypotheses, potentially resulting in new scientific knowledge that can be used to update the system model.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": ["parameters from multiple experiment replicates"],
+      "named_outputs": ["statistically significant results", "updated system model"],
+      "notes_verbatim": "main clause is habitual/procedural ('are analysed using ... to obtain'); subordinate clause carries capability-flavored 'can be used' phrasing for the confirm/refute and model-update use of the results"
+    },
+    {
+      "proposition_id": "C05-P20",
+      "locator": {"pdf_page": 5, "journal_page": 5, "section": "Adam's software"},
+      "exact_quote": "The cycle can then repeat with further hypothesis generation.",
+      "modality": "reported_only_as_capability",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "explicit modal 'can' framing the closed-loop recurrence as possibility, not a recorded per-cycle occurrence"
+    },
+    {
+      "proposition_id": "C05-P21",
+      "locator": {"pdf_page": 5, "journal_page": 5, "section": "Adam's software"},
+      "exact_quote": "Finally, there is a comprehensive custom-made relational database that stores all the data and meta-data generated throughout the various stages (MySQL).",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["relational database (MySQL)"]
+    },
+    {
+      "proposition_id": "C05-P22",
+      "locator": {"pdf_page": 5, "journal_page": 5, "section": "Adam's results"},
+      "exact_quote": "Adam conceived 20 hypotheses concerning the identity of genes encoding 13 locally orphan enzymes in S. cerevisiae. Adam tested all these hypotheses on its robotic system and was able to confirm by experimentation, with a high degree of confidence, the correctness of 12 of them [24].",
+      "modality": "directly_reported",
+      "named_actors": ["Adam"],
+      "named_inputs": [],
+      "named_outputs": ["20 hypotheses", "12 confirmed hypotheses"]
+    },
+    {
+      "proposition_id": "C05-P23",
+      "locator": {"pdf_page": 6, "journal_page": 6, "section": "Adam's results"},
+      "exact_quote": "Interestingly, Adam also came to an incorrect conclusion regarding one of its original 20 hypotheses which highlights a weakness in its system model.",
+      "modality": "directly_reported",
+      "named_actors": ["Adam"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C05-P24",
+      "locator": {"pdf_page": 6, "journal_page": 6, "section": "Adam's results"},
+      "exact_quote": "Adam's current metabolism system model does not represent kinase control mechanisms, and so Adam did not take this into account.",
+      "modality": "directly_reported",
+      "named_actors": ["Adam"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "explicit model-boundary limitation reported as the cause of the incorrect conclusion in C05-P23"
+    },
+    {
+      "proposition_id": "C05-P25",
+      "locator": {"pdf_page": 8, "journal_page": 8, "section": "Discussion"},
+      "exact_quote": "It has been suggested that systems such as ours would be better described as 'Laboratory Assistants' rather than the implicitly more independent term 'Scientists'. Although in some ways the term 'Laboratory Assistant' has some merit, as they are not independent workers.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "authors report and partially concede a third-party characterization bearing on system autonomy/human-authority framing"
+    },
+    {
+      "proposition_id": "C05-P26",
+      "locator": {"pdf_page": 9, "journal_page": 9, "section": "Discussion"},
+      "exact_quote": "So, on balance, we prefer the more evocative term 'Robot Scientist', and argue that the Adam system has discovered new knowledge about gene function in S. cerevisiae that has been independently verified [24].",
+      "modality": "directly_reported",
+      "named_actors": ["Adam"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C05-P27",
+      "locator": {"pdf_page": 9, "journal_page": 9, "section": "Discussion"},
+      "exact_quote": "For Adam we avoided problems by primarily using only one public database (KEGG) and manually updating our system model where conflicts were noticed, before allowing automated generation of hypotheses.",
+      "modality": "directly_reported",
+      "named_actors": ["Adam"],
+      "named_inputs": ["KEGG"],
+      "named_outputs": [],
+      "notes_verbatim": "the authors (human), not Adam, performed the manual model update prior to allowing automated hypothesis generation -- 'Adam' is named as the referent in the quote, not the grammatical subject of 'avoided'/'updating'"
+    }
+  ]
+}
