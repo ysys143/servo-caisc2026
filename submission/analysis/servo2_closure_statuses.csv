@@ -1,6 +1,6 @@
 schema_version,case_id,predicate,status,witness_ids,rationale,decision_basis,evidence_ids
 3.0.0,C01,execution_repair,established,W01,documented correction and successful rerun,positive_witness,not_applicable
-3.0.0,C01,experimental_adaptation,unknown,not_applicable,reuse for guidance is inferred but a later evidence-generating execution is not directly linked,insufficient_reporting,not_applicable
+3.0.0,C01,experimental_adaptation,established,W17,reused reactivity evidence conditions a later guided execution through the memory and policy path,positive_witness,not_applicable
 3.0.0,C01,artifact_revision,established,W15,protocol v1 is corrected to v2,positive_witness,not_applicable
 3.0.0,C01,discovery_cycle_feedback,unknown,not_applicable,new evidence after feedback-dependent epistemic action is not established,insufficient_reporting,not_applicable
 3.0.0,C02,execution_repair,unknown,not_applicable,the bounded source does not report an eligible error-repair trace,insufficient_reporting,not_applicable

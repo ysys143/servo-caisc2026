@@ -1256,9 +1256,13 @@ why, and whether the version of record is thereby wrong or merely less precise.
   previous iteration,'' and the system ``reuse[s] the information obtained to provide more specific
   guidance'' over up to 20 iterations, with normalized advantage rising across rounds. This is direct,
   not inferred, evidence of experimental adaptation. The rationale is corrected to record the source
-  mechanism, and the cell is flagged for recoding to ``established'' with an explicit witness once the
-  witness chain is added; the conservative status is retained only pending that witness rather than on
-  the ground of missing source support.
+  mechanism, and the cell is now recoded to ``established'': a source-grounded witness (\texttt{W17}) traces
+  the reused reactivity evidence through the memory and policy path ($C01.V\!\to\!C01.M\!\to\!C01.\pi\!\to\!C01.E$)
+  to a later guided execution (ordered occurrences \texttt{EV46@t;EV47@t+1}), grounded in the same Boiko
+  reactivity quote already in the evidence ledger (\texttt{R01-E04}). The closure matrix
+  (Table~\ref{tab:core-comparison}) and the released closure sheet are regenerated accordingly. The new
+  evaluation and execution occurrences are marked structurally inferred, consistent with the source's
+  aggregate ``advantage increases over time'' phrasing and with the existing treatment of that evidence.
 
   \item[R69. BioPlanner anchor coding (Table~\ref{tab:domain-comparison}; released \texttt{servo2} anchor sheet).]
   \emph{Status in the version of record: overstates the evaluator and decision role.} The released
@@ -1267,9 +1271,10 @@ why, and whether the version of record is thereby wrong or merely less precise.
   execution.'' The source's systematic benchmark measures pseudocode reconstruction (effectively
   multiple-choice selection over admissible pseudofunctions); its ``Feedback'' is a code-error loop,
   not laboratory feedback; and the wet-lab component is a single one-off \emph{E.\ coli} run, not a
-  general executability validator. This revision records the overstatement and flags the anchor for
-  restriction to protocol-planning (pseudocode reconstruction), with the wet-lab run to be marked as a
-  single external validation rather than a recurring execution channel in the synchronized recoding.
+  general executability validator. This revision restricts the anchor: the domain-anchor table now reads
+  ``protocol-planning pseudocode reconstruction,'' ``generator; pseudocode evaluator; one-off lab check,''
+  and ``diagnostic benchmark; single validation,'' matching the already-correct channel records
+  (DA05-C1, DA05-C2, DA05-C3), and the table is regenerated accordingly.
 \end{description}
 
 \noindent\textbf{Scope of revision.} The entries above are the complete set of changes
@@ -1351,9 +1356,10 @@ ARA statistics---the 90.2\% below-reference cost, restated with the source's ``n
 and the 82.6\% seeded-mutation recall. R64 restores ARA's \texttt{/trace}-versus-\texttt{/logic}
 memory separation, R65 fixes a one-year cutoff error for ResearchBench, and R66 re-grounds an AI
 Scientist scoring example on the reviewer's own axes. R68 records that the Coscientist
-experimental-adaptation cell is coded conservatively against direct source evidence and flags it for
-witnessed recoding; R69 restricts the BioPlanner anchor from an overstated laboratory/executability
-channel to its actual pseudocode-reconstruction benchmark. None of these entries changes the
+experimental-adaptation cell is recoded to \texttt{established} with a source-grounded witness; R69
+restricts the BioPlanner anchor from an overstated laboratory/executability channel to its actual
+pseudocode-reconstruction benchmark. Both regenerate the affected \texttt{servo2} tables so the
+result matrices match the corrected interpretation. None of these entries changes the
 framework, the three open problems, or their proposed evaluations.
 
 \noindent\textbf{Current-interpretation supersession index.}

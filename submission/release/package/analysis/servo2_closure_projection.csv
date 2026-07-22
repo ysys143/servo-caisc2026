@@ -2,7 +2,7 @@ case_id,predicate,status
 C01,artifact_revision,established
 C01,discovery_cycle_feedback,unknown
 C01,execution_repair,established
-C01,experimental_adaptation,unknown
+C01,experimental_adaptation,established
 C02,artifact_revision,unknown
 C02,discovery_cycle_feedback,unknown
 C02,execution_repair,unknown

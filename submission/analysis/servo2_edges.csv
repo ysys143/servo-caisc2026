@@ -40,3 +40,6 @@ schema_version,edge_id,case_id,configuration_id,task_regime_id,source_event_id,s
 3.0.0,ED39,C03,template-free-tree,computational-tree-search,EV42,C03.E,C03.V,observation,implemented,true,R03-E04,true,executed child returns metrics and plots used by subsequent selection,C03.E,system,case_internal
 3.0.0,ED40,C05,adam-yeast,yeast-functional-genomics,EV17,C05.M,C05.G,feedback_control,implemented,true,R05-E01;R05-E02,true,the updated domain model supplies the basis for the next hypothesis-generation action,C05.M,system,case_internal
 3.0.0,ED41,C05,adam-yeast,yeast-functional-genomics,EV45,C05.G,C05.E,feedback_control,implemented,true,R05-E01,true,the generated hypothesis and experiment design are routed to robotic execution,C05.G,system,case_internal
+3.0.0,ED42,C01,reported-demonstration,six-chemistry-tasks,EV46,C01.V,C01.M,epistemic_update,implemented,true,R01-E04,true,not_applicable,C01.V,system,case_internal
+3.0.0,ED43,C01,reported-demonstration,six-chemistry-tasks,EV46,C01.M,C01.pi,feedback_control,implemented,true,R01-E04,true,not_applicable,C01.M,system,case_internal
+3.0.0,ED44,C01,reported-demonstration,six-chemistry-tasks,EV46,C01.pi,C01.E,feedback_control,implemented,true,R01-E04,true,not_applicable,C01.pi,system,case_internal

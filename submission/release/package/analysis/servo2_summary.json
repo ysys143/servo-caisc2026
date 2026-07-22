@@ -1,14 +1,14 @@
 {
   "record_counts": {
-    "artifacts": 30,
+    "artifacts": 31,
     "cases": 6,
     "closure_statuses": 24,
-    "closure_witnesses": 11,
+    "closure_witnesses": 12,
     "domain_anchor_channels": 3,
     "domain_anchors": 7,
-    "edges": 41,
+    "edges": 44,
     "endpoints": 54,
-    "events": 45,
+    "events": 47,
     "reliability": 3,
     "selection_ledger": 13
   },

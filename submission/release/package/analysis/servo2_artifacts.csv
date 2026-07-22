@@ -29,3 +29,4 @@ schema_version,artifact_id,case_id,artifact_type,version,producer_endpoint_id,pr
 3.0.0,C06.code.v1,C06,source_code,1,C06.G,EV37,3,3,not_applicable,R14-E04,reported,initial implementation
 3.0.0,C06.code.v2,C06,source_code,2,C06.V,EV21,3,4,C06.code.v1,R14-E04;R14-E05,reported,debugged or adaptively evolved implementation
 3.0.0,C06.result.v1,C06,computational_result,1,C06.E,EV38,4,4,not_applicable,R14-E05;R14-E07;R14-E08,reported,performance and execution evidence
+3.0.0,C01.result.v2,C01,physical_result,2,C01.E,EV47,3,not_applicable,C01.result.v1,R01-E04,reported,successor reactivity-guided physical result bounded by source packet
