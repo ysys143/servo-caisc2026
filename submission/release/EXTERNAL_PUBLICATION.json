@@ -1,14 +1,14 @@
 {
   "record_role": "current_external_publication",
   "assets": {
-    "servo-corrected-v3.0.18.zip": "262600ec3bdbc121c0bf008ff4214891ff44d71a017cadf6c946b7bf2013cf7f",
-    "servo_caiscfp2026_post-submit.pdf": "34416ce4f1ca19c333b1b8565516f4cf4042aed28d0648f82a04a156c1a6cefa"
+    "servo-corrected-v3.0.19.zip": "0a653172df20328b7e28e6ac2ffe0a4444efb01e2de9024e2dbfcfc7e1351677",
+    "servo_caiscfp2026_post-submit.pdf": "1eae8a3183f798bacb83edfe0077b65efcb926bbd114308acf36ec88648864dd"
   },
-  "github_commit": "927c121af8ca2469808b989912fcfc45155e633b",
-  "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v3.0.18",
-  "package_version": "3.0.18",
-  "published_at": "2026-07-22T02:57:30Z",
+  "github_commit": "64f6bddecb0cba18d8a1ffab69e91fc4cca5ce78",
+  "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v3.0.19",
+  "package_version": "3.0.19",
+  "published_at": "2026-07-22T03:04:25Z",
   "publication_doi": "not_published",
   "schema_version": "3.0.0",
-  "tag": "servo-corrected-v3.0.18"
+  "tag": "servo-corrected-v3.0.19"
 }
