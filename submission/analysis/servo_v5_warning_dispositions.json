@@ -1,0 +1,91 @@
+{
+  "schema": "servo_v5_warning_disposition",
+  "context": "T4.5-C: individual disposition of the 9 V5_MODALITY_LINT_CAPABILITY warnings emitted by the T4 full verify run over the 6-case source ledger (223 propositions).",
+  "reviewer": "claude-orchestrator (1st pass; an independent 2nd reviewer is scheduled at T13, charter D.1 step 7)",
+  "lint_nature": "verify's modality lint is warn-only and matches raw substrings ('can', 'potential', 'capable', 'ability to', 'proof of concept'); it does not parse grammar. A warning therefore flags a token, not necessarily a misclassification. Each item below is dispositioned per charter B.8 / user directive. requires_split=true means the quoted sentence fuses a directly-reported or procedural clause with a capability/possibility clause (or a second distinct functional relation) and must be split so each fragment carries one modality/relation in T5.",
+  "dispositions": [
+    {
+      "warning_id": "W-C02-P10",
+      "case_id": "C02", "proposition_id": "C02-P10",
+      "trigger": "'can include'",
+      "decision": "keep reported_as_procedure",
+      "rationale": "Main clause 'we prompt the language model to generate an interesting new research direction' is procedural; 'which can include the numerical review scores' describes what the archive may contain, not a system capability claim.",
+      "requires_split": false,
+      "reviewer": "claude-orchestrator"
+    },
+    {
+      "warning_id": "W-C02-P33",
+      "case_id": "C02", "proposition_id": "C02-P33",
+      "trigger": "'can automatically correct'",
+      "decision": "keep reported_as_procedure",
+      "rationale": "Describes the LaTeX-linter/Aider compilation-repair pipeline procedurally; 'can automatically correct' is the reported behavior of the tool, not a possibility claim about the system's scientific reach.",
+      "requires_split": false,
+      "reviewer": "claude-orchestrator"
+    },
+    {
+      "warning_id": "W-C03-P20",
+      "case_id": "C03", "proposition_id": "C03-P20",
+      "trigger": "'capable of'",
+      "decision": "keep directly_reported",
+      "rationale": "'we developed a template-free version capable of more open-ended discovery' — the main predicate is the past-tense event 'we developed'; 'capable of...' modifies the object. modality follows the main verb. T5 CAVEAT: this quote supports only the 'developed a template-free version' event; alignment must NOT use it as occurrence evidence for an 'open-ended discovery' capability.",
+      "requires_split": false,
+      "t5_flag": "do-not-treat-as-capability-occurrence",
+      "reviewer": "claude-orchestrator"
+    },
+    {
+      "warning_id": "W-C03-P60",
+      "case_id": "C03", "proposition_id": "C03-P60",
+      "trigger": "'potentially'",
+      "decision": "keep directly_reported",
+      "rationale": "Passage narrates completed past actions (participants 'were informed', 'had the option', papers 'were withdrawn'); 'potentially' modifies 'AI-generated' (the manuscripts' origin), not an actor's capability.",
+      "requires_split": false,
+      "reviewer": "claude-orchestrator"
+    },
+    {
+      "warning_id": "W-C04-P24",
+      "case_id": "C04", "proposition_id": "C04-P24",
+      "trigger": "'can either decide'",
+      "decision": "keep reported_as_procedure",
+      "rationale": "Describes the co-pilot-mode checkpoint decision branch ('the human reviewer can either decide to proceed... or ask the agent to repeat...') as a procedural mechanism, not a capability claim.",
+      "requires_split": false,
+      "reviewer": "claude-orchestrator"
+    },
+    {
+      "warning_id": "W-C05-P02",
+      "case_id": "C05", "proposition_id": "C05-P02",
+      "trigger": "'the potential'",
+      "decision": "keep directly_reported",
+      "rationale": "'Adam has recently proven the potential of such systems by identifying twelve genes...' — grammatically a past-tense achievement ('has proven ... by identifying'); 'potential' is rhetorical object, the reported event is the identification of twelve genes. T5 CAVEAT: supports the identification event, not a general 'system potential' claim.",
+      "requires_split": false,
+      "t5_flag": "do-not-treat-as-capability-occurrence",
+      "reviewer": "claude-orchestrator"
+    },
+    {
+      "warning_id": "W-C05-P05",
+      "case_id": "C05", "proposition_id": "C05-P05",
+      "trigger": "'potentially'",
+      "decision": "keep directly_reported",
+      "rationale": "'a gene (ORF) that potentially encodes it' — 'potentially' describes the hypothesis's own uncertain content (a hypothesized gene-function link), not a system capability; 'There were two types of hypothesis generated' is past-tense.",
+      "requires_split": false,
+      "reviewer": "claude-orchestrator"
+    },
+    {
+      "warning_id": "W-C05-P19",
+      "case_id": "C05", "proposition_id": "C05-P19",
+      "trigger": "'can be used' + 'potentially'",
+      "decision": "SPLIT before T5",
+      "rationale": "Genuine mixed clause per user directive. 'The parameters ... are analysed using machine learning (random forests) to obtain statistically significant results' is a procedure; the subordinate 'that can be used to either confirm or refute hypotheses, potentially resulting in new [state]' fuses a capability-framed clause AND a distinct downstream relation (evaluation -> hypothesis confirm/refute, and a further -> new state). One modality cannot safely cover both. Split into P19a (analysis procedure, reported_as_procedure) and P19b (confirm/refute + downstream, reported_only_as_capability). Execution deferred to T4.5-B (C05.json edit) to avoid colliding with the in-flight C01 edit.",
+      "requires_split": true,
+      "reviewer": "claude-orchestrator"
+    },
+    {
+      "warning_id": "W-C06-P28",
+      "case_id": "C06", "proposition_id": "C06-P28",
+      "trigger": "'potential refinement'",
+      "decision": "keep reported_as_procedure",
+      "rationale": "'we designed an adaptive evolution approach' is a past-tense authorial design decision; the remainder describes the iteration structure procedurally; 'potential refinement' sits inside that procedural description, not a standalone capability claim.",
+      "requires_split": false,
+      "reviewer": "claude-orchestrator"
+    }
+  ]
+}

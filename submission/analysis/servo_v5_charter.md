@@ -164,6 +164,27 @@ AuthorAlignment는 `assertion_kind`로 두 종류를 구분한다.
 - relation을 closure score나 predicate status로 **aggregate하지 않는다.** relation의 status는 DerivedDecisionClaim의 4축(support_status 등)에서만.
 - basis(source_explicit/author_aligned)와 boundary_status(reported/boundary_unreported)는 functional_relation에도 적용.
 
+## Part B.8 — source-layer purity & T5 alignment rubric 경계 — 2026-07-23 확정
+
+용어 수정: source layer는 "판정이 전혀 없는" 층이 아니라 **SERVO 의미론적 alignment와 derived 판정이 없는** source layer다. modality 분류·coreference·문장 분할·범위 설정은 약한 해석을 포함한다. 제거 대상은 모든 해석이 아니라 SERVO component·feedback relation·closure·policy class에 관한 **의미론적 누출**이다.
+
+### source_context_note 허용/금지 (필드명 `notes_verbatim` -> `source_context_note`)
+- 허용: (a) 문장에 생략된 직접 목적어의 source-local 복원, (b) 대명사의 동일 문단 내 지시 대상, (c) quote 전후 문맥, (d) 표·그림·본문 연결, (e) modality 판정 근거, (f) 문장 분할 이유, (g) OCR/typography 정규화 설명.
+- 금지(제거 또는 T5로 이동): memory update, repair channel, candidate conditioning, human-authority boundary, observation-to-state / evaluation-to-artifact relation, policy adaptation, BED-like, occurrence evidence. **T5 입력 코드는 이 필드를 읽지 않는다.**
+
+### T5 alignment rubric 경계 (freeze 대상)
+- Component mapping: G=후보 생성, pi=선택/다음행동 결정, E=action을 환경·도구에 적용, O_env=실행결과로 새 observation 생성, V=observation/artifact 평가, M=정보 저장, I_t=저장정보가 실제 decision input으로 사용. **memory_write != decision-relevant state update.**
+- Functional relations: 조합형 유지(B.7). 최소 cross-step 구별은 B.7 set. 모든 feedback을 evaluation_to_*로 만들지 않는다.
+- Policy classification: 다중레이블. `explicit_bed=true`는 prior/posterior·likelihood·EIG·expected epistemic utility·명시적 model-discrimination objective 중 충분한 직접 근거가 있을 때만. 단순 active learning/search/uncertainty mention 불가.
+- Evidence status(기능 의미와 별도 축): directly_reported, procedure_described, capability_only, aggregate_occurrence_reported, occurrence_traced, author_aligned, unresolved. **procedure_described와 occurrence_traced를 ordinal closure level로 합치지 않는다.**
+
+### rubric freeze 순서 (역방향 오염 금지)
+source freeze -> alignment rubric freeze -> C01 pilot -> rubric audit(C01 + 대조사례 C05 또는 C03/C06의 5~10 경계 proposition blind pilot; 표현 오류만 수정) -> rubric version freeze -> C01 포함 전 사례 동일 버전 재생성.
+C01 결과를 보고 rubric을 자유 변경 금지. 수정 필요 시: (1) rubric version up, (2) 이유 기록, (3) 기존 alignment 폐기, (4) 처음부터 재생성.
+
+### T5 착수 6조건 (모두 충족 전 AuthorAlignment 생성 금지)
+1. C01 coverage note가 pilot/incomplete 아님. 2. 6사례 동일 inclusion rule 문서화. 3. 모든 source proposition이 PDF/승인 source artifact에 결속. 4. source_context_note에서 SERVO 의미론 누출 제거. 5. 9개 modality warning 개별 disposition 완료. 6. source freeze manifest + downstream invalidation 규칙 생성.
+
 ## Part C — v4.1 -> v5 이관·폐기 목록 (실측 기반)
 
 ### C.1 주분석에서 퇴역(폐기) — 역사자료/파생쿼리로만 유지
