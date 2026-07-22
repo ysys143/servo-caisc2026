@@ -86,6 +86,24 @@
       "rationale": "'we designed an adaptive evolution approach' is a past-tense authorial design decision; the remainder describes the iteration structure procedurally; 'potential refinement' sits inside that procedural description, not a standalone capability claim.",
       "requires_split": false,
       "reviewer": "claude-orchestrator"
+    },
+    {
+      "warning_id": "W-C01-P17",
+      "case_id": "C01", "proposition_id": "C01-P17",
+      "trigger": "'capabilities' (interrogative)",
+      "decision": "keep directly_reported",
+      "rationale": "'What are the capabilities of LLMs...' is an interrogative framing of the paper's research questions ('we intended to address the following questions'), past-tense authorial, not a capability claim about a recorded occurrence. (Added at T4.5-A when C01 pages 1-4 were appended.)",
+      "requires_split": false,
+      "reviewer": "claude-orchestrator"
+    },
+    {
+      "warning_id": "W-C01-P65",
+      "case_id": "C01", "proposition_id": "C01-P65",
+      "trigger": "'One can see'",
+      "decision": "keep directly_reported",
+      "rationale": "'One can see that the air bubble was injected...' is idiomatic reporting of what a recorded figure shows, not a system-capability claim. (Added at T4.5-A.)",
+      "requires_split": false,
+      "reviewer": "claude-orchestrator"
     }
   ]
 }

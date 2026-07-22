@@ -7,7 +7,7 @@
   "citation_key": "boiko2023emergent",
   "source_pdf_name": "Boiko 2023 - Autonomous Chemical Research with LLMs.pdf",
   "source_pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
-  "coverage_note": "Pilot pass extracted only from PDF physical pages 5-8 (journal 574-577), verified against the source. Pages 1-4 (incl. setup and the p2 subjective-labeling statement carried in the historical ledger as R01-E05) are NOT yet re-verified and are pending a full pass. No judgment, alignment, or closure status is stored here (charter B.1).",
+  "coverage_note": "Full pass over PDF physical pages 1-8 (journal 570-577), verified against the source; pages 5-8 are the original pilot pass, pages 1-4 (P15-P79) were appended in a later pass to remove the pilot's page-bias, applying the same broad inclusion rule as C02-C06 (setup, actor/component naming, task regime, human/external-system boundaries, fixed procedures, and negative/failure findings, not only verdict-useful sentences). The p2 subjective-labeling statement historically tracked as R01-E05 is now captured as C01-P41. Deliberately excluded from pages 1-4: figure captions/legends (Fig. 1a-c, Fig. 2a-c, Fig. 3a-d) as visual-encoding metadata rather than reported content; the generic information-retrieval background paragraph on page 3 (inverted index vs vector database mechanics) as domain background not specific to Coscientist; and a handful of sentences judged redundant with an adjacent kept proposition (e.g. the DOCUMENTATION-command sentence duplicating GOOGLE's role, the Reaxys/SciFinder forward-looking suggestion duplicating the ReAct/Chain-of-Thought one, and a couple of secondary per-compound benchmark statistics). One sentence spanning the page 2/3 boundary ('...All non-browsing models incorrectly synthesized ibuprofen (Fig. 2c).') is split at the page break per the single-page locator contract (C01-P44/C01-P45), following the C05 page 5/6 boundary precedent. Several page 1-4 quotes use '[...]' to elide inline citation-number superscripts that the source PDF's corrupted font ToUnicode CMap and OCR both render unreliably (C01-P25, C01-P39, C01-P48, C01-P50, C01-P51); the surrounding prose is quoted verbatim. No judgment, alignment, or closure status is stored here (charter B.1).",
   "propositions": [
     {
       "proposition_id": "C01-P01",
@@ -142,6 +142,616 @@
       "named_inputs": ["OT-2 heater–shaker module"],
       "named_outputs": [],
       "notes_verbatim": "task-design statement by the authors"
+    },
+    {
+      "proposition_id": "C01-P15",
+      "locator": {"pdf_page": 1, "journal_page": 570, "section": "Abstract"},
+      "exact_quote": "we show the development and capabilities of Coscientist, an artificial intelligence system driven by GPT-4 that autonomously designs, plans and performs complex experiments by incorporating large language models empowered [...] by tools such as internet and documentation search, code execution and experimental automation.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Coscientist"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "abstract's architectural characterization of Coscientist, preceding the paper's detailed system-architecture section; grammar is habitual present ('designs, plans and performs'), not a specific occurrence. '[...]' elides an OCR reading-order artifact (a stray citation fragment from the preceding sentence) between 'empowered' and 'by tools'"
+    },
+    {
+      "proposition_id": "C01-P16",
+      "locator": {"pdf_page": 1, "journal_page": 570, "section": "Abstract"},
+      "exact_quote": "Coscientist showcases its potential for accelerating research across six diverse tasks, including the successful reaction optimization of palladium-catalysed cross-couplings, while exhibiting advanced capabilities for (semi-)autonomous experimental design and execution.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["Coscientist"],
+      "named_inputs": [],
+      "named_outputs": ["successful reaction optimization of palladium-catalysed cross-couplings"],
+      "notes_verbatim": "'potential' and 'capabilities' -- capability/possibility framing for the sentence as a whole, despite the embedded 'successful reaction optimization' clause"
+    },
+    {
+      "proposition_id": "C01-P17",
+      "locator": {"pdf_page": 1, "journal_page": 570, "section": "Introduction"},
+      "exact_quote": "To accomplish this, we intended to address the following questions. What are the capabilities of LLMs in the scientific process? What degree of autonomy can we achieve? How can we understand the decisions made by autonomous agents?",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "authors' framing questions guiding the system's design ('we intended to address')"
+    },
+    {
+      "proposition_id": "C01-P18",
+      "locator": {"pdf_page": 1, "journal_page": 570, "section": "Introduction"},
+      "exact_quote": "In this work, we present a multi-LLMs-based intelligent agent (hereafter simply called Coscientist) capable of autonomous design, planning and performance of complex scientific experiments.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["Coscientist"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "point of the system's naming ('hereafter simply called Coscientist'); 'capable of' framing"
+    },
+    {
+      "proposition_id": "C01-P19",
+      "locator": {"pdf_page": 1, "journal_page": 570, "section": "Introduction"},
+      "exact_quote": "Coscientist can use tools to browse the internet and relevant documentation, use robotic experimentation application programming interfaces (APIs) and leverage other LLMs for various tasks.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["Coscientist"],
+      "named_inputs": ["application programming interfaces (APIs)"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P20",
+      "locator": {"pdf_page": 1, "journal_page": 570, "section": "Introduction"},
+      "exact_quote": "In this paper, we demonstrate the versatility and performance of Coscientist in six tasks: (1) planning chemical syntheses of known compounds using publicly available data; (2) efficiently searching and navigating through extensive hardware documentation; (3) using documentation to execute high-level commands in a cloud laboratory; (4) precisely controlling liquid handling instruments with low-level instructions; (5) tackling complex scientific tasks that demand simultaneous use of multiple hardware modules and integration of diverse data sources; and (6) solving optimization problems requiring analyses of previously collected experimental data.",
+      "modality": "directly_reported",
+      "named_actors": ["Coscientist"],
+      "named_inputs": [],
+      "named_outputs": ["six tasks: chemical synthesis planning, hardware documentation search, cloud-laboratory command execution, liquid-handling control, multi-module task integration, optimization analysis"]
+    },
+    {
+      "proposition_id": "C01-P21",
+      "locator": {"pdf_page": 1, "journal_page": 570, "section": "Coscientist system architecture"},
+      "exact_quote": "Coscientist acquires the necessary knowledge to solve a complex problem by interacting with multiple modules (web and documentation search, code execution) and by performing experiments.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Coscientist"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P22",
+      "locator": {"pdf_page": 1, "journal_page": 570, "section": "Coscientist system architecture"},
+      "exact_quote": "The main module (‘Planner’) has the goal of planning, based on the user input by invoking the commands defined below.",
+      "modality": "directly_reported",
+      "named_actors": ["Planner"],
+      "named_inputs": ["user input"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P23",
+      "locator": {"pdf_page": 1, "journal_page": 570, "section": "Coscientist system architecture"},
+      "exact_quote": "The Planner is a GPT-4 chat completion instance serving the role of an assistant.",
+      "modality": "directly_reported",
+      "named_actors": ["Planner"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P24",
+      "locator": {"pdf_page": 1, "journal_page": 570, "section": "Coscientist system architecture"},
+      "exact_quote": "The initial user input along with command outputs are treated as user messages to the Planner.",
+      "modality": "directly_reported",
+      "named_actors": ["Planner"],
+      "named_inputs": ["initial user input", "command outputs"],
+      "named_outputs": ["user messages to the Planner"]
+    },
+    {
+      "proposition_id": "C01-P25",
+      "locator": {"pdf_page": 1, "journal_page": 570, "section": "Coscientist system architecture"},
+      "exact_quote": "System prompts (static inputs defining the LLMs’ goals) for the Planner are engineered [...] in a modular fashion, described as four commands that define the action space: ‘GOOGLE’, ‘PYTHON’, ‘DOCUMENTATION’ and ‘EXPERIMENT’.",
+      "modality": "directly_reported",
+      "named_actors": ["Planner", "GOOGLE", "PYTHON", "DOCUMENTATION", "EXPERIMENT"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "'[...]' elides a citation-number superscript between 'engineered' and 'in a modular fashion'"
+    },
+    {
+      "proposition_id": "C01-P26",
+      "locator": {"pdf_page": 1, "journal_page": 570, "section": "Coscientist system architecture"},
+      "exact_quote": "The Planner calls on each of these commands as needed to collect knowledge.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Planner"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P27",
+      "locator": {"pdf_page": 1, "journal_page": 570, "section": "Coscientist system architecture"},
+      "exact_quote": "The GOOGLE command is responsible for searching the internet with the ‘Web searcher’ module, which is another LLM itself.",
+      "modality": "directly_reported",
+      "named_actors": ["GOOGLE", "Web searcher"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P28",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Coscientist system architecture"},
+      "exact_quote": "The PYTHON command [...] allows the Planner to perform calculations to prepare the experiment using a ‘Code execution’ module.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["PYTHON", "Planner", "Code execution"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "'[...]' elides an OCR word-merge artifact ('commandallows') between 'command' and 'allows'"
+    },
+    {
+      "proposition_id": "C01-P29",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Coscientist system architecture"},
+      "exact_quote": "The EXPERIMENT command actualizes ‘Automation’ through APIs described by the DOCUMENTATION module.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["EXPERIMENT", "Automation", "DOCUMENTATION"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P30",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Coscientist system architecture"},
+      "exact_quote": "In this study, we have demonstrated the compatibility with the Opentrons Python API and the Emerald Cloud Lab (ECL) Symbolic Lab Language (SLL).",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["Opentrons Python API", "Emerald Cloud Lab (ECL) Symbolic Lab Language (SLL)"]
+    },
+    {
+      "proposition_id": "C01-P31",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Coscientist system architecture"},
+      "exact_quote": "Together, these modules make up Coscientist, which receives a simple plain text input prompt from the user (for example, [...] ).",
+      "modality": "directly_reported",
+      "named_actors": ["Coscientist"],
+      "named_inputs": ["plain text input prompt from the user"],
+      "named_outputs": [],
+      "notes_verbatim": "'[...]' elides the worked example ('perform multiple Suzuki reactions'); its quotation marks are unreadable on both the text layer (corrupted CMap) and OCR (merges 'plain text' into 'plaintext' at this exact span, unlike elsewhere on the page)"
+    },
+    {
+      "proposition_id": "C01-P32",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Coscientist system architecture"},
+      "exact_quote": "The GOOGLE command is capable of transforming prompts into appropriate web search queries, running them against the Google Search API, browsing web pages and funneling answers back to the Planner.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["GOOGLE", "Planner"],
+      "named_inputs": ["prompts"],
+      "named_outputs": ["web search queries", "answers"]
+    },
+    {
+      "proposition_id": "C01-P33",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Coscientist system architecture"},
+      "exact_quote": "Similarly, the DOCUMENTATION command performs retrieval and summarization of necessary documentation (for example, robotic liquid handler or a cloud laboratory) for Planner to invoke the EXPERIMENT command.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["DOCUMENTATION", "Planner", "EXPERIMENT"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P34",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Coscientist system architecture"},
+      "exact_quote": "The PYTHON command performs code execution (not reliant upon any language model) using an isolated Docker container to protect the users’ machine from any unexpected actions requested by the Planner.",
+      "modality": "directly_reported",
+      "named_actors": ["PYTHON", "Planner"],
+      "named_inputs": [],
+      "named_outputs": ["isolated Docker container"],
+      "notes_verbatim": "explicit statement that this command's code execution is not reliant upon any language model"
+    },
+    {
+      "proposition_id": "C01-P35",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Coscientist system architecture"},
+      "exact_quote": "Importantly, the language model behind the Planner enables code to be fixed in case of software errors.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Planner"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P36",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Coscientist system architecture"},
+      "exact_quote": "The same applies to the EXPERIMENT command of the Automation module, which executes generated code on corresponding hardware or provides the synthetic procedure for manual experimentation.",
+      "modality": "directly_reported",
+      "named_actors": ["EXPERIMENT", "Automation"],
+      "named_inputs": [],
+      "named_outputs": ["generated code executed on hardware", "synthetic procedure for manual experimentation"],
+      "notes_verbatim": "reports a manual-experimentation path alongside the hardware-execution path"
+    },
+    {
+      "proposition_id": "C01-P37",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Web search module"},
+      "exact_quote": "To demonstrate one of the functionalities of the Web Searcher module, we designed a test set composed of seven compounds to synthesize, as presented in Fig. 2a.",
+      "modality": "directly_reported",
+      "named_actors": ["Web Searcher"],
+      "named_inputs": [],
+      "named_outputs": ["test set of seven compounds to synthesize"]
+    },
+    {
+      "proposition_id": "C01-P38",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Web search module"},
+      "exact_quote": "The Web Searcher module versions are represented as ‘search-gpt-4’ and ‘search-gpt-3.5-turbo’.",
+      "modality": "directly_reported",
+      "named_actors": ["Web Searcher"],
+      "named_inputs": [],
+      "named_outputs": ["search-gpt-4", "search-gpt-3.5-turbo"]
+    },
+    {
+      "proposition_id": "C01-P39",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Web search module"},
+      "exact_quote": "Our baselines include OpenAI [...] GPT-3.5 and GPT-4, Anthropic [...] Claude 1.3 [...] and Falcon-40B-Instruct",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["GPT-3.5", "GPT-4", "Claude 1.3", "Falcon-40B-Instruct"],
+      "notes_verbatim": "'[...]' elides possessive-apostrophe spans ('OpenAI's', 'Anthropic's') unreadable on the text layer (corrupted CMap) and a citation-number superscript after 'Claude 1.3'; quote stops before the following em-dash clause, whose citation-adjacent characters could not be read cleanly by either the text layer or OCR"
+    },
+    {
+      "proposition_id": "C01-P40",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Web search module"},
+      "exact_quote": "We prompted every model to provide a detailed compound synthesis, ranking the outputs on the following scale (Fig. 2): [...] 5 for a very detailed and chemically accurate procedure description [...] 4 for a detailed and chemically accurate description but without reagent quantities [...] 3 for a correct chemistry description that does not include [...] procedure [...] 2 for extremely vague or unfeasible descriptions [...] 1 for incorrect responses or failure to follow instructions",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["5-point compound-synthesis scoring scale"],
+      "notes_verbatim": "source renders this as a bulleted list; each '[...]' elides a bullet marker (or, before 'procedure', a page-line-wrap artifact that drops the hyphen from 'step-by-step'), wording otherwise verbatim"
+    },
+    {
+      "proposition_id": "C01-P41",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Web search module"},
+      "exact_quote": "Despite our attempts to better formalize the scale, labelling is inherently subjective and so, may be different between the labelers.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "authors' admission of labeling subjectivity for the compound-synthesis scoring scale (historically tracked as R01-E05, pending re-verification per the prior coverage_note)"
+    },
+    {
+      "proposition_id": "C01-P42",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Web search module"},
+      "exact_quote": "Across non-browsing models, the two versions of the GPT-4 model performed best, with Claude v.1.3 demonstrating similar performance.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["GPT-4 model (two versions)", "Claude v.1.3"]
+    },
+    {
+      "proposition_id": "C01-P43",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Web search module"},
+      "exact_quote": "GPT-3 performed significantly worse, and Falcon 40B failed in most cases.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P44",
+      "locator": {"pdf_page": 2, "journal_page": 571, "section": "Web search module"},
+      "exact_quote": "All non-browsing models incorrectly synthesized ibuprofen",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "sentence continues onto PDF page 3 as '(Fig. 2c).'; quote stops at the page boundary per the single-page locator contract (cf. C05's page 5/6 boundary omission)"
+    },
+    {
+      "proposition_id": "C01-P45",
+      "locator": {"pdf_page": 3, "journal_page": 572, "section": "Web search module"},
+      "exact_quote": "Nitroaniline is another example; although some generalization of chemical knowledge might inspire the model to propose direct nitration, this approach is not experimentally applicable as it would produce a mixture of compounds with a very minor amount of the product (Fig. 2b).",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "continues the results paragraph whose opening clause '(Fig. 2c).' falls on the preceding page (see C01-P44)"
+    },
+    {
+      "proposition_id": "C01-P46",
+      "locator": {"pdf_page": 3, "journal_page": 572, "section": "Web search module"},
+      "exact_quote": "The GPT-4-powered Web Searcher significantly improves on synthesis planning.",
+      "modality": "directly_reported",
+      "named_actors": ["Web Searcher"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P47",
+      "locator": {"pdf_page": 3, "journal_page": 572, "section": "Web search module"},
+      "exact_quote": "Although it was the only one to achieve the minimum acceptable score of three for ibuprofen, it performed lower than some of the other models for ethylacetate and benzoic acid, possibly because of the widespread nature of these compounds.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P48",
+      "locator": {"pdf_page": 3, "journal_page": 572, "section": "Web search module"},
+      "exact_quote": "These results show the importance of grounding LLMs to avoid ‘hallucinations",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "quote stops before the closing quotation mark: OCR drops it (reading directly into the following citation-number superscript and period), and the text layer's closing-quote glyph is corrupted by the same CMap defect as the possessive apostrophe"
+    },
+    {
+      "proposition_id": "C01-P49",
+      "locator": {"pdf_page": 3, "journal_page": 572, "section": "Web search module"},
+      "exact_quote": "Overall, the performance of GPT-3.5-enabled Web Searcher trailed its GPT-4 competition, mainly because of its failure to follow specific instructions regarding output format.",
+      "modality": "directly_reported",
+      "named_actors": ["Web Searcher"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P50",
+      "locator": {"pdf_page": 3, "journal_page": 572, "section": "Web search module"},
+      "exact_quote": "Alternatively, analysing the system [...] previous statements is another approach to improving its accuracy. This can be done through advanced prompting strategies, such as ReAct [...] Chain of Thought [...] and Tree of Thoughts",
+      "modality": "reported_only_as_capability",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "'[...]' elides a possessive-apostrophe span ('system's', text-layer CMap corruption) and citation-number superscripts after 'ReAct' and 'Chain of Thought'; quote stops before the final citation-number superscript and period after 'Thoughts'"
+    },
+    {
+      "proposition_id": "C01-P51",
+      "locator": {"pdf_page": 3, "journal_page": 572, "section": "Documentation search module"},
+      "exact_quote": "LLMs can refine their understanding of common APIs, such as the Opentrons Python API [...], by interpreting and learning from relevant technical documentation.",
+      "modality": "reported_only_as_capability",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "'[...]' elides a citation-number superscript after 'Opentrons Python API'"
+    },
+    {
+      "proposition_id": "C01-P52",
+      "locator": {"pdf_page": 3, "journal_page": 572, "section": "Documentation search module"},
+      "exact_quote": "Furthermore, we show how GPT-4 can learn how to programme in the ECL SLL.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["GPT-4"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P53",
+      "locator": {"pdf_page": 3, "journal_page": 572, "section": "Documentation search module"},
+      "exact_quote": "Our approach involved equipping Coscientist with essential documentation tailored to specific tasks (as illustrated in Fig. 3a), allowing it to refine its accuracy in using the API and improve its performance in automating experiments.",
+      "modality": "directly_reported",
+      "named_actors": ["Coscientist"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P54",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "Following the second approach, all sections of the OT-2 API documentation were embedded using OpenAI [...] ada model.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": ["OT-2 API documentation"],
+      "named_outputs": [],
+      "notes_verbatim": "'the second approach' refers to the vector-database candidate-selection approach named earlier in this paragraph; '[...]' elides a possessive-apostrophe span ('OpenAI's') unreadable on the text layer (CMap corruption) and misread by OCR ('Openal's')"
+    },
+    {
+      "proposition_id": "C01-P55",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "To ensure proper use of the API, an ada embedding for the Planner’s query was generated, and documentation sections are selected through a distance-based vector search.",
+      "modality": "directly_reported",
+      "named_actors": ["Planner"],
+      "named_inputs": [],
+      "named_outputs": ["ada embedding for the Planner's query", "selected documentation sections"]
+    },
+    {
+      "proposition_id": "C01-P56",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "This approach proved critical for providing Coscientist with information about the heater–shaker hardware module necessary for performing chemical reactions",
+      "modality": "directly_reported",
+      "named_actors": ["Coscientist"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P57",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "We conducted three separate investigations concerning the SLL: (1) prompt-to-function; (2) prompt-to-SLL; and (3) prompt-to-samples.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["prompt-to-function", "prompt-to-SLL", "prompt-to-samples"]
+    },
+    {
+      "proposition_id": "C01-P58",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "For investigation 1, we provide the Docs searcher with a documentation guide from ECL pertaining to all available functions for running experiments",
+      "modality": "directly_reported",
+      "named_actors": ["Docs searcher"],
+      "named_inputs": ["documentation guide from ECL"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P59",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "Figure 3c summarizes an example of the user providing a simple prompt to the system, with the Planner receiving relevant ECL functions.",
+      "modality": "directly_reported",
+      "named_actors": ["Planner"],
+      "named_inputs": ["simple prompt"],
+      "named_outputs": ["relevant ECL functions"]
+    },
+    {
+      "proposition_id": "C01-P60",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "A single appropriate function is selected for the task, and the documentation is passed through a separate GPT-4 model to perform code retention and summarization.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["a separate GPT-4 model"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P61",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "After the complete documentation has been processed, the Planner receives usage information to provide EXPERIMENT code in the SLL.",
+      "modality": "directly_reported",
+      "named_actors": ["Planner", "EXPERIMENT"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P62",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "Proper use of this function requires familiarity with specific ‘Models’ and ‘Objects’ as they are defined in the SLL.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["Models", "Objects"]
+    },
+    {
+      "proposition_id": "C01-P63",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "Generated code was successfully executed at ECL; this is available in Supplementary Information.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P64",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "The sample was a caffeine standard sample. Other parameters (column, mobile phases, gradients) were determined by ECL’s internal software",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": ["caffeine standard sample"],
+      "named_outputs": [],
+      "notes_verbatim": "explicit statement that parameter determination for this step was performed by ECL's internal software, not Coscientist"
+    },
+    {
+      "proposition_id": "C01-P65",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "One can see that the air bubble was injected along with the analyte [...] solution. This demonstrates the importance of development of automated techniques for quality control in cloud laboratories.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "'[...]' elides a possessive-apostrophe span ('analyte's') unreadable on the text layer (CMap corruption); OCR misreads this whole sentence as unrelated figure-caption content, so the text layer is used here"
+    },
+    {
+      "proposition_id": "C01-P66",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "Follow-up experiments leveraging web search to specify and/or refine additional experimental parameters (column chemistry, buffer system, gradient and so on) would be required to optimize the experimental results.",
+      "modality": "reported_only_as_capability",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "forward-looking 'would be required' framing, not a recorded occurrence"
+    },
+    {
+      "proposition_id": "C01-P67",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "A separate prompt-to-samples investigation, investigation 3, was conducted by providing a catalogue of available samples, enabling the identification of relevant stock solutions that are on ECL’s shelves.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": ["catalogue of available samples"],
+      "named_outputs": ["relevant stock solutions"]
+    },
+    {
+      "proposition_id": "C01-P68",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "To showcase this feature, we provide the Docs searcher module with all 1,110 Model samples from the catalogue.",
+      "modality": "directly_reported",
+      "named_actors": ["Docs searcher"],
+      "named_inputs": ["1,110 Model samples"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P69",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Documentation search module"},
+      "exact_quote": "By simply providing a search term (for example, ‘Acetonitrile’), all relevant samples are returned.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": ["search term"],
+      "named_outputs": ["relevant samples"]
+    },
+    {
+      "proposition_id": "C01-P70",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Controlling laboratory hardware"},
+      "exact_quote": "Access to documentation enables us to provide sufficient information for Coscientist to conduct experiments in the physical world.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["Coscientist"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P71",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Controlling laboratory hardware"},
+      "exact_quote": "To initiate the investigation, we chose the Opentrons OT-2, an open-source liquid handler with a well-documented Python API.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["Opentrons OT-2"]
+    },
+    {
+      "proposition_id": "C01-P72",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Controlling laboratory hardware"},
+      "exact_quote": "The [...] Getting Started [...] page from its documentation was supplied to the Planner in the system prompt. Other pages were vectorized using the approach described above.",
+      "modality": "directly_reported",
+      "named_actors": ["Planner"],
+      "named_inputs": ["'Getting Started' page"],
+      "named_outputs": [],
+      "notes_verbatim": "'[...]' elides the quotation marks around 'Getting Started', corrupted on the text layer (same CMap defect as elsewhere) and unreliable on OCR at this exact span"
+    },
+    {
+      "proposition_id": "C01-P73",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Controlling laboratory hardware"},
+      "exact_quote": "For this investigation, we did not grant access to the internet",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "explicit access restriction bounding this investigation"
+    },
+    {
+      "proposition_id": "C01-P74",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Controlling laboratory hardware"},
+      "exact_quote": "We started with simple plate layout-specific experiments.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P75",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Controlling laboratory hardware"},
+      "exact_quote": "Straightforward prompts in natural language, such as “colour every other line with one colour of your choice”, resulted in accurate protocols. When executed by the robot, these protocols closely resembled the requested prompt",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": ["colour every other line with one colour of your choice"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P76",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Controlling laboratory hardware"},
+      "exact_quote": "Ultimately, we aimed to assess the system’s ability to integrate multiple modules simultaneously.",
+      "modality": "reported_only_as_capability",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P77",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Controlling laboratory hardware"},
+      "exact_quote": "Specifically, we provided the ‘UVVIS’ command, which can be used to pass a microplate to plate reader working in the ultraviolet–visible wavelength range.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["UVVIS"],
+      "named_inputs": ["microplate"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P78",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Controlling laboratory hardware"},
+      "exact_quote": "To evaluate Coscientist’s capabilities to use multiple hardware tools, we designed a toy task; in 3 wells of a [...] 96-well plate, three different colours are present—red, yellow and blue.",
+      "modality": "directly_reported",
+      "named_actors": ["Coscientist"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "quote contains 'capabilities' (lint marker) but the reporting clause is past-tense achievement ('we designed a toy task'), describing an actual constructed task rather than a modal capability. '[...]' elides an OCR word-merge artifact ('a96-well') between 'a' and '96-well'"
+    },
+    {
+      "proposition_id": "C01-P79",
+      "locator": {"pdf_page": 4, "journal_page": 573, "section": "Controlling laboratory hardware"},
+      "exact_quote": "The system must determine the colours and their positions on the plate without any prior information.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "obligatory task-specification framing ('must determine')"
     }
   ]
 }
