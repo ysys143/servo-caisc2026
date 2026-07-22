@@ -99,6 +99,8 @@
     "analysis/validate_servo2.py": "05e474a8eed810e05e5978772011f0801a5d96265f02682c5aa70cc30805b6ec",
     "pyproject.toml": "238cd4c7214839bf1a0baa20acfc882842ae5ce0e308fe4c4e3816dab8b585ad",
     "release-role-manifest.json": "f746f7e74d089f97643ebff1b084f6962fbfd84825d946a2ad129806c6f7c431",
+    "release_attestation.json": "832f94c87a285a4f81c2bcf62a09b9105e8ccd927aeb7fa8510d09d2893bfe7d",
+    "servo_caiscfp2026_post-submit.pdf": "009d69e9c47cc79eb5ceb1c2b4b94c9f86a0c53fc510c882ac74c4e1f7a73fd3",
     "uv.lock": "a7b6f0998a66fc83463e524eb381d87d7684e2bef0256f1fe8a767c4954a1ebc"
   },
   "schema_version": "3.0.0"

@@ -2,7 +2,7 @@
   "record_role": "current_external_publication",
   "assets": {
     "servo-corrected-v3.0.20.zip": "352f11eb951ba79bd82762e051bac41690c3ac83bc31464a8513a9b48b560394",
-    "servo_caiscfp2026_post-submit.pdf": "e7750ae69af1745c1f364f2b6edc9307687d4c46bac81850466867f9472be752"
+    "servo_caiscfp2026_post-submit.pdf": "009d69e9c47cc79eb5ceb1c2b4b94c9f86a0c53fc510c882ac74c4e1f7a73fd3"
   },
   "github_commit": "9f5430712e3efaa549b6ff5aedc047da5b86340e",
   "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v3.0.20",
