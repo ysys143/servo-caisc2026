@@ -1,0 +1,956 @@
+{
+  "schema": "servo_v5_source_proposition",
+  "schema_doc": "analysis/servo_v5_source_proposition_schema.md",
+  "status": "pilot",
+  "case_id": "C03",
+  "system": "AI Scientist 2026",
+  "citation_key": "lu2026aiscientist",
+  "source_pdf_name": "Towards end-to-end automation of AI research.pdf",
+  "source_pdf_sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+  "coverage_note": "Extracted from the full Nature article (PDF physical pages 1-9; journal pages 914-919+), verified against the source. Frozen boundary: version 2026-nature, configuration template-free-tree, task regime computational-tree-search -- covers ONLY the template-free agentic-tree configuration (idea generation, experiment progress manager, parallelized agentic tree search, node variants, VLM/plot critique, manuscript writing, Automated Reviewer) plus the ICBINB workshop human-evaluation narrative (manual selection, blind review, withdrawal protocol, internal review). The template-based system's own three-phase workflow (Methods, PDF page 7) is deliberately excluded except where a single sentence names both settings together (tree_setting proposition, elided with [...] is not used -- the template-based clause is simply not quoted). Manual submission selection and workshop/organizer review are recorded as reported by the authors, external to the automated pipeline, per the task boundary. No judgment, alignment, or closure status is stored here (charter B.1). Journal page numbers are recorded only for PDF pages 1-4 (914-917), where a running footer was directly observed in extraction; PDF pages 7-9 (Methods/back matter) carry no such footer in the extracted text, so journal_page is omitted there rather than guessed.",
+  "propositions": [
+    {
+      "proposition_id": "C03-P01",
+      "locator": {
+        "pdf_page": 1,
+        "journal_page": 914,
+        "section": "Abstract"
+      },
+      "exact_quote": "We evaluate The AI Scientist in two settings: a focused mode using human-provided code templates as an initial scaffold for conducting research on a specific topic and a template-free, open-ended mode that leverages agentic search for wider scientific exploration",
+      "modality": "directly_reported",
+      "named_actors": [
+        "The AI Scientist"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P02",
+      "locator": {
+        "pdf_page": 2,
+        "journal_page": 915,
+        "section": "Generating manuscripts"
+      },
+      "exact_quote": "Alternatively, The AI Scientist can generate an initial starting code script by itself.",
+      "modality": "reported_only_as_capability",
+      "named_actors": [
+        "The AI Scientist"
+      ],
+      "named_inputs": [],
+      "named_outputs": [
+        "initial starting code script"
+      ]
+    },
+    {
+      "proposition_id": "C03-P03",
+      "locator": {
+        "pdf_page": 2,
+        "journal_page": 915,
+        "section": "Generating manuscripts"
+      },
+      "exact_quote": "In this case, experimentation includes further stages for optimizing the code it writes from scratch, and experiment execution leverages extra test-time compute with a tree search",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P04",
+      "locator": {
+        "pdf_page": 2,
+        "journal_page": 915,
+        "section": "Generating manuscripts"
+      },
+      "exact_quote": "After each experiment, The AI Scientist is given the results and is prompted to take notes in the style of an experimental journal for future planning and write-up.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "The AI Scientist"
+      ],
+      "named_inputs": [
+        "results"
+      ],
+      "named_outputs": [
+        "notes"
+      ]
+    },
+    {
+      "proposition_id": "C03-P05",
+      "locator": {
+        "pdf_page": 2,
+        "journal_page": 915,
+        "section": "Fig. 1 caption"
+      },
+      "exact_quote": "The AI Scientist consists of distinct phases covering automated idea generation, tree-based experimentation, manuscript writing and reviewing.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "The AI Scientist"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P06",
+      "locator": {
+        "pdf_page": 2,
+        "journal_page": 915,
+        "section": "Fig. 1 caption"
+      },
+      "exact_quote": "The experimentation phase uses an agentic tree search to generate and refine code implementations. This is structured into four stages: (1) initial investigation, (2) hyperparameter tuning, (3) research agenda execution and (4) ablation studies.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [
+        "code implementations"
+      ]
+    },
+    {
+      "proposition_id": "C03-P07",
+      "locator": {
+        "pdf_page": 2,
+        "journal_page": 915,
+        "section": "Fig. 1 caption"
+      },
+      "exact_quote": "From one experimental stage to the next, the best-performing checkpoint is selected to seed the next stage of the tree search.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [
+        "best-performing checkpoint"
+      ]
+    },
+    {
+      "proposition_id": "C03-P08",
+      "locator": {
+        "pdf_page": 3,
+        "journal_page": 916,
+        "section": "Human evaluation results"
+      },
+      "exact_quote": "We manually filtered the most promising outputs at each stage (Supplementary Information section A.4).",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [
+        "the most promising outputs"
+      ]
+    },
+    {
+      "proposition_id": "C03-P09",
+      "locator": {
+        "pdf_page": 3,
+        "journal_page": 916,
+        "section": "Human evaluation results"
+      },
+      "exact_quote": "Had this filtering not occurred, the papers under analysis would still have been produced in their final form, just along with other papers and, thus, at a greater total cost.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [
+        "the papers under analysis"
+      ],
+      "notes_verbatim": "counterfactual claim: authors assert the papers would still reach final form without the manual filtering step"
+    },
+    {
+      "proposition_id": "C03-P10",
+      "locator": {
+        "pdf_page": 3,
+        "journal_page": 916,
+        "section": "Human evaluation results"
+      },
+      "exact_quote": "This process resulted in three complete manuscripts being selected for submission.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [
+        "three complete manuscripts"
+      ]
+    },
+    {
+      "proposition_id": "C03-P11",
+      "locator": {
+        "pdf_page": 3,
+        "journal_page": 916,
+        "section": "Human evaluation results"
+      },
+      "exact_quote": "The selection was based on three criteria: whether the idea was aligned with the workshop topic, whether the code correctly implemented the proposed idea and ran without errors, and the correctness of the manuscript formatting (Supplementary Information section A.4).",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P12",
+      "locator": {
+        "pdf_page": 3,
+        "journal_page": 916,
+        "section": "Human evaluation results"
+      },
+      "exact_quote": "The entire scientific workflow for each paper, from ideation and coding to manuscript writing, was performed without any human modification.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P13",
+      "locator": {
+        "pdf_page": 3,
+        "journal_page": 916,
+        "section": "Human evaluation results"
+      },
+      "exact_quote": "These three submissions were included among the 43 papers reviewed for the workshop. Reviewers were informed that some of the submissions were AI-generated but not which ones, ensuring a blind process.",
+      "modality": "directly_reported",
+      "named_actors": [
+        "Reviewers"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P14",
+      "locator": {
+        "pdf_page": 3,
+        "journal_page": 916,
+        "section": "Human evaluation results"
+      },
+      "exact_quote": "One of the three AI-generated manuscripts received an average score of 6.33 from the reviewers (individual scores were 6, 7 and 6), placing it above the average acceptance threshold for the workshop (Fig. 2).",
+      "modality": "directly_reported",
+      "named_actors": [
+        "the reviewers"
+      ],
+      "named_inputs": [],
+      "named_outputs": [
+        "an average score of 6.33"
+      ]
+    },
+    {
+      "proposition_id": "C03-P15",
+      "locator": {
+        "pdf_page": 3,
+        "journal_page": 916,
+        "section": "Human evaluation results"
+      },
+      "exact_quote": "The organizers said that the paper would have been accepted in all likelihood were it not withdrawn according to our pre-established protocol due to being AI-generated.",
+      "modality": "directly_reported",
+      "named_actors": [
+        "The organizers"
+      ],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "reported speech (what the organizers said), not the authors' own direct observation"
+    },
+    {
+      "proposition_id": "C03-P16",
+      "locator": {
+        "pdf_page": 3,
+        "journal_page": 916,
+        "section": "Human evaluation results"
+      },
+      "exact_quote": "Thus, a fully AI-generated paper passed a standard scientific peer-review process.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P17",
+      "locator": {
+        "pdf_page": 3,
+        "journal_page": 916,
+        "section": "Human evaluation results"
+      },
+      "exact_quote": "We also conducted our own internal review, using the human AI researchers on our team (Supplementary Information section C.2).",
+      "modality": "directly_reported",
+      "named_actors": [
+        "the human AI researchers on our team"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P18",
+      "locator": {
+        "pdf_page": 3,
+        "journal_page": 916,
+        "section": "Human evaluation results"
+      },
+      "exact_quote": "The team concluded that although one of the papers did meet the bar for workshop papers, none met the higher bar for a main ICLR conference publication.",
+      "modality": "directly_reported",
+      "named_actors": [
+        "The team"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P19",
+      "locator": {
+        "pdf_page": 7,
+        "section": "Methods > Foundational technologies"
+      },
+      "exact_quote": "To go further and effectively use more test-time compute, the template-free system uses LLMs to power a tree search without relying on Aider.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "the template-free system"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P20",
+      "locator": {
+        "pdf_page": 7,
+        "section": "Methods > Template-free AI Scientist"
+      },
+      "exact_quote": "To overcome the limitations of a fixed starting codebase, we developed a template-free version capable of more open-ended discovery.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [
+        "a template-free version"
+      ],
+      "notes_verbatim": "'capable of' modifies the object of 'developed', not the main predicate -- the sentence reports the act of developing the system, so modality follows the main verb (event report) rather than the capability phrase"
+    },
+    {
+      "proposition_id": "C03-P21",
+      "locator": {
+        "pdf_page": 7,
+        "section": "Methods > Template-free AI Scientist"
+      },
+      "exact_quote": "We use OpenAI’s o3 for idea generation and code critique during experiments due to its strong reasoning capabilities, Anthropic’s Claude Sonnet 4 for code generation, OpenAI’s GPT-4o for cost-efficient vision-language tasks and OpenAI’s o4-mini for cost-efficient reasoning during the review stage.",
+      "modality": "directly_reported",
+      "named_actors": [
+        "OpenAI’s o3",
+        "Anthropic’s Claude Sonnet 4",
+        "OpenAI’s GPT-4o",
+        "OpenAI’s o4-mini"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P22",
+      "locator": {
+        "pdf_page": 7,
+        "section": "Methods > Generalized idea generation"
+      },
+      "exact_quote": "The ideation process used by the system is more abstract and not tethered to an initial code implementation.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P23",
+      "locator": {
+        "pdf_page": 7,
+        "section": "Methods > Generalized idea generation"
+      },
+      "exact_quote": "It begins by generating high-level research proposals that resemble the abstract of a scientific paper. These proposals articulate a research problem, propose a new method and hypothesize the expected outcomes.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [
+        "high-level research proposals"
+      ]
+    },
+    {
+      "proposition_id": "C03-P24",
+      "locator": {
+        "pdf_page": 7,
+        "section": "Methods > Generalized idea generation"
+      },
+      "exact_quote": "To ensure the proposals are both grounded and new, this process is tightly integrated with a literature review module that queries external academic databases to identify knowledge gaps and avoid rediscovering existing work.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "a literature review module"
+      ],
+      "named_inputs": [
+        "external academic databases"
+      ],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P25",
+      "locator": {
+        "pdf_page": 7,
+        "section": "Methods > Generalized idea generation"
+      },
+      "exact_quote": "The system uses structured prompts to guide idea generation and reflection rounds to refine proposals based on the literature search results (see Supplementary Information section A.2.6 for prompts).",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "The system"
+      ],
+      "named_inputs": [
+        "the literature search results"
+      ],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P26",
+      "locator": {
+        "pdf_page": 7,
+        "section": "Methods > Experiment progress manager"
+      },
+      "exact_quote": "we introduced an experiment progress manager to coordinate four clearly defined stages of scientific experimentation: (1) start with a preliminary investigation to test basic viability, (2) tune the hyperparameters for optimization, (3) execute the main research agenda and (4) conclude with ablation studies to understand the contribution of different components.",
+      "modality": "directly_reported",
+      "named_actors": [
+        "an experiment progress manager"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P27",
+      "locator": {
+        "pdf_page": 7,
+        "section": "Methods > Experiment progress manager"
+      },
+      "exact_quote": "Each stage has explicit stopping criteria. Stage 1 concludes when a basic working prototype has successfully executed. Stage 2 ends when the experiments stabilize, as indicated by convergence in training curves and successful execution across at least two datasets. Stages 3 and 4 conclude when the allocated computational budget is exhausted.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P28",
+      "locator": {
+        "pdf_page": 7,
+        "section": "Methods > Experiment progress manager"
+      },
+      "exact_quote": "Each node has a maximum experiment runtime of 1 h.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P29",
+      "locator": {
+        "pdf_page": 7,
+        "section": "Methods > Experiment progress manager"
+      },
+      "exact_quote": "At the end of each stage, an LLM-based evaluator assesses all leaf nodes and selects the most promising one to serve as the root for the next stage of exploration, thus effectively pruning less promising research avenues.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "an LLM-based evaluator"
+      ],
+      "named_inputs": [
+        "leaf nodes"
+      ],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P30",
+      "locator": {
+        "pdf_page": 7,
+        "section": "Methods > Parallelized agentic tree search for experimentation"
+      },
+      "exact_quote": "the sequential workflow of the template-based version of The AI Scientist is replaced with a parallelized agentic tree.",
+      "modality": "directly_reported",
+      "named_actors": [
+        "The AI Scientist"
+      ],
+      "named_inputs": [],
+      "named_outputs": [
+        "a parallelized agentic tree"
+      ]
+    },
+    {
+      "proposition_id": "C03-P31",
+      "locator": {
+        "pdf_page": 7,
+        "section": "Methods > Parallelized agentic tree search for experimentation"
+      },
+      "exact_quote": "By default, it uses Claude Sonnet 4 for code generation.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "Claude Sonnet 4"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P32",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (execution cycle)"
+      },
+      "exact_quote": "First, Claude Sonnet 4 generates both a concrete experimentation plan and the associated Python code to implement the experiment.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "Claude Sonnet 4"
+      ],
+      "named_inputs": [],
+      "named_outputs": [
+        "a concrete experimentation plan",
+        "the associated Python code"
+      ]
+    },
+    {
+      "proposition_id": "C03-P33",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (execution cycle)"
+      },
+      "exact_quote": "The generated code is immediately executed in a Python interpreter. If the execution encounters an error, the error message is recorded and the node is marked as buggy, ending the current execution cycle for that node. If the execution succeeds, the experiment proceeds to the plotting phase.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P34",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (execution cycle)"
+      },
+      "exact_quote": "The system is prompted to save all relevant experimental outputs (training and validation metrics, losses and so on) into structured numpy files.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "The system"
+      ],
+      "named_inputs": [],
+      "named_outputs": [
+        "structured numpy files"
+      ]
+    },
+    {
+      "proposition_id": "C03-P35",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (execution cycle)"
+      },
+      "exact_quote": "In the plotting phase, The AI Scientist reads these stored results and the code and generates visualizations that summarize and illustrate the findings.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "The AI Scientist"
+      ],
+      "named_inputs": [
+        "these stored results",
+        "the code"
+      ],
+      "named_outputs": [
+        "visualizations"
+      ]
+    },
+    {
+      "proposition_id": "C03-P36",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (execution cycle)"
+      },
+      "exact_quote": "These visualizations are subsequently passed to a vision-language model (VLM) for critique.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "a vision-language model (VLM)"
+      ],
+      "named_inputs": [
+        "These visualizations"
+      ],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P37",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (execution cycle)"
+      },
+      "exact_quote": "Any issues flagged by the VLM (such as unclear labels, missing legends or misleading visualizations) result in the node being marked as buggy, and this feedback is recorded for future debugging. Nodes that successfully execute and pass the VLM review without issue are designated as non-buggy.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "the VLM"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P38",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (execution cycle)"
+      },
+      "exact_quote": "Each node is defined as a collection comprising an experiment script (for example, a Python file), a textual description of the high-level plan implemented in the script, an execution error trace (if applicable), experiment runtime, performance metrics recorded during the experiment, code critique from OpenAI o3 after running the script, a visualization script, file paths to the generated figures, feedback from a VLM on those figures and the final status of the node (either buggy or non-buggy).",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "OpenAI o3",
+        "a VLM"
+      ],
+      "named_inputs": [],
+      "named_outputs": [
+        "an experiment script",
+        "a visualization script"
+      ]
+    },
+    {
+      "proposition_id": "C03-P39",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (execution cycle)"
+      },
+      "exact_quote": "At each iteration, the system selects several nodes from the existing tree to expand in parallel.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "the system"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P40",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (execution cycle)"
+      },
+      "exact_quote": "With a predefined probability, a buggy node is chosen (thus prioritizing error resolution and debugging); otherwise, a non-buggy node is selected for further refinement and improvement.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P41",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (execution cycle)"
+      },
+      "exact_quote": "When choosing between non-buggy nodes, the system uses a best-first search strategy guided by GPT-4o, which evaluates candidates based on factors like performance metrics, training dynamics and the quality of the plots generated.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "the system",
+        "GPT-4o"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P42",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (execution cycle)"
+      },
+      "exact_quote": "The selected nodes are expanded by creating a new child node. The system attempts debugging if the parent node was buggy or refines and improves upon the previous experiment if the parent was non-buggy. Claude Sonnet 4 is used to generate the plan and experiment code for each new child node, after which all new nodes are executed concurrently in parallel, which greatly accelerates the exploration process.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "The system",
+        "Claude Sonnet 4"
+      ],
+      "named_inputs": [],
+      "named_outputs": [
+        "a new child node",
+        "the plan and experiment code"
+      ]
+    },
+    {
+      "proposition_id": "C03-P43",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (node variants)"
+      },
+      "exact_quote": "Hyperparameter nodes systematically explore alternative hyperparameter configurations during stage 2. The system maintains records of previously tested hyperparameters to prevent redundant experiments. Errors encountered during hyperparameter tuning trigger the creation of corresponding debug nodes.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "Hyperparameter nodes"
+      ],
+      "named_inputs": [],
+      "named_outputs": [
+        "debug nodes"
+      ]
+    },
+    {
+      "proposition_id": "C03-P44",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (node variants)"
+      },
+      "exact_quote": "Ablation nodes evaluate crucial ablation studies during stage 4. This assesses the importance of various components or assumptions underlying the experiment. Like hyperparameter nodes, previously tested ablation conditions are tracked to avoid repetition, and debugging nodes are created in response to any errors encountered.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "Ablation nodes",
+        "hyperparameter nodes"
+      ],
+      "named_inputs": [],
+      "named_outputs": [
+        "debugging nodes"
+      ]
+    },
+    {
+      "proposition_id": "C03-P45",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (node variants)"
+      },
+      "exact_quote": "Replication nodes execute replicates of their parent experiments using different random seeds. Typically, several replication nodes are created to enable the calculation of statistical measures (mean and s.d.) of experimental outcomes, which enhances the robustness of the results.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "Replication nodes"
+      ],
+      "named_inputs": [],
+      "named_outputs": [
+        "statistical measures (mean and s.d.) of experimental outcomes"
+      ]
+    },
+    {
+      "proposition_id": "C03-P46",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (node variants)"
+      },
+      "exact_quote": "Aggregation nodes are special nodes created to consolidate and visualize the combined results of replication nodes. Unlike other node types, aggregation nodes do not conduct new experiments but simply generate a Python script to aggregate and summarize previous results. The script produces figures that explicitly show mean and s.d.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "Aggregation nodes",
+        "replication nodes"
+      ],
+      "named_inputs": [
+        "the combined results of replication nodes"
+      ],
+      "named_outputs": [
+        "a Python script",
+        "figures that explicitly show mean and s.d."
+      ]
+    },
+    {
+      "proposition_id": "C03-P47",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Parallelized agentic tree search for experimentation (node variants)"
+      },
+      "exact_quote": "Unlike some LLM agents that rigidly follow predefined, fine-grained workflow graphs, The AI Scientist adopts a looser structure that guides the entire empirical research cycle, thus enabling flexible system behaviour while maintaining coherence across iterative stages.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "LLM agents",
+        "The AI Scientist"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P48",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > VLM integration"
+      },
+      "exact_quote": "During experimentation, the plots generated are fed to a VLM, which is prompted to act as a scientist and critique them.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "a VLM"
+      ],
+      "named_inputs": [
+        "the plots generated"
+      ],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P49",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > VLM integration"
+      },
+      "exact_quote": "This feedback is used to generate new experimental nodes in the tree search aimed at addressing the identified issues.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [
+        "This feedback"
+      ],
+      "named_outputs": [
+        "new experimental nodes"
+      ]
+    },
+    {
+      "proposition_id": "C03-P50",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > VLM integration"
+      },
+      "exact_quote": "During manuscript preparation, the VLM assesses the alignment between figures and their corresponding captions to ensure that a caption accurately describes the plot and highlights the key takeaways, thus improving the overall quality and clarity of the paper.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "the VLM"
+      ],
+      "named_inputs": [
+        "figures",
+        "their corresponding captions"
+      ],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P51",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Enhanced manuscript writing"
+      },
+      "exact_quote": "The template-free system moves away from the incremental Aider-based approach to direct LaTeX generation using a reasoning model such as OpenAI’s o1",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "The template-free system",
+        "OpenAI’s o1"
+      ],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "quote ends before a superscript reference numeral (56) glued to 'o1' by the source's typesetting/extraction, with no space to break on"
+    },
+    {
+      "proposition_id": "C03-P52",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Enhanced manuscript writing"
+      },
+      "exact_quote": "The system first aggregates experimental results from several stages into compound figures using a dedicated plot-aggregation step.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "The system"
+      ],
+      "named_inputs": [
+        "experimental results from several stages"
+      ],
+      "named_outputs": [
+        "compound figures"
+      ]
+    },
+    {
+      "proposition_id": "C03-P53",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Enhanced manuscript writing"
+      },
+      "exact_quote": "The system undergoes several reflection cycles, each time incorporating feedback from LaTeX linters and VLM reviews to improve figure quality and text–figure alignment",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "The system"
+      ],
+      "named_inputs": [
+        "feedback from LaTeX linters and VLM reviews"
+      ],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P54",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > Enhanced manuscript writing"
+      },
+      "exact_quote": "The complete generation process for the template-free system typically takes from several hours to over 15 h, depending on problem complexity.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "the template-free system"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P55",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > The Automated Reviewer"
+      },
+      "exact_quote": "To assess the quality of the AI-generated research, we built an automated reviewer using o4-mini",
+      "modality": "directly_reported",
+      "named_actors": [
+        "o4-mini"
+      ],
+      "named_inputs": [],
+      "named_outputs": [
+        "an automated reviewer"
+      ],
+      "notes_verbatim": "quote ends before a superscript reference numeral (57) glued to 'o4-mini' by the source's typesetting/extraction, with no space to break on"
+    },
+    {
+      "proposition_id": "C03-P56",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > The Automated Reviewer"
+      },
+      "exact_quote": "This component was designed to emulate the peer-review process of a top-tier machine learning conference by adhering to the official NeurIPS reviewer guidelines.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "This component"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P57",
+      "locator": {
+        "pdf_page": 8,
+        "section": "Methods > The Automated Reviewer"
+      },
+      "exact_quote": "The agent processes the PDF of a manuscript to produce a structured review, including numerical scores for soundness, presentation and contribution, along with a list of strengths and weaknesses and a preliminary accept or reject decision (Supplementary Information section A.3).",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "The agent"
+      ],
+      "named_inputs": [
+        "the PDF of a manuscript"
+      ],
+      "named_outputs": [
+        "a structured review",
+        "numerical scores",
+        "a list of strengths and weaknesses",
+        "a preliminary accept or reject decision"
+      ]
+    },
+    {
+      "proposition_id": "C03-P58",
+      "locator": {
+        "pdf_page": 3,
+        "journal_page": 916,
+        "section": "Automated evaluation of generated papers"
+      },
+      "exact_quote": "The Automated Reviewer pipeline consists of an ensemble of five reviews, followed by a meta-review in which the model acts as an area chair to make a final decision conditioned on all five reviews",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "The Automated Reviewer"
+      ],
+      "named_inputs": [
+        "five reviews"
+      ],
+      "named_outputs": [
+        "a final decision"
+      ]
+    },
+    {
+      "proposition_id": "C03-P59",
+      "locator": {
+        "pdf_page": 2,
+        "journal_page": 915,
+        "section": "Generating manuscripts"
+      },
+      "exact_quote": "Finally, the paper generated by The AI Scientist undergoes a review by The Automated Reviewer, which automatically evaluates the scientific quality of the conducted research.",
+      "modality": "reported_as_procedure",
+      "named_actors": [
+        "The AI Scientist",
+        "The Automated Reviewer"
+      ],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C03-P60",
+      "locator": {
+        "pdf_page": 9,
+        "section": "Ethics approval"
+      },
+      "exact_quote": "In accordance with the approved protocol, human participants (peer reviewers) were informed that a small number of submissions to the workshop were AI-generated, although not which specific papers. Participants had the option to opt out of reviewing any potentially AI-generated manuscripts. All AI-generated submissions were withdrawn following the review process, regardless of the outcome.",
+      "modality": "directly_reported",
+      "named_actors": [
+        "human participants (peer reviewers)"
+      ],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "the whole passage narrates completed actions (were informed, had the option, were withdrawn) in past tense; 'potentially' modifies 'AI-generated' (the manuscripts' origin), not an actor's capability, so the modality lint's capability-marker match on 'potential' is a false positive"
+    },
+    {
+      "proposition_id": "C03-P61",
+      "locator": {
+        "pdf_page": 4,
+        "journal_page": 917,
+        "section": "Limitations (ethics paragraph)"
+      },
+      "exact_quote": "Crucially, as part of our experimental protocol, we determined in advance that all AI-generated submissions would be withdrawn after peer review, regardless of outcome.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    }
+  ]
+}

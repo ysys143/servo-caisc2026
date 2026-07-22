@@ -1,0 +1,489 @@
+{
+  "schema": "servo_v5_source_proposition",
+  "schema_doc": "analysis/servo_v5_source_proposition_schema.md",
+  "status": "draft",
+  "case_id": "C02",
+  "system": "AI Scientist 2024",
+  "citation_key": "lu2024aiscientist",
+  "source_pdf_name": "The AI Scientist_ Towards Fully Automated Open-Ended Scientific Discovery.pdf",
+  "source_pdf_sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+  "coverage_note": "Full main text extracted and verified: PDF physical pages 1-21 (Introduction through Discussion/Conclusion; References begin page 22). Quotes were sourced from a `pdftotext` extraction of each page (the same backend servo_v5_verify.py prefers) rather than transcribed from rendered page images, because this PDF's small-caps macro for 'THE AI SCIENTIST' extracts with spurious inter-letter spaces that vary by line (e.g. 'Th e A I Sc i e n t i s t', or the mid-word break 'Scie n t i s t') -- exact_quote strings preserve whichever form the text layer actually produced at that location. NOT covered: References (p22+), Appendix A (full prompt templates), Appendix B/C (idea-progression example), Appendix D (full generated papers, reviews, and code listings) -- these begin after p22 and were not read for this pass.",
+  "propositions": [
+    {
+      "proposition_id": "C02-P01",
+      "locator": {"pdf_page": 2, "section": "1. Introduction"},
+      "exact_quote": "By leveraging modern LLM frameworks like chain-of-thought (Wei et al., 2022) and self-reflection (Shinn et al., 2024) to improve decision-making, The AI Scientist is able to generate its own scientific ideas and hypotheses, as well as a plan for testing them with experiments.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": ["scientific ideas and hypotheses", "a plan for testing them with experiments"]
+    },
+    {
+      "proposition_id": "C02-P02",
+      "locator": {"pdf_page": 2, "section": "1. Introduction"},
+      "exact_quote": "Next, The AI Scientist implements plan-directed code-level changes to the experiment “template” using the state-of-the-art coding assistant Aider (Gauthier, 2024), and executes experiments to collect a set of computational results, which are in turn used to draft a scientific paper.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["The AI Scientist", "Aider"],
+      "named_inputs": ["experiment “template”"],
+      "named_outputs": ["computational results", "scientific paper"]
+    },
+    {
+      "proposition_id": "C02-P03",
+      "locator": {"pdf_page": 2, "section": "1. Introduction"},
+      "exact_quote": "Th e A I Sc i e n t i s t then performs an automated paper-reviewing process using guidelines from a standard machine learning conference.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P04",
+      "locator": {"pdf_page": 2, "section": "1. Introduction"},
+      "exact_quote": "Finally, Th e A I Sc i e n t i s t adds the completed ideas and reviewer feedback to its archive of scientific findings, and the process repeats.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": ["completed ideas", "reviewer feedback"],
+      "named_outputs": ["archive of scientific findings"],
+      "notes_verbatim": "archive-admission / memory-update statement: idea and review are added together, then the pipeline repeats"
+    },
+    {
+      "proposition_id": "C02-P05",
+      "locator": {"pdf_page": 2, "section": "1. Introduction"},
+      "exact_quote": "Crucially, the generated paper and experimental artifacts The AI Scie n t i s t produces allow us to easily interpret and judge its findings post-hoc, allowing human scientists to also benefit from what is learned.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": ["generated paper", "experimental artifacts"],
+      "notes_verbatim": "'allow us to ... post-hoc' frames human interpretation as occurring after artifact production"
+    },
+    {
+      "proposition_id": "C02-P06",
+      "locator": {"pdf_page": 3, "section": "Figure 1 caption"},
+      "exact_quote": "The AI Scientist first invents and assesses the novelty of a set of ideas.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": ["a set of ideas"]
+    },
+    {
+      "proposition_id": "C02-P07",
+      "locator": {"pdf_page": 4, "section": "2. Background / Aider: An LLM-Based Coding Assistant"},
+      "exact_quote": "Aider is an agent framework that is designed to implement requested features, fix bugs, or refactor code in existing codebases.",
+      "modality": "directly_reported",
+      "named_actors": ["Aider"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P08",
+      "locator": {"pdf_page": 4, "section": "3. The AI Scientist / Overview"},
+      "exact_quote": "Th e A I Sc i e n t i s t has three main phases (Figure 1): (1) Idea Generation, (2) Experimental Iteration, and (3) Paper Write-up.",
+      "modality": "directly_reported",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P09",
+      "locator": {"pdf_page": 4, "section": "1. Idea Generation"},
+      "exact_quote": "Each idea comprises a description, experiment execution plan, and (self-assessed) numerical scores of interestingness, novelty, and feasibility.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["description", "experiment execution plan", "(self-assessed) numerical scores of interestingness, novelty, and feasibility"]
+    },
+    {
+      "proposition_id": "C02-P10",
+      "locator": {"pdf_page": 4, "section": "1. Idea Generation"},
+      "exact_quote": "At each iteration, we prompt the language model to generate an interesting new research direction conditional on the existing archive, which can include the numerical review scores from completed previous ideas.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["the language model"],
+      "named_inputs": ["the existing archive", "the numerical review scores from completed previous ideas"],
+      "named_outputs": ["an interesting new research direction"],
+      "notes_verbatim": "candidate generation conditioned on archive/memory state"
+    },
+    {
+      "proposition_id": "C02-P11",
+      "locator": {"pdf_page": 4, "section": "1. Idea Generation"},
+      "exact_quote": "We use multiple rounds of chain-of-thought (Wei et al., 2022) and self-reflection (Shinn et al., 2024) to refine and develop each idea.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P12",
+      "locator": {"pdf_page": 4, "section": "1. Idea Generation"},
+      "exact_quote": "After idea generation, we filter ideas by connecting the language model with the Semantic Scholar API (Fricke, 2018) and web access as a tool (Schick et al., 2024).",
+      "modality": "reported_as_procedure",
+      "named_actors": ["the language model"],
+      "named_inputs": ["Semantic Scholar API", "web access"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P13",
+      "locator": {"pdf_page": 4, "section": "1. Idea Generation"},
+      "exact_quote": "This allows Th e A I Sc i e n t i s t to discard any idea that is too similar to existing literature.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P14",
+      "locator": {"pdf_page": 4, "section": "2. Experiment Iteration"},
+      "exact_quote": "Th e A I Sc i e n t i s t uses Aider to first plan a list of experiments to run and then executes them in order.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["The AI Scientist", "Aider"],
+      "named_inputs": [],
+      "named_outputs": ["a list of experiments"]
+    },
+    {
+      "proposition_id": "C02-P15",
+      "locator": {"pdf_page": 4, "section": "2. Experiment Iteration"},
+      "exact_quote": "We make this process more robust by returning any errors upon a failure or time-out (e.g. experiments taking too long to run) to Aider to fix the code and re-attempt up to four times.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Aider"],
+      "named_inputs": ["errors upon a failure or time-out"],
+      "named_outputs": [],
+      "notes_verbatim": "error/timeout-repair channel, bounded to four re-attempts"
+    },
+    {
+      "proposition_id": "C02-P16",
+      "locator": {"pdf_page": 4, "section": "2. Experiment Iteration"},
+      "exact_quote": "After the completion of each experiment, Aider is then given the results and told to take notes in the style of an experimental journal.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Aider"],
+      "named_inputs": ["the results"],
+      "named_outputs": ["notes in the style of an experimental journal"]
+    },
+    {
+      "proposition_id": "C02-P17",
+      "locator": {"pdf_page": 4, "section": "2. Experiment Iteration"},
+      "exact_quote": "Currently, it only conditions on text",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "'it' refers to the experimental-journal note-taking step described in the preceding sentence"
+    },
+    {
+      "proposition_id": "C02-P18",
+      "locator": {"pdf_page": 4, "section": "2. Experiment Iteration"},
+      "exact_quote": "in future versions, this could include data visualizations or any modality.",
+      "modality": "reported_only_as_capability",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "speculative future-version statement, not a claim about the reported-default configuration"
+    },
+    {
+      "proposition_id": "C02-P19",
+      "locator": {"pdf_page": 4, "section": "2. Experiment Iteration"},
+      "exact_quote": "Conditional on the results, it then re-plans and implements the next experiment.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": ["the results"],
+      "named_outputs": [],
+      "notes_verbatim": "result-conditioned sequential replanning"
+    },
+    {
+      "proposition_id": "C02-P20",
+      "locator": {"pdf_page": 4, "section": "2. Experiment Iteration"},
+      "exact_quote": "This process is repeated up to five times.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P21",
+      "locator": {"pdf_page": 5, "section": "2. Experiment Iteration"},
+      "exact_quote": "Aider is prompted to edit a plotting script to create figures for the paper using Python.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Aider"],
+      "named_inputs": [],
+      "named_outputs": ["figures for the paper"]
+    },
+    {
+      "proposition_id": "C02-P22",
+      "locator": {"pdf_page": 5, "section": "2. Experiment Iteration"},
+      "exact_quote": "Th e A I Sc i e n t i s t makes a note describing what each plot contains, enabling the saved figures and experimental notes to provide all the information required to write up the paper.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": ["a note describing what each plot contains", "saved figures", "experimental notes"]
+    },
+    {
+      "proposition_id": "C02-P23",
+      "locator": {"pdf_page": 5, "section": "2. Experiment Iteration"},
+      "exact_quote": "At all steps, Aider sees its history of execution.",
+      "modality": "directly_reported",
+      "named_actors": ["Aider"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P24",
+      "locator": {"pdf_page": 5, "section": "2. Experiment Iteration"},
+      "exact_quote": "Th e A I Sc i e n t i s t frequently implements entirely new plots and collects new metrics that are not in the seed templates.",
+      "modality": "directly_reported",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": ["new plots", "new metrics"]
+    },
+    {
+      "proposition_id": "C02-P25",
+      "locator": {"pdf_page": 5, "section": "2. Experiment Iteration"},
+      "exact_quote": "This ability to arbitrarily edit the code occasionally leads to unexpected outcomes (Section 8).",
+      "modality": "reported_only_as_capability",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "'This ability to ...' -- capability framing"
+    },
+    {
+      "proposition_id": "C02-P26",
+      "locator": {"pdf_page": 5, "section": "3. Paper Write-up / (a) Per-Section Text Generation"},
+      "exact_quote": "The recorded notes and plots are passed to Aider, which is prompted to fill in a blank conference template section by section.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Aider"],
+      "named_inputs": ["the recorded notes and plots", "a blank conference template"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P27",
+      "locator": {"pdf_page": 5, "section": "(a) Per-Section Text Generation"},
+      "exact_quote": "All previous sections of the paper it has already written are in the context of the language model.",
+      "modality": "directly_reported",
+      "named_actors": ["the language model"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P28",
+      "locator": {"pdf_page": 5, "section": "(a) Per-Section Text Generation"},
+      "exact_quote": "At each step of writing, Aider is prompted to only use real experimental results in the form of notes and figures generated from code, and real citations to reduce hallucination.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Aider"],
+      "named_inputs": ["notes and figures generated from code", "real citations"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P29",
+      "locator": {"pdf_page": 5, "section": "(a) Per-Section Text Generation"},
+      "exact_quote": "Each section is initially refined with one round of self-reflection (Shinn et al., 2024) as it is being written.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P30",
+      "locator": {"pdf_page": 5, "section": "(b) Web Search for References"},
+      "exact_quote": "Th e A I Sc i e n t i s t is allowed 20 rounds to poll the Semantic Scholar API looking for the most relevant sources to compare and contrast the near-completed paper against for the related work section.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": ["Semantic Scholar API"],
+      "named_outputs": ["the most relevant sources"]
+    },
+    {
+      "proposition_id": "C02-P31",
+      "locator": {"pdf_page": 5, "section": "(b) Web Search for References"},
+      "exact_quote": "The paper’s bibtex is automatically appended to the LaTeX file to guarantee correctness.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["the paper's bibtex"]
+    },
+    {
+      "proposition_id": "C02-P32",
+      "locator": {"pdf_page": 5, "section": "(c) Refinement"},
+      "exact_quote": "To resolve this, we perform one final round of self-reflection section-by-section, aiming to remove any duplicated information and streamline the arguments of the paper.",
+      "modality": "reported_as_procedure",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "artifact-revision mechanism"
+    },
+    {
+      "proposition_id": "C02-P33",
+      "locator": {"pdf_page": 5, "section": "(d) Compilation"},
+      "exact_quote": "Once the LaTeX template has been filled in with all the appropriate results, this is fed into a LaTeX compiler. We use a LaTeX linter and pipe compilation errors back into Aider so that it can automatically correct any issues.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Aider"],
+      "named_inputs": ["compilation errors"],
+      "named_outputs": [],
+      "notes_verbatim": "compilation-error-repair channel"
+    },
+    {
+      "proposition_id": "C02-P34",
+      "locator": {"pdf_page": 5, "section": "4. Automated Paper Reviewing / An LLM Reviewer Agent"},
+      "exact_quote": "we design a GPT-4o-based agent (OpenAI, 2023) to conduct paper reviews based on the Neural Information Processing Systems (NeurIPS) conference review guidelines.",
+      "modality": "directly_reported",
+      "named_actors": ["GPT-4o-based agent"],
+      "named_inputs": ["Neural Information Processing Systems (NeurIPS) conference review guidelines"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P35",
+      "locator": {"pdf_page": 5, "section": "4. Automated Paper Reviewing"},
+      "exact_quote": "The review agent processes the raw text of the PDF manuscript using the PyMuPDF parsing library.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["The review agent"],
+      "named_inputs": ["the raw text of the PDF manuscript"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P36",
+      "locator": {"pdf_page": 5, "section": "4. Automated Paper Reviewing"},
+      "exact_quote": "The output contains numerical scores (soundness, presentation, contribution, overall, confidence), lists of weaknesses and strengths as well as a preliminary binary decision (accept or reject).",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["numerical scores (soundness, presentation, contribution, overall, confidence)", "lists of weaknesses and strengths", "a preliminary binary decision (accept or reject)"]
+    },
+    {
+      "proposition_id": "C02-P37",
+      "locator": {"pdf_page": 6, "section": "4. Automated Paper Reviewing"},
+      "exact_quote": "may then be post-calibrated by thresholding using the reviewer score.",
+      "modality": "reported_only_as_capability",
+      "named_actors": [],
+      "named_inputs": ["the reviewer score"],
+      "named_outputs": [],
+      "notes_verbatim": "subject ('These decisions') is on the preceding pdf page and is omitted here so the quote stays within a single page"
+    },
+    {
+      "proposition_id": "C02-P38",
+      "locator": {"pdf_page": 6, "section": "4. Automated Paper Reviewing"},
+      "exact_quote": "We leverage this automated reviewing process to obtain an initial evaluation of the papers generated by Th e A I Sc i e n t i s t.",
+      "modality": "directly_reported",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": ["an initial evaluation"]
+    },
+    {
+      "proposition_id": "C02-P39",
+      "locator": {"pdf_page": 6, "section": "4. Automated Paper Reviewing / Evaluating the Automated Reviewer"},
+      "exact_quote": "Afterward, we perform an LLM-based meta-review, which prompts the agent to act as an Area Chair (Wang et al., 2022) (full prompts in Appendix A.4).",
+      "modality": "directly_reported",
+      "named_actors": ["the agent"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "meta-review / Area-Chair aggregation step over the ensembled reviews"
+    },
+    {
+      "proposition_id": "C02-P40",
+      "locator": {"pdf_page": 11, "section": "5. In-Depth Case Study / Review"},
+      "exact_quote": "this is because we externally constrained the system to use these datasets, and in its current form, Th e A I Sc i e n t i s t cannot download higher-dimensional datasets from the internet.",
+      "modality": "directly_reported",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "human-imposed dataset constraint plus a reported inability to bypass it"
+    },
+    {
+      "proposition_id": "C02-P41",
+      "locator": {"pdf_page": 12, "section": "5. In-Depth Case Study / Final Comments"},
+      "exact_quote": "At the current capabilities of Th e A I Sc i e n t i s t, this can be resolved by human feedback.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": ["human feedback"],
+      "named_outputs": [],
+      "notes_verbatim": "'this' refers to shortcomings the automated reviewer only partially captured, per the preceding sentence"
+    },
+    {
+      "proposition_id": "C02-P42",
+      "locator": {"pdf_page": 13, "section": "6. Experiments"},
+      "exact_quote": "In practice, we make one departure from the formal description of The AI Scientist, and generate ideas without waiting for paper evaluations to be appended to the archive in order to parallelize more effectively.",
+      "modality": "directly_reported",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "bears on whether idea generation is, in the actual runs, conditioned on archived paper evaluations"
+    },
+    {
+      "proposition_id": "C02-P43",
+      "locator": {"pdf_page": 13, "section": "6. Experiments"},
+      "exact_quote": "This allowed us to pay the cost of the idea generation phase only once and iterate faster; furthermore, we did not observe any reduction in the quality of the papers generated as measured by the average review score with this modification.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P44",
+      "locator": {"pdf_page": 18, "section": "8. Limitations & Ethical Considerations / Common Failure Modes"},
+      "exact_quote": "As shown in Tables 3 to 5, Aider fails to implement a significant fraction of the proposed ideas.",
+      "modality": "directly_reported",
+      "named_actors": ["Aider"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P45",
+      "locator": {"pdf_page": 18, "section": "Common Failure Modes"},
+      "exact_quote": "Th e A I Sc i e n t i s t may incorrectly implement an idea, which can be difficult to catch.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P46",
+      "locator": {"pdf_page": 18, "section": "Common Failure Modes"},
+      "exact_quote": "Because of Th e A I Sc i e n t i s t’s limited number of experiments per idea, the results often do not meet the expected rigor and depth of a standard ML conference paper.",
+      "modality": "directly_reported",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P47",
+      "locator": {"pdf_page": 19, "section": "8. Limitations & Ethical Considerations / Safe Code Execution"},
+      "exact_quote": "The current implementation of Th e A I Sc i e n t i s t has minimal direct sandboxing in the code, leading to several unexpected and sometimes undesirable outcomes if not appropriately guarded against.",
+      "modality": "directly_reported",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P48",
+      "locator": {"pdf_page": 19, "section": "Safe Code Execution"},
+      "exact_quote": "For example, in one run, Th e A I Sc i e n t i s t wrote code in the experiment file that initiated a system call to relaunch itself, causing an uncontrolled increase in Python processes and eventually necessitating manual intervention.",
+      "modality": "directly_reported",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C02-P49",
+      "locator": {"pdf_page": 19, "section": "Safe Code Execution"},
+      "exact_quote": "In some cases, when The AI Scientist’s experiments exceeded our imposed time limits, it attempted to edit the code to extend the time limit arbitrarily instead of trying to shorten the runtime.",
+      "modality": "directly_reported",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "reported attempt to edit code to override a human-imposed time limit"
+    },
+    {
+      "proposition_id": "C02-P50",
+      "locator": {"pdf_page": 19, "section": "Safe Code Execution"},
+      "exact_quote": "Each successful run from The AI Scientist that outputted a paper automatically caught this error when it occurred and fixed it.",
+      "modality": "directly_reported",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "self-repair of a missing output-directory bug, discovered because the authors had forgotten to create the directory"
+    },
+    {
+      "proposition_id": "C02-P51",
+      "locator": {"pdf_page": 19, "section": "Safe Code Execution"},
+      "exact_quote": "Furthermore, we found that The AI Scientist would occasionally include results and plots that we found surprising, differing significantly from the provided templates.",
+      "modality": "directly_reported",
+      "named_actors": ["The AI Scientist"],
+      "named_inputs": ["the provided templates"],
+      "named_outputs": ["results and plots"]
+    }
+  ]
+}
