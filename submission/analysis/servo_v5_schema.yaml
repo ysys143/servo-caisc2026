@@ -3,11 +3,14 @@ status: draft
 title: SERVO v5 data-family contract (source_proposition / author_alignment / derived_claim / policy)
 scope_statement: >-
   Declarative field-level contract for the four v5 data families (charter
-  Part B.1-B.4). source_proposition stores quote/locator/modality only; no
-  judgment field may appear there (forbidden_record_fields, enforced as
-  V5_SOURCE_JUDGMENT_LEAK). Consumed by servo_v5_schema.py through a small
-  hand-rolled line parser -- this file is not general YAML and must keep the
-  exact section markers below.
+  Part B.1-B.4, B.7). source_proposition stores quote/locator/modality only;
+  no judgment field may appear there (forbidden_record_fields, enforced as
+  V5_SOURCE_JUDGMENT_LEAK). author_alignment records are typed by
+  assertion_kind (charter B.7): the fields each kind requires and forbids are
+  declared in conditional_record_fields, keyed by the field named in
+  conditional_discriminator_fields. Consumed by servo_v5_schema.py through a
+  small hand-rolled line parser -- this file is not general YAML and must
+  keep the exact section markers below.
 
 directories:
   source_proposition: servo_v5_source_propositions
@@ -29,16 +32,28 @@ required_envelope_fields:
 
 record_fields:
   source_proposition: [proposition_id, locator, exact_quote, modality, named_actors, named_inputs, named_outputs, notes_verbatim]
-  author_alignment: [alignment_id, proposition_ids, source_term, component, basis, relation_asserted, boundary_status, notes_verbatim]
+  author_alignment: [alignment_id, proposition_ids, assertion_kind, basis, boundary_status, notes_verbatim, source_term, component, source_role, target_role, relation_type, temporal_scope]
   derived_claim: [claim_id, support_status, claim_scope, alignment_kind, occurrence_resolution, used_alignment_ids, used_proposition_ids, rationale]
 
 required_record_fields:
   source_proposition: [proposition_id, locator, exact_quote, modality, named_actors, named_inputs, named_outputs]
-  author_alignment: [alignment_id, proposition_ids, source_term, component, basis, relation_asserted, boundary_status]
+  author_alignment: [alignment_id, proposition_ids, assertion_kind, basis, boundary_status]
   derived_claim: [claim_id, support_status, claim_scope, alignment_kind, occurrence_resolution, used_alignment_ids, used_proposition_ids, rationale]
 
 forbidden_record_fields:
   source_proposition: [support_status, claim_scope, alignment_kind, occurrence_resolution, servo_mapping, alignment_id, claim_id, decision_role, evaluator_substrate]
+
+# assertion_kind (charter B.7) selects which extra fields an author_alignment
+# record carries. Fields listed for a kind other than the record's own are
+# rejected as V5_ALIGNMENT_KIND_FIELD_MISMATCH; fields listed for the
+# record's own kind and absent are rejected as V5_ALIGNMENT_MISSING_FIELD.
+conditional_discriminator_fields:
+  author_alignment: assertion_kind
+
+conditional_record_fields:
+  author_alignment:
+    component_mapping: [source_term, component]
+    functional_relation: [source_role, target_role, relation_type, temporal_scope]
 
 locator_fields:
   required: [pdf_page]
@@ -46,10 +61,14 @@ locator_fields:
 
 enum_fields:
   source_proposition.modality: [directly_reported, reported_as_procedure, reported_only_as_capability]
+  author_alignment.assertion_kind: [component_mapping, functional_relation]
   author_alignment.component: [S, G, E, V, M, pi, A, W_A, external, O_env]
   author_alignment.basis: [source_explicit, author_aligned]
   author_alignment.boundary_status: [reported, boundary_unreported]
-  author_alignment.relation_asserted: [candidate_generation, action_selection, intervention_execution, observation_generation, evaluation, state_update, artifact_synthesis, artifact_revision, memory_write, memory_read]
+  author_alignment.source_role: [candidate, action, execution, observation, evaluation, inquiry_state, memory, artifact, policy, environment, external]
+  author_alignment.target_role: [candidate, action, execution, observation, evaluation, inquiry_state, memory, artifact, policy, environment, external]
+  author_alignment.relation_type: [produces, evaluates, updates, conditions, selects, revises, reads, writes, triggers]
+  author_alignment.temporal_scope: [per_step, cross_step]
   derived_claim.support_status: [supported, unresolved, contradicted, not_applicable]
   derived_claim.claim_scope: [architecture, procedure, aggregate_run, occurrence]
   derived_claim.alignment_kind: [source_explicit, author_aligned]

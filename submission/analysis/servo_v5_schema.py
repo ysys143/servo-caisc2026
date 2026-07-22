@@ -44,6 +44,8 @@ class SchemaContract:
     enum_fields: dict[str, tuple[str, ...]]
     locator_required: tuple[str, ...]
     locator_optional: tuple[str, ...]
+    conditional_discriminator_fields: dict[str, str]
+    conditional_record_fields: dict[str, dict[str, tuple[str, ...]]]
 
 
 def load_contract(analysis_dir: Path) -> SchemaContract:
@@ -65,6 +67,8 @@ def load_contract(analysis_dir: Path) -> SchemaContract:
         enum_fields=_list_mapping(lines, "enum_fields"),
         locator_required=locator.get("required", ()),
         locator_optional=locator.get("optional", ()),
+        conditional_discriminator_fields=_scalar_mapping(lines, "conditional_discriminator_fields"),
+        conditional_record_fields=_nested_list_mapping(lines, "conditional_record_fields"),
     )
 
 
@@ -95,6 +99,42 @@ def _list_mapping(lines: list[str], section: str) -> dict[str, tuple[str, ...]]:
         if not key:
             raise ServoV5Error("V5_SCHEMA_DECLARATION_INVALID", f"{section}:{line}")
         result[key] = values
+    if not result:
+        raise ServoV5Error("V5_SCHEMA_DECLARATION_MISSING", section)
+    return result
+
+
+def _nested_list_mapping(lines: list[str], section: str) -> dict[str, dict[str, tuple[str, ...]]]:
+    # Two-level grammar (charter B.7 conditional-fields mechanism):
+    #   section:
+    #     family:
+    #       kind: [field, field]
+    #       kind: [field]
+    # A 2-space-indented, colon-terminated line opens a family block; the
+    # 4-space-indented "kind: [...]" lines under it become that family's
+    # kind -> field-list mapping.
+    result: dict[str, dict[str, tuple[str, ...]]] = {}
+    current_family: str | None = None
+    for line in _section_lines(lines, section):
+        if not line.strip():
+            continue
+        if line.startswith("    "):
+            if current_family is None:
+                raise ServoV5Error("V5_SCHEMA_DECLARATION_INVALID", f"{section}:{line}")
+            key, separator, raw = line.strip().partition(":")
+            raw = raw.strip()
+            if separator == "" or not key or not raw.startswith("[") or not raw.endswith("]"):
+                raise ServoV5Error("V5_SCHEMA_DECLARATION_INVALID", f"{section}:{line}")
+            values = tuple(item.strip() for item in raw[1:-1].split(",") if item.strip())
+            result[current_family][key] = values
+        elif line.startswith("  "):
+            key, separator, raw = line.strip().partition(":")
+            if separator == "" or not key or raw.strip():
+                raise ServoV5Error("V5_SCHEMA_DECLARATION_INVALID", f"{section}:{line}")
+            current_family = key
+            result[current_family] = {}
+        else:
+            raise ServoV5Error("V5_SCHEMA_DECLARATION_INVALID", f"{section}:{line}")
     if not result:
         raise ServoV5Error("V5_SCHEMA_DECLARATION_MISSING", section)
     return result
@@ -241,12 +281,11 @@ def _check_record_fields(
         errors += _check_locator(entry.get("locator"), family, case_id, record_id, contract)
         return errors
     if family == "author_alignment":
-        errors = _check_enum(entry, "component", family, case_id, record_id, contract)
+        errors = _check_enum(entry, "assertion_kind", family, case_id, record_id, contract)
         errors += _check_enum(entry, "basis", family, case_id, record_id, contract)
         errors += _check_enum(entry, "boundary_status", family, case_id, record_id, contract)
-        errors += _check_enum(entry, "relation_asserted", family, case_id, record_id, contract)
         errors += _check_string_list(entry, "proposition_ids", family, case_id, record_id, allow_empty=False)
-        errors += _check_nonempty_string(entry, "source_term", family, case_id, record_id)
+        errors += _check_alignment_kind_fields(entry, family, case_id, record_id, contract)
         return errors
     if family == "derived_claim":
         errors = _check_enum(entry, "support_status", family, case_id, record_id, contract)
@@ -258,6 +297,54 @@ def _check_record_fields(
         errors += _check_nonempty_string(entry, "rationale", family, case_id, record_id)
         return errors
     return []
+
+
+def _check_alignment_kind_fields(
+    entry: dict, family: str, case_id: str, record_id: str, contract: SchemaContract
+) -> list[ValidationError]:
+    # charter B.7: assertion_kind (named by conditional_discriminator_fields)
+    # selects one group of extra fields from conditional_record_fields; the
+    # other kind's fields are disallowed and the selected kind's fields are
+    # mandatory.
+    kind_groups = contract.conditional_record_fields.get(family)
+    discriminator = contract.conditional_discriminator_fields.get(family)
+    if not kind_groups or discriminator is None:
+        return []
+    kind = entry.get(discriminator)
+    errors: list[ValidationError] = []
+    for other_kind, fields in kind_groups.items():
+        if other_kind == kind:
+            continue
+        for field in fields:
+            if field in entry:
+                errors.append(
+                    ValidationError(
+                        "V5_ALIGNMENT_KIND_FIELD_MISMATCH",
+                        family,
+                        case_id,
+                        record_id,
+                        f"{field} not allowed when {discriminator}={kind!r}",
+                    )
+                )
+    fields_for_kind = kind_groups.get(kind)
+    if fields_for_kind is None:
+        return errors
+    for field in fields_for_kind:
+        if field not in entry:
+            errors.append(
+                ValidationError(
+                    "V5_ALIGNMENT_MISSING_FIELD",
+                    family,
+                    case_id,
+                    record_id,
+                    f"{field} required when {discriminator}={kind!r}",
+                )
+            )
+        elif field == "source_term":
+            errors += _check_nonempty_string(entry, field, family, case_id, record_id)
+        else:
+            errors += _check_enum(entry, field, family, case_id, record_id, contract)
+    return errors
 
 
 def _check_policy_record(

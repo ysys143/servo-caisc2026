@@ -152,16 +152,15 @@ def test_schema_gate_runs_before_pdf_gate(tmp_path: Path):
 def test_real_c01_pilot_verifies_against_the_actual_pdf():
     errors, warnings = verify_root(REAL_ANALYSIS_DIR, CORPUS_ROOT)
     codes = {(error.code, error.record_id) for error in errors}
-    # C01-P08's exact_quote joins two clauses across a "[...]" splice in an
-    # order the source does not support: on the real page (confirmed via
-    # both the pdftotext text layer and an independent OCR pass), "...the
-    # strategy of Coscientist changes among runs (Fig. 5f)" precedes
-    # "Importantly, the system does not make chemistry mistakes...", not
-    # the reverse implied by the quote. This is a genuine content defect in
-    # the pilot ledger (not a gate bug) and is intentionally left as-is here
-    # -- T2 must not edit the real C01.json. If a curator later fixes the
-    # clause order, this assertion should be tightened to errors == [].
-    assert codes == {("V5_QUOTE_NOT_FOUND", "C01-P08")}, [str(error) for error in errors]
+    # C01-P08 previously spliced two clauses across a "[...]" in an order the
+    # source does not support; the verify gate correctly flagged it as
+    # V5_QUOTE_NOT_FOUND (confirmed via both the pdftotext text layer and an
+    # independent OCR pass). A curator (2026-07-23) fixed the pilot ledger:
+    # P08 now quotes only "...the strategy of Coscientist changes among runs
+    # (Fig. 5f)" and the mistakes sentence was split out into P14. All 14 C01
+    # propositions now verify clean, so this asserts errors == [] (the tighten
+    # the original author of this test explicitly anticipated).
+    assert codes == set(), [str(error) for error in errors]
     assert all(warning for warning in warnings) or warnings == []
 
 
