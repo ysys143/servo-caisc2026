@@ -79,9 +79,19 @@
     {
       "proposition_id": "C01-P08",
       "locator": {"pdf_page": 5, "journal_page": 574, "section": "Integrated chemical experiment design"},
-      "exact_quote": "Importantly, the system does not make chemistry mistakes (for instance, it never selects phenylboronic acid for the Sonogashira reaction). Interestingly, the [...] strategy of Coscientist changes among runs (Fig. 5f).",
+      "exact_quote": "Designing and performing the requested experiments, the strategy of Coscientist changes among runs (Fig. 5f).",
       "modality": "directly_reported",
-      "named_actors": ["Coscientist", "the system"],
+      "named_actors": ["Coscientist"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "notes_verbatim": "cross-run behavioral variation (Fig. 5f). Corrected 2026-07-23: original quote spliced clauses in wrong order and merged a separate sentence; verify gate flagged V5_QUOTE_NOT_FOUND. Split into P08 (strategy varies) and P14 (no chemistry mistakes)."
+    },
+    {
+      "proposition_id": "C01-P14",
+      "locator": {"pdf_page": 5, "journal_page": 574, "section": "Integrated chemical experiment design"},
+      "exact_quote": "Importantly, the system does not make chemistry mistakes (for instance, it never selects phenylboronic acid for the Sonogashira reaction).",
+      "modality": "directly_reported",
+      "named_actors": ["the system"],
       "named_inputs": [],
       "named_outputs": []
     },
