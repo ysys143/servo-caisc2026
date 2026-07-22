@@ -1,0 +1,65 @@
+schema_version: "5.0.0"
+status: draft
+title: SERVO v5 data-family contract (source_proposition / author_alignment / derived_claim / policy)
+scope_statement: >-
+  Declarative field-level contract for the four v5 data families (charter
+  Part B.1-B.4). source_proposition stores quote/locator/modality only; no
+  judgment field may appear there (forbidden_record_fields, enforced as
+  V5_SOURCE_JUDGMENT_LEAK). Consumed by servo_v5_schema.py through a small
+  hand-rolled line parser -- this file is not general YAML and must keep the
+  exact section markers below.
+
+directories:
+  source_proposition: servo_v5_source_propositions
+  author_alignment: servo_v5_alignments
+  derived_claim: servo_v5_claims
+  policy: servo_v5_policy
+
+envelope_fields:
+  source_proposition: [schema, schema_doc, status, case_id, system, citation_key, source_pdf_name, source_pdf_sha256, coverage_note, propositions]
+  author_alignment: [schema, schema_doc, status, case_id, alignments]
+  derived_claim: [schema, schema_doc, status, case_id, claims]
+  policy: [schema, schema_doc, status, case_id, mechanism_labels, purpose_facets, explicit_bed_evidence, rationale]
+
+required_envelope_fields:
+  source_proposition: [schema, schema_doc, status, case_id, system, citation_key, source_pdf_name, source_pdf_sha256, coverage_note, propositions]
+  author_alignment: [schema, schema_doc, status, case_id, alignments]
+  derived_claim: [schema, schema_doc, status, case_id, claims]
+  policy: [schema, status, case_id, mechanism_labels, purpose_facets]
+
+record_fields:
+  source_proposition: [proposition_id, locator, exact_quote, modality, named_actors, named_inputs, named_outputs, notes_verbatim]
+  author_alignment: [alignment_id, proposition_ids, source_term, component, basis, relation_asserted, boundary_status, notes_verbatim]
+  derived_claim: [claim_id, support_status, claim_scope, alignment_kind, occurrence_resolution, used_alignment_ids, used_proposition_ids, rationale]
+
+required_record_fields:
+  source_proposition: [proposition_id, locator, exact_quote, modality, named_actors, named_inputs, named_outputs]
+  author_alignment: [alignment_id, proposition_ids, source_term, component, basis, relation_asserted, boundary_status]
+  derived_claim: [claim_id, support_status, claim_scope, alignment_kind, occurrence_resolution, used_alignment_ids, used_proposition_ids, rationale]
+
+forbidden_record_fields:
+  source_proposition: [support_status, claim_scope, alignment_kind, occurrence_resolution, servo_mapping, alignment_id, claim_id, decision_role, evaluator_substrate]
+
+locator_fields:
+  required: [pdf_page]
+  optional: [journal_page, para_anchor, section]
+
+enum_fields:
+  source_proposition.modality: [directly_reported, reported_as_procedure, reported_only_as_capability]
+  author_alignment.component: [S, G, E, V, M, pi, A, W_A, external, O_env]
+  author_alignment.basis: [source_explicit, author_aligned]
+  author_alignment.boundary_status: [reported, boundary_unreported]
+  author_alignment.relation_asserted: [candidate_generation, action_selection, intervention_execution, observation_generation, evaluation, state_update, artifact_synthesis, artifact_revision, memory_write, memory_read]
+  derived_claim.support_status: [supported, unresolved, contradicted, not_applicable]
+  derived_claim.claim_scope: [architecture, procedure, aggregate_run, occurrence]
+  derived_claim.alignment_kind: [source_explicit, author_aligned]
+  derived_claim.occurrence_resolution: [resolved, unresolved, not_applicable]
+  policy.mechanism_labels: [fixed, repair_reactive, score_directed, outcome_conditioned, uncertainty_directed, explicit_bed]
+  policy.purpose_facets: [performance, uncertainty, diversity, cost]
+
+# Conditional rule enforced in code (not declarable in the sections above):
+# policy.explicit_bed_evidence is required and non-empty whenever
+# policy.mechanism_labels contains explicit_bed (charter B.4 -- explicit_bed
+# is granted only when a selection rule directly uses a prior/posterior,
+# likelihood, or epistemic utility). Violation code:
+# V5_POLICY_EXPLICIT_BED_EVIDENCE_MISSING.

@@ -147,6 +147,23 @@ I_{t+1} = U(I_t, o_{t+1}, v_{t+1})
 
 ---
 
+## Part B.7 — typed functional relation schema (조합형) — 2026-07-23 확정
+
+`relation_asserted`는 charter 최초 동결 시 미명시였다(빈칸 채우기이며 동결 규칙 변경 아님). T1 구현이 단일 enum(step 활동)으로 도출했으나 두 결함이 있었다: (a) 활동(step)과 관계(relation)가 한 enum에 혼재, (b) feedback을 전부 evaluation 기점으로 만들어 **observation ≠ evaluation**(B.5) 구분을 훼손. 조합형으로 확정한다.
+
+AuthorAlignment는 `assertion_kind`로 두 종류를 구분한다.
+- `component_mapping`: `source_term → component`(S/G/E/V/M/pi/A/W_A/external/O_env), `basis`.
+- `functional_relation`: `(source_role, relation_type, target_role, temporal_scope, basis)`.
+  - ROLE(source_role/target_role) ∈ {candidate, action, execution, observation, evaluation, inquiry_state, memory, artifact, policy, environment, external}
+  - `relation_type` ∈ {produces, evaluates, updates, conditions, selects, revises, reads, writes, triggers}
+  - `temporal_scope` ∈ {per_step, cross_step}
+
+원칙(동결):
+- **observation ≠ evaluation.** cross-step feedback이 전부 evaluation 기점이면 안 된다. 최소 cross-step feedback set: observation→inquiry_state(updates), evaluation→inquiry_state(updates), inquiry_state→policy(conditions), evaluation→execution(triggers), evaluation→artifact(revises), memory→candidate(conditions/reads), memory→policy(conditions).
+- predicate 이름(execution_repair, experimental_adaptation, artifact_revision, discovery_cycle)을 relation 값으로 **쓰지 않는다**(E.2 퇴역 유지). feedback은 role·type·scope 조합으로 서술한다.
+- relation을 closure score나 predicate status로 **aggregate하지 않는다.** relation의 status는 DerivedDecisionClaim의 4축(support_status 등)에서만.
+- basis(source_explicit/author_aligned)와 boundary_status(reported/boundary_unreported)는 functional_relation에도 적용.
+
 ## Part C — v4.1 -> v5 이관·폐기 목록 (실측 기반)
 
 ### C.1 주분석에서 퇴역(폐기) — 역사자료/파생쿼리로만 유지
