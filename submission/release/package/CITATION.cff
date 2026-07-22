@@ -4,9 +4,9 @@ message: >-
   dated post-submission package when relying on corrected claims.
 title: Servo Public Regeneration and Audit Metadata Package
 type: dataset
-version: 3.0.19
+version: 3.0.20
 date-released: 2026-07-22
-url: https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v3.0.19
+url: https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v3.0.20
 authors:
   - family-names: Shin
     given-names: Jaesol

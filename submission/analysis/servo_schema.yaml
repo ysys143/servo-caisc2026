@@ -14,6 +14,12 @@ case_boundary:
 
 core_model:
   components: [S, G, E, V, M, pi]
+  policy_information_state:
+    symbol: I_t
+    source_rule: only information reported by the bounded source as available at decision time
+    belief_specialization: I_t = b_t only when the bounded source defines an explicit belief or posterior
+    memory_relation: M is persistent storage and retrieval; I_t may use retrieved M but is not identical to M
+    non_inference_rule: do not reconstruct an unreported latent or belief state
   outside_core:
     O_env: conceptual environment observation-law boundary, distinct from E but not instantiated as a current graph endpoint
     A: versioned artifact state consumed or produced by events

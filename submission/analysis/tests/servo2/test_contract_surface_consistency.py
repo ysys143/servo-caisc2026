@@ -175,3 +175,21 @@ def test_source_byte_audit_documentation_does_not_claim_locator_validation() -> 
 
     assert "expected bytes and locators" not in readme
     assert "expected source-file bytes" in readme
+
+
+def test_policy_uses_source_reported_information_state_not_mandatory_belief() -> None:
+    english = (ROOT / "main_post-submit.tex").read_text(encoding="utf-8")
+    korean = (ROOT / "main_ko.tex").read_text(encoding="utf-8")
+    schema = (ROOT / "analysis" / "servo_schema.yaml").read_text(encoding="utf-8")
+    contract = (ROOT / "analysis" / "predicate_contract.md").read_text(
+        encoding="utf-8"
+    )
+
+    assert r"\pi: b \times" not in english
+    assert r"\pi: b \times" not in korean
+    assert r"\pi: I_t \times" in english
+    assert r"\pi: I_t \times" in korean
+    assert "Servo does not infer an unreported belief state" in english
+    assert "보고되지 않은 믿음 상태를 추론하지 않는다" in korean
+    assert "belief_specialization: I_t = b_t only when" in schema
+    assert "persistent storage and retrieval substrate" in contract

@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 2
 requires-python = ">=3.12"
 
 [[package]]
@@ -65,7 +65,7 @@ wheels = [
 
 [[package]]
 name = "servo-schema3-reproducibility"
-version = "3.0.19"
+version = "3.0.20"
 source = { virtual = "." }
 
 [package.optional-dependencies]

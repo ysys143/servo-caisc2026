@@ -2,9 +2,9 @@
   "canonical_input_sha256": {
     "analysis/adversarial_validation.md": "ae0b76c5b1089af3e3406638d5e66b37637115000b24b1ca977be0c418e414ed",
     "analysis/build_servo2_tables.py": "fffcbc07a3fa6f6ed17ee6e233a4ccca5e2b7bf57a20fd4de87e20b4bdfda87a",
-    "analysis/current_claim_registry.json": "0d96b8d8faa73594bbe90be1392ddf3569610849131d82cae6d88d2f4f743562",
+    "analysis/current_claim_registry.json": "63f045045db5621be98fcf88ad7712fe481370e960ced0fee259cecb1316d5b0",
     "analysis/holdout_protocol.md": "29ed604d6086b623ffca878a0cebd970fa55ecc5a0b386ae06775bd57bd8dd5a",
-    "analysis/predicate_contract.md": "9fdece8591cbdfc31058cd7436ac7f937fb49b2a6591262a2b25bf29fc1d391c",
+    "analysis/predicate_contract.md": "a652b4de55f6a1c10b0474a861666a98a28853e95fd9cb5fb14a693f4ff6feba",
     "analysis/provenance_crosswalk.md": "7595908484ab679eab2058b73df7a0ac94ecc3b011e3c5c78c0cfa222cdb67fd",
     "analysis/servo2_artifacts.csv": "2ca6f0b08e41720d0a3b65df0f1fabc2e46c9638ad774b7a3c2420f99d2c9cd7",
     "analysis/servo2_cases.csv": "6c9bf08f366d19cf19735c9d931b2ad1553910b1b3ca40148ecd3652bae098ed",
@@ -18,7 +18,7 @@
     "analysis/servo2_evidence_ledger.json": "0e8a6f6e445e07f6a6752c702a26e2a90ed51246c8f9ad41d70b9d48875fee23",
     "analysis/servo2_reliability.csv": "0fef230c022487904692343e6e4b61a772fd5287b3e16764f4ff9672a73c4e4c",
     "analysis/servo2_selection_ledger.csv": "3a80bf220079e825ad347aae03478eb82b90a629f58ae7ae6b418ac96640bf2d",
-    "analysis/servo_schema.yaml": "ca601176d51d3f75327a6f551533f0dcc1a0548c1872c0f3b787b7485764f4bf",
+    "analysis/servo_schema.yaml": "72af9562c31adb8016f23428918dfa2ab9a541d4da133d9d5b85c23a1d2f070b",
     "analysis/source_registry.json": "b151646baf4d999837395260df96fb7d730f9819cf1d7733323fac2602cc7af1"
   },
   "generated_artifact_sha256": {
@@ -33,18 +33,18 @@
     "analysis/tbl-servo2-closure.tex": "a51be651bb1787c2ff39d39238d6fe272479c41bd8de4f0b8ff177d46c18ae8d"
   },
   "public_file_sha256": {
-    "CITATION.cff": "adbe3a687eab671549109316389c978ba0d78fcdd7dad8fd4074635f260cbaa9",
+    "CITATION.cff": "84c2a775cfb3217d20497554c13bcfe2287cb9b8f503297d34f3681c871aea13",
     "LICENSE": "b11f7af076c3065948d24327800431507a4b2ee012748589a58fe0ccff87c497",
     "LICENSE-CODE": "53070bdf3e65d4157fe024d902a54065782cd44018b1376e31b38da74d4a8279",
     "PROTECTED_ARTIFACTS.md": "2024d46e8b8eeb132512ec8d1de80203a641d97bddf093c0a6e09df91e3ac969",
-    "README.md": "0b12469d240c754ca56bfb38f0b9b152e9199dafc29e55e0218c4391588b5dc4",
+    "README.md": "0253ff781af3c293ab79d1670526a768ba9c71655953b732267f652dfab150f3",
     "THIRD_PARTY_NOTICES.md": "688b2cb5be72c764bca85c56940683f9cc6f9d4372828f9fe0c2b6b119ab39cd",
     "analysis/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "analysis/adversarial_validation.md": "ae0b76c5b1089af3e3406638d5e66b37637115000b24b1ca977be0c418e414ed",
     "analysis/build_servo2_tables.py": "fffcbc07a3fa6f6ed17ee6e233a4ccca5e2b7bf57a20fd4de87e20b4bdfda87a",
-    "analysis/current_claim_registry.json": "0d96b8d8faa73594bbe90be1392ddf3569610849131d82cae6d88d2f4f743562",
+    "analysis/current_claim_registry.json": "63f045045db5621be98fcf88ad7712fe481370e960ced0fee259cecb1316d5b0",
     "analysis/holdout_protocol.md": "29ed604d6086b623ffca878a0cebd970fa55ecc5a0b386ae06775bd57bd8dd5a",
-    "analysis/predicate_contract.md": "9fdece8591cbdfc31058cd7436ac7f937fb49b2a6591262a2b25bf29fc1d391c",
+    "analysis/predicate_contract.md": "a652b4de55f6a1c10b0474a861666a98a28853e95fd9cb5fb14a693f4ff6feba",
     "analysis/provenance_crosswalk.md": "7595908484ab679eab2058b73df7a0ac94ecc3b011e3c5c78c0cfa222cdb67fd",
     "analysis/servo2_artifacts.csv": "2ca6f0b08e41720d0a3b65df0f1fabc2e46c9638ad774b7a3c2420f99d2c9cd7",
     "analysis/servo2_audit.py": "b5a506652f8f53c5e51c3f0501b2ac4f8e87c433900213ff26c794d1724e28bd",
@@ -77,7 +77,7 @@
     "analysis/servo2_selection_ledger.csv": "3a80bf220079e825ad347aae03478eb82b90a629f58ae7ae6b418ac96640bf2d",
     "analysis/servo2_summary.json": "97ae7a0b904e082e5fed41193f21da68ebd5ae8e5068d92cadb5d71b3659416d",
     "analysis/servo2_validate.py": "0620296f366f8e199dc0d546972a30f2644842d6af88fb46ab6df90862966523",
-    "analysis/servo_schema.yaml": "ca601176d51d3f75327a6f551533f0dcc1a0548c1872c0f3b787b7485764f4bf",
+    "analysis/servo_schema.yaml": "72af9562c31adb8016f23428918dfa2ab9a541d4da133d9d5b85c23a1d2f070b",
     "analysis/source_registry.json": "b151646baf4d999837395260df96fb7d730f9819cf1d7733323fac2602cc7af1",
     "analysis/tbl-servo2-anchors-ko.tex": "01f4bbc982720670e77f8ed0f1970db9be4e1c069b04755e04ca120d1a1ddbab",
     "analysis/tbl-servo2-anchors.tex": "bacc0331780464ab129aea10b9bb9e7912d902f08ceae84aeb3df7ba7abfccc7",
@@ -97,11 +97,11 @@
     "analysis/tests/servo2/test_round2_validator_contract.py": "6630e940b0f4e525830715ed8f3f0b0106fc4edcc0d1a7a2105b72575feea5be",
     "analysis/tests/servo2/test_witness_occurrence_contract.py": "079e83e58d2a06ba6fbcff14fcaaf534c499b7ee8d74e06ec124274a109bcac5",
     "analysis/validate_servo2.py": "05e474a8eed810e05e5978772011f0801a5d96265f02682c5aa70cc30805b6ec",
-    "pyproject.toml": "26bd0ded61e9faa6813dd36f5b890878d9769b20506b7b56ad4f7405e9d6f22f",
+    "pyproject.toml": "238cd4c7214839bf1a0baa20acfc882842ae5ce0e308fe4c4e3816dab8b585ad",
     "release-role-manifest.json": "f746f7e74d089f97643ebff1b084f6962fbfd84825d946a2ad129806c6f7c431",
-    "release_attestation.json": "1cc92a0ccb54b89ee4e1936f2371066bf788f1cf1d392b6699ecdb605b86202c",
-    "servo_caiscfp2026_post-submit.pdf": "1eae8a3183f798bacb83edfe0077b65efcb926bbd114308acf36ec88648864dd",
-    "uv.lock": "3e72d644431a78d4d6b12cdd5b15c545da2114a2882dc124b966854a4404be87"
+    "release_attestation.json": "fe6b0db64d59aa17556b7a85e44b621ce02d3b7e1c1e27387195c60052ec1bda",
+    "servo_caiscfp2026_post-submit.pdf": "e7750ae69af1745c1f364f2b6edc9307687d4c46bac81850466867f9472be752",
+    "uv.lock": "a7b6f0998a66fc83463e524eb381d87d7684e2bef0256f1fe8a767c4954a1ebc"
   },
   "schema_version": "3.0.0"
 }

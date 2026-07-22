@@ -5,6 +5,17 @@ This document is the human-readable normative companion to
 source graph is a bounded documentary reconstruction, not a complete execution
 log; no missing source statement is converted into an absent real-world event.
 
+## Policy information state
+
+The policy input $I_t$ contains only information that the bounded source reports
+as available at decision time. It may include observation history, retrieved
+memory, validator outputs, or a reported controller, predictive, or recurrent
+state. $M$ is the persistent storage and retrieval substrate; $I_t$ may use
+retrieved content from $M$ but is not identical to $M$. Servo does not infer an
+unreported latent or belief state or require a particular update function. When
+the source explicitly defines a Bayesian or POMDP belief or posterior, the
+interface may be specialized as $I_t=b_t$.
+
 ## Common witness requirements
 
 Every established witness stays within one case, version, configuration, and
