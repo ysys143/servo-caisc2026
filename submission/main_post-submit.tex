@@ -547,7 +547,7 @@ This appendix comments on the same seven frozen anchors as Table~\ref{tab:domain
 
 \paragraph{ChemCrow.} ChemCrow~\citep{bran2023chemcrow} combines tool use with reported chemical execution. Wet-lab characterization remains protocol- and artifact-specific.
 
-\paragraph{GNoME.} GNoME~\citep{merchant2023gnome} routes DFT relaxation and model uncertainty into computational search for phase stability. DFT approximates physical energies rather than serving as a physical oracle: 736 predicted structures match ICSD entries, including 184 added after the project began, while synthesis and functional characterization remain separate~\citep{merchant2023gnome,cheetham2024gnome}.
+\paragraph{GNoME.} GNoME~\citep{merchant2023gnome} routes DFT relaxation and model-predicted stability into computational search for phase stability, selecting candidates by predicted energy under a stability threshold rather than by predictive uncertainty; its deep ensembles quantify uncertainty for generalization, not for experiment selection. DFT approximates physical energies rather than serving as a physical oracle: 736 predicted structures match ICSD entries, including 184 added after the project began, while synthesis and functional characterization remain separate~\citep{merchant2023gnome,cheetham2024gnome}.
 
 \paragraph{BioPlanner.} BioPlanner~\citep{odonoghue2023bioplanner} generates protocol artifacts, but protocol text alone does not establish a biological-validity feedback witness.
 
@@ -1114,10 +1114,84 @@ why, and whether the version of record is thereby wrong or merely less precise.
   \item[R51. Source-reported policy information state.]
   \textbf{Scope:} Background; six-component interface; POMDP and BED boundary; normative schema and contract; bilingual regression gate.
   The policy interface now takes a source-reported decision-time information state $I_t$ rather than requiring a POMDP belief $b$ in every case. Servo neither reconstructs an unreported latent state nor assumes a state-update function. An explicit belief or posterior is represented only by the specialization $I_t=b_t$. Persistent memory $M$ remains a distinct storage and retrieval substrate that may supply information to $I_t$ but is not identical to it.
+
+  \item[R52. GNoME's acquisition rule (Section~\ref{sec:domains}; Section~\ref{sec:openproblems}; Table~\ref{tab:domain-comparison}).]
+  \emph{Status in the version of record: contradicted by the cited source.} The version of
+  record presents GNoME as the closest surveyed approximation to an information-gain-optimal
+  policy: its domain-table policy cell reads ``uncertainty sampling,'' and the body describes
+  ``deep-ensemble uncertainty estimates \dots{} read as a coarse EIG surrogate'' and
+  ``uncertainty estimates that the manuscript reads as a coarse approximation to the BED
+  ideal.'' The cited Methods describe the opposite selection principle: candidates are filtered
+  by predicted formation energy under a fixed stability threshold ($50\,\mathrm{meV\,atom^{-1}}$),
+  and for active learning only the minimum-energy structure per composition is sent for DFT
+  verification---greedy exploitation of predicted stability, not information-gain sampling. The
+  deep ensemble ($n{=}10$) quantifies predictive uncertainty for generalization and confidence
+  bounds, not to select experiments; expected information gain selects the \emph{most uncertain}
+  design, whereas GNoME selects the \emph{most stable} predicted candidate---opposite criteria.
+  The revision recodes the policy as stability-threshold filtering and removes the EIG/BED-surrogate
+  framing. This strengthens rather than weakens the BED--practice gap, since it makes GNoME another
+  system that does not implement an information objective rather than a partial exception to it. The
+  DFT-in-the-loop active-learning \emph{loop} is unaffected; only the mischaracterized \emph{selection
+  criterion} is corrected.
+
+  \item[R53. Self-driving-laboratory review characterization (Section~\ref{sec:openproblems}).]
+  \emph{Status in the version of record: contradicted by the cited source.} The version of record
+  cites the self-driving-laboratory review for ``the rapid maturation of the underlying hardware.''
+  The review's stated emphasis is the reverse: it argues that software autonomy is preeminent for
+  scientific progress and treats physical automation as the comparatively tractable part (laboratory
+  robots ``almost never perform tasks that would be outright impossible for a human''). The revision
+  attributes to the review only its actual claim---that intelligent, not physical, autonomy is the
+  binding constraint---which in fact aligns with this paper's own point that the escalation
+  bottleneck is orthogonal to hardware automation.
+
+  \item[R54. Analytical-technique attribution in chemistry (Section~\ref{sec:openproblems}).]
+  \emph{Status in the version of record: unsupported by the cited source.} The version of record
+  cites the Anthropic ``chemist'' technical report for ``physical characterization (NMR, MS).'' That
+  report addresses NMR prediction and structure elucidation only; it contains no mass-spectrometry
+  content. The revision drops the MS example from this citation.
+
+  \item[R55. Escalation-timing claim in chemistry (Section~\ref{sec:openproblems}).]
+  \emph{Status in the version of record: attributed to a source that does not make the claim.} The
+  version of record cites a 2019 chemical-space-exploration review for the statement that ``NMR and
+  MS characterization require physical execution that no current system knows when to invoke.'' That
+  review is optimistic about automation and raises no escalation-timing (when-to-invoke) problem; it
+  also predates the 2023--2024 systems the sentence calls ``current'' and so cannot speak to them.
+  The revision states the escalation-timing point as this paper's own observation and cites the
+  review only for the general background that physical characterization lies outside the automated
+  search.
+
+  \item[R56. Leiden signatory composition (Section~\ref{sec:openproblems}).]
+  \emph{Status in the version of record: characterization narrower than the signatory pool.} Beyond
+  the count-provenance issue recorded in R1, the sentence describes the signatories as
+  ``mathematicians.'' The declaration's drafters and signatories are a mixed group of mathematicians,
+  computer scientists, philosophers, and historians. The revision describes them as mathematicians
+  and allied scholars.
+
+  \item[R57. Knowledge-graph ideation outcome (Section~\ref{sec:related}).]
+  \emph{Status in the version of record: partly contradicted by one cited source.} The version of
+  record groups two knowledge-graph ideation systems and states that both help ``surface and rank
+  higher-interest research ideas.'' Only the first (SciMuse) measures self-reported \emph{interest};
+  the second (Spacer) ranks candidates by predicted \emph{impact/novelty} (a reported AUROC of 0.737
+  for high-impact ideas), not interest. The revision states each system's actual ranking target.
+
+  \item[R58. Reverse-engineering finding (Section~\ref{sec:openproblems}).]
+  \emph{Status in the version of record: understates the cited source's finding.} The version of
+  record cites the reverse-engineering study for LLMs that ``fail to do so reliably even with
+  systematic query access,'' which reads as though querying does not help. The study's finding is
+  that active querying---intervening on the black box rather than only observing it---\emph{substantially
+  improves} performance while still falling short of reliable Bayesian inference. The revision states
+  that active querying improves on passive observation yet remains below reliable performance.
+
+  \item[R59. BioPlanner's function (Section~\ref{sec:domains}).]
+  \emph{Status in the version of record: mischaracterizes the system's role.} The version of record
+  states that ``BioPlanner generates experimental protocols.'' BioPlanner is an automatic-evaluation
+  benchmark (BioProt): protocols are LLM-generated and BioPlanner scores their planning against a
+  reference, rather than being a protocol generator itself. The revision describes it as evaluating
+  LLM-generated protocols.
 \end{description}
 
 \noindent\textbf{Scope of revision.} The entries above are the complete set of changes
-made since the archival deposit, R1--R51. Entries R3--R12 narrow or correct statements
+made since the archival deposit, R1--R59. Entries R3--R12 narrow or correct statements
 that the citation audit judged unsupported by, contradicted by, or less precise than their
 cited sources. Entries R13--R16 record the subsequent adversarial mathematical review: they
 replace the proposition/assumption/proof-sketch presentation with bounded analytical
@@ -1176,6 +1250,17 @@ non-representative source annotation. In addition to the entry corrected in R11,
 Parasuraman et al. on function-specific human--automation authority and Kandasamy et al. and
 Song et al. on multi-fidelity Bayesian optimization; R26 adds Wei et al. and Tie et al. as
 the closest direct AI-Scientist survey frameworks.
+
+Entries R52--R59 record a second citation audit. R52 recodes GNoME's policy as
+stability-threshold filtering rather than uncertainty sampling or an EIG surrogate, correcting
+the domain table and the BED--practice-gap discussion. R53 corrects the self-driving-laboratory
+review's emphasis (software rather than hardware autonomy). R54 drops an unsupported
+mass-spectrometry attribution; R55 detaches an escalation-timing claim from a review that does
+not make it; R56 widens the Leiden signatory description beyond mathematicians; R57 separates
+interest from impact ranking in two knowledge-graph ideation systems; R58 corrects an
+understatement of the reverse-engineering study's querying result; and R59 recasts BioPlanner as
+an evaluation benchmark rather than a protocol generator. None of these entries changes the
+framework, the three open problems, or their proposed evaluations.
 
 \noindent\textbf{Current-interpretation supersession index.}
 R23's stochastic executor formulation is read with R26's executor/environment separation;
