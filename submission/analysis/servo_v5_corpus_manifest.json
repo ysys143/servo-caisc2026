@@ -1,0 +1,89 @@
+{
+  "schema": "servo_v5_corpus_manifest",
+  "schema_version": "5.0.0",
+  "purpose": "Enumerate the six third-party source PDFs SERVO v5 is bound to, so a reproducer can acquire each from its public source and verify byte-identity before running the source-fidelity tests.",
+  "redistribution_status": "not_redistributed",
+  "redistribution_note": "All six PDFs are third-party copyrighted works. This package does not include them. Obtain each from the acquisition pointer below, then confirm sha256sum matches the value recorded here (and in servo_v5_source_freeze_manifest.json, the authoritative source) before treating any source-fidelity check as verified.",
+  "cases": [
+    {
+      "case_id": "C01",
+      "citation_key": "boiko2023emergent",
+      "title": "Autonomous chemical research with large language models",
+      "authors": "Boiko, Daniil A; MacKnight, Robert; Kline, Ben; Gomes, Gabe",
+      "venue": "Nature 624, 570-578 (2023)",
+      "pdf_filename": "Boiko 2023 - Autonomous Chemical Research with LLMs.pdf",
+      "sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
+      "acquire": {
+        "doi": "10.1038/s41586-023-06792-0",
+        "url": "https://doi.org/10.1038/s41586-023-06792-0"
+      }
+    },
+    {
+      "case_id": "C02",
+      "citation_key": "lu2024aiscientist",
+      "title": "The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery",
+      "authors": "Lu, Chris; Lu, Cong; Lange, Robert Tjarko; Foerster, Jakob; Clune, Jeff; Ha, David",
+      "venue": "arXiv preprint (2024)",
+      "pdf_filename": "The AI Scientist_ Towards Fully Automated Open-Ended Scientific Discovery.pdf",
+      "sha256": "00fc4a18db7b314b5def5d9236c6af6cb9325605dcb4827cc82b0f8a462356fe",
+      "acquire": {
+        "arxiv_id": "2408.06292",
+        "url": "https://arxiv.org/abs/2408.06292"
+      }
+    },
+    {
+      "case_id": "C03",
+      "citation_key": "lu2026aiscientist",
+      "title": "Towards end-to-end automation of AI research",
+      "authors": "Lu, Chris; Lu, Cong; Lange, Robert Tjarko; Yamada, Yutaro; Hu, Shengran; Foerster, Jakob; Ha, David; Clune, Jeff",
+      "venue": "Nature 651, 914-919 (2026)",
+      "pdf_filename": "Towards end-to-end automation of AI research.pdf",
+      "sha256": "a75e0d93447f400179136bf18d909df29e0c8ccaeba076a1dfb1beeef0e0e10d",
+      "acquire": {
+        "doi": "10.1038/s41586-026-10265-5",
+        "url": "https://doi.org/10.1038/s41586-026-10265-5"
+      }
+    },
+    {
+      "case_id": "C04",
+      "citation_key": "schmidgall2025agentlab",
+      "title": "Agent Laboratory: Using LLM Agents as Research Assistants",
+      "authors": "Schmidgall, Samuel; Su, Yusheng; Wang, Ze; Sun, Ximeng; Wu, Jialian; Yu, Xiaodong; Liu, Jiang; Moor, Michael; Liu, Zicheng; Barsoum, Emad",
+      "venue": "arXiv preprint (2025)",
+      "pdf_filename": "Agent Laboratory - Using LLM Agents as Research Assistants.pdf",
+      "sha256": "67b9543ae1d8e3ad86a65e2a436ddbd12700d7c8f4a66c5b4c2a6fccc1674d75",
+      "acquire": {
+        "arxiv_id": "2501.04227",
+        "url": "https://arxiv.org/abs/2501.04227"
+      }
+    },
+    {
+      "case_id": "C05",
+      "citation_key": "sparkes2010robot",
+      "title": "Towards Robot Scientists for autonomous scientific discovery",
+      "authors": "Sparkes, Andrew; Aubrey, Wayne; Byrne, Emma; Clare, Amanda; Khan, Muhammed N; Liakata, Maria; Markham, Magdalena; Rowland, Jem; Soldatova, Larisa N; Whelan, Kenneth E; Young, Michael; King, Ross D",
+      "venue": "Automated Experimentation 2(1):1 (2010)",
+      "pdf_filename": "Sparkes 2010 - Towards Robot Scientists for Autonomous Scientific Discovery.pdf",
+      "sha256": "0838ce55a216d3b5ba46b3bedb5e85194ed056dc98e5909630264f63066692cd",
+      "acquire": {
+        "doi": "10.1186/1759-4499-2-1",
+        "url": "https://doi.org/10.1186/1759-4499-2-1"
+      },
+      "note": "This is the only PDF SERVO C05 is frozen against (single source_pdf_sha256). The manuscript also cites king2004robot as related background on the same Robot Scientist / Adam lineage, but no second PDF is bound to C05 in the freeze manifest."
+    },
+    {
+      "case_id": "C06",
+      "citation_key": "zhang2025novelseek",
+      "title": "InternAgent: When Agent Becomes the Scientist -- Building a Closed-Loop System from Hypothesis to Verification",
+      "authors": "InternAgent Team, Shanghai Artificial Intelligence Laboratory",
+      "venue": "arXiv preprint, v3 (2025)",
+      "pdf_filename": "NovelSeek - When Agent Becomes the Scientist.pdf",
+      "sha256": "71619a734da64e3b84735fc18417316254fd08c0abeafaf9d8faa08abdd48843",
+      "acquire": {
+        "arxiv_id": "2505.16938",
+        "url": "https://arxiv.org/abs/2505.16938"
+      },
+      "note": "Circulated as NovelSeek in earlier preprint versions; the local filename and the servo2_cases.csv system label retain that name for continuity with prior citations."
+    }
+  ]
+}
