@@ -160,3 +160,61 @@ def test_alignment_reference_to_unknown_proposition_is_rejected(tmp_path: Path) 
     errors = validate_root(root)
     codes = {error.code for error in errors}
     assert "V5_REFERENCE_UNKNOWN" in codes, [str(error) for error in errors]
+
+
+# ---------------------------------------------------------------------------
+# proposition_tags (rubric section 3, charter B.8): T6 derive_claim inputs,
+# optional and restricted to functional_relation records.
+# ---------------------------------------------------------------------------
+
+
+def test_functional_relation_with_valid_proposition_tags_validates_clean(tmp_path: Path) -> None:
+    record = _valid_functional_relation_alignment()
+    record["proposition_tags"] = [
+        {
+            "proposition_id": "C01-P01",
+            "describes_single_event": True,
+            "describes_cross_run_trend": False,
+            "structurally_inferred": False,
+            "polarity": "neutral",
+        }
+    ]
+    path = _write_alignment_file(tmp_path, record)
+    errors = validate_file(path, "author_alignment")
+    assert errors == [], [str(error) for error in errors]
+
+
+def test_proposition_tags_on_component_mapping_is_rejected(tmp_path: Path) -> None:
+    record = _valid_component_mapping_alignment()
+    record["proposition_tags"] = [{"proposition_id": "C01-P01"}]
+    path = _write_alignment_file(tmp_path, record)
+    errors = validate_file(path, "author_alignment")
+    codes = {error.code for error in errors}
+    assert codes == {"V5_ALIGNMENT_KIND_FIELD_MISMATCH"}, [str(error) for error in errors]
+
+
+def test_proposition_tag_with_unknown_proposition_id_is_rejected(tmp_path: Path) -> None:
+    record = _valid_functional_relation_alignment()
+    record["proposition_tags"] = [{"proposition_id": "C01-P99"}]
+    path = _write_alignment_file(tmp_path, record)
+    errors = validate_file(path, "author_alignment")
+    codes = {error.code for error in errors}
+    assert codes == {"V5_ALIGNMENT_TAG_UNKNOWN_PROPOSITION"}, [str(error) for error in errors]
+
+
+def test_proposition_tag_with_bad_polarity_is_rejected(tmp_path: Path) -> None:
+    record = _valid_functional_relation_alignment()
+    record["proposition_tags"] = [{"proposition_id": "C01-P01", "polarity": "strongly_opposed"}]
+    path = _write_alignment_file(tmp_path, record)
+    errors = validate_file(path, "author_alignment")
+    codes = {error.code for error in errors}
+    assert codes == {"V5_ENUM_INVALID"}, [str(error) for error in errors]
+
+
+def test_proposition_tag_with_unlisted_key_is_rejected(tmp_path: Path) -> None:
+    record = _valid_functional_relation_alignment()
+    record["proposition_tags"] = [{"proposition_id": "C01-P01", "confidence": "high"}]
+    path = _write_alignment_file(tmp_path, record)
+    errors = validate_file(path, "author_alignment")
+    codes = {error.code for error in errors}
+    assert codes == {"V5_ALIGNMENT_TAG_FIELD_UNKNOWN"}, [str(error) for error in errors]

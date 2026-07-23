@@ -8,9 +8,13 @@ scope_statement: >-
   V5_SOURCE_JUDGMENT_LEAK). author_alignment records are typed by
   assertion_kind (charter B.7): the fields each kind requires and forbids are
   declared in conditional_record_fields, keyed by the field named in
-  conditional_discriminator_fields. Consumed by servo_v5_schema.py through a
-  small hand-rolled line parser -- this file is not general YAML and must
-  keep the exact section markers below.
+  conditional_discriminator_fields. functional_relation records may also
+  carry the optional per-proposition proposition_tags field (rubric section
+  3, charter B.8): optional_conditional_record_fields restricts it to its
+  kind without making it required, and nested_record_fields declares the key
+  allowlist for its entries. Consumed by servo_v5_schema.py through a small
+  hand-rolled line parser -- this file is not general YAML and must keep the
+  exact section markers below.
 
 directories:
   source_proposition: servo_v5_source_propositions
@@ -32,7 +36,7 @@ required_envelope_fields:
 
 record_fields:
   source_proposition: [proposition_id, locator, exact_quote, modality, named_actors, named_inputs, named_outputs, source_context_note]
-  author_alignment: [alignment_id, proposition_ids, assertion_kind, basis, boundary_status, notes_verbatim, source_term, component, source_role, target_role, relation_type, temporal_scope]
+  author_alignment: [alignment_id, proposition_ids, assertion_kind, basis, boundary_status, notes_verbatim, source_term, component, source_role, target_role, relation_type, temporal_scope, proposition_tags]
   derived_claim: [claim_id, support_status, claim_scope, alignment_kind, occurrence_resolution, used_alignment_ids, used_proposition_ids, rationale]
 
 required_record_fields:
@@ -55,6 +59,24 @@ conditional_record_fields:
     component_mapping: [source_term, component]
     functional_relation: [source_role, target_role, relation_type, temporal_scope]
 
+# optional_conditional_record_fields (rubric section 3, charter B.8): like
+# conditional_record_fields, a field listed here is rejected as
+# V5_ALIGNMENT_KIND_FIELD_MISMATCH on any kind other than the one it is
+# listed under, but -- unlike conditional_record_fields -- it is never
+# required on its own kind. proposition_tags carries T6 derive_claim inputs
+# (describes_single_event/describes_cross_run_trend/structurally_inferred/
+# polarity per proposition) and is optional even on functional_relation.
+optional_conditional_record_fields:
+  author_alignment:
+    functional_relation: [proposition_tags]
+
+# nested_record_fields declares the key allowlist for object entries nested
+# inside a record field (charter B.8 per-proposition tags). Unlisted keys in
+# an entry are rejected as V5_ALIGNMENT_TAG_FIELD_UNKNOWN.
+nested_record_fields:
+  author_alignment:
+    proposition_tags: [proposition_id, describes_single_event, describes_cross_run_trend, structurally_inferred, polarity]
+
 locator_fields:
   required: [pdf_page]
   optional: [journal_page, para_anchor, section]
@@ -71,6 +93,7 @@ enum_fields:
   author_alignment.target_role: [candidate, action, execution, observation, evaluation, inquiry_state, memory, artifact, policy, environment, external]
   author_alignment.relation_type: [produces, evaluates, updates, conditions, selects, revises, reads, writes, triggers]
   author_alignment.temporal_scope: [per_step, cross_step]
+  author_alignment.proposition_tags.polarity: [neutral, explicit_denial]
   derived_claim.support_status: [supported, unresolved, contradicted, not_applicable]
   derived_claim.claim_scope: [architecture, procedure, aggregate_run, occurrence]
   derived_claim.alignment_kind: [source_explicit, author_aligned]

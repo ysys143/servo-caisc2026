@@ -46,6 +46,8 @@ class SchemaContract:
     locator_optional: tuple[str, ...]
     conditional_discriminator_fields: dict[str, str]
     conditional_record_fields: dict[str, dict[str, tuple[str, ...]]]
+    optional_conditional_record_fields: dict[str, dict[str, tuple[str, ...]]]
+    nested_record_fields: dict[str, dict[str, tuple[str, ...]]]
 
 
 def load_contract(analysis_dir: Path) -> SchemaContract:
@@ -69,6 +71,8 @@ def load_contract(analysis_dir: Path) -> SchemaContract:
         locator_optional=locator.get("optional", ()),
         conditional_discriminator_fields=_scalar_mapping(lines, "conditional_discriminator_fields"),
         conditional_record_fields=_nested_list_mapping(lines, "conditional_record_fields"),
+        optional_conditional_record_fields=_nested_list_mapping(lines, "optional_conditional_record_fields"),
+        nested_record_fields=_nested_list_mapping(lines, "nested_record_fields"),
     )
 
 
@@ -305,17 +309,20 @@ def _check_alignment_kind_fields(
     # charter B.7: assertion_kind (named by conditional_discriminator_fields)
     # selects one group of extra fields from conditional_record_fields; the
     # other kind's fields are disallowed and the selected kind's fields are
-    # mandatory.
+    # mandatory. charter B.8 adds optional_conditional_record_fields: fields
+    # (e.g. proposition_tags) that are likewise restricted to one kind but,
+    # unlike conditional_record_fields, are never mandatory on it.
     kind_groups = contract.conditional_record_fields.get(family)
     discriminator = contract.conditional_discriminator_fields.get(family)
     if not kind_groups or discriminator is None:
         return []
+    optional_kind_groups = contract.optional_conditional_record_fields.get(family, {})
     kind = entry.get(discriminator)
     errors: list[ValidationError] = []
-    for other_kind, fields in kind_groups.items():
+    for other_kind in set(kind_groups) | set(optional_kind_groups):
         if other_kind == kind:
             continue
-        for field in fields:
+        for field in kind_groups.get(other_kind, ()) + optional_kind_groups.get(other_kind, ()):
             if field in entry:
                 errors.append(
                     ValidationError(
@@ -327,23 +334,93 @@ def _check_alignment_kind_fields(
                     )
                 )
     fields_for_kind = kind_groups.get(kind)
-    if fields_for_kind is None:
-        return errors
-    for field in fields_for_kind:
-        if field not in entry:
+    if fields_for_kind is not None:
+        for field in fields_for_kind:
+            if field not in entry:
+                errors.append(
+                    ValidationError(
+                        "V5_ALIGNMENT_MISSING_FIELD",
+                        family,
+                        case_id,
+                        record_id,
+                        f"{field} required when {discriminator}={kind!r}",
+                    )
+                )
+            elif field == "source_term":
+                errors += _check_nonempty_string(entry, field, family, case_id, record_id)
+            else:
+                errors += _check_enum(entry, field, family, case_id, record_id, contract)
+    for field in optional_kind_groups.get(kind, ()):
+        if field == "proposition_tags" and field in entry:
+            errors += _check_proposition_tags(entry, family, case_id, record_id, contract)
+    return errors
+
+
+def _check_proposition_tags(
+    entry: dict, family: str, case_id: str, record_id: str, contract: SchemaContract
+) -> list[ValidationError]:
+    # rubric section 3 / charter B.8: proposition_tags is a list of
+    # per-proposition tag entries feeding T6 derive_claim, not a judgment
+    # stored here. Each entry's proposition_id must resolve within the
+    # record's own proposition_ids (cross-check), and unlisted keys are
+    # rejected via nested_record_fields' allowlist.
+    tags = entry.get("proposition_tags")
+    if not isinstance(tags, list):
+        return [
+            ValidationError(
+                "V5_FIELD_TYPE_INVALID", family, case_id, record_id, "proposition_tags must be a list"
+            )
+        ]
+    allowed_keys = set(contract.nested_record_fields.get(family, {}).get("proposition_tags", ()))
+    proposition_ids = entry.get("proposition_ids")
+    known_propositions = set(proposition_ids) if isinstance(proposition_ids, list) else set()
+
+    errors: list[ValidationError] = []
+    for tag in tags:
+        if not isinstance(tag, dict):
+            errors.append(ValidationError("V5_RECORD_NOT_OBJECT", family, case_id, record_id, repr(tag)))
+            continue
+        for key in tag:
+            if key not in allowed_keys:
+                errors.append(ValidationError("V5_ALIGNMENT_TAG_FIELD_UNKNOWN", family, case_id, record_id, key))
+        prop_id = tag.get("proposition_id")
+        if not isinstance(prop_id, str) or not prop_id.strip():
             errors.append(
                 ValidationError(
-                    "V5_ALIGNMENT_MISSING_FIELD",
+                    "V5_FIELD_TYPE_INVALID",
                     family,
                     case_id,
                     record_id,
-                    f"{field} required when {discriminator}={kind!r}",
+                    "proposition_tags[].proposition_id must be a non-empty string",
                 )
             )
-        elif field == "source_term":
-            errors += _check_nonempty_string(entry, field, family, case_id, record_id)
-        else:
-            errors += _check_enum(entry, field, family, case_id, record_id, contract)
+        elif prop_id not in known_propositions:
+            errors.append(
+                ValidationError("V5_ALIGNMENT_TAG_UNKNOWN_PROPOSITION", family, case_id, record_id, prop_id)
+            )
+        for bool_field in ("describes_single_event", "describes_cross_run_trend", "structurally_inferred"):
+            if bool_field in tag and not isinstance(tag[bool_field], bool):
+                errors.append(
+                    ValidationError(
+                        "V5_FIELD_TYPE_INVALID",
+                        family,
+                        case_id,
+                        record_id,
+                        f"proposition_tags.{bool_field} must be a bool",
+                    )
+                )
+        if "polarity" in tag:
+            allowed_polarity = contract.enum_fields.get(f"{family}.proposition_tags.polarity")
+            if allowed_polarity is not None and tag["polarity"] not in allowed_polarity:
+                errors.append(
+                    ValidationError(
+                        "V5_ENUM_INVALID",
+                        family,
+                        case_id,
+                        record_id,
+                        f"polarity={tag['polarity']!r} allowed={allowed_polarity}",
+                    )
+                )
     return errors
 
 
