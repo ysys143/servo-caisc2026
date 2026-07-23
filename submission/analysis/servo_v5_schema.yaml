@@ -64,8 +64,8 @@ conditional_record_fields:
 # V5_ALIGNMENT_KIND_FIELD_MISMATCH on any kind other than the one it is
 # listed under, but -- unlike conditional_record_fields -- it is never
 # required on its own kind. proposition_tags carries T6 derive_claim inputs
-# (describes_single_event/describes_cross_run_trend/structurally_inferred/
-# polarity per proposition) and is optional even on functional_relation.
+# (occurrence_class/structurally_inferred/polarity per proposition) and is
+# optional even on functional_relation.
 optional_conditional_record_fields:
   author_alignment:
     functional_relation: [proposition_tags]
@@ -75,7 +75,7 @@ optional_conditional_record_fields:
 # an entry are rejected as V5_ALIGNMENT_TAG_FIELD_UNKNOWN.
 nested_record_fields:
   author_alignment:
-    proposition_tags: [proposition_id, describes_single_event, describes_cross_run_trend, structurally_inferred, polarity]
+    proposition_tags: [proposition_id, occurrence_class, structurally_inferred, polarity]
 
 locator_fields:
   required: [pdf_page]
