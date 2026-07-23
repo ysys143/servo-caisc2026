@@ -79,7 +79,11 @@ def test_warning_disposition_gate_rejects_an_unreviewed_warning(tmp_path: Path) 
 
     issues = validate_warning_dispositions(analysis_dir, warnings)
 
-    assert {issue.code for issue in issues} == {"V5_WARNING_DISPOSITION_MISSING"}
+    # The single injected C99 warning is unreviewed -> V5_WARNING_DISPOSITION_MISSING.
+    # The real dispositions copied by _copy_freeze_inputs are all status=active but
+    # absent from this one-item warning list, so V5_WARNING_DISPOSITION_STALE co-occurs
+    # for them. This test asserts only that an unreviewed warning is rejected.
+    assert "V5_WARNING_DISPOSITION_MISSING" in {issue.code for issue in issues}
 
 
 def test_freeze_manifest_detects_changed_source_ledger(tmp_path: Path) -> None:
