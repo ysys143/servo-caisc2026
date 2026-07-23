@@ -13,6 +13,7 @@ TEX_BIN     := /usr/local/texlive/2026basic/bin/universal-darwin
 XELATEX     := $(TEX_BIN)/xelatex
 BIBTEX      := $(TEX_BIN)/bibtex
 REVISION    := main_post-submit
+DIST        := servo_caiscfp2026_post-submit
 # Frozen source corpus (the six case PDFs). Override on the command line if needed:
 #   make verify SOURCE_ROOT=/path/to/ai_scientist
 SOURCE_ROOT ?= /Users/jaesolshin/Documents/GitHub/ai_scientist
@@ -42,6 +43,8 @@ pdf:
 	  && ! grep -q "^!" $(REVISION).log \
 	  && echo "OK: $(REVISION).pdf compiled with no errors" \
 	  || (echo "FAIL: compile error or no output in $(REVISION).log" && exit 1)
+	rm -f $(DIST).pdf && cp $(REVISION).pdf $(DIST).pdf
+	@echo "OK: distribution copy $(DIST).pdf"
 
 ## supplement: regenerate the supplementary-material zip from analysis/ + references.bib
 supplement:
