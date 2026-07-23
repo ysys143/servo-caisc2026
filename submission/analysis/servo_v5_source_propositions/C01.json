@@ -25,9 +25,7 @@
       "modality": "directly_reported",
       "named_actors": ["Coscientist"],
       "named_inputs": ["spectra (NumPy array)", "guiding prompt"],
-      "named_outputs": ["Python code", "wavelengths with maximum absorbance"],
-      "source_context_note": "human-supplied guiding prompt is explicitly reported as required"
-    },
+      "named_outputs": ["Python code", "wavelengths with maximum absorbance"]    },
     {
       "proposition_id": "C01-P03",
       "locator": {"pdf_page": 5, "journal_page": 574, "section": "Integrated chemical experiment design"},
@@ -54,9 +52,7 @@
       "modality": "directly_reported",
       "named_actors": [],
       "named_inputs": [],
-      "named_outputs": [],
-      "source_context_note": "reports manual plate handling and reported absence of human decision-making"
-    },
+      "named_outputs": []    },
     {
       "proposition_id": "C01-P06",
       "locator": {"pdf_page": 5, "journal_page": 574, "section": "Integrated chemical experiment design"},
@@ -694,9 +690,7 @@
       "modality": "directly_reported",
       "named_actors": [],
       "named_inputs": [],
-      "named_outputs": [],
-      "source_context_note": "explicit access restriction bounding this investigation"
-    },
+      "named_outputs": []    },
     {
       "proposition_id": "C01-P74",
       "locator": {"pdf_page": 4, "journal_page": 573, "section": "Controlling laboratory hardware"},

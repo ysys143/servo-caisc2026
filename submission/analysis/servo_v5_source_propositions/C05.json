@@ -17,7 +17,7 @@
       "named_actors": ["Robot Scientist"],
       "named_inputs": ["a computer model of the domain"],
       "named_outputs": [],
-      "source_context_note": "generic architectural description of the Robot Scientist concept, immediately preceding the paper's introduction of Adam as its first instantiation; frames the closed cycle Adam is then reported to instantiate"
+      "source_context_note": "generic architectural description of the Robot Scientist concept, immediately preceding the paper's introduction of Adam as its first instantiation"
     },
     {
       "proposition_id": "C05-P02",
