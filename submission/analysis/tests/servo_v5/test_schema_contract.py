@@ -173,11 +173,22 @@ def test_functional_relation_with_valid_proposition_tags_validates_clean(tmp_pat
     record["proposition_tags"] = [
         {
             "proposition_id": "C01-P01",
-            "describes_single_event": True,
-            "describes_cross_run_trend": False,
+            "occurrence_class": "single_event",
             "structurally_inferred": False,
             "polarity": "neutral",
         }
+    ]
+    path = _write_alignment_file(tmp_path, record)
+    errors = validate_file(path, "author_alignment")
+    assert errors == [], [str(error) for error in errors]
+
+
+def test_functional_relation_with_omitted_occurrence_class_validates_clean(tmp_path: Path) -> None:
+    # occurrence_class is optional (rubric v5-rubric-3 §3): a tag entry
+    # without it is still valid.
+    record = _valid_functional_relation_alignment()
+    record["proposition_tags"] = [
+        {"proposition_id": "C01-P01", "structurally_inferred": False, "polarity": "neutral"}
     ]
     path = _write_alignment_file(tmp_path, record)
     errors = validate_file(path, "author_alignment")
@@ -211,9 +222,29 @@ def test_proposition_tag_with_bad_polarity_is_rejected(tmp_path: Path) -> None:
     assert codes == {"V5_ENUM_INVALID"}, [str(error) for error in errors]
 
 
+def test_proposition_tag_with_bad_occurrence_class_is_rejected(tmp_path: Path) -> None:
+    record = _valid_functional_relation_alignment()
+    record["proposition_tags"] = [{"proposition_id": "C01-P01", "occurrence_class": "one_off"}]
+    path = _write_alignment_file(tmp_path, record)
+    errors = validate_file(path, "author_alignment")
+    codes = {error.code for error in errors}
+    assert codes == {"V5_ENUM_INVALID"}, [str(error) for error in errors]
+
+
 def test_proposition_tag_with_unlisted_key_is_rejected(tmp_path: Path) -> None:
     record = _valid_functional_relation_alignment()
     record["proposition_tags"] = [{"proposition_id": "C01-P01", "confidence": "high"}]
+    path = _write_alignment_file(tmp_path, record)
+    errors = validate_file(path, "author_alignment")
+    codes = {error.code for error in errors}
+    assert codes == {"V5_ALIGNMENT_TAG_FIELD_UNKNOWN"}, [str(error) for error in errors]
+
+
+def test_proposition_tag_with_removed_bool_key_is_rejected(tmp_path: Path) -> None:
+    # describes_single_event/describes_cross_run_trend were subsumed by
+    # occurrence_class (rubric v5-rubric-3 §3) and are no longer allowed keys.
+    record = _valid_functional_relation_alignment()
+    record["proposition_tags"] = [{"proposition_id": "C01-P01", "describes_single_event": True}]
     path = _write_alignment_file(tmp_path, record)
     errors = validate_file(path, "author_alignment")
     codes = {error.code for error in errors}

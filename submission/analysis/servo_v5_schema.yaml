@@ -93,6 +93,7 @@ enum_fields:
   author_alignment.target_role: [candidate, action, execution, observation, evaluation, inquiry_state, memory, artifact, policy, environment, external]
   author_alignment.relation_type: [produces, evaluates, updates, conditions, selects, revises, reads, writes, triggers]
   author_alignment.temporal_scope: [per_step, cross_step]
+  author_alignment.proposition_tags.occurrence_class: [single_event, cross_run_trend, architecture, habitual_procedure]
   author_alignment.proposition_tags.polarity: [neutral, explicit_denial]
   derived_claim.support_status: [supported, unresolved, contradicted, not_applicable]
   derived_claim.claim_scope: [architecture, procedure, aggregate_run, occurrence]

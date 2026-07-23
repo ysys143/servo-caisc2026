@@ -398,27 +398,28 @@ def _check_proposition_tags(
             errors.append(
                 ValidationError("V5_ALIGNMENT_TAG_UNKNOWN_PROPOSITION", family, case_id, record_id, prop_id)
             )
-        for bool_field in ("describes_single_event", "describes_cross_run_trend", "structurally_inferred"):
-            if bool_field in tag and not isinstance(tag[bool_field], bool):
-                errors.append(
-                    ValidationError(
-                        "V5_FIELD_TYPE_INVALID",
-                        family,
-                        case_id,
-                        record_id,
-                        f"proposition_tags.{bool_field} must be a bool",
-                    )
+        if "structurally_inferred" in tag and not isinstance(tag["structurally_inferred"], bool):
+            errors.append(
+                ValidationError(
+                    "V5_FIELD_TYPE_INVALID",
+                    family,
+                    case_id,
+                    record_id,
+                    "proposition_tags.structurally_inferred must be a bool",
                 )
-        if "polarity" in tag:
-            allowed_polarity = contract.enum_fields.get(f"{family}.proposition_tags.polarity")
-            if allowed_polarity is not None and tag["polarity"] not in allowed_polarity:
+            )
+        for enum_field in ("occurrence_class", "polarity"):
+            if enum_field not in tag:
+                continue
+            allowed = contract.enum_fields.get(f"{family}.proposition_tags.{enum_field}")
+            if allowed is not None and tag[enum_field] not in allowed:
                 errors.append(
                     ValidationError(
                         "V5_ENUM_INVALID",
                         family,
                         case_id,
                         record_id,
-                        f"polarity={tag['polarity']!r} allowed={allowed_polarity}",
+                        f"{enum_field}={tag[enum_field]!r} allowed={allowed}",
                     )
                 )
     return errors
