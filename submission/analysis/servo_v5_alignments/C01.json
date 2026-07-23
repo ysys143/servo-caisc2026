@@ -10,10 +10,10 @@
         "C01-P01"
       ],
       "assertion_kind": "component_mapping",
-      "basis": "source_explicit",
+      "basis": "author_aligned",
       "boundary_status": "reported",
-      "source_term": "corrected protocol version",
-      "component": "A"
+      "source_term": "Docs searcher module",
+      "component": "E"
     },
     {
       "alignment_id": "C01-A02",
@@ -23,11 +23,22 @@
       "assertion_kind": "component_mapping",
       "basis": "author_aligned",
       "boundary_status": "reported",
-      "source_term": "Docs searcher module",
-      "component": "M"
+      "source_term": "OT-2 documentation",
+      "component": "external"
     },
     {
       "alignment_id": "C01-A03",
+      "proposition_ids": [
+        "C01-P01"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "corrected protocol version",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C01-A04",
       "proposition_ids": [
         "C01-P01"
       ],
@@ -49,7 +60,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A04",
+      "alignment_id": "C01-A05",
       "proposition_ids": [
         "C01-P01"
       ],
@@ -71,40 +82,29 @@
       ]
     },
     {
-      "alignment_id": "C01-A05",
-      "proposition_ids": [
-        "C01-P01"
-      ],
-      "assertion_kind": "functional_relation",
-      "basis": "author_aligned",
-      "boundary_status": "reported",
-      "source_role": "memory",
-      "target_role": "policy",
-      "relation_type": "conditions",
-      "temporal_scope": "cross_step",
-      "proposition_tags": [
-        {
-          "proposition_id": "C01-P01",
-          "describes_single_event": true,
-          "describes_cross_run_trend": false,
-          "structurally_inferred": false,
-          "polarity": "neutral"
-        }
-      ]
-    },
-    {
       "alignment_id": "C01-A06",
       "proposition_ids": [
         "C01-P02"
       ],
       "assertion_kind": "component_mapping",
-      "basis": "source_explicit",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Coscientist",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C01-A07",
+      "proposition_ids": [
+        "C01-P02"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "Python code",
       "component": "A"
     },
     {
-      "alignment_id": "C01-A07",
+      "alignment_id": "C01-A08",
       "proposition_ids": [
         "C01-P02"
       ],
@@ -115,7 +115,7 @@
       "component": "O_env"
     },
     {
-      "alignment_id": "C01-A08",
+      "alignment_id": "C01-A09",
       "proposition_ids": [
         "C01-P02"
       ],
@@ -126,7 +126,7 @@
       "component": "external"
     },
     {
-      "alignment_id": "C01-A09",
+      "alignment_id": "C01-A10",
       "proposition_ids": [
         "C01-P02"
       ],
@@ -148,7 +148,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A10",
+      "alignment_id": "C01-A11",
       "proposition_ids": [
         "C01-P02"
       ],
@@ -170,7 +170,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A11",
+      "alignment_id": "C01-A12",
       "proposition_ids": [
         "C01-P02"
       ],
@@ -180,7 +180,7 @@
       "source_role": "external",
       "target_role": "policy",
       "relation_type": "conditions",
-      "temporal_scope": "cross_step",
+      "temporal_scope": "per_step",
       "proposition_tags": [
         {
           "proposition_id": "C01-P02",
@@ -192,18 +192,29 @@
       ]
     },
     {
-      "alignment_id": "C01-A12",
+      "alignment_id": "C01-A13",
       "proposition_ids": [
         "C01-P03"
       ],
       "assertion_kind": "component_mapping",
-      "basis": "source_explicit",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Coscientist",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C01-A14",
+      "proposition_ids": [
+        "C01-P03"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "Python protocol",
       "component": "A"
     },
     {
-      "alignment_id": "C01-A13",
+      "alignment_id": "C01-A15",
       "proposition_ids": [
         "C01-P03"
       ],
@@ -225,7 +236,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A14",
+      "alignment_id": "C01-A16",
       "proposition_ids": [
         "C01-P04"
       ],
@@ -236,7 +247,7 @@
       "component": "O_env"
     },
     {
-      "alignment_id": "C01-A15",
+      "alignment_id": "C01-A17",
       "proposition_ids": [
         "C01-P04"
       ],
@@ -258,7 +269,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A16",
+      "alignment_id": "C01-A18",
       "proposition_ids": [
         "C01-P05"
       ],
@@ -269,29 +280,7 @@
       "component": "external"
     },
     {
-      "alignment_id": "C01-A17",
-      "proposition_ids": [
-        "C01-P05"
-      ],
-      "assertion_kind": "functional_relation",
-      "basis": "author_aligned",
-      "boundary_status": "reported",
-      "source_role": "external",
-      "target_role": "policy",
-      "relation_type": "conditions",
-      "temporal_scope": "cross_step",
-      "proposition_tags": [
-        {
-          "proposition_id": "C01-P05",
-          "describes_single_event": false,
-          "describes_cross_run_trend": false,
-          "structurally_inferred": false,
-          "polarity": "explicit_denial"
-        }
-      ]
-    },
-    {
-      "alignment_id": "C01-A18",
+      "alignment_id": "C01-A19",
       "proposition_ids": [
         "C01-P06"
       ],
@@ -302,7 +291,7 @@
       "component": "pi"
     },
     {
-      "alignment_id": "C01-A19",
+      "alignment_id": "C01-A20",
       "proposition_ids": [
         "C01-P06"
       ],
@@ -320,28 +309,6 @@
           "describes_cross_run_trend": true,
           "structurally_inferred": false,
           "polarity": "neutral"
-        }
-      ]
-    },
-    {
-      "alignment_id": "C01-A20",
-      "proposition_ids": [
-        "C01-P14"
-      ],
-      "assertion_kind": "functional_relation",
-      "basis": "author_aligned",
-      "boundary_status": "reported",
-      "source_role": "policy",
-      "target_role": "action",
-      "relation_type": "selects",
-      "temporal_scope": "cross_step",
-      "proposition_tags": [
-        {
-          "proposition_id": "C01-P14",
-          "describes_single_event": false,
-          "describes_cross_run_trend": true,
-          "structurally_inferred": false,
-          "polarity": "explicit_denial"
         }
       ]
     },
@@ -370,6 +337,28 @@
     {
       "alignment_id": "C01-A22",
       "proposition_ids": [
+        "C01-P14"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "policy",
+      "target_role": "action",
+      "relation_type": "selects",
+      "temporal_scope": "cross_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C01-P14",
+          "describes_single_event": false,
+          "describes_cross_run_trend": true,
+          "structurally_inferred": false,
+          "polarity": "explicit_denial"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C01-A23",
+      "proposition_ids": [
         "C01-P09"
       ],
       "assertion_kind": "component_mapping",
@@ -379,7 +368,7 @@
       "component": "V"
     },
     {
-      "alignment_id": "C01-A23",
+      "alignment_id": "C01-A24",
       "proposition_ids": [
         "C01-P09"
       ],
@@ -401,7 +390,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A24",
+      "alignment_id": "C01-A25",
       "proposition_ids": [
         "C01-P10"
       ],
@@ -412,7 +401,7 @@
       "component": "M"
     },
     {
-      "alignment_id": "C01-A25",
+      "alignment_id": "C01-A26",
       "proposition_ids": [
         "C01-P10"
       ],
@@ -434,7 +423,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A26",
+      "alignment_id": "C01-A27",
       "proposition_ids": [
         "C01-P11"
       ],
@@ -445,7 +434,7 @@
       "component": "pi"
     },
     {
-      "alignment_id": "C01-A27",
+      "alignment_id": "C01-A28",
       "proposition_ids": [
         "C01-P11"
       ],
@@ -467,7 +456,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A28",
+      "alignment_id": "C01-A29",
       "proposition_ids": [
         "C01-P11"
       ],
@@ -489,7 +478,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A29",
+      "alignment_id": "C01-A30",
       "proposition_ids": [
         "C01-P11"
       ],
@@ -511,7 +500,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A30",
+      "alignment_id": "C01-A31",
       "proposition_ids": [
         "C01-P19"
       ],
@@ -522,13 +511,13 @@
       "component": "E"
     },
     {
-      "alignment_id": "C01-A31",
+      "alignment_id": "C01-A32",
       "proposition_ids": [
         "C01-P21"
       ],
       "assertion_kind": "functional_relation",
       "basis": "author_aligned",
-      "boundary_status": "reported",
+      "boundary_status": "boundary_unreported",
       "source_role": "observation",
       "target_role": "inquiry_state",
       "relation_type": "updates",
@@ -544,7 +533,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A32",
+      "alignment_id": "C01-A33",
       "proposition_ids": [
         "C01-P22"
       ],
@@ -552,10 +541,10 @@
       "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "Planner",
-      "component": "pi"
+      "component": "G"
     },
     {
-      "alignment_id": "C01-A33",
+      "alignment_id": "C01-A34",
       "proposition_ids": [
         "C01-P22"
       ],
@@ -566,7 +555,29 @@
       "component": "external"
     },
     {
-      "alignment_id": "C01-A34",
+      "alignment_id": "C01-A35",
+      "proposition_ids": [
+        "C01-P22"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "inquiry_state",
+      "target_role": "candidate",
+      "relation_type": "produces",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C01-P22",
+          "describes_single_event": false,
+          "describes_cross_run_trend": false,
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C01-A36",
       "proposition_ids": [
         "C01-P22"
       ],
@@ -588,7 +599,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A35",
+      "alignment_id": "C01-A37",
       "proposition_ids": [
         "C01-P24"
       ],
@@ -599,7 +610,18 @@
       "component": "O_env"
     },
     {
-      "alignment_id": "C01-A36",
+      "alignment_id": "C01-A38",
+      "proposition_ids": [
+        "C01-P24"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "initial user input",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C01-A39",
       "proposition_ids": [
         "C01-P24"
       ],
@@ -621,7 +643,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A37",
+      "alignment_id": "C01-A40",
       "proposition_ids": [
         "C01-P25"
       ],
@@ -629,10 +651,10 @@
       "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "GOOGLE",
-      "component": "M"
+      "component": "E"
     },
     {
-      "alignment_id": "C01-A38",
+      "alignment_id": "C01-A41",
       "proposition_ids": [
         "C01-P25"
       ],
@@ -643,7 +665,7 @@
       "component": "E"
     },
     {
-      "alignment_id": "C01-A39",
+      "alignment_id": "C01-A42",
       "proposition_ids": [
         "C01-P25"
       ],
@@ -651,10 +673,10 @@
       "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "DOCUMENTATION",
-      "component": "M"
+      "component": "E"
     },
     {
-      "alignment_id": "C01-A40",
+      "alignment_id": "C01-A43",
       "proposition_ids": [
         "C01-P25"
       ],
@@ -665,7 +687,7 @@
       "component": "E"
     },
     {
-      "alignment_id": "C01-A41",
+      "alignment_id": "C01-A44",
       "proposition_ids": [
         "C01-P25"
       ],
@@ -687,7 +709,18 @@
       ]
     },
     {
-      "alignment_id": "C01-A42",
+      "alignment_id": "C01-A45",
+      "proposition_ids": [
+        "C01-P26"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Planner",
+      "component": "pi"
+    },
+    {
+      "alignment_id": "C01-A46",
       "proposition_ids": [
         "C01-P26"
       ],
@@ -709,7 +742,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A43",
+      "alignment_id": "C01-A47",
       "proposition_ids": [
         "C01-P27"
       ],
@@ -717,19 +750,140 @@
       "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "Web searcher",
-      "component": "M"
+      "component": "E"
     },
     {
-      "alignment_id": "C01-A44",
+      "alignment_id": "C01-A48",
+      "proposition_ids": [
+        "C01-P28"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Code execution",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C01-A49",
+      "proposition_ids": [
+        "C01-P28"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Planner",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C01-A50",
+      "proposition_ids": [
+        "C01-P28"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "inquiry_state",
+      "target_role": "candidate",
+      "relation_type": "produces",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C01-P28",
+          "describes_single_event": false,
+          "describes_cross_run_trend": false,
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C01-A51",
+      "proposition_ids": [
+        "C01-P29"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Automation",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C01-A52",
+      "proposition_ids": [
+        "C01-P29"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "action",
+      "target_role": "execution",
+      "relation_type": "produces",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C01-P29",
+          "describes_single_event": false,
+          "describes_cross_run_trend": false,
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C01-A53",
+      "proposition_ids": [
+        "C01-P32"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "GOOGLE",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C01-A54",
+      "proposition_ids": [
+        "C01-P32"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "answers",
+      "component": "O_env"
+    },
+    {
+      "alignment_id": "C01-A55",
       "proposition_ids": [
         "C01-P32"
       ],
       "assertion_kind": "functional_relation",
       "basis": "author_aligned",
       "boundary_status": "reported",
-      "source_role": "memory",
-      "target_role": "policy",
-      "relation_type": "conditions",
+      "source_role": "inquiry_state",
+      "target_role": "candidate",
+      "relation_type": "produces",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C01-P32",
+          "describes_single_event": false,
+          "describes_cross_run_trend": false,
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C01-A56",
+      "proposition_ids": [
+        "C01-P32"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "observation",
+      "target_role": "inquiry_state",
+      "relation_type": "updates",
       "temporal_scope": "cross_step",
       "proposition_tags": [
         {
@@ -742,16 +896,27 @@
       ]
     },
     {
-      "alignment_id": "C01-A45",
+      "alignment_id": "C01-A57",
+      "proposition_ids": [
+        "C01-P33"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "DOCUMENTATION",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C01-A58",
       "proposition_ids": [
         "C01-P33"
       ],
       "assertion_kind": "functional_relation",
       "basis": "author_aligned",
       "boundary_status": "reported",
-      "source_role": "memory",
-      "target_role": "policy",
-      "relation_type": "conditions",
+      "source_role": "observation",
+      "target_role": "inquiry_state",
+      "relation_type": "updates",
       "temporal_scope": "cross_step",
       "proposition_tags": [
         {
@@ -764,7 +929,18 @@
       ]
     },
     {
-      "alignment_id": "C01-A46",
+      "alignment_id": "C01-A59",
+      "proposition_ids": [
+        "C01-P34"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "isolated Docker container",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C01-A60",
       "proposition_ids": [
         "C01-P34"
       ],
@@ -786,7 +962,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A47",
+      "alignment_id": "C01-A61",
       "proposition_ids": [
         "C01-P35"
       ],
@@ -808,7 +984,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A48",
+      "alignment_id": "C01-A62",
       "proposition_ids": [
         "C01-P35"
       ],
@@ -830,7 +1006,29 @@
       ]
     },
     {
-      "alignment_id": "C01-A49",
+      "alignment_id": "C01-A63",
+      "proposition_ids": [
+        "C01-P36"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "generated code executed on hardware",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C01-A64",
+      "proposition_ids": [
+        "C01-P36"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "synthetic procedure for manual experimentation",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C01-A65",
       "proposition_ids": [
         "C01-P36"
       ],
@@ -852,7 +1050,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A50",
+      "alignment_id": "C01-A66",
       "proposition_ids": [
         "C01-P38"
       ],
@@ -863,7 +1061,7 @@
       "component": "A"
     },
     {
-      "alignment_id": "C01-A51",
+      "alignment_id": "C01-A67",
       "proposition_ids": [
         "C01-P38"
       ],
@@ -874,7 +1072,7 @@
       "component": "A"
     },
     {
-      "alignment_id": "C01-A52",
+      "alignment_id": "C01-A68",
       "proposition_ids": [
         "C01-P40"
       ],
@@ -885,7 +1083,7 @@
       "component": "V"
     },
     {
-      "alignment_id": "C01-A53",
+      "alignment_id": "C01-A69",
       "proposition_ids": [
         "C01-P40"
       ],
@@ -907,7 +1105,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A54",
+      "alignment_id": "C01-A70",
       "proposition_ids": [
         "C01-P41"
       ],
@@ -918,7 +1116,7 @@
       "component": "external"
     },
     {
-      "alignment_id": "C01-A55",
+      "alignment_id": "C01-A71",
       "proposition_ids": [
         "C01-P41"
       ],
@@ -940,7 +1138,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A56",
+      "alignment_id": "C01-A72",
       "proposition_ids": [
         "C01-P51"
       ],
@@ -948,32 +1146,10 @@
       "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "relevant technical documentation",
-      "component": "M"
+      "component": "external"
     },
     {
-      "alignment_id": "C01-A57",
-      "proposition_ids": [
-        "C01-P51"
-      ],
-      "assertion_kind": "functional_relation",
-      "basis": "author_aligned",
-      "boundary_status": "reported",
-      "source_role": "memory",
-      "target_role": "policy",
-      "relation_type": "conditions",
-      "temporal_scope": "cross_step",
-      "proposition_tags": [
-        {
-          "proposition_id": "C01-P51",
-          "describes_single_event": false,
-          "describes_cross_run_trend": false,
-          "structurally_inferred": false,
-          "polarity": "neutral"
-        }
-      ]
-    },
-    {
-      "alignment_id": "C01-A58",
+      "alignment_id": "C01-A73",
       "proposition_ids": [
         "C01-P53"
       ],
@@ -981,32 +1157,10 @@
       "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "essential documentation",
-      "component": "M"
+      "component": "external"
     },
     {
-      "alignment_id": "C01-A59",
-      "proposition_ids": [
-        "C01-P53"
-      ],
-      "assertion_kind": "functional_relation",
-      "basis": "author_aligned",
-      "boundary_status": "reported",
-      "source_role": "memory",
-      "target_role": "policy",
-      "relation_type": "conditions",
-      "temporal_scope": "cross_step",
-      "proposition_tags": [
-        {
-          "proposition_id": "C01-P53",
-          "describes_single_event": false,
-          "describes_cross_run_trend": false,
-          "structurally_inferred": false,
-          "polarity": "neutral"
-        }
-      ]
-    },
-    {
-      "alignment_id": "C01-A60",
+      "alignment_id": "C01-A74",
       "proposition_ids": [
         "C01-P54"
       ],
@@ -1014,10 +1168,10 @@
       "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "OT-2 API documentation",
-      "component": "M"
+      "component": "external"
     },
     {
-      "alignment_id": "C01-A61",
+      "alignment_id": "C01-A75",
       "proposition_ids": [
         "C01-P55"
       ],
@@ -1025,20 +1179,20 @@
       "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "selected documentation sections",
-      "component": "M"
+      "component": "external"
     },
     {
-      "alignment_id": "C01-A62",
+      "alignment_id": "C01-A76",
       "proposition_ids": [
         "C01-P55"
       ],
       "assertion_kind": "functional_relation",
       "basis": "author_aligned",
       "boundary_status": "reported",
-      "source_role": "memory",
+      "source_role": "observation",
       "target_role": "inquiry_state",
-      "relation_type": "reads",
-      "temporal_scope": "per_step",
+      "relation_type": "updates",
+      "temporal_scope": "cross_step",
       "proposition_tags": [
         {
           "proposition_id": "C01-P55",
@@ -1050,16 +1204,27 @@
       ]
     },
     {
-      "alignment_id": "C01-A63",
+      "alignment_id": "C01-A77",
+      "proposition_ids": [
+        "C01-P56"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "information about the heater–shaker hardware module",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C01-A78",
       "proposition_ids": [
         "C01-P56"
       ],
       "assertion_kind": "functional_relation",
       "basis": "author_aligned",
       "boundary_status": "reported",
-      "source_role": "memory",
-      "target_role": "policy",
-      "relation_type": "conditions",
+      "source_role": "observation",
+      "target_role": "inquiry_state",
+      "relation_type": "updates",
       "temporal_scope": "cross_step",
       "proposition_tags": [
         {
@@ -1072,7 +1237,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A64",
+      "alignment_id": "C01-A79",
       "proposition_ids": [
         "C01-P58"
       ],
@@ -1080,20 +1245,53 @@
       "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "Docs searcher",
-      "component": "M"
+      "component": "E"
     },
     {
-      "alignment_id": "C01-A65",
+      "alignment_id": "C01-A80",
+      "proposition_ids": [
+        "C01-P58"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "documentation guide from ECL",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C01-A81",
+      "proposition_ids": [
+        "C01-P59"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "relevant ECL functions",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C01-A82",
+      "proposition_ids": [
+        "C01-P59"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "simple prompt",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C01-A83",
       "proposition_ids": [
         "C01-P59"
       ],
       "assertion_kind": "functional_relation",
       "basis": "author_aligned",
       "boundary_status": "reported",
-      "source_role": "memory",
+      "source_role": "observation",
       "target_role": "inquiry_state",
-      "relation_type": "reads",
-      "temporal_scope": "per_step",
+      "relation_type": "updates",
+      "temporal_scope": "cross_step",
       "proposition_tags": [
         {
           "proposition_id": "C01-P59",
@@ -1105,7 +1303,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A66",
+      "alignment_id": "C01-A84",
       "proposition_ids": [
         "C01-P60"
       ],
@@ -1127,16 +1325,38 @@
       ]
     },
     {
-      "alignment_id": "C01-A67",
+      "alignment_id": "C01-A85",
+      "proposition_ids": [
+        "C01-P61"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Planner",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C01-A86",
+      "proposition_ids": [
+        "C01-P61"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "usage information",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C01-A87",
       "proposition_ids": [
         "C01-P61"
       ],
       "assertion_kind": "functional_relation",
       "basis": "author_aligned",
       "boundary_status": "reported",
-      "source_role": "memory",
-      "target_role": "policy",
-      "relation_type": "conditions",
+      "source_role": "observation",
+      "target_role": "inquiry_state",
+      "relation_type": "updates",
       "temporal_scope": "cross_step",
       "proposition_tags": [
         {
@@ -1149,7 +1369,29 @@
       ]
     },
     {
-      "alignment_id": "C01-A68",
+      "alignment_id": "C01-A88",
+      "proposition_ids": [
+        "C01-P61"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "inquiry_state",
+      "target_role": "candidate",
+      "relation_type": "produces",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C01-P61",
+          "describes_single_event": false,
+          "describes_cross_run_trend": false,
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C01-A89",
       "proposition_ids": [
         "C01-P63"
       ],
@@ -1160,7 +1402,7 @@
       "component": "A"
     },
     {
-      "alignment_id": "C01-A69",
+      "alignment_id": "C01-A90",
       "proposition_ids": [
         "C01-P63"
       ],
@@ -1182,7 +1424,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A70",
+      "alignment_id": "C01-A91",
       "proposition_ids": [
         "C01-P64"
       ],
@@ -1193,7 +1435,7 @@
       "component": "external"
     },
     {
-      "alignment_id": "C01-A71",
+      "alignment_id": "C01-A92",
       "proposition_ids": [
         "C01-P64"
       ],
@@ -1215,7 +1457,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A72",
+      "alignment_id": "C01-A93",
       "proposition_ids": [
         "C01-P67"
       ],
@@ -1223,68 +1465,24 @@
       "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "catalogue of available samples",
-      "component": "M"
+      "component": "external"
     },
     {
-      "alignment_id": "C01-A73",
+      "alignment_id": "C01-A94",
       "proposition_ids": [
         "C01-P67"
       ],
       "assertion_kind": "functional_relation",
       "basis": "author_aligned",
       "boundary_status": "reported",
-      "source_role": "memory",
+      "source_role": "observation",
       "target_role": "inquiry_state",
-      "relation_type": "reads",
-      "temporal_scope": "per_step",
-      "proposition_tags": [
-        {
-          "proposition_id": "C01-P67",
-          "describes_single_event": false,
-          "describes_cross_run_trend": false,
-          "structurally_inferred": false,
-          "polarity": "neutral"
-        }
-      ]
-    },
-    {
-      "alignment_id": "C01-A74",
-      "proposition_ids": [
-        "C01-P69"
-      ],
-      "assertion_kind": "functional_relation",
-      "basis": "author_aligned",
-      "boundary_status": "reported",
-      "source_role": "memory",
-      "target_role": "inquiry_state",
-      "relation_type": "reads",
-      "temporal_scope": "per_step",
-      "proposition_tags": [
-        {
-          "proposition_id": "C01-P69",
-          "describes_single_event": false,
-          "describes_cross_run_trend": false,
-          "structurally_inferred": false,
-          "polarity": "neutral"
-        }
-      ]
-    },
-    {
-      "alignment_id": "C01-A75",
-      "proposition_ids": [
-        "C01-P70"
-      ],
-      "assertion_kind": "functional_relation",
-      "basis": "author_aligned",
-      "boundary_status": "reported",
-      "source_role": "memory",
-      "target_role": "policy",
-      "relation_type": "conditions",
+      "relation_type": "updates",
       "temporal_scope": "cross_step",
       "proposition_tags": [
         {
-          "proposition_id": "C01-P70",
-          "describes_single_event": false,
+          "proposition_id": "C01-P67",
+          "describes_single_event": true,
           "describes_cross_run_trend": false,
           "structurally_inferred": false,
           "polarity": "neutral"
@@ -1292,7 +1490,51 @@
       ]
     },
     {
-      "alignment_id": "C01-A76",
+      "alignment_id": "C01-A95",
+      "proposition_ids": [
+        "C01-P68"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Docs searcher",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C01-A96",
+      "proposition_ids": [
+        "C01-P68"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "1,110 Model samples",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C01-A97",
+      "proposition_ids": [
+        "C01-P69"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "relevant samples",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C01-A98",
+      "proposition_ids": [
+        "C01-P70"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "documentation",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C01-A99",
       "proposition_ids": [
         "C01-P71"
       ],
@@ -1303,29 +1545,29 @@
       "component": "E"
     },
     {
-      "alignment_id": "C01-A77",
+      "alignment_id": "C01-A100",
+      "proposition_ids": [
+        "C01-P72"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "'Getting Started' page",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C01-A101",
       "proposition_ids": [
         "C01-P73"
       ],
-      "assertion_kind": "functional_relation",
+      "assertion_kind": "component_mapping",
       "basis": "author_aligned",
       "boundary_status": "reported",
-      "source_role": "memory",
-      "target_role": "inquiry_state",
-      "relation_type": "reads",
-      "temporal_scope": "per_step",
-      "proposition_tags": [
-        {
-          "proposition_id": "C01-P73",
-          "describes_single_event": false,
-          "describes_cross_run_trend": false,
-          "structurally_inferred": false,
-          "polarity": "explicit_denial"
-        }
-      ]
+      "source_term": "internet",
+      "component": "external"
     },
     {
-      "alignment_id": "C01-A78",
+      "alignment_id": "C01-A102",
       "proposition_ids": [
         "C01-P75"
       ],
@@ -1336,7 +1578,7 @@
       "component": "external"
     },
     {
-      "alignment_id": "C01-A79",
+      "alignment_id": "C01-A103",
       "proposition_ids": [
         "C01-P75"
       ],
@@ -1358,7 +1600,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A80",
+      "alignment_id": "C01-A104",
       "proposition_ids": [
         "C01-P75"
       ],
@@ -1380,7 +1622,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A81",
+      "alignment_id": "C01-A105",
       "proposition_ids": [
         "C01-P75"
       ],
@@ -1402,7 +1644,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A82",
+      "alignment_id": "C01-A106",
       "proposition_ids": [
         "C01-P77"
       ],
@@ -1413,7 +1655,7 @@
       "component": "O_env"
     },
     {
-      "alignment_id": "C01-A83",
+      "alignment_id": "C01-A107",
       "proposition_ids": [
         "C01-P77"
       ],
@@ -1435,29 +1677,18 @@
       ]
     },
     {
-      "alignment_id": "C01-A84",
+      "alignment_id": "C01-A108",
       "proposition_ids": [
-        "C01-P79"
+        "C01-P80"
       ],
-      "assertion_kind": "functional_relation",
+      "assertion_kind": "component_mapping",
       "basis": "author_aligned",
       "boundary_status": "reported",
-      "source_role": "memory",
-      "target_role": "policy",
-      "relation_type": "conditions",
-      "temporal_scope": "cross_step",
-      "proposition_tags": [
-        {
-          "proposition_id": "C01-P79",
-          "describes_single_event": false,
-          "describes_cross_run_trend": false,
-          "structurally_inferred": false,
-          "polarity": "explicit_denial"
-        }
-      ]
+      "source_term": "Coscientist",
+      "component": "G"
     },
     {
-      "alignment_id": "C01-A85",
+      "alignment_id": "C01-A109",
       "proposition_ids": [
         "C01-P80"
       ],
@@ -1465,10 +1696,10 @@
       "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "simplified molecular-input line-entry system (SMILES) database",
-      "component": "M"
+      "component": "external"
     },
     {
-      "alignment_id": "C01-A86",
+      "alignment_id": "C01-A110",
       "proposition_ids": [
         "C01-P80"
       ],
@@ -1490,29 +1721,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A87",
-      "proposition_ids": [
-        "C01-P80"
-      ],
-      "assertion_kind": "functional_relation",
-      "basis": "author_aligned",
-      "boundary_status": "reported",
-      "source_role": "memory",
-      "target_role": "candidate",
-      "relation_type": "conditions",
-      "temporal_scope": "cross_step",
-      "proposition_tags": [
-        {
-          "proposition_id": "C01-P80",
-          "describes_single_event": false,
-          "describes_cross_run_trend": false,
-          "structurally_inferred": false,
-          "polarity": "neutral"
-        }
-      ]
-    },
-    {
-      "alignment_id": "C01-A88",
+      "alignment_id": "C01-A111",
       "proposition_ids": [
         "C01-P81"
       ],
@@ -1520,10 +1729,10 @@
       "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "web search",
-      "component": "M"
+      "component": "E"
     },
     {
-      "alignment_id": "C01-A89",
+      "alignment_id": "C01-A112",
       "proposition_ids": [
         "C01-P81"
       ],
@@ -1534,7 +1743,29 @@
       "component": "E"
     },
     {
-      "alignment_id": "C01-A90",
+      "alignment_id": "C01-A113",
+      "proposition_ids": [
+        "C01-P82"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "the system",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C01-A114",
+      "proposition_ids": [
+        "C01-P82"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "code for experimental design",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C01-A115",
       "proposition_ids": [
         "C01-P84"
       ],
@@ -1545,7 +1776,7 @@
       "component": "M"
     },
     {
-      "alignment_id": "C01-A91",
+      "alignment_id": "C01-A116",
       "proposition_ids": [
         "C01-P84"
       ],
@@ -1567,7 +1798,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A92",
+      "alignment_id": "C01-A117",
       "proposition_ids": [
         "C01-P86"
       ],
@@ -1575,10 +1806,21 @@
       "basis": "author_aligned",
       "boundary_status": "reported",
       "source_term": "two datasets containing fully mapped reaction condition spaces",
-      "component": "M"
+      "component": "external"
     },
     {
-      "alignment_id": "C01-A93",
+      "alignment_id": "C01-A118",
+      "proposition_ids": [
+        "C01-P89"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Coscientist",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C01-A119",
       "proposition_ids": [
         "C01-P89"
       ],
@@ -1589,7 +1831,7 @@
       "component": "O_env"
     },
     {
-      "alignment_id": "C01-A94",
+      "alignment_id": "C01-A120",
       "proposition_ids": [
         "C01-P89"
       ],
@@ -1611,7 +1853,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A95",
+      "alignment_id": "C01-A121",
       "proposition_ids": [
         "C01-P89"
       ],
@@ -1633,7 +1875,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A96",
+      "alignment_id": "C01-A122",
       "proposition_ids": [
         "C01-P91"
       ],
@@ -1644,7 +1886,7 @@
       "component": "pi"
     },
     {
-      "alignment_id": "C01-A97",
+      "alignment_id": "C01-A123",
       "proposition_ids": [
         "C01-P91"
       ],
@@ -1666,7 +1908,7 @@
       ]
     },
     {
-      "alignment_id": "C01-A98",
+      "alignment_id": "C01-A124",
       "proposition_ids": [
         "C01-P91"
       ],
