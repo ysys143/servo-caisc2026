@@ -28,6 +28,16 @@ RECORD_LIST_FIELD = {
     "author_alignment": "alignments",
     "derived_claim": "claims",
 }
+# Per-family maximum id digit width. author_alignment widened to 3 in
+# v5-rubric-4: a full six-case run produced 119 alignment records for C06 and
+# trimmed ~25 under the 2-digit (<=99) cap. proposition/claim ids stay at 2
+# (C01's 91 propositions fit). The pattern accepts 2..max digits so existing
+# 2-digit ids remain valid.
+ID_MAX_DIGITS = {
+    "source_proposition": 2,
+    "author_alignment": 3,
+    "derived_claim": 2,
+}
 
 
 class ServoV5Error(Exception):
@@ -60,5 +70,5 @@ def load_family(dirpath: Path) -> dict[str, dict]:
     return {path.stem: read_json(path) for path in sorted(dirpath.glob("*.json"))}
 
 
-def id_pattern_for(case_id: str, letter: str) -> re.Pattern[str]:
-    return re.compile(rf"^{re.escape(case_id)}-{letter}[0-9]{{2}}$")
+def id_pattern_for(case_id: str, letter: str, max_digits: int = 2) -> re.Pattern[str]:
+    return re.compile(rf"^{re.escape(case_id)}-{letter}[0-9]{{2,{max_digits}}}$")

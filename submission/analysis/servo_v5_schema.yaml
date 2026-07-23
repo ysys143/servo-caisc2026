@@ -12,9 +12,19 @@ scope_statement: >-
   carry the optional per-proposition proposition_tags field (rubric section
   3, charter B.8): optional_conditional_record_fields restricts it to its
   kind without making it required, and nested_record_fields declares the key
-  allowlist for its entries. Consumed by servo_v5_schema.py through a small
-  hand-rolled line parser -- this file is not general YAML and must keep the
-  exact section markers below.
+  allowlist for its entries. policy is case-level (one flat record per case
+  file, no id, no record list) and decomposes each case's experiment-selection
+  policy into the schema-v3 BED-lens axes of charter B.4 / contract section B
+  (control_dependence / selection_signal / selection_objective /
+  generation_scope / candidate_selection_rule / candidate_execution_rule /
+  formal_epistemic_utility_evidence); it carries no explicit_bed compliance
+  label. selection_objective (the pi-purpose facet) never mixes with the two
+  candidate-handling rules: candidate_selection_rule names which candidates are
+  chosen, candidate_execution_rule names how the chosen candidates are run, and
+  neither carries an objective. generation_scope is a G/S-level provenance axis
+  (not a Table-A column). Consumed by servo_v5_schema.py through a small hand-rolled line
+  parser -- this file is not general YAML and must keep the exact section
+  markers below.
 
 directories:
   source_proposition: servo_v5_source_propositions
@@ -26,17 +36,17 @@ envelope_fields:
   source_proposition: [schema, schema_doc, status, coverage_status, case_id, system, citation_key, source_pdf_name, source_pdf_sha256, coverage_note, propositions]
   author_alignment: [schema, schema_doc, status, case_id, alignments]
   derived_claim: [schema, schema_doc, status, case_id, claims]
-  policy: [schema, schema_doc, status, case_id, mechanism_labels, purpose_facets, explicit_bed_evidence, rationale]
+  policy: [schema, schema_doc, status, case_id, control_dependence, selection_signal, selection_objective, generation_scope, candidate_selection_rule, candidate_execution_rule, formal_epistemic_utility_evidence, rationale]
 
 required_envelope_fields:
   source_proposition: [schema, schema_doc, status, coverage_status, case_id, system, citation_key, source_pdf_name, source_pdf_sha256, coverage_note, propositions]
   author_alignment: [schema, schema_doc, status, case_id, alignments]
   derived_claim: [schema, schema_doc, status, case_id, claims]
-  policy: [schema, status, case_id, mechanism_labels, purpose_facets]
+  policy: [schema, status, case_id, control_dependence, selection_signal, selection_objective, generation_scope, candidate_selection_rule, candidate_execution_rule, formal_epistemic_utility_evidence, rationale]
 
 record_fields:
   source_proposition: [proposition_id, locator, exact_quote, modality, named_actors, named_inputs, named_outputs, source_context_note]
-  author_alignment: [alignment_id, proposition_ids, assertion_kind, basis, boundary_status, notes_verbatim, source_term, component, source_role, target_role, relation_type, temporal_scope, proposition_tags]
+  author_alignment: [alignment_id, proposition_ids, assertion_kind, basis, boundary_status, notes_verbatim, source_term, component, source_role, target_role, relation_type, temporal_scope, proposition_tags, polarity]
   derived_claim: [claim_id, support_status, claim_scope, alignment_kind, occurrence_resolution, used_alignment_ids, used_proposition_ids, rationale]
 
 required_record_fields:
@@ -65,9 +75,17 @@ conditional_record_fields:
 # listed under, but -- unlike conditional_record_fields -- it is never
 # required on its own kind. proposition_tags carries T6 derive_claim inputs
 # (occurrence_class/structurally_inferred/polarity per proposition) and is
-# optional even on functional_relation.
+# optional even on functional_relation. polarity (v5-rubric-4) is the
+# disposition host for absence/denial statements that yield only a
+# component_mapping: the negative/absence rule (rubric section 2) forbids a
+# positive functional_relation, so such a record has no proposition_tags to
+# carry polarity=explicit_denial -- it is recorded directly on the
+# component_mapping instead. It is therefore restricted to component_mapping
+# (rejected on functional_relation, which records polarity inside
+# proposition_tags) and never required.
 optional_conditional_record_fields:
   author_alignment:
+    component_mapping: [polarity]
     functional_relation: [proposition_tags]
 
 # nested_record_fields declares the key allowlist for object entries nested
@@ -89,22 +107,57 @@ enum_fields:
   author_alignment.component: [S, G, E, V, M, pi, A, W_A, external, O_env]
   author_alignment.basis: [source_explicit, author_aligned]
   author_alignment.boundary_status: [reported, boundary_unreported]
-  author_alignment.source_role: [candidate, action, execution, observation, evaluation, inquiry_state, memory, artifact, policy, environment, external]
-  author_alignment.target_role: [candidate, action, execution, observation, evaluation, inquiry_state, memory, artifact, policy, environment, external]
+  author_alignment.source_role: [candidate, action, execution, observation, evaluation, inquiry_state, memory, artifact, policy, environment, external, generation]
+  author_alignment.target_role: [candidate, action, execution, observation, evaluation, inquiry_state, memory, artifact, policy, environment, external, generation]
   author_alignment.relation_type: [produces, evaluates, updates, conditions, selects, revises, reads, writes, triggers]
   author_alignment.temporal_scope: [per_step, cross_step]
-  author_alignment.proposition_tags.occurrence_class: [single_event, cross_run_trend, architecture, habitual_procedure]
+  author_alignment.polarity: [neutral, explicit_denial]
+  author_alignment.proposition_tags.occurrence_class: [single_event, cross_run_trend, architecture, habitual_procedure, capability_only]
   author_alignment.proposition_tags.polarity: [neutral, explicit_denial]
   derived_claim.support_status: [supported, unresolved, contradicted, not_applicable]
   derived_claim.claim_scope: [architecture, procedure, aggregate_run, occurrence]
   derived_claim.alignment_kind: [source_explicit, author_aligned]
   derived_claim.occurrence_resolution: [resolved, unresolved, not_applicable]
-  policy.mechanism_labels: [fixed, repair_reactive, score_directed, outcome_conditioned, uncertainty_directed, explicit_bed]
-  policy.purpose_facets: [performance, uncertainty, diversity, cost]
+  policy.control_dependence: [fixed_or_predefined, failure, score, observation_result, uncertainty, candidate_disagreement, not_reported]
+  policy.selection_objective: [local_repair, performance_improvement, uncertainty_reduction, hypothesis_model_discrimination, diversity_directed_selection]
+  policy.generation_scope: [fixed_space, search_space_expansion, candidate_diversification]
+  policy.candidate_selection_rule: [fixed, threshold, top_k_ranked, sampled_subset, sequential_choice, exhaustive, not_reported]
+  policy.candidate_execution_rule: [all_selected, one_at_a_time, batch, until_success, until_budget, source_unreported]
 
-# Conditional rule enforced in code (not declarable in the sections above):
-# policy.explicit_bed_evidence is required and non-empty whenever
-# policy.mechanism_labels contains explicit_bed (charter B.4 -- explicit_bed
-# is granted only when a selection rule directly uses a prior/posterior,
-# likelihood, or epistemic utility). Violation code:
-# V5_POLICY_EXPLICIT_BED_EVIDENCE_MISSING.
+# policy (charter B.4, schema-v3 re-derivation per contract section B,
+# 2026-07-23): BED is an analytic decomposition lens, NOT a compliance label.
+# The policy record decomposes each case's experiment-selection policy into
+# seven axes instead of scoring an explicit_bed mechanism. Five are enum-valued
+# non-empty lists (enum_fields above, validated by _check_policy_record):
+# control_dependence, selection_objective, generation_scope,
+# candidate_selection_rule and candidate_execution_rule. Design rules of the v3
+# re-derivation:
+#   - control_dependence retired the old `none`. Outcome-independence that the
+#     source CONFIRMS is `fixed_or_predefined`; source silence is `not_reported`
+#     (never read silence as fixed). These are distinct enum values.
+#   - selection_objective is the pi-purpose facet only (local_repair,
+#     performance_improvement, uncertainty_reduction,
+#     hypothesis_model_discrimination, diversity_directed_selection). The old
+#     `performance`/`exploration` labels are retired; `performance` folds into
+#     performance_improvement, `exploration` splits by level (see below).
+#   - generation_scope is a NEW G/S-level provenance axis (fixed_space /
+#     search_space_expansion / candidate_diversification) that absorbs the
+#     generation-side component of the retired `exploration`; it is NOT a
+#     Table-A column and build_servo_v5_tables.py does not render it.
+#   - candidate_selection_rule (NEW) = which candidates are chosen; separated on
+#     purpose from candidate_execution_rule = how the chosen candidates are run.
+#     The retired `expected_discrimination_selected` (which mixed objective into
+#     the rule) is deleted: a discrimination OBJECTIVE lives in
+#     selection_objective, never in either rule.
+# selection_signal is a non-empty free-string list (the concrete signal names;
+# may overlap control_dependence but names something more specific, and a signal
+# that is reported yet not used for selection stays here while
+# control_dependence records not_reported/fixed_or_predefined). Every axis value
+# is grounded in proposition_ids in rationale. formal_epistemic_utility_evidence
+# is the AUXILIARY facet: a citation for a reported posterior/likelihood/EIG/
+# VOI/epistemic-utility term, or the string "not_reported" when the bounded
+# source reports none -- "not_reported" for all six cases (a corpus-level
+# limitation, footnote only, not a per-case verdict). There is NO explicit_bed
+# field, NO mechanism_labels/purpose_facets, and NO conditional evidence rule:
+# the old V5_POLICY_EXPLICIT_BED_EVIDENCE_MISSING contract was retired with the
+# compliance model.

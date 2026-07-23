@@ -57,7 +57,7 @@
 - V(검증기) completeness가 신뢰 가능한 자율 발견의 보편적 필요/충분 조건이라는 주장 안 함.
 - 어떤 predicate status도 신뢰 가능한 과학적 결과(trustworthy scientific outcome)를 정의하지 않는다.
 - convenience sample이며 모집단을 대표/망라하지 않는다.
-- POMDP 완전 인스턴스화나 BED 우선권 주장 안 함(용어만 차용).
+- POMDP 완전 인스턴스화나 BED 우선권 주장 안 함. 단 POMDP/BED는 "용어만 차용"이 아니라 SERVO의 분석 범주를 만든 **구성적 이론 자원**이다(완전 구현을 시스템에 요구·채점하지 않을 뿐이다).
 - gate-reliability와 "trustworthy closure"의 연관은 정의상 순환으로 철회됨(재도입 금지).
 
 ### A.4 논증 계층 순서 (동결)
@@ -67,7 +67,7 @@
 > **POMDP/BED 의미론 -> SERVO 대응 -> 증거·provenance**
 
 - 반대 순서(graph -> schema -> 의미 부여)는 "mathy cosmetic"으로 규정하며 금지한다.
-- 판정 기준: **POMDP/BED를 제거했을 때 최소 두 사례의 분류나 핵심 결론이 실제로 사라져야 한다.** 사라지지 않으면 decision-theoretic 골격은 장식이며 A.4를 다시 설계한다.
+- 판정 기준: **POMDP/BED를 제거했을 때 최소 두 사례의 분류나 핵심 결론이 실제로 사라져야 한다.** 사라지지 않으면 decision-theoretic 골격은 장식이며 A.4를 다시 설계한다. 핵심은 BED를 응용한 구별이 **사례 해석과 결론을 바꾸는가**이며(양성 explicit_bed 사례가 하나도 없어도 무관), "BED가 없으면 BED 부재를 진술 못 함" 같은 순환 논증은 근거에서 제외한다.
 
 ---
 
@@ -110,16 +110,29 @@
 - inferred occurrence는 positive witness에서 **금지**된다(구조적으로 추론된 event는 later execution/successor evidence를 공급할 수 없다).
 - 재분석은 기존 matrix가 아니라 **source proposition에서 다시 시작**한다. 현재 v4.1 closure matrix를 출발점으로 삼지 않는다.
 
-### B.4 Policy class = 다중 레이블 (단계 아님)
+### B.4 Policy = BED에서 유도한 선택·정보·목적 구별에 의한 분해 (compliance 채점 아님) — 2026-07-23 재작성
 
-하나의 시스템은 동시에 여러 label을 가질 수 있다. 가장 강한 label 하나만 고르면 금지된 ordinal scale이 재생된다.
+**관계 방향(동결):** `BED → SERVO의 분석 문법 → 실제 시스템 분석`. 그 역(`SERVO 분석 → 각 시스템이 BED를 구현했는지 채점`)은 금지한다. **BED는 SERVO 바깥의 평가 기준이 아니라 SERVO의 분석 범주 자체를 만든 구성적 이론 자원**이며, 다만 완전한 BED 구현을 시스템에 요구하지 않는다.
 
-**메커니즘 label(다중 선택):**
-`fixed` / `repair_reactive` / `score_directed` / `outcome_conditioned` / `uncertainty_directed` / `explicit_bed`
+**교정(저자 지적):** 이전 B.4는 `explicit_bed`를 mechanism label로 두어 "시스템이 BED를 준수하는가"를 채점했다. 이는 POMDP를 "시스템이 POMDP인가" 판정에 쓰지 않는 것과 **비대칭**이며, BED를 구성적 자원이 아니라 외부 compliance 기준으로 들이댄 오류다. `explicit_bed`를 별도 binary 필드로 옮기는 것도 이름만 바꾼 같은 오류다. **BED가 제공하는 시좌는 "이 시스템이 BED인가?"가 아니라 다음 구별들이다:** 단순 반복 vs 결과 조건부 선택 / 점수 최적화 vs 정보 획득 / 모든 후보 실행 vs 선택적 실험 / 오류 수정 vs 가설 구별 / 결과 저장 vs 결정 정보 갱신 / 불확실성의 단순 언급 vs 불확실성을 이용한 실험 선택.
 
-- `explicit_bed`는 prior/posterior, likelihood, 또는 epistemic utility가 **실제 selection rule에 직접 사용**될 때만 부여. `uncertainty_directed`가 자동으로 BED를 뜻하지 않는다.
+정책은 다섯 축으로 분해한다(각 다중값 가능). 선택 대상(후보/실험조건/fidelity/후속 action)은 각 축에서 서술한다:
+1. `control_dependence` — 무엇이 선택을 변화시키는가: none(fixed)/failure/score/observation_result/uncertainty/candidate_disagreement.
+2. `selection_signal` — 선택을 실제 구동하는 신호(control_dependence와 겹칠 수 있음; 더 구체적 신호를 명명).
+3. `selection_objective` — 선택 목적: local_repair/performance/exploration/uncertainty_reduction/hypothesis_or_model_discrimination.
+4. `candidate_execution_rule` — 어떤 후보가 실제 실행되는가: all/score_ranked_subset/uncertainty_subset/expected_discrimination_selected.
+5. `formal_epistemic_utility_evidence` — BED의 명시적 수학구조(posterior/likelihood/EIG/VOI/epistemic_utility)의 보고 여부·인용. **보조 evidence facet일 뿐 핵심 label 아니다.**
 
-**정책 목적 facet(별도 축, 다중):** `performance` / `uncertainty` / `diversity` / `cost`
+**핵심 결과의 형태(동결):** 중심 결과는 "explicit_bed 유무"가 아니라 **해체(decomposition)**다. BED에서 유도한 선택·정보·목적 구별을 적용하자, 모두 "iterative"·"closed-loop"로 뭉뚱그려지던 시스템들이 서로 **다른 피드백 구조**로 분해된다 — 일부는 실패를 복구하고(C01), 일부는 점수를 향상하며(점수-클러스터 C02/C03/C04/C06), 일부는 관찰에 따라 후속 실험을 변경하지만, 공개 자료에서 불확실성 감소나 경쟁 가설 구별을 선택 목적으로 삼는지는 대부분 확인되지 않는다(C05만 목적 수준에서 근접). "어느 사례도 명시적 EIG 목적함수를 보고하지 않는다"는 것은 **BED의 실패가 아니라 SERVO가 드러낸 마지막 제한적 관찰** 한 줄이며, corpus-level limitation으로만 기술한다.
+
+금지:
+- BED를 mechanism label이나 compliance(present/absent) 판정으로 쓰지 않는다.
+- `explicit_bed=false 6/6`을 중심 표·핵심 결과로 제시하지 않는다(SERVO를 BED 구현 체크리스트로 축소하는 오류).
+
+분해 산출 예(compliance 아니라 해석 분해):
+- C01: 실패 복구 + yield/score-directed exploitation. 정보 획득을 위한 실험 선택은 아님.
+- C03: performance metric best-first + redundancy 회피 exploration. uncertainty-directed design은 아님.
+- C05: 가설 구별을 선택 목적으로 삼는 유일 사례(uncertainty_reduction/hypothesis_or_model_discrimination). 그러나 20개 가설을 전부 시험하므로 기대판별 기반 down-selection(expected_discrimination_selected)은 확인되지 않음 — active-learning 지향과 형식적 BED 선택규칙 사이의 간극.
 
 ### B.5 형식 경계 (동결)
 
@@ -175,7 +188,7 @@ AuthorAlignment는 `assertion_kind`로 두 종류를 구분한다.
 ### T5 alignment rubric 경계 (freeze 대상)
 - Component mapping: G=후보 생성, pi=선택/다음행동 결정, E=action을 환경·도구에 적용, O_env=실행결과로 새 observation 생성, V=observation/artifact 평가, M=정보 저장, I_t=저장정보가 실제 decision input으로 사용. **memory_write != decision-relevant state update.**
 - Functional relations: 조합형 유지(B.7). 최소 cross-step 구별은 B.7 set. 모든 feedback을 evaluation_to_*로 만들지 않는다.
-- Policy classification: 다중레이블. `explicit_bed=true`는 prior/posterior·likelihood·EIG·expected epistemic utility·명시적 model-discrimination objective 중 충분한 직접 근거가 있을 때만. 단순 active learning/search/uncertainty mention 불가.
+- Policy: BED 렌즈의 5축 분해(B.4) — control_dependence/selection_signal/selection_objective/candidate_execution_rule/formal_epistemic_utility_evidence. BED를 compliance label(explicit_bed present/absent)로 채점하지 않는다. formal_epistemic_utility_evidence(posterior/likelihood/EIG/epistemic-utility의 직접 사용 보고)는 보조 facet이며, 어느 사례도 이를 보고하지 않음은 corpus-level limitation으로만 기술.
 - Evidence status(기능 의미와 별도 축): directly_reported, procedure_described, capability_only, aggregate_occurrence_reported, occurrence_traced, author_aligned, unresolved. **procedure_described와 occurrence_traced를 ordinal closure level로 합치지 않는다.**
 
 ### rubric freeze 순서 (역방향 오염 금지)
@@ -239,7 +252,7 @@ C01 결과를 보고 rubric을 자유 변경 금지. 수정 필요 시: (1) rubr
 - 분석 규칙이 사례보다 먼저 동결됐다.
 - 여섯 사례가 기존 matrix가 아니라 source proposition부터 재생성됐다.
 - 부족한 증거는 단조 하향됐고, inferred occurrence는 positive witness에서 배제됐다.
-- **A.4 falsification gate:** POMDP/BED를 제거했을 때 최소 두 사례의 분류나 핵심 결론이 실제로 사라져야 한다. 구체적으로, observation/evaluation, iteration/adaptation, adaptive-selection/explicit-BED 중 **최소 두 구별**이 사례 비교에서 비자명한 차이를 만들어야 한다.
+- **A.4 falsification gate:** POMDP/BED를 제거했을 때 최소 두 사례의 분류나 핵심 결론이 실제로 사라져야 한다. **순환 금지:** 어떤 개념을 제거하면 그 개념의 부재를 진술 못 하는 것은 자명하므로("BED를 제거하면 BED absent를 못 씀"), 이는 PASS 근거가 될 수 없다 — 실제 **사례 판정**이 달라지는지를 본다. 올바른 counterfactual: (a) observation/evaluation 구별 제거 시 C01-D06 boundary demotion·C05의 O_env/V 분리가 실제로 사라지는가; (b) BED에서 유도한 정보상태·`selection_signal`·`selection_objective`·`candidate_execution_rule` 구별을 제거하면 여섯 사례가 다시 **동일한 "adaptive/closed-loop"로 뭉개지는가** — 즉 실패복구(C01)·점수향상+탐색(점수-클러스터 C02/C03/C04/C06)·가설구별 지향(C05)의 서로 다른 피드백 구조가 하나의 서술로 합쳐지는가. 판정 기준은 **사례 해석과 결론이 실제로 바뀌는가**이며 양성 explicit_bed 사례가 0이어도 무관하다(오히려 균일한 performance-direction은 BED 시좌가 드러낸 결과다). 두 사례 이상에서 서술이 실제로 합쳐지면 load-bearing. 다만 출처가 차이를 지지하지 않을 때만 억지 PASS 금지 — 그 경우 BED를 이론적 동기·향후 분석 기준으로 **축소**한다(D.2 (ii)).
   - **실패 처리(원인별):** gate 실패 시 A(상위 정박)로 **무언(無言) 후퇴 금지.** (i) 분석 설계가 약해서 실패면 policy classification·typed functional relation을 재설계한다; (ii) 이론 골격이 실제로 무용하면 decision-theoretic contribution을 **명시적으로 축소하고 그 실패를 문서화**한다. 어느 경우든 실패를 감춘 채 프레이밍만 약화하는 것은 금지한다. (ii)의 결과가 겸손한 프레이밍이 되는 것은 정직한 축소로서 허용되나, 반드시 실패가 본문/헌장에 기록되어야 한다.
 - AI-Researcher(또는 제2 모델)는 동결 후 rule-stability check로만 사용.
 - 최종 label을 보지 않은 인간 제2검토자가 경계 사례와 FunSearch trace를 독립 판정.

@@ -151,7 +151,12 @@ def test_reader_facing_manuscript_excludes_internal_revision_log() -> None:
     assert r"\section{Post-Submission Revisions}" not in manuscript
     assert "Current-interpretation supersession index" not in manuscript
     assert not re.search(r"\bR(?:[1-9]|[1-6][0-9])\b", manuscript)
-    assert "four conservative, set-valued predicates" in manuscript
+    # T11 retired the "four conservative, set-valued predicates" closure surface;
+    # the reader-facing manuscript now carries the v5 typed-relation / decomposition
+    # contract (Tables A/B1/B2), not the retired closure-predicate phrase.
+    assert "four conservative, set-valued predicates" not in manuscript
+    assert "typed functional relations" in manuscript
+    assert "tab:servo-v5-relations" in manuscript
 
 
 def test_manuscript_limits_observation_and_predicate_independence_claims() -> None:

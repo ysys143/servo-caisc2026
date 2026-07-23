@@ -1,0 +1,1432 @@
+{
+  "schema": "servo_v5_author_alignment",
+  "schema_doc": "analysis/servo_v5_source_proposition_schema.md",
+  "status": "draft",
+  "case_id": "C04",
+  "alignments": [
+    {
+      "alignment_id": "C04-A01",
+      "proposition_ids": [
+        "C04-P01"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "Agent Laboratory",
+      "component": "S",
+      "notes_verbatim": "reported_only_as_capability; whole-system capability headline. System entity anchored; no specific SERVO act, so component_mapping only."
+    },
+    {
+      "alignment_id": "C04-A02",
+      "proposition_ids": [
+        "C04-P02"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "human-provided research idea",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C04-A03",
+      "proposition_ids": [
+        "C04-P02"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "code repository",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C04-A04",
+      "proposition_ids": [
+        "C04-P02"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "research report",
+      "component": "A",
+      "notes_verbatim": "Pipeline overview (reported_as_procedure); whole-loop summary emits component_mapping only, no functional_relation (decomposition guard)."
+    },
+    {
+      "alignment_id": "C04-A05",
+      "proposition_ids": [
+        "C04-P03"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "Human involvement",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C04-A06",
+      "proposition_ids": [
+        "C04-P03"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_role": "external",
+      "relation_type": "evaluates",
+      "target_role": "artifact",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P03",
+          "occurrence_class": "cross_run_trend",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A07",
+      "proposition_ids": [
+        "C04-P04"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "arXiv API",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C04-A08",
+      "proposition_ids": [
+        "C04-P04"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "related papers",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C04-A09",
+      "proposition_ids": [
+        "C04-P04"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_role": "execution",
+      "relation_type": "reads",
+      "target_role": "external",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P04",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A10",
+      "proposition_ids": [
+        "C04-P05"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "the high-level steps of the experiment",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C04-A11",
+      "proposition_ids": [
+        "C04-P05"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P05",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A12",
+      "proposition_ids": [
+        "C04-P06"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "plan",
+      "component": "A",
+      "notes_verbatim": "Submitted plan committed as standing instructions -> versioned artifact; generation of the plan captured at P05."
+    },
+    {
+      "alignment_id": "C04-A13",
+      "proposition_ids": [
+        "C04-P07"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "Python command command",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C04-A14",
+      "proposition_ids": [
+        "C04-P07"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "printed output",
+      "component": "O_env"
+    },
+    {
+      "alignment_id": "C04-A15",
+      "proposition_ids": [
+        "C04-P07"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "execution",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P07",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A16",
+      "proposition_ids": [
+        "C04-P07"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "observation",
+      "relation_type": "produces",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P07",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A17",
+      "proposition_ids": [
+        "C04-P08"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "data preparation code",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C04-A18",
+      "proposition_ids": [
+        "C04-P08"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "Python compiler",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C04-A19",
+      "proposition_ids": [
+        "C04-P08"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "execution",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P08",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "'iteratively executed until bug-free' is a standing repair loop (reported_as_procedure); no cross-step feedback licensed without a stated occurrence."
+    },
+    {
+      "alignment_id": "C04-A20",
+      "proposition_ids": [
+        "C04-P09"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "machine learning code",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C04-A21",
+      "proposition_ids": [
+        "C04-P09"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P09",
+          "occurrence_class": "capability_only",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A22",
+      "proposition_ids": [
+        "C04-P09"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P09",
+          "occurrence_class": "capability_only",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "reported_only_as_capability ('designed to generate, test, and refine'); per-step structural generate/test tagged capability_only; 'refine' (candidate lineage) is cross_step and not licensed under capability framing."
+    },
+    {
+      "alignment_id": "C04-A23",
+      "proposition_ids": [
+        "C04-P10"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "program",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C04-A24",
+      "proposition_ids": [
+        "C04-P10"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "newly generated code",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C04-A25",
+      "proposition_ids": [
+        "C04-P10"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P10",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "'iteratively refines this program' is a standing loop (reported_as_procedure); generation revises candidate (cross_step) not licensed without a stated occurrence."
+    },
+    {
+      "alignment_id": "C04-A26",
+      "proposition_ids": [
+        "C04-P11"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "a score",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C04-A27",
+      "proposition_ids": [
+        "C04-P11"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "the list of top programs",
+      "component": "M"
+    },
+    {
+      "alignment_id": "C04-A28",
+      "proposition_ids": [
+        "C04-P11"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "execution",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P11",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A29",
+      "proposition_ids": [
+        "C04-P11"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P11",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A30",
+      "proposition_ids": [
+        "C04-P11"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_role": "memory",
+      "relation_type": "writes",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P11",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "'attempts to repair the code for N_rep tries' is a standing repair mechanism (reported_as_procedure); evaluation->execution repair (cross_step) not licensed without a stated occurrence."
+    },
+    {
+      "alignment_id": "C04-A31",
+      "proposition_ids": [
+        "C04-P12"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "a scoring function",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C04-A32",
+      "proposition_ids": [
+        "C04-P12"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P12",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "Rank/compare only ('determines if it is better'); no named picked action -> V, not pi."
+    },
+    {
+      "alignment_id": "C04-A33",
+      "proposition_ids": [
+        "C04-P13"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "score",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C04-A34",
+      "proposition_ids": [
+        "C04-P13"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P13",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A35",
+      "proposition_ids": [
+        "C04-P14"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "the outcome of its actions",
+      "component": "O_env"
+    },
+    {
+      "alignment_id": "C04-A36",
+      "proposition_ids": [
+        "C04-P14"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "reflect on the outcome of its actions",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C04-A37",
+      "proposition_ids": [
+        "C04-P14"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P14",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "'reflect on how to fix ... in next iterations / how to increase this score' is standing procedure; evaluation->candidate revision (cross_step) not licensed without a stated occurrence."
+    },
+    {
+      "alignment_id": "C04-A38",
+      "proposition_ids": [
+        "C04-P15"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "collection of the highest-scoring programs",
+      "component": "M"
+    },
+    {
+      "alignment_id": "C04-A39",
+      "proposition_ids": [
+        "C04-P15"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "the top modification selected to replace the lowest-scoring program",
+      "component": "pi"
+    },
+    {
+      "alignment_id": "C04-A40",
+      "proposition_ids": [
+        "C04-P15"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "policy",
+      "relation_type": "selects",
+      "target_role": "action",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P15",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A41",
+      "proposition_ids": [
+        "C04-P15"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_role": "memory",
+      "relation_type": "reads",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P15",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A42",
+      "proposition_ids": [
+        "C04-P16"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "experimental results produced by mle-solver",
+      "component": "O_env"
+    },
+    {
+      "alignment_id": "C04-A43",
+      "proposition_ids": [
+        "C04-P16"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "interpretation",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C04-A44",
+      "proposition_ids": [
+        "C04-P16"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P16",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A45",
+      "proposition_ids": [
+        "C04-P17"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "academic report",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C04-A46",
+      "proposition_ids": [
+        "C04-P17"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "paper-solver",
+      "component": "W_A"
+    },
+    {
+      "alignment_id": "C04-A47",
+      "proposition_ids": [
+        "C04-P17"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P17",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "'iteratively generates and refines the report'; generation revises candidate (cross_step) not licensed without a stated occurrence."
+    },
+    {
+      "alignment_id": "C04-A48",
+      "proposition_ids": [
+        "C04-P18"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "scaffold",
+      "component": "A",
+      "notes_verbatim": "Static document-structure description (pure architecture); component_mapping only, no functional_relation."
+    },
+    {
+      "alignment_id": "C04-A49",
+      "proposition_ids": [
+        "C04-P19"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "compiles the LaTeX",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C04-A50",
+      "proposition_ids": [
+        "C04-P19"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "execution",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P19",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A51",
+      "proposition_ids": [
+        "C04-P20"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "automated reviewer",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C04-A52",
+      "proposition_ids": [
+        "C04-P20"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "NeurIPS conference guidelines",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C04-A53",
+      "proposition_ids": [
+        "C04-P20"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "500 ICLR 2022 papers from the OpenReview dataset",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C04-A54",
+      "proposition_ids": [
+        "C04-P20"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "artifact",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P20",
+          "occurrence_class": "cross_run_trend",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "Internal LLM reviewer (V) evaluates authored papers (artifact); benchmark accuracy/F1 reported as aggregate over 500 papers."
+    },
+    {
+      "alignment_id": "C04-A55",
+      "proposition_ids": [
+        "C04-P21"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "makes a decision on whether to make paper revisions or to determine that the paper is complete",
+      "component": "pi"
+    },
+    {
+      "alignment_id": "C04-A56",
+      "proposition_ids": [
+        "C04-P21"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "policy",
+      "relation_type": "selects",
+      "target_role": "action",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P21",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A57",
+      "proposition_ids": [
+        "C04-P22"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "three reviewer agents",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C04-A58",
+      "proposition_ids": [
+        "C04-P22"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "scores",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C04-A59",
+      "proposition_ids": [
+        "C04-P22"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "artifact",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P22",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "Internal reviewer agents (V) evaluate the authored report (artifact)."
+    },
+    {
+      "alignment_id": "C04-A60",
+      "proposition_ids": [
+        "C04-P22"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "policy",
+      "relation_type": "selects",
+      "target_role": "action",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P22",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "'revisit earlier subtasks to address the feedback' is standing procedure; evaluation-triggered feedback (cross_step) not licensed without a stated occurrence."
+    },
+    {
+      "alignment_id": "C04-A61",
+      "proposition_ids": [
+        "C04-P23"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "initial research idea",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C04-A62",
+      "proposition_ids": [
+        "C04-P23"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "no human involvement",
+      "component": "external",
+      "polarity": "explicit_denial",
+      "notes_verbatim": "'no human involvement other than providing the initial research idea' explicitly denies external involvement in the loop; recorded as explicit_denial, not an asserted external relation."
+    },
+    {
+      "alignment_id": "C04-A63",
+      "proposition_ids": [
+        "C04-P24"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "human reviewer",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C04-A64",
+      "proposition_ids": [
+        "C04-P24"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "the work produced by agents",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C04-A65",
+      "proposition_ids": [
+        "C04-P24"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "external",
+      "relation_type": "evaluates",
+      "target_role": "artifact",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P24",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "External human reviewer evaluates authored work (artifact) at each checkpoint; 'ask agent to repeat ... high level notes' (external conditions policy, cross_step) not licensed without a stated occurrence."
+    },
+    {
+      "alignment_id": "C04-A66",
+      "proposition_ids": [
+        "C04-P25"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "mle-solver score",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C04-A67",
+      "proposition_ids": [
+        "C04-P25"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "dev set",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C04-A68",
+      "proposition_ids": [
+        "C04-P25"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P25",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A69",
+      "proposition_ids": [
+        "C04-P26"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "final code with the highest score",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C04-A70",
+      "proposition_ids": [
+        "C04-P26"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "the actual Kaggle test set",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C04-A71",
+      "proposition_ids": [
+        "C04-P26"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "benchmark score",
+      "component": "O_env"
+    },
+    {
+      "alignment_id": "C04-A72",
+      "proposition_ids": [
+        "C04-P26"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_role": "execution",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P26",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A73",
+      "proposition_ids": [
+        "C04-P26"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "observation",
+      "relation_type": "produces",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P26",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A74",
+      "proposition_ids": [
+        "C04-P27"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "repository-level code",
+      "component": "A",
+      "polarity": "explicit_denial",
+      "notes_verbatim": "'not able to manage repository-level code on its own' is an explicit capability denial over the code artifact."
+    },
+    {
+      "alignment_id": "C04-A75",
+      "proposition_ids": [
+        "C04-P27"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "files",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C04-A76",
+      "proposition_ids": [
+        "C04-P28"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "Retrieved papers",
+      "component": "external",
+      "notes_verbatim": "Failure-mode observation (token-limit overflow); the retrieved external content is mapped, but the asserted act is not a retrieval relation, so component_mapping only."
+    },
+    {
+      "alignment_id": "C04-A77",
+      "proposition_ids": [
+        "C04-P29"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "the python exit () command",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C04-A78",
+      "proposition_ids": [
+        "C04-P29"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "removed manually",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C04-A79",
+      "proposition_ids": [
+        "C04-P29"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P29",
+          "occurrence_class": "cross_run_trend",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "'often generated' -> recurring generation of a harmful command; manual removal mapped as external component (no clean external-revises skeleton)."
+    },
+    {
+      "alignment_id": "C04-A80",
+      "proposition_ids": [
+        "C04-P30"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "subprocess.run() command",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C04-A81",
+      "proposition_ids": [
+        "C04-P30"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "execution",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P30",
+          "occurrence_class": "single_event",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A82",
+      "proposition_ids": [
+        "C04-P31"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "the arXiv engine",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C04-A83",
+      "proposition_ids": [
+        "C04-P31"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "relevant papers",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C04-A84",
+      "proposition_ids": [
+        "C04-P31"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "a successful search query",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C04-A85",
+      "proposition_ids": [
+        "C04-P31"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_role": "execution",
+      "relation_type": "reads",
+      "target_role": "external",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P31",
+          "occurrence_class": "cross_run_trend",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "External knowledge retrieval: search ACT=E reads external; 'up to 100 tries' -> recurring."
+    },
+    {
+      "alignment_id": "C04-A86",
+      "proposition_ids": [
+        "C04-P32"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "conceive their own research directions",
+      "component": "G",
+      "polarity": "explicit_denial",
+      "notes_verbatim": "'Unlike fully automated pipelines that attempt to conceive their own research directions' -> Agent Laboratory does not autonomously generate research directions; explicit_denial of self-directed candidate generation."
+    },
+    {
+      "alignment_id": "C04-A87",
+      "proposition_ids": [
+        "C04-P33"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "human feedback",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C04-A88",
+      "proposition_ids": [
+        "C04-P33"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_role": "external",
+      "relation_type": "conditions",
+      "target_role": "candidate",
+      "temporal_scope": "cross_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P33",
+          "occurrence_class": "cross_run_trend",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "Directly-reported aggregate finding (co-pilot > autonomous across metrics) licenses the cross-step external->candidate conditioning."
+    },
+    {
+      "alignment_id": "C04-A89",
+      "proposition_ids": [
+        "C04-P34"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "human oversight",
+      "component": "external",
+      "notes_verbatim": "reported_only_as_capability benefit claim; external oversight anchored, no cross-step feedback licensed under capability framing -> component_mapping only."
+    },
+    {
+      "alignment_id": "C04-A90",
+      "proposition_ids": [
+        "C04-P35"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "professor agent",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C04-A91",
+      "proposition_ids": [
+        "C04-P35"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "research code",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C04-A92",
+      "proposition_ids": [
+        "C04-P35"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_term": "code output",
+      "component": "O_env"
+    },
+    {
+      "alignment_id": "C04-A93",
+      "proposition_ids": [
+        "C04-P35"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "research plan",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C04-A94",
+      "proposition_ids": [
+        "C04-P35"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "artifact",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P35",
+          "occurrence_class": "capability_only",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C04-A95",
+      "proposition_ids": [
+        "C04-P35"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C04-P35",
+          "occurrence_class": "capability_only",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ],
+      "notes_verbatim": "reported_only_as_capability reward-model role ('can read ... are able to determine'); evaluates research code (artifact) and code output (observation), tagged capability_only."
+    },
+    {
+      "alignment_id": "C04-A96",
+      "proposition_ids": [
+        "C04-P36"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "boundary_unreported",
+      "source_term": "errs",
+      "component": "M",
+      "notes_verbatim": "err_hist construction (concatenation of previous errors) describes an internal error-record structure; conditioning of next generation not explicit here -> component_mapping only."
+    }
+  ]
+}

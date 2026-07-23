@@ -1,0 +1,2125 @@
+Formalizing AI Scientist Systems:
+A Component Framework and Theoretical Analysis
+Jaesol Shin
+WeDataLab
+ysys143@gmail.com
+https://github.com/ysys143
+
+Post-submission revised manuscript — not the version of record. This manuscript was refined after
+the CAISc 2026 submission deadline and is not the paper that was reviewed and archived. The version
+of record is the camera-ready deposited on OpenReview; nothing here alters it. The detailed revision
+chronology is retained with its rationale in the repository release documentation. For bibliographic
+identity, cite the version of record; when relying on a claim corrected here, cite or identify this dated
+revision alongside it and do not attribute the corrected claim to the archival text. The correction should
+also be linked from the official record when that repository permits.
+Revised: 2026-07-19; last revised 2026-07-22.
+
+Abstract
+Existing surveys organize AI Scientist systems by capabilities and workflow
+stages. We propose Servo (S, G, E, V, M, π), which operationalizes the sequential
+information structure of POMDPs and the experiment-selection logic of BED as diagnostic distinctions for source-bounded analyses of AI Scientist systems. The sixcomponent core comprises the Search space, hypothesis Generator, Experiment
+executor, Validator, Memory, and search Policy (π); the environment observation
+law Oenv is an explicit conceptual boundary, while artifact state A and the optional
+artifact synthesis or revision interface WA are recorded boundary objects rather
+than additional core components. We apply the schema to six versioned cases
+from five lineages and seven selected, frozen domain anchors. These distinctions
+separate observation from evaluation and distinguish outcome-conditioned repair
+or score improvement from hypothesis-discriminating experimentation and from
+the rules determining which candidates are executed. As an auxiliary corpus-level
+observation, none of the bounded sources reports an explicit posterior-based or
+expected-information-gain criterion for experiment selection. The case and anchor records illustrate use of the vocabulary; they are not a representative sample,
+prevalence estimate, causal test, or demonstration that Servo is superior to another framework. Appendix A uses standard Bayesian results only to delimit observation, validation, and novelty in fixed idealized settings. We identify three
+open problems as prospective design questions: independently validated automated novelty assessment, integration of information-seeking policies, and multifidelity integration.
+
+1
+
+Introduction
+
+AI Scientist systems—agents that generate hypotheses, execute or coordinate experiments, and synthesize knowledge with varying human authority—have proliferated rapidly [Boiko et al., 2023, Lu
+et al., 2024, 2026, Feng et al., 2026, Liu et al., 2026]. Capability- and stage-based surveys provide
+shared organizing frameworks [Wei et al., 2025, Tie et al., 2025], but different analytical purposes
+foreground different system boundaries. The questions pursued here are narrower: Which evaluation event is connected to which later action? Which artifact version carries that connection? Which
+kind of feedback, if any, does a bounded reported configuration support, and does the source resolve
+Published at 1st Conference For AI Scientists (CAISc 2026).
+
+it at the level of an individual occurrence? What evidence would support novelty assessment or
+information-seeking experimental policy?
+We propose Servo1 (S, G, E, V, M, π), which operationalizes the sequential structure of POMDPs
+and the experiment-selection logic of Bayesian experimental design as diagnostic distinctions for
+source-bounded analyses of AI Scientist systems (Section 4). The contribution is this set of distinctions together with its source-traceable application to six versioned cases from five lineages: applied
+to these cases, the distinctions decompose systems commonly described using terms such as iterative or closed-loop into distinct feedback structures—separating an observation from its subsequent
+evaluation, and distinguishing the information on which follow-up selection depends, the objective
+that selection serves, and the rule determining which candidates are executed. Seven selected source
+anchors are described separately (Section 6).
+Scope. Servo is a non-exhaustive system-level diagnostic schema. Each case is a versioned system
+configuration in a bounded task regime, identified by case, lineage, version, configuration, and taskregime identifiers. Inclusion records source-traceable variation in execution, evaluation, artifacts,
+routing, policy, authority, or fidelity; it is not a claim that the cases exhaust or represent AI Scientist
+systems.
+
+2
+
+Background
+
+Following Kaelbling et al. [1998], we borrow the organizing idea that a policy maps information
+available under incomplete observation to an action. Servo denotes the source-reported decisiontime information by It . It may comprise an observation history, retrieved memory, validator outputs,
+or a reported controller, predictive, or recurrent state. A fully instantiated POMDP would require a
+world-state space X , action space A, transition kernel, observation kernel, reward function, initial
+belief, and discount. Servo does not specify those objects and is not a POMDP instantiation. Its
+S is a candidate search space rather than the world state. Servo does not infer an unreported belief
+state; only when a bounded source defines an explicit belief or posterior do we use the specialization
+It = bt . Appendix A separately analyzes fixed statistical models. Posterior concentration is not any
+of Servo’s typed feedback relations, and no relation’s evidence status defines a trustworthy scientific
+outcome. An outcome study must predeclare a gate-independent endpoint Yq for each target property
+q. Bayesian Experimental Design [Chaloner and Verdinelli, 1995, Rainforth et al., 2024] provides
+one possible normative information criterion for π: select d∗ maximizing Expected Information Gain
+(EIG),
+d∗ = arg max EIG(d) = arg max E [H(θ) − H(θ | y, d)]
+d∈D
+
+d
+
+(1)
+
+where H(θ) is prior entropy over parameters θ and H(θ | y, d) is expected posterior entropy after
+observing y under d. EIG can be approximated via variational methods [Foster et al., 2019], amortized policies [Foster et al., 2021], and RL [Blau et al., 2022]. Robot Scientist [King et al., 2004]
+and GNoME [Merchant et al., 2023] illustrate domain-specific active-learning policies; the bounded
+LLM case sources used here do not state an EIG objective.
+
+3
+
+Related Work
+
+AI Scientist systems and direct survey frameworks. Individual systems have been characterized
+in detail [Lu et al., 2024, 2026, Schmidgall et al., 2025, Boiko et al., 2023], while recent surveys
+provide shared comparison frameworks. Wei et al. [2025] integrate capabilities and workflow, and
+Tie et al. [2025] organize systems by methodological stages and abstraction layers. Servo instead
+foregrounds versioned case identity, events, artifacts, routes, and typed functional relations with perrelation evidence. This is a difference in analytical unit, not evidence that Servo is more complete
+or useful.
+Autonomous-science frameworks. Automated feedback architectures predate the LLM era: the
+Robot Scientist [Sparkes et al., 2010] integrated hypothesis generation, robotic experimentation,
+1
+The servomechanism metaphor motivates tracing a feedback path; it does not imply that every recorded
+path is reliable, epistemic, autonomous, or scientifically successful.
+
+2
+
+statistical testing, model update, and active experiment selection [King et al., 2004]. More recent
+architectures include InternAgent (formerly NovelSeek) [InternAgent Team, Shanghai Artificial Intelligence Laboratory, 2025] and Co-Scientist [Gottweis et al., 2026]. We therefore position Servo
+not as the first unified framework but as a vocabulary that conceptually distinguishes observation
+generation from evaluation while operationally recording documented execution-anchored evidence
+routes, artifacts, and acceptance. Its diagnostic value is illustrated, not independently tested against
+another framework.
+Decision-theoretic foundations.
+The POMDP framework [Kaelbling et al., 1998] and
+BED [Chaloner and Verdinelli, 1995, Rainforth et al., 2024] are classical, with a long history of
+Bayesian-optimal experiment selection in automated science—most directly the Robot Scientist’s
+active-learning policy [King et al., 2004]. Servo borrows terminology rather than claiming a complete POMDP or priority for BED. Its machine-readable contract records validation target, evidence,
+evaluator, decision role, artifact state, and routed edge without treating those fields as a reliability
+hierarchy.
+Formal models and artifact infrastructure. Taniguchi et al. [2025] model collective scientific
+inference, whereas Servo records one system-level case and deliberately compresses social organization. Liu et al. [2026] foreground artifact format, provenance, and verification. The Servo event–
+artifact schema can record such artifacts as versioned A states and, where the source reports it, an
+artifact synthesis or revision interface WA ; this is a boundary mapping rather than subsumption.
+Provenance and workflow-run standards. PROV-DM already defines entities, activities, agents,
+generation, usage, derivation, revision, and association [Moreau and Missier, 2013]. Workflow Run
+RO-Crate similarly records a workflow plan and run with code and input/output artifacts [Workflow
+Run RO-Crate Community, 2024]. Servo does not redefine these base provenance objects. Its artifacts map to PROV entities, events to activities or run actions, producers and consumers to generation
+and usage, and human or system actors to agents and associations. The added profile is narrower:
+scientific target properties, validator-reliability records, typed epistemic and control routes, bounded
+case identity, component-specific authority, and typed functional relations with per-relation evidence
+claims. Table 1 states this reuse boundary; formal conformance would additionally require an executable serializer and the relevant conformance tests.
+Servo record
+
+Existing analogue
+
+Artifact/version
+Event
+
+Servo-specific scientific semantics
+
+PROV Entity; derivation/revision
+PROV Activity; RO-Crate run action
+Actor/route
+Agent/Association;
+generation/usage
+Functional relation/claim Connected provenance subgraph
+
+Version identity required by a bounded functional-relation claim
+Target property, evaluator, reliability evidence, update semantics
+Component authority and typed epistemic, control, revision, or mediation role
+Typed source–target relation with its per-relation evidence status
+
+Table 1: Construct-level provenance crosswalk. Servo is a scientific-diagnostic profile over reusable
+provenance concepts, not a replacement base ontology.
+
+Framework
+
+Unit and aim
+
+Servo
+
+System-level discovery Components; property-specific validaloop comparison
+tor channels; operational versus terminal feedback
+Capability–workflow–
+Five foundational capabilities and four
+domain synthesis
+dynamic discovery stages
+
+Wei et al.
+
+Tie et al.
+
+Foregrounded resolution
+
+Deliberate omission / tradeoff
+
+Compresses agent communication and
+social organization; not a complete
+generative model
+Validator-channel identity and operational versus terminal routing are not
+the organizing unit
+Six-stage methodology Stage coverage across domains, tasks, Does not separately encode memory,
+by four abstraction layers architectures, and capabilities for 50+ policy, or complete validator feedback
+systems
+paths
+
+Source
+This work
+
+Wei et al.
+[2025]
+Tie et al.
+[2025]
+
+Table 2: Direct construct-level comparison with AI Scientist survey frameworks, using each framework’s native unit. This is not a performance ranking. Servo’s claimed increment is selected systemlevel channel and interface resolution, not the first unified framework or information that the alternatives are incapable of representing.
+POMDP, InternAgent, CPC-MS, and ARA remain complementary rather than direct surveytaxonomy baselines. POMDP supplies a sequential decision model when states and kernels are specified [Kaelbling et al., 1998]; InternAgent foregrounds implemented multi-agent organization [InternAgent Team, Shanghai Artificial Intelligence Laboratory, 2025]; CPC-MS models community3
+
+level epistemic dynamics [Taniguchi et al., 2025]; and ARA foregrounds artifact provenance and
+replay [Liu et al., 2026]. Servo does not subsume these analytical units.
+
+4
+
+The Servo Framework
+
+Servo does not merely borrow POMDP and BED terminology, nor does it score whether a system
+implements either: these are constitutive analytical resources from which its diagnostic categories
+are derived, while a complete POMDP instantiation or a formal BED objective is a special case
+rather than a requirement. From the POMDP, Servo takes the sequential relation among action, observation, and decision information; it then distinguishes an execution- or environment-generated
+observation from the system’s subsequent assessment of that observation. From BED, it takes experiment selection under uncertainty as a normative reference and separates the information used for
+selection, the objective served, and the rule determining which candidates are executed.
+We define an AI Scientist system as a tuple (S, G, E, V, M, π) with the following components:
+Servo = (S, G, E, V, M, π)
+
+(2)
+
+S: Search Space The currently represented candidate hypotheses, programs, molecules, experimental conditions, or other objects subject to exploration. St may be fixed or expanded;
+calling a process open-ended requires an explicit expansion rather than merely searching a
+large fixed set.
+G : M × S → (C, ∆S): Hypothesis Generator A function that proposes both newly instantiated
+candidates and an optional search-space expansion. We set St+ = expand(St , ∆St ) and
+require Ct ⊆ St+ . Fixed-space search has ∆St = ∅; progressive widening or a newly
+introduced representation must be recorded in ∆St . G supplies options and expansions but
+does not select the next system action.
+E ≡ Eexec : h × d × P × f → u: Experiment Executor The system-controlled component that
+turns a selected hypothesis, design, protocol, and fidelity into an executed intervention
+or computational action u. It may be a code runner, simulator, robot, or protocol orchestrator, with fidelity ranging from computational proxy to physical wet-lab execution. The stochastic response of nature or a simulator is not the executor itself. We denote that auxiliary environment and measurement law by Oenv (do | x, u), where x is
+an environment state rather than a Servo component. Hence an observation is drawn as
+o ∼ Oenv (· | x, Eexec (h, d, P, f )), with a Dirac law as the deterministic special case. Oenv
+is not a seventh Servo component or a field inferred by the architectural coding; an explicit
+statistical model is required before a Bayesian specialization It = bt , belief update, or EIG
+is computable. V remains a separate contextual assessment of the realized evidence.
+V = {Vj : (zj , Av ) → rj }j∈J : Validator events A family of context-dependent assessment functions rather than one compulsory post-observation call. Av identifies every versioned artifact consumed by the event; its producer, version, and case boundary must resolve in
+the artifact records. The contextual input zj = (h, d, P, o, M, Kext , τ ) may additionally
+contain the candidate claim or hypothesis, design, protocol, observation, internal memory, an external reference corpus, and an evaluation-time cutoff. Its result rj may contain property-specific components for executability, empirical adequacy, reproducibility,
+novelty, significance, and acceptance. A particular validator uses only the coordinates it
+needs; for example, an execution check may depend only on (P, o), whereas field novelty necessarily compares (h, o) with time-indexed external prior art (Kext , τ ). Validators
+are coded by separate facets rather than additive layers: target property (e.g., executability, empirical adequacy, novelty, significance), evidence source (execution trace, measurement, replication, literature, review), evaluator substrate (program, statistical model,
+LLM, human, hybrid), decision role (diagnostic, search control, or acceptance), and external independence (internal, shared, or independent). Multiple values may apply within
+a facet; values from different facets must not be added or interpreted as maturity levels.
+An event does not create a route by itself. A separately evidenced edge may route rj to
+Dj ⊆ {S, G, E, V, M, π, A, WA , external}. Artifact revision is represented specifically
+as a route to WA followed by an artifact_revision edge that produces a new artifact
+version Av+1 ; mutating Av in place is not an admissible shortcut.
+4
+
+M : Memory Structured as (Me , Ms , Mp ). Me (episodic) stores individual records (hi , oi , ri ); Ms
+(semantic) stores distilled knowledge patterns; Mp (procedural) stores learned protocols.
+M is the persistent storage and retrieval substrate. It can supply retrieved content to It ,
+but it is not identical to the decision-time information state. The structure of M directly
+determines the quality of G and π.
+π : It × M × C × B × Rpre → a: Search Policy The decision rule that selects an action a =
+(h, d, P, f ), comprising a candidate h ∈ C, an experimental design d, an executable protocol P , and a fidelity f . It contains only information that the bounded source reports
+as available at decision time; Servo neither requires a particular state-update map nor reconstructs an unreported latent state. B is the remaining resource budget and Rpre contains
+validation signals routed before action selection. A myopic BED policy holds the candidate
+and feasible-action construction fixed and selects a (or its design component d) to maximize
+conditional EIG; this is a one-step action rule, not a globally optimal sequential policy. In
+practice, systems use reactive, greedy, active-learning, finite-state, recurrent, or tree-search
+policies. Thus G generates candidates while π chooses what to do with them; an explicitly
+reported Bayesian or POMDP belief is the special case It = bt [Kaelbling et al., 1998].
+Operational event–artifact graph. For a bounded case c, Servo records endpoints, versioned artifacts, evaluation events, and directed edges,
+Gc = (Nc , Ac , Ec , Rc ),
+
+(3)
+
+where Nc are typed instantiated component or boundary endpoints, Ac are artifacts with documented
+production or availability anchors and versions, Ec are event occurrences, and Rc are observation,
+epistemic-update, feedback-control, artifact-revision, or external-only edges. Every member of Ec
+has its own event_id; a later occurrence requires a distinct event record rather than a time suffix attached to an earlier record. Artifact versions are ordered only within an explicit, case-local
+artifact_lineage_id, so parallel lineages may independently use the same version number. Each
+event class has an allowed actor component, and each edge type has allowed source–destination component pairs; the package rejects graphs that violate these endpoint-level admissibility constraints.
+These constraints do not type edge payloads or assert direct composition of the component function
+signatures. The event_class determines actor admissibility under η, whereas event_kind records
+the relation-relevant semantic role of an occurrence. Thus epistemic_action is an event kind, not
+an additional event class; every such occurrence still carries an admissible class such as generation,
+runtime validation, or state update. Human, system, mixed, or unreported mediation is a coarse actor
+facet rather than a distinct edge topology; one mediator endpoint does not enumerate every participant
+in a mixed route. Events and reliability evaluations are different records: an evaluation study is not
+a runtime event and cannot serve as a feedback edge. A denotes artifact state consumed or produced
+by events, while the optional WA denotes a reported authored-artifact synthesis or revision interface.
+Both lie at the six-component boundary; neither silently expands the core tuple. A terminal event has
+no outgoing internal edge. Pre-action filtering, a fixed schedule, append-only memory, formatting
+or copying, retry without epistemic update, and terminal assessment alone are prohibited shortcuts
+rather than evidence of a feedback relation. The current graph does not instantiate Oenv , simulator
+response, or measurement apparatus as endpoints. Its observation edge E → V does not denote causal observation generation: it records that evidence associated with a documented execution
+became available to a validator. Here E anchors the execution occurrence, not the physical, environmental, simulator, or measurement process that caused the value. Likewise, producer_event_id
+for a result or measurement artifact is a documentary availability anchor within the bounded trace,
+not necessarily its ultimate causal producer.
+The admissibility maps from graph records to tuple or boundary components are explicit. For event
+class k and edge type r, let η(k) be the allowed actor-component set and τ (r) the allowed ordered
+component pair set:
+η(runtime validation) = {V },
+η(generation) = {G},
+η(artifact production) = {WA },
+η(human feedback) = {external},
+
+η(artifact assessment) = {V },
+η(execution) = {E},
+η(state update) = {M },
+η(external assessment) = {external},
+
+5
+
+(4)
+
+and
+τ (observation-delivery projection) = {(E, V )},
+τ (epistemic update) = {(V, M )},
+τ (artifact revision) = {(V, WA ), (π, WA )},
+τ (external only) = {(external, external)},
+τ (feedback control) = {(V, G), (V, π), (M, G), (M, π),
+(π, G), (π, E), (G, E), (WA , E),
+(external, WA )}.
+
+(5)
+
+For every event, the actor component must belong to η of its event class; for every edge, the ordered
+endpoint-component pair must belong to τ of its edge type. These edges encode source-reported
+dependency or control routing, not a typed call graph. In particular, V → G or π → G means
+that reported information conditions a generation occurrence, while G → E records delivery of
+a generated executable candidate or plan after any source-reported selection context; it does not
+assign action-selection authority to G. The map therefore checks endpoint-level integrity only and
+does not prove payload compatibility with the abstract function signatures. Unreported mappings
+remain evidentially unknown.
+Typed relations and per-relation evidence. Servo does not assign one yes/partial/full loop label.
+For each case it records the typed functional relations that the bounded source reports, each as a
+tuple (source role, relation type, target role, temporal scope) over the roles and relation types of
+the event–artifact graph, and it keeps an evaluation of an observation distinct from the generation
+of that observation. Every reported relation carries a derived decision claim recorded on separate
+axes: a source support status (supported, unresolved, contradicted, or not applicable), an occurrence
+resolution (resolved, unresolved, or not applicable), and an evidence mode naming the kind of proposition the source supports. Source silence lowers occurrence resolution to unresolved rather than to
+a positive or a not-applicable value, and a relation that crosses an unreported executor–environment
+measurement boundary is lowered in the same way. Table 5 reports, per case, where observations
+originate, what evaluation acts on, and whether the source separates an observation from its subsequent evaluation; Table 7 (Appendix C) reports each functional relation with its source support,
+occurrence resolution, and evidence mode. Evidence modes name the kind of proposition a source
+supports and are not an ordinal scale of system quality.
+Policy decomposition. Applying the POMDP- and BED-derived distinctions to the search policy
+π, Servo decomposes each case’s experiment-selection policy along the selection signal the source
+names, the information on which follow-up selection depends, the objective that selection serves,
+and the separate rules by which candidates are selected and executed (Table 4). The objective is
+kept apart from both candidate rules, so no objective is folded into a rule: the Robot Scientist (C05)
+carries uncertainty-reduction and hypothesis-discrimination objectives yet an exhaustive selection
+rule and an all-selected execution rule—it tested every generated hypothesis rather than performing
+an expected-discrimination down-selection—whereas the score-cluster cases (C02–C04, C06) pursue performance improvement with ranked or thresholded selection, and Coscientist (C01) reacts
+to execution failure and reaction yield without a score dependence. Read at the level of individual occurrences, the feedback relations that resolve are few: outside forward candidate generation,
+only two feedback relations reach occurrence resolution, and no case reports an occurrence-resolved
+evaluation-to-execution relation. None of the bounded sources reports an explicit posterior-based or
+expected-information-gain criterion for experiment selection; this is a corpus-level reporting observation, not evidence of a field-wide absence.
+Human involvement is recorded as a categorical authority vector rather than the former scalar
+H ∈ [0, 1]: H = (HS , HG , HE , HV , HM , Hπ ) gives one coarse component-level label—human
+control, human participation, system control, shared control, or not reported. It does not distinguish
+initiation, advice, approval, veto, direct execution, and final authority within the same component.
+HS separately identifies coarse authority over S0 and later space expansion from candidate generation by G. The vector is descriptive, not numeric or ordered [Parasuraman et al., 2000].
+Faceted validator description. The former labels Vsyntax , Vsemantic , Vempirical , Vhuman , and Vformal
+mixed target properties, evidence sources, evaluator substrates, and decision roles; they were neither
+mutually exclusive layers nor a reliability order. Gate reliability evidence is recorded separately from
+runtime events and is called probabilistic calibration only when confidence–outcome correspondence
+6
+
+ID
+
+Lineage
+
+C01
+C02
+
+coscientist
+ai_scientist
+
+C03
+C04
+C05
+C06
+
+System/version
+
+Coscientist (2023 paper)
+AI Scientist 2024 (2024
+paper)
+ai_scientist
+AI Scientist 2026 (2026
+Nature)
+agent_laboratory Agent Laboratory (2025
+paper)
+robot_scientist Robot Scientist (2010 review of Adam)
+novelseek
+InternAgent
+(formerly
+NovelSeek) (2025 InternAgent)
+
+Configuration
+
+Task regime
+
+Reported demonstration
+Reported default
+
+Six chemistry tasks
+At most five computational experiments
+Computational
+tree
+search
+Human-provided
+ML
+idea
+Yeast functional genomics
+Twelve
+computational
+tasks
+
+Template-free tree
+Autonomous mode
+Adam yeast
+Reported multi-agent
+
+Table 3: Six versioned cases from five lineages. IDs, versions, configurations, and task regimes are
+generated from the canonical Servo records.
+is measured. Balanced accuracy, false-positive rate, mean score bias, and coder agreement are not
+calibration. The superseded binary fields remain reconstruction data only and are not inputs to the
+current schema.
+The validator as a reward channel. Treating V as distinct from the observation likelihood, Appendix A records three analytical separations. Posterior consistency belongs to the observation model
+and data-generating regime; a validator changes the inferential target only when it is coupled into
+a properly normalized update likelihood (or indirectly changes future designs); and a novelty component invisible to every available channel is non-identifiable. These observations diagnose where
+validator design can matter. They do not establish that any scalar validator measure is universally
+necessary or sufficient for trustworthy autonomous discovery.
+
+5
+
+Analysis of Core AI Scientist Systems
+
+The frozen application contains six versioned cases from five lineages: Coscientist; AI Scientist 2024
+and AI Scientist 2026 as two versions in one lineage; Agent Laboratory; Robot Scientist; and InternAgent (formerly NovelSeek). Each case is bounded by a reported configuration and task regime.
+The records are selected source-traceable examples, not “core” representatives of a population. They
+describe S, G, E, V, M, π, the reporting status of the conceptual Oenv boundary, the recorded boundary objects A, WA , human authority, endpoints, events, artifacts, routed edges, reliability evaluations, and the typed functional relations recorded under the Servo event–artifact contract.
+Every relation is keyed by case_id and its typed (source_role, relation_type,
+target_role, temporal_scope) tuple in the canonical Servo records. Each relation resolves
+the event, edge, endpoint, artifact, evidence, source-location, and source-hash records in the release
+package that carry its per-relation support status and occurrence resolution.
+The event graph preserves distinctions that a bare loop label would erase. In the AI Scientist lineage, pre-action literature filtering, runtime experiment or tree evaluation, manuscript assessment,
+and external review are separate events with different artifacts and destinations [Lu et al., 2024,
+2026]. Coscientist and Agent Laboratory report execution and artifact-revision relations, but each
+relation is recorded only where the source supports it and its occurrence resolution is stated within the
+case [Boiko et al., 2023, Schmidgall et al., 2025]. Robot Scientist reports a physical assay and modelupdate cycle within its bounded yeast-functional-genomics regime [King et al., 2004, Sparkes et al.,
+2010]; InternAgent reports multi-agent assessment, debugging, and evolution while Servo deliberately compresses agent-to-agent organization [InternAgent Team, Shanghai Artificial Intelligence
+Laboratory, 2025]. Human scope, manual execution, terminal authority, and external assessment
+remain separately recorded rather than being converted into a scalar autonomy value.
+The normative data model consists of the case, endpoint, artifact, event, edge, reliability-evaluation,
+functional-relation, derived-decision-claim, domain-anchor, and selection-ledger records named in
+servo_v5_schema.yaml. The frozen 42-session, three-vendor multicoder audit used a superseded
+record-level rubric and did not code the current event, artifact, edge, or relation units; it is retained
+only as a development audit.
+7
+
+5.1
+
+Contrastive framework readings
+
+The crosswalk in Table 2 is made concrete by three contrasts. First, a single loop label for AI Scientist (Nature 2026) hides the difference between stage and tree evaluators, a manuscript reviewer,
+and workshop review after manual submission selection. Second, Agent Laboratory’s internal execution and artifact-revision paths are distinct from its paper-quality assessment and retained human
+authority. Third, InternAgent’s native multi-agent architecture represents agent roles and communication more directly than Servo’s system-level case record [InternAgent Team, Shanghai Artificial
+Intelligence Laboratory, 2025]. These are differences in foregrounded units, not a performance or
+superiority comparison.
+The Robot Scientist is a negative case against an automatic claim of added diagnostic value: its
+source already exposes the architecture-level hypothesis, assay, update, and selection sequence [King
+et al., 2004, Sparkes et al., 2010]. It does not, however, identify a distinct post-update execution and
+evidence occurrence, so the stricter occurrence-level adaptation and discovery relations remain unresolved. Servo supplies a consistently validated record format and a documented mapping target,
+but does not thereby discover a hidden mechanism. The examples show only what the schema foregrounds.
+5.2
+
+Artifact Infrastructure: Agent-Native Research Artifacts
+
+Liu et al. [2026] address a complementary problem—what the output of the loop should be and how
+to verify it. Agent-Native Research Artifacts (ARA) replace the narrative paper with a four-part
+ontology (/logic, /src, /trace, /evidence). In the final Servo facets, its Seal targets schema
+compliance, argumentative rigor, and reproducibility using deterministic checks, an automated Rigor
+Auditor (82.6% recall on a seeded rigor-defect benchmark), and sandboxed execution; significance
+and novelty remain assigned to human judgment [Liu et al., 2026]. Motivating figures: only 45.4%
+of reproduction requirements are fully specified, and below-reference agent runs account for 90.2%
+of total dollar cost—exploration that becomes waste only when later agents cannot reuse it [Liu et al.,
+2026]. The /trace part externalizes Me , with distilled semantic content (Ms ) held in /logic; preserved traces both accelerated and anchored downstream agents—richer Me does not monotonically
+improve π.
+
+6
+
+Domain Analysis
+
+Table 6 lists seven selected, frozen source anchors. Each row names one system and one bounded
+primary source; rows are not merged into a domain-level case, sampling frame, prevalence claim, or
+cross-domain outcome comparison.
+The anchor rows support only source-local descriptions. They do not establish that a pattern holds
+across a domain, that one validator type causes an outcome, or that the seven anchors cover the
+relevant design space. DFT approximates physical energies rather than serving as a physical oracle,
+and predicted compounds still require synthesis and characterization [Cheetham and Seshadri, 2024].
+
+7
+
+Open Problems
+
+The selected case and anchor sources motivate three prospective design questions. They do not
+establish prevalence or field-wide absence, and none of the proposed evaluations is executed here.
+7.1
+
+The Lack of Validated Automated Novelty Gates
+
+The bounded sources used here do not report an independently validated automated novelty gate.
+This is a source-limited evidence statement, not a finding that every automated novelty score is unreliable or that no other system supplies such evidence. The cited failures concern adjacent properties:
+paper-quality bias, hallucinated tables, proof correctness, structural violations, or review overlap.
+They motivate caution but do not measure novelty discrimination. Novelty, correctness, significance, and aggregate review quality remain separate endpoints.
+Prospective validation design requirements: These are necessary design requirements, not a sufficient checklist for declaring a gate validated. A preregistration must define the target population,
+8
+
+temporal cutoff, domain strata, novelty prevalence or sampling scheme, primary discrimination endpoint (for example sensitivity/specificity or AUC), minimally relevant performance, and confidenceinterval width. A prospective power or precision calculation must then determine benchmark-item
+and rater counts per domain; “three domains” and “five experts” may serve as diversity floors but
+never substitute for that calculation. Experts label independently, human–human agreement is reported with uncertainty, and held-out adjudicated field-novelty labels use explicit prior-art search
+kept separate from significance and correctness. Follow-up duration, censoring, and the rule for
+later priority or prior-art outcomes must also be preregistered. The automated system is evaluated
+against held-out adjudicated labels rather than the majority vote from the same raters. High agreement with a small panel or separation of published from withheld findings remains only an initial
+benchmark result. A recent benchmark takes a step by restricting to findings from 2024 onward to
+control contamination [Liu et al., 2025], though it evaluates inspiration-based decomposition rather
+than satisfying this design.
+Novelty, significance, and correctness are distinct properties that the bounded sources may score
+separately and then combine at a decision point (The AI Scientist’s paper reviewer scores separate
+originality, quality, clarity and significance axes, yet collapses them into an aggregate Overall score
+and accept/reject decision [Lu et al., 2024]). Functional separation of generation from reviewing,
+reflection, or ranking does not imply statistical or organizational independence. The selected sources
+do not report independent, contamination-controlled evidence that such a channel discriminates field
+novelty.
+7.2
+
+The BED–Practice Gap for π
+
+Equation 1 specifies a one-step, myopic information criterion. The bounded LLM-case sources used
+here do not state that their policies optimize EIG or a sequential information objective. Modern BED
+can use variational estimators, amortized policies, and explicit probabilistic surrogates [Foster et al.,
+2019, 2021]; BED-LLM [Choudhury et al., 2026] provides a separate example for conversational
+queries. The open question is integration with a reported G–π action interface and scientific evidence
+path, not an asserted field-wide absence.
+Prospective success criterion: A deployed AI Scientist narrows the survey gap if it maintains
+an observation-updated probabilistic model—exact, variational, ensemble, or other documented
+surrogate—and uses a validated EIG or sequential information objective to select actions at under
+explicit budgets. Evaluation should compare discovery-relevant utility and information efficiency
+against matched heuristic policies. Direct Bayesian representation of open-ended natural-language
+or program hypotheses is a separate, stronger representation problem; it is not required to count a
+practical BED integration.
+Architecturally, a system may maintain an explicit probabilistic surrogate or use variational and
+amortized EIG estimation [Foster et al., 2019, 2021]. What remains difficult in open-ended S is
+defining and updating a representation on which those objectives are meaningful. EIG-based selection presupposes an already represented hypothesis space, whereas how genuinely new hypotheses
+or representations arise is a separate generative problem [Yanai and Lercher, 2019].
+7.3
+
+The Multi-Fidelity Integration Gap
+
+Test-time compute has created a structural asymmetry: hypothesis generation is now fast and cheap,
+while experiment execution E remains physically rate-limited. Principled criteria for selecting
+among costly information sources already exist in multi-fidelity Bayesian optimization: continuousfidelity models trade approximation cost against target information [Kandasamy et al., 2017], and
+cost-sensitive mutual-information acquisition selects among simulations and real evaluations [Song
+et al., 2019]. The gap identified here is therefore not the absence of mathematical escalation criteria. It is their unvalidated integration into the surveyed open-ended AI Scientist workflows, where
+fidelity changes may alter protocols, outcome semantics, and physical feasibility.
+The selected anchors expose several proxy-to-physical boundaries. GNoME predicts 380,000 stable
+compounds via DFT [Merchant et al., 2023]; 736 match structures independently present in or added
+to the ICSD, including 184 added after the project began. These are concurrent records by others
+rather than syntheses the system triggered. ChemCrow reports wet-lab execution, whereas physical
+characterization remains protocol-specific [Bran et al., 2024, Gromski et al., 2019]. BioPlanner eval9
+
+uates LLM-generated protocol pseudocode without thereby establishing a biological-validity feedback witness [O’Donoghue et al., 2023]. These anchors motivate, but do not establish the prevalence
+of, a multi-fidelity integration problem.
+This design problem is distinct from Op1 and Op2: a proposed implementation would need to make
+evidence comparable across fidelities and expose fidelity and cost to π. Existing MFBO supplies acquisition criteria under stated surrogate assumptions; whether those assumptions and protocol transitions hold in an AI Scientist workflow is an empirical question.
+Autonomous laboratories such as A-Lab [Szymanski et al., 2023], ORGANA [Darvish et al., 2024],
+and AutoLabs [Panapitiya et al., 2025] show that execution automation and fidelity selection are
+separate engineering questions. They are cited as adjacent examples, not as an exhaustive audit of
+multi-fidelity policy evaluation.
+Prospective success criterion: A system closes the integration gap if it implements a documented
+multi-fidelity acquisition rule, including cost and cross-fidelity uncertainty, and prospectively outperforms matched fixed-fidelity or fixed-escalation baselines on experimentally validated discoveries per unit physical cost. This tests adoption and calibration in an AI Scientist workflow rather than
+claiming to invent the underlying criterion.
+
+8
+
+Discussion
+
+Validator design as a diagnostic vocabulary. Unreliable validation can distort what a system records as progress—an ecosystem-scale symptom is the documented surge in fabricated citations [Zhao et al., 2026], and strong task performance need not imply an internalized world
+model [Vafa et al., 2025]. The earlier gate-reliability/“trustworthy closure” association is withdrawn
+as conceptually circular, not merely left untested. The framework instead asks property-specific
+questions: which channel fires when, where its output is routed, what property it assesses, what bias
+or calibration evidence exists, at what experimental fidelity, and with what external independence?
+Any future outcome analysis must use gate-independent external endpoints Yq .
+Human oversight. The categorical authority vector localizes coarse human or system control by
+component; it does not resolve whether participation means initiation, advice, approval, veto, direct
+execution, or final authority. It is not a quantity to minimize. Human authority in novelty/significance
+assessment and policy is appropriate for the surveyed workflows because their automated proxies
+do not yet provide independently validated judgments of those targets. This is a current-workflow
+finding, not a claim that those judgments are non-automatizable in principle [Parasuraman et al.,
+2000].
+Towards collective AI co-scientists. Some analyzed systems, including InternAgent, are explicitly multi-agent [InternAgent Team, Shanghai Artificial Intelligence Laboratory, 2025]; this paper
+nevertheless collapses each implementation into one system-level (S, G, E, V, M, π) tuple and does
+not model agent-level roles, communication, disagreement, or authority. The relevant extension is
+therefore from that system-level abstraction to an agent graph, shared-memory process, collective
+validator, or Dec-POMDP-like model, rather than the introduction of multi-agent systems as such.
+Collective Predictive Coding [Taniguchi et al., 2025] and ARA [Liu et al., 2026] offer possible starting points for shared epistemic state. Such an extension must preserve diversity: AI reviewers already overlap more than independent humans [Kim et al., 2026], risking the transient diversity that
+benefits epistemic communities [Zollman, 2010].
+Limitations. Servo is non-exhaustive and abstracts away agent-level and social organization [Taniguchi et al., 2025]. It is not a complete ontology, causal theory, population taxonomy,
+or performance ranking. The current graph does not instantiate Oenv , simulator response, or measurement apparatus as endpoints or activities. It therefore cannot distinguish execution failure from
+environment or measurement failure, compare observation laws attached to the same executor, or
+provide lossless causal provenance for measurement artifacts. Its E → V observation edge and
+result-artifact producer fields preserve only a source-bounded execution anchor and subsequent evidence availability. The six cases informed framework development, while the seven anchors are
+partial records rather than complete held-out graphs. No untouched case has yet been instantiated
+end-to-end under a prospectively frozen contract. The present evidence therefore supports internal consistency and a loss-aware standards mapping, not demonstrated out-of-sample portability;
+10
+
+a future holdout that triggers a schema change must be reclassified as formative. A per-relation
+evidence claim concerns only its bounded case and relation and does not imply scientific outcome
+quality. Servo supplies neither a causal model nor a generative law for missing routes, costs, fidelity transitions, or artifacts. The frozen 42-session, three-vendor multicoder audit predates the
+current event–artifact contract and is retained only as a historical development audit; its agreement
+coefficients do not establish reproducibility, source entailment, construct validity, human reliability,
+real-world utility, or comparative superiority.
+
+9
+
+Conclusion
+
+We introduced Servo (S, G, E, V, M, π) as a non-exhaustive, source-traceable event-and-evidence
+schema. Its operational graph is a documentary projection rather than a complete causal provenance model: the tuple distinguishes the executor from Oenv , while the released graph records only
+source-supported execution anchors and evidence availability at evaluation events. Applying Servo’s
+POMDP- and BED-derived distinctions decomposes six cases drawn from a literature that commonly
+uses terms such as iterative or closed-loop, by separating observation from evaluation and by distinguishing the information on which follow-up selection depends, the objective that selection serves,
+and the rule determining which candidates are executed: some policies react to yield or evaluation scores, while one case (C05, the Robot Scientist) reports testing all generated hypotheses in
+a discrimination-oriented procedure. As a closing corpus-level observation, none of the bounded
+sources reports an explicit posterior-based or expected-information-gain criterion for experiment
+selection—a limitation of the bounded public sources analyzed here, not an asserted field-wide absence. These formative cases do not establish out-of-sample portability, prevalence, causality, comparative superiority, or scientific-outcome effects.
+
+References
+R. H. Berk. Limiting behavior of posterior distributions when the model is incorrect. The Annals of
+Mathematical Statistics, 37(1):51–58, 1966.
+T. Blau, E. V. Bonilla, I. Chades, and A. Dezfouli. Optimizing sequential experimental design
+with deep reinforcement learning. In International Conference on Machine Learning, 2022.
+arXiv:2202.00821.
+D. A. Boiko, R. MacKnight, B. Kline, and G. Gomes. Autonomous chemical research with large
+language models. Nature, 624:570–578, 2023. doi: 10.1038/s41586-023-06792-0.
+A. M. Bran, S. Cox, O. Schilter, C. Baldassari, A. D. White, and P. Schwaller. ChemCrow:
+Augmenting large-language models with chemistry tools. Nature Machine Intelligence, 2024.
+arXiv:2304.05376.
+K. Chaloner and I. Verdinelli. Bayesian experimental design: A review. Statistical Science, 10(3):
+273–304, 1995.
+A. K. Cheetham and R. Seshadri. Artificial intelligence driving materials discovery? Perspective on
+the article: Scaling deep learning for materials discovery. Chemistry of Materials, 36, 2024.
+doi: 10.1021/acs.chemmater.4c00643. Available: https://escholarship.org/content/
+qt9qx9t3kz/qt9qx9t3kz.pdf.
+D. Choudhury, S. Williamson, A. Goliński, N. Miao, F. B. Smith, M. Kirchhof, Y. Zhang, and
+T. Rainforth. BED-LLM: Intelligent information gathering with LLMs and Bayesian experimental design. In International Conference on Learning Representations, 2026. arXiv:2508.21184.
+K. Darvish, M. Skreta, Y. Zhao, N. Yoshikawa, S. Som, M. Bogdanovic, Y. Cao, H. Hao, H. Xu,
+A. Aspuru-Guzik, A. Garg, and F. Shkurti. ORGANA: A robotic assistant for automated chemistry
+experimentation and characterization, 2024. arXiv:2401.06949; also in Matter (Cell Press) 2025.
+T. Feng, T. H. Trinh, G. Bingham, D. Hwang, Y. Chervonyi, et al. Towards autonomous mathematics
+research. arXiv preprint arXiv:2602.10177, 2026. arXiv:2602.10177.
+11
+
+A. Foster, M. Jankowiak, E. Bingham, P. Horsfall, Y. W. Teh, T. Rainforth, and N. Goodman. Variational Bayesian optimal experimental design. In Advances in Neural Information Processing
+Systems, 2019. arXiv:1903.05480.
+A. Foster, D. R. Ivanova, I. Malik, and T. Rainforth. Deep adaptive design: Amortizing sequential Bayesian experimental design. In International Conference on Machine Learning, 2021.
+arXiv:2103.02438.
+S. Ghosal and A. van der Vaart. Fundamentals of Nonparametric Bayesian Inference. Cambridge
+Series in Statistical and Probabilistic Mathematics. Cambridge University Press, 2017.
+J. Gottweis, W.-H. Weng, A. Daryin, T. Tu, P. Sirkovic, A. Myaskovsky, G. Glowatyj, F. Weissenberger, A. Orlandi, D. Popovici, et al. Accelerating scientific discovery with Co-Scientist.
+Nature, 2026. doi: 10.1038/s41586-026-10644-y. arXiv:2502.18864.
+P. S. Gromski, A. B. Henson, J. M. Granda, and L. Cronin. How to explore chemical space using algorithms and automation. Nature Reviews Chemistry, 3:119–128, 2019. doi: 10.1038/
+s41570-018-0066-y.
+InternAgent Team, Shanghai Artificial Intelligence Laboratory. InternAgent: When agent becomes
+the scientist – building a closed-loop system from hypothesis to verification. arXiv preprint
+arXiv:2505.16938, 2025. arXiv:2505.16938v3. Circulated as NovelSeek in earlier versions; the
+key is retained for continuity with prior citations of this work.
+L. P. Kaelbling, M. L. Littman, and A. R. Cassandra. Planning and acting in partially observable
+stochastic domains. Artificial Intelligence, 101(1–2):99–134, 1998.
+K. Kandasamy, G. Dasarathy, J. Schneider, and B. Póczos. Multi-fidelity Bayesian optimisation
+with continuous approximations. In Proceedings of the 34th International Conference on Machine
+Learning, volume 70 of Proceedings of Machine Learning Research, pages 1799–1808, 2017.
+S. Kim, D. Yoon, K. Gashteovski, J. Suk, J. Baek, P. Aggarwal, I. Wu, et al. On the limits and
+opportunities of AI reviewers: Reviewing the reviews of Nature-family papers with 45 expert
+scientists. arXiv preprint arXiv:2605.20668, 2026.
+R. D. King, K. E. Whelan, F. M. Jones, P. G. K. Reiser, C. H. Bryant, S. H. Muggleton, D. B. Kell, and
+S. G. Oliver. Functional genomic hypothesis generation and experimentation by a robot scientist.
+Nature, 427(6971):247–252, 2004. doi: 10.1038/nature02236.
+J. Liu et al. The last human-written paper: Agent-Native research artifacts.
+arXiv:2604.24658, 2026. arXiv:2604.24658.
+
+arXiv preprint
+
+Y. Liu, Z. Yang, T. Xie, J. Ni, B. Gao, Y. Li, S. Tang, W. Ouyang, E. Cambria, and D. Zhou.
+ResearchBench: Benchmarking LLMs in scientific discovery via inspiration-based task decomposition, 2025. arXiv:2503.21248; Findings of ACL 2026.
+C. Lu, C. Lu, R. T. Lange, J. Foerster, J. Clune, and D. Ha. The AI Scientist: Towards fully automated
+open-ended scientific discovery. arXiv preprint arXiv:2408.06292, 2024.
+C. Lu, C. Lu, R. T. Lange, Y. Yamada, S. Hu, J. Foerster, D. Ha, and J. Clune. Towards end-to-end
+automation of AI research. Nature, 651:914–919, 2026. doi: 10.1038/s41586-026-10265-5.
+B. S. Manning, K. Zhu, and J. J. Horton. Automated social science: Language models as scientist and
+subjects. Working Paper 32381, National Bureau of Economic Research, 2024. arXiv:2404.11794.
+A. Merchant, S. Batzner, S. S. Schoenholz, M. Aykol, G. Cheon, and E. D. Cubuk. Scaling deep
+learning for materials discovery. Nature, 624:80–85, 2023.
+L. Moreau and P. Missier. PROV-DM: The PROV data model. W3c recommendation, World Wide
+Web Consortium, 2013. URL https://www.w3.org/TR/prov-dm/.
+O. O’Donoghue, A. Shtedritski, J. Ginger, R. Abboud, A. E. Ghareeb, J. Booth, and S. G. Rodriques. BioPlanner: Automatic evaluation of LLMs on protocol planning in biology. arXiv
+preprint arXiv:2310.10632, 2023. EMNLP 2023.
+12
+
+G. Panapitiya, E. Saldanha, H. Job, and O. Hess. AutoLabs: Cognitive multi-agent systems with
+self-correction for autonomous chemical experimentation, 2025. arXiv:2509.25651.
+R. Parasuraman, T. B. Sheridan, and C. D. Wickens. A model for types and levels of human interaction with automation. IEEE Transactions on Systems, Man, and Cybernetics—Part A: Systems
+and Humans, 30(3):286–297, 2000. doi: 10.1109/3468.844354.
+T. Rainforth, A. Foster, D. R. Ivanova, and F. B. Smith. Modern Bayesian experimental design.
+Statistical Science, 2024. arXiv:2302.14545.
+E. Real, C. Liang, D. So, and Q. Le. AutoML-Zero: Evolving machine learning algorithms from
+scratch. In International Conference on Machine Learning, 2020. arXiv:2003.03384.
+B. Romera-Paredes, M. Barekatain, A. Novikov, M. Balog, M. P. Kumar, E. Dupont, F. J. R. Ruiz,
+J. Ellenberg, P. Wang, O. Fawzi, et al. Mathematical discoveries from program search with large
+language models. Nature, 625:468–475, 2024.
+S. Schmidgall, Y. Su, Z. Wang, X. Sun, J. Wu, X. Yu, J. Liu, M. Moor, Z. Liu, and E. Barsoum.
+Agent Laboratory: Using LLM agents as research assistants. arXiv preprint arXiv:2501.04227,
+2025.
+J. Song, Y. Chen, and Y. Yue. A general framework for multi-fidelity Bayesian optimization with
+Gaussian processes. In Proceedings of the 22nd International Conference on Artificial Intelligence
+and Statistics, volume 89 of Proceedings of Machine Learning Research, pages 3158–3167, 2019.
+A. Sparkes, W. Aubrey, E. Byrne, A. Clare, M. N. Khan, M. Liakata, M. Markham, J. Rowland, L. N.
+Soldatova, K. E. Whelan, M. Young, and R. D. King. Towards robot scientists for autonomous
+scientific discovery. Automated Experimentation, 2(1):1, 2010. doi: 10.1186/1759-4499-2-1.
+N. J. Szymanski, B. Rendy, Y. Fei, R. E. Kumar, T. He, D. Milsted, M. J. McDermott, M. Gallant,
+E. D. Cubuk, A. Merchant, H. Kim, A. Jain, C. J. Bartel, K. Persson, Y. Zeng, and G. Ceder. An
+autonomous laboratory for the accelerated synthesis of inorganic materials. Nature, 624:86–91,
+2023. doi: 10.1038/s41586-023-06734-w.
+T. Taniguchi, S. Takagi, J. Otsuka, Y. Hayashi, and H. T. Hamada. Collective predictive coding
+as model of science: Formalizing scientific activities towards generative science. Royal Society
+Open Science, 12(6):241678, 2025. doi: 10.1098/rsos.241678. arXiv:2409.00102.
+G. Tie, P. Zhou, and L. Sun. A survey of AI scientists: Surveying the automatic scientists and
+research. arXiv preprint arXiv:2510.23045, 2025.
+S.-M. Udrescu and M. Tegmark. AI Feynman: A physics-inspired method for symbolic regression.
+Science Advances, 6(16):eaay2631, 2020.
+K. Vafa, P. G. Chang, A. Rambachan, and S. Mullainathan. What has a foundation model found?
+Using inductive bias to probe for world models. In International Conference on Machine Learning
+(ICML), 2025. arXiv:2507.06952.
+J. Wei, Y. Yang, X. Zhang, Y. Chen, X. Zhuang, Z. Gao, D. Zhou, G. Wang, et al. From AI
+for science to agentic science: A survey on autonomous scientific discovery. arXiv preprint
+arXiv:2508.14111, 2025. arXiv:2508.14111v2.
+Workflow Run RO-Crate Community.
+Workflow run RO-Crate profile.
+https:
+//www.researchobject.org/workflow-run-crate/profiles/workflow_run_crate/,
+2024. Specification, version 0.5, published 19 June 2024 (Zenodo record 12159311).
+I. Yanai and M. Lercher.
+s13059-019-1800-6.
+
+Night science.
+
+Genome Biology, 20(1):179, 2019.
+
+doi: 10.1186/
+
+Z. Zhao, Y. Wang, T. Stuart, M. De Vaan, P. Ginsparg, and Y. Yin. LLM hallucinations in the wild:
+Large-scale evidence from non-existent citations. arXiv preprint arXiv:2605.07723, 2026.
+K. J. S. Zollman. The epistemic benefit of transient diversity. Erkenntnis, 72(1):17–35, 2010.
+
+13
+
+Conference For AI Scientists 2026 - AI Involvement Checklist
+This checklist documents the role of AI systems at each stage of this research. The checklist has two
+parts: a Research Stage Assessment (items 1–4) rating AI involvement and iteration effort, and an
+AI System Documentation section (items 5–6).
+Research Stage Assessment
+1. Hypothesis development.
+Answer: [B]
+Iteration Effort: [Medium]
+Explanation: The core Servo framework tuple (S, G, E, V, M, π), the original V completeness thesis (now retained only as correction history), the human-authority representation, and the three open problems were conceived by the human author. A frontier
+LLM agent elaborated framework components, identified literature-level instantiations, and
+proposed theoretical connections. The human author directed all conceptual decisions and
+made several substantive corrections to the AI’s elaborations.
+2. Experimental design and implementation.
+Answer: [B]
+Iteration Effort: [Medium]
+Explanation: This submission contains no computational experiments. The methodology
+for cross-system analysis (system selection criteria, component extraction protocol, domain
+comparison structure) was designed by the human author. A frontier LLM agent executed
+literature retrieval, extracted framework components from primary sources, and performed
+citation-level fact verification across four verification sweeps.
+3. Analysis of data and interpretation of results.
+Answer: [C]
+Iteration Effort: [Medium]
+Explanation: The LLM agent extracted Servo components from primary sources and performed citation-level fact verification. The human author reviewed and corrected the annotations. The six case records and seven source anchors are an author-directed synthesis with
+source provenance; there is no independent human gold standard, and historical agreement
+statistics are not presented as evidence of reliability or construct validity for the current
+schema.
+4. Writing.
+Answer: [C]
+Iteration Effort: [High]
+Explanation: The LLM agent drafted the majority of the manuscript text through multiple
+revision cycles; the human author provided key conceptual passages (framework definitions
+in §4, core open problems in §7), directed structural decisions, reviewed all drafts, and made
+final editorial judgments.
+AI System Documentation
+5. AI systems used.
+Description: A frontier large language model with code execution and long-document processing capabilities was used as the primary research and writing assistant. The system
+operated as an interactive CLI agent with file-system access, able to read primary sources,
+execute and debug Python simulations, and iteratively revise LaTeX manuscripts.
+6. Observed AI Limitations.
+Description: (1) Systematic citation fabrication: the agent generated plausible but nonexistent quotes and statistics, requiring four dedicated citation-verification sweeps using
+parallel sub-agents. (2) Analytical overconfidence: the agent initially overclaimed empirical significance for mechanically-entailed theoretical consequences; multiple adversarial
+review rounds were needed to correct framing and remove overclaims. (3) Context drift:
+14
+
+over long sessions, the agent occasionally regressed previously corrected errors, requiring
+explicit re-verification of integrity items before each commit.
+
+15
+
+Conference For AI Scientists 2026 - Reproducibility and Responsibility
+Checklist
+1. Claims
+Question: Do the main claims made in the abstract and introduction accurately reflect the
+paper’s contributions and scope?
+Answer: [Yes]
+Justification: The abstract and introduction state the non-exhaustive Servo schema contribution, its six bounded cases and seven frozen anchors, and the prospective open questions.
+Appendix A supplies bounded analytical observations rather than a new theorem, while the
+case and anchor records are explicitly non-representative source annotations.
+2. Limitations
+Question: Does the paper discuss the limitations of the work performed by the authors?
+Answer: [Yes]
+Justification: Limitations are discussed in §8 (framework abstracts domain cost structures,
+social layer, non-stationarity) and throughout the domain analysis (§6).
+3. Theory assumptions and proofs
+Question: For each theoretical result, does the paper provide the full set of assumptions and
+a complete proof?
+Answer: [NA]
+Justification: The paper does not claim a new theorem or proof. Appendix A states three
+bounded analytical observations, identifies the extra conditions needed to invoke standard
+results on posterior consistency and model misspecification, and expressly leaves adaptive
+open-ended regimes outside their scope. The selected source anchors illustrate vocabulary
+use rather than serving as a proof.
+4. Experimental result reproducibility
+Question: Does the paper fully disclose all information needed to reproduce the main experimental results?
+Answer: [Yes]
+Justification: This paper contains no computational experiment, but its main case annotations and per-relation evidence claims depend on the Servo event–artifact package. The synchronized package, validator, canonical records, generated tables, evidence ledger, public regression tests, audit record, and corrected manuscript are
+bound in the versioned, checksum-bound release at https://github.com/ysys143/
+servo-caisc2026/releases/tag/servo-corrected-v4.1.0. Its manifest and attestation provide file-level checksums for the generated tables and make later asset replacement detectable; the hosting platform does not make the release immutable.
+5. Open access to data and code
+Question: Does the paper provide open access to data and code?
+Answer: [Yes]
+Justification: The release above binds the current case, endpoint, artifact, event, edge, reliability, closure-witness, closure-status, domain-anchor, selection-ledger, contract, code,
+tables, audit record, and corrected manuscript files.
+6. Experimental setting/details
+Question: Does the paper specify all details necessary to understand the results?
+Answer: [Yes]
+Justification: The cross-domain analysis methodology is described in §5 and §6. No computational experiments were performed in this submission.
+7. Experiment statistical significance
+Question: Does the paper report error bars or statistical significance information?
+16
+
+Answer: [NA]
+Justification: This paper contains no computational experiments and reports no statistical
+results requiring error bars or significance tests.
+8. Experiments compute resources
+Question: Does the paper provide sufficient information on compute resources?
+Answer: [NA]
+Justification: This submission contains no computational experiments. The meta-analysis
+requires only standard document processing and no specialized compute.
+9. Research Ethics
+Question: Does the research conform with the NeurIPS Code of Ethics, except where
+CAISc’s AI authorship policies apply?
+Answer: [Yes]
+Justification: This is a meta-analysis of published systems with no human subjects, no
+proprietary data, and no safety risks. AI authorship is documented per CAISc policy.
+10. Broader impacts
+Question: Does the paper discuss both potential positive and negative societal impacts?
+Answer: [Yes]
+Justification: §8 addresses both the potential for accelerating scientific discovery and the
+risk of premature convergence under widespread AI Scientist deployment (particularly via
+the multi-fidelity integration gap and the current lack of validated automated novelty gates).
+
+A
+
+Analytical Separation of Observation, Reward, and Novelty Channels
+
+We separate three objects that are easily conflated: the observation likelihood p(o | θ, d) used for
+Bayesian updating, the context-dependent validator V (z) used as a reward or acceptance signal, and
+any additional channel that carries evidence about novelty or significance. Observation 2 studies
+only the restricted special case V (o) with all other context held fixed so that Berk’s fixed-i.i.d. result
+can apply; it is not a general model of novelty or acceptance. The observations below apply standard
+results to fixed idealized settings. They are not new general theorems for adaptive experimental
+design or open-ended science.
+Observation 1: posterior consistency belongs to the observation channel. In a dominated, fixed
+i.i.d. model {pθ : θ ∈ Θ} with true distribution pθ⋆ , posterior consistency can follow when the
+model identifies the truth, the prior puts positive mass on every Kullback–Leibler neighborhood of
+it, and suitable consistent tests separate it from complements of its neighborhoods, together with the
+regularity conditions needed by the relevant consistency theorem [Ghosal and van der Vaart, 2017].
+Compactness, identification, and prior support stated only in a topological sense are not substitutes
+for those conditions. The cited result therefore does not establish consistency for the adaptive, nonstationary design sequence of an AI Scientist without an additional theorem for that regime.
+Equation 1 defines a one-step information objective. Maximizing it is myopically optimal for that
+objective by construction, but this does not establish global optimality for a sequential scientific
+policy. Let Ht−1 contain the past designs and observations, let dt be measurable with respect to
+that history, and define EIGt = I(θ; Ot | Ht−1 , dt ). Posterior concentration does not require a
+divergent sum of these one-step values. For example, when θ is discrete with finite entropy, the
+conditional-information chain rule gives
+∑
+E[EIGt ] = I(θ; H∞ ) ≤ H(θ),
+(6)
+t≥1
+
+so finite cumulative expected information is compatible with posterior concentration. If V remains
+outside the likelihood, it has no direct role in this fixed-model consistency statement, although policy
+use of V can indirectly change which future designs and observations occur.
+17
+
+Observation 2: a coupled validator changes the pseudo-true target only through a normalized
+likelihood. For a fixed design d, suppose an update uses
+∫
+p(o | θ, d) exp{βV (o)}
+qθ,d (o) =
+,
+Zθ (d) = p(u | θ, d) exp{βV (u)} du < ∞. (7)
+Zθ (d)
+Let F denote the fixed i.i.d. data-generating distribution. Under the regularity, integrability, separation, and prior-mass conditions required for a Berk-type misspecification result, posterior mass is
+driven toward a minimizer set rather than automatically toward a unique point:
+Θ† = arg min KL(F ∥ qθ,d )
+(8)
+θ∈Θ
+
+Only when this set is a singleton do we denote its member by θ† [Berk, 1966]. Validator-induced
+drift means that this minimizer set differs from the corresponding projection under p(· | θ, d); an
+outcome-dependent V can alter the normalizer Zθ (d) even when V has no explicit θ argument, but
+non-constancy alone neither guarantees nor is required to prove a target change. An additive constant
+in V cancels between numerator and normalizer, while β = 0 gives qθ,d = p(· | θ, d). A validator
+used only by the policy may still alter future design selection, but that is an adaptive-design effect,
+not the fixed-i.i.d. conclusion of Berk [1966].
+Observation 3: novelty invisible to every available channel remains unidentified. Write the
+latent state as θ = (θnov , ψ) and suppose the prior factorizes as Π(dθnov , dψ) = Πnov (dθnov )Πψ (dψ).
+If the joint likelihood of all observed channels depends on ψ but not on θnov , then the posterior
+marginal of θnov equals Πnov for every dataset. This full factorization from every likelihood-relevant
+latent component is essential: independence only from already identified components would not
+exclude indirect updating through a prior-correlated nuisance variable. The novelty component is
+therefore not consistently identifiable from those channels. Identification requires an additional informative channel, but the premise does not imply that the channel must be human in principle. The
+survey instead supports the narrower empirical statement that novelty and significance judgments in
+the systems examined here remain human-mediated or lack a validated automated gate.
+These observations support the paper’s diagnostic separation of observation, reward validation, and
+novelty judgment. They do not prove that the empirical V -completeness ordinal is necessary for
+trustworthy autonomous discovery, establish causal effects of validator design, or settle the paper’s
+open-ended and adaptive setting. The former scalar-completeness and gate-reliability/“trustworthy
+closure” hypotheses are withdrawn, not retained as provisional hypotheses; any future outcome study
+requires property-specific, gate-independent endpoints.
+
+B
+
+Cross-System Coding Reliability
+
+The Servo event–artifact schema is the current normative contract. It records six versioned cases
+from five lineages, their endpoints, artifacts, events, edges, reliability evaluations, functional relations and their per-relation claims, seven frozen source anchors, and a selection ledger. The typed
+functional relations are bounded by case, version, configuration, and task regime, and each carries
+its own per-relation support status and occurrence resolution; no single stored loop label is authoritative. The records are author-interpreted source annotations. Structural validation cannot establish
+semantic entailment, construct validity, or scientific outcomes.
+Three independent, model-pinned LLM coders from different vendors coded the earlier 14system rubric (13 systems had all three usable outputs). The resulting Fleiss statistics—historical
+Vcalibrated κ=0.79, loop status κ=0.74, semantic-validation presence κ=1.0, mean κ=0.68, and
+holistic V -completeness κ=0.39—apply only to those superseded coding fields. They are retained
+solely as automated audit history and are not transferred to the revised constructs.
+The subsequent two-vendor recode over 14 systems produced raw agreement 13/14 and Cohen’s
+κ=0.86 for the historical present-versus-gating distinction. That exercise documents one post-hoc
+construct refinement, chiefly the AI Scientist (Nature 2026) reviewer-role ambiguity; it is not a reliability study of the final faceted taxonomy. The legacy Vpresent , Vgating , and Vcalibrated columns therefore
+remain in the supplement only for reconstruction.
+The frozen 42-session, three-vendor multicoder audit used a then-current manual to code 14 source
+records. It is retained only as a historical development audit. Its record-level token unions, Jaccard summaries, MASI-based Krippendorff α, and disagreement log neither align current events and
+18
+
+edges nor reproduce the current functional relations and their per-relation claims. No statistic from
+this audit is transferred to the current contract or case statuses. Its provenance is retained in the
+repository revision-history record.
+
+C
+
+Per-Relation Evidence Table
+
+Table 7 lists every typed functional relation recorded across the six cases, with its source support, occurrence resolution, and evidence mode. It is the per-relation record behind the case-level boundary
+of Table 5 and the policy decomposition of Table 4.
+Table 7: Relation/evidence table (Table B2): one row per distinct typed
+(source role, relation type, target role, temporal scope) relation, grouped
+by case. Source support, occurrence resolution, and evidence mode are
+kept separate. Evidence mode names the kind of proposition the source
+supports and is not an ordinal scale of system quality or closure.
+Case
+
+Functional relation
+
+Source support
+
+Occurrence
+resolution
+
+Evidence mode
+
+C01
+
+action → produces →
+execution (per_step)
+environment → produces →
+observation (per_step)
+evaluation → evaluates →
+candidate (per_step)
+evaluation → evaluates →
+observation (per_step)
+evaluation → revises →
+artifact (cross_step)
+execution → reads →
+external (per_step)
+external → conditions →
+candidate (per_step)
+external → evaluates →
+candidate (per_step)
+external → selects →
+action (per_step)
+generation → produces →
+candidate (per_step)
+memory → conditions →
+policy (cross_step)
+observation → updates →
+inquiry_state (cross_step)
+policy → selects → action
+(per_step)
+
+supported
+
+resolved
+n.a.
+unresolved
+
+C01
+C01
+C01
+C01
+C01
+C01
+C01
+C01
+C01
+C01
+C01
+C01
+C02
+C02
+C02
+C02
+C02
+C02
+
+evaluation → evaluates →
+artifact (per_step)
+evaluation → evaluates →
+candidate (per_step)
+evaluation → evaluates →
+observation (per_step)
+evaluation → triggers →
+execution (cross_step)
+execution → produces →
+execution (per_step)
+execution → reads →
+external (per_step)
+
+supported
+unresolved
+supported
+
+n.a.
+
+procedure
+occurrence
+capability
+occurrence
+procedure
+
+supported
+
+resolved
+
+occurrence
+
+supported
+
+resolved
+
+occurrence
+
+supported
+supported
+
+resolved
+n.a.
+resolved
+
+procedure
+occurrence
+occurrence
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+resolved
+
+occurrence
+
+supported
+unresolved
+
+resolved
+n.a.
+unresolved
+
+procedure
+occurrence
+capability
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+resolved
+n.a.
+
+procedure
+aggregate
+
+supported
+supported
+unresolved
+supported
+
+resolved
+n.a.
+unresolved
+n.a.
+resolved
+
+procedure
+aggregate
+capability
+procedure
+aggregate
+
+supported
+
+resolved
+
+aggregate
+
+supported
+
+resolved
+n.a.
+n.a.
+
+procedure
+occurrence
+procedure
+
+supported
+
+continued on next page
+19
+
+Table B2 (continued)
+Case Functional relation
+
+Source support
+
+Occurrence
+resolution
+
+Evidence mode
+
+C02
+
+generation → produces →
+candidate (per_step)
+
+supported
+resolved
+unresolved
+unresolved
+contradicted n.a.
+
+C02
+
+memory → reads → execution
+(per_step)
+memory
+→
+reads
+→
+observation (per_step)
+memory
+→
+writes
+→
+candidate (per_step)
+memory
+→
+writes
+→
+observation (per_step)
+observation → produces →
+observation (per_step)
+
+supported
+
+n.a.
+
+capability
+procedure
+aggregate
+occurrence
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+resolved
+n.a.
+
+procedure
+aggregate
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+resolved
+
+occurrence
+
+supported
+
+resolved
+
+occurrence
+
+supported
+unresolved
+supported
+
+unresolved
+n.a.
+n.a.
+
+capability
+procedure
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+resolved
+unresolved
+n.a.
+unresolved
+n.a.
+unresolved
+n.a.
+
+capability
+procedure
+aggregate
+capability
+procedure
+capability
+procedure
+
+C02
+C02
+C02
+C02
+C03
+C03
+C03
+C03
+C03
+C03
+C03
+C03
+C03
+C03
+C03
+C03
+C03
+C03
+C03
+C03
+
+action → produces →
+execution (per_step)
+action → reads → external
+(per_step)
+environment → produces →
+observation (per_step)
+evaluation → evaluates →
+artifact (per_step)
+evaluation → evaluates →
+candidate (per_step)
+evaluation → evaluates →
+execution (per_step)
+evaluation → evaluates →
+observation (per_step)
+external → conditions →
+candidate (per_step)
+external → evaluates →
+artifact (per_step)
+external → evaluates →
+candidate (per_step)
+generation → produces →
+candidate (per_step)
+memory
+→
+reads
+→
+observation (per_step)
+memory
+→
+writes
+→
+candidate (per_step)
+memory
+→
+writes
+→
+evaluation (per_step)
+memory
+→
+writes
+→
+observation (per_step)
+policy → selects → action
+(per_step)
+
+C04
+
+evaluation → evaluates →
+artifact (per_step)
+
+supported
+unresolved
+
+C04
+
+evaluation → evaluates →
+candidate (per_step)
+evaluation → evaluates →
+observation (per_step)
+
+supported
+unresolved
+supported
+unresolved
+
+C04
+
+continued on next page
+
+20
+
+Table B2 (continued)
+Case Functional relation
+C04
+C04
+C04
+C04
+C04
+C04
+C04
+C04
+C04
+C05
+C05
+C05
+C05
+C05
+C05
+C05
+C05
+C05
+C06
+C06
+C06
+C06
+C06
+C06
+C06
+
+Source support
+
+Occurrence
+resolution
+
+Evidence mode
+
+execution → produces →
+execution (per_step)
+execution → reads →
+external (per_step)
+external → conditions →
+candidate (cross_step)
+external → evaluates →
+artifact (per_step)
+generation → produces →
+candidate (per_step)
+
+supported
+
+resolved
+n.a.
+resolved
+n.a.
+resolved
+
+procedure
+occurrence
+procedure
+aggregate
+aggregate
+
+memory → reads → candidate
+(per_step)
+memory
+→
+writes
+→
+candidate (per_step)
+observation → produces →
+observation (per_step)
+policy → selects → action
+(per_step)
+
+supported
+
+resolved
+n.a.
+resolved
+unresolved
+n.a.
+n.a.
+
+procedure
+aggregate
+capability
+procedure
+aggregate
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+supported
+
+resolved
+n.a.
+n.a.
+
+procedure
+occurrence
+procedure
+
+supported
+unresolved
+supported
+
+resolved
+unresolved
+n.a.
+
+capability
+occurrence
+procedure
+
+supported
+
+resolved
+
+occurrence
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+
+resolved
+
+occurrence
+
+supported
+
+resolved
+n.a.
+
+procedure
+occurrence
+
+supported
+supported
+
+resolved
+n.a.
+n.a.
+
+procedure
+aggregate
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+unresolved
+supported
+
+resolved
+unresolved
+n.a.
+n.a.
+
+capability
+procedure
+aggregate
+procedure
+
+supported
+
+n.a.
+
+procedure
+
+supported
+unresolved
+
+unresolved
+n.a.
+
+capability
+procedure
+
+action → produces →
+execution (per_step)
+environment → produces →
+observation (per_step)
+evaluation → evaluates →
+candidate (per_step)
+evaluation → evaluates →
+observation (per_step)
+evaluation → updates →
+inquiry_state (cross_step)
+execution → reads →
+external (per_step)
+external → conditions →
+candidate (per_step)
+external → evaluates →
+candidate (per_step)
+generation → produces →
+candidate (per_step)
+action → produces →
+execution (per_step)
+environment → produces →
+observation (per_step)
+evaluation → evaluates →
+artifact (per_step)
+evaluation → evaluates →
+candidate (per_step)
+evaluation → evaluates →
+observation (per_step)
+execution → reads →
+external (per_step)
+external → conditions →
+candidate (per_step)
+
+supported
+supported
+supported
+supported
+unresolved
+
+continued on next page
+
+21
+
+Table B2 (continued)
+Case Functional relation
+
+Source support
+
+Occurrence
+resolution
+
+Evidence mode
+
+external → evaluates →
+artifact (per_step)
+external → evaluates →
+candidate (per_step)
+
+supported
+
+n.a.
+
+procedure
+
+supported
+unresolved
+
+resolved
+unresolved
+
+C06
+
+generation → produces →
+candidate (per_step)
+
+supported
+unresolved
+
+resolved
+unresolved
+n.a.
+
+C06
+
+generation → revises →
+candidate (cross_step)
+
+supported
+
+resolved
+
+capability
+aggregate
+occurrence
+capability
+procedure
+aggregate
+occurrence
+occurrence
+
+C06
+C06
+
+Legend. Per functional relation (contract section C): one row per distinct (source_role, relation_type,
+target_role, temporal_scope) tuple within a case. Support status, occurrence resolution and evidence
+mode are three separate columns and are never merged; support status uses supported (not resolved). A
+cell lists the distinct values observed among the DerivedDecisionClaims that use a relation of that tuple (a set,
+not an ordering). Domains: support status ∈ {supported, unresolved, contradicted, n.a.}; occurrence
+resolution ∈ {resolved, unresolved, n.a.}; evidence mode ∈ {architecture, capability, procedure,
+aggregate, occurrence}. Evidence mode maps: architecture → structural organization; capability
+→ what the system can or is designed to do; procedure → specified operational sequence; aggregate →
+repetition or result without event identity; occurrence → bounded event-level instance. Evidence modes
+identify the kind of proposition supported by the source and are not treated as an ordinal scale of system quality
+or closure.
+
+D
+
+Per-Domain Analysis
+
+This appendix comments on the same seven frozen anchors as Table 6. Each paragraph is bounded to one named
+system and source. It does not describe a domain population.
+
+FunSearch. FunSearch [Romera-Paredes et al., 2024] records program generation with executable scoring
+in a bounded computational task. This anchor does not supply field-novelty evidence.
+
+AI Feynman. AI Feynman [Udrescu and Tegmark, 2020] evaluates equation candidates against problemlocal data. The anchor does not establish cross-task memory transfer.
+
+ChemCrow. ChemCrow [Bran et al., 2024] combines tool use with reported chemical execution. Wet-lab
+characterization remains protocol- and artifact-specific.
+
+GNoME. GNoME [Merchant et al., 2023] routes DFT relaxation and model-predicted stability into computational search for phase stability, selecting candidates by predicted energy under a stability threshold rather
+than by predictive uncertainty; its deep ensembles quantify uncertainty for generalization, not for experiment
+selection. DFT approximates physical energies rather than serving as a physical oracle: 736 predicted structures
+match ICSD entries, including 184 added after the project began, while synthesis and functional characterization
+remain separate [Merchant et al., 2023, Cheetham and Seshadri, 2024].
+
+BioPlanner. BioPlanner [O’Donoghue et al., 2023] is an automatic-evaluation benchmark for LLMgenerated protocol pseudocode; it does not itself generate the protocols, and protocol text alone does not establish a biological-validity feedback witness.
+
+Manning automated social science. The selected workflow [Manning et al., 2024] uses statistical tests
+over generated experimental designs. This one source is not evidence about automated social science generally.
+
+AutoML-Zero. AutoML-Zero [Real et al., 2020] routes executable benchmark results into search. Benchmark performance does not establish interpretability.
+
+Cross-anchor reading. The rows show only that the same vocabulary can be instantiated at seven named
+source boundaries. They do not support aggregation, causal comparison, or domain-level generalization.
+22
+
+Case
+
+Selection signal
+
+Follow-up (control) dependence
+
+C01
+
+software/execution error
+reaction yield
+prior-round observations
+normalized advantage value
+execution/compilation error
+self-assessed
+idea
+scores
+(interestingness/novelty/feasibility)
+automated review scores
+experiment results
+literature-similarity to existing work
+execution error / buggy node
+VLM-flagged plot issues
+LLM-evaluator performance
+metrics (training dynamics,
+plots)
+best-performing checkpoint
+score
+training-curve convergence
+subtask completion (unconditional
+autonomous
+progression)
+compile/runtime error
+mle-solver alignment score
+professor-agent
+rewardmodel score (0-1)
+experiment results
+fixed four-step orphanenzyme method
+sequence similarity (PSIBLAST/FASTA)
+confirm/refute
+statistical
+outcome
+model conflicts flagged for
+update
+runtime exceptions
+task complexity (codermodule routing)
+assessment-agent idea score
+(0-10, five dimensions,
+weighted sum)
+structured critiques (automated + human feedback)
+empirical performance results
+
+failure
+local_repair
+sequential_choice
+one_at_a_time
+observation_result
+performance_improvement
+until_success
+
+C02
+
+C03
+
+C04
+
+C05
+
+C06
+
+Selectionpurpose facets
+
+Candidateselection
+rule
+
+Candidateexecution rule
+
+failure
+local_repair
+threshold
+one_at_a_time
+score
+performance_improvement
+until_budget
+observation_result
+diversity_directed_selection
+
+failure
+local_repair
+top_k_ranked batch
+score
+performance_improvement
+sampled_subset
+until_budget
+observation_result
+
+fixed_or_predefined
+local_repair
+top_k_ranked batch
+failure
+performance_improvement
+sampled_subset
+until_success
+score
+until_budget
+observation_result
+
+fixed_or_predefined
+uncertainty_reduction
+exhaustive all_selected
+score
+hypothesis_model_discrimination
+observation_result
+
+failure
+local_repair
+top_k_ranked until_success
+score
+performance_improvement
+until_budget
+observation_result
+
+Legend. Schema-v3 BED-lens decomposition of each case’s experiment-selection policy (charter B.4 /
+contract section B); an analytic decomposition, not a compliance label. Each cell lists the enum values the
+bounded source reports for that axis; a multi-valued axis is a set, not an ordering. The selection-purpose facets
+(the objective) are kept separate from the candidate-selection and candidate-execution rules, so no objective is
+folded into a rule. Two policy axes are recorded in the source data but are not columns here: generation scope
+(fixed_space / search_space_expansion / candidate_diversification) is a G/S-level provenance
+axis, and formal epistemic-utility evidence is not_reported for all six cases. Formal epistemic-utility
+evidence. None of the bounded sources reports an explicit posterior or expected-information-gain criterion;
+this is a corpus-level reporting observation, not evidence of field-wide absence.
+
+Table 4: Policy decomposition (Table A): a schema-v3 BED-lens reading of each case’s
+experiment-selection policy. Columns are the selection signal (free text) and four enum axes—
+the follow-up (control) dependence, the selection-purpose facets, and the separate candidateselection and candidate-execution rules. The selection-purpose facet (the objective) is kept
+apart from both candidate rules, so no objective is folded into a rule: C05 (Robot Scientist) carries uncertainty_reduction and hypothesis_model_discrimination objectives yet
+exhaustive selection and all_selected execution rules (it tested every generated hypothesis, not
+23
+an expected-discrimination down-selection), whereas
+the score-cluster cases (C02–C04, C06) are
+performance_improvement with top_k_ranked/threshold/sampled_subset selection, and
+C01 reacts to failure and observation results without a score dependence (sequential_choice
+selection). This is an analytic decomposition, not a compliance label. Generation scope is a prove-
+
+Case
+
+Observation source
+
+Evaluation target
+
+O–V boundary
+
+C01
+
+environment
+
+separated
+
+C02
+
+observation
+
+C03
+
+environment
+
+C04
+
+observation
+
+C05
+
+environment
+
+C06
+
+environment
+
+candidate
+observation
+artifact
+candidate
+observation
+artifact
+candidate
+execution
+observation
+artifact
+candidate
+observation
+candidate
+observation
+artifact
+candidate
+observation
+
+separated
+separated
+
+separated
+separated
+separated
+
+Legend. Case-level observation–evaluation boundary (contract section C). Observation source = the role(s)
+the bounded source names as producing an observation (· →produces→observation); observation as a
+source denotes a within-measurement transform whose upstream environment/execution origin the source
+leaves unreported (the E–O_env boundary is boundary_unreported). Evaluation target = the role(s) an
+evaluation→evaluates→ · relation acts on. O–V boundary ∈ {separated, boundary_unreported,
+merged, n.a.} reads the O_env–V split carried by the evaluation→observation relations (rubric
+v5-rubric-3): separated = the source reports that split (a distinct evaluation of a distinct observation) in at
+least one relation; boundary_unreported = such relations exist but none reports the split; merged =
+observation and evaluation recombined into one step; n.a. = no evaluation-of-observation relation. In this
+corpus merged and n.a. do not occur.
+
+Table 5: Observation–evaluation boundary (Table B1), read at case level. For each case the table
+reports where observations originate, what evaluation acts on, and whether the source separates an
+observation from its subsequent evaluation. All six bounded sources report that split (separated)
+in at least one relation, populated from the source rather than assumed.
+
+ID
+
+System/domain
+
+Analysis target
+
+Evaluator/evidence
+
+Decision role
+
+Fidelity boundary
+
+DA01
+
+Program quality and
+task performance
+Symbolic fit to data
+
+Executable evaluator
+
+DA02
+
+FunSearch / Formal mathematics
+AI Feynman / Physics
+
+Ranking and search
+control
+Model search and fit
+
+DA03
+
+ChemCrow / Chemistry
+
+DA04
+
+GNoME / Materials science
+
+DA05
+
+BioPlanner / Biology
+
+DA06
+
+Manning automated social
+science / Social science
+AutoML-Zero / Computer
+science
+
+Task performance and
+synthesis
+Phase stability and energy
+Protocol-planning
+pseudocode
+reconstruction
+Causal hypotheses and
+simulated effects
+Evolved-algorithm
+benchmark
+performance
+
+Computational oracle
+Computational
+data fit
+Computational
+and physical
+Surrogate; separate experiment
+Protocol; single
+lab run
+
+DA07
+
+Symbolic-regression
+algorithm
+Tools, execution, and
+assessment
+Graph networks plus
+DFT
+Generator;
+pseudocode
+evaluator;
+one-off lab check
+Causal model and
+LLM agents
+Executable benchmark
+
+Planning, execution,
+assessment
+Filtering and activelearning update
+Diagnostic benchmark; single validation
+Design and model
+update
+Selection and evolutionary update
+
+Simulated
+subjects
+Computational
+benchmark
+
+Table 6: Seven selected, frozen source anchors. The rows demonstrate how the vocabulary can be
+instantiated at named boundaries; they are not representative domain samples or a common outcome
+scale.
+
+24
+
+

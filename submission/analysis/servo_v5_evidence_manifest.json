@@ -1,0 +1,78 @@
+{
+  "counts": {
+    "boundary_verdict_totals": {
+      "separated": 6
+    },
+    "boundary_verdicts": {
+      "C01": "separated",
+      "C02": "separated",
+      "C03": "separated",
+      "C04": "separated",
+      "C05": "separated",
+      "C06": "separated"
+    },
+    "cases": 6,
+    "claims_occurrence_established_global": 35,
+    "claims_total": 240,
+    "policy_formal_epistemic_utility_reported_cases": 0,
+    "relations_evidence_mode": {
+      "aggregate": 19,
+      "capability": 17,
+      "occurrence": 36,
+      "procedure": 168
+    },
+    "relations_occurrence_resolution": {
+      "n.a.": 169,
+      "resolved": 53,
+      "unresolved": 18
+    },
+    "relations_rows_per_case": {
+      "C01": 18,
+      "C02": 20,
+      "C03": 17,
+      "C04": 21,
+      "C05": 12,
+      "C06": 20
+    },
+    "relations_rows_total": 108,
+    "relations_support_status": {
+      "contradicted": 1,
+      "supported": 222,
+      "unresolved": 17
+    }
+  },
+  "generator": "analysis/build_servo_v5_tables.py",
+  "generator_sha256": "4a8a9e5f3fa8bd30d3c0e2121ed73d9fa5e1885c4f6654e0cfb54b9ed2216763",
+  "inputs": {
+    "servo_v5_alignments/C01.json": "88303ff72d4a01057c341d34f113b4f90ea032663ba72af35f3f9c015772b341",
+    "servo_v5_alignments/C02.json": "ac5393d82f1fec246836e0bb2d5455d217485a5df4747a22b9b6be1412e64674",
+    "servo_v5_alignments/C03.json": "e17a435577b4a40ab73daf0b0cc5925f0d5b102483dc0fcf61fb304b3f2d3af8",
+    "servo_v5_alignments/C04.json": "a5828efa4415358eb7bccd2c8336ded1ed8f156c026ba4e272a8984ecf73bd0c",
+    "servo_v5_alignments/C05.json": "99451ac145e9bef36d0c2e2a2f8baa1ac48ba9d4fe71ed51c84226abcda70abf",
+    "servo_v5_alignments/C06.json": "1e76c73675c3aaa50529ba2af654cec61bf60366799b2c20efa007e0faa658c9",
+    "servo_v5_claims/C01.json": "233edaf773b943f367bdb88be9f058cef0873be246c969130efda5ffcc81a259",
+    "servo_v5_claims/C02.json": "bbad70f719b74257a3ef5f2519f196e70892cadebccd20e606356701c643700a",
+    "servo_v5_claims/C03.json": "f15a5b68a1684fff8d9a069e1568b381aac2b28ee7bc194c34fdabae2513111b",
+    "servo_v5_claims/C04.json": "b8badfe9c6c7637220eb2389fbe6cff57eecdab337f2d6037a98acc6d3c49247",
+    "servo_v5_claims/C05.json": "e54f91099ec25a535b76fb3770b93c3e7947ae25d6de60f8f77ed83b2e08ebcd",
+    "servo_v5_claims/C06.json": "4749531b004e3c99bece08c268670820144304be040f266608393bc428996491",
+    "servo_v5_policy/C01.json": "2ab58eb076a4cbf133471cf6aab22fc47844bd7982d127a860db44760fc066a0",
+    "servo_v5_policy/C02.json": "92a632a40314b7fdfd2dee7b44e259df4591d6386904e6eca0c9e38986405a44",
+    "servo_v5_policy/C03.json": "8d58285ef59318cf345d08e7f2499bf3858bd6ca6d850f524ea5be6c620d5518",
+    "servo_v5_policy/C04.json": "b6543c9b6db7d462090369fb77a610e6a1a9ec7e5a759b1a5d8f8a5160d5bcb1",
+    "servo_v5_policy/C05.json": "8b21677b0c1b584275179a56e10002cab00589b2fbb889349c1cadd9eefb927a",
+    "servo_v5_policy/C06.json": "88772c1b64eb40795059f0d5fd101f60269832b3bf75b626f4b364a0d379a901"
+  },
+  "notes": [
+    "Three tables replace the retired 4-predicate closure status matrix (charter C.1/C.4): Table A (policy, per case), Table B1 (observation-evaluation boundary, case-level), Table B2 (relation/evidence, per functional relation). This script does not read or reconstruct the retired predicate enum.",
+    "Table A has no explicit_bed / BED-yes-no column and does not show generation_scope; formal_epistemic_utility_evidence is a corpus-level footnote (not_reported for all six).",
+    "Table B2 keeps support_status and occurrence_resolution as separate columns and uses `supported` (not `resolved`) for support status; evidence mode is non-ordinal."
+  ],
+  "outputs": {
+    "servo_v5_claims_projection.csv": "a772cba6ec5b06ec8c5727ac09fff2ce8fa1e0981a7e9cc086b97154d2e201c6",
+    "tbl-servo-v5-boundary.tex": "1de2155750ddea6f7af1aa007b78368860555ab1190a03861b152d91d196617d",
+    "tbl-servo-v5-policy.tex": "b218ce502499ec23d72df16f8b8cd4259a6a4681a1511e182155f7c18640fe55",
+    "tbl-servo-v5-relations.tex": "9a427c031a77ae7e64a467164dd84df42589112cde16988d498ef6fe9d3f3d9d"
+  },
+  "schema": "servo_v5_evidence_layer_manifest"
+}

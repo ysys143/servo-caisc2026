@@ -1,0 +1,624 @@
+{
+  "schema": "servo_v5_derived_claim",
+  "schema_doc": "analysis/servo_v5_source_proposition_schema.md",
+  "status": "draft",
+  "case_id": "C02",
+  "claims": [
+    {
+      "claim_id": "C02-D01",
+      "support_status": "unresolved",
+      "claim_scope": "architecture",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "unresolved",
+      "used_alignment_ids": [
+        "C02-A03"
+      ],
+      "used_proposition_ids": [
+        "C02-P01"
+      ],
+      "rationale": "driver=C02-P01 occurrence_class=capability_only modality=reported_only_as_capability: capability_only (reported_only_as_capability) cannot establish an occurrence (charter B.3) -> claim_scope=architecture, support_status=unresolved, occurrence_resolution=unresolved."
+    },
+    {
+      "claim_id": "C02-D02",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A07"
+      ],
+      "used_proposition_ids": [
+        "C02-P02"
+      ],
+      "rationale": "driver=C02-P02 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D03",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A08"
+      ],
+      "used_proposition_ids": [
+        "C02-P02"
+      ],
+      "rationale": "driver=C02-P02 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D04",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A10"
+      ],
+      "used_proposition_ids": [
+        "C02-P03"
+      ],
+      "rationale": "driver=C02-P03 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D05",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A12"
+      ],
+      "used_proposition_ids": [
+        "C02-P04"
+      ],
+      "rationale": "driver=C02-P04 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D06",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A16"
+      ],
+      "used_proposition_ids": [
+        "C02-P06"
+      ],
+      "rationale": "driver=C02-P06 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D07",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A17"
+      ],
+      "used_proposition_ids": [
+        "C02-P06"
+      ],
+      "rationale": "driver=C02-P06 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D08",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A24"
+      ],
+      "used_proposition_ids": [
+        "C02-P09"
+      ],
+      "rationale": "driver=C02-P09 occurrence_class=architecture modality=directly_reported: architecture (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D09",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A27"
+      ],
+      "used_proposition_ids": [
+        "C02-P10"
+      ],
+      "rationale": "driver=C02-P10 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D10",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A28"
+      ],
+      "used_proposition_ids": [
+        "C02-P11"
+      ],
+      "rationale": "driver=C02-P11 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D11",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A30"
+      ],
+      "used_proposition_ids": [
+        "C02-P12"
+      ],
+      "rationale": "driver=C02-P12 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D12",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A31"
+      ],
+      "used_proposition_ids": [
+        "C02-P12"
+      ],
+      "rationale": "driver=C02-P12 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D13",
+      "support_status": "unresolved",
+      "claim_scope": "architecture",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "unresolved",
+      "used_alignment_ids": [
+        "C02-A33"
+      ],
+      "used_proposition_ids": [
+        "C02-P13"
+      ],
+      "rationale": "driver=C02-P13 occurrence_class=capability_only modality=reported_only_as_capability: capability_only (reported_only_as_capability) cannot establish an occurrence (charter B.3) -> claim_scope=architecture, support_status=unresolved, occurrence_resolution=unresolved."
+    },
+    {
+      "claim_id": "C02-D14",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A35"
+      ],
+      "used_proposition_ids": [
+        "C02-P14"
+      ],
+      "rationale": "driver=C02-P14 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D15",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A36"
+      ],
+      "used_proposition_ids": [
+        "C02-P14"
+      ],
+      "rationale": "driver=C02-P14 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D16",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A38"
+      ],
+      "used_proposition_ids": [
+        "C02-P15"
+      ],
+      "rationale": "driver=C02-P15 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D17",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A41"
+      ],
+      "used_proposition_ids": [
+        "C02-P16"
+      ],
+      "rationale": "driver=C02-P16 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D18",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A43"
+      ],
+      "used_proposition_ids": [
+        "C02-P19"
+      ],
+      "rationale": "driver=C02-P19 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D19",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A44"
+      ],
+      "used_proposition_ids": [
+        "C02-P19"
+      ],
+      "rationale": "driver=C02-P19 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D20",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A46"
+      ],
+      "used_proposition_ids": [
+        "C02-P21"
+      ],
+      "rationale": "driver=C02-P21 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D21",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A49"
+      ],
+      "used_proposition_ids": [
+        "C02-P22"
+      ],
+      "rationale": "driver=C02-P22 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D22",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A51"
+      ],
+      "used_proposition_ids": [
+        "C02-P23"
+      ],
+      "rationale": "driver=C02-P23 occurrence_class=architecture modality=directly_reported: architecture (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D23",
+      "support_status": "supported",
+      "claim_scope": "aggregate_run",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "resolved",
+      "used_alignment_ids": [
+        "C02-A54"
+      ],
+      "used_proposition_ids": [
+        "C02-P24"
+      ],
+      "rationale": "driver=C02-P24 occurrence_class=cross_run_trend modality=directly_reported: cross_run_trend reported directly (directly_reported, structurally_inferred=false) -> claim_scope=aggregate_run, support_status=supported, occurrence_resolution=resolved."
+    },
+    {
+      "claim_id": "C02-D24",
+      "support_status": "supported",
+      "claim_scope": "aggregate_run",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "resolved",
+      "used_alignment_ids": [
+        "C02-A55"
+      ],
+      "used_proposition_ids": [
+        "C02-P24"
+      ],
+      "rationale": "driver=C02-P24 occurrence_class=cross_run_trend modality=directly_reported: cross_run_trend reported directly (directly_reported, structurally_inferred=false) -> claim_scope=aggregate_run, support_status=supported, occurrence_resolution=resolved."
+    },
+    {
+      "claim_id": "C02-D25",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A58"
+      ],
+      "used_proposition_ids": [
+        "C02-P26"
+      ],
+      "rationale": "driver=C02-P26 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D26",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A62"
+      ],
+      "used_proposition_ids": [
+        "C02-P28"
+      ],
+      "rationale": "driver=C02-P28 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D27",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A63"
+      ],
+      "used_proposition_ids": [
+        "C02-P29"
+      ],
+      "rationale": "driver=C02-P29 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D28",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A66"
+      ],
+      "used_proposition_ids": [
+        "C02-P30"
+      ],
+      "rationale": "driver=C02-P30 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D29",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A68"
+      ],
+      "used_proposition_ids": [
+        "C02-P32"
+      ],
+      "rationale": "driver=C02-P32 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D30",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A71"
+      ],
+      "used_proposition_ids": [
+        "C02-P33"
+      ],
+      "rationale": "driver=C02-P33 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D31",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A72"
+      ],
+      "used_proposition_ids": [
+        "C02-P33"
+      ],
+      "rationale": "driver=C02-P33 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D32",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A77"
+      ],
+      "used_proposition_ids": [
+        "C02-P35"
+      ],
+      "rationale": "driver=C02-P35 occurrence_class=habitual_procedure modality=reported_as_procedure: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D33",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A83"
+      ],
+      "used_proposition_ids": [
+        "C02-P38"
+      ],
+      "rationale": "driver=C02-P38 occurrence_class=habitual_procedure modality=directly_reported: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D34",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A85"
+      ],
+      "used_proposition_ids": [
+        "C02-P39"
+      ],
+      "rationale": "driver=C02-P39 occurrence_class=habitual_procedure modality=directly_reported: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable."
+    },
+    {
+      "claim_id": "C02-D35",
+      "support_status": "supported",
+      "claim_scope": "procedure",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A90"
+      ],
+      "used_proposition_ids": [
+        "C02-P42"
+      ],
+      "rationale": "driver=C02-P42 occurrence_class=habitual_procedure modality=directly_reported: habitual_procedure (non-occurrence) with directly_reported/reported_as_procedure evidence -> claim_scope=procedure, support_status=supported, occurrence_resolution=not_applicable. [audit: consumed proposition(s) C02-P42 also carry a component_mapping-level explicit_denial about a distinct component; per rubric v5-rubric-4 §2 that denial is not propagated to this typed relation.]"
+    },
+    {
+      "claim_id": "C02-D36",
+      "support_status": "supported",
+      "claim_scope": "aggregate_run",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "resolved",
+      "used_alignment_ids": [
+        "C02-A92"
+      ],
+      "used_proposition_ids": [
+        "C02-P43"
+      ],
+      "rationale": "driver=C02-P43 occurrence_class=cross_run_trend modality=directly_reported: cross_run_trend reported directly (directly_reported, structurally_inferred=false) -> claim_scope=aggregate_run, support_status=supported, occurrence_resolution=resolved."
+    },
+    {
+      "claim_id": "C02-D37",
+      "support_status": "contradicted",
+      "claim_scope": "aggregate_run",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "not_applicable",
+      "used_alignment_ids": [
+        "C02-A94"
+      ],
+      "used_proposition_ids": [
+        "C02-P44"
+      ],
+      "rationale": "explicit_denial on proposition_tag(s) C02-P44 -> support_status=contradicted; claim_scope=aggregate_run retained from occurrence_class; occurrence_resolution=not_applicable (positive-occurrence question mooted by denial)."
+    },
+    {
+      "claim_id": "C02-D38",
+      "support_status": "supported",
+      "claim_scope": "occurrence",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "resolved",
+      "used_alignment_ids": [
+        "C02-A100"
+      ],
+      "used_proposition_ids": [
+        "C02-P48"
+      ],
+      "rationale": "driver=C02-P48 occurrence_class=single_event modality=directly_reported: single_event with structurally_inferred=false is a real occurrence witness (charter B.3) -> claim_scope=occurrence, support_status=supported, occurrence_resolution=resolved."
+    },
+    {
+      "claim_id": "C02-D39",
+      "support_status": "supported",
+      "claim_scope": "occurrence",
+      "alignment_kind": "source_explicit",
+      "occurrence_resolution": "resolved",
+      "used_alignment_ids": [
+        "C02-A101"
+      ],
+      "used_proposition_ids": [
+        "C02-P48"
+      ],
+      "rationale": "driver=C02-P48 occurrence_class=single_event modality=directly_reported: single_event with structurally_inferred=false is a real occurrence witness (charter B.3) -> claim_scope=occurrence, support_status=supported, occurrence_resolution=resolved."
+    },
+    {
+      "claim_id": "C02-D40",
+      "support_status": "supported",
+      "claim_scope": "aggregate_run",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "resolved",
+      "used_alignment_ids": [
+        "C02-A103"
+      ],
+      "used_proposition_ids": [
+        "C02-P49"
+      ],
+      "rationale": "driver=C02-P49 occurrence_class=cross_run_trend modality=directly_reported: cross_run_trend reported directly (directly_reported, structurally_inferred=false) -> claim_scope=aggregate_run, support_status=supported, occurrence_resolution=resolved."
+    },
+    {
+      "claim_id": "C02-D41",
+      "support_status": "supported",
+      "claim_scope": "aggregate_run",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "resolved",
+      "used_alignment_ids": [
+        "C02-A104"
+      ],
+      "used_proposition_ids": [
+        "C02-P49"
+      ],
+      "rationale": "driver=C02-P49 occurrence_class=cross_run_trend modality=directly_reported: cross_run_trend reported directly (directly_reported, structurally_inferred=false) -> claim_scope=aggregate_run, support_status=supported, occurrence_resolution=resolved."
+    },
+    {
+      "claim_id": "C02-D42",
+      "support_status": "supported",
+      "claim_scope": "aggregate_run",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "resolved",
+      "used_alignment_ids": [
+        "C02-A105"
+      ],
+      "used_proposition_ids": [
+        "C02-P50"
+      ],
+      "rationale": "driver=C02-P50 occurrence_class=cross_run_trend modality=directly_reported: cross_run_trend reported directly (directly_reported, structurally_inferred=false) -> claim_scope=aggregate_run, support_status=supported, occurrence_resolution=resolved."
+    },
+    {
+      "claim_id": "C02-D43",
+      "support_status": "supported",
+      "claim_scope": "aggregate_run",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "resolved",
+      "used_alignment_ids": [
+        "C02-A106"
+      ],
+      "used_proposition_ids": [
+        "C02-P50"
+      ],
+      "rationale": "driver=C02-P50 occurrence_class=cross_run_trend modality=directly_reported: cross_run_trend reported directly (directly_reported, structurally_inferred=false) -> claim_scope=aggregate_run, support_status=supported, occurrence_resolution=resolved."
+    },
+    {
+      "claim_id": "C02-D44",
+      "support_status": "supported",
+      "claim_scope": "aggregate_run",
+      "alignment_kind": "author_aligned",
+      "occurrence_resolution": "resolved",
+      "used_alignment_ids": [
+        "C02-A108"
+      ],
+      "used_proposition_ids": [
+        "C02-P51"
+      ],
+      "rationale": "driver=C02-P51 occurrence_class=cross_run_trend modality=directly_reported: cross_run_trend reported directly (directly_reported, structurally_inferred=false) -> claim_scope=aggregate_run, support_status=supported, occurrence_resolution=resolved."
+    }
+  ]
+}

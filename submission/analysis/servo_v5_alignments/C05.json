@@ -1,0 +1,831 @@
+{
+  "schema": "servo_v5_author_alignment",
+  "schema_doc": "analysis/servo_v5_source_proposition_schema.md",
+  "status": "draft",
+  "case_id": "C05",
+  "alignments": [
+    {
+      "alignment_id": "C05-A01",
+      "proposition_ids": ["C05-P01"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "generates hypotheses",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C05-A02",
+      "proposition_ids": ["C05-P01"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "designs experiments",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C05-A03",
+      "proposition_ids": ["C05-P01"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "runs the physical experiments",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C05-A04",
+      "proposition_ids": ["C05-P01"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "analyses and interprets the resulting data",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C05-A05",
+      "proposition_ids": ["C05-P01"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "it generates hypotheses from a computer model of the domain (generation produces candidate; v4 generation source_role replaces the retired inquiry_state/self-loop proxy)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P01", "occurrence_class": "architecture", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A06",
+      "proposition_ids": ["C05-P01"],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "designs experiments to test these hypotheses (experiment-plan generation = G; generation produces candidate)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P01", "occurrence_class": "architecture", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A07",
+      "proposition_ids": ["C05-P01"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "action",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "runs the physical experiments using robotic systems",
+      "proposition_tags": [
+        {"proposition_id": "C05-P01", "occurrence_class": "architecture", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A08",
+      "proposition_ids": ["C05-P01"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "analyses and interprets the resulting data (O_env-V split not detailed at abstract level -> boundary_unreported); 'repeats the cycle' is a whole-loop summary and licenses no cross-step feedback (decomposition guard)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P01", "occurrence_class": "architecture", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A09",
+      "proposition_ids": ["C05-P02"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "proven",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C05-A10",
+      "proposition_ids": ["C05-P02"],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "has recently proven the potential ... by identifying twelve genes (confirmation of gene-function hypotheses; past-tense achievement = single_event). Cross-step resolution of this same event is carried once, on the detailed P22 record.",
+      "proposition_tags": [
+        {"proposition_id": "C05-P02", "occurrence_class": "single_event", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A11",
+      "proposition_ids": ["C05-P03"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "logical model of yeast metabolism",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C05-A12",
+      "proposition_ids": ["C05-P03"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "Kyoto Encyclopaedia of Genes and Genomes - KEGG",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C05-A13",
+      "proposition_ids": ["C05-P03"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "PSI-BLAST",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C05-A14",
+      "proposition_ids": ["C05-P03"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "FASTA",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C05-A15",
+      "proposition_ids": ["C05-P03"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "likely candidate genes",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C05-A16",
+      "proposition_ids": ["C05-P03"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "to hypothesise likely candidate genes that may encode the locally orphan enzymes",
+      "proposition_tags": [
+        {"proposition_id": "C05-P03", "occurrence_class": "habitual_procedure", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A17",
+      "proposition_ids": ["C05-P03"],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "execution",
+      "relation_type": "reads",
+      "target_role": "external",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "homology search (PSI-BLAST/FASTA) coupled with KEGG bioinformatic database = external knowledge retrieval; search ACT reads external DB (v4/v3 external retrieval skeleton; execution source_role per C01 convention)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P03", "occurrence_class": "habitual_procedure", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A18",
+      "proposition_ids": ["C05-P03"],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "external",
+      "relation_type": "conditions",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "retrieved KEGG/homology hits condition generation of candidate genes (external conditions candidate)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P03", "occurrence_class": "habitual_procedure", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A19",
+      "proposition_ids": ["C05-P04"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "hypothesis generation process",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C05-A20",
+      "proposition_ids": ["C05-P05"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "two types of hypothesis generated",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C05-A21",
+      "proposition_ids": ["C05-P05"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "The first level links an orphan enzyme ... to a gene (ORF) that potentially encodes it (hypothesis structure = architecture)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P05", "occurrence_class": "architecture", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A22",
+      "proposition_ids": ["C05-P06"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "encodesORFtoEC('YBR166C', '1.1.1.25')",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C05-A23",
+      "proposition_ids": ["C05-P07"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "second level of hypothesis",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C05-A24",
+      "proposition_ids": ["C05-P07"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "model of yeast metabolism",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C05-A25",
+      "proposition_ids": ["C05-P07"],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "This level of hypothesis is derived from the first by logical inference using our model of yeast metabolism (generation produces the second-level candidate)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P07", "occurrence_class": "habitual_procedure", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A26",
+      "proposition_ids": ["C05-P08"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "experimental assays",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C05-A27",
+      "proposition_ids": ["C05-P08"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "Adam then designs the experimental assays required to test these hypotheses (experiment-plan generation)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P08", "occurrence_class": "habitual_procedure", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A28",
+      "proposition_ids": ["C05-P09"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "human intervention",
+      "component": "external",
+      "polarity": "explicit_denial",
+      "notes_verbatim": "Adam is intended to be fully automated, with human intervention required only to supply library strain stocks and consumables -- explicit_denial of a human decision role in the loop; absence statement yields component_mapping only, no positive functional_relation (v4 GAP-1 host on component_mapping)"
+    },
+    {
+      "alignment_id": "C05-A29",
+      "proposition_ids": ["C05-P10"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "logical computer model of the metabolic reaction pathways in yeast",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C05-A30",
+      "proposition_ids": ["C05-P11"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "sequence similarity techniques",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C05-A31",
+      "proposition_ids": ["C05-P11"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "likely candidates for the ORFs",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C05-A32",
+      "proposition_ids": ["C05-P11"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "use sequence similarity techniques to identify likely candidates for the ORFs (reported_as_procedure -> habitual_procedure, per-step structural only, no cross-step)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P11", "occurrence_class": "habitual_procedure", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A33",
+      "proposition_ids": ["C05-P12"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "growth curves",
+      "component": "O_env"
+    },
+    {
+      "alignment_id": "C05-A34",
+      "proposition_ids": ["C05-P12"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "confirmed or refuted",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C05-A35",
+      "proposition_ids": ["C05-P12"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "model of yeast metabolism",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C05-A36",
+      "proposition_ids": ["C05-P12"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "boundary_unreported",
+      "source_role": "environment",
+      "relation_type": "produces",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "growth curves are smoothed, after which biologically significant parameters are extracted (O_env measurement/transformation; E->O_env origin of the growth curves not detailed here -> boundary_unreported)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P12", "occurrence_class": "habitual_procedure", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A37",
+      "proposition_ids": ["C05-P12"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "statistically analysed to determine whether the original hypotheses have been confirmed or refuted (O_env-V split reported). 'used to update the model of yeast metabolism' is reported_as_procedure with no stated occurrence -> NO cross-step model-update relation (intentional v3/v4 threshold).",
+      "proposition_tags": [
+        {"proposition_id": "C05-P12", "occurrence_class": "habitual_procedure", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A38",
+      "proposition_ids": ["C05-P14"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "KEGG genome database",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C05-A39",
+      "proposition_ids": ["C05-P14"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "search",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C05-A40",
+      "proposition_ids": ["C05-P14"],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "execution",
+      "relation_type": "reads",
+      "target_role": "external",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "find the ORFs in other organisms ... Use all organisms from the KEGG genome database for this search (external knowledge retrieval; execution reads external)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P14", "occurrence_class": "habitual_procedure", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A41",
+      "proposition_ids": ["C05-P15"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "PSI-BLAST",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C05-A42",
+      "proposition_ids": ["C05-P15"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "FASTA",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C05-A43",
+      "proposition_ids": ["C05-P15"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "most similar sequences/ORFs in S. cerevisiae",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C05-A44",
+      "proposition_ids": ["C05-P15"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "use sequence similarity search (PSI-BLAST or FASTA) to identify the most similar sequences/ORFs in S. cerevisiae (candidate ORFs; no external DB named in this step, so modelled as generation not retrieval)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P15", "occurrence_class": "habitual_procedure", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A45",
+      "proposition_ids": ["C05-P16"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "YER152C → 2.6.1.39",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C05-A46",
+      "proposition_ids": ["C05-P17"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "Experiment design code",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C05-A47",
+      "proposition_ids": ["C05-P17"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "system model",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C05-A48",
+      "proposition_ids": ["C05-P17"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "Experiment design code ... uses the system model to generate biological experiment plans ... creating microplate layouts (experiment-plan generation)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P17", "occurrence_class": "habitual_procedure", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A49",
+      "proposition_ids": ["C05-P18"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "robotic system control software",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C05-A50",
+      "proposition_ids": ["C05-P18"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "action",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "robotic system control software, that executes the experiment plans",
+      "proposition_tags": [
+        {"proposition_id": "C05-P18", "occurrence_class": "habitual_procedure", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A51",
+      "proposition_ids": ["C05-P19"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "parameters from multiple experiment replicates",
+      "component": "O_env"
+    },
+    {
+      "alignment_id": "C05-A52",
+      "proposition_ids": ["C05-P19"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "statistically significant results",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C05-A53",
+      "proposition_ids": ["C05-P19"],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "The parameters from multiple experiment replicates are analysed using machine learning (random forests) to obtain statistically significant results (O_env parameters -> V analysis; split reported)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P19", "occurrence_class": "habitual_procedure", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A54",
+      "proposition_ids": ["C05-P28"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "confirm or refute",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C05-A55",
+      "proposition_ids": ["C05-P28"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "system model",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C05-A56",
+      "proposition_ids": ["C05-P28"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "that can be used to either confirm or refute hypotheses (modality reported_only_as_capability -> occurrence_class=capability_only; capability-framed 'used to update the system model' licenses NO cross-step model-update)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P28", "occurrence_class": "capability_only", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A57",
+      "proposition_ids": ["C05-P21"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "comprehensive custom-made relational database that stores all the data and meta-data",
+      "component": "M"
+    },
+    {
+      "alignment_id": "C05-A58",
+      "proposition_ids": ["C05-P22"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "20 hypotheses",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C05-A59",
+      "proposition_ids": ["C05-P22"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "robotic system",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C05-A60",
+      "proposition_ids": ["C05-P22"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "confirm by experimentation",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C05-A61",
+      "proposition_ids": ["C05-P22"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "Adam conceived 20 hypotheses concerning the identity of genes encoding 13 locally orphan enzymes (stated single-event occurrence)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P22", "occurrence_class": "single_event", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A62",
+      "proposition_ids": ["C05-P22"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "action",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "Adam tested all these hypotheses on its robotic system",
+      "proposition_tags": [
+        {"proposition_id": "C05-P22", "occurrence_class": "single_event", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A63",
+      "proposition_ids": ["C05-P22"],
+      "assertion_kind": "functional_relation",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "was able to confirm by experimentation, with a high degree of confidence, the correctness of 12 of them",
+      "proposition_tags": [
+        {"proposition_id": "C05-P22", "occurrence_class": "single_event", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A64",
+      "proposition_ids": ["C05-P22"],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "updates",
+      "target_role": "inquiry_state",
+      "temporal_scope": "cross_step",
+      "notes_verbatim": "confirming the correctness of 12 of the 20 hypotheses resolves which gene-function hypotheses hold; the stated single-event occurrence licenses this one cross-step feedback edge (observation != evaluation preserved)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P22", "occurrence_class": "single_event", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A65",
+      "proposition_ids": ["C05-P23"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "incorrect conclusion",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C05-A66",
+      "proposition_ids": ["C05-P23"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "system model",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C05-A67",
+      "proposition_ids": ["C05-P23"],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "Adam also came to an incorrect conclusion regarding one of its original 20 hypotheses (single-event evaluation of a candidate; 'highlights a weakness in its system model' notes a limitation but states no model revision -> no cross-step)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P23", "occurrence_class": "single_event", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A68",
+      "proposition_ids": ["C05-P24"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "current metabolism system model",
+      "component": "A",
+      "polarity": "explicit_denial",
+      "notes_verbatim": "Adam's current metabolism system model does not represent kinase control mechanisms, and so Adam did not take this into account -- explicit_denial of model coverage; absence statement yields component_mapping only, no positive functional_relation (v4 GAP-1 host on component_mapping)"
+    },
+    {
+      "alignment_id": "C05-A69",
+      "proposition_ids": ["C05-P26"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "independently verified",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C05-A70",
+      "proposition_ids": ["C05-P26"],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "external",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "the Adam system has discovered new knowledge about gene function in S. cerevisiae that has been independently verified (external evaluator skeleton, v4; external verification of the discovered gene-function findings)",
+      "proposition_tags": [
+        {"proposition_id": "C05-P26", "occurrence_class": "single_event", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    },
+    {
+      "alignment_id": "C05-A71",
+      "proposition_ids": ["C05-P27"],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "KEGG",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C05-A72",
+      "proposition_ids": ["C05-P27"],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "system model",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C05-A73",
+      "proposition_ids": ["C05-P27"],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "external",
+      "relation_type": "conditions",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "notes_verbatim": "primarily using only one public database (KEGG) ... before allowing automated generation of hypotheses (external DB conditions candidate generation). Manual model curation ('manually updating our system model') is a human/out-of-loop act with no sanctioned system relation skeleton -> represented by the A component only.",
+      "proposition_tags": [
+        {"proposition_id": "C05-P27", "occurrence_class": "habitual_procedure", "structurally_inferred": false, "polarity": "neutral"}
+      ]
+    }
+  ]
+}

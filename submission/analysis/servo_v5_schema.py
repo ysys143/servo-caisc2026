@@ -7,6 +7,7 @@ from pathlib import Path
 from .servo_v5_io import (
     ID_FIELD,
     ID_LETTER,
+    ID_MAX_DIGITS,
     RECORD_LIST_FIELD,
     V5_SCHEMA_VERSION,
     ServoV5Error,
@@ -240,7 +241,7 @@ def _check_record_list(
         return [ValidationError("V5_RECORD_LIST_MISSING", family, case_id, "", list_field)]
 
     id_field = ID_FIELD[family]
-    pattern = id_pattern_for(case_id, ID_LETTER[family])
+    pattern = id_pattern_for(case_id, ID_LETTER[family], ID_MAX_DIGITS[family])
     allowed = set(contract.record_fields.get(family, ()))
     required = set(contract.required_record_fields.get(family, ()))
     forbidden = set(contract.forbidden_record_fields.get(family, ()))
@@ -310,7 +311,8 @@ def _check_alignment_kind_fields(
     # selects one group of extra fields from conditional_record_fields; the
     # other kind's fields are disallowed and the selected kind's fields are
     # mandatory. charter B.8 adds optional_conditional_record_fields: fields
-    # (e.g. proposition_tags) that are likewise restricted to one kind but,
+    # (e.g. proposition_tags on functional_relation, polarity on
+    # component_mapping) that are likewise restricted to one kind but,
     # unlike conditional_record_fields, are never mandatory on it.
     kind_groups = contract.conditional_record_fields.get(family)
     discriminator = contract.conditional_discriminator_fields.get(family)
@@ -351,8 +353,14 @@ def _check_alignment_kind_fields(
             else:
                 errors += _check_enum(entry, field, family, case_id, record_id, contract)
     for field in optional_kind_groups.get(kind, ()):
-        if field == "proposition_tags" and field in entry:
+        if field not in entry:
+            continue
+        if field == "proposition_tags":
             errors += _check_proposition_tags(entry, family, case_id, record_id, contract)
+        else:
+            # charter B.8 / v5-rubric-4: other optional-conditional fields
+            # (e.g. polarity on component_mapping) are plain enum-valued.
+            errors += _check_enum(entry, field, family, case_id, record_id, contract)
     return errors
 
 
@@ -428,21 +436,26 @@ def _check_proposition_tags(
 def _check_policy_record(
     payload: dict, case_id: str, contract: SchemaContract
 ) -> list[ValidationError]:
-    errors = _check_enum_list(payload, "mechanism_labels", "policy", case_id, "", contract)
-    errors += _check_enum_list(payload, "purpose_facets", "policy", case_id, "", contract)
-    labels = payload.get("mechanism_labels")
-    if isinstance(labels, list) and "explicit_bed" in labels:
-        evidence = payload.get("explicit_bed_evidence")
-        if not isinstance(evidence, str) or not evidence.strip():
-            errors.append(
-                ValidationError(
-                    "V5_POLICY_EXPLICIT_BED_EVIDENCE_MISSING",
-                    "policy",
-                    case_id,
-                    "",
-                    "explicit_bed requires non-empty explicit_bed_evidence (charter B.4)",
-                )
-            )
+    # charter B.4 (schema-v3 re-derivation, contract section B, 2026-07-23): the
+    # policy record is a seven-axis BED-lens decomposition of the case's
+    # experiment-selection policy, not an explicit_bed compliance score. Five
+    # axes are enum-valued non-empty lists -- control_dependence,
+    # selection_objective, generation_scope, candidate_selection_rule and
+    # candidate_execution_rule (candidate_selection_rule and
+    # candidate_execution_rule are kept as separate axes on purpose: which
+    # candidates are chosen vs. how the chosen candidates are run, with no
+    # objective in either). selection_signal is a non-empty free-string list
+    # (concrete signal names); formal_epistemic_utility_evidence is a non-empty
+    # string (an evidence citation or the literal "not_reported"). The retired
+    # V5_POLICY_EXPLICIT_BED_EVIDENCE_MISSING conditional rule is gone with the
+    # compliance model.
+    errors = _check_enum_list(payload, "control_dependence", "policy", case_id, "", contract)
+    errors += _check_string_list(payload, "selection_signal", "policy", case_id, "", allow_empty=False)
+    errors += _check_enum_list(payload, "selection_objective", "policy", case_id, "", contract)
+    errors += _check_enum_list(payload, "generation_scope", "policy", case_id, "", contract)
+    errors += _check_enum_list(payload, "candidate_selection_rule", "policy", case_id, "", contract)
+    errors += _check_enum_list(payload, "candidate_execution_rule", "policy", case_id, "", contract)
+    errors += _check_nonempty_string(payload, "formal_epistemic_utility_evidence", "policy", case_id, "")
     return errors
 
 

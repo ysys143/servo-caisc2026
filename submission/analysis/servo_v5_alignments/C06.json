@@ -1,0 +1,1570 @@
+{
+  "schema": "servo_v5_author_alignment",
+  "schema_doc": "analysis/servo_v5_source_proposition_schema.md",
+  "status": "draft",
+  "case_id": "C06",
+  "alignments": [
+    {
+      "alignment_id": "C06-A01",
+      "proposition_ids": [
+        "C06-P01"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "interface for human expert feedback and multi-agent interaction",
+      "component": "W_A"
+    },
+    {
+      "alignment_id": "C06-A02",
+      "proposition_ids": [
+        "C06-P01"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "human expert feedback",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A03",
+      "proposition_ids": [
+        "C06-P02"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "self-evolving idea generation",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C06-A04",
+      "proposition_ids": [
+        "C06-P02"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "idea-to-methodology construction",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C06-A05",
+      "proposition_ids": [
+        "C06-P02"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "multi-round experiment planning and execution",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C06-A06",
+      "proposition_ids": [
+        "C06-P02"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "human-interactive feedback",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A07",
+      "proposition_ids": [
+        "C06-P03"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "idea generation",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C06-A08",
+      "proposition_ids": [
+        "C06-P03"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "idea-to-methodology transformation",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C06-A09",
+      "proposition_ids": [
+        "C06-P03"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "experiment execution",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C06-A10",
+      "proposition_ids": [
+        "C06-P04"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "interactive interfaces for human-machine collaboration",
+      "component": "W_A"
+    },
+    {
+      "alignment_id": "C06-A11",
+      "proposition_ids": [
+        "C06-P04"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "idea generation module",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C06-A12",
+      "proposition_ids": [
+        "C06-P05"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "human experts",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A13",
+      "proposition_ids": [
+        "C06-P05"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "evaluations of idea generation effectiveness",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C06-A14",
+      "proposition_ids": [
+        "C06-P05"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "assessment, reflection, and documentation of experimental results",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C06-A15",
+      "proposition_ids": [
+        "C06-P05"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P05",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A16",
+      "proposition_ids": [
+        "C06-P05"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P05",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A17",
+      "proposition_ids": [
+        "C06-P06"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "InternAgent",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C06-A18",
+      "proposition_ids": [
+        "C06-P06"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "domain experts",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A19",
+      "proposition_ids": [
+        "C06-P06"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "human researchers",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A20",
+      "proposition_ids": [
+        "C06-P06"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P06",
+          "occurrence_class": "single_event",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A21",
+      "proposition_ids": [
+        "C06-P06"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "external",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P06",
+          "occurrence_class": "single_event",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A22",
+      "proposition_ids": [
+        "C06-P07"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Survey Agent",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C06-A23",
+      "proposition_ids": [
+        "C06-P07"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "scientific papers",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A24",
+      "proposition_ids": [
+        "C06-P07"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "execution",
+      "relation_type": "reads",
+      "target_role": "external",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P07",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A25",
+      "proposition_ids": [
+        "C06-P08"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Survey Agent",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C06-A26",
+      "proposition_ids": [
+        "C06-P08"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "various academic databases",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A27",
+      "proposition_ids": [
+        "C06-P08"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "research task",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A28",
+      "proposition_ids": [
+        "C06-P08"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P08",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A29",
+      "proposition_ids": [
+        "C06-P08"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "execution",
+      "relation_type": "reads",
+      "target_role": "external",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P08",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A30",
+      "proposition_ids": [
+        "C06-P09"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Survey Agent",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C06-A31",
+      "proposition_ids": [
+        "C06-P09"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "full texts of relevant scientific papers",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A32",
+      "proposition_ids": [
+        "C06-P09"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "initial literature survey",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A33",
+      "proposition_ids": [
+        "C06-P09"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "execution",
+      "relation_type": "reads",
+      "target_role": "external",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P09",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A34",
+      "proposition_ids": [
+        "C06-P10"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Code Review Agent",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C06-A35",
+      "proposition_ids": [
+        "C06-P10"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "baseline codes",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A36",
+      "proposition_ids": [
+        "C06-P10"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "execution",
+      "relation_type": "reads",
+      "target_role": "external",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P10",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A37",
+      "proposition_ids": [
+        "C06-P10"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P10",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A38",
+      "proposition_ids": [
+        "C06-P11"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "general LLM",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C06-A39",
+      "proposition_ids": [
+        "C06-P11"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P11",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A40",
+      "proposition_ids": [
+        "C06-P12"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "task definitions",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A41",
+      "proposition_ids": [
+        "C06-P12"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "baseline methods",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A42",
+      "proposition_ids": [
+        "C06-P12"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "current scientific knowledge",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A43",
+      "proposition_ids": [
+        "C06-P12"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P12",
+          "occurrence_class": "capability_only",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A44",
+      "proposition_ids": [
+        "C06-P12"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "external",
+      "relation_type": "conditions",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P12",
+          "occurrence_class": "capability_only",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A45",
+      "proposition_ids": [
+        "C06-P13"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "an LLM",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C06-A46",
+      "proposition_ids": [
+        "C06-P13"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "related literature",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A47",
+      "proposition_ids": [
+        "C06-P13"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P13",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A48",
+      "proposition_ids": [
+        "C06-P13"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P13",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A49",
+      "proposition_ids": [
+        "C06-P13"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "external",
+      "relation_type": "conditions",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P13",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A50",
+      "proposition_ids": [
+        "C06-P14"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Assessment Agent",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C06-A51",
+      "proposition_ids": [
+        "C06-P14"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P14",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A52",
+      "proposition_ids": [
+        "C06-P15"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "overall score for each idea",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C06-A53",
+      "proposition_ids": [
+        "C06-P15"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P15",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A54",
+      "proposition_ids": [
+        "C06-P16"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P16",
+          "occurrence_class": "capability_only",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A55",
+      "proposition_ids": [
+        "C06-P17"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "feedback directly provided by humans",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A56",
+      "proposition_ids": [
+        "C06-P17"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "feedback automatically generated by agent",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C06-A57",
+      "proposition_ids": [
+        "C06-P18"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "Human-provided feedback",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A58",
+      "proposition_ids": [
+        "C06-P18"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "external",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P18",
+          "occurrence_class": "capability_only",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A59",
+      "proposition_ids": [
+        "C06-P19"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "human feedback",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A60",
+      "proposition_ids": [
+        "C06-P20"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "expert insights",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A61",
+      "proposition_ids": [
+        "C06-P20"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "external",
+      "relation_type": "conditions",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P20",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A62",
+      "proposition_ids": [
+        "C06-P21"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "InternAgent",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C06-A63",
+      "proposition_ids": [
+        "C06-P21"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "revises",
+      "target_role": "candidate",
+      "temporal_scope": "cross_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P21",
+          "occurrence_class": "single_event",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A64",
+      "proposition_ids": [
+        "C06-P22"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Method Development Agent",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C06-A65",
+      "proposition_ids": [
+        "C06-P22"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "baseline codes",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A66",
+      "proposition_ids": [
+        "C06-P22"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "relevant literature",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A67",
+      "proposition_ids": [
+        "C06-P22"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P22",
+          "occurrence_class": "capability_only",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A68",
+      "proposition_ids": [
+        "C06-P22"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "external",
+      "relation_type": "conditions",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P22",
+          "occurrence_class": "capability_only",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A69",
+      "proposition_ids": [
+        "C06-P23"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "initial methodology M",
+      "component": "A"
+    },
+    {
+      "alignment_id": "C06-A70",
+      "proposition_ids": [
+        "C06-P23"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "automated assessments",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C06-A71",
+      "proposition_ids": [
+        "C06-P23"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "expert human feedback",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A72",
+      "proposition_ids": [
+        "C06-P23"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "artifact",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P23",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A73",
+      "proposition_ids": [
+        "C06-P23"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "external",
+      "relation_type": "evaluates",
+      "target_role": "artifact",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P23",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A74",
+      "proposition_ids": [
+        "C06-P24"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "runtime exceptions",
+      "component": "O_env"
+    },
+    {
+      "alignment_id": "C06-A75",
+      "proposition_ids": [
+        "C06-P24"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "large language model",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C06-A76",
+      "proposition_ids": [
+        "C06-P24"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "environment",
+      "relation_type": "produces",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P24",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A77",
+      "proposition_ids": [
+        "C06-P24"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P24",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A78",
+      "proposition_ids": [
+        "C06-P24"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P24",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A79",
+      "proposition_ids": [
+        "C06-P25"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Aider coding assistant",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C06-A80",
+      "proposition_ids": [
+        "C06-P25"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "baseline code",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A81",
+      "proposition_ids": [
+        "C06-P25"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "action",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P25",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A82",
+      "proposition_ids": [
+        "C06-P26"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "OpenHands framework",
+      "component": "E"
+    },
+    {
+      "alignment_id": "C06-A83",
+      "proposition_ids": [
+        "C06-P26"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "action",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P26",
+          "occurrence_class": "architecture",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A84",
+      "proposition_ids": [
+        "C06-P27"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "action",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P27",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A85",
+      "proposition_ids": [
+        "C06-P27"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "environment",
+      "relation_type": "produces",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P27",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A86",
+      "proposition_ids": [
+        "C06-P27"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P27",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A87",
+      "proposition_ids": [
+        "C06-P28"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "action",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P28",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A88",
+      "proposition_ids": [
+        "C06-P28"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "observation",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P28",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A89",
+      "proposition_ids": [
+        "C06-P29"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "records of implementation decisions",
+      "component": "M"
+    },
+    {
+      "alignment_id": "C06-A90",
+      "proposition_ids": [
+        "C06-P30"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "number of ideas that improved performance",
+      "component": "V"
+    },
+    {
+      "alignment_id": "C06-A91",
+      "proposition_ids": [
+        "C06-P30"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "action",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P30",
+          "occurrence_class": "cross_run_trend",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A92",
+      "proposition_ids": [
+        "C06-P30"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "evaluation",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P30",
+          "occurrence_class": "cross_run_trend",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A93",
+      "proposition_ids": [
+        "C06-P31"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "Auto3DCls task",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A94",
+      "proposition_ids": [
+        "C06-P31"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "revises",
+      "target_role": "candidate",
+      "temporal_scope": "cross_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P31",
+          "occurrence_class": "single_event",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A95",
+      "proposition_ids": [
+        "C06-P32"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "source_explicit",
+      "boundary_status": "reported",
+      "source_term": "five qualified reviewers",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A96",
+      "proposition_ids": [
+        "C06-P32"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P32",
+          "occurrence_class": "cross_run_trend",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A97",
+      "proposition_ids": [
+        "C06-P32"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "external",
+      "relation_type": "evaluates",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P32",
+          "occurrence_class": "cross_run_trend",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A98",
+      "proposition_ids": [
+        "C06-P33"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "InternAgent",
+      "component": "G"
+    },
+    {
+      "alignment_id": "C06-A99",
+      "proposition_ids": [
+        "C06-P33"
+      ],
+      "assertion_kind": "component_mapping",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_term": "human-interactive feedback",
+      "component": "external"
+    },
+    {
+      "alignment_id": "C06-A100",
+      "proposition_ids": [
+        "C06-P33"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "external",
+      "relation_type": "conditions",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P33",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A101",
+      "proposition_ids": [
+        "C06-P33"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "generation",
+      "relation_type": "produces",
+      "target_role": "candidate",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P33",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    },
+    {
+      "alignment_id": "C06-A102",
+      "proposition_ids": [
+        "C06-P34"
+      ],
+      "assertion_kind": "functional_relation",
+      "basis": "author_aligned",
+      "boundary_status": "reported",
+      "source_role": "action",
+      "relation_type": "produces",
+      "target_role": "execution",
+      "temporal_scope": "per_step",
+      "proposition_tags": [
+        {
+          "proposition_id": "C06-P34",
+          "occurrence_class": "habitual_procedure",
+          "structurally_inferred": false,
+          "polarity": "neutral"
+        }
+      ]
+    }
+  ]
+}

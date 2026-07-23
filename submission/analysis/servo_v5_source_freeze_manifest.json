@@ -378,14 +378,14 @@
     "rule": "any_bound_sha256_change_invalidates_all_downstream_v5_artifacts"
   },
   "rule_file_sha256": {
-    "servo_v5_charter.md": "955624ae0a691893b88e96aae8bc3aed5708e2a454dab7b5603a4f0fbef7a8f4",
-    "servo_v5_schema.yaml": "c9fa4848fa8c12be6d1b74ded4c8537ac18c52ffb6885856a9d16e56e7cd7290",
+    "servo_v5_charter.md": "f5141497abcffc4eaa3ecc68adae7230fe7ed65f4fb7c133a3d6b4d5bb3ec75d",
+    "servo_v5_schema.yaml": "9ea1e5169a68c3ecb2d76178c081ab7457d710935af36a14ed0b65e821929a60",
     "servo_v5_source_proposition_schema.md": "2f557fc159854d44c060ff510000c1c84d64872ebf8a973a5d32cd9107cf88be"
   },
   "rules_version": "v5.0-rules/B.8",
   "schema": "servo_v5_source_freeze_manifest",
   "schema_version": "5.0.0",
-  "source_set_sha256": "fd57e2ba1a342d57ea67908c9610bfb3035c7d49f5d86a786607b601693bcb80",
+  "source_set_sha256": "0458cef7d3b0e1fb18bd89b2bdd5ba92f486d7a3ed550c17dc60de92c4db634a",
   "t5_consumable_fields": [
     "proposition_id",
     "locator",
