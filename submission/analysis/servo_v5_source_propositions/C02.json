@@ -43,8 +43,7 @@
       "modality": "reported_as_procedure",
       "named_actors": ["The AI Scientist"],
       "named_inputs": ["completed ideas", "reviewer feedback"],
-      "named_outputs": ["archive of scientific findings"],
-      "notes_verbatim": "archive-admission / memory-update statement: idea and review are added together, then the pipeline repeats"
+      "named_outputs": ["archive of scientific findings"]
     },
     {
       "proposition_id": "C02-P05",
@@ -54,7 +53,7 @@
       "named_actors": ["The AI Scientist"],
       "named_inputs": [],
       "named_outputs": ["generated paper", "experimental artifacts"],
-      "notes_verbatim": "'allow us to ... post-hoc' frames human interpretation as occurring after artifact production"
+      "source_context_note": "'allow us to ... post-hoc' -- capability framing"
     },
     {
       "proposition_id": "C02-P06",
@@ -99,8 +98,7 @@
       "modality": "reported_as_procedure",
       "named_actors": ["the language model"],
       "named_inputs": ["the existing archive", "the numerical review scores from completed previous ideas"],
-      "named_outputs": ["an interesting new research direction"],
-      "notes_verbatim": "candidate generation conditioned on archive/memory state"
+      "named_outputs": ["an interesting new research direction"]
     },
     {
       "proposition_id": "C02-P11",
@@ -145,8 +143,7 @@
       "modality": "reported_as_procedure",
       "named_actors": ["Aider"],
       "named_inputs": ["errors upon a failure or time-out"],
-      "named_outputs": [],
-      "notes_verbatim": "error/timeout-repair channel, bounded to four re-attempts"
+      "named_outputs": []
     },
     {
       "proposition_id": "C02-P16",
@@ -165,7 +162,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'it' refers to the experimental-journal note-taking step described in the preceding sentence"
+      "source_context_note": "'it' refers to the experimental-journal note-taking step described in the preceding sentence"
     },
     {
       "proposition_id": "C02-P18",
@@ -175,7 +172,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "speculative future-version statement, not a claim about the reported-default configuration"
+      "source_context_note": "speculative future-version statement, not a claim about the reported-default configuration"
     },
     {
       "proposition_id": "C02-P19",
@@ -184,8 +181,7 @@
       "modality": "reported_as_procedure",
       "named_actors": [],
       "named_inputs": ["the results"],
-      "named_outputs": [],
-      "notes_verbatim": "result-conditioned sequential replanning"
+      "named_outputs": []
     },
     {
       "proposition_id": "C02-P20",
@@ -240,7 +236,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'This ability to ...' -- capability framing"
+      "source_context_note": "'This ability to ...' -- capability framing"
     },
     {
       "proposition_id": "C02-P26",
@@ -303,8 +299,7 @@
       "modality": "reported_as_procedure",
       "named_actors": [],
       "named_inputs": [],
-      "named_outputs": [],
-      "notes_verbatim": "artifact-revision mechanism"
+      "named_outputs": []
     },
     {
       "proposition_id": "C02-P33",
@@ -313,8 +308,7 @@
       "modality": "reported_as_procedure",
       "named_actors": ["Aider"],
       "named_inputs": ["compilation errors"],
-      "named_outputs": [],
-      "notes_verbatim": "compilation-error-repair channel"
+      "named_outputs": []
     },
     {
       "proposition_id": "C02-P34",
@@ -351,7 +345,7 @@
       "named_actors": [],
       "named_inputs": ["the reviewer score"],
       "named_outputs": [],
-      "notes_verbatim": "subject ('These decisions') is on the preceding pdf page and is omitted here so the quote stays within a single page"
+      "source_context_note": "subject ('These decisions') is on the preceding pdf page and is omitted here so the quote stays within a single page"
     },
     {
       "proposition_id": "C02-P38",
@@ -370,7 +364,7 @@
       "named_actors": ["the agent"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "meta-review / Area-Chair aggregation step over the ensembled reviews"
+      "source_context_note": "meta-review / Area-Chair step, per Appendix A.4 (source cross-reference)"
     },
     {
       "proposition_id": "C02-P40",
@@ -379,8 +373,7 @@
       "modality": "directly_reported",
       "named_actors": ["The AI Scientist"],
       "named_inputs": [],
-      "named_outputs": [],
-      "notes_verbatim": "human-imposed dataset constraint plus a reported inability to bypass it"
+      "named_outputs": []
     },
     {
       "proposition_id": "C02-P41",
@@ -390,7 +383,7 @@
       "named_actors": ["The AI Scientist"],
       "named_inputs": ["human feedback"],
       "named_outputs": [],
-      "notes_verbatim": "'this' refers to shortcomings the automated reviewer only partially captured, per the preceding sentence"
+      "source_context_note": "'this' refers to shortcomings the automated reviewer only partially captured, per the preceding sentence"
     },
     {
       "proposition_id": "C02-P42",
@@ -399,8 +392,7 @@
       "modality": "directly_reported",
       "named_actors": ["The AI Scientist"],
       "named_inputs": [],
-      "named_outputs": [],
-      "notes_verbatim": "bears on whether idea generation is, in the actual runs, conditioned on archived paper evaluations"
+      "named_outputs": []
     },
     {
       "proposition_id": "C02-P43",
@@ -463,8 +455,7 @@
       "modality": "directly_reported",
       "named_actors": ["The AI Scientist"],
       "named_inputs": [],
-      "named_outputs": [],
-      "notes_verbatim": "reported attempt to edit code to override a human-imposed time limit"
+      "named_outputs": []
     },
     {
       "proposition_id": "C02-P50",
@@ -474,7 +465,7 @@
       "named_actors": ["The AI Scientist"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "self-repair of a missing output-directory bug, discovered because the authors had forgotten to create the directory"
+      "source_context_note": "bug arose because the authors had forgotten to create the output directory (quote surrounding context)"
     },
     {
       "proposition_id": "C02-P51",

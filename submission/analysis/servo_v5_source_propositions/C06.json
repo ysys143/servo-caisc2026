@@ -26,7 +26,7 @@
       "named_actors": ["InternAgent"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "names four main modules: self-evolving idea generation, human-interactive feedback, idea-to-methodology construction, multi-round experiment planning and execution"
+      "source_context_note": "names four main modules: self-evolving idea generation, human-interactive feedback, idea-to-methodology construction, multi-round experiment planning and execution"
     },
     {
       "proposition_id": "C06-P03",
@@ -36,7 +36,7 @@
       "named_actors": ["InternAgent"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'can automate' -- capability framing"
+      "source_context_note": "'can automate' -- capability framing"
     },
     {
       "proposition_id": "C06-P04",
@@ -55,7 +55,7 @@
       "named_actors": ["AI", "human experts"],
       "named_inputs": [],
       "named_outputs": ["evaluations of idea generation effectiveness", "assessment, reflection, and documentation of experimental results"],
-      "notes_verbatim": "subject 'it' (InternAgent) referenced by pronoun only in this sentence; not counted as named"
+      "source_context_note": "subject 'it' (InternAgent) referenced by pronoun only in this sentence; not counted as named"
     },
     {
       "proposition_id": "C06-P06",
@@ -74,7 +74,7 @@
       "named_actors": ["Survey Agent"],
       "named_inputs": [],
       "named_outputs": ["scientific papers"],
-      "notes_verbatim": "names two modes: literature review mode, deep research mode"
+      "source_context_note": "names two modes: literature review mode, deep research mode"
     },
     {
       "proposition_id": "C06-P08",
@@ -111,7 +111,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'the agent' = Idea Innovation Agent per section heading, but not named by proper name within this exact quote; high-temperature LLM ideation mechanism"
+      "source_context_note": "'the agent' = Idea Innovation Agent per section heading, but not named by proper name within this exact quote; high-temperature LLM ideation mechanism"
     },
     {
       "proposition_id": "C06-P12",
@@ -121,7 +121,7 @@
       "named_actors": [],
       "named_inputs": ["task definitions", "baseline methods", "current scientific knowledge"],
       "named_outputs": ["novel hypotheses and strategies"],
-      "notes_verbatim": "'enables' -- capability framing; idea generation explicitly task-defined via task definitions input"
+      "source_context_note": "'enables' -- capability framing; idea generation explicitly task-defined via task definitions input"
     },
     {
       "proposition_id": "C06-P13",
@@ -131,7 +131,7 @@
       "named_actors": [],
       "named_inputs": ["existing ideas", "related literature"],
       "named_outputs": [],
-      "notes_verbatim": "'reflections' explicitly glossed as evaluations of novelty, feasibility, and scientific validity"
+      "source_context_note": "'reflections' explicitly glossed as evaluations of novelty, feasibility, and scientific validity"
     },
     {
       "proposition_id": "C06-P14",
@@ -141,7 +141,7 @@
       "named_actors": ["Assessment Agent"],
       "named_inputs": ["ideas"],
       "named_outputs": [],
-      "notes_verbatim": "five named scoring dimensions: coherence, credibility, verifiability, novelty, alignment"
+      "source_context_note": "five named scoring dimensions: coherence, credibility, verifiability, novelty, alignment"
     },
     {
       "proposition_id": "C06-P15",
@@ -160,7 +160,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'This capability' -- capability framing, diversity constraint among top-ranked ideas"
+      "source_context_note": "'This capability' -- capability framing"
     },
     {
       "proposition_id": "C06-P17",
@@ -170,7 +170,7 @@
       "named_actors": ["InternAgent"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "two feedback types named: human-provided, agent-generated"
+      "source_context_note": "two feedback types named: human-provided, agent-generated"
     },
     {
       "proposition_id": "C06-P18",
@@ -180,7 +180,7 @@
       "named_actors": [],
       "named_inputs": ["ideas"],
       "named_outputs": [],
-      "notes_verbatim": "'can address' -- capability framing"
+      "source_context_note": "'can address' -- capability framing"
     },
     {
       "proposition_id": "C06-P19",
@@ -190,7 +190,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'It' = Orchestration Agent, named earlier in the same paragraph but not within this exact quote"
+      "source_context_note": "'It' = Orchestration Agent, named earlier in the same paragraph but not within this exact quote"
     },
     {
       "proposition_id": "C06-P20",
@@ -199,8 +199,7 @@
       "modality": "reported_as_procedure",
       "named_actors": [],
       "named_inputs": [],
-      "named_outputs": [],
-      "notes_verbatim": "human-authority touchpoint: expert insights integrated after high-scoring ideas identified, prior to further refinement"
+      "named_outputs": []
     },
     {
       "proposition_id": "C06-P21",
@@ -210,7 +209,7 @@
       "named_actors": ["InternAgent"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "figure caption; figure itself depicts a branching lineage (Init Idea 0/1/2 -> Evolved Idea 0-0/0-1/0-2 -> Evolved Idea 0-0-0/0-0-1/0-0-2 -> Evolved Idea 0-0-1-0/0-0-1-1/0-0-1-2) of successively revised idea text -- diagram content not separately quoted here"
+      "source_context_note": "figure caption; figure itself depicts a branching lineage (Init Idea 0/1/2 -> Evolved Idea 0-0/0-1/0-2 -> Evolved Idea 0-0-0/0-0-1/0-0-2 -> Evolved Idea 0-0-1-0/0-0-1-1/0-0-1-2) of successively revised idea text -- diagram content not separately quoted here"
     },
     {
       "proposition_id": "C06-P22",
@@ -220,7 +219,7 @@
       "named_actors": ["Method Development Agent"],
       "named_inputs": ["baseline codes", "relevant literature"],
       "named_outputs": [],
-      "notes_verbatim": "'possesses two core capabilities' -- capability framing; two capabilities named: Methodology Initialization, Methodology Refinement"
+      "source_context_note": "'possesses two core capabilities' -- capability framing; two capabilities named: Methodology Initialization, Methodology Refinement"
     },
     {
       "proposition_id": "C06-P23",
@@ -230,7 +229,7 @@
       "named_actors": [],
       "named_inputs": ["initial methodology M", "structured critiques C"],
       "named_outputs": [],
-      "notes_verbatim": "critique C explicitly glossed as including automated assessments and expert human feedback"
+      "source_context_note": "critique C explicitly glossed as including automated assessments and expert human feedback"
     },
     {
       "proposition_id": "C06-P24",
@@ -240,7 +239,7 @@
       "named_actors": [],
       "named_inputs": ["runtime exceptions"],
       "named_outputs": ["targeted fixes"],
-      "notes_verbatim": "'this framework' = exception-guided debugging framework named on the preceding page"
+      "source_context_note": "'this framework' = exception-guided debugging framework named on the preceding page"
     },
     {
       "proposition_id": "C06-P25",
@@ -268,7 +267,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "five-step debugging cycle named; termination condition = successful execution OR predefined iteration threshold"
+      "source_context_note": "five-step debugging cycle named; termination condition = successful execution OR predefined iteration threshold"
     },
     {
       "proposition_id": "C06-P28",
@@ -278,7 +277,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "first clause ('we designed') is a past-tense authorial design decision; remainder describes the iteration structure procedurally"
+      "source_context_note": "first clause ('we designed') is a past-tense authorial design decision; remainder describes the iteration structure procedurally"
     },
     {
       "proposition_id": "C06-P29",
@@ -288,7 +287,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": ["records of implementation decisions"],
-      "notes_verbatim": "implementation decisions across iterations explicitly recorded/tracked; refinement basis contrasted as empirical results vs. theoretical assumptions"
+      "source_context_note": "implementation decisions across iterations explicitly recorded/tracked; refinement basis contrasted as empirical results vs. theoretical assumptions"
     },
     {
       "proposition_id": "C06-P30",
@@ -307,7 +306,7 @@
       "named_actors": [],
       "named_inputs": ["Auto3DCls task"],
       "named_outputs": [],
-      "notes_verbatim": "figure depicts alternating Initial/Evolutionary Planning steps and Performance Reflection outcomes (e.g. '+0.5% Acc improvement', '-0.8% Acc degradation') that precede the next planning step -- diagram labels not separately quoted here"
+      "source_context_note": "figure depicts alternating Initial/Evolutionary Planning steps and Performance Reflection outcomes (e.g. '+0.5% Acc improvement', '-0.8% Acc degradation') that precede the next planning step -- diagram labels not separately quoted here"
     },
     {
       "proposition_id": "C06-P32",
@@ -317,7 +316,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "four named evaluation criteria: soundness, contribution, overall rating, confidence"
+      "source_context_note": "four named evaluation criteria: soundness, contribution, overall rating, confidence"
     },
     {
       "proposition_id": "C06-P33",

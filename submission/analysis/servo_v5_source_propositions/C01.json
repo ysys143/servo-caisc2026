@@ -26,7 +26,7 @@
       "named_actors": ["Coscientist"],
       "named_inputs": ["spectra (NumPy array)", "guiding prompt"],
       "named_outputs": ["Python code", "wavelengths with maximum absorbance"],
-      "notes_verbatim": "human-supplied guiding prompt is explicitly reported as required"
+      "source_context_note": "human-supplied guiding prompt is explicitly reported as required"
     },
     {
       "proposition_id": "C01-P03",
@@ -45,7 +45,7 @@
       "named_actors": [],
       "named_inputs": ["reaction mixtures"],
       "named_outputs": ["formation of the target products"],
-      "notes_verbatim": "analysis not attributed in this sentence to a named component"
+      "source_context_note": "analysis not attributed in this sentence to a named actor"
     },
     {
       "proposition_id": "C01-P05",
@@ -55,7 +55,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "reports manual plate handling and reported absence of human decision-making"
+      "source_context_note": "reports manual plate handling and reported absence of human decision-making"
     },
     {
       "proposition_id": "C01-P06",
@@ -74,7 +74,7 @@
       "named_actors": ["the model"],
       "named_inputs": [],
       "named_outputs": ["justifications on specific choices"],
-      "notes_verbatim": "'can provide', 'the ability to operate', 'This capability', 'potential future use case' — capability/possibility framing, not a recorded occurrence"
+      "source_context_note": "'can provide', 'the ability to operate', 'This capability', 'potential future use case' — capability/possibility framing, not a recorded occurrence"
     },
     {
       "proposition_id": "C01-P08",
@@ -84,7 +84,7 @@
       "named_actors": ["Coscientist"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "cross-run behavioral variation (Fig. 5f). Corrected 2026-07-23: original quote spliced clauses in wrong order and merged a separate sentence; verify gate flagged V5_QUOTE_NOT_FOUND. Split into P08 (strategy varies) and P14 (no chemistry mistakes)."
+      "source_context_note": "cross-run behavioral variation (Fig. 5f). Corrected 2026-07-23: original quote spliced clauses in wrong order and merged a separate sentence; verify gate flagged V5_QUOTE_NOT_FOUND. Split into P08 (strategy varies) and P14 (no chemistry mistakes)."
     },
     {
       "proposition_id": "C01-P14",
@@ -112,7 +112,7 @@
       "named_actors": ["the model"],
       "named_inputs": ["the information obtained"],
       "named_outputs": ["guidance on reactivity"],
-      "notes_verbatim": "grammatically continues P09; separated because reuse is stated as a capability ('can effectively reuse') inferred from a trend, not a recorded per-step occurrence"
+      "source_context_note": "grammatically continues P09; separated because reuse is stated as a capability ('can effectively reuse') inferred from a trend, not a recorded per-step occurrence"
     },
     {
       "proposition_id": "C01-P11",
@@ -131,7 +131,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'proof of concept', 'capable of (semi-)autonomously' — capability framing"
+      "source_context_note": "'proof of concept', 'capable of (semi-)autonomously' — capability framing"
     },
     {
       "proposition_id": "C01-P13",
@@ -141,7 +141,7 @@
       "named_actors": ["Coscientist"],
       "named_inputs": ["OT-2 heater–shaker module"],
       "named_outputs": [],
-      "notes_verbatim": "task-design statement by the authors"
+      "source_context_note": "task-design statement by the authors"
     },
     {
       "proposition_id": "C01-P15",
@@ -151,7 +151,7 @@
       "named_actors": ["Coscientist"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "abstract's architectural characterization of Coscientist, preceding the paper's detailed system-architecture section; grammar is habitual present ('designs, plans and performs'), not a specific occurrence. '[...]' elides an OCR reading-order artifact (a stray citation fragment from the preceding sentence) between 'empowered' and 'by tools'"
+      "source_context_note": "abstract's architectural characterization of Coscientist, preceding the paper's detailed system-architecture section; grammar is habitual present ('designs, plans and performs'), not a specific occurrence. '[...]' elides an OCR reading-order artifact (a stray citation fragment from the preceding sentence) between 'empowered' and 'by tools'"
     },
     {
       "proposition_id": "C01-P16",
@@ -161,7 +161,7 @@
       "named_actors": ["Coscientist"],
       "named_inputs": [],
       "named_outputs": ["successful reaction optimization of palladium-catalysed cross-couplings"],
-      "notes_verbatim": "'potential' and 'capabilities' -- capability/possibility framing for the sentence as a whole, despite the embedded 'successful reaction optimization' clause"
+      "source_context_note": "'potential' and 'capabilities' -- capability/possibility framing for the sentence as a whole, despite the embedded 'successful reaction optimization' clause"
     },
     {
       "proposition_id": "C01-P17",
@@ -171,7 +171,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "authors' framing questions guiding the system's design ('we intended to address')"
+      "source_context_note": "authors' framing questions guiding the system's design ('we intended to address')"
     },
     {
       "proposition_id": "C01-P18",
@@ -181,7 +181,7 @@
       "named_actors": ["Coscientist"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "point of the system's naming ('hereafter simply called Coscientist'); 'capable of' framing"
+      "source_context_note": "point of the system's naming ('hereafter simply called Coscientist'); 'capable of' framing"
     },
     {
       "proposition_id": "C01-P19",
@@ -245,7 +245,7 @@
       "named_actors": ["Planner", "GOOGLE", "PYTHON", "DOCUMENTATION", "EXPERIMENT"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'[...]' elides a citation-number superscript between 'engineered' and 'in a modular fashion'"
+      "source_context_note": "'[...]' elides a citation-number superscript between 'engineered' and 'in a modular fashion'"
     },
     {
       "proposition_id": "C01-P26",
@@ -273,7 +273,7 @@
       "named_actors": ["PYTHON", "Planner", "Code execution"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'[...]' elides an OCR word-merge artifact ('commandallows') between 'command' and 'allows'"
+      "source_context_note": "'[...]' elides an OCR word-merge artifact ('commandallows') between 'command' and 'allows'"
     },
     {
       "proposition_id": "C01-P29",
@@ -301,7 +301,7 @@
       "named_actors": ["Coscientist"],
       "named_inputs": ["plain text input prompt from the user"],
       "named_outputs": [],
-      "notes_verbatim": "'[...]' elides the worked example ('perform multiple Suzuki reactions'); its quotation marks are unreadable on both the text layer (corrupted CMap) and OCR (merges 'plain text' into 'plaintext' at this exact span, unlike elsewhere on the page)"
+      "source_context_note": "'[...]' elides the worked example ('perform multiple Suzuki reactions'); its quotation marks are unreadable on both the text layer (corrupted CMap) and OCR (merges 'plain text' into 'plaintext' at this exact span, unlike elsewhere on the page)"
     },
     {
       "proposition_id": "C01-P32",
@@ -329,7 +329,7 @@
       "named_actors": ["PYTHON", "Planner"],
       "named_inputs": [],
       "named_outputs": ["isolated Docker container"],
-      "notes_verbatim": "explicit statement that this command's code execution is not reliant upon any language model"
+      "source_context_note": "explicit statement that this command's code execution is not reliant upon any language model"
     },
     {
       "proposition_id": "C01-P35",
@@ -348,7 +348,7 @@
       "named_actors": ["EXPERIMENT", "Automation"],
       "named_inputs": [],
       "named_outputs": ["generated code executed on hardware", "synthetic procedure for manual experimentation"],
-      "notes_verbatim": "reports a manual-experimentation path alongside the hardware-execution path"
+      "source_context_note": "reports a manual-experimentation path alongside the hardware-execution path"
     },
     {
       "proposition_id": "C01-P37",
@@ -376,7 +376,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": ["GPT-3.5", "GPT-4", "Claude 1.3", "Falcon-40B-Instruct"],
-      "notes_verbatim": "'[...]' elides possessive-apostrophe spans ('OpenAI's', 'Anthropic's') unreadable on the text layer (corrupted CMap) and a citation-number superscript after 'Claude 1.3'; quote stops before the following em-dash clause, whose citation-adjacent characters could not be read cleanly by either the text layer or OCR"
+      "source_context_note": "'[...]' elides possessive-apostrophe spans ('OpenAI's', 'Anthropic's') unreadable on the text layer (corrupted CMap) and a citation-number superscript after 'Claude 1.3'; quote stops before the following em-dash clause, whose citation-adjacent characters could not be read cleanly by either the text layer or OCR"
     },
     {
       "proposition_id": "C01-P40",
@@ -386,7 +386,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": ["5-point compound-synthesis scoring scale"],
-      "notes_verbatim": "source renders this as a bulleted list; each '[...]' elides a bullet marker (or, before 'procedure', a page-line-wrap artifact that drops the hyphen from 'step-by-step'), wording otherwise verbatim"
+      "source_context_note": "source renders this as a bulleted list; each '[...]' elides a bullet marker (or, before 'procedure', a page-line-wrap artifact that drops the hyphen from 'step-by-step'), wording otherwise verbatim"
     },
     {
       "proposition_id": "C01-P41",
@@ -396,7 +396,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "authors' admission of labeling subjectivity for the compound-synthesis scoring scale (historically tracked as R01-E05, pending re-verification per the prior coverage_note)"
+      "source_context_note": "authors' admission of labeling subjectivity for the compound-synthesis scoring scale (historically tracked as R01-E05, pending re-verification per the prior coverage_note)"
     },
     {
       "proposition_id": "C01-P42",
@@ -424,7 +424,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "sentence continues onto PDF page 3 as '(Fig. 2c).'; quote stops at the page boundary per the single-page locator contract (cf. C05's page 5/6 boundary omission)"
+      "source_context_note": "sentence continues onto PDF page 3 as '(Fig. 2c).'; quote stops at the page boundary per the single-page locator contract (cf. C05's page 5/6 boundary omission)"
     },
     {
       "proposition_id": "C01-P45",
@@ -434,7 +434,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "continues the results paragraph whose opening clause '(Fig. 2c).' falls on the preceding page (see C01-P44)"
+      "source_context_note": "continues the results paragraph whose opening clause '(Fig. 2c).' falls on the preceding page (see C01-P44)"
     },
     {
       "proposition_id": "C01-P46",
@@ -462,7 +462,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "quote stops before the closing quotation mark: OCR drops it (reading directly into the following citation-number superscript and period), and the text layer's closing-quote glyph is corrupted by the same CMap defect as the possessive apostrophe"
+      "source_context_note": "quote stops before the closing quotation mark: OCR drops it (reading directly into the following citation-number superscript and period), and the text layer's closing-quote glyph is corrupted by the same CMap defect as the possessive apostrophe"
     },
     {
       "proposition_id": "C01-P49",
@@ -481,7 +481,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'[...]' elides a possessive-apostrophe span ('system's', text-layer CMap corruption) and citation-number superscripts after 'ReAct' and 'Chain of Thought'; quote stops before the final citation-number superscript and period after 'Thoughts'"
+      "source_context_note": "'[...]' elides a possessive-apostrophe span ('system's', text-layer CMap corruption) and citation-number superscripts after 'ReAct' and 'Chain of Thought'; quote stops before the final citation-number superscript and period after 'Thoughts'"
     },
     {
       "proposition_id": "C01-P51",
@@ -491,7 +491,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'[...]' elides a citation-number superscript after 'Opentrons Python API'"
+      "source_context_note": "'[...]' elides a citation-number superscript after 'Opentrons Python API'"
     },
     {
       "proposition_id": "C01-P52",
@@ -519,7 +519,7 @@
       "named_actors": [],
       "named_inputs": ["OT-2 API documentation"],
       "named_outputs": [],
-      "notes_verbatim": "'the second approach' refers to the vector-database candidate-selection approach named earlier in this paragraph; '[...]' elides a possessive-apostrophe span ('OpenAI's') unreadable on the text layer (CMap corruption) and misread by OCR ('Openal's')"
+      "source_context_note": "'the second approach' refers to the vector-database candidate-selection approach named earlier in this paragraph; '[...]' elides a possessive-apostrophe span ('OpenAI's') unreadable on the text layer (CMap corruption) and misread by OCR ('Openal's')"
     },
     {
       "proposition_id": "C01-P55",
@@ -610,7 +610,7 @@
       "named_actors": [],
       "named_inputs": ["caffeine standard sample"],
       "named_outputs": [],
-      "notes_verbatim": "explicit statement that parameter determination for this step was performed by ECL's internal software, not Coscientist"
+      "source_context_note": "explicit statement that parameter determination for this step was performed by ECL's internal software, not Coscientist"
     },
     {
       "proposition_id": "C01-P65",
@@ -620,7 +620,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'[...]' elides a possessive-apostrophe span ('analyte's') unreadable on the text layer (CMap corruption); OCR misreads this whole sentence as unrelated figure-caption content, so the text layer is used here"
+      "source_context_note": "'[...]' elides a possessive-apostrophe span ('analyte's') unreadable on the text layer (CMap corruption); OCR misreads this whole sentence as unrelated figure-caption content, so the text layer is used here"
     },
     {
       "proposition_id": "C01-P66",
@@ -630,7 +630,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "forward-looking 'would be required' framing, not a recorded occurrence"
+      "source_context_note": "forward-looking 'would be required' framing, not a recorded occurrence"
     },
     {
       "proposition_id": "C01-P67",
@@ -685,7 +685,7 @@
       "named_actors": ["Planner"],
       "named_inputs": ["'Getting Started' page"],
       "named_outputs": [],
-      "notes_verbatim": "'[...]' elides the quotation marks around 'Getting Started', corrupted on the text layer (same CMap defect as elsewhere) and unreliable on OCR at this exact span"
+      "source_context_note": "'[...]' elides the quotation marks around 'Getting Started', corrupted on the text layer (same CMap defect as elsewhere) and unreliable on OCR at this exact span"
     },
     {
       "proposition_id": "C01-P73",
@@ -695,7 +695,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "explicit access restriction bounding this investigation"
+      "source_context_note": "explicit access restriction bounding this investigation"
     },
     {
       "proposition_id": "C01-P74",
@@ -741,7 +741,7 @@
       "named_actors": ["Coscientist"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "quote contains 'capabilities' (lint marker) but the reporting clause is past-tense achievement ('we designed a toy task'), describing an actual constructed task rather than a modal capability. '[...]' elides an OCR word-merge artifact ('a96-well') between 'a' and '96-well'"
+      "source_context_note": "quote contains 'capabilities' (lint marker) but the reporting clause is past-tense achievement ('we designed a toy task'), describing an actual constructed task rather than a modal capability. '[...]' elides an OCR word-merge artifact ('a96-well') between 'a' and '96-well'"
     },
     {
       "proposition_id": "C01-P79",
@@ -751,7 +751,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "obligatory task-specification framing ('must determine')"
+      "source_context_note": "obligatory task-specification framing ('must determine')"
     }
   ]
 }

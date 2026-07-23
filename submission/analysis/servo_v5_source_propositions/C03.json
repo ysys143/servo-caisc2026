@@ -147,7 +147,7 @@
       "named_outputs": [
         "the papers under analysis"
       ],
-      "notes_verbatim": "counterfactual claim: authors assert the papers would still reach final form without the manual filtering step"
+      "source_context_note": "counterfactual claim: authors assert the papers would still reach final form without the manual filtering step"
     },
     {
       "proposition_id": "C03-P10",
@@ -236,7 +236,7 @@
       ],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "reported speech (what the organizers said), not the authors' own direct observation"
+      "source_context_note": "reported speech (what the organizers said), not the authors' own direct observation"
     },
     {
       "proposition_id": "C03-P16",
@@ -308,7 +308,7 @@
       "named_outputs": [
         "a template-free version"
       ],
-      "notes_verbatim": "'capable of' modifies the object of 'developed', not the main predicate -- the sentence reports the act of developing the system, so modality follows the main verb (event report) rather than the capability phrase"
+      "source_context_note": "'capable of' modifies the object of 'developed', not the main predicate -- the sentence reports the act of developing the system, so modality follows the main verb (event report) rather than the capability phrase"
     },
     {
       "proposition_id": "C03-P21",
@@ -787,7 +787,7 @@
       ],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "quote ends before a superscript reference numeral (56) glued to 'o1' by the source's typesetting/extraction, with no space to break on"
+      "source_context_note": "quote ends before a superscript reference numeral (56) glued to 'o1' by the source's typesetting/extraction, with no space to break on"
     },
     {
       "proposition_id": "C03-P52",
@@ -852,7 +852,7 @@
       "named_outputs": [
         "an automated reviewer"
       ],
-      "notes_verbatim": "quote ends before a superscript reference numeral (57) glued to 'o4-mini' by the source's typesetting/extraction, with no space to break on"
+      "source_context_note": "quote ends before a superscript reference numeral (57) glued to 'o4-mini' by the source's typesetting/extraction, with no space to break on"
     },
     {
       "proposition_id": "C03-P56",
@@ -937,7 +937,7 @@
       ],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "the whole passage narrates completed actions (were informed, had the option, were withdrawn) in past tense; 'potentially' modifies 'AI-generated' (the manuscripts' origin), not an actor's capability, so the modality lint's capability-marker match on 'potential' is a false positive"
+      "source_context_note": "the whole passage narrates completed actions (were informed, had the option, were withdrawn) in past tense; 'potentially' modifies 'AI-generated' (the manuscripts' origin), not an actor's capability, so the modality lint's capability-marker match on 'potential' is a false positive"
     },
     {
       "proposition_id": "C03-P61",

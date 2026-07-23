@@ -31,7 +31,7 @@ required_envelope_fields:
   policy: [schema, status, case_id, mechanism_labels, purpose_facets]
 
 record_fields:
-  source_proposition: [proposition_id, locator, exact_quote, modality, named_actors, named_inputs, named_outputs, notes_verbatim]
+  source_proposition: [proposition_id, locator, exact_quote, modality, named_actors, named_inputs, named_outputs, source_context_note]
   author_alignment: [alignment_id, proposition_ids, assertion_kind, basis, boundary_status, notes_verbatim, source_term, component, source_role, target_role, relation_type, temporal_scope]
   derived_claim: [claim_id, support_status, claim_scope, alignment_kind, occurrence_resolution, used_alignment_ids, used_proposition_ids, rationale]
 

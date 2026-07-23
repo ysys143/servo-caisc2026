@@ -17,7 +17,7 @@
       "named_actors": ["Agent Laboratory"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'capable of completing' — capability framing"
+      "source_context_note": "'capable of completing' — capability framing"
     },
     {
       "proposition_id": "C04-P02",
@@ -72,7 +72,7 @@
       "named_actors": ["ML Engineer agent"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "duplicated 'command command' preserved verbatim as printed in source"
+      "source_context_note": "duplicated 'command command' preserved verbatim as printed in source"
     },
     {
       "proposition_id": "C04-P08",
@@ -91,7 +91,7 @@
       "named_actors": ["mle-solver"],
       "named_inputs": [],
       "named_outputs": ["machine learning code"],
-      "notes_verbatim": "'designed to generate, test, and refine' — capability/design-purpose framing"
+      "source_context_note": "'designed to generate, test, and refine' — capability/design-purpose framing"
     },
     {
       "proposition_id": "C04-P10",
@@ -110,7 +110,7 @@
       "named_actors": ["the agent"],
       "named_inputs": [],
       "named_outputs": ["list of top programs"],
-      "notes_verbatim": "repair-attempt cap (N_rep=3) — memory/attempt-limit relevant"
+      "source_context_note": "repair-attempt cap value N_rep=3, as stated in source"
     },
     {
       "proposition_id": "C04-P12",
@@ -138,7 +138,7 @@
       "named_actors": ["mle-solver", "the solver"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'successfuly' typo preserved verbatim from source"
+      "source_context_note": "'successfuly' typo preserved verbatim from source"
     },
     {
       "proposition_id": "C04-P15",
@@ -292,7 +292,7 @@
       "named_actors": ["paper-solver"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'was place' typo preserved verbatim from source"
+      "source_context_note": "'was place' typo preserved verbatim from source"
     },
     {
       "proposition_id": "C04-P32",
@@ -320,7 +320,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "'can help' — capability framing"
+      "source_context_note": "'can help' — capability framing"
     },
     {
       "proposition_id": "C04-P35",
@@ -330,7 +330,7 @@
       "named_actors": ["professor agent"],
       "named_inputs": ["research plan", "research code", "code output"],
       "named_outputs": ["score"],
-      "notes_verbatim": "'can read', 'are able to determine' — capability framing; system-prompt role description for the reward-model validator"
+      "source_context_note": "'can read', 'are able to determine' — capability framing; system-prompt role description for the reward-model validator"
     },
     {
       "proposition_id": "C04-P36",

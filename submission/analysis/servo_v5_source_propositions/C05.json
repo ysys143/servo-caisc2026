@@ -17,7 +17,7 @@
       "named_actors": ["Robot Scientist"],
       "named_inputs": ["a computer model of the domain"],
       "named_outputs": [],
-      "notes_verbatim": "generic architectural description of the Robot Scientist concept, immediately preceding the paper's introduction of Adam as its first instantiation; frames the closed cycle Adam is then reported to instantiate"
+      "source_context_note": "generic architectural description of the Robot Scientist concept, immediately preceding the paper's introduction of Adam as its first instantiation; frames the closed cycle Adam is then reported to instantiate"
     },
     {
       "proposition_id": "C05-P02",
@@ -27,7 +27,7 @@
       "named_actors": ["Adam"],
       "named_inputs": [],
       "named_outputs": ["twelve genes responsible for catalysing specific reactions in the metabolic pathways of the yeast Saccharomyces cerevisiae"],
-      "notes_verbatim": "quote contains the word 'potential' (capability lint marker) but the clause grammar is past-tense achievement ('has ... proven ... by identifying'), reporting a completed occurrence rather than a modal capability"
+      "source_context_note": "quote contains the word 'potential' (capability lint marker) but the clause grammar is past-tense achievement ('has ... proven ... by identifying'), reporting a completed occurrence rather than a modal capability"
     },
     {
       "proposition_id": "C05-P03",
@@ -55,7 +55,7 @@
       "named_actors": [],
       "named_inputs": ["orphan enzyme (E.C. number)"],
       "named_outputs": ["gene (ORF)"],
-      "notes_verbatim": "first-level gene-function hypothesis structure; quote contains 'potentially' (matches the 'potential' lint marker) but describes the hypothesis's own uncertain content ('a gene that potentially encodes it'), not a capability of Adam -- the reporting clause itself is past-tense ('There were ... generated')"
+      "source_context_note": "first-level gene-function hypothesis structure; quote contains 'potentially' (matches the 'potential' lint marker) but describes the hypothesis's own uncertain content ('a gene that potentially encodes it'), not a capability of Adam -- the reporting clause itself is past-tense ('There were ... generated')"
     },
     {
       "proposition_id": "C05-P06",
@@ -65,7 +65,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": ["encodesORFtoEC('YBR166C', '1.1.1.25')"],
-      "notes_verbatim": "worked example of a first-level gene-function hypothesis, given immediately after 'An example hypothesis at this level is:'"
+      "source_context_note": "worked example of a first-level gene-function hypothesis, given immediately after 'An example hypothesis at this level is:'"
     },
     {
       "proposition_id": "C05-P07",
@@ -75,7 +75,7 @@
       "named_actors": [],
       "named_inputs": ["deletant strain", "chemical compound", "model of yeast metabolism"],
       "named_outputs": [],
-      "notes_verbatim": "second-level hypothesis derived from the first-level hypothesis by logical inference over the domain model"
+      "source_context_note": "second-level hypothesis derived from the first-level hypothesis by logical inference over the domain model"
     },
     {
       "proposition_id": "C05-P08",
@@ -93,8 +93,7 @@
       "modality": "directly_reported",
       "named_actors": ["Adam"],
       "named_inputs": [],
-      "named_outputs": [],
-      "notes_verbatim": "human-authority boundary: human role scoped to physical resupply of library strain stocks and consumables, not decision-making"
+      "named_outputs": []
     },
     {
       "proposition_id": "C05-P10",
@@ -121,8 +120,7 @@
       "modality": "reported_as_procedure",
       "named_actors": [],
       "named_inputs": ["growth curves"],
-      "named_outputs": ["biologically significant parameters", "updated model of yeast metabolism"],
-      "notes_verbatim": "explicit statistical-analysis -> confirm/refute -> knowledge-admission -> model-update chain"
+      "named_outputs": ["biologically significant parameters", "updated model of yeast metabolism"]
     },
     {
       "proposition_id": "C05-P13",
@@ -132,7 +130,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": ["Enzyme Commission (E.C.) numbers"],
-      "notes_verbatim": "step 1 of the numbered bioinformatics hypothesis-generation method"
+      "source_context_note": "step 1 of the numbered bioinformatics hypothesis-generation method"
     },
     {
       "proposition_id": "C05-P14",
@@ -142,7 +140,7 @@
       "named_actors": [],
       "named_inputs": ["KEGG genome database"],
       "named_outputs": ["query sequences"],
-      "notes_verbatim": "step 2"
+      "source_context_note": "step 2"
     },
     {
       "proposition_id": "C05-P15",
@@ -152,7 +150,7 @@
       "named_actors": [],
       "named_inputs": ["query sequence", "PSI-BLAST", "FASTA"],
       "named_outputs": ["most similar sequences/ORFs in S. cerevisiae"],
-      "notes_verbatim": "step 3"
+      "source_context_note": "step 3"
     },
     {
       "proposition_id": "C05-P16",
@@ -162,7 +160,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": ["YER152C → 2.6.1.39"],
-      "notes_verbatim": "step 4; worked example of the final hypothesis form"
+      "source_context_note": "step 4; worked example of the final hypothesis form"
     },
     {
       "proposition_id": "C05-P17",
@@ -185,12 +183,22 @@
     {
       "proposition_id": "C05-P19",
       "locator": {"pdf_page": 5, "journal_page": 5, "section": "Adam's software"},
-      "exact_quote": "The parameters from multiple experiment replicates are analysed using machine learning (random forests [30]) to obtain statistically significant results that can be used to either confirm or refute hypotheses, potentially resulting in new scientific knowledge that can be used to update the system model.",
+      "exact_quote": "The parameters from multiple experiment replicates are analysed using machine learning (random forests [30]) to obtain statistically significant results",
       "modality": "reported_as_procedure",
       "named_actors": [],
       "named_inputs": ["parameters from multiple experiment replicates"],
-      "named_outputs": ["statistically significant results", "updated system model"],
-      "notes_verbatim": "main clause is habitual/procedural ('are analysed using ... to obtain'); subordinate clause carries capability-flavored 'can be used' phrasing for the confirm/refute and model-update use of the results"
+      "named_outputs": ["statistically significant results"],
+      "source_context_note": "split from the original single quote per W-C05-P19: this half is the habitual/procedural analysis clause ('are analysed ... to obtain'); the confirm/refute and model-update clause continues as C05-P28"
+    },
+    {
+      "proposition_id": "C05-P28",
+      "locator": {"pdf_page": 5, "journal_page": 5, "section": "Adam's software"},
+      "exact_quote": "that can be used to either confirm or refute hypotheses, potentially resulting in new scientific knowledge that can be used to update the system model.",
+      "modality": "reported_only_as_capability",
+      "named_actors": [],
+      "named_inputs": ["hypotheses"],
+      "named_outputs": ["new scientific knowledge", "updated system model"],
+      "source_context_note": "split from the original single quote per W-C05-P19: this half is the capability-framed confirm/refute + downstream-knowledge clause ('can be used to'); the relative pronoun 'that' opening this quote refers back to 'statistically significant results' in C05-P19, the preceding clause of the same source sentence"
     },
     {
       "proposition_id": "C05-P20",
@@ -200,7 +208,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "explicit modal 'can' framing the closed-loop recurrence as possibility, not a recorded per-cycle occurrence"
+      "source_context_note": "explicit modal 'can' framing the closed-loop recurrence as possibility, not a recorded per-cycle occurrence"
     },
     {
       "proposition_id": "C05-P21",
@@ -237,7 +245,7 @@
       "named_actors": ["Adam"],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "explicit model-boundary limitation reported as the cause of the incorrect conclusion in C05-P23"
+      "source_context_note": "immediately follows C05-P23 in the source text (Adam's results section)"
     },
     {
       "proposition_id": "C05-P25",
@@ -247,7 +255,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "notes_verbatim": "authors report and partially concede a third-party characterization bearing on system autonomy/human-authority framing"
+      "source_context_note": "authors report and partially concede a third-party characterization of the system's naming"
     },
     {
       "proposition_id": "C05-P26",
@@ -266,7 +274,7 @@
       "named_actors": ["Adam"],
       "named_inputs": ["KEGG"],
       "named_outputs": [],
-      "notes_verbatim": "the authors (human), not Adam, performed the manual model update prior to allowing automated hypothesis generation -- 'Adam' is named as the referent in the quote, not the grammatical subject of 'avoided'/'updating'"
+      "source_context_note": "'Adam' is named as the referent in the quote, not the grammatical subject of 'avoided'/'updating'"
     }
   ]
 }

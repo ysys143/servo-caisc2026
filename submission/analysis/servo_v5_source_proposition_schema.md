@@ -21,7 +21,7 @@
 | `named_actors` | 출처가 **직접 명명**한 행위자만 | 추론 금지 |
 | `named_inputs` | 직접 명명된 입력 | 추론 금지 |
 | `named_outputs` | 직접 명명된 출력 | 추론 금지 |
-| `notes_verbatim` | (선택) 출처 표현상 필요한 최소 메모 | 판정 금지 |
+| `source_context_note` | (선택) 출처 표현상 필요한 최소 메모 | 판정 금지 (charter B.8 허용/금지 목록) |
 
 ### modality 규칙 (증거 해상도, 판정 아님)
 
