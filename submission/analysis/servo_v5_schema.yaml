@@ -19,13 +19,13 @@ directories:
   policy: servo_v5_policy
 
 envelope_fields:
-  source_proposition: [schema, schema_doc, status, case_id, system, citation_key, source_pdf_name, source_pdf_sha256, coverage_note, propositions]
+  source_proposition: [schema, schema_doc, status, coverage_status, case_id, system, citation_key, source_pdf_name, source_pdf_sha256, coverage_note, propositions]
   author_alignment: [schema, schema_doc, status, case_id, alignments]
   derived_claim: [schema, schema_doc, status, case_id, claims]
   policy: [schema, schema_doc, status, case_id, mechanism_labels, purpose_facets, explicit_bed_evidence, rationale]
 
 required_envelope_fields:
-  source_proposition: [schema, schema_doc, status, case_id, system, citation_key, source_pdf_name, source_pdf_sha256, coverage_note, propositions]
+  source_proposition: [schema, schema_doc, status, coverage_status, case_id, system, citation_key, source_pdf_name, source_pdf_sha256, coverage_note, propositions]
   author_alignment: [schema, schema_doc, status, case_id, alignments]
   derived_claim: [schema, schema_doc, status, case_id, claims]
   policy: [schema, status, case_id, mechanism_labels, purpose_facets]
@@ -60,6 +60,8 @@ locator_fields:
   optional: [journal_page, para_anchor, section]
 
 enum_fields:
+  source_proposition.status: [draft, pilot, frozen]
+  source_proposition.coverage_status: [body_complete, body_complete_appendix_partial, config_bounded_complete, review_bounded_complete]
   source_proposition.modality: [directly_reported, reported_as_procedure, reported_only_as_capability]
   author_alignment.assertion_kind: [component_mapping, functional_relation]
   author_alignment.component: [S, G, E, V, M, pi, A, W_A, external, O_env]

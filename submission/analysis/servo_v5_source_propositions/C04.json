@@ -1,7 +1,8 @@
 {
   "schema": "servo_v5_source_proposition",
   "schema_doc": "analysis/servo_v5_source_proposition_schema.md",
-  "status": "pilot",
+  "status": "frozen",
+  "coverage_status": "body_complete_appendix_partial",
   "case_id": "C04",
   "system": "Agent Laboratory",
   "citation_key": "schmidgall2025agentlab",

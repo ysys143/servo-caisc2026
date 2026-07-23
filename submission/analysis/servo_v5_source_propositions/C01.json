@@ -1,13 +1,14 @@
 {
   "schema": "servo_v5_source_proposition",
   "schema_doc": "analysis/servo_v5_source_proposition_schema.md",
-  "status": "pilot",
+  "status": "frozen",
+  "coverage_status": "body_complete",
   "case_id": "C01",
   "system": "Coscientist",
   "citation_key": "boiko2023emergent",
   "source_pdf_name": "Boiko 2023 - Autonomous Chemical Research with LLMs.pdf",
   "source_pdf_sha256": "15b340a6fd3cb70ae7f44a96264c051662e4dfd26075604c0c8e94c7c85c959f",
-  "coverage_note": "Full pass over PDF physical pages 1-8 (journal 570-577), verified against the source; pages 5-8 are the original pilot pass, pages 1-4 (P15-P79) were appended in a later pass to remove the pilot's page-bias, applying the same broad inclusion rule as C02-C06 (setup, actor/component naming, task regime, human/external-system boundaries, fixed procedures, and negative/failure findings, not only verdict-useful sentences). The p2 subjective-labeling statement historically tracked as R01-E05 is now captured as C01-P41. Deliberately excluded from pages 1-4: figure captions/legends (Fig. 1a-c, Fig. 2a-c, Fig. 3a-d) as visual-encoding metadata rather than reported content; the generic information-retrieval background paragraph on page 3 (inverted index vs vector database mechanics) as domain background not specific to Coscientist; and a handful of sentences judged redundant with an adjacent kept proposition (e.g. the DOCUMENTATION-command sentence duplicating GOOGLE's role, the Reaxys/SciFinder forward-looking suggestion duplicating the ReAct/Chain-of-Thought one, and a couple of secondary per-compound benchmark statistics). One sentence spanning the page 2/3 boundary ('...All non-browsing models incorrectly synthesized ibuprofen (Fig. 2c).') is split at the page break per the single-page locator contract (C01-P44/C01-P45), following the C05 page 5/6 boundary precedent. Several page 1-4 quotes use '[...]' to elide inline citation-number superscripts that the source PDF's corrupted font ToUnicode CMap and OCR both render unreliably (C01-P25, C01-P39, C01-P48, C01-P50, C01-P51); the surrounding prose is quoted verbatim. No judgment, alignment, or closure status is stored here (charter B.1).",
+  "coverage_note": "Full decision-structure pass over PDF physical pages 1-8 (journal 570-577), verified against the source. Pages 1-4 (P15-P79) remove the original pilot's setup bias; pages 6-7 (P80-P91) close the T4.5 coverage gap the pilot left at the page bottoms beneath Fig. 5 and Fig. 6 -- the SMILES/RDKit tool-use sentence, the 'Chemical reasoning capabilities' section opening and its GPT-4/red-team sentence, the optimization-experiment setup (Perera Suzuki and Doyle Buchwald-Hartwig datasets, 'fully mapped reaction condition spaces'), and the optimization 'game' design (goal, actions, player framing). Pages 1-8 are now fully covered; pages 6-7 are figure-dominant (Fig. 5 and Fig. 6 span most of each page) with body text only at the column bottoms. The same broad inclusion rule used for C02-C06 was applied: setup, actor/component naming, task regime, human/external-system boundaries, fixed procedures, capability statements, and negative/failure findings, not only verdict-useful sentences. Figure captions/legends, generic information-retrieval background, references, methods after the main article, and sentences redundant with adjacent retained propositions are excluded; on pages 6-7 this also excludes the Fig. 5/Fig. 6 panel captions, a GPT-4-capabilities remark not specific to Coscientist ('Some researchers believe that the community is only starting to understand all the capabilities of GPT-4'), and a sentence spanning the page 6/7 boundary ('Instead of connecting LLMs to an optimization algorithm ... we aimed to use Coscientist directly.') omitted rather than reconstructed, per the C05 precedent. Cross-page statements are split at physical page boundaries and linked only by source_context_note (C01-P83, C01-P91). No SERVO alignment or derived status is stored here.",
   "propositions": [
     {
       "proposition_id": "C01-P01",
@@ -746,6 +747,125 @@
       "named_inputs": [],
       "named_outputs": [],
       "source_context_note": "obligatory task-specification framing ('must determine')"
+    },
+    {
+      "proposition_id": "C01-P80",
+      "locator": {"pdf_page": 6, "journal_page": 575, "section": "Integrated chemical experiment design"},
+      "exact_quote": "For each reaction, Coscientist was tasked with generating reactions for compounds from a simplified molecular-input line-entry system (SMILES) database.",
+      "modality": "directly_reported",
+      "named_actors": ["Coscientist"],
+      "named_inputs": ["simplified molecular-input line-entry system (SMILES) database"],
+      "named_outputs": ["reactions for compounds"],
+      "source_context_note": "introduces the SMILES-database benchmark task underlying the reagent-selection comparison shown in Fig. 5e"
+    },
+    {
+      "proposition_id": "C01-P81",
+      "locator": {"pdf_page": 6, "journal_page": 575, "section": "Integrated chemical experiment design"},
+      "exact_quote": "To achieve the task, Coscientist uses web search and code execution with the RDKit chemoinformatics package.",
+      "modality": "reported_as_procedure",
+      "named_actors": ["Coscientist"],
+      "named_inputs": ["RDKit chemoinformatics package"],
+      "named_outputs": []
+    },
+    {
+      "proposition_id": "C01-P82",
+      "locator": {"pdf_page": 6, "journal_page": 575, "section": "Chemical reasoning capabilities"},
+      "exact_quote": "The system demonstrates appreciable reasoning capabilities, enabling the request of necessary information, solving of multistep problems and generation of code for experimental design.",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["the system"],
+      "named_inputs": [],
+      "named_outputs": ["code for experimental design"],
+      "source_context_note": "'demonstrates ... capabilities', 'enabling' -- capability framing describing the system's general reasoning behaviour, not a specific occurrence; this is the section's opening sentence"
+    },
+    {
+      "proposition_id": "C01-P83",
+      "locator": {"pdf_page": 6, "journal_page": 575, "section": "Chemical reasoning capabilities"},
+      "exact_quote": "OpenAI has shown that GPT-4 could rely on some of those capabilities to take actions in the physical world during their initial red team testing performed by the Alignment Research Center",
+      "modality": "reported_only_as_capability",
+      "named_actors": ["OpenAI", "GPT-4", "Alignment Research Center"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "source_context_note": "quote stops before the trailing citation-number superscript and period after 'Alignment Research Center' (cf. C01-P50's 'Tree of Thoughts' precedent); 'could rely on ... capabilities' is modal framing reporting a claim about GPT-4 generally via OpenAI's red-team testing, not a Coscientist-specific statement"
+    },
+    {
+      "proposition_id": "C01-P84",
+      "locator": {"pdf_page": 6, "journal_page": 575, "section": "Chemical reasoning capabilities"},
+      "exact_quote": "One of the possible strategies to evaluate an intelligent agent [...] reasoning capabilities is to test if it can use previously collected data to guide future actions.",
+      "modality": "reported_only_as_capability",
+      "named_actors": [],
+      "named_inputs": ["previously collected data"],
+      "named_outputs": [],
+      "source_context_note": "'[...]' elides a possessive-apostrophe span ('agent's') unreadable on the text layer (CMap corruption); 'is to test if it can use' -- capability/possibility framing, a general evaluation-strategy statement not specific to Coscientist"
+    },
+    {
+      "proposition_id": "C01-P85",
+      "locator": {"pdf_page": 6, "journal_page": 575, "section": "Chemical reasoning capabilities"},
+      "exact_quote": "Here, we focused on the multi-variable design and optimization of Pd-catalysed transformations, showcasing Coscientist [...] abilities to tackle real-world experimental campaigns involving thousands of examples.",
+      "modality": "directly_reported",
+      "named_actors": ["Coscientist"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "source_context_note": "'[...]' elides a possessive-apostrophe span ('Coscientist's') unreadable on the text layer (CMap corruption); task-design statement by the authors introducing the optimization-experiment focus"
+    },
+    {
+      "proposition_id": "C01-P86",
+      "locator": {"pdf_page": 7, "journal_page": 576, "section": "Chemical reasoning capabilities"},
+      "exact_quote": "We selected two datasets containing fully mapped reaction condition spaces where yield was available for all combinations of variables.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["two datasets containing fully mapped reaction condition spaces"],
+      "source_context_note": "authors' dataset-selection statement introducing the two optimization benchmark datasets named in the following two sentences (Perera Suzuki and Doyle Buchwald-Hartwig)"
+    },
+    {
+      "proposition_id": "C01-P87",
+      "locator": {"pdf_page": 7, "journal_page": 576, "section": "Chemical reasoning capabilities"},
+      "exact_quote": "One is a Suzuki reaction dataset collected by Perera et al. [...], where these reactions were performed in flow with varying ligands, reagents/bases and solvents (Fig. 6a).",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["Suzuki reaction dataset (Perera et al.)"],
+      "source_context_note": "'[...]' elides a citation-number superscript after 'Perera et al.' (rendered as a bare digit by the corrupted font ToUnicode CMap, per the C01-P39 precedent)"
+    },
+    {
+      "proposition_id": "C01-P88",
+      "locator": {"pdf_page": 7, "journal_page": 576, "section": "Chemical reasoning capabilities"},
+      "exact_quote": "Another is Doyle [...] Buchwald [...] Hartwig reaction dataset [...] (Fig. 6e), where variations in ligands, additives and bases were recorded.",
+      "modality": "directly_reported",
+      "named_actors": [],
+      "named_inputs": [],
+      "named_outputs": ["Doyle Buchwald-Hartwig reaction dataset"],
+      "source_context_note": "'[...]' elides a possessive-apostrophe span ('Doyle's') and an en-dash-as-'3' CMap corruption between 'Buchwald' and 'Hartwig', plus a citation-number superscript after 'dataset' (same CMap defect as elsewhere in this source)"
+    },
+    {
+      "proposition_id": "C01-P89",
+      "locator": {"pdf_page": 7, "journal_page": 576, "section": "Chemical reasoning capabilities"},
+      "exact_quote": "At this point, any reaction proposed by Coscientist would be within these datasets and accessible as a lookup table.",
+      "modality": "directly_reported",
+      "named_actors": ["Coscientist"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "source_context_note": "'these datasets' refers to the Perera Suzuki and Doyle Buchwald-Hartwig datasets named in the two preceding sentences"
+    },
+    {
+      "proposition_id": "C01-P90",
+      "locator": {"pdf_page": 7, "journal_page": 576, "section": "Chemical reasoning capabilities"},
+      "exact_quote": "We designed the Coscientist [...] chemical reasoning capabilities test as a game with the goal of maximizing the reaction yield.",
+      "modality": "directly_reported",
+      "named_actors": ["Coscientist"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "source_context_note": "'[...]' elides a possessive-apostrophe span ('Coscientist's') unreadable on the text layer (CMap corruption); task-design statement introducing the optimization 'game' framing"
+    },
+    {
+      "proposition_id": "C01-P91",
+      "locator": {"pdf_page": 7, "journal_page": 576, "section": "Chemical reasoning capabilities"},
+      "exact_quote": "The game [...] actions consisted of selecting specific reaction conditions with a sensible chemical explanation while listing the player [...] observations",
+      "modality": "reported_as_procedure",
+      "named_actors": ["the player"],
+      "named_inputs": [],
+      "named_outputs": [],
+      "source_context_note": "'[...]' elides possessive-apostrophe spans ('game's', 'player's') unreadable on the text layer (CMap corruption); sentence continues past the PDF page 7/8 boundary, quote stops at the page boundary per the single-page locator contract (cf. C01-P44/P45)"
     }
   ]
 }

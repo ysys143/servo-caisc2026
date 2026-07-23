@@ -15,6 +15,7 @@
 | `proposition_id` | `<case_id>-P<nn>` | 안정적, 재사용 금지 |
 | `case_id` | 사례 식별자 | |
 | `source_pdf_sha256` | 원 PDF 해시 | fail-closed 감사 |
+| `coverage_status` | `body_complete` / `body_complete_appendix_partial` / `config_bounded_complete` / `review_bounded_complete` | T4.5 freeze 전 필수 |
 | `locator` | `{pdf_page, para_anchor?}` | 페이지 필수 |
 | `exact_quote` | 출처 원문 그대로 | 축약 금지; 불가피한 생략은 `[...]`로 표시하고 최소화 |
 | `modality` | `directly_reported` / `reported_as_procedure` / `reported_only_as_capability` | 아래 규칙 |
@@ -22,6 +23,11 @@
 | `named_inputs` | 직접 명명된 입력 | 추론 금지 |
 | `named_outputs` | 직접 명명된 출력 | 추론 금지 |
 | `source_context_note` | (선택) 출처 표현상 필요한 최소 메모 | 판정 금지 (charter B.8 허용/금지 목록) |
+
+`status=frozen`은 quote-in-PDF 검증, warning disposition, source-purity
+감사와 freeze manifest 결속을 모두 통과한 뒤에만 사용한다. T5가 소비할
+수 있는 필드는 freeze manifest의 `t5_consumable_fields`에 고정하며,
+`source_context_note`는 그 투영에 포함되지 않는다.
 
 ### modality 규칙 (증거 해상도, 판정 아님)
 

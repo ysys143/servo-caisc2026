@@ -1,7 +1,8 @@
 {
   "schema": "servo_v5_source_proposition",
   "schema_doc": "analysis/servo_v5_source_proposition_schema.md",
-  "status": "pilot",
+  "status": "frozen",
+  "coverage_status": "config_bounded_complete",
   "case_id": "C03",
   "system": "AI Scientist 2026",
   "citation_key": "lu2026aiscientist",

@@ -1,7 +1,8 @@
 {
   "schema": "servo_v5_source_proposition",
   "schema_doc": "analysis/servo_v5_source_proposition_schema.md",
-  "status": "pilot",
+  "status": "frozen",
+  "coverage_status": "review_bounded_complete",
   "case_id": "C05",
   "system": "Adam (Robot Scientist)",
   "citation_key": "sparkes2010robot",
@@ -208,7 +209,7 @@
       "named_actors": [],
       "named_inputs": [],
       "named_outputs": [],
-      "source_context_note": "explicit modal 'can' framing the closed-loop recurrence as possibility, not a recorded per-cycle occurrence"
+      "source_context_note": "explicit modal 'can' framing the repeated-cycle sentence as possibility, not a recorded per-cycle occurrence"
     },
     {
       "proposition_id": "C05-P21",
