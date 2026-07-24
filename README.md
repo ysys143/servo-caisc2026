@@ -1,3 +1,5 @@
+> **Current work (CAISc 2026 manuscript).** This `main` branch documents the earlier **Schema 2** package. The source-first **v5** analysis the manuscript now relies on is released as **`servo-corrected-v5.1.1`** (https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v5.1.1) -- the authoritative supplement, with a provenance root manifest binding the source-to-tables-to-PDF lineage. See the repository **Releases** (latest = v5.1.x) and the `codex/schema-first-servo-consistency` branch. The Schema 2 material below is retained as a prior record.
+
 # Servo (CAISc 2026) — Reproducibility Package
 
 Supplementary material for *Formalizing AI Scientist Systems: A Component Framework and Theoretical Analysis*, CAISc 2026.
