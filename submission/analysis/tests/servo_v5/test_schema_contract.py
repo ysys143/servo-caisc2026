@@ -384,6 +384,7 @@ def _valid_policy_payload() -> dict:
         "selection_objective": ["local_repair", "performance_improvement"],
         "generation_scope": ["fixed_space"],
         "candidate_selection_rule": ["sequential_choice"],
+        "design_selection_rule": ["fixed_or_standard_design"],
         "candidate_execution_rule": ["one_at_a_time", "until_success"],
         "formal_epistemic_utility_evidence": "not_reported",
         "rationale": "grounded in C01-P01/C01-P90.",
@@ -481,6 +482,40 @@ def test_policy_bad_candidate_selection_rule_enum_is_rejected(tmp_path: Path) ->
     path = _write_policy_file(tmp_path, payload)
     errors = validate_file(path, "policy")
     assert {error.code for error in errors} == {"V5_ENUM_INVALID"}, [str(e) for e in errors]
+
+
+# --- schema-v3+ new axis: design_selection_rule (reviewer Item 2) ------------
+# The action is a=(h,d,P,f): design_selection_rule (how the experimental
+# design/assay d is chosen) is a separate axis from candidate_selection_rule
+# (which candidate hypotheses h are chosen).
+
+
+def test_policy_missing_design_selection_rule_is_rejected(tmp_path: Path) -> None:
+    payload = _valid_policy_payload()
+    del payload["design_selection_rule"]
+    path = _write_policy_file(tmp_path, payload)
+    errors = validate_file(path, "policy")
+    assert "V5_ENVELOPE_FIELD_MISSING" in {error.code for error in errors}, [str(e) for e in errors]
+
+
+def test_policy_bad_design_selection_rule_enum_is_rejected(tmp_path: Path) -> None:
+    payload = _valid_policy_payload()
+    payload["design_selection_rule"] = ["intuition_directed"]
+    path = _write_policy_file(tmp_path, payload)
+    errors = validate_file(path, "policy")
+    assert {error.code for error in errors} == {"V5_ENUM_INVALID"}, [str(e) for e in errors]
+
+
+def test_policy_design_selection_rule_coverage_and_discrimination_validate_clean(tmp_path: Path) -> None:
+    # Both the reported-in-corpus value (coverage_or_factorial) and the
+    # not-observed-but-defined value (discrimination_directed) are legal enum
+    # members: the axis can express a discrimination-directed design even though
+    # no bounded source reports one.
+    payload = _valid_policy_payload()
+    payload["design_selection_rule"] = ["coverage_or_factorial", "discrimination_directed"]
+    path = _write_policy_file(tmp_path, payload)
+    errors = validate_file(path, "policy")
+    assert errors == [], [str(error) for error in errors]
 
 
 # --- schema-v3 retired enum values are now rejected -------------------------

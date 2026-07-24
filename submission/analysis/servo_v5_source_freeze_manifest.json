@@ -379,13 +379,13 @@
   },
   "rule_file_sha256": {
     "servo_v5_charter.md": "f5141497abcffc4eaa3ecc68adae7230fe7ed65f4fb7c133a3d6b4d5bb3ec75d",
-    "servo_v5_schema.yaml": "9ea1e5169a68c3ecb2d76178c081ab7457d710935af36a14ed0b65e821929a60",
+    "servo_v5_schema.yaml": "598c4625bcc66d68accc03264fac8fe74523be8689805ee564cf433a98e8d0ba",
     "servo_v5_source_proposition_schema.md": "2f557fc159854d44c060ff510000c1c84d64872ebf8a973a5d32cd9107cf88be"
   },
   "rules_version": "v5.0-rules/B.8",
   "schema": "servo_v5_source_freeze_manifest",
   "schema_version": "5.0.0",
-  "source_set_sha256": "0458cef7d3b0e1fb18bd89b2bdd5ba92f486d7a3ed550c17dc60de92c4db634a",
+  "source_set_sha256": "2e264e76c3c75d17dec75cdebfa23acc9efa37c5364f8130e28101681abb3ba7",
   "t5_consumable_fields": [
     "proposition_id",
     "locator",

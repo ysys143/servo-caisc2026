@@ -222,9 +222,9 @@ def build_policy_table(policy_by_case: dict[str, dict]) -> str:
     rag = r">{\raggedright\arraybackslash}"
     columns = (
         r"l "
-        + rag + r"p{0.19\linewidth} "
+        + rag + r"p{0.18\linewidth} "
         + rag + r"p{0.14\linewidth} "
-        + rag + r"p{0.17\linewidth} "
+        + rag + r"p{0.16\linewidth} "
         + rag + r"p{0.13\linewidth} "
         + rag + r"p{0.14\linewidth} "
         + rag + r"p{0.13\linewidth}"
@@ -233,6 +233,10 @@ def build_policy_table(policy_by_case: dict[str, dict]) -> str:
     lines = [
         r"\begingroup",
         r"\renewcommand{\arraystretch}{1.15}",
+        # tighten the inter-column gap so the six data columns plus their
+        # \tabcolsep gutters stay inside \linewidth once the sixth (design)
+        # column is added (reviewer Item 2).
+        r"\setlength{\tabcolsep}{4pt}",
         # save the kernel underscore, then allow a line break after each one so
         # long \texttt enum tokens can wrap within a narrow p{} cell.
         r"\let\origunderscore\_",

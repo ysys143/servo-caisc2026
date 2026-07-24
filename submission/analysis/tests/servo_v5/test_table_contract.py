@@ -91,6 +91,32 @@ def test_policy_c05_keeps_objective_separate_from_rules(data) -> None:
     assert "performance\\_improvement" not in c05_row
 
 
+def test_policy_c05_design_axis_is_standard_and_coverage_not_discrimination(data) -> None:
+    # reviewer Item 2: C05's design axis is separate from its candidate axis.
+    # The bounded sparkes2010 source reports a model-prescribed assay
+    # (fixed_or_standard_design) with a Latin-square layout (coverage_or_factorial)
+    # -- NOT a discrimination-directed experiment selection (that is king2004
+    # cited background, excluded from the frozen C05 source). "Tested all
+    # hypotheses" (all_selected, above) is a candidate fact, not design evidence.
+    _claims, _alignments, policy = data
+    assert set(policy["C05"]["design_selection_rule"]) == {
+        "fixed_or_standard_design",
+        "coverage_or_factorial",
+    }
+    body = build_policy_table(policy)
+    c05_row = next(line for line in body.splitlines() if line.startswith("C05 &"))
+    assert "fixed\\_or\\_standard\\_design" in c05_row
+    assert "coverage\\_or\\_factorial" in c05_row
+    assert "discrimination\\_directed" not in c05_row
+    # No case in the corpus is coded discrimination/information/cost-directed.
+    for case_id in CASE_IDS:
+        design = set(policy[case_id]["design_selection_rule"])
+        assert design <= {"fixed_or_standard_design", "coverage_or_factorial"}, (
+            case_id,
+            design,
+        )
+
+
 def test_policy_footnote_i_corpus_level_not_reported(data) -> None:
     _claims, _alignments, policy = data
     body = build_policy_table(policy)

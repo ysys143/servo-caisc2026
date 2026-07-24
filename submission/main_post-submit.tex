@@ -247,13 +247,18 @@ Applying the POMDP- and BED-derived distinctions to the search policy $\pi$, Ser
 each case's experiment-selection policy along the selection signal the source names, the
 information on which follow-up selection depends, the objective that selection serves, and the
 separate rules by which candidates are selected and executed
-(Table~\ref{tab:servo-v5-policy}). The objective is kept apart from both candidate rules, so no
-objective is folded into a rule: the Robot Scientist (C05) carries uncertainty-reduction and
-hypothesis-discrimination objectives yet an exhaustive selection rule and an all-selected
-execution rule---it tested every generated hypothesis rather than performing an
-expected-discrimination down-selection---whereas the score-cluster cases (C02--C04, C06) pursue
-performance improvement with ranked or thresholded selection, and Coscientist (C01) reacts to
-execution failure and reaction yield without a score dependence. Read at the level of individual
+(Table~\ref{tab:servo-v5-policy}). The objective and the candidate rules are kept apart from the selection of the experimental
+design $d$, so hypothesis (candidate) selection is not conflated with experiment (design)
+selection: the Robot Scientist (C05) has uncertainty-reduction and hypothesis-discrimination
+objectives and tests every generated hypothesis (exhaustive candidate selection, all executed),
+but the experimental designs its bounded source reports are a model-prescribed assay and a
+Latin-square coverage layout for measurement-noise control---not an expected-information-gain or
+expected-discrimination selection of experiments; testing all hypotheses is a candidate-selection
+fact, not evidence about design selection. The score-cluster cases (C02--C04, C06) pursue
+performance improvement with ranked or thresholded candidate selection over fixed or standard
+designs, and Coscientist (C01) reacts to execution failure and reaction yield without a score
+dependence. Across the six bounded sources no reported design selection is information-,
+discrimination-, or cost-directed---a corpus-level reporting observation, not a field-wide absence. Read at the level of individual
 occurrences, the feedback relations established at occurrence-mode evidence are few: only two
 carry occurrence-mode evidence---Coscientist's evaluation-to-artifact revision and the Robot
 Scientist's evaluation-to-inquiry-state update---while the one evaluation-to-execution feedback
@@ -288,15 +293,19 @@ The current application contains six versioned cases from five lineages: Coscien
 \caption{Policy decomposition (Table~A): a schema-v3 BED-lens reading of each case's
 experiment-selection policy (columns and axis domains detailed in the legend). The
 selection-purpose facet (the objective) is kept apart from both candidate rules, so no
-objective is folded into a rule: C05 (Robot Scientist) carries
-\texttt{uncertainty\_reduction} and \texttt{hypothesis\_model\_discrimination} objectives yet
-\texttt{exhaustive} selection and \texttt{all\_selected} execution rules (it tested every
-generated hypothesis, not an expected-discrimination down-selection), whereas the
-score-cluster cases (C02--C04, C06) are \texttt{performance\_improvement} with
-\texttt{top\_k\_ranked}/\texttt{threshold}/\texttt{sampled\_subset} selection, and C01 reacts
-to failure and observation results without a \texttt{score} dependence
-(\texttt{sequential\_choice} selection). This is an analytic decomposition, not a compliance
-label.}
+objective is folded into a rule, and candidate selection is kept apart from experimental-design
+selection: C05 (Robot Scientist) carries \texttt{uncertainty\_reduction} and
+\texttt{hypothesis\_model\_discrimination} objectives and tests every generated hypothesis
+(\texttt{exhaustive} candidate selection, \texttt{all\_selected}); its reported experimental
+design is a standard model-prescribed assay with a Latin-square (\texttt{coverage\_or\_factorial})
+layout, not an expected-discrimination selection of experiments---testing all hypotheses is a
+candidate fact, separate from the design axis. The score-cluster cases (C02--C04, C06) are
+\texttt{performance\_improvement} with \texttt{top\_k\_ranked}/\texttt{threshold}/%
+\texttt{sampled\_subset} candidate selection over \texttt{fixed\_or\_standard\_design}, and C01
+reacts to failure and observation results without a \texttt{score} dependence
+(\texttt{sequential\_choice} selection). No bounded source reports an information-,
+discrimination-, or cost-directed design selection. This is an analytic decomposition, not a
+compliance label.}
 \label{tab:servo-v5-policy}
 \end{sidewaystable}
 
