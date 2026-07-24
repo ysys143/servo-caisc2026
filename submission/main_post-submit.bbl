@@ -29,8 +29,9 @@ D.~A. Boiko, R.~MacKnight, B.~Kline, and G.~Gomes.
 \bibitem[Bran et~al.(2024)Bran, Cox, Schilter, Baldassari, White, and
   Schwaller]{bran2023chemcrow}
 A.~M. Bran, S.~Cox, O.~Schilter, C.~Baldassari, A.~D. White, and P.~Schwaller.
-\newblock {ChemCrow}: {Augmenting} large-language models with chemistry tools.
-\newblock \emph{Nature Machine Intelligence}, 2024.
+\newblock {Augmenting} large language models with chemistry tools.
+\newblock \emph{Nature Machine Intelligence}, 6:\penalty0 525--535, 2024.
+\newblock \doi{10.1038/s42256-024-00832-8}.
 \newblock arXiv:2304.05376.
 
 \bibitem[Chaloner and Verdinelli(1995)]{chaloner1995bayesian}
@@ -112,7 +113,7 @@ P.~S. Gromski, A.~B. Henson, J.~M. Granda, and L.~Cronin.
 \bibitem[{InternAgent Team, Shanghai Artificial Intelligence
   Laboratory}(2025)]{zhang2025novelseek}
 {InternAgent Team, Shanghai Artificial Intelligence Laboratory}.
-\newblock {InternAgent}: When agent becomes the scientist -- building a
+\newblock {InternAgent}: When agent becomes the scientist -- building
   closed-loop system from hypothesis to verification.
 \newblock \emph{arXiv preprint arXiv:2505.16938}, 2025.
 \newblock arXiv:2505.16938v3. Circulated as {NovelSeek} in earlier versions;
@@ -288,8 +289,7 @@ T.~Taniguchi, S.~Takagi, J.~Otsuka, Y.~Hayashi, and H.~T. Hamada.
 
 \bibitem[Tie et~al.(2025)Tie, Zhou, and Sun]{tie2025survey}
 G.~Tie, P.~Zhou, and L.~Sun.
-\newblock A survey of {AI} scientists: Surveying the automatic scientists and
-  research.
+\newblock A survey of {AI} scientists.
 \newblock \emph{arXiv preprint arXiv:2510.23045}, 2025.
 
 \bibitem[Udrescu and Tegmark(2020)]{udrescu2020afeynman}

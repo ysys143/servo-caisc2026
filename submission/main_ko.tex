@@ -349,7 +349,7 @@ Robot Scientist는 자동적인 진단 가치 주장에 대한 부정 사례다.
 
 Test-time compute는 가설 생성을 빠르고 저렴하게 만들었지만 실험 실행 $E$는 물리적으로 속도 제한이 있다. 그러나 저비용 근사와 고비용 목표 평가를 고르는 원칙적 기준 자체는 다중 충실도 베이즈 최적화에 이미 존재한다. 연속 충실도 모형은 근사 비용과 목표 정보를 교환하고~\citep{kandasamy2017multifidelity}, 비용 민감 상호정보 획득함수는 simulation과 실제 평가 사이의 정보원을 선택한다~\citep{song2019multifidelity}. 여기서의 격차는 기준의 이론적 부재가 아니라, 충실도 변화가 프로토콜·결과 의미·물리적 실행 가능성까지 바꾸는 개방형 AI 과학자 workflow에 이 기준을 통합·검증하지 못한 점이다.
 
-선정 anchor는 여러 proxy-to-physical 경계를 드러낸다. GNoME는 DFT로 38만 개의 안정 구조를 예측했으며~\citep{merchant2023gnome}, 736개는 ICSD에 독립적으로 존재하거나 이후 추가된 구조와 일치하고 그중 184개는 프로젝트 시작 뒤 추가됐다. 이는 시스템이 촉발한 합성이 아니라 다른 연구자의 동시기 기록이다. ChemCrow는 wet-lab 실행을 보고하지만 물리 특성화는 protocol별 경계로 남는다~\citep{bran2023chemcrow,gromski2019chemical}. BioPlanner의 protocol artifact만으로 biological-validity feedback witness가 성립하지 않는다~\citep{odonoghue2023bioplanner}. 이 anchor들은 multi-fidelity 통합 문제를 동기화하지만 그 prevalence를 확립하지 않는다.
+선정 anchor는 여러 proxy-to-physical 경계를 드러낸다. GNoME는 DFT로 38.1만 개의 안정 구조를 예측했으며~\citep{merchant2023gnome}, 736개는 ICSD에 독립적으로 존재하거나 이후 추가된 구조와 일치하고 그중 184개는 프로젝트 시작 뒤 추가됐다. 이는 시스템이 촉발한 합성이 아니라 다른 연구자의 동시기 기록이다. ChemCrow는 wet-lab 실행을 보고하지만 물리 특성화는 protocol별 경계로 남는다~\citep{bran2023chemcrow,gromski2019chemical}. BioPlanner의 protocol artifact만으로 biological-validity feedback witness가 성립하지 않는다~\citep{odonoghue2023bioplanner}. 이 anchor들은 multi-fidelity 통합 문제를 동기화하지만 그 prevalence를 확립하지 않는다.
 
 자율 실험실은 이 통합 격차와 직접 관련된다. A-Lab~\citep{szymanski2023alab}은 계산 스크리닝과 로봇 합성을 결합하고, ORGANA~\citep{darvish2024organa}와 AutoLabs~\citep{panapitiya2025autolabs}는 습식 실행 또는 하드웨어용 프로토콜을 자동화한다. 이들은 실행 역량의 인접 사례로 인용되며, 이 절에서 그 보고들을 비용·불확실성을 반영한 MFBO 정책의 포괄적 감사 대상으로 삼지는 않는다. 하드웨어 자동화와 충실도 선택은 별개의 동시에 상호 보완적인 공학 문제다.
 
