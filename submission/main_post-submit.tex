@@ -57,7 +57,7 @@ A Component Framework and Theoretical Analysis}}
 \maketitle
 
 \begin{center}
-\fbox{\parbox{0.92\linewidth}{\small
+\parbox{0.92\linewidth}{\small
 \textbf{Post-submission revised manuscript --- not the version of record.}
 This manuscript was refined after the CAISc~2026 submission deadline and is \emph{not}
 the paper that was reviewed and archived. The version of record is the camera-ready
@@ -68,7 +68,7 @@ dated revision alongside it and do not attribute the corrected claim to the arch
 The correction should also be linked from the official record when that repository permits.
 \\[2pt]
 \textbf{Revised:} 2026-07-19; last revised 2026-07-22.
-}}
+}
 \end{center}
 
 
@@ -109,6 +109,7 @@ where $H(\theta)$ is prior entropy over parameters $\theta$ and $H(\theta \mid y
 
 \textbf{Provenance and workflow-run standards.} PROV-DM already defines entities, activities, agents, generation, usage, derivation, revision, and association~\citep{w3cprov2013}. Workflow Run RO-Crate similarly records a workflow plan and run with code and input/output artifacts~\citep{workflowruncrate2023}. Servo does not redefine these base provenance objects. Its artifacts map to PROV entities, events to activities or run actions, producers and consumers to generation and usage, and human or system actors to agents and associations. The added profile is narrower: scientific target properties, validator-reliability records, typed epistemic and control routes, bounded case identity, component-specific authority, and typed functional relations with per-relation evidence claims. Table~\ref{tab:provenance-crosswalk} states this reuse boundary; formal conformance would additionally require an executable serializer and the relevant conformance tests.
 
+{\setlength{\intextsep}{18pt plus 4pt minus 4pt}
 \begin{table}[h]
 \centering
 \scriptsize
@@ -125,7 +126,7 @@ Functional relation/claim & Connected provenance subgraph & Typed source--target
 \end{tabular}
 \caption{Construct-level provenance crosswalk. Servo is a scientific-diagnostic profile over reusable provenance concepts, not a replacement base ontology.}
 \label{tab:provenance-crosswalk}
-\end{table}
+\end{table}}
 
 \begin{table}[h]
 \centering
@@ -511,12 +512,12 @@ The checklist has two parts: a \textbf{Research Stage Assessment} (items 1--4) r
 \item {\bf Experimental result reproducibility}
     \item[] Question: Does the paper fully disclose all information needed to reproduce the main experimental results?
     \item[] Answer: \answerYes{}
-    \item[] Justification: This paper contains no computational experiment, but its main case annotations and per-relation evidence claims depend on the Servo v5 source-first package---the schema, the canonical source-proposition, alignment, and derived-decision-claim records, the policy decomposition, the generated tables, the evidence ledger, and the public regression tests---provided as the supplementary material accompanying this revised manuscript. This revision and its supplement are released as the authoritative v5 identifier \texttt{servo-corrected-v5.2.3} at \url{https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v5.2.3}, whose \texttt{release/EXTERNAL\_PUBLICATION.json} records the asset SHA-256 hashes and the provenance root manifest that binds the source-to-tables-to-PDF lineage. An earlier, checksum-bound release archives the superseded version at \url{https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v4.1.0}; it predates the v5 per-relation reconstruction and is retained only as the prior record, so its closure-predicate artifacts are not the basis of the analysis reported here. The structural artifacts---records, generated tables, and the public regression suite---regenerate deterministically from the package, and a released root manifest (\texttt{servo\_v5\_provenance\_root.json}) binds this lineage---the corpus set, source propositions, alignments, claims, policy, generated tables, the manuscript's input-table hashes and PDF, and the supplement contents---into a single chain whose verifier fails closed when any recorded hash no longer equals its recomputed value, establishing artifact-lineage integrity rather than the semantic correctness of the still-draft judgments; the manuscript PDF is bound as a leaf, so the tables-to-PDF step is a procedural build-time binding rather than a cryptographic derivation. The source-fidelity checks (exact quote, locator, and SHA-256 against the six bounded-source PDFs) require the third-party copyrighted corpus, which is not redistributed, so those checks skip in a public run. \texttt{servo\_v5\_corpus\_manifest.md} lists each source, its recorded SHA-256, and a public acquisition pointer so a reproducer can obtain and verify the corpus before running them.
+    \item[] Justification: This paper contains no computational experiment, but its main case annotations and per-relation evidence claims depend on the Servo v5 source-first package---the schema, the canonical source-proposition, alignment, and derived-decision-claim records, the policy decomposition, the generated tables, the evidence ledger, and the public regression tests---provided as the supplementary material accompanying this revised manuscript. This revision and its supplement are released as the authoritative v5 identifier \texttt{servo-corrected-v5.2.4} at \url{https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v5.2.4}, whose \texttt{release/EXTERNAL\_PUBLICATION.json} records the asset SHA-256 hashes and the provenance root manifest that binds the source-to-tables-to-PDF lineage. An earlier, checksum-bound release archives the superseded version at \url{https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v4.1.0}; it predates the v5 per-relation reconstruction and is retained only as the prior record, so its closure-predicate artifacts are not the basis of the analysis reported here. The structural artifacts---records, generated tables, and the public regression suite---regenerate deterministically from the package, and a released root manifest (\texttt{servo\_v5\_provenance\_root.json}) binds this lineage---the corpus set, source propositions, alignments, claims, policy, generated tables, the manuscript's input-table hashes and PDF, and the supplement contents---into a single chain whose verifier fails closed when any recorded hash no longer equals its recomputed value, establishing artifact-lineage integrity rather than the semantic correctness of the still-draft judgments; the manuscript PDF is bound as a leaf, so the tables-to-PDF step is a procedural build-time binding rather than a cryptographic derivation. The source-fidelity checks (exact quote, locator, and SHA-256 against the six bounded-source PDFs) require the third-party copyrighted corpus, which is not redistributed, so those checks skip in a public run. \texttt{servo\_v5\_corpus\_manifest.md} lists each source, its recorded SHA-256, and a public acquisition pointer so a reproducer can obtain and verify the corpus before running them.
 
 \item {\bf Open access to data and code}
     \item[] Question: Does the paper provide open access to data and code?
     \item[] Answer: \answerYes{}
-    \item[] Justification: The supplementary material binds the v5 source-proposition, author-alignment, derived-decision-claim, and policy records, the generated tables, the contract, the code and regression tests, the corpus manifest, the coverage audit, and the corrected manuscript, released as \texttt{servo-corrected-v5.2.3}. The six bounded-source PDFs are third-party copyrighted works and are not redistributed; \texttt{servo\_v5\_corpus\_manifest.md} documents their SHA-256 hashes and public acquisition pointers.
+    \item[] Justification: The supplementary material binds the v5 source-proposition, author-alignment, derived-decision-claim, and policy records, the generated tables, the contract, the code and regression tests, the corpus manifest, the coverage audit, and the corrected manuscript, released as \texttt{servo-corrected-v5.2.4}. The six bounded-source PDFs are third-party copyrighted works and are not redistributed; \texttt{servo\_v5\_corpus\_manifest.md} documents their SHA-256 hashes and public acquisition pointers.
 
 \item {\bf Experimental setting/details}
     \item[] Question: Does the paper specify all details necessary to understand the results?
