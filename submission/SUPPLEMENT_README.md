@@ -52,7 +52,9 @@ way and matches the project's locked environment. `pdftotext` (part of
 `poppler-utils`) is needed only for the corpus-dependent checks described
 next, not for this command.
 
-A clean run of this command reports **114 passed**.
+The suite has 114 tests. Run from a bare unzip (no corpus present, the
+default case — see below), it reports **111 passed, 3 skipped**. With a
+byte-matching corpus in place it reports **114 passed, 0 skipped**.
 
 ## The corpus caveat
 

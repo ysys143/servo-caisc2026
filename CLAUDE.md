@@ -27,7 +27,7 @@ rm -f submission/servo_caiscfp2026.pdf && cp submission/main.pdf submission/serv
 ### 3. 보충자료 ZIP 재생성
 ```bash
 cd submission
-zip -r caisc2026-servo-supplement.zip analysis/ references.bib -x "*/.cwf/*" "*/.omc/*" "*/.git/*" "analysis/.cwf/*" "analysis/.omc/*" "*/.DS_Store" "analysis/texput.log" "*/__pycache__/*" "*/.pytest_cache/*" "*.pyc"
+zip -r caisc2026-servo-supplement.zip analysis/ references.bib SUPPLEMENT_README.md -x "*/.cwf/*" "*/.omc/*" "*/.git/*" "analysis/.cwf/*" "analysis/.omc/*" "*/.DS_Store" "analysis/texput.log" "*/__pycache__/*" "*/.pytest_cache/*" "*.pyc"
 ```
 
 ## 기타 규칙
