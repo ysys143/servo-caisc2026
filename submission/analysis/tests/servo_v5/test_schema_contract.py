@@ -539,6 +539,19 @@ def test_policy_retired_selection_objective_exploration_is_rejected(tmp_path: Pa
     assert {error.code for error in errors} == {"V5_ENUM_INVALID"}, [str(e) for e in errors]
 
 
+def test_policy_not_reported_selection_objective_validates_clean(tmp_path: Path) -> None:
+    # OD-M6: not_reported is a legal selection_objective value -- used when the
+    # bounded source establishes no uncertainty- or discrimination-DIRECTED
+    # objective (e.g. C05: measurement-power design + confirm/refute capability,
+    # but Adam tests ALL hypotheses, so no experiment is SELECTED). Read
+    # silence/capability as not_reported, never as a directed objective.
+    payload = _valid_policy_payload()
+    payload["selection_objective"] = ["not_reported"]
+    path = _write_policy_file(tmp_path, payload)
+    errors = validate_file(path, "policy")
+    assert errors == [], [str(error) for error in errors]
+
+
 def test_policy_retired_execution_rule_expected_discrimination_is_rejected(tmp_path: Path) -> None:
     # expected_discrimination_selected mixed objective into the execution rule
     # and was deleted; a discrimination OBJECTIVE lives in selection_objective.

@@ -164,7 +164,7 @@ CONTROL_DEPENDENCE = (
 )
 SELECTION_OBJECTIVE = (
     "local_repair", "performance_improvement", "uncertainty_reduction",
-    "hypothesis_model_discrimination", "diversity_directed_selection",
+    "hypothesis_model_discrimination", "diversity_directed_selection", "not_reported",
 )
 GENERATION_SCOPE = ("fixed_space", "search_space_expansion", "candidate_diversification")
 CANDIDATE_SELECTION_RULE = (
@@ -296,13 +296,14 @@ SUGGESTED_POLICY_CAPTION = (
     "design-selection rule names how the experimental design/assay $d$ is chosen -- two "
     "distinct axes, so that testing every hypothesis is not read as evidence about how "
     "the design is selected. The selection-purpose facet (objective) is kept apart from "
-    "all three rules, so no objective is folded into a rule -- e.g. C05 carries "
-    "\\texttt{uncertainty\\_reduction} / \\texttt{hypothesis\\_model\\_discrimination} "
-    "objectives yet an \\texttt{exhaustive} / \\texttt{all\\_selected} candidate rule (it "
-    "tested every hypothesis) and, on the separate design axis, a "
-    "\\texttt{fixed\\_or\\_standard\\_design} / \\texttt{coverage\\_or\\_factorial} design "
-    "(a model-prescribed assay with a Latin-square layout, not a discrimination-directed "
-    "experiment selection), whereas the score-directed cases (C01--C04, C06) are "
+    "all three rules, so no objective is folded into a rule -- e.g. C05, whose candidate "
+    "rule is \\texttt{exhaustive} / \\texttt{all\\_selected} (it tested every hypothesis) "
+    "with a \\texttt{fixed\\_or\\_standard\\_design} / \\texttt{coverage\\_or\\_factorial} "
+    "design on the separate design axis (a model-prescribed assay with a Latin-square "
+    "layout, not a discrimination-directed experiment selection), reports no uncertainty- "
+    "or discrimination-directed selection objective on the bounded source and so is coded "
+    "\\texttt{not\\_reported} on the objective axis (exhaustive testing is no experiment "
+    "selection), whereas the score-directed cases (C01--C04, C06) are "
     "\\texttt{performance\\_improvement} with \\texttt{top\\_k\\_ranked} / "
     "\\texttt{threshold} / \\texttt{sequential\\_choice} candidate selection. No bounded "
     "source reports a \\texttt{discrimination\\_directed}, \\texttt{information\\_directed} "
@@ -698,8 +699,8 @@ def cross_check(claims_by_case: dict[str, list[dict]], relation_counts: dict) ->
         1 for claim in all_claims
         if claim["support_status"] == "supported" and claim["claim_scope"] == "occurrence" and claim["occurrence_resolution"] == "resolved"
     )
-    if occurrence_established_total != 35:
-        raise TableBuildError(f"expected 35 globally (supported, occurrence, resolved) claims, found {occurrence_established_total}")
+    if occurrence_established_total != 34:
+        raise TableBuildError(f"expected 34 globally (supported, occurrence, resolved) claims, found {occurrence_established_total}")
     mode_total = sum(relation_counts["evidence_mode"].values())
     if mode_total != len(all_claims):
         raise TableBuildError(f"evidence-mode total {mode_total} != {len(all_claims)} claims")

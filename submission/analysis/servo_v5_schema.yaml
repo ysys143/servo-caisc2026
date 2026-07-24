@@ -127,7 +127,7 @@ enum_fields:
   derived_claim.alignment_kind: [source_explicit, author_aligned]
   derived_claim.occurrence_resolution: [resolved, unresolved, not_applicable]
   policy.control_dependence: [fixed_or_predefined, failure, score, observation_result, uncertainty, candidate_disagreement, not_reported]
-  policy.selection_objective: [local_repair, performance_improvement, uncertainty_reduction, hypothesis_model_discrimination, diversity_directed_selection]
+  policy.selection_objective: [local_repair, performance_improvement, uncertainty_reduction, hypothesis_model_discrimination, diversity_directed_selection, not_reported]
   policy.generation_scope: [fixed_space, search_space_expansion, candidate_diversification]
   policy.candidate_selection_rule: [fixed, threshold, top_k_ranked, sampled_subset, sequential_choice, exhaustive, not_reported]
   policy.design_selection_rule: [fixed_or_standard_design, discrimination_directed, information_directed, cost_directed, coverage_or_factorial, not_reported]
@@ -146,9 +146,15 @@ enum_fields:
 #     (never read silence as fixed). These are distinct enum values.
 #   - selection_objective is the pi-purpose facet only (local_repair,
 #     performance_improvement, uncertainty_reduction,
-#     hypothesis_model_discrimination, diversity_directed_selection). The old
-#     `performance`/`exploration` labels are retired; `performance` folds into
-#     performance_improvement, `exploration` splits by level (see below).
+#     hypothesis_model_discrimination, diversity_directed_selection), or the
+#     literal not_reported when the bounded source establishes no uncertainty- or
+#     discrimination-DIRECTED selection objective (e.g. C05: a measurement-power
+#     design and a confirm/refute capability are reported, but exhaustive testing
+#     of all hypotheses means no experiment is SELECTED, so no directed objective
+#     is licensed -- read silence/capability as not_reported, never as a directed
+#     objective). The old `performance`/`exploration` labels are retired;
+#     `performance` folds into performance_improvement, `exploration` splits by
+#     level (see below).
 #   - generation_scope is a NEW G/S-level provenance axis (fixed_space /
 #     search_space_expansion / candidate_diversification) that absorbs the
 #     generation-side component of the retired `exploration`; it is NOT a

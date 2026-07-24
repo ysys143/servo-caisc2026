@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
 from pathlib import Path
 
@@ -22,10 +23,20 @@ REAL_ANALYSIS_DIR = REPOSITORY / "analysis"
 REAL_C01 = REAL_ANALYSIS_DIR / "servo_v5_source_propositions" / "C01.json"
 
 # The real corpus (a sibling repository, not part of this git tree) is only
-# present on machines that have it checked out next to CAISc_2026. Tests
-# that need to read the actual PDF skip gracefully everywhere else, per the
-# T2 task's explicit instruction, so CI without the private corpus still runs.
-CORPUS_ROOT = REPOSITORY.parent.parent / "ai_scientist"
+# present on machines that have it checked out next to CAISc_2026. Set
+# SERVO_V5_CORPUS_ROOT to point at it explicitly (e.g. when running from an
+# unzipped supplement, which has no fixed position relative to the corpus);
+# without it, this falls back to the CAISc_2026-relative default. Tests that
+# need to read the actual PDF skip gracefully when neither resolves to a
+# real corpus, per the T2 task's explicit instruction, so CI without the
+# private corpus still runs -- but note that a skip is not a pass: a green
+# run without SERVO_V5_CORPUS_ROOT (or the default sibling checkout) has not
+# verified source fidelity.
+CORPUS_ROOT = (
+    Path(os.environ["SERVO_V5_CORPUS_ROOT"])
+    if os.environ.get("SERVO_V5_CORPUS_ROOT")
+    else REPOSITORY.parent.parent / "ai_scientist"
+)
 BOIKO_PDF = (
     CORPUS_ROOT
     / "1_AI_Scientist_Core"

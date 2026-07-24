@@ -721,9 +721,9 @@
       "relation_type": "updates",
       "target_role": "inquiry_state",
       "temporal_scope": "cross_step",
-      "notes_verbatim": "confirming the correctness of 12 of the 20 hypotheses resolves which gene-function hypotheses hold; the stated single-event occurrence licenses this one cross-step feedback edge (observation != evaluation preserved)",
+      "notes_verbatim": "C05-P22 states a single_event confirmation of 12 of 20 gene-function hypotheses (a per-step evaluation of candidates), but the bounded source does NOT report that this confirmation feeds a LATER inquiry step; the cross_step feedback edge (evaluation updates inquiry_state) is structurally inferred, not stated -> structurally_inferred=true. Per charter B.3 an inferred occurrence cannot supply a positive occurrence witness, so the derived claim is occurrence_resolution=unresolved (observation != evaluation preserved)",
       "proposition_tags": [
-        {"proposition_id": "C05-P22", "occurrence_class": "single_event", "structurally_inferred": false, "polarity": "neutral"}
+        {"proposition_id": "C05-P22", "occurrence_class": "single_event", "structurally_inferred": true, "polarity": "neutral"}
       ]
     },
     {

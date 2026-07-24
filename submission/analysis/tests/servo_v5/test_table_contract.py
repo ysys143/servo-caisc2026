@@ -78,13 +78,21 @@ def test_policy_has_no_explicit_bed_or_generation_scope_column(data) -> None:
         assert forbidden not in header, f"Table A header must not contain a {forbidden} column"
 
 
-def test_policy_c05_keeps_objective_separate_from_rules(data) -> None:
+def test_policy_c05_objective_downgraded_to_not_reported(data) -> None:
+    # OD-M6: the bounded sparkes2010 C05 source establishes a measurement-power
+    # design and a confirm/refute capability but reports no uncertainty- or
+    # discrimination-DIRECTED selection objective (Adam tests ALL hypotheses --
+    # exhaustive testing is no experiment selection), so selection_objective is
+    # downgraded to not_reported. The objective axis stays SEPARATE from the
+    # candidate rules, which remain exhaustive / all_selected.
     _claims, _alignments, policy = data
+    assert policy["C05"]["selection_objective"] == ["not_reported"]
     body = build_policy_table(policy)
     c05_row = next(line for line in body.splitlines() if line.startswith("C05 &"))
-    # objective facets present
-    assert "uncertainty\\_reduction" in c05_row
-    assert "hypothesis\\_model\\_discrimination" in c05_row
+    assert "not\\_reported" in c05_row
+    # the earlier over-attributed objectives are gone
+    assert "uncertainty\\_reduction" not in c05_row
+    assert "hypothesis\\_model\\_discrimination" not in c05_row
     # candidate rules are exhaustive / all_selected, NOT a performance objective
     assert "exhaustive" in c05_row
     assert "all\\_selected" in c05_row
@@ -265,7 +273,10 @@ def test_cross_check_corpus_totals(data) -> None:
     _body, relation_counts = build_relations_table(claims, alignments)
     result = cross_check(claims, relation_counts)
     assert result["claims_total"] == 240
-    assert result["claims_occurrence_established_global"] == 35
+    # OD-B1: C05-A64's cross-step feedback occurrence is structurally inferred, so
+    # its claim (C05-D24) is occurrence_resolution=unresolved and no longer counts;
+    # the global (supported, occurrence, resolved) total drops 35 -> 34.
+    assert result["claims_occurrence_established_global"] == 34
     # formal epistemic-utility is not_reported for every case (footnote, not a column)
     assert all(
         policy[case_id]["formal_epistemic_utility_evidence"].strip().lower() == "not_reported"

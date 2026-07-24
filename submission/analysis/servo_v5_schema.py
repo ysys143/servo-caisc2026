@@ -446,7 +446,12 @@ def _check_policy_record(
     # chosen), design_selection_rule (how the experimental design/assay d is
     # chosen -- the BED-central axis added for reviewer Item 2) and
     # candidate_execution_rule (how the chosen candidates are run) are kept as
-    # separate axes on purpose, with no objective in any of them. selection_signal
+    # separate axes on purpose, with no objective in any of them. The
+    # selection_objective enum (declared in servo_v5_schema.yaml and read here via
+    # load_contract) admits the literal not_reported when the bounded source
+    # establishes no uncertainty- or discrimination-DIRECTED objective -- exhaustive
+    # testing of all candidates is no experiment SELECTION, so no directed objective
+    # is licensed (e.g. C05). selection_signal
     # is a non-empty free-string list (concrete signal names);
     # formal_epistemic_utility_evidence is a non-empty string (an evidence citation
     # or the literal "not_reported"). The retired

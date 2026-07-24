@@ -191,7 +191,7 @@ C05,C05-D20,evaluation --evaluates--> candidate,unresolved,architecture,unresolv
 C05,C05-D21,generation --produces--> candidate,supported,occurrence,resolved,occurrence,source_explicit
 C05,C05-D22,action --produces--> execution,supported,occurrence,resolved,occurrence,source_explicit
 C05,C05-D23,evaluation --evaluates--> candidate,supported,occurrence,resolved,occurrence,source_explicit
-C05,C05-D24,evaluation --updates--> inquiry_state,supported,occurrence,resolved,occurrence,author_aligned
+C05,C05-D24,evaluation --updates--> inquiry_state,unresolved,occurrence,unresolved,occurrence,author_aligned
 C05,C05-D25,evaluation --evaluates--> candidate,supported,occurrence,resolved,occurrence,author_aligned
 C05,C05-D26,external --evaluates--> candidate,supported,occurrence,resolved,occurrence,author_aligned
 C05,C05-D27,external --conditions--> candidate,supported,procedure,not_applicable,procedure,author_aligned

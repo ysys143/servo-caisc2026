@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
 from pathlib import Path
 
@@ -19,7 +20,14 @@ from analysis.servo_v5_verify import verify_root
 
 REPOSITORY = Path(__file__).resolve().parents[3]
 REAL_ANALYSIS_DIR = REPOSITORY / "analysis"
-CORPUS_ROOT = REPOSITORY.parent.parent / "ai_scientist"
+# See test_verify_contract.py for why this is overridable: SERVO_V5_CORPUS_ROOT
+# lets an unzipped supplement point at the corpus explicitly; without it, a
+# skip here is not a pass -- source fidelity was not checked.
+CORPUS_ROOT = (
+    Path(os.environ["SERVO_V5_CORPUS_ROOT"])
+    if os.environ.get("SERVO_V5_CORPUS_ROOT")
+    else REPOSITORY.parent.parent / "ai_scientist"
+)
 SOURCE_DIRNAME = "servo_v5_source_propositions"
 
 requires_corpus = pytest.mark.skipif(

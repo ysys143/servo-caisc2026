@@ -11,6 +11,13 @@ verification procedure in detail — lives in [`analysis/README.md`](./analysis/
 Read this file first to run the tests; read `analysis/README.md` for
 everything else.
 
+The `author_alignment`/`derived_claim`/`policy` judgments in this package
+are `status: draft` and are not machine-gated to a more final state; the
+project's own charter conditions for them (independent blind review, a
+third adversarial pass, a FunSearch replay worked case) are not yet met.
+See [`analysis/README.md`](./analysis/README.md#status-of-the-judgments-in-this-package)
+for detail — treat the released judgments as formative.
+
 ## Layout at a glance
 
 ```
@@ -52,9 +59,13 @@ way and matches the project's locked environment. `pdftotext` (part of
 `poppler-utils`) is needed only for the corpus-dependent checks described
 next, not for this command.
 
-The suite has 114 tests. Run from a bare unzip (no corpus present, the
-default case — see below), it reports **111 passed, 3 skipped**. With a
-byte-matching corpus in place it reports **114 passed, 0 skipped**.
+As observed on 2026-07-24, the suite has 118 tests. Without a resolvable
+corpus (the default case — see below), it reports **115 passed, 3
+skipped**. With `SERVO_V5_CORPUS_ROOT` pointed at a byte-matching corpus it
+reports **118 passed, 0 skipped**. These counts are corpus- and
+version-sensitive (the underlying case records are still under revision) —
+treat them as an observed snapshot, not a pinned contract, and check the
+pass/skip split yourself rather than assuming an exact total.
 
 ## The corpus caveat
 
@@ -66,10 +77,26 @@ A subset of tests — `test_verify_contract.py` and
 `test_source_freeze_contract.py` — additionally check that each recorded
 `exact_quote` really appears on its stated `pdf_page` inside the real source
 PDF, and that the PDF's SHA-256 matches the frozen value. These
-corpus-dependent checks require the six source PDFs at a sibling directory
-`../ai_scientist/` (i.e., next to, not inside, the unzipped package) plus
-`pdftotext` on `PATH`. Without both, they **skip** rather than fail or
-error, so "114 passed" alone does not mean source fidelity was checked.
+corpus-dependent checks require the six source PDFs, plus `pdftotext` on
+`PATH`. Point the tests at your corpus by setting the
+**`SERVO_V5_CORPUS_ROOT`** environment variable to the directory containing
+`1_AI_Scientist_Core/...`, e.g.:
+
+```sh
+export SERVO_V5_CORPUS_ROOT=/path/to/ai_scientist
+python -m pytest analysis/tests/servo_v5 -q
+```
+
+Set this explicitly — do not rely on placing the corpus at a fixed relative
+location next to the unzipped package. The tests fall back to a
+repository-relative default (`../ai_scientist/` two directories above
+`analysis/`) that only resolves correctly inside a full `CAISc_2026` git
+checkout; it resolves to the wrong location for a standalone unzip like this
+one, so a bare relative placement will silently skip the corpus-dependent
+tests. Without `SERVO_V5_CORPUS_ROOT` (or a correctly resolving fallback),
+these checks **skip** rather than fail or error — **a skip is not a pass**:
+"118 passed" alone does not mean source fidelity was checked. Confirm the
+run reports 0 skipped.
 
 To run the corpus-dependent checks, see
 [`analysis/servo_v5_corpus_manifest.md`](./analysis/servo_v5_corpus_manifest.md)

@@ -328,17 +328,17 @@
     },
     {
       "claim_id": "C05-D24",
-      "support_status": "supported",
+      "support_status": "unresolved",
       "claim_scope": "occurrence",
       "alignment_kind": "author_aligned",
-      "occurrence_resolution": "resolved",
+      "occurrence_resolution": "unresolved",
       "used_alignment_ids": [
         "C05-A64"
       ],
       "used_proposition_ids": [
         "C05-P22"
       ],
-      "rationale": "driver=C05-P22 occurrence_class=single_event modality=directly_reported: single_event with structurally_inferred=false is a real occurrence witness (charter B.3) -> claim_scope=occurrence, support_status=supported, occurrence_resolution=resolved."
+      "rationale": "driver=C05-P22 occurrence_class=single_event modality=directly_reported: single_event but structurally_inferred=true (inferred occurrence cannot witness, charter B.3) -> claim_scope=occurrence, support_status=unresolved, occurrence_resolution=unresolved."
     },
     {
       "claim_id": "C05-D25",
