@@ -16,12 +16,20 @@ scope_statement: >-
   file, no id, no record list) and decomposes each case's experiment-selection
   policy into the schema-v3 BED-lens axes of charter B.4 / contract section B
   (control_dependence / selection_signal / selection_objective /
-  generation_scope / candidate_selection_rule / candidate_execution_rule /
-  formal_epistemic_utility_evidence); it carries no explicit_bed compliance
-  label. selection_objective (the pi-purpose facet) never mixes with the two
-  candidate-handling rules: candidate_selection_rule names which candidates are
-  chosen, candidate_execution_rule names how the chosen candidates are run, and
-  neither carries an objective. generation_scope is a G/S-level provenance axis
+  generation_scope / candidate_selection_rule / design_selection_rule /
+  candidate_execution_rule / formal_epistemic_utility_evidence); it carries no
+  explicit_bed compliance label. The action is a=(h,d,P,f) (charter B.4 /
+  Framework): candidate h, experimental design d, protocol P, fidelity f.
+  candidate_selection_rule names which candidate hypotheses h are chosen and
+  design_selection_rule names how the experimental design/assay d is chosen --
+  two SEPARATE selection axes (reviewer Item 2): choosing which h to test is not
+  the same act as choosing the design d that best discriminates hypotheses or
+  reduces uncertainty under a cost (the BED-central design axis).
+  selection_objective (the pi-purpose facet) never mixes with any of the three
+  rule axes: candidate_selection_rule names which candidates are chosen,
+  design_selection_rule names how the experimental design is chosen,
+  candidate_execution_rule names how the chosen candidates are run, and none
+  carries an objective. generation_scope is a G/S-level provenance axis
   (not a Table-A column). Consumed by servo_v5_schema.py through a small hand-rolled line
   parser -- this file is not general YAML and must keep the exact section
   markers below.
@@ -36,13 +44,13 @@ envelope_fields:
   source_proposition: [schema, schema_doc, status, coverage_status, case_id, system, citation_key, source_pdf_name, source_pdf_sha256, coverage_note, propositions]
   author_alignment: [schema, schema_doc, status, case_id, alignments]
   derived_claim: [schema, schema_doc, status, case_id, claims]
-  policy: [schema, schema_doc, status, case_id, control_dependence, selection_signal, selection_objective, generation_scope, candidate_selection_rule, candidate_execution_rule, formal_epistemic_utility_evidence, rationale]
+  policy: [schema, schema_doc, status, case_id, control_dependence, selection_signal, selection_objective, generation_scope, candidate_selection_rule, design_selection_rule, candidate_execution_rule, formal_epistemic_utility_evidence, rationale]
 
 required_envelope_fields:
   source_proposition: [schema, schema_doc, status, coverage_status, case_id, system, citation_key, source_pdf_name, source_pdf_sha256, coverage_note, propositions]
   author_alignment: [schema, schema_doc, status, case_id, alignments]
   derived_claim: [schema, schema_doc, status, case_id, claims]
-  policy: [schema, status, case_id, control_dependence, selection_signal, selection_objective, generation_scope, candidate_selection_rule, candidate_execution_rule, formal_epistemic_utility_evidence, rationale]
+  policy: [schema, status, case_id, control_dependence, selection_signal, selection_objective, generation_scope, candidate_selection_rule, design_selection_rule, candidate_execution_rule, formal_epistemic_utility_evidence, rationale]
 
 record_fields:
   source_proposition: [proposition_id, locator, exact_quote, modality, named_actors, named_inputs, named_outputs, source_context_note]
@@ -122,16 +130,17 @@ enum_fields:
   policy.selection_objective: [local_repair, performance_improvement, uncertainty_reduction, hypothesis_model_discrimination, diversity_directed_selection]
   policy.generation_scope: [fixed_space, search_space_expansion, candidate_diversification]
   policy.candidate_selection_rule: [fixed, threshold, top_k_ranked, sampled_subset, sequential_choice, exhaustive, not_reported]
+  policy.design_selection_rule: [fixed_or_standard_design, discrimination_directed, information_directed, cost_directed, coverage_or_factorial, not_reported]
   policy.candidate_execution_rule: [all_selected, one_at_a_time, batch, until_success, until_budget, source_unreported]
 
 # policy (charter B.4, schema-v3 re-derivation per contract section B,
 # 2026-07-23): BED is an analytic decomposition lens, NOT a compliance label.
 # The policy record decomposes each case's experiment-selection policy into
-# seven axes instead of scoring an explicit_bed mechanism. Five are enum-valued
+# eight axes instead of scoring an explicit_bed mechanism. Six are enum-valued
 # non-empty lists (enum_fields above, validated by _check_policy_record):
 # control_dependence, selection_objective, generation_scope,
-# candidate_selection_rule and candidate_execution_rule. Design rules of the v3
-# re-derivation:
+# candidate_selection_rule, design_selection_rule and candidate_execution_rule.
+# Design rules of the v3 re-derivation:
 #   - control_dependence retired the old `none`. Outcome-independence that the
 #     source CONFIRMS is `fixed_or_predefined`; source silence is `not_reported`
 #     (never read silence as fixed). These are distinct enum values.
@@ -144,11 +153,33 @@ enum_fields:
 #     search_space_expansion / candidate_diversification) that absorbs the
 #     generation-side component of the retired `exploration`; it is NOT a
 #     Table-A column and build_servo_v5_tables.py does not render it.
-#   - candidate_selection_rule (NEW) = which candidates are chosen; separated on
-#     purpose from candidate_execution_rule = how the chosen candidates are run.
-#     The retired `expected_discrimination_selected` (which mixed objective into
-#     the rule) is deleted: a discrimination OBJECTIVE lives in
-#     selection_objective, never in either rule.
+#   - candidate_selection_rule (NEW) = which candidate hypotheses h are chosen;
+#     separated on purpose from candidate_execution_rule = how the chosen
+#     candidates are run. The retired `expected_discrimination_selected` (which
+#     mixed objective into the rule) is deleted: a discrimination OBJECTIVE lives
+#     in selection_objective, never in any rule.
+#   - design_selection_rule (NEW, reviewer Item 2) = how the experimental
+#     design/assay d is chosen, a SEPARATE axis from candidate_selection_rule.
+#     The action is a=(h,d,P,f): choosing which candidate h to test is a distinct
+#     act from choosing the design d that best discriminates hypotheses or reduces
+#     uncertainty under a cost -- the BED-central "select the design" axis that the
+#     seven-axis version did not code. Values: fixed_or_standard_design (a fixed or
+#     standard assay/template applied uniformly, not selected among competing
+#     designs) / discrimination_directed (design chosen to best discriminate
+#     competing hypotheses/models) / information_directed (design chosen to
+#     maximize expected information gain / reduce posterior uncertainty) /
+#     cost_directed (design chosen to minimize experimental cost under a
+#     discrimination/coverage constraint) / coverage_or_factorial (design chosen to
+#     cover a factor space: factorial/blocked/Latin-square/grid/ablation sweep) /
+#     not_reported (bounded source does not report how the design is chosen). A
+#     "tested all hypotheses" fact (candidate_execution_rule=all_selected) is NOT
+#     evidence about this axis: exhaustive candidate execution says nothing about
+#     whether the experimental DESIGN is chosen by expected discrimination. The
+#     bounded corpus reports no discrimination_directed / information_directed /
+#     cost_directed design (a corpus-level observation, not a per-case verdict);
+#     C05's Latin-square is coverage_or_factorial and the model-prescribed assay is
+#     fixed_or_standard_design (the discrimination-directed experiment selection of
+#     king 2004 is CITED BACKGROUND, not in the frozen sparkes 2010 C05 source).
 # selection_signal is a non-empty free-string list (the concrete signal names;
 # may overlap control_dependence but names something more specific, and a signal
 # that is reported yet not used for selection stays here while

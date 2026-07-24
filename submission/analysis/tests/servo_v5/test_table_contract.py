@@ -52,7 +52,7 @@ def _header_line(tabular: str) -> str:
     return lines[top + 1]
 
 
-def test_policy_has_exactly_the_six_contract_columns(data) -> None:
+def test_policy_has_exactly_the_seven_contract_columns(data) -> None:
     _claims, _alignments, policy = data
     body = build_policy_table(policy)
     header = _header_line(body)
@@ -62,11 +62,13 @@ def test_policy_has_exactly_the_six_contract_columns(data) -> None:
         "Follow-up (control) dependence",
         "Selection-purpose facets",
         "Candidate-selection rule",
+        "Design-selection rule",
         "Candidate-execution rule",
     ):
         assert column in header, f"missing Table A column: {column}"
-    # header has exactly six columns (five &-separators)
-    assert header.count("&") == 5
+    # header has exactly seven columns (six &-separators): the design-selection
+    # rule (reviewer Item 2) is a column separate from candidate-selection rule.
+    assert header.count("&") == 6
 
 
 def test_policy_has_no_explicit_bed_or_generation_scope_column(data) -> None:

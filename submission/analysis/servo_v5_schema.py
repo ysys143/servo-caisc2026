@@ -437,16 +437,19 @@ def _check_policy_record(
     payload: dict, case_id: str, contract: SchemaContract
 ) -> list[ValidationError]:
     # charter B.4 (schema-v3 re-derivation, contract section B, 2026-07-23): the
-    # policy record is a seven-axis BED-lens decomposition of the case's
-    # experiment-selection policy, not an explicit_bed compliance score. Five
+    # policy record is an eight-axis BED-lens decomposition of the case's
+    # experiment-selection policy, not an explicit_bed compliance score. Six
     # axes are enum-valued non-empty lists -- control_dependence,
-    # selection_objective, generation_scope, candidate_selection_rule and
-    # candidate_execution_rule (candidate_selection_rule and
-    # candidate_execution_rule are kept as separate axes on purpose: which
-    # candidates are chosen vs. how the chosen candidates are run, with no
-    # objective in either). selection_signal is a non-empty free-string list
-    # (concrete signal names); formal_epistemic_utility_evidence is a non-empty
-    # string (an evidence citation or the literal "not_reported"). The retired
+    # selection_objective, generation_scope, candidate_selection_rule,
+    # design_selection_rule and candidate_execution_rule. The action is
+    # a=(h,d,P,f): candidate_selection_rule (which candidate hypotheses h are
+    # chosen), design_selection_rule (how the experimental design/assay d is
+    # chosen -- the BED-central axis added for reviewer Item 2) and
+    # candidate_execution_rule (how the chosen candidates are run) are kept as
+    # separate axes on purpose, with no objective in any of them. selection_signal
+    # is a non-empty free-string list (concrete signal names);
+    # formal_epistemic_utility_evidence is a non-empty string (an evidence citation
+    # or the literal "not_reported"). The retired
     # V5_POLICY_EXPLICIT_BED_EVIDENCE_MISSING conditional rule is gone with the
     # compliance model.
     errors = _check_enum_list(payload, "control_dependence", "policy", case_id, "", contract)
@@ -454,6 +457,7 @@ def _check_policy_record(
     errors += _check_enum_list(payload, "selection_objective", "policy", case_id, "", contract)
     errors += _check_enum_list(payload, "generation_scope", "policy", case_id, "", contract)
     errors += _check_enum_list(payload, "candidate_selection_rule", "policy", case_id, "", contract)
+    errors += _check_enum_list(payload, "design_selection_rule", "policy", case_id, "", contract)
     errors += _check_enum_list(payload, "candidate_execution_rule", "policy", case_id, "", contract)
     errors += _check_nonempty_string(payload, "formal_epistemic_utility_evidence", "policy", case_id, "")
     return errors

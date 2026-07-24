@@ -8,8 +8,11 @@ three tables that replace the retired closure status matrix (Table 2):
 
 - Table A -- Policy (per case; servo_v5_policy). Columns: Case | Selection
   signal | Follow-up (control) dependence | Selection-purpose facets |
-  Candidate-selection rule | Candidate-execution rule. One row per case, each
-  cell listing the enum values present in the bounded source. generation_scope
+  Candidate-selection rule | Design-selection rule | Candidate-execution rule.
+  One row per case, each cell listing the enum values present in the bounded
+  source. Candidate-selection rule (which candidate hypotheses h are chosen) and
+  Design-selection rule (how the experimental design/assay d is chosen -- the
+  BED-central axis added for reviewer Item 2) are SEPARATE columns. generation_scope
   is NOT a column (it is a G/S-level provenance axis) and there is no
   explicit_bed / BED-yes-no column. formal_epistemic_utility_evidence is a
   corpus-level footnote, never a per-case column.
@@ -168,19 +171,27 @@ CANDIDATE_SELECTION_RULE = (
     "fixed", "threshold", "top_k_ranked", "sampled_subset",
     "sequential_choice", "exhaustive", "not_reported",
 )
+DESIGN_SELECTION_RULE = (
+    "fixed_or_standard_design", "discrimination_directed", "information_directed",
+    "cost_directed", "coverage_or_factorial", "not_reported",
+)
 CANDIDATE_EXECUTION_RULE = (
     "all_selected", "one_at_a_time", "batch", "until_success",
     "until_budget", "source_unreported",
 )
 
 # Table A columns, in the contract section-C order. selection_signal is
-# free-text; the other four are enum-valued lists. generation_scope and
-# formal_epistemic_utility_evidence are deliberately NOT columns.
+# free-text; the other five are enum-valued lists. design_selection_rule (how
+# the experimental design/assay d is chosen) is the BED-central axis added for
+# reviewer Item 2, kept separate from candidate_selection_rule (which candidate
+# hypotheses h are chosen). generation_scope and formal_epistemic_utility_evidence
+# are deliberately NOT columns.
 POLICY_COLUMNS = (
     ("selection_signal", "Selection signal", None),
     ("control_dependence", "Follow-up (control) dependence", CONTROL_DEPENDENCE),
     ("selection_objective", "Selection-purpose facets", SELECTION_OBJECTIVE),
     ("candidate_selection_rule", "Candidate-selection rule", CANDIDATE_SELECTION_RULE),
+    ("design_selection_rule", "Design-selection rule", DESIGN_SELECTION_RULE),
     ("candidate_execution_rule", "Candidate-execution rule", CANDIDATE_EXECUTION_RULE),
 )
 
@@ -200,20 +211,23 @@ def order_by(values, ordering) -> list[str]:
 
 
 def build_policy_table(policy_by_case: dict[str, dict]) -> str:
-    # Six columns hold long unbreakable \texttt enum tokens (e.g.
-    # hypothesis_model_discrimination). The manuscript wraps this float as a
-    # sidewaystable for extra width; on top of that, each p{} column is
-    # \raggedright and, inside a scoped \begingroup, `\_` is made a permissible
-    # line-break point so the long tokens wrap INSIDE their cell instead of
-    # overflowing into (and physically overlapping) the neighbouring column.
+    # Seven columns hold long unbreakable \texttt enum tokens (e.g.
+    # hypothesis_model_discrimination, fixed_or_standard_design). The manuscript
+    # wraps this float as a sidewaystable for extra width; on top of that, each
+    # p{} column is \raggedright and, inside a scoped \begingroup, `\_` is made a
+    # permissible line-break point so the long tokens wrap INSIDE their cell
+    # instead of overflowing into (and physically overlapping) the neighbouring
+    # column. The added design-selection column (reviewer Item 2) tightens the
+    # per-column widths so the six p{} data columns still sum below \linewidth.
     rag = r">{\raggedright\arraybackslash}"
     columns = (
         r"l "
-        + rag + r"p{0.22\linewidth} "
-        + rag + r"p{0.16\linewidth} "
-        + rag + r"p{0.20\linewidth} "
-        + rag + r"p{0.15\linewidth} "
-        + rag + r"p{0.15\linewidth}"
+        + rag + r"p{0.19\linewidth} "
+        + rag + r"p{0.14\linewidth} "
+        + rag + r"p{0.17\linewidth} "
+        + rag + r"p{0.13\linewidth} "
+        + rag + r"p{0.14\linewidth} "
+        + rag + r"p{0.13\linewidth}"
     )
     header = ["Case"] + [label for _key, label, _enum in POLICY_COLUMNS]
     lines = [
@@ -246,11 +260,20 @@ def build_policy_table(policy_by_case: dict[str, dict]) -> str:
         r"(charter B.4 / contract section B); an analytic decomposition, not a compliance label.",
         r"Each cell lists the enum values the bounded source reports for that axis; a multi-valued",
         r"axis is a set, not an ordering. The selection-purpose facets (the objective) are kept",
-        r"separate from the candidate-selection and candidate-execution rules, so no objective is",
-        r"folded into a rule. Two policy axes are recorded in the source data but are not columns",
-        r"here: \emph{generation scope} (\texttt{fixed\_space} / \texttt{search\_space\_expansion} /",
-        r"\texttt{candidate\_diversification}) is a G/S-level provenance axis, and \emph{formal",
-        r"epistemic-utility evidence} is \texttt{not\_reported} for all six cases.",
+        r"separate from the candidate-selection, design-selection and candidate-execution rules, so",
+        r"no objective is folded into a rule. The \emph{candidate-selection rule} (which candidate",
+        r"hypotheses $h$ are chosen) and the \emph{design-selection rule} (how the experimental",
+        r"design/assay $d$ is chosen) are separate axes -- the BED-central act of selecting the",
+        r"design $d$ that best discriminates hypotheses under a cost is distinct from choosing which",
+        r"$h$ to test, so an exhaustive candidate rule (e.g. C05 tests every hypothesis) is not",
+        r"evidence about how $d$ is selected. No bounded source reports a \texttt{discrimination\_directed},",
+        r"\texttt{information\_directed} or \texttt{cost\_directed} design; the reported designs are",
+        r"\texttt{fixed\_or\_standard\_design} or \texttt{coverage\_or\_factorial} (a corpus-level",
+        r"observation, not a per-case verdict). Two policy axes are recorded in the source data but",
+        r"are not columns here: \emph{generation scope} (\texttt{fixed\_space} /",
+        r"\texttt{search\_space\_expansion} / \texttt{candidate\_diversification}) is a G/S-level",
+        r"provenance axis, and \emph{formal epistemic-utility evidence} is \texttt{not\_reported} for",
+        r"all six cases.",
         # footnote (i), verbatim from contract section C
         r"\emph{Formal epistemic-utility evidence.} None of the bounded sources reports an explicit",
         r"posterior or expected-information-gain criterion; this is a corpus-level reporting",
@@ -262,18 +285,26 @@ def build_policy_table(policy_by_case: dict[str, dict]) -> str:
 SUGGESTED_POLICY_CAPTION = (
     "Policy decomposition (Table A), a schema-v3 BED-lens reading of each case's "
     "experiment-selection policy (charter B.4 / contract section B). Columns are the "
-    "selection signal (free text) and four enum axes: the follow-up (control) "
-    "dependence, the selection-purpose facets, and the separate candidate-selection "
-    "and candidate-execution rules. The selection-purpose facet (objective) is kept "
-    "apart from both candidate rules, so no objective is folded into a rule -- e.g. "
-    "C05 carries \\texttt{uncertainty\\_reduction} / "
-    "\\texttt{hypothesis\\_model\\_discrimination} objectives yet "
-    "\\texttt{exhaustive} / \\texttt{all\\_selected} candidate rules (it tested every "
-    "hypothesis, not an expected-discrimination down-selection), whereas the "
-    "score-directed cases (C01--C04, C06) are \\texttt{performance\\_improvement} with "
-    "\\texttt{top\\_k\\_ranked} / \\texttt{threshold} / \\texttt{sequential\\_choice} "
-    "selection. generation\\_scope is not shown (a provenance axis) and formal "
-    "epistemic-utility evidence is \\texttt{not\\_reported} for all six cases (footnote)."
+    "selection signal (free text) and five enum axes: the follow-up (control) "
+    "dependence, the selection-purpose facets, and the separate candidate-selection, "
+    "design-selection and candidate-execution rules. The action is $a=(h,d,P,f)$: the "
+    "candidate-selection rule names which candidate hypotheses $h$ are chosen and the "
+    "design-selection rule names how the experimental design/assay $d$ is chosen -- two "
+    "distinct axes, so that testing every hypothesis is not read as evidence about how "
+    "the design is selected. The selection-purpose facet (objective) is kept apart from "
+    "all three rules, so no objective is folded into a rule -- e.g. C05 carries "
+    "\\texttt{uncertainty\\_reduction} / \\texttt{hypothesis\\_model\\_discrimination} "
+    "objectives yet an \\texttt{exhaustive} / \\texttt{all\\_selected} candidate rule (it "
+    "tested every hypothesis) and, on the separate design axis, a "
+    "\\texttt{fixed\\_or\\_standard\\_design} / \\texttt{coverage\\_or\\_factorial} design "
+    "(a model-prescribed assay with a Latin-square layout, not a discrimination-directed "
+    "experiment selection), whereas the score-directed cases (C01--C04, C06) are "
+    "\\texttt{performance\\_improvement} with \\texttt{top\\_k\\_ranked} / "
+    "\\texttt{threshold} / \\texttt{sequential\\_choice} candidate selection. No bounded "
+    "source reports a \\texttt{discrimination\\_directed}, \\texttt{information\\_directed} "
+    "or \\texttt{cost\\_directed} design (a corpus-level observation). generation\\_scope is "
+    "not shown (a provenance axis) and formal epistemic-utility evidence is "
+    "\\texttt{not\\_reported} for all six cases (footnote)."
 )
 
 
@@ -617,6 +648,7 @@ POLICY_ENUMS = {
     "selection_objective": SELECTION_OBJECTIVE,
     "generation_scope": GENERATION_SCOPE,
     "candidate_selection_rule": CANDIDATE_SELECTION_RULE,
+    "design_selection_rule": DESIGN_SELECTION_RULE,
     "candidate_execution_rule": CANDIDATE_EXECUTION_RULE,
 }
 
