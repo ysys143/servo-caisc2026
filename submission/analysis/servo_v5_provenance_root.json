@@ -5,13 +5,13 @@
     "source_set_sha256": "e4d62f41f433885bda5bf15698339aab2545e0b45a9156f37e1abc04d332a07b"
   },
   "evidence": {
-    "evidence_manifest_sha256": "246d0fb9df307c0491fe556387eb2c5f5454379bbb8784cfd5a8e2cf0b41b053",
-    "generator_sha256": "e1ae419eabc3eda42c09345040b29699778b1bcc768ea8a0bf3100527c5f2934",
+    "evidence_manifest_sha256": "85d75ac1b4b62db13f274cd446b671fad7a4b978ca62b8516748e1cbad6a8978",
+    "generator_sha256": "e20fe88e58d2f18bbccd01deb7ad9c3a7223d053df91e72f541ab6452b297495",
     "outputs": {
       "servo_v5_claims_projection.csv": "2ed52472080ef5750af0101aac7af5d3f72476369f3dfb848b55d885fe5eb823",
-      "tbl-servo-v5-boundary.tex": "1de2155750ddea6f7af1aa007b78368860555ab1190a03861b152d91d196617d",
-      "tbl-servo-v5-policy.tex": "b0f61123b30d3a8f35088086b76180133e73ff5a02ab682e2134bd4c62123d3c",
-      "tbl-servo-v5-relations.tex": "7999bac4f4272e2cfbe050b07935724fbddc436ba25daa129f1fe144f4c01bf1"
+      "tbl-servo-v5-boundary.tex": "83047b85f36cd96b92792e7fb0ae5ba4efd6441c40365c073bd2b77ece5f192f",
+      "tbl-servo-v5-policy.tex": "575da7fd617a28fc0681ea95f14e6a5014547b0a55ae30bed56aeae2226ba16e",
+      "tbl-servo-v5-relations.tex": "cb7dc2131018119c6b5b295adf018fd54ac2f3b8fdf5f14bc5e60e509d76f250"
     }
   },
   "interpretation": {
@@ -42,19 +42,19 @@
   },
   "manuscript": {
     "input_tables": {
-      "tbl-servo-v5-boundary.tex": "1de2155750ddea6f7af1aa007b78368860555ab1190a03861b152d91d196617d",
-      "tbl-servo-v5-policy.tex": "b0f61123b30d3a8f35088086b76180133e73ff5a02ab682e2134bd4c62123d3c",
-      "tbl-servo-v5-relations.tex": "7999bac4f4272e2cfbe050b07935724fbddc436ba25daa129f1fe144f4c01bf1"
+      "tbl-servo-v5-boundary.tex": "83047b85f36cd96b92792e7fb0ae5ba4efd6441c40365c073bd2b77ece5f192f",
+      "tbl-servo-v5-policy.tex": "575da7fd617a28fc0681ea95f14e6a5014547b0a55ae30bed56aeae2226ba16e",
+      "tbl-servo-v5-relations.tex": "cb7dc2131018119c6b5b295adf018fd54ac2f3b8fdf5f14bc5e60e509d76f250"
     },
     "pdf": "servo_caiscfp2026_post-submit.pdf",
-    "pdf_sha256": "512b049ebf37d2c979725632c221b2992b45e86a855ea9a63734df83f9d2f153",
+    "pdf_sha256": "ff0ffafc7522a81338b05c4e01555997fd769e191c5597384cdb136266017b53",
     "tex": "main_post-submit.tex",
-    "tex_sha256": "7158090dd5221f00f2b884432a786133bd155284318ff3793d2fec2ba302f5b0"
+    "tex_sha256": "8bae36b5c42083e2a48c820273cff4ca3160596a5363259fa75936fdaa5d80c7"
   },
   "release": {
-    "github_commit": "4c78cfe6cb92d428776511ad8f9781fa035b0a82",
-    "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v5.2.4",
-    "tag": "servo-corrected-v5.2.4"
+    "github_commit": "ec7cd5a8b757a853bf1d32cf181baadc23613e39",
+    "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v5.2.5",
+    "tag": "servo-corrected-v5.2.5"
   },
   "schema": "servo_v5_provenance_root",
   "schema_version": "5.1.0",
@@ -80,7 +80,7 @@
       "analysis/build_domain_tables.py": "f3c945a1d9f26f28663a824ff11aae9ab6627c6ee63a57de4dc27a5a8e7f6033",
       "analysis/build_servo2_tables.py": "b63664cb1c2601e16616a63cfce0b6063fdd1d09084638a5b1f6b9f3d41d0239",
       "analysis/build_servo_tables.py": "89787ca0e4b8b346ec75b6554d358c7ea55d77e7eb8bf27a4942f4c89012991c",
-      "analysis/build_servo_v5_tables.py": "e1ae419eabc3eda42c09345040b29699778b1bcc768ea8a0bf3100527c5f2934",
+      "analysis/build_servo_v5_tables.py": "e20fe88e58d2f18bbccd01deb7ad9c3a7223d053df91e72f541ab6452b297495",
       "analysis/citation_audit/RUBRIC.md": "e6bcad57001eb9564e429bdeb449a213d0983fea76305a808e30c6e9e790132a",
       "analysis/citation_audit/audit_models.py": "29eed3665a4780f7435b779a7b9eff671c20ccac930f39aed0c9444e689c543f",
       "analysis/citation_audit/core14-manifest.json": "db06a01f48314d8cb7ca92bfcba8138e1fce6b9e9a930960d393cc15f93aa2db",
@@ -1341,7 +1341,7 @@
       "analysis/servo_v5_corpus_manifest.json": "88bb8ad17aa4be4eed38fbb5395146f50e18dfbfd25cf8aca47596994637d9cc",
       "analysis/servo_v5_corpus_manifest.md": "b08045626435ac797259243de2603c9a49d607cb7faa512e0d1657934da093e2",
       "analysis/servo_v5_coverage_audit.md": "152c80565b0d33e165391388c4d22f0611a4eb3a82bbdac8a3d791e4be720079",
-      "analysis/servo_v5_evidence_manifest.json": "246d0fb9df307c0491fe556387eb2c5f5454379bbb8784cfd5a8e2cf0b41b053",
+      "analysis/servo_v5_evidence_manifest.json": "85d75ac1b4b62db13f274cd446b671fad7a4b978ca62b8516748e1cbad6a8978",
       "analysis/servo_v5_freeze.py": "54762d86c9cfd74d03fc7f3888edbac7dffa67d32b19c46934105652a349ed1f",
       "analysis/servo_v5_io.py": "07cdb507fa767d1982ce7146636331c496cb5a6e1a5399d9b8dd7793176cb486",
       "analysis/servo_v5_policy/C01.json": "b293a8301fca9b5286dcf942921114da3aa85377423570666d180a230e0a8900",
@@ -1375,9 +1375,9 @@
       "analysis/tbl-domain.tex": "cd29a76d8af26b2a9e9f9e934104662ee3f4b1b13965a67a92c745e03a120fa9",
       "analysis/tbl-framework-crosswalk-ko.tex": "8b5cb193c9a4c6d179f48b3f17971df45c87048ed8c0ccf6f2e630307d8288cf",
       "analysis/tbl-framework-crosswalk.tex": "ca80c2ebcdc7878e2a4b3c2d9f346496df85dc3ec6e27be9aa94bdda6bfb9ffa",
-      "analysis/tbl-servo-v5-boundary.tex": "1de2155750ddea6f7af1aa007b78368860555ab1190a03861b152d91d196617d",
-      "analysis/tbl-servo-v5-policy.tex": "b0f61123b30d3a8f35088086b76180133e73ff5a02ab682e2134bd4c62123d3c",
-      "analysis/tbl-servo-v5-relations.tex": "7999bac4f4272e2cfbe050b07935724fbddc436ba25daa129f1fe144f4c01bf1",
+      "analysis/tbl-servo-v5-boundary.tex": "83047b85f36cd96b92792e7fb0ae5ba4efd6441c40365c073bd2b77ece5f192f",
+      "analysis/tbl-servo-v5-policy.tex": "575da7fd617a28fc0681ea95f14e6a5014547b0a55ae30bed56aeae2226ba16e",
+      "analysis/tbl-servo-v5-relations.tex": "cb7dc2131018119c6b5b295adf018fd54ac2f3b8fdf5f14bc5e60e509d76f250",
       "analysis/tbl-servo2-anchors-ko.tex": "abeadfcb47a7d829a556db7ab695ae77abf850b16ed8f61b875d2875f4622950",
       "analysis/tbl-servo2-anchors.tex": "2be58a0f6b8df5bec67df390b44fd504045d35ac5a7c8c7571b27a13a775d2f8",
       "analysis/tbl-servo2-cases-ko.tex": "17c5be6187107791ebe386a7f46728c81dd533b6753e80afd0683f779d387cfe",

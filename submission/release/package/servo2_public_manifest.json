@@ -33,7 +33,7 @@
     "analysis/tbl-servo2-closure.tex": "946c6a229de431c3681c884713a599fb0febcef2a5185038055a9deda1b65795"
   },
   "public_file_sha256": {
-    "CITATION.cff": "138d9a169fef858afb15a8d4e294bd81dfe230bc7845782c80c17016ee0a6768",
+    "CITATION.cff": "73ff344f6dcfdde8c169fe7486f6838fbb70fc856fbe7ec5e189ab9be5d97c25",
     "LICENSE": "b11f7af076c3065948d24327800431507a4b2ee012748589a58fe0ccff87c497",
     "LICENSE-CODE": "53070bdf3e65d4157fe024d902a54065782cd44018b1376e31b38da74d4a8279",
     "PROTECTED_ARTIFACTS.md": "2024d46e8b8eeb132512ec8d1de80203a641d97bddf093c0a6e09df91e3ac969",
@@ -98,10 +98,10 @@
     "analysis/tests/servo2/test_round2_validator_contract.py": "6630e940b0f4e525830715ed8f3f0b0106fc4edcc0d1a7a2105b72575feea5be",
     "analysis/tests/servo2/test_witness_occurrence_contract.py": "649bc5da33b7d22a9cb0d88f27b10c0a8380cf7a01d123f84ec45a1687334ee4",
     "analysis/validate_servo2.py": "05e474a8eed810e05e5978772011f0801a5d96265f02682c5aa70cc30805b6ec",
-    "pyproject.toml": "0f57e48cc5e1ca1bada56c88565e3642007bb54ee7f29ebf2bd6dad011029fce",
+    "pyproject.toml": "98e38049ec40bb6a721edfa4f8822b6d19bc9d10e1a564ec76fff459268adc3b",
     "release-role-manifest.json": "f746f7e74d089f97643ebff1b084f6962fbfd84825d946a2ad129806c6f7c431",
-    "release_attestation.json": "c321230efc4d8fb632f075a3b282d5cdf01bf7155433fea59cf4cb32c2ab08b5",
-    "servo_caiscfp2026_post-submit.pdf": "512b049ebf37d2c979725632c221b2992b45e86a855ea9a63734df83f9d2f153",
+    "release_attestation.json": "4f3e6a897da6894da2855c50e3670952c3e4cad9475c3d69a64fcf5808c43ac8",
+    "servo_caiscfp2026_post-submit.pdf": "ff0ffafc7522a81338b05c4e01555997fd769e191c5597384cdb136266017b53",
     "uv.lock": "8629fc752bfe2a95a5d31780ee2c014d1bfd4cd3714f5008db6577fd135c105d"
   },
   "schema_version": "4.1.0"

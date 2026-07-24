@@ -42,7 +42,7 @@
     }
   },
   "generator": "analysis/build_servo_v5_tables.py",
-  "generator_sha256": "e1ae419eabc3eda42c09345040b29699778b1bcc768ea8a0bf3100527c5f2934",
+  "generator_sha256": "e20fe88e58d2f18bbccd01deb7ad9c3a7223d053df91e72f541ab6452b297495",
   "inputs": {
     "servo_v5_alignments/C01.json": "88303ff72d4a01057c341d34f113b4f90ea032663ba72af35f3f9c015772b341",
     "servo_v5_alignments/C02.json": "ac5393d82f1fec246836e0bb2d5455d217485a5df4747a22b9b6be1412e64674",
@@ -70,9 +70,9 @@
   ],
   "outputs": {
     "servo_v5_claims_projection.csv": "2ed52472080ef5750af0101aac7af5d3f72476369f3dfb848b55d885fe5eb823",
-    "tbl-servo-v5-boundary.tex": "1de2155750ddea6f7af1aa007b78368860555ab1190a03861b152d91d196617d",
-    "tbl-servo-v5-policy.tex": "b0f61123b30d3a8f35088086b76180133e73ff5a02ab682e2134bd4c62123d3c",
-    "tbl-servo-v5-relations.tex": "7999bac4f4272e2cfbe050b07935724fbddc436ba25daa129f1fe144f4c01bf1"
+    "tbl-servo-v5-boundary.tex": "83047b85f36cd96b92792e7fb0ae5ba4efd6441c40365c073bd2b77ece5f192f",
+    "tbl-servo-v5-policy.tex": "575da7fd617a28fc0681ea95f14e6a5014547b0a55ae30bed56aeae2226ba16e",
+    "tbl-servo-v5-relations.tex": "cb7dc2131018119c6b5b295adf018fd54ac2f3b8fdf5f14bc5e60e509d76f250"
   },
   "schema": "servo_v5_evidence_layer_manifest"
 }

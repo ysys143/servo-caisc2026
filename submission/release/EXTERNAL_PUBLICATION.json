@@ -1,15 +1,15 @@
 {
   "record_role": "current_external_publication",
   "assets": {
-    "caisc2026-servo-supplement.zip": "8eb12eb040da3029d25e9b7912b1996bc800f102b65b6af65b6e95123797c9aa",
-    "servo_caiscfp2026_post-submit.pdf": "512b049ebf37d2c979725632c221b2992b45e86a855ea9a63734df83f9d2f153"
+    "caisc2026-servo-supplement.zip": "09b6d9952fca178af2e4b7a8b5f8e092ea0fb4b18a5145c01bd79ed82551eb71",
+    "servo_caiscfp2026_post-submit.pdf": "ff0ffafc7522a81338b05c4e01555997fd769e191c5597384cdb136266017b53"
   },
-  "github_commit": "4c78cfe6cb92d428776511ad8f9781fa035b0a82",
-  "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v5.2.4",
-  "package_version": "5.2.4",
+  "github_commit": "ec7cd5a8b757a853bf1d32cf181baadc23613e39",
+  "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v5.2.5",
+  "package_version": "5.2.5",
   "published_at": "2026-07-24",
   "publication_doi": "not_published",
   "schema_version": "4.1.0",
-  "tag": "servo-corrected-v5.2.4",
-  "provenance_root_sha256": "05dac47a01c20ae0b65a3c61266d48e3c606163e9fba1c2daf4742f0515027fb"
+  "tag": "servo-corrected-v5.2.5",
+  "provenance_root_sha256": "b200b9af9328fdbc07bf18602ea81cc4e2600fe23370a498c1d41fa278116ca7"
 }

@@ -139,11 +139,18 @@ def text_list(values: list[str]) -> str:
 
 
 def legend(lines: list[str]) -> str:
-    """A \\footnotesize legend paragraph placed after the tabular, inside the
-    generated .tex file so it travels with \\input without touching the
-    manuscript."""
-    body = [r"\par\vspace{2pt}\noindent\footnotesize"]
+    """A \\scriptsize, fully justified legend paragraph placed after the
+    tabular, inside the generated .tex file so it travels with \\input
+    without touching the manuscript. The surrounding table*/sidewaystable
+    environment sets \\centering, which centers ordinary paragraphs too;
+    reset \\leftskip/\\rightskip/\\parfillskip locally so the legend is
+    justified instead."""
+    body = [
+        r"\par\begingroup\leftskip=0pt\relax\rightskip=0pt\relax"
+        r"\parfillskip=0pt plus 1fil\relax\vspace{2pt}\noindent\scriptsize"
+    ]
     body.append(r"\emph{Legend.} " + " ".join(lines))
+    body.append(r"\par\endgroup")
     body.append("")
     return "\n".join(body)
 
