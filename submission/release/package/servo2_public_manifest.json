@@ -33,7 +33,7 @@
     "analysis/tbl-servo2-closure.tex": "946c6a229de431c3681c884713a599fb0febcef2a5185038055a9deda1b65795"
   },
   "public_file_sha256": {
-    "CITATION.cff": "489ea6648277e0bccf62f28eb56ddde9bab1cfc2fa4994dc56cc07385110778c",
+    "CITATION.cff": "c38d709f87e2051c1551a306111e3b96c24ae2177fddd9bf9b01787c54044609",
     "LICENSE": "b11f7af076c3065948d24327800431507a4b2ee012748589a58fe0ccff87c497",
     "LICENSE-CODE": "53070bdf3e65d4157fe024d902a54065782cd44018b1376e31b38da74d4a8279",
     "PROTECTED_ARTIFACTS.md": "2024d46e8b8eeb132512ec8d1de80203a641d97bddf093c0a6e09df91e3ac969",
@@ -98,9 +98,9 @@
     "analysis/tests/servo2/test_round2_validator_contract.py": "6630e940b0f4e525830715ed8f3f0b0106fc4edcc0d1a7a2105b72575feea5be",
     "analysis/tests/servo2/test_witness_occurrence_contract.py": "649bc5da33b7d22a9cb0d88f27b10c0a8380cf7a01d123f84ec45a1687334ee4",
     "analysis/validate_servo2.py": "05e474a8eed810e05e5978772011f0801a5d96265f02682c5aa70cc30805b6ec",
-    "pyproject.toml": "d12ad26178563aa68ab16ea1d5ef4c29ef9dfd771bb59055e4b4bc6e636d4137",
+    "pyproject.toml": "2db2a23faec88354ab930db6104b8d7324ca723c604e43a86877df9a1f0d782a",
     "release-role-manifest.json": "f746f7e74d089f97643ebff1b084f6962fbfd84825d946a2ad129806c6f7c431",
-    "release_attestation.json": "2e75367419938433697698e01ac735f905299611100a4ae60594767bd525519c",
+    "release_attestation.json": "f7780d9405b7f34abac17e9a124d1d5b03d39d9c374c8d2294f2543a277c19fb",
     "servo_caiscfp2026_post-submit.pdf": "293abca5c933a596ccccc34609a20a9a8d5387dcfb00292630a4e28185d76765",
     "uv.lock": "8629fc752bfe2a95a5d31780ee2c014d1bfd4cd3714f5008db6577fd135c105d"
   },
