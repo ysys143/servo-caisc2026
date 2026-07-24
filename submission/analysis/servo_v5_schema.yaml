@@ -44,7 +44,7 @@ envelope_fields:
   source_proposition: [schema, schema_doc, status, coverage_status, case_id, system, citation_key, source_pdf_name, source_pdf_sha256, coverage_note, propositions]
   author_alignment: [schema, schema_doc, status, case_id, alignments]
   derived_claim: [schema, schema_doc, status, case_id, claims]
-  policy: [schema, schema_doc, status, case_id, control_dependence, selection_signal, selection_objective, generation_scope, candidate_selection_rule, design_selection_rule, candidate_execution_rule, formal_epistemic_utility_evidence, rationale]
+  policy: [schema, schema_doc, status, case_id, control_dependence, selection_signal, selection_objective, generation_scope, candidate_selection_rule, design_selection_rule, candidate_execution_rule, formal_epistemic_utility_evidence, rationale, axis_provenance]
 
 required_envelope_fields:
   source_proposition: [schema, schema_doc, status, coverage_status, case_id, system, citation_key, source_pdf_name, source_pdf_sha256, coverage_note, propositions]

@@ -2,10 +2,10 @@
   "chain_rule": "each recorded sha256 must equal the recomputed sha of its artifact, and each cross-checked value must equal the corresponding entry in the referenced manifest; any mismatch fails verification",
   "corpus": {
     "corpus_manifest_sha256": "88bb8ad17aa4be4eed38fbb5395146f50e18dfbfd25cf8aca47596994637d9cc",
-    "source_set_sha256": "ae66a6198a85c629959eee0f8512e8d2dd8f38146319726fd846edfa5f33f8b4"
+    "source_set_sha256": "e4d62f41f433885bda5bf15698339aab2545e0b45a9156f37e1abc04d332a07b"
   },
   "evidence": {
-    "evidence_manifest_sha256": "632b0df3de89cb6ea4322a7521854dcd42e0124a68a46f989b94d58bf72abcca",
+    "evidence_manifest_sha256": "246d0fb9df307c0491fe556387eb2c5f5454379bbb8784cfd5a8e2cf0b41b053",
     "generator_sha256": "e1ae419eabc3eda42c09345040b29699778b1bcc768ea8a0bf3100527c5f2934",
     "outputs": {
       "servo_v5_claims_projection.csv": "2ed52472080ef5750af0101aac7af5d3f72476369f3dfb848b55d885fe5eb823",
@@ -32,12 +32,12 @@
       "C06": "4749531b004e3c99bece08c268670820144304be040f266608393bc428996491"
     },
     "policy": {
-      "C01": "c23ddfb35c43e94121bb4c6cfaafae1232767cc54e0245e3fce372e76df741b6",
-      "C02": "3182b2e519aa2726b919f9dcd09b5db2b7753b900b329fbe26a6156ec774a058",
-      "C03": "5fbee68a374c5fb04a0689ab8a79a9fd9228e6d8b87640b226435b1d7c1133f0",
-      "C04": "764d7167b5991ffa8f057564d44dfd211499f08b4e019b5766b1c0586b19fe0c",
-      "C05": "b04ad922c8006a55171eed594e4254490af0b2ee10af0f3c25177adab50f0b6e",
-      "C06": "2b54d4ba8cf92488392610b4c8b2951969f602096375bcc446118a7ea736877c"
+      "C01": "b293a8301fca9b5286dcf942921114da3aa85377423570666d180a230e0a8900",
+      "C02": "ac86b8c3571cf6433c2d5aa3d4af86e01118a374b140e93f0ecb0487425c0cf1",
+      "C03": "300a1df081f92c636c3e9133c9b2d029a2edcca53b9089705db1e78e71c972ea",
+      "C04": "6e13cb7174692beeb5229a0062d495840430ecdcb1185a3bf8f12c9f91c245a7",
+      "C05": "59b5f9322a58ad1d5b07923f24c85cfbb5ea059e8d4cbe2e35275a6b9b65b092",
+      "C06": "9da7f7c7db56121b36f7f287b3a0cd5869df2cd14a7a5fc72a1931a0b29cc41e"
     }
   },
   "manuscript": {
@@ -47,20 +47,20 @@
       "tbl-servo-v5-relations.tex": "7999bac4f4272e2cfbe050b07935724fbddc436ba25daa129f1fe144f4c01bf1"
     },
     "pdf": "servo_caiscfp2026_post-submit.pdf",
-    "pdf_sha256": "375113f4d46160707a65fc75bca9c9113699dcef0de90867728b2e5a42500675",
+    "pdf_sha256": "605ab16b79b59e6270754708c7fc020390675eafeafee25442c9f0fc69479089",
     "tex": "main_post-submit.tex",
-    "tex_sha256": "63ace230cbd6ad236ec8bf7a779da38a0d4b0940062aa2bebdedcf7967af9470"
+    "tex_sha256": "e9a83ec6738bda82d2a9a2eee7b433e44eeb797fb0924f9dcc3620d0f2c1920c"
   },
   "release": {
-    "github_commit": "d85166d59c326ad649e019299804d575b8a8d839",
-    "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v5.1.1",
-    "tag": "servo-corrected-v5.1.1"
+    "github_commit": "8def648bc8f3eb0ca0ef98b0f58ad5dc781a737a",
+    "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v5.2.0",
+    "tag": "servo-corrected-v5.2.0"
   },
   "schema": "servo_v5_provenance_root",
   "schema_version": "5.1.0",
   "scope_note": "Binds artifact-lineage integrity only. Does NOT attest the semantic correctness of the draft alignment/claim/policy judgments, LaTeX visual rendering, or a cryptographic derivation of the PDF from the tables (the manuscript edge binds the input-table hashes and records the PDF hash as a leaf; PDF<-tables is a procedural, build-time assurance). The supplement container leaf hash lives in EXTERNAL_PUBLICATION and is same-zlib reproducible; the per-file supplement hashes here are content-based and portable.",
   "source": {
-    "freeze_manifest_sha256": "30686bf927d790c90bd32561a31d565e42c0f2140208cd282f7fa7c4f9f26be6",
+    "freeze_manifest_sha256": "ffb953141b038f27dd3c1b2d2a41008ff6d239684393cc6250eb226d49bf4410",
     "propositions": {
       "C01": "924da752b90d8ee3f5a50139e1b7e492e9d4b5081aec44838ceaaec01b065198",
       "C02": "af98eb423cbb6c102739a3b7539a8d69ff17735aecdd3a52318299be97757ae6",
@@ -1341,19 +1341,20 @@
       "analysis/servo_v5_corpus_manifest.json": "88bb8ad17aa4be4eed38fbb5395146f50e18dfbfd25cf8aca47596994637d9cc",
       "analysis/servo_v5_corpus_manifest.md": "b08045626435ac797259243de2603c9a49d607cb7faa512e0d1657934da093e2",
       "analysis/servo_v5_coverage_audit.md": "152c80565b0d33e165391388c4d22f0611a4eb3a82bbdac8a3d791e4be720079",
-      "analysis/servo_v5_evidence_manifest.json": "632b0df3de89cb6ea4322a7521854dcd42e0124a68a46f989b94d58bf72abcca",
+      "analysis/servo_v5_evidence_manifest.json": "246d0fb9df307c0491fe556387eb2c5f5454379bbb8784cfd5a8e2cf0b41b053",
       "analysis/servo_v5_freeze.py": "54762d86c9cfd74d03fc7f3888edbac7dffa67d32b19c46934105652a349ed1f",
       "analysis/servo_v5_io.py": "07cdb507fa767d1982ce7146636331c496cb5a6e1a5399d9b8dd7793176cb486",
-      "analysis/servo_v5_policy/C01.json": "c23ddfb35c43e94121bb4c6cfaafae1232767cc54e0245e3fce372e76df741b6",
-      "analysis/servo_v5_policy/C02.json": "3182b2e519aa2726b919f9dcd09b5db2b7753b900b329fbe26a6156ec774a058",
-      "analysis/servo_v5_policy/C03.json": "5fbee68a374c5fb04a0689ab8a79a9fd9228e6d8b87640b226435b1d7c1133f0",
-      "analysis/servo_v5_policy/C04.json": "764d7167b5991ffa8f057564d44dfd211499f08b4e019b5766b1c0586b19fe0c",
-      "analysis/servo_v5_policy/C05.json": "b04ad922c8006a55171eed594e4254490af0b2ee10af0f3c25177adab50f0b6e",
-      "analysis/servo_v5_policy/C06.json": "2b54d4ba8cf92488392610b4c8b2951969f602096375bcc446118a7ea736877c",
+      "analysis/servo_v5_policy/C01.json": "b293a8301fca9b5286dcf942921114da3aa85377423570666d180a230e0a8900",
+      "analysis/servo_v5_policy/C02.json": "ac86b8c3571cf6433c2d5aa3d4af86e01118a374b140e93f0ecb0487425c0cf1",
+      "analysis/servo_v5_policy/C03.json": "300a1df081f92c636c3e9133c9b2d029a2edcca53b9089705db1e78e71c972ea",
+      "analysis/servo_v5_policy/C04.json": "6e13cb7174692beeb5229a0062d495840430ecdcb1185a3bf8f12c9f91c245a7",
+      "analysis/servo_v5_policy/C05.json": "59b5f9322a58ad1d5b07923f24c85cfbb5ea059e8d4cbe2e35275a6b9b65b092",
+      "analysis/servo_v5_policy/C06.json": "9da7f7c7db56121b36f7f287b3a0cd5869df2cd14a7a5fc72a1931a0b29cc41e",
       "analysis/servo_v5_provenance.py": "c0e5b118f9636010a7ec7b735f343904e63a94e6ff1f94e5da44b40dc6c7658d",
-      "analysis/servo_v5_schema.py": "065bfd84084dbe0f61f6889f710d1530622f1c5f613feb4e6b41079d4a155cb3",
-      "analysis/servo_v5_schema.yaml": "1ba11ad7de2625e95536275fa45a84341129ec1783a23f4e65c62f3ba57b5409",
-      "analysis/servo_v5_source_freeze_manifest.json": "30686bf927d790c90bd32561a31d565e42c0f2140208cd282f7fa7c4f9f26be6",
+      "analysis/servo_v5_rule_stability_check.md": "5f9ecd660de69ead9a5e51d391de3f379dcc18b6fd47019c2724f54639035c32",
+      "analysis/servo_v5_schema.py": "b0362fb322dad177f838df70239621eae055814403774aaae1866e0e286345e0",
+      "analysis/servo_v5_schema.yaml": "7412c8253fc1cd26d1c2c9a45074e41ff5536d25ff359bc0caa3e8f50e931681",
+      "analysis/servo_v5_source_freeze_manifest.json": "ffb953141b038f27dd3c1b2d2a41008ff6d239684393cc6250eb226d49bf4410",
       "analysis/servo_v5_source_proposition_schema.md": "2f557fc159854d44c060ff510000c1c84d64872ebf8a973a5d32cd9107cf88be",
       "analysis/servo_v5_source_propositions/C01.json": "924da752b90d8ee3f5a50139e1b7e492e9d4b5081aec44838ceaaec01b065198",
       "analysis/servo_v5_source_propositions/C02.json": "af98eb423cbb6c102739a3b7539a8d69ff17735aecdd3a52318299be97757ae6",
@@ -1410,7 +1411,7 @@
       "analysis/trustworthy_closure.md": "eb63022f8bc6f053eab18e3dea7b569ddb81466f0282fb4eff41b2d920dcddd6",
       "analysis/validate_servo2.py": "05e474a8eed810e05e5978772011f0801a5d96265f02682c5aa70cc30805b6ec",
       "analysis/validate_servo_consistency.py": "1f1f50abff1f1e1916e9300389fbde4b9e08f682320645489007a166a9683f91",
-      "references.bib": "7c1f0b2ab4bdcf5da29c91519da6fd36a5ea584869adb43a15f968cbcc38bd29"
+      "references.bib": "da5ba93e4a652c6d897d5f014096af776cce2aaa0b6463b704a17af1d89a5bb4"
     },
     "zip_name": "caisc2026-servo-supplement.zip"
   }

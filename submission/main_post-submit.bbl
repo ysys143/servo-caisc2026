@@ -1,4 +1,4 @@
-\begin{thebibliography}{45}
+\begin{thebibliography}{46}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -197,6 +197,13 @@ L.~Moreau and P.~Missier.
 \newblock {PROV-DM}: The {PROV} data model.
 \newblock W3c recommendation, World Wide Web Consortium, 2013.
 \newblock URL \url{https://www.w3.org/TR/prov-dm/}.
+
+\bibitem[O'Connor and Joffe(2020)]{oconnor2020icr}
+C.~O'Connor and H.~Joffe.
+\newblock Intercoder reliability in qualitative research: Debates and practical
+  guidelines.
+\newblock \emph{International Journal of Qualitative Methods}, 19, 2020.
+\newblock \doi{10.1177/1609406919899220}.
 
 \bibitem[O'Donoghue et~al.(2023)O'Donoghue, Shtedritski, Ginger, Abboud,
   Ghareeb, Booth, and Rodriques]{odonoghue2023bioplanner}

@@ -56,12 +56,12 @@
     "servo_v5_claims/C04.json": "b8badfe9c6c7637220eb2389fbe6cff57eecdab337f2d6037a98acc6d3c49247",
     "servo_v5_claims/C05.json": "969fbe97b6729d680b41481254ca1c5f8bb6ab2368adacecc116d7b24d331587",
     "servo_v5_claims/C06.json": "4749531b004e3c99bece08c268670820144304be040f266608393bc428996491",
-    "servo_v5_policy/C01.json": "c23ddfb35c43e94121bb4c6cfaafae1232767cc54e0245e3fce372e76df741b6",
-    "servo_v5_policy/C02.json": "3182b2e519aa2726b919f9dcd09b5db2b7753b900b329fbe26a6156ec774a058",
-    "servo_v5_policy/C03.json": "5fbee68a374c5fb04a0689ab8a79a9fd9228e6d8b87640b226435b1d7c1133f0",
-    "servo_v5_policy/C04.json": "764d7167b5991ffa8f057564d44dfd211499f08b4e019b5766b1c0586b19fe0c",
-    "servo_v5_policy/C05.json": "b04ad922c8006a55171eed594e4254490af0b2ee10af0f3c25177adab50f0b6e",
-    "servo_v5_policy/C06.json": "2b54d4ba8cf92488392610b4c8b2951969f602096375bcc446118a7ea736877c"
+    "servo_v5_policy/C01.json": "b293a8301fca9b5286dcf942921114da3aa85377423570666d180a230e0a8900",
+    "servo_v5_policy/C02.json": "ac86b8c3571cf6433c2d5aa3d4af86e01118a374b140e93f0ecb0487425c0cf1",
+    "servo_v5_policy/C03.json": "300a1df081f92c636c3e9133c9b2d029a2edcca53b9089705db1e78e71c972ea",
+    "servo_v5_policy/C04.json": "6e13cb7174692beeb5229a0062d495840430ecdcb1185a3bf8f12c9f91c245a7",
+    "servo_v5_policy/C05.json": "59b5f9322a58ad1d5b07923f24c85cfbb5ea059e8d4cbe2e35275a6b9b65b092",
+    "servo_v5_policy/C06.json": "9da7f7c7db56121b36f7f287b3a0cd5869df2cd14a7a5fc72a1931a0b29cc41e"
   },
   "notes": [
     "Three tables replace the retired 4-predicate closure status matrix (charter C.1/C.4): Table A (policy, per case), Table B1 (observation-evaluation boundary, case-level), Table B2 (relation/evidence, per functional relation). This script does not read or reconstruct the retired predicate enum.",

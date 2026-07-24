@@ -433,6 +433,74 @@ def _check_proposition_tags(
     return errors
 
 
+# The eight BED-lens policy axes (charter B.4 / contract section B). Used both
+# as the enum-list axis set validated above and as the key allowlist for the
+# optional axis_provenance map (reviewer Item 4/B2).
+POLICY_AXES = (
+    "control_dependence",
+    "selection_signal",
+    "selection_objective",
+    "generation_scope",
+    "candidate_selection_rule",
+    "design_selection_rule",
+    "candidate_execution_rule",
+    "formal_epistemic_utility_evidence",
+)
+
+
+def _check_axis_provenance(
+    payload: dict, case_id: str, contract: SchemaContract
+) -> list[ValidationError]:
+    # reviewer Item 4/B2: axis_provenance is an OPTIONAL per-axis provenance map
+    # that attaches, to each of the eight policy axes, the source-proposition ids
+    # that GROUND that axis value (faithful to the rationale). This checks shape
+    # only -- a dict keyed by the eight axes, each value a list of strings that
+    # match the case's proposition-id pattern (C0N-Pnn). Whether each id resolves
+    # to a real proposition in servo_v5_source_propositions/C0N.json is a
+    # cross-family check performed in _check_downward_references (validate_root),
+    # mirroring how author_alignment/derived_claim proposition_ids are resolved.
+    if "axis_provenance" not in payload:
+        return []
+    provenance = payload["axis_provenance"]
+    if not isinstance(provenance, dict):
+        return [
+            ValidationError(
+                "V5_POLICY_AXIS_PROVENANCE_NOT_OBJECT", "policy", case_id, "", "axis_provenance must be an object"
+            )
+        ]
+    pattern = id_pattern_for(case_id, ID_LETTER["source_proposition"], ID_MAX_DIGITS["source_proposition"])
+    errors: list[ValidationError] = []
+    for axis, ids in provenance.items():
+        if axis not in POLICY_AXES:
+            errors.append(
+                ValidationError("V5_POLICY_AXIS_PROVENANCE_AXIS_UNKNOWN", "policy", case_id, "", axis)
+            )
+            continue
+        if not isinstance(ids, list) or not all(isinstance(item, str) for item in ids):
+            errors.append(
+                ValidationError(
+                    "V5_POLICY_AXIS_PROVENANCE_TYPE_INVALID",
+                    "policy",
+                    case_id,
+                    "",
+                    f"{axis} must be a list of strings",
+                )
+            )
+            continue
+        for prop_id in ids:
+            if not pattern.match(prop_id):
+                errors.append(
+                    ValidationError(
+                        "V5_POLICY_AXIS_PROVENANCE_ID_INVALID",
+                        "policy",
+                        case_id,
+                        "",
+                        f"{axis} -> {prop_id} (expected {pattern.pattern})",
+                    )
+                )
+    return errors
+
+
 def _check_policy_record(
     payload: dict, case_id: str, contract: SchemaContract
 ) -> list[ValidationError]:
@@ -465,6 +533,7 @@ def _check_policy_record(
     errors += _check_enum_list(payload, "design_selection_rule", "policy", case_id, "", contract)
     errors += _check_enum_list(payload, "candidate_execution_rule", "policy", case_id, "", contract)
     errors += _check_nonempty_string(payload, "formal_epistemic_utility_evidence", "policy", case_id, "")
+    errors += _check_axis_provenance(payload, case_id, contract)
     return errors
 
 
@@ -628,4 +697,21 @@ def _check_downward_references(loaded: dict[str, dict[str, dict]]) -> list[Valid
                         errors.append(
                             ValidationError("V5_REFERENCE_UNKNOWN", "derived_claim", case_id, record_id, f"used_proposition_ids -> {prop_id}")
                         )
+
+    # reviewer Item 4/B2: resolve every axis_provenance proposition id against the
+    # case's source_propositions, the same cross-family gate applied above to
+    # author_alignment.proposition_ids and derived_claim.used_proposition_ids.
+    for case_id, payload in loaded.get("policy", {}).items():
+        allowed_props = proposition_ids_by_case.get(case_id, set())
+        provenance = payload.get("axis_provenance")
+        if not isinstance(provenance, dict):
+            continue
+        for axis, ids in provenance.items():
+            if not isinstance(ids, list):
+                continue
+            for prop_id in ids:
+                if prop_id not in allowed_props:
+                    errors.append(
+                        ValidationError("V5_REFERENCE_UNKNOWN", "policy", case_id, "", f"axis_provenance[{axis}] -> {prop_id}")
+                    )
     return errors
