@@ -1,4 +1,4 @@
-> **Current work (CAISc 2026 manuscript).** This `main` branch documents the earlier **Schema 2** package. The source-first **v5** analysis the manuscript now relies on is released as **`servo-corrected-v5.1.1`** (https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v5.1.1) -- the authoritative supplement, with a provenance root manifest binding the source-to-tables-to-PDF lineage. See the repository **Releases** (latest = v5.1.x) and the `codex/schema-first-servo-consistency` branch. The Schema 2 material below is retained as a prior record.
+> **Current work (CAISc 2026 manuscript).** This `main` branch documents the earlier **Schema 2** package. The source-first **v5** analysis the manuscript now relies on ships in the repository **Releases** under the **`servo-corrected-v5.x`** series (see the **Latest** release for the current version), each carrying a provenance root manifest that binds the source-to-tables-to-PDF lineage; the v5 work lives on the `codex/schema-first-servo-consistency` branch. The Schema 2 material below is retained as a prior record.
 
 # Servo (CAISc 2026) — Reproducibility Package
 
