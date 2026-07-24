@@ -46,10 +46,10 @@ pdf:
 	rm -f $(DIST).pdf && cp $(REVISION).pdf $(DIST).pdf
 	@echo "OK: distribution copy $(DIST).pdf"
 
-## supplement: regenerate the supplementary-material zip from analysis/ + references.bib
+## supplement: regenerate the supplementary-material zip from analysis/ + references.bib + top-level README
 supplement:
 	rm -f caisc2026-servo-supplement.zip
-	zip -r caisc2026-servo-supplement.zip analysis/ references.bib \
+	zip -r caisc2026-servo-supplement.zip analysis/ references.bib SUPPLEMENT_README.md \
 	  -x "*/.cwf/*" "*/.omc/*" "*/.git/*" "analysis/.cwf/*" "analysis/.omc/*" \
 	     "*/.DS_Store" "analysis/texput.log" "*/__pycache__/*" "*/.pytest_cache/*" "*.pyc"
 
