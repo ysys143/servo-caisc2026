@@ -50,7 +50,7 @@
 | Memory -> candidate/policy (conditioning) | [cap] | - | - | [proc] | - | - |
 | Generation produces candidate | [occ] | [occ] | [proc] | [agg] | [occ] | [occ] |
 
-**핵심 실측:** forward 생성("Generation produces candidate")을 제외하면 occurrence-established(`[occ]`) **피드백** 관계는 전 사례 통틀어 **정확히 하나**다 — `C01`의 evaluation **revises** artifact(`C01-D01`, single_event, supported/occurrence/resolved). `C05`의 evaluation **updates** inquiry_state는 더 이상 occurrence-established가 아니다: cross_step 엣지 `C05-A64`가 `structurally_inferred=true`(출처가 12/20 확정이 *later* inquiry step을 조건화한다고 진술하지 않음)라 occurrence를 witness하지 못하고, 그 파생 claim `C05-D24`가 `unresolved`/`unresolved`(`[occ?]`)로 강등됐다(B1). 20개 중 12개 확정이라는 per-step 평가(`C05-D23`) 자체는 여전히 supported이나, 그것을 cross-step 피드백으로 올리는 엣지는 미확립이다. occurrence-established "evaluation->execution(experimental adaptation)"는 **어떤 사례에도 없다**(C02는 aggregate `[agg]`에 그침).
+**핵심 실측:** forward 생성("Generation produces candidate")을 제외하면 occurrence-established(`[occ]`) **피드백** 관계는 전 사례 통틀어 **정확히 하나**다 — `C01`의 evaluation **revises** artifact(`C01-D02`, single_event, supported/occurrence/resolved). `C05`의 evaluation **updates** inquiry_state는 더 이상 occurrence-established가 아니다: cross_step 엣지 `C05-A64`가 `structurally_inferred=true`(출처가 12/20 확정이 *later* inquiry step을 조건화한다고 진술하지 않음)라 occurrence를 witness하지 못하고, 그 파생 claim `C05-D24`가 `unresolved`/`unresolved`(`[occ?]`)로 강등됐다(B1). 20개 중 12개 확정이라는 per-step 평가(`C05-D23`) 자체는 여전히 supported이나, 그것을 cross-step 피드백으로 올리는 엣지는 미확립이다. occurrence-established "evaluation->execution(experimental adaptation)"는 **어떤 사례에도 없다**(C02는 aggregate `[agg]`에 그침).
 
 ### 2.2 정책 7축 분해 표 (`servo_v5_policy/C0X.json`, v3 스키마 + design axis)
 

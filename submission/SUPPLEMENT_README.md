@@ -59,7 +59,7 @@ way and matches the project's locked environment. `pdftotext` (part of
 `poppler-utils`) is needed only for the corpus-dependent checks described
 next, not for this command.
 
-As observed on 2026-07-24, the suite has 118 tests. Without a resolvable
+As observed on 2026-07-24, the suite has 119 tests. Without a resolvable
 corpus (the default case — see below), it reports **116 passed, 3
 skipped**. With `SERVO_V5_CORPUS_ROOT` pointed at a byte-matching corpus it
 reports **119 passed, 0 skipped**. These counts are corpus- and
