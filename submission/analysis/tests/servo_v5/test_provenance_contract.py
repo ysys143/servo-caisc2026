@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import shutil
 from pathlib import Path
 
@@ -96,13 +97,22 @@ def test_tampered_table_also_breaks_manuscript_edge(sandbox: Path) -> None:
 # --- release gate is fail-closed when the local tree is ahead --------------
 
 
+def _corrupt_external_zip_hash(sandbox: Path) -> None:
+    ep = sandbox / "release" / "EXTERNAL_PUBLICATION.json"
+    d = json.loads(ep.read_text())
+    d["assets"]["caisc2026-servo-supplement.zip"] = "0" * 64
+    ep.write_text(json.dumps(d, indent=2) + "\n")
+
+
 def test_release_gate_fails_when_assets_do_not_match(sandbox: Path) -> None:
-    # The sandbox EXTERNAL_PUBLICATION points at the published v5.0.4 zip hash,
-    # but the sandbox's deterministic rebuild differs -> release gate must fail.
+    # A recorded release asset hash that no longer matches the real file must
+    # fail the release gate (independent of the tree's publish state).
+    _corrupt_external_zip_hash(sandbox)
     codes = _codes(verify_root(sandbox, release=True))
     assert "V5_PROVENANCE_RELEASE_ZIP_MISMATCH" in codes
 
 
 def test_internal_verify_ignores_release_binding(sandbox: Path) -> None:
-    # Internal scope must stay green even though the release binding is stale.
+    # Internal scope must stay green even when the release binding is broken.
+    _corrupt_external_zip_hash(sandbox)
     assert verify_root(sandbox, release=False) == []

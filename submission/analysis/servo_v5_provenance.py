@@ -146,11 +146,14 @@ def build_root(submission_root: Path) -> dict:
             "builder_sha256": sha256(analysis_dir / BUILDER_FILE),
             "files": dict(sorted(supplement_files.items())),
         },
+        # Release pointer only. The asset leaf hashes live in
+        # EXTERNAL_PUBLICATION (not inside the zip), so recording them here
+        # would be circular -- the zip contains this manifest. verify-release
+        # binds EXTERNAL.assets against the actual files and manuscript.pdf.
         "release": {
             "tag": external.get("tag"),
             "github_commit": external.get("github_commit"),
             "github_release": external.get("github_release"),
-            "published_assets": external.get("assets", {}),
         },
     }
     return root

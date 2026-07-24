@@ -116,6 +116,33 @@ arbitrary machine -- use the `uv run` / `.venv` commands above directly, or
 pass `SOURCE_ROOT=/path/to/ai_scientist` to `make verify`, and expect to
 adjust the TeX paths for your own toolchain.
 
+## Provenance chain
+
+`servo_v5_provenance_root.json` binds the whole v5 lineage into one chain --
+the corpus set, the source propositions, the alignment/claim/policy records,
+the generated tables, the manuscript's input-table hashes and PDF, and the
+supplement contents. It references and cross-checks the two existing
+manifests (`servo_v5_source_freeze_manifest.json` for the source layer and
+`servo_v5_evidence_manifest.json` for the tables layer) rather than
+duplicating them. Verify the internal chain (fail-closed on any upstream
+change):
+
+```sh
+python -m analysis.servo_v5_provenance --verify
+```
+
+The root manifest is regenerated with `--emit` (the `Makefile` does this
+after `tables` and `pdf`), and the supplement zip is built deterministically
+by `python -m analysis.servo_v5_supplement_zip` so its leaf hash is
+reproducible. A release-cut gate, `--verify-release`, additionally binds the
+distributed assets recorded in `release/EXTERNAL_PUBLICATION.json`; it fails
+by design whenever the working tree is ahead of the published release.
+
+Scope: the chain establishes **artifact-lineage integrity** (each recorded
+hash must equal its recomputed value), not the semantic correctness of the
+draft judgments, and the tables-to-PDF edge is a procedural build-time
+binding rather than a cryptographic derivation.
+
 ## Corpus
 
 The source-fidelity tests — which verify that a proposition's `exact_quote`
