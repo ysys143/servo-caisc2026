@@ -60,9 +60,9 @@ way and matches the project's locked environment. `pdftotext` (part of
 next, not for this command.
 
 As observed on 2026-07-24, the suite has 118 tests. Without a resolvable
-corpus (the default case — see below), it reports **115 passed, 3
+corpus (the default case — see below), it reports **116 passed, 3
 skipped**. With `SERVO_V5_CORPUS_ROOT` pointed at a byte-matching corpus it
-reports **118 passed, 0 skipped**. These counts are corpus- and
+reports **119 passed, 0 skipped**. These counts are corpus- and
 version-sensitive (the underlying case records are still under revision) —
 treat them as an observed snapshot, not a pinned contract, and check the
 pass/skip split yourself rather than assuming an exact total.
@@ -95,7 +95,7 @@ checkout; it resolves to the wrong location for a standalone unzip like this
 one, so a bare relative placement will silently skip the corpus-dependent
 tests. Without `SERVO_V5_CORPUS_ROOT` (or a correctly resolving fallback),
 these checks **skip** rather than fail or error — **a skip is not a pass**:
-"118 passed" alone does not mean source fidelity was checked. Confirm the
+"119 passed" alone does not mean source fidelity was checked. Confirm the
 run reports 0 skipped.
 
 To run the corpus-dependent checks, see

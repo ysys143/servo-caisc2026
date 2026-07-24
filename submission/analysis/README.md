@@ -94,7 +94,7 @@ or, if a local virtual environment is already set up:
 
 Both scope to the v5 test package. As observed on 2026-07-24: with the
 corpus present and resolvable (see [Corpus](#corpus) below), this reports
-**118 passed, 0 skipped**; without a resolvable corpus it reports **115
+**119 passed, 0 skipped**; without a resolvable corpus it reports **116
 passed, 3 skipped**. These counts are corpus- and version-sensitive -- the
 underlying `C0N.json` records are still under revision -- so treat them as
 an observed snapshot, not a pinned contract, and check the pass/skip split
