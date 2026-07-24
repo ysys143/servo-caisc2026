@@ -47,14 +47,14 @@
       "tbl-servo-v5-relations.tex": "7999bac4f4272e2cfbe050b07935724fbddc436ba25daa129f1fe144f4c01bf1"
     },
     "pdf": "servo_caiscfp2026_post-submit.pdf",
-    "pdf_sha256": "97d46a84e833afc3270eda2e3d5cb49944c37b29d18b3ac27052c6087c0f8839",
+    "pdf_sha256": "6e892de948af029b586651b96c9380ba5dffeeba309aa5a5fffad3625f22abae",
     "tex": "main_post-submit.tex",
-    "tex_sha256": "42b61f7a904448f899b63c58de331de008c680bdd3089f5e99e13111686c5d65"
+    "tex_sha256": "f90514beaf0ae37640bd1652c2812408c7bd281aa92cd5a444247c511c56376f"
   },
   "release": {
-    "github_commit": "53e5be90c6c0e6911dea3d6416404e72124603e3",
-    "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v5.2.2",
-    "tag": "servo-corrected-v5.2.2"
+    "github_commit": "2671963fc5c23708a6506a60d1628d72e5e759fb",
+    "github_release": "https://github.com/ysys143/servo-caisc2026/releases/tag/servo-corrected-v5.2.3",
+    "tag": "servo-corrected-v5.2.3"
   },
   "schema": "servo_v5_provenance_root",
   "schema_version": "5.1.0",
